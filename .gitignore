@@ -43,3 +43,6 @@
 .sass-cache/
 /.ddev
 /docroot/sites/agsci.oregonstate.edu/settings.ddev.php
+/docroot/modules/custom
+/docroot/themes/custom
+/docroot/profiles/custom
