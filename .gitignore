@@ -41,3 +41,5 @@
 /.env
 # Ignoring sass build cache
 .sass-cache/
+/.ddev
+/docroot/sites/agsci.oregonstate.edu/settings.ddev.php
