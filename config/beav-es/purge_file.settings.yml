@@ -1,4 +1,0 @@
-debug: 0
-base_urls: ''
-workflow: queue
-invalidation_type: url
