@@ -1,17 +1,21 @@
 version: 1.3.0
+
 services:
-  - php:
-      version: 8.3
-events:
-  build:
-    steps:
-      - composer:
-          type: script
-          script:
-            - composer validate --no-check-all --ansi
-            - composer install --no-progress --optimize-autoloader --no-dev
+  php:
+    version: 8.3
 
 variables:
   global:
-    COMPOSER_AUTH:
-      secure: 2acdTUNdchwKQI2Y4n6ZOWrF0W+lolC89rF8oazW9XKePUJjCrhMsvUQ8cnnt35uRuRHWQ66CeNyACFUHPb4ODu0Qy+jpybFjPWe+h0uo/ssNWrEsnyuVRaSTmwqlQRsJy+T7JHOgFovwbvxtiY/cqicrvodBy7rXXR1DLOCLYp8ABj3pSxmEr1uTBcGChUn7cUQXbgtpdPxl7M7VR26ytbC95EJ1HRNxDKq5lcQfIc8TdwVP+819Rq2DqS565S4m6SrynldHc/XHjfYNIR3IM6vJ3lr3O+vKDbe8QZjelU3uWRnfojtyqYCYwTr9DsE/ev0W94g11Gz8ISVmhk/q0Dh49AQuP6VK3PLHmAkQd5kV9xP+Gffrap/NYkp4D2nNa3dCOHtU+Cbm7FtqNY7svVRWb5TE/bkVK1WCNCRn/pIdgLYKnq8XSaOggpU7l9mxfDAPRc9R3JF4v9DvXHKKQoQbMc1iZXHfCm1QLXbJ/ACtpYnXKbENXjhi5FSbG9nbIuK/6ByjM88RZlIQrbVBa8+oUga/CbeLAFHBKxhXoQFgELv2bqhoXdqMkQUSD0pK46Hg59cpaP9ZUydR/FX3CiRYIP0H3ruyKxyoZC1w+bhQ8mn8yDThrv91Ufd3TQErzbnHRvsxPLcH2i0dBvGVt+vpJsNMpWW0nOdQCtR19lBpc=CaO5JglyDm625apKPds0LrbsEq/RT72t9zYrzgn8et7iRe3EPdsh+RKtJCQPvnk+LZA/vScAeKUBSYuNVVZ/GQYc12q+3Uc6RjmsR8MMPVFi2qdtgejftcU4tCh5t+8HILxFuV34Sgh0Lo0kmy5tq3NMin7fgTn6seATfYx8QNg=
+    GITHUB_TOKEN: ${GITHUB_TOKEN}
+
+events:
+  build:
+    steps:
+      - setup:
+          script:
+            - composer config --global github-oauth.github.com ${GITHUB_TOKEN}
+
+      - composer:
+          script:
+            - composer validate --no-check-all --ansi
+            - composer install --no-progress --optimize-autoloader --no-dev
