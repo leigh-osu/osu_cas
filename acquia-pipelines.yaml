@@ -13,7 +13,8 @@ events:
     steps:
       - setup:
           script:
-            - composer config --global github-oauth.github.com ${GITHUB_TOKEN}
+            - echo "{\"github-oauth\":{\"github.com\":\"${GITHUB_TOKEN}\"}}" > auth.json
+            - cat auth.json
 
       - composer:
           script:
