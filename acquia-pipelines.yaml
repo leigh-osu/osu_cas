@@ -4,10 +4,6 @@ services:
   php:
     version: 8.3
 
-variables:
-  global:
-    COMPOSER_AUTH: '{"github-oauth": {"github.com": "${GITHUB_TOKEN}"}}'
-
 events:
   build:
     steps:
