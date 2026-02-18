@@ -1,17 +1,27 @@
 version: 1.3.0
+
 services:
-  - php:
-      version: 8.3
-events:
-  build:
-    steps:
-      - composer:
-          type: script
-          script:
-            - composer validate --no-check-all --ansi
-            - composer install --no-progress --optimize-autoloader --no-dev
+  php:
+    version: 8.3
 
 variables:
   global:
-    COMPOSER_AUTH:
+    GITHUB_TOKEN:
       secure: 2acNSeBxVFHoUd4aH3+ptc6vNgZDxW5vDwYmcNulLbVYLF/Y1mZ3sJX5vgkCeu31wuzg03g0d3w6Zllk/Q4we+lHOSWb/vMtM5iVmu8hVBa7y88kK0I0tuuJOfGEAFstxSpI9VRrNzHfylsgDgBieB2PkKYSIlBGvuuwFxoORMr6eFL6Sml9AytqEmiWia6ZNrYXwr8lufO9F1FX2ZJ5o6K6Up1Q6yUuE2oKo0ON7JpdihshPCB6GmqrRPlMHz2Qtg4Nvn87s4vi69lbiskJF08ettfBInYrcYOrZuNJw0huUHePbMNZMwu7RGnE448r1t5ZWiiAEwdSWfCJo0rGaC6SKDxmNMoA/hpBFuW+jhk53HwC7vkBAc0w9w53st7zSOeqlhFq81QaVaIg5PQ4/8bNn14mu8b11+UDwDzSGq41Z7Oa7UmZ5i1FrWOCouqunPLKCFc49eDZCd+HUZv8qJDVV/8IBhfrF7A+FZ+1czymeJulJBye+ctGalQqHZOQLJQyzXzaFWWVM6Yb10hO3R6lUC+mqmcskZ4f0KpPCn7YtKg726KND2j3Y8UbhegxmCKyEt/z2zqq5vXfb0i7KwdfJyRl886j04gCmNLyo3ieTGgBL1lyUusQRsVNCb9WerHxvpAbjRDX+sflU4Y3ktisUl6o06F5Bl9euxls0apmgU=K/UTMhQzcapRJJNbEIOn7s1qIjflU1kEIhH0A1i0EUR2y0Rek3wxd0wFNDn8J3D/5SuhS8v1jN74XRum7ZjSmvTpKn8kAHGyJolaPFH0p2PI7i3Y3hGzxi7IsFq/dDgogNW6YgkA9W/P7oTHI0aB85cPu3Nx7xPuPhzu8XJf4OY=
+
+events:
+  build:
+    steps:
+      - setup:
+          script:
+            - echo "{\"github-oauth\":{\"github.com\":\"${GITHUB_TOKEN}\"}}" > auth.json
+
+      - composer:
+          script:
+            - composer validate --no-check-all --ansi
+            - composer install --no-progress --optimize-autoloader --no-dev
+  deploy:
+    steps:
+      - deploy:
+          script:
+            - echo "Deploying to Acquia environment"
