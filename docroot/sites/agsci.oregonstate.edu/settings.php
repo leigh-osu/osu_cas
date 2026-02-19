@@ -875,20 +875,6 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # $settings['migrate_file_public_path'] = '';
 # $settings['migrate_file_private_path'] = '';
 
-
-//Custom Overrides
-$settings['config_sync_directory'] = $app_root. '/../config/agsci.oregonstate.edu/sync';
-
-
-if (file_exists($app_root . '/' . $site_path . '/settings.migrate.php')) {
-  include $app_root . '/' . $site_path . '/settings.migrate.php';
-}
-
-// Automatically generated include for settings managed by ddev.
-if (getenv('IS_DDEV_PROJECT') == 'true' && file_exists(__DIR__ . '/settings.ddev.php')) {
-  include __DIR__ . '/settings.ddev.php';
-}
-
 /**
  * Load local development override configuration, if available.
  *
@@ -904,9 +890,8 @@ if (getenv('IS_DDEV_PROJECT') == 'true' && file_exists(__DIR__ . '/settings.ddev
  */
 
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-   include $app_root . '/' . $site_path . '/settings.local.php';
+  include $app_root . '/' . $site_path . '/settings.local.php';
 }
-
 // Newrelic Multisite
 if (extension_loaded('newrelic')) {
   $exploded_path = explode('/', dirname(__FILE__));
@@ -915,8 +900,23 @@ if (extension_loaded('newrelic')) {
 }
 // Acquia specific settings.
 if (file_exists('/var/www/site-php')) {
-  require '/var/www/site-php/osucas/agsci_oregonstate_edu-settings.inc';
-  $config['automated_cron.settings']['interval'] = 0;
+  global $conf;
+  // Do not autoconnect to database.
+  $conf['acquia_hosting_settings_autoconnect'] = FALSE;
+  require "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/agsci_oregonstate_edu-settings.inc";
+  // Set the MySQL variable values.
+  $databases['default']['default']['init_commands'] = [
+    'transaction_isolation' => 'SET SESSION transaction_isolation="READ-COMMITTED"'
+  ];
+  // Connect to the database.
+  if (function_exists('acquia_hosting_db_choose_active')) {
+    acquia_hosting_db_choose_active(
+      $conf['acquia_hosting_site_info']['db'],
+      'default',
+      $databases,
+      $conf
+    );
+  }
   if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
     $settings['file_temp_path'] = "/mnt/gfs/{$_ENV['AH_SITE_GROUP']}.{$_ENV['AH_SITE_ENVIRONMENT']}/tmp";
     $settings['file_private_path'] = "/mnt/files/{$_ENV['AH_SITE_GROUP']}.{$_ENV['AH_SITE_ENVIRONMENT']}/$site_path/files-private";
