@@ -915,7 +915,7 @@ if (extension_loaded('newrelic')) {
 }
 // Acquia specific settings.
 if (file_exists('/var/www/site-php')) {
-  require '/var/www/site-php/osucas/agsci-settings.inc';
+  require '/var/www/site-php/osucas/agsci_oregonstate_edu-settings.inc';
   $config['automated_cron.settings']['interval'] = 0;
   if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
     $settings['file_temp_path'] = "/mnt/gfs/{$_ENV['AH_SITE_GROUP']}.{$_ENV['AH_SITE_ENVIRONMENT']}/tmp";
