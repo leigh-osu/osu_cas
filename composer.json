@@ -1,6 +1,6 @@
 {
-    "name": "osu-wams/drupal",
-    "description": "Drupal Distribution for Oregon State Web and Mobile Services",
+    "name": "osu-cas/drupal",
+    "description": "Drupal Distribution for Oregon State College of Agricultural Sciences",
     "type": "project",
     "license": "GPL-2.0-or-later",
     "homepage": "https://www.drupal.org/project/drupal",
