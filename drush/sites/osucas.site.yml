@@ -1,0 +1,59 @@
+# Application 'osucas', environment 'dev'.
+dev:
+  root: /var/www/html/osucas.dev/docroot
+  ac-site: osucas
+  ac-env: dev
+  ac-realm: prod
+  uri: osucasdev.prod.acquia-sites.com
+  ssh:
+    options: '-q'
+  dev.livedev:
+    parent: '@osucas.dev'
+    root: /mnt/gfs/osucas.dev/livedev/docroot
+  host: osucasdev.ssh.prod.acquia-sites.com
+  user: osucas.dev
+
+# Application 'osucas', environment 'prod'.
+prod:
+  root: /var/www/html/osucas.prod/docroot
+  ac-site: osucas
+  ac-env: prod
+  ac-realm: prod
+  uri: osucas.prod.acquia-sites.com
+  ssh:
+    options: '-q'
+  prod.livedev:
+    parent: '@osucas.prod'
+    root: /mnt/gfs/osucas.prod/livedev/docroot
+  host: osucas.ssh.prod.acquia-sites.com
+  user: osucas.prod
+
+# Application 'osucas', environment 'ra'.
+ra:
+  root: /var/www/html/osucas.ra/docroot
+  ac-site: osucas
+  ac-env: ra
+  ac-realm: prod
+  uri: osucasra.prod.acquia-sites.com
+  ra.livedev:
+    parent: '@osucas.ra'
+    root: /mnt/gfs/osucas.ra/livedev/docroot
+  host: osucasra.ssh.prod.acquia-sites.com
+  user: osucas.ra
+
+# Application 'osucas', environment 'test'.
+test:
+  root: /var/www/html/osucas.test/docroot
+  ac-site: osucas
+  ac-env: test
+  ac-realm: prod
+  uri: osucasstg.prod.acquia-sites.com
+  ssh:
+    options: '-q'
+  test.livedev:
+    parent: '@osucas.test'
+    root: /mnt/gfs/osucas.test/livedev/docroot
+  host: osucasstg.ssh.prod.acquia-sites.com
+  user: osucas.test
+  paths:
+
