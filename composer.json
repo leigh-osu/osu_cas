@@ -366,6 +366,7 @@
         "drupal/yoast_seo": "^2.2",
         "drush/drush": "^13.4",
         "google/charts": "^45.0",
+        "leigh-osu/manzanita": "^1@beta",
         "mnsami/composer-custom-directory-installer": "^2.0",
         "npm-asset/apexcharts": "^4.7",
         "npm-asset/blazy": "^1.8",
@@ -407,7 +408,6 @@
         "osu-wams/osu_standard": "^1.0",
         "osu-wams/osu_story": "^1.0",
         "osu-wams/osu_tours": "^1.1.1",
-        "leigh-osu/manzanita": "^1@beta",
         "wikimedia/composer-merge-plugin": "^2.1"
     },
     "require-dev": {
