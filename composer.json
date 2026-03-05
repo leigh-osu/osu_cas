@@ -118,6 +118,10 @@
             "url": "https://github.com/osu-wams/osu_editorial_workflow.git"
         },
         {
+            "type": "vcs",
+            "url": "https://github.com/leigh-osu/manzanita.git"
+        },
+        {
             "type": "package",
             "package": {
                 "name": "billboardjs/billboard",
@@ -403,6 +407,7 @@
         "osu-wams/osu_standard": "^1.0",
         "osu-wams/osu_story": "^1.0",
         "osu-wams/osu_tours": "^1.1.1",
+        "leigh-osu/manzanita": "^1@beta",
         "wikimedia/composer-merge-plugin": "^2.1"
     },
     "require-dev": {
