@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "23b377da87e815da8d5908e0e221f4bc",
+    "content-hash": "3a2bdece4ebca7faafa50b7f6f664bf0",
     "packages": [
         {
             "name": "algolia/places",
@@ -5666,17 +5666,17 @@
         },
         {
             "name": "drupal/domain",
-            "version": "3.0.0-beta6",
+            "version": "3.0.0-beta7",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/domain.git",
-                "reference": "3.0.0-beta6"
+                "reference": "3.0.0-beta7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/domain-3.0.0-beta6.zip",
-                "reference": "3.0.0-beta6",
-                "shasum": "e89f5ab0961304d7660f5f9774efe169eeb022db"
+                "url": "https://ftp.drupal.org/files/projects/domain-3.0.0-beta7.zip",
+                "reference": "3.0.0-beta7",
+                "shasum": "e632442a5f044bca890e0c69046db88138321491"
             },
             "require": {
                 "drupal/core": "^10.2 || ^11"
@@ -5688,8 +5688,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.0-beta6",
-                    "datestamp": "1772043434",
+                    "version": "3.0.0-beta7",
+                    "datestamp": "1772623201",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -5730,17 +5730,17 @@
         },
         {
             "name": "drupal/domain_extras",
-            "version": "3.0.0-beta8",
+            "version": "3.0.0-rc1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/domain_extras.git",
-                "reference": "3.0.0-beta8"
+                "reference": "3.0.0-rc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/domain_extras-3.0.0-beta8.zip",
-                "reference": "3.0.0-beta8",
-                "shasum": "03a99cd207f6b53d6040563fa13a3e43797cb07e"
+                "url": "https://ftp.drupal.org/files/projects/domain_extras-3.0.0-rc1.zip",
+                "reference": "3.0.0-rc1",
+                "shasum": "2631e49ec6b062f77b502ca909b63c66c29068b6"
             },
             "require": {
                 "drupal/core": "^10.2 || ^11"
@@ -5759,11 +5759,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.0-beta8",
-                    "datestamp": "1771882775",
+                    "version": "3.0.0-rc1",
+                    "datestamp": "1772624179",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "message": "RC releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -9465,6 +9465,10 @@
                     "name": "Eirik Morland (eiriksm)",
                     "homepage": "https://www.drupal.org/u/eiriksm",
                     "role": "Maintainer"
+                },
+                {
+                    "name": "daddison",
+                    "homepage": "https://www.drupal.org/user/51447"
                 },
                 {
                     "name": "eiriksm",
@@ -16866,16 +16870,16 @@
         },
         {
             "name": "laminas/laminas-feed",
-            "version": "2.26.0",
+            "version": "2.26.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-feed.git",
-                "reference": "76f537d457bace6d57aa483fccfc676198d5fca7"
+                "reference": "8b651d72f2a4ce0df53e1999de3fe16c78e37a2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-feed/zipball/76f537d457bace6d57aa483fccfc676198d5fca7",
-                "reference": "76f537d457bace6d57aa483fccfc676198d5fca7",
+                "url": "https://api.github.com/repos/laminas/laminas-feed/zipball/8b651d72f2a4ce0df53e1999de3fe16c78e37a2c",
+                "reference": "8b651d72f2a4ce0df53e1999de3fe16c78e37a2c",
                 "shasum": ""
             },
             "require": {
@@ -16943,7 +16947,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2025-12-19T11:28:10+00:00"
+            "time": "2026-03-03T09:55:19+00:00"
         },
         {
             "name": "laminas/laminas-stdlib",
@@ -20270,6 +20274,7 @@
                 "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Console_Getopt",
                 "source": "https://github.com/pear/Console_Getopt"
             },
+            "abandoned": true,
             "time": "2019-11-20T18:27:48+00:00"
         },
         {
@@ -20644,11 +20649,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.12.32",
+            "version": "1.12.33",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/2770dcdf5078d0b0d53f94317e06affe88419aa8",
-                "reference": "2770dcdf5078d0b0d53f94317e06affe88419aa8",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/37982d6fc7cbb746dda7773530cda557cdf119e1",
+                "reference": "37982d6fc7cbb746dda7773530cda557cdf119e1",
                 "shasum": ""
             },
             "require": {
@@ -20693,7 +20698,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-09-30T10:16:31+00:00"
+            "time": "2026-02-28T20:30:03+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -25961,26 +25966,26 @@
         },
         {
             "name": "drupal/config_inspector",
-            "version": "2.1.9",
+            "version": "2.1.10",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/config_inspector.git",
-                "reference": "2.1.9"
+                "reference": "2.1.10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/config_inspector-2.1.9.zip",
-                "reference": "2.1.9",
-                "shasum": "e5df3444f9e9aec82ff136b66a6707196ef1f7eb"
+                "url": "https://ftp.drupal.org/files/projects/config_inspector-2.1.10.zip",
+                "reference": "2.1.10",
+                "shasum": "7297e75be097ba431c810ddee00d30129ed5786d"
             },
             "require": {
-                "drupal/core": "^9.2 || ^10 || ^11"
+                "drupal/core": "^9.2 || ^10 || ^11 || ^12"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.1.9",
-                    "datestamp": "1714470278",
+                    "version": "2.1.10",
+                    "datestamp": "1772643611",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -28063,16 +28068,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "6.0.1",
+            "version": "6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "2f5cbed597cb261d1ea458f3da3a9ad32e670b1e"
+                "reference": "897b5986ece6b4f9d8413fea345c7d49c757d6bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/2f5cbed597cb261d1ea458f3da3a9ad32e670b1e",
-                "reference": "2f5cbed597cb261d1ea458f3da3a9ad32e670b1e",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/897b5986ece6b4f9d8413fea345c7d49c757d6bf",
+                "reference": "897b5986ece6b4f9d8413fea345c7d49c757d6bf",
                 "shasum": ""
             },
             "require": {
@@ -28122,9 +28127,9 @@
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
             "support": {
                 "issues": "https://github.com/phpDocumentor/ReflectionDocBlock/issues",
-                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/6.0.1"
+                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/6.0.2"
             },
-            "time": "2026-01-20T15:30:42+00:00"
+            "time": "2026-03-01T18:43:49+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
