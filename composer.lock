@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d6826c9d566b3420a55d3978255c3078",
+    "content-hash": "6337684b3557b3f26a4c4f3c51e2327a",
     "packages": [
         {
             "name": "algolia/places",
@@ -13162,26 +13162,26 @@
         },
         {
             "name": "drupal/toc_js",
-            "version": "2.1.0",
+            "version": "3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/toc_js.git",
-                "reference": "2.1.0"
+                "reference": "3.5.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/toc_js-2.1.0.zip",
-                "reference": "2.1.0",
-                "shasum": "75f987b29cf2f48b631efe2f51a7620d7295cb32"
+                "url": "https://ftp.drupal.org/files/projects/toc_js-3.5.0.zip",
+                "reference": "3.5.0",
+                "shasum": "2417847bb8df4ced09da50cda6565384c5dc30a4"
             },
             "require": {
-                "drupal/core": "^9 || ^10"
+                "drupal/core": "^10 || ^11"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.1.0",
-                    "datestamp": "1688027858",
+                    "version": "3.5.0",
+                    "datestamp": "1772098494",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -13195,21 +13195,24 @@
             "authors": [
                 {
                     "name": "flocondetoile",
-                    "homepage": "https://www.drupal.org/user/2006064"
+                    "homepage": "https://www.drupal.org/u/flocondetoile",
+                    "role": "Maintainer"
                 },
                 {
                     "name": "mably",
-                    "homepage": "https://www.drupal.org/user/3375160"
+                    "homepage": "https://www.drupal.org/u/mably",
+                    "role": "Maintainer"
                 },
                 {
                     "name": "vladimiraus",
                     "homepage": "https://www.drupal.org/user/673120"
                 }
             ],
-            "description": "Toc.js module integrate the jQuery plugin TOC.js into Drupal.",
-            "homepage": "https://drupal.org/project/toc_js",
+            "description": "The Toc.js module automatically generates tables of contents from headings on client side.",
+            "homepage": "https://www.drupal.org/project/toc_js",
             "support": {
-                "source": "https://git.drupalcode.org/project/toc_js"
+                "source": "https://git.drupalcode.org/project/toc_js",
+                "issues": "https://www.drupal.org/project/issues/toc_js"
             }
         },
         {
@@ -17744,6 +17747,38 @@
                 "issues": "https://github.com/leigh-osu/manzanita/issues"
             },
             "time": "2026-02-27T22:08:26+00:00"
+        },
+        {
+            "name": "leigh-osu/osu_migrations_cas",
+            "version": "v1.0.03",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:leigh-osu/osu_migrations_cas.git",
+                "reference": "8d7b2f9b60f2fcf6e2136b32d47e7774afd2b322"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leigh-osu/osu_migrations_cas/zipball/8d7b2f9b60f2fcf6e2136b32d47e7774afd2b322",
+                "reference": "8d7b2f9b60f2fcf6e2136b32d47e7774afd2b322",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "type": "drupal-custom-module",
+            "extra": {
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^10 || ^11 || ^12"
+                    }
+                }
+            },
+            "description": "Drupal 7 to 10 migration code for OSU CAS",
+            "support": {
+                "source": "https://github.com/leigh-osu/osu_migrations_cas/tree/v1.0.03",
+                "issues": "https://github.com/leigh-osu/osu_migrations_cas/issues"
+            },
+            "time": "2026-03-10T00:30:43+00:00"
         },
         {
             "name": "leongersen/nouislider",

@@ -122,6 +122,10 @@
             "url": "https://github.com/leigh-osu/manzanita.git"
         },
         {
+            "type": "vcs",
+            "url": "https://github.com/leigh-osu/osu_migrations_cas.git"
+        },
+        {
             "type": "package",
             "package": {
                 "name": "billboardjs/billboard",
@@ -333,7 +337,7 @@
         "drupal/tamper": "^1.0alpha2",
         "drupal/tb_megamenu": "^3@alpha",
         "drupal/text_field_formatter": "^2.0",
-        "drupal/toc_js": "^2.0",
+        "drupal/toc_js": "^3.5",
         "drupal/token_or": "^2.3",
         "drupal/token_url_plus": "^1.0",
         "drupal/tour": "^2.0",
@@ -367,6 +371,7 @@
         "drush/drush": "^13.4",
         "google/charts": "^45.0",
         "leigh-osu/manzanita": "^1@beta",
+        "leigh-osu/osu_migrations_cas": "^1.0",
         "mnsami/composer-custom-directory-installer": "^2.0",
         "npm-asset/apexcharts": "^4.7",
         "npm-asset/blazy": "^1.8",
@@ -526,9 +531,6 @@
             },
             "drupal/shurly": {
                 "OSU ShURLy updates": "patches/osu-shurly-updates.patch"
-            },
-            "drupal/toc_js": {
-                "3334941-1 ToC Back to Top repeats": "https://www.drupal.org/files/issues/2023-01-19/big-pipe-toc-js-back-to-top-repeating.patch"
             },
             "drupal/we_megamenu": {
                 "3225104-5 Check for empty col_config and col_content": "https://www.drupal.org/files/issues/2023-08-22/we_megamenu-3225104-5.patch"
