@@ -46,3 +46,5 @@
 /docroot/modules/custom
 /docroot/themes/custom
 /docroot/profiles/custom
+/databackup
+/files/agsci/private-files
