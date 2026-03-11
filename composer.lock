@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6337684b3557b3f26a4c4f3c51e2327a",
+    "content-hash": "44968f7e379ab35d81ed436ce2227651",
     "packages": [
         {
             "name": "algolia/places",
@@ -13162,26 +13162,26 @@
         },
         {
             "name": "drupal/toc_js",
-            "version": "3.5.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/toc_js.git",
-                "reference": "3.5.0"
+                "reference": "2.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/toc_js-3.5.0.zip",
-                "reference": "3.5.0",
-                "shasum": "2417847bb8df4ced09da50cda6565384c5dc30a4"
+                "url": "https://ftp.drupal.org/files/projects/toc_js-2.1.0.zip",
+                "reference": "2.1.0",
+                "shasum": "75f987b29cf2f48b631efe2f51a7620d7295cb32"
             },
             "require": {
-                "drupal/core": "^10 || ^11"
+                "drupal/core": "^9 || ^10"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.5.0",
-                    "datestamp": "1772098494",
+                    "version": "2.1.0",
+                    "datestamp": "1688027858",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -13195,24 +13195,21 @@
             "authors": [
                 {
                     "name": "flocondetoile",
-                    "homepage": "https://www.drupal.org/u/flocondetoile",
-                    "role": "Maintainer"
+                    "homepage": "https://www.drupal.org/user/2006064"
                 },
                 {
                     "name": "mably",
-                    "homepage": "https://www.drupal.org/u/mably",
-                    "role": "Maintainer"
+                    "homepage": "https://www.drupal.org/user/3375160"
                 },
                 {
                     "name": "vladimiraus",
                     "homepage": "https://www.drupal.org/user/673120"
                 }
             ],
-            "description": "The Toc.js module automatically generates tables of contents from headings on client side.",
-            "homepage": "https://www.drupal.org/project/toc_js",
+            "description": "Toc.js module integrate the jQuery plugin TOC.js into Drupal.",
+            "homepage": "https://drupal.org/project/toc_js",
             "support": {
-                "source": "https://git.drupalcode.org/project/toc_js",
-                "issues": "https://www.drupal.org/project/issues/toc_js"
+                "source": "https://git.drupalcode.org/project/toc_js"
             }
         },
         {

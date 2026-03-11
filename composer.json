@@ -337,7 +337,7 @@
         "drupal/tamper": "^1.0alpha2",
         "drupal/tb_megamenu": "^3@alpha",
         "drupal/text_field_formatter": "^2.0",
-        "drupal/toc_js": "^3.5",
+        "drupal/toc_js": "^2.0",
         "drupal/token_or": "^2.3",
         "drupal/token_url_plus": "^1.0",
         "drupal/tour": "^2.0",
