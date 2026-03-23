@@ -1,0 +1,56 @@
+From 4666949fc320d8279ab86b19399fc62c3e46fa53 Mon Sep 17 00:00:00 2001
+From: Roger Leigh <roger.leigh@oregonstate.edu>
+Date: Thu, 12 Mar 2026 12:35:58 -0700
+Subject: [PATCH] CAS migration settings
+
+---
+ .../migrations/upgrade_d7_file_private.yml                     | 3 ++-
+ modules/osu_migrations_files/migrations/upgrade_d7_files.yml   | 3 ++-
+ .../migrations/upgrade_d7_users_with_roles.yml                 | 3 +++
+ 3 files changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/modules/osu_migrations_files/migrations/upgrade_d7_file_private.yml b/modules/osu_migrations_files/migrations/upgrade_d7_file_private.yml
+index f31b3f1..9f2cab7 100644
+--- a/modules/osu_migrations_files/migrations/upgrade_d7_file_private.yml
++++ b/modules/osu_migrations_files/migrations/upgrade_d7_file_private.yml
+@@ -17,7 +17,8 @@ source:
+     # configuration in this migration's process pipeline as an example.
+     # If this is an Acquia Cloud site copy the files in to the sites directory and update the path to
+     # /var/www/html/docroot/sites/site_fqdn/files-private/files
+-    source_base_path: '/var/www/d7-files-private/files'
++#    source_base_path: '/var/www/d7-files-private/files'
++    source_base_path: '../databackup/sites/agscid7/files-private/'
+ process:
+   filename: filename
+   source_full_path:
+diff --git a/modules/osu_migrations_files/migrations/upgrade_d7_files.yml b/modules/osu_migrations_files/migrations/upgrade_d7_files.yml
+index 9443fed..9002418 100644
+--- a/modules/osu_migrations_files/migrations/upgrade_d7_files.yml
++++ b/modules/osu_migrations_files/migrations/upgrade_d7_files.yml
+@@ -36,7 +36,8 @@ source:
+     #
+     # See the configuration for the source_full_path property in the process
+     # section below.
+-    source_base_path: '/var/www/html/docroot'
++#    source_base_path: '/var/www/html/docroot'
++    source_base_path: '../databackup'
+ process:
+   # If you are using this file to build a custom migration consider removing
+   # the fid field to allow incremental migrations.
+diff --git a/modules/osu_user_accounts/migrations/upgrade_d7_users_with_roles.yml b/modules/osu_user_accounts/migrations/upgrade_d7_users_with_roles.yml
+index 8b2c90d..1f4431c 100644
+--- a/modules/osu_user_accounts/migrations/upgrade_d7_users_with_roles.yml
++++ b/modules/osu_user_accounts/migrations/upgrade_d7_users_with_roles.yml
+@@ -18,6 +18,9 @@ source:
+     - architect
+     - author
+     - manager
++    - group user
++    - paragraph editor
++    - profile editor
+ process:
+   uid: uid
+   name: name
+-- 
+2.50.1 (Apple Git-155)
+
