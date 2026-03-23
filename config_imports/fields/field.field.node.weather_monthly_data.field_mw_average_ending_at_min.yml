@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mw_average_ending_at_min
+    - node.type.weather_monthly_data
+id: node.weather_monthly_data.field_mw_average_ending_at_min
+field_name: field_mw_average_ending_at_min
+entity_type: node
+bundle: weather_monthly_data
+label: 'Air Temp Average: Ending at Observation Min'
+description: 'A 20 year monthly average. Air Temperature: 24 hours ending at observation min'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

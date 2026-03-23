@@ -1,0 +1,23 @@
+uuid: c4622a8c-2ee3-4312-b5ef-2d79e5bd1d89
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dw_4_inches_max
+    - node.type.weather_daily_data
+id: node.weather_daily_data.field_dw_4_inches_max
+field_name: field_dw_4_inches_max
+entity_type: node
+bundle: weather_daily_data
+label: '4 inches Max'
+description: 'Soil Temperature'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

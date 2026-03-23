@@ -1,0 +1,24 @@
+uuid: a2da55f7-b0da-4860-99a6-aad2cf339851
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.150_species
+  module:
+    - text
+id: node.150_species.body
+field_name: body
+entity_type: node
+bundle: 150_species
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

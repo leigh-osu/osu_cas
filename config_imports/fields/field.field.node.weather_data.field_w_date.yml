@@ -1,0 +1,21 @@
+uuid: 357ca7f8-a70c-4d19-8f06-3190f597e292
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_w_date
+    - node.type.weather_data
+  module:
+    - datetime
+id: node.weather_data.field_w_date
+field_name: field_w_date
+entity_type: node
+bundle: weather_data
+label: 'Date'
+description: ''
+required: false
+translatable: false
+default_value: {}
+default_value_callback: ''
+settings: {}
+field_type: datetime

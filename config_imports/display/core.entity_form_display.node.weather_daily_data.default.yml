@@ -1,0 +1,286 @@
+uuid: f0c1f97e-663f-406f-9f91-2da7dff39c4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.weather_daily_data.body
+    - field.field.node.weather_daily_data.field_domain_access
+    - field.field.node.weather_daily_data.field_domain_all_affiliates
+    - field.field.node.weather_daily_data.field_dw_20_inches_max
+    - field.field.node.weather_daily_data.field_dw_24_hour_air_move
+    - field.field.node.weather_daily_data.field_dw_2_inches_max
+    - field.field.node.weather_daily_data.field_dw_2_inches_min
+    - field.field.node.weather_daily_data.field_dw_40_inches_max
+    - field.field.node.weather_daily_data.field_dw_4_inches_max
+    - field.field.node.weather_daily_data.field_dw_4_inches_min
+    - field.field.node.weather_daily_data.field_dw_8_inches_max
+    - field.field.node.weather_daily_data.field_dw_8_inches_min
+    - field.field.node.weather_daily_data.field_dw_accum_gdd
+    - field.field.node.weather_daily_data.field_dw_at_obs_8am
+    - field.field.node.weather_daily_data.field_dw_date
+    - field.field.node.weather_daily_data.field_dw_end_obs_max
+    - field.field.node.weather_daily_data.field_dw_end_obs_min
+    - field.field.node.weather_daily_data.field_dw_evaporation
+    - field.field.node.weather_daily_data.field_dw_ground_level_max
+    - field.field.node.weather_daily_data.field_dw_ground_level_min
+    - field.field.node.weather_daily_data.field_dw_location
+    - field.field.node.weather_daily_data.field_dw_rain
+    - field.field.node.weather_daily_data.field_dw_sky
+    - field.field.node.weather_daily_data.field_dw_snow
+    - field.field.node.weather_daily_data.field_dw_snow_depth
+    - node.type.weather_daily_data
+  module:
+    - datetime
+    - entitygroupfield
+    - path
+    - text
+id: node.weather_daily_data.default
+targetEntityType: node
+bundle: weather_daily_data
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 23
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 24
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  entitygroupfield:
+    type: entitygroupfield_select_widget
+    weight: 31
+    region: content
+    settings:
+      help_text: ''
+      label: 'Group name'
+      multiple: true
+      required: false
+    third_party_settings: {  }
+  field_domain_access:
+    type: entity_reference_autocomplete
+    weight: 32
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_domain_all_affiliates:
+    type: boolean_checkbox
+    weight: 33
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_dw_20_inches_max:
+    type: number
+    weight: 9
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dw_24_hour_air_move:
+    type: number
+    weight: 20
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dw_2_inches_max:
+    type: number
+    weight: 3
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dw_2_inches_min:
+    type: number
+    weight: 4
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dw_40_inches_max:
+    type: number
+    weight: 10
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dw_4_inches_max:
+    type: number
+    weight: 5
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dw_4_inches_min:
+    type: number
+    weight: 6
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dw_8_inches_max:
+    type: number
+    weight: 7
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dw_8_inches_min:
+    type: number
+    weight: 8
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dw_accum_gdd:
+    type: number
+    weight: 16
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dw_at_obs_8am:
+    type: number
+    weight: 13
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dw_date:
+    type: datetime_default
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_dw_end_obs_max:
+    type: number
+    weight: 11
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dw_end_obs_min:
+    type: number
+    weight: 12
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dw_evaporation:
+    type: number
+    weight: 21
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dw_ground_level_max:
+    type: number
+    weight: 14
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dw_ground_level_min:
+    type: number
+    weight: 15
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dw_location:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_dw_rain:
+    type: number
+    weight: 17
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dw_sky:
+    type: options_select
+    weight: 22
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_dw_snow:
+    type: number
+    weight: 18
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dw_snow_depth:
+    type: number
+    weight: 19
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 28
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 26
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 30
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 27
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 25
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 29
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }
