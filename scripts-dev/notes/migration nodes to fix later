@@ -1,0 +1,42 @@
+Nodes to fix later
+
+adjustable column image:
+
+SELECT DISTINCT flps.entity_id AS nid
+FROM field_data_field_larch_paragraph_sections flps
+LEFT JOIN field_data_field_lp_adj_column flac
+ON flps.field_larch_paragraph_sections_value = flac.entity_id
+AND flps.field_larch_paragraph_sections_revision_id = flac.revision_id
+RIGHT JOIN field_data_field_lp_col_image flci
+ON flac.field_lp_adj_column_value = flci.entity_id
+AND flac.field_lp_adj_column_revision_id = flci.revision_id
+WHERE flps.entity_id IS NOT NULL  
+ORDER BY `nid` ASC
+
+
+nid   	
+231546	
+235426	
+243516	
+249696	
+250146	
+252681	
+254826	
+261191	
+261616	
+261621	
+263086	
+263096	
+263736	
+265186	
+265361	
+266496	
+266611	
+266896	
+269301	
+271986	
+272371	
+274351	
+275681	
+276956	
+280866	
