@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfsg_program_requirements
+    - node.type.degree_fact_sheet_graduate
+id: node.degree_fact_sheet_graduate.field_dfsg_program_requirements
+field_name: field_dfsg_program_requirements
+entity_type: node
+bundle: degree_fact_sheet_graduate
+label: 'Program Requirements'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

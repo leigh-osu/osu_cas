@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfs_cas_themes
+    - node.type.degree_fact_sheet
+id: node.degree_fact_sheet.field_dfs_cas_themes
+field_name: field_dfs_cas_themes
+entity_type: node
+bundle: degree_fact_sheet
+label: 'CAS Themes'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    sort:
+      field: _none
+field_type: entity_reference

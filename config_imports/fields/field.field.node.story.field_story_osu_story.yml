@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_story_osu_story
+    - node.type.story
+id: node.story.field_story_osu_story
+field_name: field_story_osu_story
+entity_type: node
+bundle: story
+label: 'OSU Story'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

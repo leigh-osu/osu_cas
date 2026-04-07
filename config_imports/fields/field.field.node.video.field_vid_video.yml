@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vid_video
+    - node.type.video
+  module:
+    - file
+id: node.video.field_vid_video
+field_name: field_vid_video
+entity_type: node
+bundle: video
+label: Video
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: ''
+  file_extensions: 'mp4 mov avi wmv flv webm'
+  max_filesize: ''
+  description_field: false
+field_type: file

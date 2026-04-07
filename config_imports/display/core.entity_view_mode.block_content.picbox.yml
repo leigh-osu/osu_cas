@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.picbox
+label: Picbox
+description: 'Display as a clickable picture, with link text as a title'
+targetEntityType: block_content
+cache: true
