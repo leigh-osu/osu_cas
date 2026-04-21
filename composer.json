@@ -539,7 +539,10 @@
                 "3194370-5 Memory Limit issues": "https://www.drupal.org/files/issues/2022-09-15/memory-limit-3194370-5.patch"
             },
             "osu-wams/osu_migrations": {
-                "OSU Migrations CAS settings": "patches/0001-CAS-migration-settings.patch"
+                "OSU Migrations CAS file settings": "patches/0001-osu_migrations_files_cas.patch"
+            },
+            "osu-wams/osu_migrations": {
+                "OSU Migrations CAS user settings": "patches/0001-osu_user_accounts_cas.patch"
             },
             "osu-wams/osu_standard": {
                 "OSU Standard Profile updates": "patches/osu_standard_remove_distro.patch"

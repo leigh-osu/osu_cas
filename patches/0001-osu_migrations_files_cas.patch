@@ -1,13 +1,12 @@
-From 4666949fc320d8279ab86b19399fc62c3e46fa53 Mon Sep 17 00:00:00 2001
+From 2a68abfbae5759701e8e6870adb4b24aa7f650fe Mon Sep 17 00:00:00 2001
 From: Roger Leigh <roger.leigh@oregonstate.edu>
-Date: Thu, 12 Mar 2026 12:35:58 -0700
-Subject: [PATCH] CAS migration settings
+Date: Tue, 21 Apr 2026 13:58:50 -0700
+Subject: [PATCH] osu_migrations_files_cas
 
 ---
  .../migrations/upgrade_d7_file_private.yml                     | 3 ++-
  modules/osu_migrations_files/migrations/upgrade_d7_files.yml   | 3 ++-
- .../migrations/upgrade_d7_users_with_roles.yml                 | 3 +++
- 3 files changed, 7 insertions(+), 2 deletions(-)
+ 2 files changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/modules/osu_migrations_files/migrations/upgrade_d7_file_private.yml b/modules/osu_migrations_files/migrations/upgrade_d7_file_private.yml
 index f31b3f1..9f2cab7 100644
@@ -37,20 +36,6 @@ index 9443fed..9002418 100644
  process:
    # If you are using this file to build a custom migration consider removing
    # the fid field to allow incremental migrations.
-diff --git a/modules/osu_user_accounts/migrations/upgrade_d7_users_with_roles.yml b/modules/osu_user_accounts/migrations/upgrade_d7_users_with_roles.yml
-index 8b2c90d..1f4431c 100644
---- a/modules/osu_user_accounts/migrations/upgrade_d7_users_with_roles.yml
-+++ b/modules/osu_user_accounts/migrations/upgrade_d7_users_with_roles.yml
-@@ -18,6 +18,9 @@ source:
-     - architect
-     - author
-     - manager
-+    - group user
-+    - paragraph editor
-+    - profile editor
- process:
-   uid: uid
-   name: name
 -- 
 2.50.1 (Apple Git-155)
 
