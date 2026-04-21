@@ -545,7 +545,7 @@
                 "OSU Migrations CAS user settings": "patches/0001-osu_user_accounts_cas.patch"
             },
             "osu-wams/osu_standard": {
-                "OSU Standard Profile updates": "patches/osu_standard_remove_distro.patch"
+                "OSU Standard Profile updates": "patches/0001-cas-remove-distro-info.patch"
             }
         },
         "drupal-scaffold": {

@@ -1,0 +1,29 @@
+From 3a646ad99488dcd62f08e89e650618095818aad4 Mon Sep 17 00:00:00 2001
+From: Roger Leigh <roger.leigh@oregonstate.edu>
+Date: Tue, 21 Apr 2026 15:02:38 -0700
+Subject: [PATCH] cas remove distro info
+
+---
+ osu_standard.info.yml | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/osu_standard.info.yml b/osu_standard.info.yml
+index 5e0eed6..3b8d02a 100644
+--- a/osu_standard.info.yml
++++ b/osu_standard.info.yml
+@@ -3,9 +3,9 @@ type: profile
+ description: 'Standard Drupal Installation Profile.'
+ core_version_requirement: ^10 || ^11
+ version: 1.1.30
+-distribution:
+-  name: Oregon State
+-  langcode: en
++# distribution:
++#   name: Oregon State
++#   langcode: en
+ dependencies:
+   # Core
+   - big_pipe
+-- 
+2.50.1 (Apple Git-155)
+

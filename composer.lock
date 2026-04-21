@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5712889947b94ffaf1d6a247e1499975",
+    "content-hash": "c79d70d68f00832057fd6ed61055c6e3",
     "packages": [
         {
             "name": "algolia/places",
@@ -100,7 +100,7 @@
             "version": "4.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jquery/jquery-dist.git",
+                "url": "git@github.com:jquery/jquery-dist.git",
                 "reference": "cfd8e3a885dca7b406791c1eed472af9dd717e8e"
             },
             "dist": {
@@ -11868,17 +11868,17 @@
         },
         {
             "name": "drupal/scheduler_content_moderation_integration",
-            "version": "3.0.4",
+            "version": "3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/scheduler_content_moderation_integration.git",
-                "reference": "3.0.4"
+                "reference": "3.0.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/scheduler_content_moderation_integration-3.0.4.zip",
-                "reference": "3.0.4",
-                "shasum": "07b57e1817c01902a5709cdcbd4578e65622ce53"
+                "url": "https://ftp.drupal.org/files/projects/scheduler_content_moderation_integration-3.0.5.zip",
+                "reference": "3.0.5",
+                "shasum": "acb65075207d51b4ef5fcf260aa8ef6b9395f8d8"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11",
@@ -11890,8 +11890,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.4",
-                    "datestamp": "1738679096",
+                    "version": "3.0.5",
+                    "datestamp": "1776807091",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -17763,16 +17763,16 @@
         },
         {
             "name": "leigh-osu/osu_migrations_cas",
-            "version": "v1.0.05",
+            "version": "v1.0.07",
             "source": {
                 "type": "git",
                 "url": "git@github.com:leigh-osu/osu_migrations_cas.git",
-                "reference": "4308a8038c02613faaceeb6baebd348c0c5a984e"
+                "reference": "19795e54c06a38e170416a426c3bbc75ca66fb81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_migrations_cas/zipball/4308a8038c02613faaceeb6baebd348c0c5a984e",
-                "reference": "4308a8038c02613faaceeb6baebd348c0c5a984e",
+                "url": "https://api.github.com/repos/leigh-osu/osu_migrations_cas/zipball/19795e54c06a38e170416a426c3bbc75ca66fb81",
+                "reference": "19795e54c06a38e170416a426c3bbc75ca66fb81",
                 "shasum": ""
             },
             "require": {
@@ -17788,10 +17788,10 @@
             },
             "description": "Drupal 7 to 10 migration code for OSU CAS",
             "support": {
-                "source": "https://github.com/leigh-osu/osu_migrations_cas/tree/v1.0.05",
+                "source": "https://github.com/leigh-osu/osu_migrations_cas/tree/v1.0.07",
                 "issues": "https://github.com/leigh-osu/osu_migrations_cas/issues"
             },
-            "time": "2026-03-24T04:34:30+00:00"
+            "time": "2026-04-21T20:46:43+00:00"
         },
         {
             "name": "leongersen/nouislider",
@@ -18697,13 +18697,10 @@
         },
         {
             "name": "npm-asset/dompurify",
-            "version": "3.3.1",
+            "version": "3.4.0",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/dompurify/-/dompurify-3.3.1.tgz"
-            },
-            "require": {
-                "npm-asset/types--trusted-types": ">=2.0.7,<3.0.0"
+                "url": "https://registry.npmjs.org/dompurify/-/dompurify-3.4.0.tgz"
             },
             "type": "npm-asset",
             "license": [
@@ -18895,18 +18892,6 @@
             "type": "npm-asset",
             "license": [
                 "0BSD"
-            ]
-        },
-        {
-            "name": "npm-asset/types--trusted-types",
-            "version": "2.0.7",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/@types/trusted-types/-/trusted-types-2.0.7.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
             ]
         },
         {
@@ -20022,16 +20007,16 @@
         },
         {
             "name": "osu-wams/osu_standard",
-            "version": "1.1.29",
+            "version": "1.1.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/osu-wams/osu_standard.git",
-                "reference": "0439301b91afee21b88f4d6521654c7dc172fcdf"
+                "reference": "c5993ec2f9bbc7ae82e8cb0a458f5ea12f843750"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/osu-wams/osu_standard/zipball/0439301b91afee21b88f4d6521654c7dc172fcdf",
-                "reference": "0439301b91afee21b88f4d6521654c7dc172fcdf",
+                "url": "https://api.github.com/repos/osu-wams/osu_standard/zipball/c5993ec2f9bbc7ae82e8cb0a458f5ea12f843750",
+                "reference": "c5993ec2f9bbc7ae82e8cb0a458f5ea12f843750",
                 "shasum": ""
             },
             "require-dev": {
@@ -20062,10 +20047,10 @@
             ],
             "description": "Standard Drupal Installation Profile for OSU.",
             "support": {
-                "source": "https://github.com/osu-wams/osu_standard/tree/1.1.29",
+                "source": "https://github.com/osu-wams/osu_standard/tree/1.1.30",
                 "issues": "https://github.com/osu-wams/osu_standard/issues"
             },
-            "time": "2026-01-23T00:40:29+00:00"
+            "time": "2026-03-26T23:24:13+00:00"
         },
         {
             "name": "osu-wams/osu_story",
