@@ -1,0 +1,238 @@
+From fceaf83fd3acbf2036a7b558e11c087cbf23419d Mon Sep 17 00:00:00 2001
+From: Roger Leigh <roger.leigh@oregonstate.edu>
+Date: Fri, 24 Apr 2026 12:30:51 -0700
+Subject: [PATCH] fix biblio dates
+
+---
+ .../upgrade_d7_biblio_publication.yml         |   4 +-
+ .../migrate/process/NormalizeBiblioDate.php   | 202 ++++++++++++++++++
+ 2 files changed, 203 insertions(+), 3 deletions(-)
+ create mode 100644 modules/osu_migrate_content/src/Plugin/migrate/process/NormalizeBiblioDate.php
+
+diff --git a/modules/osu_migrate_content/migrations/upgrade_d7_biblio_publication.yml b/modules/osu_migrate_content/migrations/upgrade_d7_biblio_publication.yml
+index 6641f4e..decfeb5 100644
+--- a/modules/osu_migrate_content/migrations/upgrade_d7_biblio_publication.yml
++++ b/modules/osu_migrate_content/migrations/upgrade_d7_biblio_publication.yml
+@@ -57,9 +57,7 @@ process:
+       delimiter: ''
+   field_pub_year_publication: biblio_year
+   field_pub_date_published/value:
+-    - plugin: format_date
+-      from_format: 'M-d-Y'
+-      to_format: 'Y-m-d'
++    - plugin: normalize_biblio_date
+       source: biblio_date
+   field_pub_journal: biblio_secondary_title
+   field_pub_issue: biblio_issue
+diff --git a/modules/osu_migrate_content/src/Plugin/migrate/process/NormalizeBiblioDate.php b/modules/osu_migrate_content/src/Plugin/migrate/process/NormalizeBiblioDate.php
+new file mode 100644
+index 0000000..1cbec56
+--- /dev/null
++++ b/modules/osu_migrate_content/src/Plugin/migrate/process/NormalizeBiblioDate.php
+@@ -0,0 +1,202 @@
++<?php
++
++namespace Drupal\osu_migrate_content\Plugin\migrate\process;
++
++use Drupal\migrate\Attribute\MigrateProcess;
++use Drupal\migrate\MigrateExecutableInterface;
++use Drupal\migrate\ProcessPluginBase;
++use Drupal\migrate\Row;
++
++/**
++ * Normalizes free-text biblio_date values from D7 into ISO Y-m-d.
++ *
++ * D7 biblio_date is a free-text field containing ~1,400 distinct formats
++ * (e.g. "Jan-01-2013", "2016", "01/2024", "March 2015", "2015 Dec", "pending").
++ * The core format_date plugin throws on anything it can't parse, which fails
++ * the entire node. This plugin parses every known format in the corpus and
++ * returns NULL (without throwing) for anything it can't handle, so nodes
++ * still migrate.
++ *
++ * For year-only or month-only inputs, the day is padded to 1 and the month
++ * defaults to January.
++ *
++ * Usage:
++ * @code
++ * field_pub_date_published/value:
++ *   plugin: normalize_biblio_date
++ *   source: biblio_date
++ * @endcode
++ */
++#[MigrateProcess(
++  id: 'normalize_biblio_date'
++)]
++class NormalizeBiblioDate extends ProcessPluginBase {
++
++  /**
++   * {@inheritdoc}
++   */
++  public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
++    if (empty($value) || !is_string($value)) {
++      return NULL;
++    }
++
++    $value = trim($value);
++
++    // Known garbage values observed in the source data.
++    $invalid_values = ['dsasd', 'pending', 'Forthcoming', '01', '5', '7', '8'];
++    if (in_array($value, $invalid_values, TRUE)) {
++      return NULL;
++    }
++
++    $months_short = [
++      'Jan' => 1, 'Feb' => 2, 'Mar' => 3, 'Apr' => 4, 'May' => 5, 'Jun' => 6,
++      'Jul' => 7, 'Aug' => 8, 'Sep' => 9, 'Sept' => 9, 'Oct' => 10, 'Nov' => 11, 'Dec' => 12,
++    ];
++    $months_full = [
++      'January' => 1, 'February' => 2, 'March' => 3, 'April' => 4,
++      'May' => 5, 'June' => 6, 'July' => 7, 'August' => 8,
++      'September' => 9, 'October' => 10, 'November' => 11, 'December' => 12,
++    ];
++    $months_all = $months_full + $months_short;
++
++    // Year only: "2016", "1994".
++    if (preg_match('/^\d{4}$/', $value) && $value >= 1900 && $value <= 2100) {
++      return $this->iso($value, 1, 1);
++    }
++
++    // MM/YYYY or M/YYYY: "01/2024", "7/2023".
++    if (preg_match('/^(\d{1,2})\/(\d{4})$/', $value, $m)) {
++      return $this->iso($m[2], $m[1], 1);
++    }
++
++    // MM-YYYY: "12-2016" (distinct from M-d-Y handled further down).
++    if (preg_match('/^(\d{1,2})-(\d{4})$/', $value, $m)) {
++      return $this->iso($m[2], $m[1], 1);
++    }
++
++    // Year range with season qualifier: "1987-1988 Fall" — take the first year.
++    if (preg_match('/^(\d{4})-\d{4}(?:\s+\S+)?$/', $value, $m)) {
++      return $this->iso($m[1], 1, 1);
++    }
++
++    // "YYYY Mon" or "YYYY Mon." : "2015 Dec", "2007 Sep".
++    if (preg_match('/^(\d{4})\s+([A-Za-z]+)\.?$/', $value, $m)) {
++      if ($month = $this->lookupMonth($m[2], $months_all)) {
++        return $this->iso($m[1], $month, 1);
++      }
++    }
++
++    // "Mon YYYY" / "Month YYYY" / "Mon. YYYY" : "Dec 2011", "March 2015".
++    if (preg_match('/^([A-Za-z]+)\.?\s+(\d{4})$/', $value, $m)) {
++      if ($month = $this->lookupMonth($m[1], $months_all)) {
++        return $this->iso($m[2], $month, 1);
++      }
++    }
++
++    // "Mon-DD-YYYY" — the most common format: "Jan-01-2013".
++    if (preg_match('/^([A-Za-z]+)-(\d{1,2})-(\d{4})$/', $value, $m)) {
++      if ($month = $this->lookupMonth($m[1], $months_all)) {
++        return $this->iso($m[3], $month, $m[2]);
++      }
++    }
++
++    // "YYYY Mon DD": "2016 Jan 22".
++    if (preg_match('/^(\d{4})\s+([A-Za-z]+)\s+(\d{1,2})$/', $value, $m)) {
++      if ($month = $this->lookupMonth($m[2], $months_all)) {
++        return $this->iso($m[1], $month, $m[3]);
++      }
++    }
++
++    // "YYYY MM DD": "2017 08 15".
++    if (preg_match('/^(\d{4})\s+(\d{1,2})\s+(\d{1,2})$/', $value, $m)) {
++      return $this->iso($m[1], $m[2], $m[3]);
++    }
++
++    // "YYYY MM": "2016 08".
++    if (preg_match('/^(\d{4})\s+(\d{1,2})$/', $value, $m)) {
++      return $this->iso($m[1], $m[2], 1);
++    }
++
++    // "Month j, Y": "March 20, 2004", "April 13, 2016".
++    $date = \DateTime::createFromFormat('F j, Y', $value);
++    if ($date && $date->format('F j, Y') === $value) {
++      return $date->format('Y-m-d');
++    }
++
++    // "Mon j, Y": "Dec 12, 2001".
++    $date = \DateTime::createFromFormat('M j, Y', $value);
++    if ($date && $date->format('M j, Y') === $value) {
++      return $date->format('Y-m-d');
++    }
++
++    // MM/DD/YYYY: "04/01/2022", "6/24/2014".
++    if (preg_match('/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/', $value, $m)) {
++      return $this->iso($m[3], $m[1], $m[2]);
++    }
++
++    // YYYY/MM/DD (with optional trailing slash): "2018/07/01", "2015/08/15/".
++    if (preg_match('/^(\d{4})\/(\d{1,2})\/(\d{1,2})\/?$/', $value, $m)) {
++      return $this->iso($m[1], $m[2], $m[3]);
++    }
++
++    // YYYY-MM-DD ISO — already canonical.
++    $date = \DateTime::createFromFormat('Y-m-d', $value);
++    if ($date && $date->format('Y-m-d') === $value) {
++      return $value;
++    }
++
++    // Day range with month: "10-16 Feb. 2007", "Sept.25-29, 2016".
++    if (preg_match('/(\d{1,2})-\d{1,2}\s+([A-Za-z]+)\.?\s+(\d{4})/', $value, $m)) {
++      if ($month = $this->lookupMonth($m[2], $months_all)) {
++        return $this->iso($m[3], $month, $m[1]);
++      }
++    }
++
++    // "YYYY///" stragglers: "2019///".
++    if (preg_match('/^(\d{4})\/\/\//', $value, $m)) {
++      return $this->iso($m[1], 1, 1);
++    }
++
++    // Month range: "2009 Nov-Dec", "2017 Jan - Feb" — take the first month.
++    if (preg_match('/^(\d{4})\s+([A-Za-z]+)\s*-\s*[A-Za-z]+$/', $value, $m)) {
++      if ($month = $this->lookupMonth($m[2], $months_all)) {
++        return $this->iso($m[1], $month, 1);
++      }
++    }
++
++    // Last-ditch: strtotime for anything else PHP recognises.
++    $timestamp = strtotime($value);
++    if ($timestamp !== FALSE && $timestamp > 0) {
++      $year = (int) date('Y', $timestamp);
++      if ($year >= 1900 && $year <= 2100) {
++        return date('Y-m-d', $timestamp);
++      }
++    }
++
++    $source_id = $row->getSourceProperty('bid') ?? $row->getSourceProperty('nid') ?? 'unknown';
++    \Drupal::logger('biblio_migration')->warning(
++      'Could not parse date value "@value" for biblio entry @id',
++      ['@value' => $value, '@id' => $source_id]
++    );
++
++    return NULL;
++  }
++
++  /**
++   * Formats a y/m/d triple as a zero-padded Y-m-d string.
++   */
++  protected function iso(int|string $year, int|string $month, int|string $day): string {
++    return sprintf('%04d-%02d-%02d', (int) $year, (int) $month, (int) $day);
++  }
++
++  /**
++   * Case-insensitive lookup of a month name (full or abbreviated, with/without
++   * trailing period).
++   */
++  protected function lookupMonth(string $name, array $months): ?int {
++    $name = rtrim($name, '.');
++    $key = ucfirst(strtolower($name));
++    return $months[$key] ?? NULL;
++  }
++
++}
+\ No newline at end of file
+-- 
+2.50.1 (Apple Git-155)
+
