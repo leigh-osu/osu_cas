@@ -1,5 +1,6 @@
 <?php
 $sites['agsci.dev.oregonstate.edu'] = 'agsci.oregonstate.edu';
+$sites['dev10.agsci.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['agsci.stage.oregonstate.edu'] = 'agsci.oregonstate.edu';
 
 $sites['anrs.dev.oregonstate.edu'] = 'agsci.oregonstate.edu';

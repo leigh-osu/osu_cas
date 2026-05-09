@@ -910,6 +910,7 @@ if (file_exists('/var/www/site-php')) {
   $databases['default']['default']['init_commands'] = [
     'transaction_isolation' => 'SET SESSION transaction_isolation="READ-COMMITTED"'
   ];
+  $databases['default']['default']['pdo'][PDO::MYSQL_ATTR_USE_BUFFERED_QUERY] = TRUE;
   // Connect to the database.
   if (function_exists('acquia_hosting_db_choose_active')) {
     acquia_hosting_db_choose_active(
