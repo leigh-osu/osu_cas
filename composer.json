@@ -547,7 +547,8 @@
                 "OSU Migrations CAS biblio settings": "patches/0001-fix-biblio-dates.patch"
             },
             "osu-wams/osu_standard": {
-                "OSU Standard Profile updates": "patches/0001-cas-remove-distro-info.patch"
+                "OSU Standard Profile updates": "patches/0001-cas-remove-distro-info.patch",
+                "Split Group module install to avoid 2.3.x post-install field race": "patches/osu_standard-split-group-install.patch"
             }
         },
         "drupal-scaffold": {
