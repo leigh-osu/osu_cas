@@ -1,0 +1,224 @@
+Subject: [PATCH] Add osu_d7_paragraphs_item source and repoint base migrations
+
+Core's d7_paragraphs_item silently drops live-but-mislabelled paragraphs that
+are still live on a node's current field data (the block is never created and
+the node migration later logs "Unable to find related migrated block").
+
+This patch adds the OsuParagraphsItem source (osu_d7_paragraphs_item), which
+repoints each row at the revision the parent node's live field data actually
+references before delegating to core, and switches the base
+paragraph_*__to__layout_builder migrations over to it. osu-wams/osu_migrations
+1.0.36 does not ship this source, so the patch must create the file.
+---
+--- a/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration.paragraph_1_col__to__layout_builder.yml	2026-05-15 23:33:37
++++ b/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration.paragraph_1_col__to__layout_builder.yml	2026-05-15 23:33:37
+@@ -15,7 +15,7 @@
+   - OSU Paragraphs
+   - OSU
+ source:
+-  plugin: d7_paragraphs_item
++  plugin: osu_d7_paragraphs_item
+   bundle: paragraph_1_col
+   key: migrate
+ process:
+--- a/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration.paragraph_1_col_clean__to__layout_builder.yml	2026-05-15 23:33:37
++++ b/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration.paragraph_1_col_clean__to__layout_builder.yml	2026-05-15 23:33:37
+@@ -13,7 +13,7 @@
+   - OSU Paragraphs
+   - OSU
+ source:
+-  plugin: d7_paragraphs_item
++  plugin: osu_d7_paragraphs_item
+   bundle: paragraph_1_col_clean
+   key: migrate
+ process:
+--- a/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration.paragraph_2_col_left__to__layout_builder.yml	2026-05-15 23:33:37
++++ b/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration.paragraph_2_col_left__to__layout_builder.yml	2026-05-15 23:33:37
+@@ -13,7 +13,7 @@
+   - OSU Paragraphs
+   - OSU
+ source:
+-  plugin: d7_paragraphs_item
++  plugin: osu_d7_paragraphs_item
+   bundle: paragraph_2_col
+   key: migrate
+ process:
+--- a/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration.paragraph_2_col_right__to__layout_builder.yml	2026-05-15 23:33:37
++++ b/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration.paragraph_2_col_right__to__layout_builder.yml	2026-05-15 23:33:37
+@@ -13,7 +13,7 @@
+   - OSU Paragraphs
+   - OSU
+ source:
+-  plugin: d7_paragraphs_item
++  plugin: osu_d7_paragraphs_item
+   bundle: paragraph_2_col
+   key: migrate
+ process:
+--- a/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration.paragraph_3_col_center__to__layout_builder.yml	2026-05-15 23:33:37
++++ b/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration.paragraph_3_col_center__to__layout_builder.yml	2026-05-15 23:33:37
+@@ -13,7 +13,7 @@
+   - OSU Paragraphs
+   - OSU
+ source:
+-  plugin: d7_paragraphs_item
++  plugin: osu_d7_paragraphs_item
+   bundle: paragraph_3_col
+   key: migrate
+ process:
+--- a/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration.paragraph_3_col_left__to__layout_builder.yml	2026-05-15 23:33:37
++++ b/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration.paragraph_3_col_left__to__layout_builder.yml	2026-05-15 23:33:37
+@@ -13,7 +13,7 @@
+   - OSU Paragraphs
+   - OSU
+ source:
+-  plugin: d7_paragraphs_item
++  plugin: osu_d7_paragraphs_item
+   bundle: paragraph_3_col
+   key: migrate
+ process:
+--- a/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration.paragraph_3_col_right__to__layout_builder.yml	2026-05-15 23:33:37
++++ b/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration.paragraph_3_col_right__to__layout_builder.yml	2026-05-15 23:33:37
+@@ -13,7 +13,7 @@
+   - OSU Paragraphs
+   - OSU
+ source:
+-  plugin: d7_paragraphs_item
++  plugin: osu_d7_paragraphs_item
+   bundle: paragraph_3_col
+   key: migrate
+ process:
+--- a/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration.paragraph_accordion__to__layout_builder.yml	2026-05-15 23:33:37
++++ b/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration.paragraph_accordion__to__layout_builder.yml	2026-05-15 23:33:37
+@@ -13,7 +13,7 @@
+   - OSU Paragraphs
+   - OSU
+ source:
+-  plugin: d7_paragraphs_item
++  plugin: osu_d7_paragraphs_item
+   bundle: paragraph_accordion
+   key: migrate
+ process:
+--- a/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration.paragraph_alert__to__layout_builder.yml	2026-05-15 23:33:37
++++ b/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration.paragraph_alert__to__layout_builder.yml	2026-05-15 23:33:37
+@@ -13,7 +13,7 @@
+   - OSU Paragraphs
+   - OSU
+ source:
+-  plugin: d7_paragraphs_item
++  plugin: osu_d7_paragraphs_item
+   bundle: paragraph_alert
+   key: migrate
+ process:
+--- a/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration.paragraph_divider__to__layout_builder.yml	2026-05-15 23:33:37
++++ b/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration.paragraph_divider__to__layout_builder.yml	2026-05-15 23:33:37
+@@ -13,7 +13,7 @@
+   - OSU Paragraphs
+   - OSU
+ source:
+-  plugin: d7_paragraphs_item
++  plugin: osu_d7_paragraphs_item
+   bundle: paragraph_divider
+   key: migrate
+ process:
+--- a/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration.paragraph_menu__to__layout_builder.yml	2026-05-15 23:33:37
++++ b/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration.paragraph_menu__to__layout_builder.yml	2026-05-15 23:33:37
+@@ -13,7 +13,7 @@
+   - OSU Paragraphs
+   - OSU
+ source:
+-  plugin: d7_paragraphs_item
++  plugin: osu_d7_paragraphs_item
+   bundle: paragraph_menu
+   key: migrate
+ process:
+--- /dev/null
++++ b/modules/paragraphs_to_layout_builder/src/Plugin/migrate/source/d7/OsuParagraphsItem.php
+@@ -0,0 +1,88 @@
++<?php
++
++namespace Drupal\paragraphs_to_layout_builder\Plugin\migrate\source\d7;
++
++use Drupal\Core\Database\DatabaseExceptionWrapper;
++use Drupal\migrate\Row;
++use Drupal\paragraphs\Plugin\migrate\source\d7\ParagraphsItem;
++
++/**
++ * Paragraphs Item source that recovers live-but-mislabelled paragraphs.
++ *
++ * Core's d7_paragraphs_item drives off paragraphs_item.revision_id and then
++ * looks the parent up in field_data_<field> using that same revision id. When
++ * a node's *current* field data references a different paragraph revision than
++ * paragraphs_item.revision_id (a stale/mislabelled pointer that still happens
++ * on live D7 sites), the parent lookup returns nothing, prepareRow() bails, the
++ * block is never created, and the node migration later logs "Unable to find
++ * related migrated block".
++ *
++ * The authoritative answer for "which revision is live" is the parent node's
++ * current field data (field_data_<field>), which by D7 design only ever holds
++ * the live deltas. Before delegating to the core implementation we repoint the
++ * row's revision_id at whatever the live field data actually references, so the
++ * core field-value load and parent lookup both succeed.
++ *
++ * @MigrateSource(
++ *   id = "osu_d7_paragraphs_item",
++ *   source_module = "paragraphs",
++ * )
++ */
++class OsuParagraphsItem extends ParagraphsItem {
++
++  /**
++   * {@inheritdoc}
++   */
++  public function prepareRow(Row $row) {
++    [
++      'item_id' => $paragraph_id,
++      'revision_id' => $paragraph_revision_id,
++      'field_name' => $paragraph_parent_field_name,
++    ] = $row->getSource();
++
++    if ($paragraph_parent_field_name && is_string($paragraph_parent_field_name)) {
++      $live_revision_id = $this->findLiveRevisionId($paragraph_parent_field_name, $paragraph_id);
++      // Only override when the live data genuinely disagrees with the stale
++      // paragraphs_item.revision_id pointer; otherwise leave core's behaviour
++      // untouched so unaffected paragraphs migrate exactly as before.
++      if ($live_revision_id !== NULL && (string) $live_revision_id !== (string) $paragraph_revision_id) {
++        $row->setSourceProperty('revision_id', $live_revision_id);
++      }
++    }
++
++    return parent::prepareRow($row);
++  }
++
++  /**
++   * Find the paragraph revision the parent's current field data references.
++   *
++   * @param string $field_name
++   *   The parent field machine name (paragraphs_item.field_name).
++   * @param int|string $paragraph_id
++   *   The paragraph item_id.
++   *
++   * @return int|string|null
++   *   The revision id referenced by the live field data, or NULL when it
++   *   cannot be determined (no live row, or the field data table is missing).
++   */
++  protected function findLiveRevisionId($field_name, $paragraph_id) {
++    try {
++      $query = $this->getDatabase()
++        ->select(static::PARENT_FIELD_TABLE_PREFIX . $field_name, 'fd');
++      $query->addField('fd', $field_name . '_revision_id', 'revision_id');
++      $revision_id = $query
++        ->condition("fd.{$field_name}_value", $paragraph_id)
++        ->range(0, 1)
++        ->execute()
++        ->fetchField();
++    }
++    catch (DatabaseExceptionWrapper $e) {
++      // The field data table is missing (corrupted/partial D7 database); let
++      // the core implementation handle it the same way it always has.
++      return NULL;
++    }
++
++    return ($revision_id === FALSE || $revision_id === NULL) ? NULL : $revision_id;
++  }
++
++}
