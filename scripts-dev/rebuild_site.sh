@@ -1,166 +1,387 @@
+
 #!/bin/bash
 
 # Drupal Multisite Rebuild Script for Migration Testing
-# This script rebuilds a fresh Drupal site from scratch
+# This script rebuilds a fresh Drupal site from scratch.
+#
+# The script is split into sections, broken between each `ddev snapshot`
+# create and the matching `ddev snapshot restore`. Each section ends with a
+# snapshot create; the next section begins by restoring that snapshot, so any
+# section can be run independently to resume from its checkpoint.
+#
+# Usage:
+#   bash scripts-dev/rebuild_site.sh              # show this section help
+#   bash scripts-dev/rebuild_site.sh all          # run all sections
+#   bash scripts-dev/rebuild_site.sh 3            # run only section 3
+#   bash scripts-dev/rebuild_site.sh from 3       # run section 3 onward (3..6)
+#   bash scripts-dev/rebuild_site.sh list         # list sections and exit
+#
+# Each section is also a shell function (section_1 .. section_7) and can be
+# sourced and called directly:
+#   source scripts-dev/rebuild_site.sh list && section_3
+#
+# Sections:
+#   1  install + accounts + media        -> snapshot aftermedia
+#   2  taxonomy + custom blocks          -> snapshot afterosublocks
+#   3  config + paragraphs               -> snapshot afterparagraphs
+#   4  nodes                             -> snapshot afternodes
+#   5  pages + stories                   -> snapshot afterparanodes
+#   6  groups                            -> snapshot aftergroups
+#   7  aliases + redirects + profiles + menus + blocks
 
 # set -e  # Exit on any error
 
-echo "=== Rebuilding Drupal site for migration testing ==="
+# Configuration
+SITE_NAME="College of Agricultural Sciences"
+ADMIN_USER="cws_dpla"
+ADMIN_PASS="ok"
+ADMIN_EMAIL="noreply@mail.drupal.oregonstate.edu"
+PROFILE="osu_standard"
+SITE_URI="agsci.oregonstate.edu"  # For multisite (sites/ directory uses dots)
+CONFIG_DIR="agsci-oregonstate-edu"  # Config directory uses dashes
 
-# # Configuration
-# SITE_NAME="College of Agricultural Sciences"
-# ADMIN_USER="cws_dpla"
-# ADMIN_PASS="ok"  
-# ADMIN_EMAIL="noreply@mail.drupal.oregonstate.edu"
-# PROFILE="osu_standard" 
-# SITE_URI="agsci.oregonstate.edu"  # For multisite (sites/ directory uses dots)
-# CONFIG_DIR="agsci-oregonstate-edu"  # Config directory uses dashes
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-# # Stop and restart DDEV to reset database
-# echo "Resetting DDEV environment..."
-# ddev stop -O -R
-# ddev start
+# Create a named snapshot, removing any existing snapshot of the same name
+# first so `ddev snapshot` cannot fail on a name collision.
+snapshot_save() {
+  local name="$1"
+  # Delete only this named snapshot (not --cleanup, which wipes them all),
+  # ignoring "not found" so the first run is fine too. DDEV writes snapshots as
+  # "<name>-<dbtype>_<version>.zst" (e.g. aftermedia-mysql_8.0.zst); older DDEV
+  # used a "<name>" directory. Match all three forms. The "-"/"." boundary
+  # keeps "afternodes" from also matching "afterparanodes".
+  rm -rf "${PROJECT_ROOT}/.ddev/db_snapshots/${name}" \
+         "${PROJECT_ROOT}/.ddev/db_snapshots/${name}".* \
+         "${PROJECT_ROOT}/.ddev/db_snapshots/${name}"-* 2>/dev/null || true
+  ddev snapshot --name "${name}"
+}
 
-# # Install Drupal
-# echo "Installing Drupal with ${PROFILE} profile..."
+# ---------------------------------------------------------------------------
+# Section 1: install + accounts + media  -> snapshot aftermedia
+# ---------------------------------------------------------------------------
+section_1() {
+  echo "=== Section 1: install + accounts + media ==="
 
-# ddev drush site:install ${PROFILE} \
-#   --site-name="${SITE_NAME}" \
-#   --account-name="${ADMIN_USER}" \
-#   --account-pass="${ADMIN_PASS}" \
-#   --account-mail="${ADMIN_EMAIL}" \
-#   --sites-subdir="${SITE_URI}" \
-#   --yes
-    
-# # ddev import-db --file="/Users/leighr/Sites/osu/osu_cas/scripts-dev/agsci_oregonstate_edu_1772688701.sql"
+  # Stop and restart DDEV to reset database
+  echo "Resetting DDEV environment..."
+  ddev stop -O -R
+  ddev start
 
-# # Install modules
-# echo "Installing modules..."
-    
-# ddev drush en domain domain_access domain_alias domain_content multiselect layout_builder_modal -y
-# ddev drush en migrate migrate_drupal phpass migrate_plus -y
-# ddev drush en osu_migrations osu_user_accounts osu_migrations_files osu_migrations_media osu_migrations_taxonomy \
-#     osu_migrate_content og_to_group paragraphs_to_layout_builder osu_user_to_profiles devel migrate_devel \
-#     domain_migrate domain_access_migrate -y
+  # Install Drupal
+  echo "Installing Drupal with ${PROFILE} profile..."
 
-# ddev drush cr -y
+  ddev drush site:install ${PROFILE} \
+    --site-name="${SITE_NAME}" \
+    --account-name="${ADMIN_USER}" \
+    --account-pass="${ADMIN_PASS}" \
+    --account-mail="${ADMIN_EMAIL}" \
+    --sites-subdir="${SITE_URI}" \
+    --yes
 
-# ddev drush theme:install manzanita -y
+  # ddev import-db --file="/Users/leighr/Sites/osu/osu_cas/scripts-dev/agsci_oregonstate_edu_1772688701.sql"
 
-# ddev drush config:set system.theme default manzanita -y
+  # Install modules
+  echo "Installing modules..."
 
-# ddev drush config:set -y system.performance css.preprocess 0
-# ddev drush config:set -y system.performance js.preprocess 0
-# ddev drush config:set -y system.performance cache.page.max_age 0
-
-
-# ddev drush cr -y
-# ddev drush ev "node_access_rebuild();"
-
-# # end install
-
-
-# ddev drush migrate:import --tag='OSU Accounts'
-# ddev drush migrate:import --tag='OSU Media' 
-
-# ddev snapshot -n aftermedia
-
-# ddev snapshot restore aftermedia
-
-# # ddev drush migrate:import d7_image_styles
-# ddev drush migrate:import --tag='OSU Taxonomy'
-
-# ddev drush migrate:import --tag='OSU Custom Blocks' --force
-
-# ddev snapshot -n afterosublocks
-
-ddev snapshot restore afterosublocks
-
-echo 'installing storage'
-ddev drush config:import --partial --source=../config_imports/storage -y
-echo 'installing content types'
-ddev drush config:import --partial --source=../config_imports/content_type -y
-echo 'installing fields'
-ddev drush config:import --partial --source=../config_imports/fields -y
-echo 'installing display'
-ddev drush config:import --partial --source=../config_imports/display -y
-echo 'installing other configs'
-ddev drush config:import --partial --source=../config_imports -y
-
-ddev drush config:delete taxonomy.vocabulary.publication_type -y
-
-ddev drush en osu_publications osu_migrations_cas -y
-ddev drush cr -y
-ddev drush migrate:import d7_domain
-ddev drush uli
-
-exit
+  ddev drush en osu_icon_field osu_publications -y
+  ddev drush en domain domain_access domain_alias domain_content multiselect layout_builder_modal -y
+  ddev drush en migrate migrate_drupal phpass migrate_plus -y
+  ddev drush en osu_migrations osu_user_accounts osu_migrations_files osu_migrations_media osu_migrations_taxonomy \
+      osu_migrate_content og_to_group paragraphs_to_layout_builder osu_user_to_profiles devel migrate_devel \
+      domain_migrate domain_access_migrate -y
 
 
+  ddev drush cr -y
 
-ddev drush migrate:import field_collection_field_lp_adj_column__to__layout_builder
-ddev drush migrate:import field_collection_field_lp_picbox__to__layout_builder
-ddev drush migrate:import paragraph_1_col_clean__to__layout_builder
-ddev drush migrate:import paragraph_1_column_full_width__to__layout_builder
-ddev drush migrate:import paragraph_3_col_center__to__layout_builder
-ddev drush migrate:import paragraph_3_col_left__to__layout_builder
-ddev drush migrate:import paragraph_3_col_right__to__layout_builder
-ddev drush migrate:import paragraph_4_column_col1__to__layout_builder
-ddev drush migrate:import paragraph_4_column_col2__to__layout_builder
-ddev drush migrate:import paragraph_4_column_col3__to__layout_builder
-ddev drush migrate:import paragraph_4_column_col4__to__layout_builder
-ddev drush migrate:import paragraph_accordian__to__layout_builder
-ddev drush migrate:import paragraph_accordion__to__layout_builder
-ddev drush migrate:import paragraph_divider__to__layout_builder
-ddev drush migrate:import paragraph_menu__to__layout_builder
-ddev drush migrate:import paragraph_1_col__to__layout_builder
-ddev drush migrate:import paragraph_2_col_left__to__layout_builder
-ddev drush migrate:import paragraph_2_col_right__to__layout_builder
-ddev drush migrate:import paragraph_2_column_4_8_left__to__layout_builder
-ddev drush migrate:import paragraph_2_column_4_8_right__to__layout_builder
-ddev drush migrate:import paragraph_2_column_8_4_left__to__layout_builder
-ddev drush migrate:import paragraph_2_column_8_4_right__to__layout_builder
-ddev drush migrate:import paragraph_sacnas_officer_body_text__to__layout_builder
-ddev drush migrate:import paragraph_lp_picbox_grid__to__layout_builder
-ddev drush migrate:import paragraph_lp_vertical_tabs__to__layout_builder
+  ddev drush theme:install manzanita -y
 
+  ddev drush config:set system.theme default manzanita -y
 
-# ddev drush migrate:import --tag='CAS Paragraphs' --force
-# ddev drush migrate:import --tag='OSU Paragraphs' --force
+  ddev drush config:set -y system.performance css.preprocess 0
+  ddev drush config:set -y system.performance js.preprocess 0
+  ddev drush config:set -y system.performance cache.page.max_age 0
 
-# ddev drush ms --tag='CAS Paragraphs'
-# ddev drush ms --tag='OSU Paragraphs'
+  ddev drush config:set system.date timezone.default America/Los_Angeles -y
+  ddev drush config:set system.date timezone.user.configurable 0 -y
 
-# ddev drush migrate:import cas_page_to_page --force
-# ddev drush migrate:import cas_book_to_page --force
-# ddev drush migrate:import cas_paragraph_page_to_page --force
-ddev drush migrate:import upgrade_d7_biblio_publication
+  ddev drush cr -y
+  ddev drush ev "node_access_rebuild();"
 
+  # end install
 
-# ddev drush migrate:import --tag='Layout content' --force
-# ddev drush migrate:import --tag='Feature Story'
-# ddev drush migrate:import --tag='OSU Configuration' --force
-# ddev drush migrate:import --tag='OSU Configuration' --force
-# ddev drush migrate:import --tag='OSU Configuration' --force
-# ddev drush migrate:import --tag='OSU Configuration' --force
-# ddev drush migrate:import --tag='OSU Configuration' --force
-# ddev drush migrate:import --tag='OSU Configuration' --force
-# ddev drush migrate:import --tag='OSU Configuration' --force
+  ddev drush migrate:import d7_domain
 
-# ddev drush migrate:import --tag='OSU Content' --force
-# ddev drush migrate:import --tag='OSU Content' --force
-# ddev drush migrate:import --tag='OSU Content' --force
-# ddev drush migrate:import --tag='OSU Content' --force
-# ddev drush migrate:import --tag='OSU Groups' --force
-# ddev drush migrate:import --tag='OSU Alias' 
-# ddev drush migrate:import --tag='OSU Redirect'
-# ddev drush migrate:import --tag='OSU Drupal Profile'
-# ddev drush migrate:import --tag='OSU Menus'
-# ddev drush migrate:import --tag='OSU Blocks'
+  ddev drush migrate:import upgrade_d7_users_with_roles
 
-# ddev xdebug
+  ddev drush migrate:import --tag='OSU Accounts'
 
-echo ""
-echo "=== Site rebuild complete! ==="
-ddev drush uli
+  ddev drush migrate:import --tag='OSU Media'
 
+  snapshot_save aftermedia
+}
+
+# ---------------------------------------------------------------------------
+# Section 2: taxonomy + custom blocks  -> snapshot afterosublocks
+# ---------------------------------------------------------------------------
+section_2() {
+  echo "=== Section 2: taxonomy + custom blocks ==="
+
+  ddev snapshot restore aftermedia
+
+  ddev drush migrate:import d7_image_styles
+  ddev drush migrate:import --tag='OSU Taxonomy'
+
+  ddev drush migrate:import --tag='OSU Custom Blocks' --force
+
+  ddev drush pqe -y
+
+  snapshot_save afterosublocks
+}
+
+# ---------------------------------------------------------------------------
+# Section 3: config + paragraphs  -> snapshot afterparagraphs
+# ---------------------------------------------------------------------------
+section_3() {
+  echo "=== Section 3: config + paragraphs ==="
+
+  ddev snapshot restore afterosublocks
+
+  ddev drush en osu_migrations_cas -y
+
+  echo 'installing storage'
+  ddev drush config:import --partial --source=../config_imports/storage -y
+  echo 'installing content types'
+  ddev drush config:import --partial --source=../config_imports/content_type -y
+  echo 'installing fields'
+  ddev drush config:import --partial --source=../config_imports/fields -y
+  echo 'installing display'
+  ddev drush config:import --partial --source=../config_imports/display -y
+  echo 'installing other configs'
+  ddev drush config:import --partial --source=../config_imports -y
+
+  # ddev drush config:delete taxonomy.vocabulary.publication_type -y
+
+  ddev drush cr -y
+
+  ddev drush migrate:import field_collection_field_lp_adj_column__to__layout_builder
+  ddev drush migrate:import field_collection_field_lp_picbox__to__layout_builder
+  ddev drush migrate:import paragraph_1_col_clean__to__layout_builder
+  ddev drush migrate:import paragraph_1_column_full_width__to__layout_builder
+  ddev drush migrate:import paragraph_3_col_center__to__layout_builder
+  ddev drush migrate:import paragraph_3_col_left__to__layout_builder
+  ddev drush migrate:import paragraph_3_col_right__to__layout_builder
+  ddev drush migrate:import paragraph_4_column_col1__to__layout_builder
+  ddev drush migrate:import paragraph_4_column_col2__to__layout_builder
+  ddev drush migrate:import paragraph_4_column_col3__to__layout_builder
+  ddev drush migrate:import paragraph_4_column_col4__to__layout_builder
+  ddev drush migrate:import paragraph_accordian__to__layout_builder
+  ddev drush migrate:import paragraph_accordion__to__layout_builder
+  ddev drush migrate:import paragraph_alert_message__to__layout_builder
+  ddev drush migrate:import paragraph_divider__to__layout_builder
+  ddev drush migrate:import paragraph_menu__to__layout_builder
+  ddev drush migrate:import paragraph_1_col__to__layout_builder
+  ddev drush migrate:import paragraph_2_col_left__to__layout_builder
+  ddev drush migrate:import paragraph_2_col_right__to__layout_builder
+  ddev drush migrate:import paragraph_2_column_4_8_left__to__layout_builder
+  ddev drush migrate:import paragraph_2_column_4_8_right__to__layout_builder
+  ddev drush migrate:import paragraph_2_column_8_4_left__to__layout_builder
+  ddev drush migrate:import paragraph_2_column_8_4_right__to__layout_builder
+  ddev drush migrate:import paragraph_sacnas_officer_body_text__to__layout_builder
+  ddev drush migrate:import paragraph_lp_picbox_grid__to__layout_builder
+  ddev drush migrate:import paragraph_lp_vertical_tabs__to__layout_builder
+  ddev drush migrate:import paragraph_lp_adjustable_columns__to__layout_builder
+
+  ddev drush cr -y
+
+  ddev drush pqe -y
+
+  snapshot_save afterparagraphs
+}
+
+# ---------------------------------------------------------------------------
+# Section 4: nodes  -> snapshot afternodes
+# ---------------------------------------------------------------------------
+section_4() {
+  echo "=== Section 4: nodes ==="
+
+  ddev snapshot restore afterparagraphs
+
+  ddev drush migrate:import cas_150_species_to_150_species
+  ddev drush migrate:import cas_aaa_to_aaa
+  ddev drush migrate:import cas_course_to_course
+  ddev drush migrate:import cas_dfs_to_dfs
+  ddev drush migrate:import cas_dfsg_to_dfsg
+  ddev drush migrate:import cas_enterprise_budgets_to_enterprise_budgets
+  ddev drush migrate:import cas_fun_facts_to_fun_facts
+  ddev drush migrate:import cas_funding_opportunities_to_funding_opportunities
+  ddev drush migrate:import cas_image_album_to_image_album
+  ddev drush migrate:import cas_project_to_project
+  ddev drush migrate:import cas_pvr_to_pvr
+  ddev drush migrate:import cas_video_to_video
+  ddev drush migrate:import cas_weed_to_weed
+  ddev drush migrate:import cas_weather_data_to_weather_daily_data
+  ddev drush migrate:import cas_weather_daily_data_to_weather_daily_data
+  ddev drush migrate:import cas_weather_monthly_data_to_weather_monthly_data
+  ddev drush migrate:import upgrade_d7_biblio_publication
+
+  ddev drush pqe -y
+
+  snapshot_save afternodes
+}
+
+# ---------------------------------------------------------------------------
+# Section 5: pages + stories  -> snapshot afterparanodes
+# ---------------------------------------------------------------------------
+section_5() {
+  echo "=== Section 5: pages + stories ==="
+
+  ddev snapshot restore afternodes
+
+  # ddev drush config:import --partial --source=../docroot/modules/custom/osu_migrations_cas/config/install -y
+
+  ddev drush migrate:import cas_book_to_page
+  ddev drush migrate:import cas_page_to_page
+  ddev drush migrate:import cas_feature_page_to_page
+  ddev drush migrate:import cas_paragraph_page_to_page
+  ddev drush migrate:import cas_feature_story_to_story
+  ddev drush migrate:import cas_story_to_story
+  ddev drush migrate:import cas_article_to_story
+
+  ddev drush pqe -y
+
+  snapshot_save afterparanodes
+
+  # ddev drush ms --tag='CAS Paragraphs'
+  # ddev drush ms --tag='OSU Paragraphs' istedmonk.com
+  # ddev drush ms --tag='Layout content'
+  # ddev drush ms --tag='OSU Configuration'
+  # ddev drush ms --tag='OSU Content'
+}
+
+# ---------------------------------------------------------------------------
+# Section 6: groups  -> snapshot aftergroups
+# ---------------------------------------------------------------------------
+section_6() {
+  echo "=== Section 6: groups ==="
+
+  ddev snapshot restore afterparanodes
+
+  ddev drush migrate:import upgrade_d7_view_modes
+  ddev drush migrate:import upgrade_d7_node_og_group
+  ddev drush migrate:import upgrade_d7_node_parent_unit_group
+
+  echo 'installing group settings'
+  ddev drush config:import --partial --source=../config_imports/group -y
+
+  ddev drush migrate:import upgrade_d7_user_og_memberships
+  ddev drush migrate:import upgrade_d7_node_og_organization
+  ddev drush migrate:import upgrade_d7_book_menu_group_menu
+
+  ddev drush migrate:import --tag='CAS Groups' --force
+
+  ddev drush pqe -y
+
+  snapshot_save aftergroups
+}
+
+# ---------------------------------------------------------------------------
+# Section 7: aliases + redirects + profiles + menus + blocks
+# ---------------------------------------------------------------------------
+section_7() {
+  echo "=== Section 7: aliases + redirects + profiles + menus + blocks ==="
+
+  ddev snapshot restore aftergroups
+
+  # ddev drush migrate:import --tag='OSU Groups' --force
+  ddev drush migrate:import --tag='OSU Alias'
+  ddev drush migrate:import --tag='OSU Redirect'
+  ddev drush migrate:import --tag='OSU Drupal Profile'
+  ddev drush migrate:import --tag='OSU Menus'
+  ddev drush migrate:import --tag='OSU Blocks'
+
+  echo ""
+  echo "=== Site rebuild complete! ==="
+  ddev drush uli
+}
+
+# ---------------------------------------------------------------------------
+# Section 8 (verify): post-rebuild verification — no DB state change.
+# Runs verify_migration.php in the web container; non-zero exit on regression.
+# Safe to run independently and idempotent.
+# ---------------------------------------------------------------------------
+section_verify() {
+  echo "=== Section 8: post-rebuild verification ==="
+  bash "${PROJECT_ROOT}/scripts-dev/verify_migration.sh"
+}
+
+# ---------------------------------------------------------------------------
+# Dispatcher
+# ---------------------------------------------------------------------------
+list_sections() {
+  cat <<'EOF'
+Sections:
+  1       install + accounts + media                   -> snapshot aftermedia
+  2       taxonomy + custom blocks                     -> snapshot afterosublocks
+  3       config + paragraphs                          -> snapshot afterparagraphs
+  4       nodes                                        -> snapshot afternodes
+  5       pages + stories                              -> snapshot afterparanodes
+  6       groups                                       -> snapshot aftergroups
+  7       aliases + redirects + profiles + menus + blocks
+  verify  post-rebuild verification (no DB changes; exits non-zero on regression)
+EOF
+}
+
+run_from() {
+  local start="$1"
+  for n in 1 2 3 4 5 6 7; do
+    if [ "${n}" -ge "${start}" ]; then
+      "section_${n}"
+    fi
+  done
+  # Always run verification at the end of a multi-section run; the script
+  # has `set -e` disabled, so a non-zero exit here is surfaced but doesn't
+  # roll anything back.
+  section_verify
+}
+
+# When sourced, just expose the functions (no dispatch).
+if [ "${BASH_SOURCE[0]}" != "${0}" ]; then
+  return 0 2>/dev/null
+fi
+
+case "${1:-}" in
+  "")
+    echo "Usage: $0 [all | <1-7> | from <1-7> | verify | list]"
+    echo ""
+    list_sections
+    ;;
+  all)
+    echo "=== Rebuilding Drupal site for migration testing ==="
+    run_from 1
+    ;;
+  from)
+    if ! [[ "${2}" =~ ^[1-7]$ ]]; then
+      echo "Usage: $0 from <1-7>" >&2
+      exit 1
+    fi
+    echo "=== Rebuilding Drupal site from section ${2} ==="
+    run_from "${2}"
+    ;;
+  list|-l|--list|-h|--help)
+    list_sections
+    ;;
+  verify|8)
+    echo "=== Running verification only ==="
+    section_verify
+    ;;
+  [1-7])
+    echo "=== Running section ${1} only ==="
+    "section_${1}"
+    ;;
+  *)
+    echo "Unknown argument: ${1}" >&2
+    list_sections >&2
+    exit 1
+    ;;
+esac
