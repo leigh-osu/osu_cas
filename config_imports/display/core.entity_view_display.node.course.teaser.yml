@@ -1,0 +1,57 @@
+uuid: c4e36442-44fe-4d0d-ac47-96bfca15cecf
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.course.body
+    - field.field.node.course.field_course_class_location
+    - field.field.node.course.field_course_course_level
+    - field.field.node.course.field_course_course_number
+    - field.field.node.course.field_course_credits
+    - field.field.node.course.field_course_frequency
+    - field.field.node.course.field_course_instructor
+    - field.field.node.course.field_course_links
+    - field.field.node.course.field_course_student_perspective
+    - field.field.node.course.field_course_syllabus
+    - field.field.node.course.field_course_term
+    - field.field.node.course.field_domain_access
+    - field.field.node.course.field_domain_all_affiliates
+    - field.field.node.course.field_tax_topic
+    - node.type.course
+  module:
+    - text
+    - user
+id: node.course.teaser
+targetEntityType: node
+bundle: course
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entitygroupfield: true
+  field_course_class_location: true
+  field_course_course_level: true
+  field_course_course_number: true
+  field_course_credits: true
+  field_course_frequency: true
+  field_course_instructor: true
+  field_course_links: true
+  field_course_student_perspective: true
+  field_course_syllabus: true
+  field_course_term: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_tax_topic: true

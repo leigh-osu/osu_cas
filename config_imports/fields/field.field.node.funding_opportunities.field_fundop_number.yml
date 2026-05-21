@@ -1,0 +1,19 @@
+uuid: f01a46f5-037c-4d3e-840d-dccc13173525
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fundop_number
+    - node.type.funding_opportunities
+id: node.funding_opportunities.field_fundop_number
+field_name: field_fundop_number
+entity_type: node
+bundle: funding_opportunities
+label: Number
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

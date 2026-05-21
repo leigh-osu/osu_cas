@@ -1,3 +1,4 @@
+uuid: 79a14397-43e2-4a08-af73-5c74719b2dd5
 langcode: en
 status: true
 dependencies:
@@ -12,11 +13,9 @@ label: 'Permission Granted'
 description: ''
 required: false
 translatable: false
-default_value:
-  -
-    value: 1
+default_value: {  }
 default_value_callback: ''
 settings:
-  on_label: 'Yes'
-  off_label: 'No'
+  on_label: 'On'
+  off_label: 'Off'
 field_type: boolean

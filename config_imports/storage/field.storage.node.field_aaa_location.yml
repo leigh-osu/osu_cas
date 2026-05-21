@@ -1,3 +1,4 @@
+uuid: a68e16c6-170f-4e4d-85e3-81528a01cd42
 langcode: en
 status: true
 dependencies:
@@ -8,7 +9,7 @@ field_name: field_aaa_location
 entity_type: node
 type: string
 settings:
-  max_length: 60
+  max_length: 255
   case_sensitive: false
   is_ascii: false
 module: core

@@ -1,0 +1,30 @@
+uuid: 127071a8-2eb4-4600-b760-41a7635e12b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - filter.format.basic_html
+    - filter.format.full_html
+    - filter.format.restricted_html
+    - node.type.funding_opportunities
+  module:
+    - text
+id: node.funding_opportunities.body
+field_name: body
+entity_type: node
+bundle: funding_opportunities
+label: Synopsis
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats:
+    - full_html
+    - basic_html
+    - restricted_html
+field_type: text_with_summary

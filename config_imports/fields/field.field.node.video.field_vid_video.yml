@@ -1,11 +1,12 @@
+uuid: 0207b6ea-b799-4d53-bfb1-f2f19a7988e3
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_vid_video
+    - media.type.local_video
+    - media.type.remote_video
     - node.type.video
-  module:
-    - file
 id: node.video.field_vid_video
 field_name: field_vid_video
 entity_type: node
@@ -17,10 +18,14 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:file'
-  handler_settings: {  }
-  file_directory: ''
-  file_extensions: 'mp4 mov avi wmv flv webm'
-  max_filesize: ''
-  description_field: false
-field_type: file
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      local_video: local_video
+      remote_video: remote_video
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: local_video
+field_type: entity_reference

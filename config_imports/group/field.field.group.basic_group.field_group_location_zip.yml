@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_group_location_zip
+    - group.type.basic_group
+id: group.basic_group.field_group_location_zip
+field_name: field_group_location_zip
+entity_type: group
+bundle: basic_group
+label: 'Postal Code'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

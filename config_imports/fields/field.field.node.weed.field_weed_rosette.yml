@@ -1,0 +1,26 @@
+uuid: 42aadf0e-0148-4c76-b808-50605ccb13b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weed_rosette
+    - filter.format.basic_html
+    - filter.format.full_html
+    - node.type.weed
+  module:
+    - text
+id: node.weed.field_weed_rosette
+field_name: field_weed_rosette
+entity_type: node
+bundle: weed
+label: Rosette
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+    - basic_html
+field_type: text_long

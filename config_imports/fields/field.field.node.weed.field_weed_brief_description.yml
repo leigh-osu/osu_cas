@@ -1,0 +1,26 @@
+uuid: 7ba75c0c-02bf-4dd1-8806-db6b81a9ae74
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weed_brief_description
+    - filter.format.basic_html
+    - filter.format.full_html
+    - node.type.weed
+  module:
+    - text
+id: node.weed.field_weed_brief_description
+field_name: field_weed_brief_description
+entity_type: node
+bundle: weed
+label: 'Brief Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+    - basic_html
+field_type: text_long

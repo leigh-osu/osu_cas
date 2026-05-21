@@ -1,0 +1,19 @@
+uuid: e3e6bae2-0495-4db2-8fb3-c39d5199cce2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weed_latin_name
+    - node.type.weed
+id: node.weed.field_weed_latin_name
+field_name: field_weed_latin_name
+entity_type: node
+bundle: weed
+label: 'Latin Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,3 +1,4 @@
+uuid: 096526a8-4c2b-4702-a126-5eff648ded0b
 langcode: en
 status: true
 dependencies:
@@ -8,7 +9,7 @@ field_name: field_aaa_artist
 entity_type: node
 type: string
 settings:
-  max_length: 60
+  max_length: 128
   case_sensitive: false
   is_ascii: false
 module: core

@@ -1,0 +1,20 @@
+uuid: bae9f282-6f83-46d4-a78d-efa070a12485
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_pvr_quality
+field_name: field_pvr_quality
+entity_type: node
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

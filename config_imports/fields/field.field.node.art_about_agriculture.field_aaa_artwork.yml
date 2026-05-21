@@ -1,3 +1,4 @@
+uuid: c4d5397d-7297-4e60-bfd2-80702cce16cb
 langcode: en
 status: true
 dependencies:
@@ -24,5 +25,5 @@ settings:
       field: _none
       direction: ASC
     auto_create: false
-    auto_create_bundle: image
+    auto_create_bundle: ''
 field_type: entity_reference

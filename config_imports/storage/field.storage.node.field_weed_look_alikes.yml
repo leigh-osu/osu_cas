@@ -1,0 +1,19 @@
+uuid: 1b330c1a-0fc6-4e36-b195-cd5805812475
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_weed_look_alikes
+field_name: field_weed_look_alikes
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

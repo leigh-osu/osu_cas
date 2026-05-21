@@ -1,0 +1,19 @@
+uuid: 960fdb6a-08d6-4b13-b266-1afc578fa48e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_pvr_contact_for_breeder
+field_name: field_pvr_contact_for_breeder
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

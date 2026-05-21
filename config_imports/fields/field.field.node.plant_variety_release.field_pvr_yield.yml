@@ -1,0 +1,26 @@
+uuid: ae6e9284-637c-4e5c-9c7d-c42c209fa263
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pvr_yield
+    - filter.format.basic_html
+    - filter.format.full_html
+    - node.type.plant_variety_release
+  module:
+    - text
+id: node.plant_variety_release.field_pvr_yield
+field_name: field_pvr_yield
+entity_type: node
+bundle: plant_variety_release
+label: Yield
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+    - basic_html
+field_type: text_long

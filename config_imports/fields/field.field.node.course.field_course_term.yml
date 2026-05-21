@@ -1,0 +1,21 @@
+uuid: 89dbdf04-35c1-4ecb-8db2-7f505de3bf3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_term
+    - node.type.course
+  module:
+    - options
+id: node.course.field_course_term
+field_name: field_course_term
+entity_type: node
+bundle: course
+label: Term
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

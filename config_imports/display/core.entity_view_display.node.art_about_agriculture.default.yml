@@ -1,8 +1,8 @@
+uuid: 69590198-5876-4635-bdb6-3fa02b05dd67
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.1400x900
     - field.field.node.art_about_agriculture.body
     - field.field.node.art_about_agriculture.field_aaa_artist
     - field.field.node.art_about_agriculture.field_aaa_artist_first_name
@@ -11,12 +11,13 @@ dependencies:
     - field.field.node.art_about_agriculture.field_aaa_awards
     - field.field.node.art_about_agriculture.field_aaa_description
     - field.field.node.art_about_agriculture.field_aaa_dimensions
-    - field.field.node.art_about_agriculture.field_aaa_exhibit
     - field.field.node.art_about_agriculture.field_aaa_location
     - field.field.node.art_about_agriculture.field_aaa_permission_granted
+    - field.field.node.art_about_agriculture.field_aaa_thumbnail
     - field.field.node.art_about_agriculture.field_aaa_year
     - field.field.node.art_about_agriculture.field_domain_access
     - field.field.node.art_about_agriculture.field_domain_all_affiliates
+    - field.field.node.art_about_agriculture.field_tax_aaa
     - node.type.art_about_agriculture
   module:
     - colorbox
@@ -44,10 +45,10 @@ content:
     region: content
   field_aaa_artwork:
     type: colorbox_view_modes
-    label: inline
+    label: hidden
     settings:
-      colorbox_view_mode: 1400x900
-      colorbox_modal_view_mode: 1400x900
+      colorbox_view_mode: ''
+      colorbox_modal_view_mode: ''
       colorbox_gallery: post
       colorbox_gallery_custom: ''
     third_party_settings: {  }
@@ -97,8 +98,9 @@ hidden:
   entitygroupfield: true
   field_aaa_artist_first_name: true
   field_aaa_artist_last_name: true
-  field_aaa_exhibit: true
   field_aaa_permission_granted: true
+  field_aaa_thumbnail: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_tax_aaa: true
   links: true

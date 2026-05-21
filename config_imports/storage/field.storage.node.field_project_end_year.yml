@@ -1,0 +1,20 @@
+uuid: 5d78b1d1-a80c-46a2-a4bf-a9bbfd310dcc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_project_end_year
+field_name: field_project_end_year
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

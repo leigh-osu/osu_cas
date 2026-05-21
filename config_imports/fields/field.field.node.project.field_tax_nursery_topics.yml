@@ -1,0 +1,29 @@
+uuid: a1d5dbab-8404-474e-b273-e427c79a2356
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tax_nursery_topics
+    - node.type.project
+    - taxonomy.vocabulary.nursery
+id: node.project.field_tax_nursery_topics
+field_name: field_tax_nursery_topics
+entity_type: node
+bundle: project
+label: 'Nursery Topics'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      nursery: nursery
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

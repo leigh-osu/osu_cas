@@ -1,0 +1,29 @@
+uuid: a43e3f92-691f-493a-be90-c89f9dc0fdae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tax_cas_section
+    - node.type.funding_opportunities
+    - taxonomy.vocabulary.type
+id: node.funding_opportunities.field_tax_cas_section
+field_name: field_tax_cas_section
+entity_type: node
+bundle: funding_opportunities
+label: 'CAS Section'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      type: type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: cas_impact_areas
+field_type: entity_reference
