@@ -17762,16 +17762,16 @@
         },
         {
             "name": "leigh-osu/osu_migrations_cas",
-            "version": "v1.0.11",
+            "version": "v1.0.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:leigh-osu/osu_migrations_cas.git",
-                "reference": "1e8031aef95f98473e085451eaeb50e9b9b9e4de"
+                "reference": "4ba6f2e9998142f608c192a05c8ccb431dadc46b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_migrations_cas/zipball/1e8031aef95f98473e085451eaeb50e9b9b9e4de",
-                "reference": "1e8031aef95f98473e085451eaeb50e9b9b9e4de",
+                "url": "https://api.github.com/repos/leigh-osu/osu_migrations_cas/zipball/4ba6f2e9998142f608c192a05c8ccb431dadc46b",
+                "reference": "4ba6f2e9998142f608c192a05c8ccb431dadc46b",
                 "shasum": ""
             },
             "require": {
@@ -17787,10 +17787,10 @@
             },
             "description": "Drupal 7 to 10 migration code for OSU CAS",
             "support": {
-                "source": "https://github.com/leigh-osu/osu_migrations_cas/tree/v1.0.11",
+                "source": "https://github.com/leigh-osu/osu_migrations_cas/tree/v1.0.12",
                 "issues": "https://github.com/leigh-osu/osu_migrations_cas/issues"
             },
-            "time": "2026-05-19T04:09:16+00:00"
+            "time": "2026-05-22T19:06:05+00:00"
         },
         {
             "name": "leongersen/nouislider",
