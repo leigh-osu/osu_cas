@@ -332,6 +332,9 @@ section_7() {
   ddev drush migrate:import --tag='OSU Menus'
   ddev drush migrate:import --tag='OSU Blocks'
 
+  ddev drush pqe -y
+  ddev drush cr
+
   echo ""
   echo "=== Site rebuild complete! ==="
   ddev drush uli
