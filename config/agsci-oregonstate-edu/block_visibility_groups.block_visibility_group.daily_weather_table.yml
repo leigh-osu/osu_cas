@@ -1,0 +1,16 @@
+uuid: 7ba05c9b-98a2-4718-bfeb-7c3c7d6f8ea6
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: daily_weather_table
+label: daily_weather_table
+logic: and
+conditions:
+  041172ef-030f-4211-8239-52edffaa77af:
+    id: request_path
+    negate: false
+    uuid: 041172ef-030f-4211-8239-52edffaa77af
+    pages: '/weather/monthly/*'
+allow_other_conditions: null

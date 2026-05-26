@@ -1,0 +1,23 @@
+uuid: c0b85160-cd0a-44f0-bb6f-46537bd1c8dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfsg_fellowships
+    - node.type.degree_fact_sheet_graduate
+id: node.degree_fact_sheet_graduate.field_dfsg_fellowships
+field_name: field_dfsg_fellowships
+entity_type: node
+bundle: degree_fact_sheet_graduate
+label: Fellowships
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

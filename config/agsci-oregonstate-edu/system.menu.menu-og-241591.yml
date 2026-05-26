@@ -1,0 +1,8 @@
+uuid: 0e5771fe-e2db-40a2-923f-49fa55431651
+langcode: en
+status: true
+dependencies: {  }
+id: menu-og-241591
+label: 'Department of Biological & Ecological Engineering'
+description: 'OG Menu for Department of Biological &amp; Ecological Engineering'
+locked: false

@@ -1,0 +1,20 @@
+uuid: 2598e5cf-d584-4765-9e0b-397f3aa0d5c0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_tax_turf_topics
+field_name: field_tax_turf_topics
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

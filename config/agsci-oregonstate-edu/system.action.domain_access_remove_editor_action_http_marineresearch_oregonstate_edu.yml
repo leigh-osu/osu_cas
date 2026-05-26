@@ -1,0 +1,15 @@
+uuid: 09fded21-3af2-42a7-b0a1-204ef1476e91
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.http_marineresearch_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_http_marineresearch_oregonstate_edu
+label: 'Remove editors from the Coastal Oregon Marine Experiment Station domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - http_marineresearch_oregonstate_edu

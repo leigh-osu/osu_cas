@@ -1,0 +1,15 @@
+uuid: c11cc165-f6a1-4120-9caf-79034d4f59d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.gardenecology_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_gardenecology_oregonstate_edu
+label: 'Add editors to the Garden Ecology Lab domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - gardenecology_oregonstate_edu

@@ -1,0 +1,12 @@
+uuid: 30f237cf-97c7-4770-aa53-a3219d81fd34
+langcode: en
+status: true
+dependencies: {  }
+id: cropandsoil_oregonstate_edu
+domain_id: 16351535
+hostname: cropandsoil.oregonstate.edu
+name: 'Crop & Soil Science Department'
+scheme: https
+weight: 7
+is_default: false
+path_prefix: ''

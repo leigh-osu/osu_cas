@@ -1,0 +1,20 @@
+uuid: 29ed87b0-e0ed-4a36-82f5-192606a356b6
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - node
+id: node.field_pvr_disease_resistance
+field_name: field_pvr_disease_resistance
+entity_type: node
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

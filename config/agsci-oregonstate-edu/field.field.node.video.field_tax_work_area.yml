@@ -1,0 +1,28 @@
+uuid: 04dabdbb-9959-42a9-ba23-28a668de6601
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tax_work_area
+    - node.type.video
+    - taxonomy.vocabulary.work_areas
+id: node.video.field_tax_work_area
+field_name: field_tax_work_area
+entity_type: node
+bundle: video
+label: 'Work areas'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      work_areas: work_areas
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+field_type: entity_reference

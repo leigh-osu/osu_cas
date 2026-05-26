@@ -1,0 +1,12 @@
+uuid: bbe64123-e9bc-4f22-9743-5644afc1fb76
+langcode: en
+status: true
+dependencies: {  }
+id: support_roots_oregonstate_edu
+domain_id: 4526518
+hostname: support.roots.oregonstate.edu
+name: 'Roots IT Support'
+scheme: https
+weight: 20
+is_default: false
+path_prefix: ''

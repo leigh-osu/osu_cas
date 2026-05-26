@@ -1,0 +1,16 @@
+uuid: 87bd5609-5e41-4e78-9b7c-00f64b9da3aa
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: turf_golf_course
+label: turf_golf_course
+logic: and
+conditions:
+  ee844f70-a68d-40bb-8a56-4d80db0748c4:
+    id: request_path
+    negate: false
+    uuid: ee844f70-a68d-40bb-8a56-4d80db0748c4
+    pages: /node/77596
+allow_other_conditions: null

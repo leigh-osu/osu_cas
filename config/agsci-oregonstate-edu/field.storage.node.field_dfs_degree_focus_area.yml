@@ -1,0 +1,21 @@
+uuid: 6ed2d620-e1cb-4cb9-9bdd-458c10d5a3d4
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_dfs_degree_focus_area
+field_name: field_dfs_degree_focus_area
+entity_type: node
+type: list_string
+settings:
+  allowed_values: {  }
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

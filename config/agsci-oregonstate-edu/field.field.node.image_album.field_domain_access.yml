@@ -1,0 +1,30 @@
+uuid: 498d08e1-82c9-4a0b-be8b-002643bdc9f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_domain_access
+    - node.type.image_album
+  module:
+    - domain_access
+third_party_settings:
+  domain_access:
+    add_current_domain: true
+id: node.image_album.field_domain_access
+field_name: field_domain_access
+entity_type: node
+bundle: image_album
+label: 'Domain Access'
+description: 'Select the affiliate domain(s) for this content'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:domain'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: weight
+      direction: ASC
+field_type: entity_reference

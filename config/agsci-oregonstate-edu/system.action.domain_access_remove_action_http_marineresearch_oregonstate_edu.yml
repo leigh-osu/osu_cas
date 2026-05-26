@@ -1,0 +1,15 @@
+uuid: dea44462-aeac-43b1-9705-f53fa05c8449
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.http_marineresearch_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_http_marineresearch_oregonstate_edu
+label: 'Remove selected content from the Coastal Oregon Marine Experiment Station domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - http_marineresearch_oregonstate_edu

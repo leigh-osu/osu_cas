@@ -1,0 +1,20 @@
+uuid: b5927c23-4204-4109-be8b-1502a02e178f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_tax_crop
+field_name: field_tax_crop
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

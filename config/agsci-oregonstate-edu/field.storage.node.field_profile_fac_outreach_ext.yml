@@ -1,0 +1,19 @@
+uuid: 71c69859-fd7c-4186-927f-1d1a1b1dff25
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_profile_fac_outreach_ext
+field_name: field_profile_fac_outreach_ext
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

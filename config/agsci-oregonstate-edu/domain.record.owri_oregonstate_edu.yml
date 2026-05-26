@@ -1,0 +1,12 @@
+uuid: 99afa68d-aa84-405b-ba3d-1aba3660f1db
+langcode: en
+status: true
+dependencies: {  }
+id: owri_oregonstate_edu
+domain_id: 9566809
+hostname: owri.oregonstate.edu
+name: 'Oregon Wine Research Institute'
+scheme: https
+weight: 17
+is_default: false
+path_prefix: ''

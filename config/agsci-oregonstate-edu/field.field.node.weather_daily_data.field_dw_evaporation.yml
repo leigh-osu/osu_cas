@@ -1,0 +1,23 @@
+uuid: 3888ac09-81ce-40b5-a1f0-95fafc2e1d2c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dw_evaporation
+    - node.type.weather_daily_data
+id: node.weather_daily_data.field_dw_evaporation
+field_name: field_dw_evaporation
+entity_type: node
+bundle: weather_daily_data
+label: 'Evaporation (in)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

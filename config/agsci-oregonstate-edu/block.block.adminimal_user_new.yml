@@ -1,0 +1,25 @@
+uuid: 3be5eab2-698c-440c-ba87-2871a6085361
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.who_s_new
+  module:
+    - views
+  theme:
+    - claro
+id: adminimal_user_new
+theme: claro
+region: content
+weight: 2
+provider: null
+plugin: 'views_block:who_s_new-block_1'
+settings:
+  id: 'views_block:who_s_new-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: '5'
+  exposed: {  }
+visibility: {  }

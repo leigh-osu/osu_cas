@@ -1,0 +1,15 @@
+uuid: c82a0a99-56e8-44a3-acbe-c2b54f1006ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.ruralstudies_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_ruralstudies_oregonstate_edu
+label: 'Add editors to the Rural Studies Program domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - ruralstudies_oregonstate_edu

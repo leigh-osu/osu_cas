@@ -1,0 +1,9 @@
+uuid: 7385cc90-b3e7-4b48-a266-47afda1f3e6d
+langcode: en
+status: true
+dependencies: {  }
+name: 'Faculty Expertise'
+vid: faculty_expertise
+description: 'Areas of expertise'
+weight: 0
+new_revision: false

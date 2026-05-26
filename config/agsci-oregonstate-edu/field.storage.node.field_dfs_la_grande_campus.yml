@@ -1,0 +1,19 @@
+uuid: 5c9bc6d0-74a6-4b8c-9963-9f24dcb76f9b
+langcode: und
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_dfs_la_grande_campus
+field_name: field_dfs_la_grande_campus
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

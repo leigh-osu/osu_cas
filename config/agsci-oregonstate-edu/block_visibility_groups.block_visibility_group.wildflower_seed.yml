@@ -1,0 +1,16 @@
+uuid: d97c52e5-b409-478a-beee-1e7dd79a44b8
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: wildflower_seed
+label: wildflower_seed
+logic: and
+conditions:
+  895e086b-ef72-44bf-84cd-646cc81abb4d:
+    id: request_path
+    negate: false
+    uuid: 895e086b-ef72-44bf-84cd-646cc81abb4d
+    pages: "/malheur-experiment-station/crops/wildflower-seed-production\r\n/mes/crops/wildflower-seed-production\r\n/node/45321"
+allow_other_conditions: null

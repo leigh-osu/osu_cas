@@ -1,0 +1,16 @@
+uuid: bc358e43-45dc-4718-9b1d-2b1ed8f19b78
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: employee_directory_mem_type_undergrad_stud_last_first
+label: employee_directory_mem_type_undergrad_stud_last_first
+logic: and
+conditions:
+  d982b04e-c993-4ead-b106-f04174979e52:
+    id: request_path
+    negate: false
+    uuid: d982b04e-c993-4ead-b106-f04174979e52
+    pages: "/node/86566\r\n/node/107576"
+allow_other_conditions: null

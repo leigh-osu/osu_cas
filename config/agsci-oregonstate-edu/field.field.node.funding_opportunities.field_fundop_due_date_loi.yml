@@ -1,0 +1,21 @@
+uuid: b9281b6a-b1ae-49e9-895f-de892c572c15
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fundop_due_date_loi
+    - node.type.funding_opportunities
+  module:
+    - datetime
+id: node.funding_opportunities.field_fundop_due_date_loi
+field_name: field_fundop_due_date_loi
+entity_type: node
+bundle: funding_opportunities
+label: 'Due Date: Letter of Intent'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,8 @@
+uuid: 1f6d0cf9-bb03-4c30-b6bd-7b543fa7c899
+langcode: en
+status: true
+dependencies: {  }
+id: menu-og-87326
+label: 'Eastern Oregon Agricultural Research Center'
+description: 'OG Menu for Eastern Oregon Agricultural Research Center'
+locked: false

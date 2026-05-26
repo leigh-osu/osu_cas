@@ -1,0 +1,15 @@
+uuid: f2153b7e-c7dd-4b16-9061-8b4f093e429d
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.infews_org
+  module:
+    - domain_access
+id: domain_access_add_editor_action_infews_org
+label: 'Add editors to the Infews domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - infews_org

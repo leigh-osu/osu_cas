@@ -1,0 +1,15 @@
+uuid: 8a054ccf-3ab1-4371-862e-c998f9934a7e
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.www_cropinfo_net
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_www_cropinfo_net
+label: 'Remove editors from the Malheur Experiment Station domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - www_cropinfo_net

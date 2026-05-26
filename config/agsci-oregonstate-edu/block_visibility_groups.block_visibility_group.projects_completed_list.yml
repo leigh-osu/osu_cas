@@ -1,0 +1,16 @@
+uuid: b8c52709-88ec-4417-a5b2-ec61fe463333
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: projects_completed_list
+label: projects_completed_list
+logic: and
+conditions:
+  1e3e0dc6-1dfd-4bd4-93c4-b30f12ba3337:
+    id: request_path
+    negate: false
+    uuid: 1e3e0dc6-1dfd-4bd4-93c4-b30f12ba3337
+    pages: /node/79786
+allow_other_conditions: null

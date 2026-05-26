@@ -1,0 +1,17 @@
+uuid: c67a63ed-b17d-4668-9f55-73d672c3b656
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.basic_group
+    - node.type.150_species
+  module:
+    - gnode
+    - node
+id: group_content_type_17e330e62adf2
+group_type: basic_group
+content_plugin: 'group_node:150_species'
+plugin_config:
+  group_cardinality: 1
+  entity_cardinality: -1
+  use_creation_wizard: false

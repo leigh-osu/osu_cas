@@ -1,0 +1,15 @@
+uuid: e2cb360c-2735-45b2-9d17-44eba71cab15
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.foodsci_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_foodsci_oregonstate_edu
+label: 'Add selected content to the Food Science &amp; Technology domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - foodsci_oregonstate_edu

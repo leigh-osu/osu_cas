@@ -1,0 +1,21 @@
+uuid: 04cae157-7636-406b-8daf-0ff3b251559d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_fax
+    - node.type.osu_profile
+  module:
+    - telephone
+id: node.osu_profile.field_profile_fax
+field_name: field_profile_fax
+entity_type: node
+bundle: osu_profile
+label: 'Fax Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

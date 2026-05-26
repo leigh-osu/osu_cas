@@ -1,0 +1,15 @@
+uuid: 57f8beb9-d3dc-4e9e-9c02-b97bf47de43c
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.ruralstudies_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_ruralstudies_oregonstate_edu
+label: 'Remove selected content from the Rural Studies Program domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - ruralstudies_oregonstate_edu

@@ -1,0 +1,23 @@
+uuid: cbe5f899-e5d9-476b-86c7-28c54652a490
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfsg_cascades_campus
+    - node.type.degree_fact_sheet_graduate
+  module:
+    - link
+id: node.degree_fact_sheet_graduate.field_dfsg_cascades_campus
+field_name: field_dfsg_cascades_campus
+entity_type: node
+bundle: degree_fact_sheet_graduate
+label: 'Cascades Campus'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

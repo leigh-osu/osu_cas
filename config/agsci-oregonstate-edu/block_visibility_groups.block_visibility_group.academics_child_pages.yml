@@ -1,0 +1,16 @@
+uuid: 9c4aa962-f157-4d9c-8224-901e0e490cef
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: academics_child_pages
+label: academics-child-pages
+logic: and
+conditions:
+  464a625c-6181-4e3d-a034-43c944197881:
+    id: request_path
+    negate: false
+    uuid: 464a625c-6181-4e3d-a034-43c944197881
+    pages: "/academics/*\r\n/main/academics/*\r\n/academic-programs/*\r\n/education/*\r\n/education"
+allow_other_conditions: null

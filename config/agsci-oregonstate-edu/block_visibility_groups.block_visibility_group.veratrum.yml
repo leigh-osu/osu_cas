@@ -1,0 +1,16 @@
+uuid: ed7ac935-5dc2-4242-8327-a910645462bf
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: veratrum
+label: veratrum
+logic: and
+conditions:
+  f090122b-b92c-4fd2-9fe7-7124f91451df:
+    id: request_path
+    negate: false
+    uuid: f090122b-b92c-4fd2-9fe7-7124f91451df
+    pages: /node/112821
+allow_other_conditions: null

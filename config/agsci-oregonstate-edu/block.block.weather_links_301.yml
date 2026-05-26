@@ -1,0 +1,32 @@
+uuid: 70a3675d-b542-452e-a174-3c7e0ff2c014
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.weather_links
+  content:
+    - 'block_content:basic:0eaf10b5-cc70-4915-a7fc-468fa18ef825'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - madrone
+id: weather_links_301
+theme: madrone
+region: full_top
+weight: -10
+provider: null
+plugin: 'block_content:0eaf10b5-cc70-4915-a7fc-468fa18ef825'
+settings:
+  id: 'block_content:0eaf10b5-cc70-4915-a7fc-468fa18ef825'
+  label: ''
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: weather_links

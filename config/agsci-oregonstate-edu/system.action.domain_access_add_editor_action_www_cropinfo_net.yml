@@ -1,0 +1,15 @@
+uuid: 64bb4d97-3693-420f-b67b-12618227eedb
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.www_cropinfo_net
+  module:
+    - domain_access
+id: domain_access_add_editor_action_www_cropinfo_net
+label: 'Add editors to the Malheur Experiment Station domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - www_cropinfo_net

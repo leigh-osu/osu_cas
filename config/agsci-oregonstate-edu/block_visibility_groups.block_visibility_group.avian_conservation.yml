@@ -1,0 +1,16 @@
+uuid: cf2c7773-15b1-4e15-b3d5-28bb7461f18d
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: avian_conservation
+label: avian_conservation
+logic: and
+conditions:
+  5221e96c-b45b-4325-910e-17575aed2c54:
+    id: request_path
+    negate: false
+    uuid: 5221e96c-b45b-4325-910e-17575aed2c54
+    pages: /node/44698
+allow_other_conditions: null

@@ -1,0 +1,6 @@
+_core:
+  default_config_hash: QMKe5OA-rfQO0icsqDQq7ljUaO89hJq7ds1aUM58R2k
+base_urls: ''
+workflow: queue
+debug: 0
+invalidation_type: url

@@ -1,0 +1,12 @@
+uuid: 3570a5b3-9a54-4744-9a7c-ba5f1823fb54
+langcode: en
+status: false
+dependencies: {  }
+id: www_oregonbeeproject_org
+domain_id: 12012125
+hostname: www.oregonbeeproject.org
+name: 'Oregon Bee Project'
+scheme: https
+weight: 34
+is_default: false
+path_prefix: ''

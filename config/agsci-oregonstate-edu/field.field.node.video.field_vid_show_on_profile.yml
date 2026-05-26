@@ -1,0 +1,28 @@
+uuid: 12ba94b5-65b1-46ac-9b01-1c6a1ec89a24
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vid_show_on_profile
+    - node.type.video
+id: node.video.field_vid_show_on_profile
+field_name: field_vid_show_on_profile
+entity_type: node
+bundle: video
+label: 'Show on Profile'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    filter:
+      type: _none
+field_type: entity_reference

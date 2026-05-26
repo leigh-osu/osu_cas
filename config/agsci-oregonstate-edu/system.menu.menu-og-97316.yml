@@ -1,0 +1,8 @@
+uuid: 8d0f006f-cc7a-4839-9510-8a3602a8d817
+langcode: en
+status: true
+dependencies: {  }
+id: menu-og-97316
+label: 'Integrative Seed Biology'
+description: 'OG Menu for Integrative Seed Biology'
+locked: false

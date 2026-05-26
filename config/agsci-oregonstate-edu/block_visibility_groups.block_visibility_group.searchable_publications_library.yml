@@ -1,0 +1,21 @@
+uuid: fecd8a2e-c7a5-44e7-932f-0c6a63d2a14c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: searchable_publications_library
+label: searchable_publications-library
+logic: and
+conditions:
+  4a8c3589-9cfc-45b1-ada8-e4dbb22f169f:
+    id: request_path
+    negate: false
+    uuid: 4a8c3589-9cfc-45b1-ada8-e4dbb22f169f
+    pages: '/*/publications-database'
+  41058af7-738d-4827-9954-c846744d9037:
+    id: request_path
+    negate: true
+    uuid: 41058af7-738d-4827-9954-c846744d9037
+    pages: /node/99021
+allow_other_conditions: null

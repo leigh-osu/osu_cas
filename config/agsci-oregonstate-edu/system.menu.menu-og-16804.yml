@@ -1,0 +1,8 @@
+uuid: a7204ead-38c6-4e4a-8804-94bddbbe6cdc
+langcode: en
+status: true
+dependencies: {  }
+id: menu-og-16804
+label: 'Minorities in Agriculture, Natural Resources, and Related Sciences'
+description: 'OG Menu for Minorities in Agriculture, Natural Resources, and Related Sciences'
+locked: false

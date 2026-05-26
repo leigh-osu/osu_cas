@@ -1,0 +1,30 @@
+uuid: d5a968de-db37-4dff-8c1c-9622afc577a2
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:70b934e9-bdc3-4beb-9f09-42fd814d65ad'
+  module:
+    - block_content
+    - system
+  theme:
+    - bootstrap
+id: bootstrap_block_2
+theme: bootstrap
+region: ''
+weight: 0
+provider: null
+plugin: 'block_content:70b934e9-bdc3-4beb-9f09-42fd814d65ad'
+settings:
+  id: 'block_content:70b934e9-bdc3-4beb-9f09-42fd814d65ad'
+  label: 'CAS Google Calendar'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

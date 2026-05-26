@@ -1,0 +1,21 @@
+uuid: 8180e231-a544-476e-84ab-703569ad5578
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: main_menu
+label: main_menu
+logic: and
+conditions:
+  81aebbe8-4b66-4ef5-8843-45c0d45b71be:
+    id: request_path
+    negate: false
+    uuid: 81aebbe8-4b66-4ef5-8843-45c0d45b71be
+    pages: '/*'
+  c485e482-44aa-4de0-acdd-98e6bc623e68:
+    id: request_path
+    negate: true
+    uuid: c485e482-44aa-4de0-acdd-98e6bc623e68
+    pages: "/category/*\r\n/owri/topic/*\r\n/wheat-research\r\n/wheat-research/*\r\n/graduate-student-guide\r\n/graduate-student-guide/*\r\n/node/67796\r\n/apps\r\n/apps/*\r\n/art/gallery/*\r\n/oregon-vegetables/publications\r\n/node/166801"
+allow_other_conditions: null

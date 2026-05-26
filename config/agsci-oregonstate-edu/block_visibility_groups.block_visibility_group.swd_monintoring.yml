@@ -1,0 +1,16 @@
+uuid: dc0343e8-3f54-48fd-a417-50a7fa313120
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: swd_monintoring
+label: swd_monintoring
+logic: and
+conditions:
+  574511bf-b06a-455c-b1f9-fd154ff281bc:
+    id: request_path
+    negate: false
+    uuid: 574511bf-b06a-455c-b1f9-fd154ff281bc
+    pages: /node/80106
+allow_other_conditions: null

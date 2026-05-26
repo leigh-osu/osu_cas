@@ -1,0 +1,19 @@
+uuid: 2471ee6d-c2ee-40d9-87aa-fedad39085a0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: banner_image
+label: banner_image
+logic: and
+conditions:
+  1ec80171-4be1-45b8-8646-55dd81d0ae9d:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 1ec80171-4be1-45b8-8646-55dd81d0ae9d
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      plant_variety_release: plant_variety_release
+allow_other_conditions: null

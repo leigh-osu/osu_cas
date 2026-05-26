@@ -1,0 +1,8 @@
+uuid: da722f3f-04e4-40b5-8e59-09f470c1b985
+langcode: en
+status: true
+dependencies: {  }
+id: menu-spring-2023
+label: 'Spring 2023'
+description: 'Spring 2023 Issue of The Source eNewsletter'
+locked: false

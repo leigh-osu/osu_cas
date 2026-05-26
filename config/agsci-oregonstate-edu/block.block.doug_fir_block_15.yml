@@ -1,0 +1,25 @@
+uuid: 9bb74322-87dc-4239-9e4b-65b7427c6f5d
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:98ecf5b6-0627-407d-95c9-0976bd8262de'
+  module:
+    - block_content
+  theme:
+    - doug_fir
+id: doug_fir_block_15
+theme: doug_fir
+region: ''
+weight: 0
+provider: null
+plugin: 'block_content:98ecf5b6-0627-407d-95c9-0976bd8262de'
+settings:
+  id: 'block_content:98ecf5b6-0627-407d-95c9-0976bd8262de'
+  label: '<none>'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

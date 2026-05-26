@@ -1,0 +1,8 @@
+uuid: 2c2f4b1b-f096-4dfb-9838-8f4e30d7e965
+langcode: en
+status: true
+dependencies: {  }
+id: menu-og-99036
+label: 'Central Oregon Agricultural Research and Extension Center'
+description: 'OG Menu for Central Oregon Agricultural Research and Extension Center'
+locked: false

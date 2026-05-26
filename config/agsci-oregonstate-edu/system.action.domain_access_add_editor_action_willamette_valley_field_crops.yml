@@ -1,0 +1,15 @@
+uuid: 2e674e0b-fefa-42ea-a1f9-d83f5d10784a
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.willamette_valley_field_crops
+  module:
+    - domain_access
+id: domain_access_add_editor_action_willamette_valley_field_crops
+label: 'Add editors to the Willamette Valley Field Crops domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - willamette_valley_field_crops

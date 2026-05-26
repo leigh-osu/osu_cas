@@ -1,0 +1,16 @@
+uuid: c2ad7de8-f5e4-426f-bf08-fcaf49f8452b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: quinoa
+label: quinoa
+logic: and
+conditions:
+  6c7d4b0e-09a2-4d50-97fd-928c1f032cb1:
+    id: request_path
+    negate: false
+    uuid: 6c7d4b0e-09a2-4d50-97fd-928c1f032cb1
+    pages: /node/112771
+allow_other_conditions: null

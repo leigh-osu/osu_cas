@@ -1,0 +1,48 @@
+uuid: 44829a86-dd1d-41b0-a897-2b2ad6c61999
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - osu_migrations
+      - paragraphs_to_layout_builder
+_core:
+  default_config_hash: k4cxfAVVDoVeFs9ooZs6j_2HZhyFCMQZ5bX5R31jx1s
+id: paragraph_lp_vertical_tabs__to__layout_builder
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - 'Layout content'
+  - 'OSU Paragraphs'
+  - OSU
+  - 'CAS Paragraphs'
+  - CAS
+migration_group: paragraphs_to_layout_builder
+label: 'Drupal 7 lp_vertical_tabs Paragraphs'
+source:
+  plugin: osu_d7_paragraphs_item
+  bundle: lp_vertical_tabs
+  key: migrate
+process:
+  type:
+    plugin: default_value
+    default_value: osu_accordion
+  field_osu_paragraph_item:
+    plugin: cas_vertical_tabs_item
+    source:
+      - field_lp_vertical_tabset
+  info:
+    plugin: default_value
+    default_value: 'Migrated d7 paragraph lp_vertical_tabs'
+  reusable:
+    plugin: default_value
+    default_value: 0
+destination:
+  plugin: 'entity:block_content'
+migration_dependencies:
+  required: {  }
+  optional: {  }

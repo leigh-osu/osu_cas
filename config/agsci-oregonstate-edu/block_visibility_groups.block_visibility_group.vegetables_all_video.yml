@@ -1,0 +1,16 @@
+uuid: 8265ddf1-c2d9-4358-b0ad-e6ee6ea6ea09
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: vegetables_all_video
+label: vegetables_all_video
+logic: and
+conditions:
+  9cb41229-ac6b-4b6b-9d42-cf556c629c95:
+    id: request_path
+    negate: false
+    uuid: 9cb41229-ac6b-4b6b-9d42-cf556c629c95
+    pages: /node/80271
+allow_other_conditions: null

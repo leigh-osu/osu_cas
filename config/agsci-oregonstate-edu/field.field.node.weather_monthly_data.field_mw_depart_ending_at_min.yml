@@ -1,0 +1,23 @@
+uuid: 5e524c7b-2de6-4805-a05b-ad245a06b740
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mw_depart_ending_at_min
+    - node.type.weather_monthly_data
+id: node.weather_monthly_data.field_mw_depart_ending_at_min
+field_name: field_mw_depart_ending_at_min
+entity_type: node
+bundle: weather_monthly_data
+label: 'Air Temp Departure: Ending at Observaton Min'
+description: 'monthly departure from the normal. Air Temperature: 24 hours Ending at Observation Min'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

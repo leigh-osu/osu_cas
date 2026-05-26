@@ -1,0 +1,15 @@
+uuid: c7d15363-a032-4ef2-904c-80eed579d00c
+langcode: en
+status: true
+dependencies: {  }
+name: 800_wide_scale_profile_image
+label: '800 Wide Scale Profile Image'
+effects:
+  3918dc38-5627-463a-9a39-a494f6f389e2:
+    uuid: 3918dc38-5627-463a-9a39-a494f6f389e2
+    id: image_scale
+    weight: 1
+    data:
+      width: 800
+      height: null
+      upscale: false

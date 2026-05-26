@@ -1,0 +1,8 @@
+uuid: 650d6bc4-e969-4ca8-813b-21bb71c71953
+langcode: en
+status: true
+dependencies: {  }
+id: menu-og-250631
+label: 'Traditional Ecological Knowledge (TEK)'
+description: 'OG Menu for Traditional Ecological Knowledge (TEK)'
+locked: false

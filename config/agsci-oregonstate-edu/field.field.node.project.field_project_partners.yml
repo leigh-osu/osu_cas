@@ -1,0 +1,26 @@
+uuid: 51470c6d-46db-48df-85cd-84fcf8a1e0e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_project_partners
+    - filter.format.basic_html
+    - filter.format.full_html
+    - node.type.project
+  module:
+    - text
+id: node.project.field_project_partners
+field_name: field_project_partners
+entity_type: node
+bundle: project
+label: Partners
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+    - basic_html
+field_type: text_long

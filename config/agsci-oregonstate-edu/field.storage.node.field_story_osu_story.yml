@@ -1,0 +1,18 @@
+uuid: 74986155-f87a-4d72-af2e-2e18d1cc2209
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_story_osu_story
+field_name: field_story_osu_story
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,16 @@
+uuid: 2e7dd247-e793-497c-860e-7cfb78b14bf4
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: oaeb_landing
+label: oaeb_landing
+logic: and
+conditions:
+  2679406b-bb94-4a09-83c3-b6900a9acba7:
+    id: request_path
+    negate: false
+    uuid: 2679406b-bb94-4a09-83c3-b6900a9acba7
+    pages: /node/54536
+allow_other_conditions: null

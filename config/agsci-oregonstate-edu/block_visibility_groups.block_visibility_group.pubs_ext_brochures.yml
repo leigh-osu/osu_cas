@@ -1,0 +1,16 @@
+uuid: bc389dd5-1b27-4fb2-8102-7718a591fa7b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: pubs_ext_brochures
+label: pubs_ext_brochures
+logic: and
+conditions:
+  ea123678-05fb-4786-a0c6-4c7f4d63a2e5:
+    id: request_path
+    negate: false
+    uuid: ea123678-05fb-4786-a0c6-4c7f4d63a2e5
+    pages: /node/45391
+allow_other_conditions: null

@@ -1,0 +1,12 @@
+uuid: 1cdb1689-df2e-48c1-b509-161dbf212fce
+langcode: en
+status: false
+dependencies: {  }
+id: www_cropinfo_net
+domain_id: 357615
+hostname: www.cropinfo.net
+name: 'Malheur Experiment Station'
+scheme: https
+weight: 39
+is_default: false
+path_prefix: ''

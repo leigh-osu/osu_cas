@@ -1,0 +1,12 @@
+uuid: 345111d5-30df-4497-abd3-5b5be7e38518
+langcode: en
+status: false
+dependencies: {  }
+id: mintgenome_org
+domain_id: 6616904
+hostname: mintgenome.org
+name: 'Mint Genome'
+scheme: https
+weight: 40
+is_default: false
+path_prefix: ''

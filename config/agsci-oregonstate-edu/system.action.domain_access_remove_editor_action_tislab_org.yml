@@ -1,0 +1,15 @@
+uuid: 9ba164b6-db4d-42f9-be1a-23c765132ce9
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.tislab_org
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_tislab_org
+label: 'Remove editors from the Translational and Integrative Science Center domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - tislab_org

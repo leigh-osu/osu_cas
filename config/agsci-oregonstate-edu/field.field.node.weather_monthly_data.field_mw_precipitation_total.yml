@@ -1,0 +1,23 @@
+uuid: 23b94eae-4efb-44f9-a5d1-9937d1a68467
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mw_precipitation_total
+    - node.type.weather_monthly_data
+id: node.weather_monthly_data.field_mw_precipitation_total
+field_name: field_mw_precipitation_total
+entity_type: node
+bundle: weather_monthly_data
+label: 'Precipitation Total'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

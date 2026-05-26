@@ -1,0 +1,17 @@
+uuid: bafa50f0-9481-4e6e-b162-492e49a71698
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.basic_group
+    - node.type.weather_monthly_data
+  module:
+    - gnode
+    - node
+id: group_content_type_f85244078f7d2
+group_type: basic_group
+content_plugin: 'group_node:weather_monthly_data'
+plugin_config:
+  group_cardinality: 1
+  entity_cardinality: -1
+  use_creation_wizard: false

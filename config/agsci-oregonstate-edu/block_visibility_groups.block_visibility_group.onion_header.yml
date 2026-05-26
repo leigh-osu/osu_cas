@@ -1,0 +1,16 @@
+uuid: 253ccad9-6187-4906-948a-c8c59b068a00
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: onion_header
+label: onion_header
+logic: and
+conditions:
+  859b243f-a715-4984-9227-f55b7f56099e:
+    id: request_path
+    negate: false
+    uuid: 859b243f-a715-4984-9227-f55b7f56099e
+    pages: "/mes/sustainable/onion/*\r\n/mes/sustainable-onion-production/*"
+allow_other_conditions: null

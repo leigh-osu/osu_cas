@@ -1,0 +1,23 @@
+uuid: 5401fc95-2a08-4631-9fb9-9c13db84b11b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mw_gdd_monthly_total
+    - node.type.weather_monthly_data
+id: node.weather_monthly_data.field_mw_gdd_monthly_total
+field_name: field_mw_gdd_monthly_total
+entity_type: node
+bundle: weather_monthly_data
+label: 'GDD: Monthly Total'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

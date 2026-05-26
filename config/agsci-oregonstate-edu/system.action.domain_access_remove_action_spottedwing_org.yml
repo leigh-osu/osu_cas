@@ -1,0 +1,15 @@
+uuid: cb4d4e85-c26d-4222-ae19-26a5bbe3b5ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.spottedwing_org
+  module:
+    - domain_access
+id: domain_access_remove_action_spottedwing_org
+label: 'Remove selected content from the Spotted Wing Drosophila domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - spottedwing_org

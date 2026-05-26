@@ -1,0 +1,89 @@
+uuid: 774b527a-cd3b-4e00-ad2e-11cbff24f7c5
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: h60XURcJKMNAz95xe27AlKt1--jZRInFlSdxkHgKuvU
+id: cas_150_species_to_150_species
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - 'Layout content'
+  - OSU
+  - CAS
+  - 'CAS Content'
+migration_group: content
+label: 'Basic 150 Species Content Migration'
+source:
+  plugin: d7_node_domain_access
+  node_type: 150_species
+  high_water_property:
+    name: changed
+process:
+  title: title
+  body:
+    plugin: sub_process
+    source: body
+    process:
+      value:
+        plugin: osu_media_wysiwyg_filter
+        source: value
+      summary: summary
+      format:
+        plugin: default_value
+        default_value: full_html
+  field_150_species_photo:
+    plugin: sub_process
+    source: field_species_photo
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration: upgrade_d7_files
+        source: fid
+      alt: alt
+      title: title
+      width: width
+      height: height
+  field_150_species_type:
+    plugin: sub_process
+    source: field_species_type
+    process:
+      target_id: tid
+  field_meta_tags:
+    plugin: d7_metatag_entities
+    source: pseudo_metatag_entities
+  path/pathauto:
+    plugin: default_value
+    default_value: 0
+  type:
+    plugin: default_value
+    default_value: 150_species
+  field_domain_access:
+    plugin: sub_process
+    source: domain_access_node
+    process:
+      target_id: target_id
+  field_domain_all_affiliates:
+    plugin: get
+    source: domain_all_affiliates
+  field_domain_source:
+    plugin: get
+    source: domain_source
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+destination:
+  plugin: 'entity:node'
+  default_bundle: 150_species
+migration_dependencies:
+  required:
+    - upgrade_d7_files
+    - upgrade_d7_users_with_roles
+    - upgrade_d7_taxonomy_term_150_species

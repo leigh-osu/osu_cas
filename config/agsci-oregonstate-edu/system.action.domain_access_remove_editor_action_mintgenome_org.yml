@@ -1,0 +1,15 @@
+uuid: 74a97f2b-0564-43c7-bd40-e31b1bd0ed99
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.mintgenome_org
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_mintgenome_org
+label: 'Remove editors from the Mint Genome domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - mintgenome_org

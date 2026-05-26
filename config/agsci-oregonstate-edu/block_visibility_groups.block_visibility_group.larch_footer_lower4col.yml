@@ -1,0 +1,16 @@
+uuid: f2e8d41e-054a-424d-a3c5-a7aab8869702
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: larch_footer_lower4col
+label: larch_footer_lower4col
+logic: and
+conditions:
+  19e60656-92a0-4d83-a985-cc715d09b876:
+    id: request_path
+    negate: false
+    uuid: 19e60656-92a0-4d83-a985-cc715d09b876
+    pages: "/big-fish\r\n/big-fish/*\r\n/chapple-lab\r\n/chapple-lab/*\r\n/seabird-oceanography\r\n/seabird-oceanography/*\r\n/sulikowskilab\r\n/sulikowskilab/*\r\n/wvbs\r\n/wvbs/*"
+allow_other_conditions: null

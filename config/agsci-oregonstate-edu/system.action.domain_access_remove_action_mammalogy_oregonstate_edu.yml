@@ -1,0 +1,15 @@
+uuid: 6953e5c3-da69-469f-8755-83b7a64a7339
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.mammalogy_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_mammalogy_oregonstate_edu
+label: 'Remove selected content from the Mammalogy domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - mammalogy_oregonstate_edu

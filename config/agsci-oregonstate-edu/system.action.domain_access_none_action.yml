@@ -1,0 +1,13 @@
+uuid: 6b381df5-d44c-4ec0-9433-1ef9d8fd9601
+langcode: en
+status: true
+dependencies:
+  module:
+    - domain_access
+_core:
+  default_config_hash: xySFUYYaxq0BLj0-eAesthacXbTWPDJhR-SnqNhvhSg
+id: domain_access_none_action
+label: 'Remove content from all affiliates'
+type: node
+plugin: domain_access_none_action
+configuration: {  }

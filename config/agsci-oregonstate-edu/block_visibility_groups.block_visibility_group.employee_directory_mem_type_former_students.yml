@@ -1,0 +1,16 @@
+uuid: a068d592-4e14-4bd8-83ef-8c86e66f1981
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: employee_directory_mem_type_former_students
+label: employee_directory_mem_type_former_students
+logic: and
+conditions:
+  0c22a72e-6cdf-4e55-a16a-1654abd68ac8:
+    id: request_path
+    negate: false
+    uuid: 0c22a72e-6cdf-4e55-a16a-1654abd68ac8
+    pages: /node/86366
+allow_other_conditions: null

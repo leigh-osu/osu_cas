@@ -1,0 +1,15 @@
+uuid: e9954d2f-2ff8-42f7-9c6b-057ab9499dca
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.www_oregonbeeproject_org
+  module:
+    - domain_access
+id: domain_access_add_action_www_oregonbeeproject_org
+label: 'Add selected content to the Oregon Bee Project domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - www_oregonbeeproject_org

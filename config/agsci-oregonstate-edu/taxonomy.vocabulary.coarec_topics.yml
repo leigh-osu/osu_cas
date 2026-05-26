@@ -1,0 +1,9 @@
+uuid: 653a19a7-7c9b-430f-8bca-26eb0987d855
+langcode: en
+status: true
+dependencies: {  }
+name: 'COAREC Topics'
+vid: coarec_topics
+description: null
+weight: 0
+new_revision: false

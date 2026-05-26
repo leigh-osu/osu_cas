@@ -1,0 +1,15 @@
+uuid: 113dcae5-28ac-423d-8b39-dd9b8b787055
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.bpp_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_bpp_oregonstate_edu
+label: 'Remove editors from the Botany &amp; Plant Pathology domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - bpp_oregonstate_edu

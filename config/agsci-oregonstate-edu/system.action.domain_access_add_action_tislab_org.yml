@@ -1,0 +1,15 @@
+uuid: 556f2ec9-ba3c-4120-bb33-a8b414fdc69c
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.tislab_org
+  module:
+    - domain_access
+id: domain_access_add_action_tislab_org
+label: 'Add selected content to the Translational and Integrative Science Center domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - tislab_org

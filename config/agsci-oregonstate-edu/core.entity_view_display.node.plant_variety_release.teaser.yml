@@ -1,0 +1,105 @@
+uuid: d48d752f-b4a9-4d81-b8eb-364070bd361d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.plant_variety_release.body
+    - field.field.node.plant_variety_release.field_pvr_banner_picture
+    - field.field.node.plant_variety_release.field_pvr_benefits
+    - field.field.node.plant_variety_release.field_pvr_characteristics
+    - field.field.node.plant_variety_release.field_pvr_contact_for_breeder
+    - field.field.node.plant_variety_release.field_pvr_date_of_pvp
+    - field.field.node.plant_variety_release.field_pvr_date_of_release
+    - field.field.node.plant_variety_release.field_pvr_disease_resistance
+    - field.field.node.plant_variety_release.field_pvr_genus
+    - field.field.node.plant_variety_release.field_pvr_hops_alpha_acids
+    - field.field.node.plant_variety_release.field_pvr_hops_availability
+    - field.field.node.plant_variety_release.field_pvr_hops_beta_acids
+    - field.field.node.plant_variety_release.field_pvr_hops_cohumulone
+    - field.field.node.plant_variety_release.field_pvr_hops_date_received
+    - field.field.node.plant_variety_release.field_pvr_hops_leaf_color
+    - field.field.node.plant_variety_release.field_pvr_hops_maturity
+    - field.field.node.plant_variety_release.field_pvr_hops_method_received
+    - field.field.node.plant_variety_release.field_pvr_hops_oil
+    - field.field.node.plant_variety_release.field_pvr_hops_origin
+    - field.field.node.plant_variety_release.field_pvr_hops_primary_site
+    - field.field.node.plant_variety_release.field_pvr_hops_references
+    - field.field.node.plant_variety_release.field_pvr_hops_selection
+    - field.field.node.plant_variety_release.field_pvr_hops_sex
+    - field.field.node.plant_variety_release.field_pvr_hops_sidearm_length
+    - field.field.node.plant_variety_release.field_pvr_hops_storage_stability
+    - field.field.node.plant_variety_release.field_pvr_hops_usda_acc
+    - field.field.node.plant_variety_release.field_pvr_hops_vigor
+    - field.field.node.plant_variety_release.field_pvr_image
+    - field.field.node.plant_variety_release.field_pvr_major_traits
+    - field.field.node.plant_variety_release.field_pvr_other_information
+    - field.field.node.plant_variety_release.field_pvr_pedigree
+    - field.field.node.plant_variety_release.field_pvr_quality
+    - field.field.node.plant_variety_release.field_pvr_region
+    - field.field.node.plant_variety_release.field_pvr_species
+    - field.field.node.plant_variety_release.field_pvr_summary
+    - field.field.node.plant_variety_release.field_pvr_yield
+    - field.field.node.plant_variety_release.field_tax_classification
+    - node.type.plant_variety_release
+  module:
+    - text
+    - user
+id: node.plant_variety_release.teaser
+targetEntityType: node
+bundle: plant_variety_release
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entitygroupfield: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_pvr_banner_picture: true
+  field_pvr_benefits: true
+  field_pvr_characteristics: true
+  field_pvr_contact_for_breeder: true
+  field_pvr_date_of_pvp: true
+  field_pvr_date_of_release: true
+  field_pvr_disease_resistance: true
+  field_pvr_genus: true
+  field_pvr_hops_alpha_acids: true
+  field_pvr_hops_availability: true
+  field_pvr_hops_beta_acids: true
+  field_pvr_hops_cohumulone: true
+  field_pvr_hops_date_received: true
+  field_pvr_hops_leaf_color: true
+  field_pvr_hops_maturity: true
+  field_pvr_hops_method_received: true
+  field_pvr_hops_oil: true
+  field_pvr_hops_origin: true
+  field_pvr_hops_primary_site: true
+  field_pvr_hops_references: true
+  field_pvr_hops_selection: true
+  field_pvr_hops_sex: true
+  field_pvr_hops_sidearm_length: true
+  field_pvr_hops_storage_stability: true
+  field_pvr_hops_usda_acc: true
+  field_pvr_hops_vigor: true
+  field_pvr_image: true
+  field_pvr_major_traits: true
+  field_pvr_other_information: true
+  field_pvr_pedigree: true
+  field_pvr_quality: true
+  field_pvr_region: true
+  field_pvr_species: true
+  field_pvr_summary: true
+  field_pvr_yield: true
+  field_tax_classification: true

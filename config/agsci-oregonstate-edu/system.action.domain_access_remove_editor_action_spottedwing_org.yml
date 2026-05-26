@@ -1,0 +1,15 @@
+uuid: adfc8cc6-85e5-442e-bc3f-08b4915c502d
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.spottedwing_org
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_spottedwing_org
+label: 'Remove editors from the Spotted Wing Drosophila domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - spottedwing_org

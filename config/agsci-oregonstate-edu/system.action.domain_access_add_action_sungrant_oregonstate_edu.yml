@@ -1,0 +1,15 @@
+uuid: 53878c08-568f-41d7-bfab-835bcd9af860
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.sungrant_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_sungrant_oregonstate_edu
+label: 'Add selected content to the Sungrant domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - sungrant_oregonstate_edu

@@ -1,0 +1,16 @@
+uuid: bfafb0f7-c62a-4ba2-a22d-acfc7285f9ce
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: employee_directory_mem_type_courtesy_fw_subgroup
+label: employee_directory_mem_type_courtesy_fw_subgroup
+logic: and
+conditions:
+  76d03388-2c80-4afa-b55d-e9d9e7b7636e:
+    id: request_path
+    negate: false
+    uuid: 76d03388-2c80-4afa-b55d-e9d9e7b7636e
+    pages: /node/114391
+allow_other_conditions: null

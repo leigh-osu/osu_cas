@@ -1,0 +1,16 @@
+uuid: 39d1b875-c56a-4529-b500-986b79e8557f
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: the_source_2025_june
+label: the_source_2025_june
+logic: and
+conditions:
+  3ea42d53-e1db-4dfa-a179-71cb329a0a31:
+    id: request_path
+    negate: false
+    uuid: 3ea42d53-e1db-4dfa-a179-71cb329a0a31
+    pages: "/thesource/june-2025\r\n/thesource/june-2025*"
+allow_other_conditions: null

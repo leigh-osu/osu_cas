@@ -1,0 +1,16 @@
+uuid: 86f31f30-6270-496d-8870-f25dd5692f7c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: harec_landing_page
+label: harec_landing_page
+logic: and
+conditions:
+  64ad380c-d874-4c67-813f-37fc9c074d8c:
+    id: request_path
+    negate: false
+    uuid: 64ad380c-d874-4c67-813f-37fc9c074d8c
+    pages: "/harec\r\n/node/109791"
+allow_other_conditions: null

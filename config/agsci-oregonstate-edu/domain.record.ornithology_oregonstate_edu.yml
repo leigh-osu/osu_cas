@@ -1,0 +1,12 @@
+uuid: 6d5db43b-86a8-47fc-bc11-a10d18badb9a
+langcode: en
+status: false
+dependencies: {  }
+id: ornithology_oregonstate_edu
+domain_id: 3055606
+hostname: ornithology.oregonstate.edu
+name: Ornithology
+scheme: https
+weight: 29
+is_default: false
+path_prefix: ''

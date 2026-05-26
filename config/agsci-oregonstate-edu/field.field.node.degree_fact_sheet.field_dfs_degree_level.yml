@@ -1,0 +1,21 @@
+uuid: 5842caf5-fbab-4173-b1d1-12d24e62284b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfs_degree_level
+    - node.type.degree_fact_sheet
+  module:
+    - options
+id: node.degree_fact_sheet.field_dfs_degree_level
+field_name: field_dfs_degree_level
+entity_type: node
+bundle: degree_fact_sheet
+label: 'Degree Level'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

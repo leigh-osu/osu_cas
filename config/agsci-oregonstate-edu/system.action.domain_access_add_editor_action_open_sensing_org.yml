@@ -1,0 +1,15 @@
+uuid: 3c73dc8e-422b-48e7-86ce-d3f66579aa9d
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.open_sensing_org
+  module:
+    - domain_access
+id: domain_access_add_editor_action_open_sensing_org
+label: 'Add editors to the Open Sensing Lab domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - open_sensing_org

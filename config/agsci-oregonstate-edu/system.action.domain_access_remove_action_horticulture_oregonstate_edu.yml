@@ -1,0 +1,15 @@
+uuid: b563878b-b3c8-41c6-8cf0-eb9e317c81f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.horticulture_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_horticulture_oregonstate_edu
+label: 'Remove selected content from the Horticulture domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - horticulture_oregonstate_edu

@@ -1,0 +1,16 @@
+uuid: c8691cca-1157-4bf7-a3d5-0c39251bee4a
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: articles_topic
+label: articles_topic
+logic: and
+conditions:
+  293b8865-2335-4818-b846-34d88d6d0ceb:
+    id: request_path
+    negate: false
+    uuid: 293b8865-2335-4818-b846-34d88d6d0ceb
+    pages: /node/38026
+allow_other_conditions: null

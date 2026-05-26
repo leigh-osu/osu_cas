@@ -1,0 +1,17 @@
+uuid: 882aaccc-b079-424e-a90d-6081bdc3e0d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.basic_group
+    - node.type.enterprise_budgets
+  module:
+    - gnode
+    - node
+id: group_content_type_a036cc3ae4fdf
+group_type: basic_group
+content_plugin: 'group_node:enterprise_budgets'
+plugin_config:
+  group_cardinality: 1
+  entity_cardinality: -1
+  use_creation_wizard: false

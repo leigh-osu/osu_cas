@@ -1,0 +1,19 @@
+uuid: f5536f29-fa20-45dc-a7fd-da882bd4b1b0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_profile_fac_career_int
+field_name: field_profile_fac_career_int
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

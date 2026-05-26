@@ -1,0 +1,19 @@
+uuid: 1d1ac469-0c96-4550-8a5b-e51ea8705c26
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_pvr_characteristics
+field_name: field_pvr_characteristics
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

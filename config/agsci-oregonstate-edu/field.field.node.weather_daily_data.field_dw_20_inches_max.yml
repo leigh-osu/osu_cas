@@ -1,0 +1,23 @@
+uuid: 2137bc43-d17b-47a4-99e4-824e145c7744
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dw_20_inches_max
+    - node.type.weather_daily_data
+id: node.weather_daily_data.field_dw_20_inches_max
+field_name: field_dw_20_inches_max
+entity_type: node
+bundle: weather_daily_data
+label: '20 inches Max'
+description: 'Soil Temperature'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,15 @@
+uuid: ff1e889b-f8fa-47bf-acea-ba2c832df633
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.sungrant_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_sungrant_oregonstate_edu
+label: 'Remove selected content from the Sungrant domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - sungrant_oregonstate_edu

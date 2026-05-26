@@ -1,0 +1,15 @@
+uuid: 22932b5d-75ce-4dde-8de6-259945aac4fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.foodsci_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_foodsci_oregonstate_edu
+label: 'Add editors to the Food Science &amp; Technology domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - foodsci_oregonstate_edu

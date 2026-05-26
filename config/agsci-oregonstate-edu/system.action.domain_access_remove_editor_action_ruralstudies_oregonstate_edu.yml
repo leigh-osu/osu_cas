@@ -1,0 +1,15 @@
+uuid: 782026a5-9dc8-4e3c-8764-21ca23f4fffe
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.ruralstudies_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_ruralstudies_oregonstate_edu
+label: 'Remove editors from the Rural Studies Program domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - ruralstudies_oregonstate_edu

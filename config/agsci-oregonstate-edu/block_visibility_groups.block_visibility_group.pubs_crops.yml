@@ -1,0 +1,16 @@
+uuid: 69737b31-09d2-48b7-80fc-43a95979dd92
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: pubs_crops
+label: pubs_crops
+logic: and
+conditions:
+  5fea7d0f-a032-43f5-92e6-0d1da99378c3:
+    id: request_path
+    negate: false
+    uuid: 5fea7d0f-a032-43f5-92e6-0d1da99378c3
+    pages: /node/45396
+allow_other_conditions: null

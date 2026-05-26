@@ -1,0 +1,16 @@
+uuid: 5d8508a6-0d99-47d4-8c9c-75f8913dc02d
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: the_source_2023_summer
+label: the_source_2023_summer
+logic: and
+conditions:
+  dea433ea-3d06-4cd9-9571-187b87f8d45a:
+    id: request_path
+    negate: false
+    uuid: dea433ea-3d06-4cd9-9571-187b87f8d45a
+    pages: "/thesource/summer-2023*\r\n/thesource/summer-2023"
+allow_other_conditions: null

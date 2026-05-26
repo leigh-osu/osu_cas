@@ -1,0 +1,8 @@
+uuid: ef1aef16-86ef-48e3-989e-f27daedbca73
+langcode: en
+status: true
+dependencies: {  }
+id: menu-academic-programs-test
+label: 'Academic Programs Test'
+description: ''
+locked: false

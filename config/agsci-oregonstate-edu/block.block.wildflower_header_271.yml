@@ -1,0 +1,32 @@
+uuid: 686406a8-a3bb-4bab-8778-df89701189b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.wildflower_header
+  content:
+    - 'block_content:basic:e93207b4-d2ed-43f4-97a4-933cba33eefe'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - madrone
+id: wildflower_header_271
+theme: madrone
+region: content
+weight: -10
+provider: null
+plugin: 'block_content:e93207b4-d2ed-43f4-97a4-933cba33eefe'
+settings:
+  id: 'block_content:e93207b4-d2ed-43f4-97a4-933cba33eefe'
+  label: ''
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: wildflower_header

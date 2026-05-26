@@ -1,0 +1,23 @@
+uuid: cbf20501-22e3-428e-b203-89b9c0c3b92e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfs_osu_catalog
+    - node.type.degree_fact_sheet
+  module:
+    - link
+id: node.degree_fact_sheet.field_dfs_osu_catalog
+field_name: field_dfs_osu_catalog
+entity_type: node
+bundle: degree_fact_sheet
+label: 'OSU Catalog'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

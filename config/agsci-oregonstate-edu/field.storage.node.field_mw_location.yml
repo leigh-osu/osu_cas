@@ -1,0 +1,27 @@
+uuid: b968806b-1bb7-4d71-a4fb-16457f224565
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_mw_location
+field_name: field_mw_location
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: hyslop
+      label: 'Hyslop Farm'
+    -
+      value: malheur
+      label: 'Malheur Experiment Station'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

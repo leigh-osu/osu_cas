@@ -1,0 +1,8 @@
+uuid: e98a1a7e-7483-4d60-9971-0f618cb817e0
+langcode: en
+status: true
+dependencies: {  }
+id: menu-cas-audience-menu
+label: 'CAS Audience Menu'
+description: 'To be used in the Main CAS site'
+locked: false

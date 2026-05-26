@@ -1,0 +1,31 @@
+uuid: 47af260f-01cf-4e0f-a27b-9d3641813d06
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.the_source_2025_june
+    - system.menu.menu-june-2025
+  module:
+    - block_visibility_groups
+    - system
+  theme:
+    - madrone
+id: the_source_2025_june_menu_june_2025
+theme: madrone
+region: sidebar
+weight: 3
+provider: null
+plugin: 'system_menu_block:menu-june-2025'
+settings:
+  id: 'system_menu_block:menu-june-2025'
+  label: 'June 2025'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: the_source_2025_june

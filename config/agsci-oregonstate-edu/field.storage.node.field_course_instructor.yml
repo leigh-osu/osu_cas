@@ -1,0 +1,20 @@
+uuid: aaa1653e-a914-48d0-8554-eca201128a62
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - user
+id: node.field_course_instructor
+field_name: field_course_instructor
+entity_type: node
+type: entity_reference
+settings:
+  target_type: user
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

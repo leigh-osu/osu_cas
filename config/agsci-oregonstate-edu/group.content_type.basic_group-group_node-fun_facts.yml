@@ -1,0 +1,17 @@
+uuid: 65ece034-bb66-4675-919d-f8b30a61b1e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.basic_group
+    - node.type.fun_facts
+  module:
+    - gnode
+    - node
+id: basic_group-group_node-fun_facts
+group_type: basic_group
+content_plugin: 'group_node:fun_facts'
+plugin_config:
+  group_cardinality: 1
+  entity_cardinality: -1
+  use_creation_wizard: false

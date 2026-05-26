@@ -1,0 +1,15 @@
+uuid: 9bb4a052-73ec-4c7d-a584-1fb57818fb65
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.support_roots_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_support_roots_oregonstate_edu
+label: 'Remove editors from the Roots IT Support domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - support_roots_oregonstate_edu

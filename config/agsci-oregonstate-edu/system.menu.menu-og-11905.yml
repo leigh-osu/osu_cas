@@ -1,0 +1,8 @@
+uuid: 31766358-2234-4523-8cff-a248f5495889
+langcode: en
+status: true
+dependencies: {  }
+id: menu-og-11905
+label: 'Academic Programs'
+description: 'OG Menu for Academic Programs'
+locked: false

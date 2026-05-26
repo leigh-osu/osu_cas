@@ -1,0 +1,21 @@
+uuid: c3ff5c32-4115-4435-b8fc-997caff8ee42
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+id: group.field_group_location_address
+field_name: field_group_location_address
+entity_type: group
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

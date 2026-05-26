@@ -1,0 +1,16 @@
+uuid: 245085a6-3fff-4b3f-a93e-a75812a4201f
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: popar_trees
+label: popar_trees
+logic: and
+conditions:
+  f4ba3f45-8a44-4e0f-9dc4-a421a62f2989:
+    id: request_path
+    negate: false
+    uuid: f4ba3f45-8a44-4e0f-9dc4-a421a62f2989
+    pages: "/mes/crops/poplar-trees\r\n/node/45316"
+allow_other_conditions: null

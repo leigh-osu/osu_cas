@@ -1,0 +1,12 @@
+uuid: a7ee93a6-bf0e-4ee4-b2c5-a332d028d3d5
+langcode: en
+status: true
+dependencies: {  }
+id: infews_org
+domain_id: 14272681
+hostname: infews.org
+name: Infews
+scheme: https
+weight: 15
+is_default: false
+path_prefix: ''

@@ -1,0 +1,16 @@
+uuid: d8b0eae7-5428-4260-8674-88183ed61768
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: dry_beans
+label: dry_beans
+logic: and
+conditions:
+  4a26b0a6-7ca1-4e45-b0b6-e280f004f078:
+    id: request_path
+    negate: false
+    uuid: 4a26b0a6-7ca1-4e45-b0b6-e280f004f078
+    pages: "/malheur-experiment-station/crops/dry-beans\r\n/mes/crops/dry-beans\r\n/node/45306"
+allow_other_conditions: null

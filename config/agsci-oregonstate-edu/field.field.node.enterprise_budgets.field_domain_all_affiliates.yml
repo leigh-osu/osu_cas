@@ -1,0 +1,21 @@
+uuid: ba9a66fd-5bf1-4fec-883a-00e02186c25f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_domain_all_affiliates
+    - node.type.enterprise_budgets
+id: node.enterprise_budgets.field_domain_all_affiliates
+field_name: field_domain_all_affiliates
+entity_type: node
+bundle: enterprise_budgets
+label: 'Send to all affiliates'
+description: 'Make this content available on all domains.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

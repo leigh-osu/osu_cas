@@ -1,0 +1,15 @@
+uuid: 39f9acf1-e17a-4ea8-ac85-3651d31a4116
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.appliedecon_oregonstate_edu_
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_appliedecon_oregonstate_edu_
+label: 'Remove editors from the Applied Economics domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - appliedecon_oregonstate_edu_

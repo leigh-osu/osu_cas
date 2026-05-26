@@ -1,0 +1,19 @@
+uuid: 0c26fb83-3d1b-4021-9940-632749dba9d0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: weed_sidebar
+label: weed_sidebar
+logic: and
+conditions:
+  f4238764-6c9d-4b0c-8d71-581c01cca246:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: f4238764-6c9d-4b0c-8d71-581c01cca246
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      weed: weed
+allow_other_conditions: null

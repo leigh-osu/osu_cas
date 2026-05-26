@@ -1,0 +1,15 @@
+uuid: ed14ae1a-9431-4672-ab4b-96546ab6b873
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.agsci_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_agsci_oregonstate_edu
+label: 'Add selected content to the College of Agricultural Sciences domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - agsci_oregonstate_edu

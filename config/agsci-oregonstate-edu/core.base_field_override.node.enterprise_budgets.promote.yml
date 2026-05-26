@@ -1,0 +1,22 @@
+uuid: 32a3ef94-dd6c-4880-86da-64b759d8a3ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.enterprise_budgets
+id: node.enterprise_budgets.promote
+field_name: promote
+entity_type: node
+bundle: enterprise_budgets
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

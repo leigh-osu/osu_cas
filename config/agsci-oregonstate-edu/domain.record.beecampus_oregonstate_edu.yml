@@ -1,0 +1,12 @@
+uuid: 4ccfcbe8-bf83-46a1-80d0-c22219e8933d
+langcode: en
+status: false
+dependencies: {  }
+id: beecampus_oregonstate_edu
+domain_id: 5382732
+hostname: beecampus.oregonstate.edu
+name: 'Bee Campus USA'
+scheme: https
+weight: 38
+is_default: false
+path_prefix: ''

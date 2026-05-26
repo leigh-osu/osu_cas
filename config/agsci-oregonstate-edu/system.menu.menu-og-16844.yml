@@ -1,0 +1,8 @@
+uuid: f3fbda8e-347c-4a6e-af62-88bc774239ce
+langcode: en
+status: true
+dependencies: {  }
+id: menu-og-16844
+label: 'OSU Agriculture Program at Eastern Oregon University'
+description: 'OG Menu for OSU Agriculture Program at Eastern Oregon University'
+locked: false

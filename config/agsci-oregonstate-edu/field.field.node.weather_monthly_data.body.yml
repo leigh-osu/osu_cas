@@ -1,0 +1,24 @@
+uuid: 066c1a18-575d-441d-b535-e34f7f4c6e66
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.weather_monthly_data
+  module:
+    - text
+id: node.weather_monthly_data.body
+field_name: body
+entity_type: node
+bundle: weather_monthly_data
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

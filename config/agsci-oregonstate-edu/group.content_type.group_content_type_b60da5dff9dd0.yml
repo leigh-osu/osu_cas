@@ -1,0 +1,17 @@
+uuid: 25d5e3ef-8ada-4051-9466-2b18bbfa7571
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.basic_group
+    - node.type.plant_variety_release
+  module:
+    - gnode
+    - node
+id: group_content_type_b60da5dff9dd0
+group_type: basic_group
+content_plugin: 'group_node:plant_variety_release'
+plugin_config:
+  group_cardinality: 1
+  entity_cardinality: -1
+  use_creation_wizard: false

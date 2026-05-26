@@ -1,0 +1,19 @@
+uuid: 5e971505-9096-441e-bb50-2e596ee88086
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: degree_fact_sheet
+label: degree_fact_sheet
+logic: and
+conditions:
+  c42502c6-9a84-4bfb-94d0-fd8f512b0e25:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: c42502c6-9a84-4bfb-94d0-fd8f512b0e25
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      degree_fact_sheet: degree_fact_sheet
+allow_other_conditions: null

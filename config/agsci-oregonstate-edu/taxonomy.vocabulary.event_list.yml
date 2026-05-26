@@ -1,0 +1,9 @@
+uuid: 79ddc2ce-1351-411a-80c9-f321bdf21912
+langcode: en
+status: true
+dependencies: {  }
+name: 'Event list'
+vid: event_list
+description: 'list of events'
+weight: 0
+new_revision: false

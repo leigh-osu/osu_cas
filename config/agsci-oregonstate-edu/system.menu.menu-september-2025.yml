@@ -1,0 +1,8 @@
+uuid: 658e9691-9d3c-4d92-9dde-4e82a4cd1fd2
+langcode: en
+status: true
+dependencies: {  }
+id: menu-september-2025
+label: 'September 2025'
+description: 'September 2025 issue of The Source'
+locked: false

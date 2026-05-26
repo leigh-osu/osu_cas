@@ -1,0 +1,16 @@
+uuid: c757d02a-1ab5-407a-882d-c06b372a410a
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: hyslop_weather_home_page
+label: hyslop-weather-home-page
+logic: and
+conditions:
+  90bf182e-b583-402f-a277-6896768fbc13:
+    id: request_path
+    negate: false
+    uuid: 90bf182e-b583-402f-a277-6896768fbc13
+    pages: /node/3988
+allow_other_conditions: null

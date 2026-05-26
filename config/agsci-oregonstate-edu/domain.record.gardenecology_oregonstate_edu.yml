@@ -1,0 +1,12 @@
+uuid: c340c48f-b52e-44ce-9926-1b3d8c1b2037
+langcode: en
+status: true
+dependencies: {  }
+id: gardenecology_oregonstate_edu
+domain_id: 6047946
+hostname: gardenecology.oregonstate.edu
+name: 'Garden Ecology Lab'
+scheme: https
+weight: 37
+is_default: false
+path_prefix: ''

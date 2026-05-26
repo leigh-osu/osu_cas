@@ -1,0 +1,19 @@
+uuid: 623c6bfb-9c8d-43a9-9633-9d059243cd18
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_dfsg_overview
+field_name: field_dfsg_overview
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

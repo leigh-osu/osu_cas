@@ -1,0 +1,15 @@
+uuid: eea5df60-4785-4565-a2ea-1a4975e9ef57
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.agsci_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_agsci_oregonstate_edu
+label: 'Remove selected content from the College of Agricultural Sciences domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - agsci_oregonstate_edu

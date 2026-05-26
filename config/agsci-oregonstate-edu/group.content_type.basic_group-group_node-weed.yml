@@ -1,0 +1,17 @@
+uuid: 34e0c1ce-e53e-46b8-a803-e95861f4e57b
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.basic_group
+    - node.type.weed
+  module:
+    - gnode
+    - node
+id: basic_group-group_node-weed
+group_type: basic_group
+content_plugin: 'group_node:weed'
+plugin_config:
+  group_cardinality: 1
+  entity_cardinality: -1
+  use_creation_wizard: false

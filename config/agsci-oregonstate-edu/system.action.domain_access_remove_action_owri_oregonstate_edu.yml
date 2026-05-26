@@ -1,0 +1,15 @@
+uuid: e291f99d-002f-41c6-a302-67395d95c100
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.owri_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_owri_oregonstate_edu
+label: 'Remove selected content from the Oregon Wine Research Institute domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - owri_oregonstate_edu

@@ -1,0 +1,16 @@
+uuid: 869ff103-e47e-4c6a-b479-ab2d53b3f4c4
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: pubs_ref_journ_art
+label: pubs_ref_journ_art
+logic: and
+conditions:
+  a8926a7d-f917-451c-ab1c-4e36a6914eb6:
+    id: request_path
+    negate: false
+    uuid: a8926a7d-f917-451c-ab1c-4e36a6914eb6
+    pages: /node/249791
+allow_other_conditions: null

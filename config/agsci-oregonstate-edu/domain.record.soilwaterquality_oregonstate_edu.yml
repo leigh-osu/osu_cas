@@ -1,0 +1,12 @@
+uuid: a51a10ba-0ba5-459c-9698-909989383749
+langcode: en
+status: true
+dependencies: {  }
+id: soilwaterquality_oregonstate_edu
+domain_id: 8403910
+hostname: soilwaterquality.oregonstate.edu
+name: 'Soil Water Quality'
+scheme: https
+weight: 42
+is_default: false
+path_prefix: ''

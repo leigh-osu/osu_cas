@@ -1,0 +1,19 @@
+uuid: 72b629ed-917d-465e-928a-ffa16b1e04db
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_profile_fac_grads
+field_name: field_profile_fac_grads
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

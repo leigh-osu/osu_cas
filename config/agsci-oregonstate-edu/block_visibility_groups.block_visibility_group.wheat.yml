@@ -1,0 +1,16 @@
+uuid: 468649c7-8472-4245-9924-9ffcea2c8d97
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: wheat
+label: wheat
+logic: and
+conditions:
+  e6d3d300-e1bc-4e64-9d17-0df201925f17:
+    id: request_path
+    negate: false
+    uuid: e6d3d300-e1bc-4e64-9d17-0df201925f17
+    pages: "/malheur-experiment-station/crops/wheat\r\n/mes/crops/wheat\r\n/node/45296"
+allow_other_conditions: null

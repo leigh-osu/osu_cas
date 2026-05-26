@@ -1,0 +1,23 @@
+uuid: fd513432-9963-4854-aeb8-75060d5b7a86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fundop_award_ceiling
+    - node.type.funding_opportunities
+id: node.funding_opportunities.field_fundop_award_ceiling
+field_name: field_fundop_award_ceiling
+entity_type: node
+bundle: funding_opportunities
+label: 'Award Ceiling'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

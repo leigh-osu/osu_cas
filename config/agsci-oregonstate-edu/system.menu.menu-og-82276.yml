@@ -1,0 +1,8 @@
+uuid: aa927bdb-4e1c-42af-a151-420c7c9ee182
+langcode: en
+status: true
+dependencies: {  }
+id: menu-og-82276
+label: 'Seafood Network Information Center'
+description: 'OG Menu for Seafood Network Information Center'
+locked: false

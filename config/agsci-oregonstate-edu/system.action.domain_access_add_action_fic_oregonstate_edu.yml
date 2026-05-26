@@ -1,0 +1,15 @@
+uuid: 562fd269-a743-43e4-9005-03fa5ac32566
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.fic_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_fic_oregonstate_edu
+label: 'Add selected content to the Food Innovation Center domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - fic_oregonstate_edu

@@ -1,0 +1,8 @@
+uuid: ed9bb22b-d872-40a8-b355-d417a13f5198
+langcode: en
+status: true
+dependencies: {  }
+id: menu-og-24265
+label: 'Biotechnology in Agriculture'
+description: 'OG Menu for Biotechnology in Agriculture'
+locked: false

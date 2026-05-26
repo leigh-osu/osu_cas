@@ -1,0 +1,8 @@
+uuid: 80fe5954-d23b-4bb9-8a4b-66709dbc723c
+langcode: en
+status: true
+dependencies: {  }
+id: menu-og-61206
+label: "O'Malley Lab"
+description: 'OG Menu for O&#039;Malley Lab'
+locked: false

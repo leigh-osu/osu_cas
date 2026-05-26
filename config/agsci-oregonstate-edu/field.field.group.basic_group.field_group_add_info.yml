@@ -1,0 +1,22 @@
+uuid: 363a6cee-c9e7-445d-a770-b08364a31abb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_group_add_info
+    - group.type.basic_group
+  module:
+    - text
+id: group.basic_group.field_group_add_info
+field_name: field_group_add_info
+entity_type: group
+bundle: basic_group
+label: 'Additional Information'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

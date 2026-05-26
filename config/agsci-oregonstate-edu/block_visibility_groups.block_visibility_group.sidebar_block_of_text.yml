@@ -1,0 +1,9 @@
+uuid: 5a514e9c-c165-4639-9da8-d8050a8c396b
+langcode: en
+status: true
+dependencies: {  }
+id: sidebar_block_of_text
+label: sidebar_block_of_text
+logic: and
+conditions: {  }
+allow_other_conditions: null

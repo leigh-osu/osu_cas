@@ -1,0 +1,15 @@
+uuid: f447333a-0fd8-48b7-a458-6dbcfb1eca37
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.bee_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_bee_oregonstate_edu
+label: 'Add selected content to the Biological &amp; Ecological Engineering domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - bee_oregonstate_edu

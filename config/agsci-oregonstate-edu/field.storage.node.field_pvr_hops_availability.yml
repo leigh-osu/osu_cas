@@ -1,0 +1,21 @@
+uuid: 12ae1346-cc5a-4263-823d-3b84e8e36457
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_pvr_hops_availability
+field_name: field_pvr_hops_availability
+entity_type: node
+type: string
+settings:
+  max_length: 60
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

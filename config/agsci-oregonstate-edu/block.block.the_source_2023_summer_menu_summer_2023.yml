@@ -1,0 +1,31 @@
+uuid: 077514c0-e8a9-48d0-8865-3fa4091d2aa2
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.the_source_2023_summer
+    - system.menu.menu-summer-2023
+  module:
+    - block_visibility_groups
+    - system
+  theme:
+    - madrone
+id: the_source_2023_summer_menu_summer_2023
+theme: madrone
+region: sidebar
+weight: 0
+provider: null
+plugin: 'system_menu_block:menu-summer-2023'
+settings:
+  id: 'system_menu_block:menu-summer-2023'
+  label: 'Summer 2023'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: the_source_2023_summer

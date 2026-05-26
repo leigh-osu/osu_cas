@@ -1,0 +1,15 @@
+uuid: 1f6cd52b-6b97-4a4c-b64e-aaf8c5d23e53
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.osuseafoodlab_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_osuseafoodlab_oregonstate_edu
+label: 'Remove selected content from the Seafood Research and Education Center domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - osuseafoodlab_oregonstate_edu

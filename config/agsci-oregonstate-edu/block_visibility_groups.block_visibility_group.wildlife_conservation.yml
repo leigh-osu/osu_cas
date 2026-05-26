@@ -1,0 +1,16 @@
+uuid: c9a5f0db-b472-41b9-a75c-6d7cf785c06c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: wildlife_conservation
+label: wildlife_conservation
+logic: and
+conditions:
+  8879a719-3b89-45ab-a415-a07dfed1958a:
+    id: request_path
+    negate: false
+    uuid: 8879a719-3b89-45ab-a415-a07dfed1958a
+    pages: /node/44703
+allow_other_conditions: null

@@ -1,0 +1,31 @@
+uuid: bd7416f1-b887-4625-95b2-41c885fea3c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.og_user_node
+    - node.type.150_species
+id: node.150_species.og_user_node
+field_name: og_user_node
+entity_type: node
+bundle: 150_species
+label: 'Group membership'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: title
+      direction: ASC
+    membership_type: og_membership_type_default
+    behaviors:
+      og_behavior:
+        status: true
+      views-select-list:
+        status: 0
+field_type: entity_reference

@@ -1,0 +1,12 @@
+uuid: 154ed0c6-36a5-442c-9741-96a06dca611d
+langcode: en
+status: false
+dependencies: {  }
+id: mammalogy_oregonstate_edu
+domain_id: 14892334
+hostname: mammalogy.oregonstate.edu
+name: Mammalogy
+scheme: https
+weight: 31
+is_default: false
+path_prefix: ''

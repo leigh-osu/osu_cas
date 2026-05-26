@@ -1,0 +1,20 @@
+uuid: fcba5e48-b47d-4374-8ede-4f0730391e84
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_mw_soil_temp_min_mon_max
+field_name: field_mw_soil_temp_min_mon_max
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

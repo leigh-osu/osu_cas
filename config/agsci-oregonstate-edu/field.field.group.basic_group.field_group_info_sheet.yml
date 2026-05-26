@@ -1,0 +1,29 @@
+uuid: 7437e834-f0a9-48eb-8429-382c0d5bdac1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_group_info_sheet
+    - group.type.basic_group
+    - media.type.document
+id: group.basic_group.field_group_info_sheet
+field_name: field_group_info_sheet
+entity_type: group
+bundle: basic_group
+label: 'Information Sheet'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

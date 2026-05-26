@@ -1,0 +1,16 @@
+uuid: 4cfd29c1-67ba-441a-a9b3-7f1377ffa4b7
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: opens_landing_page_child_unit
+label: opens_landing-page-child-unit
+logic: and
+conditions:
+  f6d5ef5d-fa5d-4040-9a79-b3516e583eef:
+    id: request_path
+    negate: false
+    uuid: f6d5ef5d-fa5d-4040-9a79-b3516e583eef
+    pages: /open-sensing
+allow_other_conditions: null

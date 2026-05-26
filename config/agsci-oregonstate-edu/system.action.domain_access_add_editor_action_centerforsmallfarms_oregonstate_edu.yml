@@ -1,0 +1,15 @@
+uuid: 45bad4da-c41c-46b2-b72a-b8f7cc4aa68e
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.centerforsmallfarms_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_centerforsmallfarms_oregonstate_edu
+label: 'Add editors to the Center for Resilient Agriculture &amp; Food Systems domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - centerforsmallfarms_oregonstate_edu

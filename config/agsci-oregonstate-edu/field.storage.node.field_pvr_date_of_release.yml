@@ -1,0 +1,20 @@
+uuid: 115a7071-30d9-4efb-bfa3-6ffc2e9882dd
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - node
+id: node.field_pvr_date_of_release
+field_name: field_pvr_date_of_release
+entity_type: node
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

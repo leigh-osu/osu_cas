@@ -1,0 +1,8 @@
+uuid: ac12ec74-85bf-4619-ae0e-d3b956a8c841
+langcode: en
+status: true
+dependencies: {  }
+id: menu-og-26361
+label: 'Slug Portal'
+description: 'OG Menu for Slug Portal'
+locked: false

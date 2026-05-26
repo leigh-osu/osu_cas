@@ -1,0 +1,9 @@
+uuid: 1c8ffd08-de06-4860-bb05-de52128577c8
+langcode: en
+status: true
+dependencies: {  }
+name: Veg
+vid: veg
+description: null
+weight: 0
+new_revision: false

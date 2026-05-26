@@ -1,0 +1,120 @@
+uuid: f268ba57-782d-4e20-8f44-2d0fefa05426
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dFkW1TuShhmm5Y0MwalGB6gGoCvPL7_Ih7-csyYgB-0
+id: cas_story_to_story
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - 'Layout content'
+  - OSU
+  - CAS
+  - 'CAS content'
+migration_group: content
+label: 'Story to Story Content Migration'
+source:
+  plugin: d7_node_domain_access
+  node_type: story
+  high_water_property:
+    name: changed
+process:
+  title: title
+  body:
+    plugin: sub_process
+    source: body
+    process:
+      value:
+        plugin: osu_media_wysiwyg_filter
+        source: value
+      summary: summary
+      format:
+        plugin: default_value
+        default_value: full_html
+  field_osu_story_caption:
+    plugin: get
+    source: field_subtitle
+  field_story_category:
+    plugin: get
+    source: field_category
+  field_story_osu_story:
+    plugin: get
+    source: field_feature_story
+  field_story_publish_date:
+    plugin: sub_process
+    source: field_published_date
+    process:
+      value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: Y-m-d
+        source: value
+  field_osu_story_cover_image:
+    plugin: sub_process
+    source: field_picture
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: upgrade_d7_media_images
+          source: fid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  field_story_media:
+    plugin: sub_process
+    source: field_related_images
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: upgrade_d7_media_images
+          source: fid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  field_meta_tags:
+    -
+      plugin: d7_metatag_entities
+      source: pseudo_metatag_entities
+  path/pathauto:
+    plugin: default_value
+    default_value: 0
+  type:
+    plugin: default_value
+    default_value: story
+  field_domain_access:
+    -
+      plugin: sub_process
+      source: domain_access_node
+      process:
+        target_id: target_id
+  field_domain_all_affiliates:
+    -
+      plugin: get
+      source: domain_all_affiliates
+  field_domain_source:
+    -
+      plugin: get
+      source: domain_source
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+destination:
+  plugin: 'entity:node'
+  default_bundle: story
+migration_dependencies:
+  required:
+    - upgrade_d7_files
+    - upgrade_d7_users_with_roles
+    - upgrade_d7_media_images

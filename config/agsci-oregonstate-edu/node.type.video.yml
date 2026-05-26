@@ -1,0 +1,11 @@
+uuid: 42ea4409-3295-411a-8c56-c1b3a0672cb8
+langcode: en
+status: true
+dependencies: {  }
+name: Video
+type: video
+description: 'Video Player'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

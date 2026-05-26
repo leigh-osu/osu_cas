@@ -1,0 +1,20 @@
+uuid: 5a958375-d1da-4a55-b3b1-6b9ae1a19b05
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_mw_gdd_monthly_total
+field_name: field_mw_gdd_monthly_total
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

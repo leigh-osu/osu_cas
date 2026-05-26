@@ -1,0 +1,15 @@
+uuid: 42c9baf3-9481-4c93-9f1f-53cda972a0ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.mintgenome_org
+  module:
+    - domain_access
+id: domain_access_add_action_mintgenome_org
+label: 'Add selected content to the Mint Genome domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - mintgenome_org

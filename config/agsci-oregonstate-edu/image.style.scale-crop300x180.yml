@@ -1,0 +1,15 @@
+uuid: 3d73b9f7-313f-493d-aebb-f517c4878088
+langcode: en
+status: true
+dependencies: {  }
+name: scale-crop300x180
+label: '300x170 scale-crop'
+effects:
+  772588c3-d84f-4a94-8b86-ee827bdae612:
+    uuid: 772588c3-d84f-4a94-8b86-ee827bdae612
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 300
+      height: 171
+      anchor: center-center

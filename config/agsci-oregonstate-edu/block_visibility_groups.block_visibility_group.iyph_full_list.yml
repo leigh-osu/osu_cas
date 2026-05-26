@@ -1,0 +1,16 @@
+uuid: 91141283-065a-47bb-881e-c89133a7f84c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: iyph_full_list
+label: iyph_full_list
+logic: and
+conditions:
+  0d6841e6-d4d5-4302-a0c2-3a563924410e:
+    id: request_path
+    negate: false
+    uuid: 0d6841e6-d4d5-4302-a0c2-3a563924410e
+    pages: /node/217366
+allow_other_conditions: null

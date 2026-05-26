@@ -1,0 +1,15 @@
+uuid: cfde77dc-d19b-4483-873c-74fc440dc27e
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.mammalogy_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_mammalogy_oregonstate_edu
+label: 'Add editors to the Mammalogy domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - mammalogy_oregonstate_edu

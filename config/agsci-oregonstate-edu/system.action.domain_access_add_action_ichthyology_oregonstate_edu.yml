@@ -1,0 +1,15 @@
+uuid: 875e047c-f0eb-4bcd-8c5f-68bc1080033d
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.ichthyology_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_ichthyology_oregonstate_edu
+label: 'Add selected content to the Ichthyology domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - ichthyology_oregonstate_edu

@@ -1,0 +1,16 @@
+uuid: b0c064ba-ba23-4ba3-afca-49f7a74d5568
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: yellow_nutsage
+label: yellow_nutsage
+logic: and
+conditions:
+  34631dbd-70de-4aee-8f0d-7649ac97db4b:
+    id: request_path
+    negate: false
+    uuid: 34631dbd-70de-4aee-8f0d-7649ac97db4b
+    pages: /node/112841
+allow_other_conditions: null

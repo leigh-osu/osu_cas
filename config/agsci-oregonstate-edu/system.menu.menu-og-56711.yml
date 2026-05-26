@@ -1,0 +1,8 @@
+uuid: f569f5cb-e6b7-40f2-9530-66d18c391bdf
+langcode: en
+status: true
+dependencies: {  }
+id: menu-og-56711
+label: 'Applied Cereal Genomics'
+description: 'OG Menu for Applied Cereal Genomics'
+locked: false

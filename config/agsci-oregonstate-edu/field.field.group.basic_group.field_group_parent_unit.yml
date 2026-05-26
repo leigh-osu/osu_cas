@@ -1,0 +1,28 @@
+uuid: 4687040e-014d-4770-88bd-6532e30e31d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_group_parent_unit
+    - group.type.basic_group
+id: group.basic_group.field_group_parent_unit
+field_name: field_group_parent_unit
+entity_type: group
+bundle: basic_group
+label: 'Parent Unit'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:group'
+  handler_settings:
+    target_bundles:
+      basic_group: basic_group
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

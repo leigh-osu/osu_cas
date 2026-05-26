@@ -1,0 +1,16 @@
+uuid: 048e5cbf-e3c3-4085-9e99-6d55597f84b4
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: weed_pest
+label: weed_pest
+logic: and
+conditions:
+  6f4de6c5-9ca2-4447-a561-f866a0f644eb:
+    id: request_path
+    negate: false
+    uuid: 6f4de6c5-9ca2-4447-a561-f866a0f644eb
+    pages: /node/112831
+allow_other_conditions: null

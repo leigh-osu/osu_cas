@@ -1,0 +1,16 @@
+uuid: abf193ab-c312-4091-8813-aa50fd7ec9b7
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: the_source_2024_winter
+label: the_source_2024_winter
+logic: and
+conditions:
+  987315fb-5249-4635-b7cb-1fa6730d5247:
+    id: request_path
+    negate: false
+    uuid: 987315fb-5249-4635-b7cb-1fa6730d5247
+    pages: "/thesource/winter-2024\r\n/thesource/winter-2024*"
+allow_other_conditions: null

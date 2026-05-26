@@ -1,0 +1,24 @@
+uuid: c73635c6-5bf7-45ac-b461-5d672d0b12c4
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - bootstrap
+id: bootstrap_system_main
+theme: bootstrap
+region: ''
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: ''
+  label_display: '0'
+  provider: system
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /admin/dashboard

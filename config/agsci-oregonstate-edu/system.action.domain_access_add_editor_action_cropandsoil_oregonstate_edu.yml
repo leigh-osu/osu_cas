@@ -1,0 +1,15 @@
+uuid: 982b5fec-b6db-49a2-912b-f7ef3fd57740
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.cropandsoil_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_cropandsoil_oregonstate_edu
+label: 'Add editors to the Crop &amp; Soil Science Department domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - cropandsoil_oregonstate_edu

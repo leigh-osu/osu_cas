@@ -1,0 +1,9 @@
+uuid: 7dfe2f2d-d2aa-4d35-a645-4e1a01bada1c
+langcode: en
+status: true
+dependencies: {  }
+name: 'Malheur topics'
+vid: malheur_topics
+description: 'Topics to be used in the Malheur site'
+weight: 0
+new_revision: false

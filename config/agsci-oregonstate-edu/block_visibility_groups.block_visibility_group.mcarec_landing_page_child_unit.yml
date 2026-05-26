@@ -1,0 +1,16 @@
+uuid: 136c679f-5a3a-4b32-b597-f2a0ecf7ecf6
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: mcarec_landing_page_child_unit
+label: mcarec_landing-page-child-unit
+logic: and
+conditions:
+  9e5b707e-0bb8-4746-85c3-b0bed43991be:
+    id: request_path
+    negate: false
+    uuid: 9e5b707e-0bb8-4746-85c3-b0bed43991be
+    pages: /node/109811
+allow_other_conditions: null

@@ -1,0 +1,12 @@
+uuid: 8751088c-8450-47d0-a4cb-cc25c3fb076a
+langcode: en
+status: true
+dependencies: {  }
+id: tradeoffs_oregonstate_edu
+domain_id: 6783486
+hostname: tradeoffs.oregonstate.edu
+name: 'Tradeoff Analysis Project'
+scheme: https
+weight: 25
+is_default: false
+path_prefix: ''

@@ -1,0 +1,15 @@
+uuid: 83cff377-52ea-4680-883c-2116d316f17d
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.tradeoffs_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_tradeoffs_oregonstate_edu
+label: 'Remove editors from the Tradeoff Analysis Project domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - tradeoffs_oregonstate_edu

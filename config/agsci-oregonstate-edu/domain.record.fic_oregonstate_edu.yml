@@ -1,0 +1,12 @@
+uuid: 3fcb5422-8897-4ff0-9700-eff09681cdfd
+langcode: en
+status: true
+dependencies: {  }
+id: fic_oregonstate_edu
+domain_id: 1148104
+hostname: fic.oregonstate.edu
+name: 'Food Innovation Center'
+scheme: https
+weight: 11
+is_default: false
+path_prefix: ''

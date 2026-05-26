@@ -1,0 +1,16 @@
+uuid: 3cd529bc-1e3b-4433-83ae-a1be3bc43171
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: sitewide
+label: sitewide
+logic: and
+conditions:
+  8abe35a9-e694-4154-b1e4-bad9afc9992d:
+    id: request_path
+    negate: false
+    uuid: 8abe35a9-e694-4154-b1e4-bad9afc9992d
+    pages: '*'
+allow_other_conditions: null

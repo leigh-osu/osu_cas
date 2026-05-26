@@ -1,0 +1,16 @@
+uuid: 6bb7e7a9-607b-4e90-97c1-48bd45fafdab
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: anrs_digital_signage
+label: anrs_digital_signage
+logic: and
+conditions:
+  609cd747-8fd7-4cd8-bcd8-9545c817243a:
+    id: request_path
+    negate: false
+    uuid: 609cd747-8fd7-4cd8-bcd8-9545c817243a
+    pages: /node/213721
+allow_other_conditions: null

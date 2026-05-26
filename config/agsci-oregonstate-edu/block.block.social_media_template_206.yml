@@ -1,0 +1,32 @@
+uuid: 9022ae58-8cea-4572-b02b-7619380ab9e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.social_media_template
+  content:
+    - 'block_content:basic:abccd74c-f35f-4449-bcc5-b2f6a8d044cb'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - madrone
+id: social_media_template_206
+theme: madrone
+region: content
+weight: -10
+provider: null
+plugin: 'block_content:abccd74c-f35f-4449-bcc5-b2f6a8d044cb'
+settings:
+  id: 'block_content:abccd74c-f35f-4449-bcc5-b2f6a8d044cb'
+  label: ''
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: social_media_template

@@ -1,0 +1,15 @@
+uuid: 4093e605-672d-4466-a8aa-30659be4fa1d
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.willamette_valley_field_crops
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_willamette_valley_field_crops
+label: 'Remove editors from the Willamette Valley Field Crops domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - willamette_valley_field_crops

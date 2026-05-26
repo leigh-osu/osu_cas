@@ -1,0 +1,16 @@
+uuid: 9504441e-ffd4-4c49-84c1-a02e5af21cac
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: employee_directory_mem_type_former_faculty
+label: employee_directory_mem_type_former_faculty
+logic: and
+conditions:
+  f0af1a32-4dca-4de0-9aac-263e634e80a0:
+    id: request_path
+    negate: false
+    uuid: f0af1a32-4dca-4de0-9aac-263e634e80a0
+    pages: /node/86346
+allow_other_conditions: null

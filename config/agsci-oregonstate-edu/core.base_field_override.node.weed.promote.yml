@@ -1,0 +1,22 @@
+uuid: 00f8803b-83ee-440e-a0b1-c3ece5fd8a0b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.weed
+id: node.weed.promote
+field_name: promote
+entity_type: node
+bundle: weed
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

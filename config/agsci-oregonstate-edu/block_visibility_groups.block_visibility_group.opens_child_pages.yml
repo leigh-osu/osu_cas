@@ -1,0 +1,9 @@
+uuid: 07840212-c894-4871-8b5b-68c89cbe5c98
+langcode: en
+status: true
+dependencies: {  }
+id: opens_child_pages
+label: opens_child-pages
+logic: and
+conditions: {  }
+allow_other_conditions: null

@@ -1,0 +1,15 @@
+uuid: 12c7f6a8-f8d8-415b-b7d3-1bd5e0ef1ae8
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.beecampus_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_beecampus_oregonstate_edu
+label: 'Remove editors from the Bee Campus USA domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - beecampus_oregonstate_edu

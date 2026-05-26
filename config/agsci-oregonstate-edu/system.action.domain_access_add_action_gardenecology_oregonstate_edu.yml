@@ -1,0 +1,15 @@
+uuid: 3ac3be0f-8e09-4603-b10f-80620c63b6ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.gardenecology_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_gardenecology_oregonstate_edu
+label: 'Add selected content to the Garden Ecology Lab domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - gardenecology_oregonstate_edu

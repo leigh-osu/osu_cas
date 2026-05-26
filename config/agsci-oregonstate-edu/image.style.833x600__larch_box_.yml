@@ -1,0 +1,15 @@
+uuid: bd3618dd-f95b-4a92-8659-8793618a1860
+langcode: en
+status: true
+dependencies: {  }
+name: 833x600__larch_box_
+label: '833x600 (larch box)'
+effects:
+  af00a97d-9bd4-4472-8dbd-84b46c5f469b:
+    uuid: af00a97d-9bd4-4472-8dbd-84b46c5f469b
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 833
+      height: 600
+      anchor: center-center

@@ -1,0 +1,16 @@
+uuid: e6fd2b4c-496c-4799-906d-222cbe00d21b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: habitat_restoration
+label: habitat_restoration
+logic: and
+conditions:
+  c2fb8590-5f59-45b5-a84b-a5a669677fcf:
+    id: request_path
+    negate: false
+    uuid: c2fb8590-5f59-45b5-a84b-a5a669677fcf
+    pages: /node/44701
+allow_other_conditions: null

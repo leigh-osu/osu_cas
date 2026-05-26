@@ -1,0 +1,16 @@
+uuid: b3d00873-c9e5-4af1-b1af-d8e001830041
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: weather
+label: weather
+logic: and
+conditions:
+  1ed0bdbd-08f1-49ca-9b8d-575393c572e8:
+    id: request_path
+    negate: false
+    uuid: 1ed0bdbd-08f1-49ca-9b8d-575393c572e8
+    pages: /node/112896
+allow_other_conditions: null

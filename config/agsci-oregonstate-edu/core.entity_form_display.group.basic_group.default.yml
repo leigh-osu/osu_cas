@@ -1,0 +1,276 @@
+uuid: 87c64e35-da71-448c-a6b1-32e747800b60
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group.basic_group.field_hide_global_navigation
+    - field.field.group.basic_group.field_meta_tags
+    - field.field.group.basic_group.field_osu_group_meta_description
+    - field.field.group.basic_group.field_osu_group_meta_image
+    - field.field.group.basic_group.layout_builder__layout
+    - field.field.group.basic_group.body
+    - field.field.group.basic_group.field_group_access
+    - field.field.group.basic_group.field_group_short_name
+    - field.field.group.basic_group.field_group_parent_unit
+    - field.field.group.basic_group.field_group_email
+    - field.field.group.basic_group.field_group_phone
+    - field.field.group.basic_group.field_group_hours
+    - field.field.group.basic_group.field_group_location_name
+    - field.field.group.basic_group.field_group_location_address
+    - field.field.group.basic_group.field_group_location_address2
+    - field.field.group.basic_group.field_group_location_city
+    - field.field.group.basic_group.field_group_location_state
+    - field.field.group.basic_group.field_group_location_zip
+    - field.field.group.basic_group.field_group_facebook
+    - field.field.group.basic_group.field_group_twitter
+    - field.field.group.basic_group.field_group_linkedin
+    - field.field.group.basic_group.field_group_youtube
+    - field.field.group.basic_group.field_group_instagram
+    - field.field.group.basic_group.field_group_newsletter_link
+    - field.field.group.basic_group.field_group_add_info
+    - field.field.group.basic_group.field_group_info_sheet
+    - field.field.group.basic_group.field_site_coordinators
+    - group.type.basic_group
+  module:
+    - media_library
+    - text
+    - metatag
+    - path
+id: group.basic_group.default
+targetEntityType: group
+bundle: basic_group
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 7
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_group_access:
+    type: boolean_checkbox
+    weight: 8
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_group_add_info:
+    type: text_textarea
+    weight: 26
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_group_email:
+    type: email_default
+    weight: 11
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_group_facebook:
+    type: string_textfield
+    weight: 20
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_group_hours:
+    type: text_textarea
+    weight: 13
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_group_info_sheet:
+    type: media_library_widget
+    weight: 27
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_group_instagram:
+    type: string_textfield
+    weight: 24
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_group_linkedin:
+    type: string_textfield
+    weight: 22
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_group_location_address:
+    type: string_textfield
+    weight: 15
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_group_location_address2:
+    type: string_textfield
+    weight: 16
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_group_location_city:
+    type: string_textfield
+    weight: 17
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_group_location_name:
+    type: string_textfield
+    weight: 14
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_group_location_state:
+    type: string_textfield
+    weight: 18
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_group_location_zip:
+    type: string_textfield
+    weight: 19
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_group_newsletter_link:
+    type: string_textfield
+    weight: 25
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_group_parent_unit:
+    type: entity_reference_autocomplete
+    weight: 10
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_group_phone:
+    type: string_textfield
+    weight: 12
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_group_short_name:
+    type: string_textfield
+    weight: 9
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_group_twitter:
+    type: string_textfield
+    weight: 21
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_group_youtube:
+    type: string_textfield
+    weight: 23
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_hide_global_navigation:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_meta_tags:
+    type: metatag_firehose
+    weight: 4
+    region: content
+    settings:
+      sidebar: true
+      use_details: true
+    third_party_settings: {  }
+  field_osu_group_meta_description:
+    type: string_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_osu_group_meta_image:
+    type: media_library_widget
+    weight: 2
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_site_coordinators:
+    type: entity_reference_autocomplete
+    weight: 28
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  layout_builder__layout: true
+  uid: true

@@ -1,0 +1,16 @@
+uuid: 4ac56956-8cf8-416d-aaa0-6f1cd959847e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: 150species
+label: 150species
+logic: and
+conditions:
+  b511c28b-9d62-4c58-8547-f6ba5a516cd1:
+    id: request_path
+    negate: false
+    uuid: b511c28b-9d62-4c58-8547-f6ba5a516cd1
+    pages: "/node/59381\r\n/150-species/*"
+allow_other_conditions: null

@@ -1,0 +1,32 @@
+uuid: bfb46200-1e47-46f7-99f5-8025bfd5ec5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.emt_academics
+  content:
+    - 'block_content:basic:7ccafc22-852f-4eac-8aab-083275e14df8'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - madrone
+id: emt_academics_336
+theme: madrone
+region: sidebar
+weight: -9
+provider: null
+plugin: 'block_content:7ccafc22-852f-4eac-8aab-083275e14df8'
+settings:
+  id: 'block_content:7ccafc22-852f-4eac-8aab-083275e14df8'
+  label: ''
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: emt_academics

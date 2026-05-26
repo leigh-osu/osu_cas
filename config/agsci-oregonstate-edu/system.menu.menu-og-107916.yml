@@ -1,0 +1,8 @@
+uuid: 004e8a3b-87ad-4914-a96d-3fae12127192
+langcode: en
+status: true
+dependencies: {  }
+id: menu-og-107916
+label: 'OSU Plant Clinic'
+description: 'OG Menu for OSU Plant Clinic'
+locked: false

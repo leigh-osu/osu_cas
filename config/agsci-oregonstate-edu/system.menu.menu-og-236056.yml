@@ -1,0 +1,8 @@
+uuid: 12b9485b-5e9a-482c-a68d-27756d1cce37
+langcode: en
+status: true
+dependencies: {  }
+id: menu-og-236056
+label: 'Sun Grant - Western Regional Center'
+description: 'OG Menu for Sun Grant - Western Regional Center'
+locked: false

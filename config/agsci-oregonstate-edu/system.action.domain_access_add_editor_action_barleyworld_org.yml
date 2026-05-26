@@ -1,0 +1,15 @@
+uuid: 5ddf08ce-84c6-4a3a-bd78-b084be82ff7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.barleyworld_org
+  module:
+    - domain_access
+id: domain_access_add_editor_action_barleyworld_org
+label: 'Add editors to the Barley World domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - barleyworld_org

@@ -1,0 +1,15 @@
+uuid: 873ad331-cb8c-4084-b6eb-028ef20f985a
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.willamette_valley_field_crops
+  module:
+    - domain_access
+id: domain_access_remove_action_willamette_valley_field_crops
+label: 'Remove selected content from the Willamette Valley Field Crops domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - willamette_valley_field_crops

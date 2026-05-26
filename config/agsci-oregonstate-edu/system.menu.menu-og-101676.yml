@@ -1,0 +1,8 @@
+uuid: 65eb5f8b-ad04-4480-922f-14b7c90bcca1
+langcode: en
+status: true
+dependencies: {  }
+id: menu-og-101676
+label: 'OSU Brewing Laboratory Sensory'
+description: 'OG Menu for OSU Brewing Laboratory Sensory'
+locked: false

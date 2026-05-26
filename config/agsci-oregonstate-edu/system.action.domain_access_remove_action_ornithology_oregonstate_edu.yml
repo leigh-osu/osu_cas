@@ -1,0 +1,15 @@
+uuid: 3365b9d5-7878-471c-b42e-db994a8a05ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.ornithology_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_ornithology_oregonstate_edu
+label: 'Remove selected content from the Ornithology domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - ornithology_oregonstate_edu

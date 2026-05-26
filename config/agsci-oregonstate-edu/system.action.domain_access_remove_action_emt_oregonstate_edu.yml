@@ -1,0 +1,15 @@
+uuid: 2dc9f7bf-31fc-4fe8-bb55-2ff38d25141d
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.emt_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_emt_oregonstate_edu
+label: 'Remove selected content from the Environmental &amp; Molecular Toxicology domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - emt_oregonstate_edu

@@ -1,0 +1,15 @@
+uuid: b70fcf36-bf31-49d0-9935-3e7f5b79fcaf
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.willamette_valley_field_crops
+  module:
+    - domain_access
+id: domain_access_add_action_willamette_valley_field_crops
+label: 'Add selected content to the Willamette Valley Field Crops domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - willamette_valley_field_crops

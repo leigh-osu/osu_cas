@@ -1,0 +1,16 @@
+uuid: 163a3292-e8e8-43ee-a9ea-abd834cbfd57
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: employee_directory_mem_type_faculty_fw_subgroup
+label: employee_directory_mem_type_faculty_fw_subgroup
+logic: and
+conditions:
+  1696216e-a24e-4464-838b-81bb16d84646:
+    id: request_path
+    negate: false
+    uuid: 1696216e-a24e-4464-838b-81bb16d84646
+    pages: /fisheries-and-wildlife/directory/faculty
+allow_other_conditions: null

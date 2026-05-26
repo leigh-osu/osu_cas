@@ -1,0 +1,12 @@
+uuid: 3b4f7e40-f9d5-42ed-bb13-066debdf3680
+langcode: en
+status: false
+dependencies: {  }
+id: willamette_valley_field_crops
+domain_id: 10925452
+hostname: valleyfieldcrops.oregonstate.edu
+name: 'Willamette Valley Field Crops'
+scheme: https
+weight: 41
+is_default: false
+path_prefix: ''

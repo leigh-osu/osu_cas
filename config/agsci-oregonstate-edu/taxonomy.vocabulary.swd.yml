@@ -1,0 +1,9 @@
+uuid: f9b41f96-ea4d-4d49-a968-1878ef3e1821
+langcode: en
+status: true
+dependencies: {  }
+name: SWD
+vid: swd
+description: null
+weight: 0
+new_revision: false

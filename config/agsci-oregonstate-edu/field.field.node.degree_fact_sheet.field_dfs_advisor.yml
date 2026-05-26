@@ -1,0 +1,28 @@
+uuid: 518223a0-95a0-4986-afa4-e9ac53400a53
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfs_advisor
+    - node.type.degree_fact_sheet
+id: node.degree_fact_sheet.field_dfs_advisor
+field_name: field_dfs_advisor
+entity_type: node
+bundle: degree_fact_sheet
+label: Advisor
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    behaviors:
+      views-select-list:
+        status: 0
+field_type: entity_reference

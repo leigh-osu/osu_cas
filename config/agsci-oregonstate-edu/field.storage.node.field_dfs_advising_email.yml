@@ -1,0 +1,18 @@
+uuid: f7a2108b-c060-42ce-ad1d-8f82e23988e9
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_dfs_advising_email
+field_name: field_dfs_advising_email
+entity_type: node
+type: email
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

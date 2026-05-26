@@ -1,0 +1,371 @@
+uuid: 6fb1ba8d-c85d-420e-8178-056002edc686
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.project.body
+    - field.field.node.project.field_domain_access
+    - field.field.node.project.field_domain_all_affiliates
+    - field.field.node.project.field_project_end_year
+    - field.field.node.project.field_project_funding_source
+    - field.field.node.project.field_project_image
+    - field.field.node.project.field_project_impacts
+    - field.field.node.project.field_project_key_activities
+    - field.field.node.project.field_project_leader
+    - field.field.node.project.field_project_literature
+    - field.field.node.project.field_project_media
+    - field.field.node.project.field_project_member
+    - field.field.node.project.field_project_objectives
+    - field.field.node.project.field_project_outputs
+    - field.field.node.project.field_project_partners
+    - field.field.node.project.field_project_start_year
+    - field.field.node.project.field_project_status
+    - field.field.node.project.field_project_thumbnail
+    - field.field.node.project.field_project_website
+    - field.field.node.project.field_tax_cbarc
+    - field.field.node.project.field_tax_focus_area
+    - field.field.node.project.field_tax_fwcs_topics
+    - field.field.node.project.field_tax_nursery_topics
+    - field.field.node.project.field_tax_organic_ag_topics
+    - field.field.node.project.field_tax_owri_topics
+    - field.field.node.project.field_tax_swd_topics
+    - field.field.node.project.field_tax_turf_topics
+    - field.field.node.project.field_tax_veg_topics
+    - field.field.node.project.field_tax_work_area
+    - node.type.project
+  module:
+    - field_group
+    - link
+    - media_library
+    - multiselect
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_project_general_info:
+      children:
+        - field_project_image
+        - field_project_thumbnail
+        - body
+        - field_project_funding_source
+        - field_project_leader
+        - field_project_member
+        - field_project_website
+        - field_project_status
+        - field_project_start_year
+        - field_project_end_year
+        - field_project_media
+      label: 'General Information'
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        description: ''
+        required_fields: true
+    group_project_impacts:
+      children:
+        - field_project_impacts
+        - field_project_outputs
+        - field_project_partners
+      label: Impacts
+      region: content
+      parent_name: ''
+      weight: 4
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        description: ''
+        required_fields: true
+    group_project_topics:
+      children:
+        - field_tax_cbarc
+        - field_tax_focus_area
+        - field_tax_nursery_topics
+        - field_tax_organic_ag_topics
+        - field_tax_veg_topics
+        - field_tax_owri_topics
+        - field_tax_swd_topics
+        - field_tax_turf_topics
+        - field_tax_fwcs_topics
+        - field_tax_work_area
+      label: Topics
+      region: content
+      parent_name: ''
+      weight: 5
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        description: ''
+        required_fields: true
+id: node.project.default
+targetEntityType: node
+bundle: project
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 18
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_project_end_year:
+    type: number
+    weight: 25
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_project_funding_source:
+    type: text_textarea
+    weight: 19
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_project_image:
+    type: media_library_widget
+    weight: 16
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_project_impacts:
+    type: text_textarea
+    weight: 5
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_project_key_activities:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_project_leader:
+    type: entity_reference_autocomplete
+    weight: 20
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_project_literature:
+    type: text_textarea
+    weight: 6
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_project_media:
+    type: media_library_widget
+    weight: 26
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_project_member:
+    type: entity_reference_autocomplete
+    weight: 21
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_project_objectives:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_project_outputs:
+    type: text_textarea
+    weight: 6
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_project_partners:
+    type: text_textarea
+    weight: 7
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_project_start_year:
+    type: number
+    weight: 24
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_project_status:
+    type: boolean_checkbox
+    weight: 23
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_project_thumbnail:
+    type: media_library_widget
+    weight: 17
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_project_website:
+    type: link_default
+    weight: 22
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_tax_cbarc:
+    type: multiselect
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_focus_area:
+    type: multiselect
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_fwcs_topics:
+    type: multiselect
+    weight: 19
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_nursery_topics:
+    type: multiselect
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_organic_ag_topics:
+    type: multiselect
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_owri_topics:
+    type: multiselect
+    weight: 16
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_swd_topics:
+    type: multiselect
+    weight: 17
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_turf_topics:
+    type: multiselect
+    weight: 18
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_veg_topics:
+    type: multiselect
+    weight: 15
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_work_area:
+    type: multiselect
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 9
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 13
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 10
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 7
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  entitygroupfield: true
+  field_domain_access: true
+  field_domain_all_affiliates: true

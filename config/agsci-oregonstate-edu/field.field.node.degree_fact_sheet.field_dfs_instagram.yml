@@ -1,0 +1,19 @@
+uuid: 1b418d8d-a408-4d4c-af1e-fe7b5249dff4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfs_instagram
+    - node.type.degree_fact_sheet
+id: node.degree_fact_sheet.field_dfs_instagram
+field_name: field_dfs_instagram
+entity_type: node
+bundle: degree_fact_sheet
+label: 'Instagram link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

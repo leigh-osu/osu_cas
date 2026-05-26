@@ -1,0 +1,19 @@
+uuid: 575df98e-115d-4af5-83e4-30c845414855
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.paragraph_block
+    - field.storage.block_content.field_block_serialized_data
+id: block_content.paragraph_block.field_block_serialized_data
+field_name: field_block_serialized_data
+entity_type: block_content
+bundle: paragraph_block
+label: 'Block Serialized Data'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

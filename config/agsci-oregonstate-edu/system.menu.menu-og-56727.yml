@@ -1,0 +1,8 @@
+uuid: c4dd5427-1246-442a-aa42-5df82fca4c76
+langcode: en
+status: true
+dependencies: {  }
+id: menu-og-56727
+label: 'Weed Science'
+description: 'OG Menu for Weed Science'
+locked: false

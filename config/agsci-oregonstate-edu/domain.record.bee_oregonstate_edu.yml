@@ -1,0 +1,12 @@
+uuid: 6b7c47b3-d061-45ff-8a7a-dfa5f395d797
+langcode: en
+status: true
+dependencies: {  }
+id: bee_oregonstate_edu
+domain_id: 7710059
+hostname: bee.oregonstate.edu
+name: 'Biological & Ecological Engineering'
+scheme: https
+weight: 3
+is_default: false
+path_prefix: ''

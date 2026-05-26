@@ -1,0 +1,23 @@
+uuid: d8e4adae-a423-4aa1-86a4-551d700d11c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mw_gdd_yearly_accumulation
+    - node.type.weather_monthly_data
+id: node.weather_monthly_data.field_mw_gdd_yearly_accumulation
+field_name: field_mw_gdd_yearly_accumulation
+entity_type: node
+bundle: weather_monthly_data
+label: 'GDD: Yearly Accumulation'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

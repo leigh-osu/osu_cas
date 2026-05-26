@@ -1,0 +1,15 @@
+uuid: c4550d5a-7569-4513-b4de-bcdaf543bc79
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.entomology_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_entomology_oregonstate_edu
+label: 'Remove editors from the Entomology Program domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - entomology_oregonstate_edu

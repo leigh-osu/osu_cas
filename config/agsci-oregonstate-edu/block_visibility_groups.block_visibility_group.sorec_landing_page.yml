@@ -1,0 +1,16 @@
+uuid: 9f5b561d-9cf9-4842-9382-cfdabe2a4f86
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: sorec_landing_page
+label: sorec_landing_page
+logic: and
+conditions:
+  7d3b6817-0e76-4829-bf2a-39e06984c4a2:
+    id: request_path
+    negate: false
+    uuid: 7d3b6817-0e76-4829-bf2a-39e06984c4a2
+    pages: /node/230236
+allow_other_conditions: null

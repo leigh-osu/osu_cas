@@ -1,0 +1,8 @@
+uuid: 21bf483c-f2c0-469b-9874-cf0f55966321
+langcode: en
+status: true
+dependencies: {  }
+id: menu-og-284226
+label: 'Julia Cui Lab'
+description: 'OG Menu for Julia Cui Lab'
+locked: false

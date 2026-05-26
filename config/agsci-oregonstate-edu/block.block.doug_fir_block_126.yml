@@ -1,0 +1,33 @@
+uuid: 79f9f914-8cca-436b-a13a-e4862bd54009
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:63762c9e-86d4-4d8c-86f5-cdb41d85f430'
+  module:
+    - block_content
+    - system
+  theme:
+    - doug_fir
+id: doug_fir_block_126
+theme: doug_fir
+region: ''
+weight: 0
+provider: null
+plugin: 'block_content:63762c9e-86d4-4d8c-86f5-cdb41d85f430'
+settings:
+  id: 'block_content:63762c9e-86d4-4d8c-86f5-cdb41d85f430'
+  label: '<none>'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: |-
+      /agprogrameou/academics
+      /agprogrameou/resources
+      /agprogrameou/students/join-us

@@ -1,0 +1,15 @@
+uuid: 9eee50f1-8900-414f-8879-de6200871f58
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.fw_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_fw_oregonstate_edu
+label: 'Remove editors from the Fisheries, Wildlife, and Conservation Sciences domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - fw_oregonstate_edu

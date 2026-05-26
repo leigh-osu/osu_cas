@@ -1,0 +1,19 @@
+uuid: 41828af9-c0a6-40c3-a0ef-f2a6eef3dc0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfs_advising_email
+    - node.type.degree_fact_sheet
+id: node.degree_fact_sheet.field_dfs_advising_email
+field_name: field_dfs_advising_email
+entity_type: node
+bundle: degree_fact_sheet
+label: 'Advising Email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

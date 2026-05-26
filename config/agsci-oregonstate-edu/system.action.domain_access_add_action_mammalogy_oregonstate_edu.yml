@@ -1,0 +1,15 @@
+uuid: 5c556d48-aacd-4f0d-a83a-dafcb62898a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.mammalogy_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_mammalogy_oregonstate_edu
+label: 'Add selected content to the Mammalogy domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - mammalogy_oregonstate_edu

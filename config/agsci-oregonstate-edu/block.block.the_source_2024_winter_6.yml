@@ -1,0 +1,32 @@
+uuid: 56f15010-e63a-415a-8768-f5035b12e783
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.the_source_2024_winter
+  content:
+    - 'block_content:basic:ac5ff0d0-8652-4a2e-b7f9-c5ebe2b3afdf'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - madrone
+id: the_source_2024_winter_6
+theme: madrone
+region: full_top
+weight: -7
+provider: null
+plugin: 'block_content:ac5ff0d0-8652-4a2e-b7f9-c5ebe2b3afdf'
+settings:
+  id: 'block_content:ac5ff0d0-8652-4a2e-b7f9-c5ebe2b3afdf'
+  label: ''
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: the_source_2024_winter

@@ -1,0 +1,15 @@
+uuid: 7a3b10ff-18f3-4000-aa9d-4404d1126346
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.ruralstudies_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_ruralstudies_oregonstate_edu
+label: 'Add selected content to the Rural Studies Program domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - ruralstudies_oregonstate_edu

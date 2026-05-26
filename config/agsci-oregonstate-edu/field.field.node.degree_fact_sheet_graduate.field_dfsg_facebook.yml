@@ -1,0 +1,19 @@
+uuid: b423f91c-8209-4e3e-9d9f-9ca1fc8bbd98
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfsg_facebook
+    - node.type.degree_fact_sheet_graduate
+id: node.degree_fact_sheet_graduate.field_dfsg_facebook
+field_name: field_dfsg_facebook
+entity_type: node
+bundle: degree_fact_sheet_graduate
+label: 'Facebook link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

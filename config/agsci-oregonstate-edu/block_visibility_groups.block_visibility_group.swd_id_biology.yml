@@ -1,0 +1,16 @@
+uuid: 03258dda-1ae1-4c5a-90d1-fa6c08fa7eb2
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: swd_id_biology
+label: swd_id_biology
+logic: and
+conditions:
+  06a1e629-21af-46bd-ab34-b76e7df35576:
+    id: request_path
+    negate: false
+    uuid: 06a1e629-21af-46bd-ab34-b76e7df35576
+    pages: /node/80101
+allow_other_conditions: null

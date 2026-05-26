@@ -1,0 +1,19 @@
+uuid: 0544df43-3945-4fc1-be38-4e7aa82672e4
+langcode: und
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_dfs_cascades_campus
+field_name: field_dfs_cascades_campus
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

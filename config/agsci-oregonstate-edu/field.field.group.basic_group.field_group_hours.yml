@@ -1,0 +1,22 @@
+uuid: b49be340-87bd-4ee1-86ec-8bd3ea7deb7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_group_hours
+    - group.type.basic_group
+  module:
+    - text
+id: group.basic_group.field_group_hours
+field_name: field_group_hours
+entity_type: group
+bundle: basic_group
+label: 'Hours of Operation'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

@@ -1,0 +1,16 @@
+uuid: 8dde7bf1-7d0b-4e20-9ac1-026853366be6
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: organic_ag_projects
+label: organic_ag_projects
+logic: and
+conditions:
+  30ac6f69-f056-4c2e-8ff6-154f7849c155:
+    id: request_path
+    negate: false
+    uuid: 30ac6f69-f056-4c2e-8ff6-154f7849c155
+    pages: /organic-agriculture-program/organic-research-and-extension-projects
+allow_other_conditions: null

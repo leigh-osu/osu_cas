@@ -1,0 +1,16 @@
+uuid: 1566573c-8af7-452a-ba9c-44e3310ab3ed
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: larch_footer_lower_form
+label: larch_footer_lower_form
+logic: and
+conditions:
+  7204cd63-569e-4d52-9da0-37b33b220686:
+    id: request_path
+    negate: false
+    uuid: 7204cd63-569e-4d52-9da0-37b33b220686
+    pages: "/plant-clinic\r\n/plant-clinic/*"
+allow_other_conditions: null

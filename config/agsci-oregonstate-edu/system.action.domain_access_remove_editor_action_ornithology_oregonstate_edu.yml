@@ -1,0 +1,15 @@
+uuid: 4c660dbb-86af-44ca-bcb3-5e35fb5e7710
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.ornithology_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_ornithology_oregonstate_edu
+label: 'Remove editors from the Ornithology domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - ornithology_oregonstate_edu

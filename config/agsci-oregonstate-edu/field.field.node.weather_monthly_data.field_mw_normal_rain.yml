@@ -1,0 +1,23 @@
+uuid: c805178b-c6a1-4d97-ac03-e76329f9159e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mw_normal_rain
+    - node.type.weather_monthly_data
+id: node.weather_monthly_data.field_mw_normal_rain
+field_name: field_mw_normal_rain
+entity_type: node
+bundle: weather_monthly_data
+label: 'Normal: Rain'
+description: 'Monthly Normal: Rain'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

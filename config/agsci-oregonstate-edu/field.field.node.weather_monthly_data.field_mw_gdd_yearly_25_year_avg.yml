@@ -1,0 +1,23 @@
+uuid: 6ba96397-3c52-4d4d-9679-3e3bcd5c42b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mw_gdd_yearly_25_year_avg
+    - node.type.weather_monthly_data
+id: node.weather_monthly_data.field_mw_gdd_yearly_25_year_avg
+field_name: field_mw_gdd_yearly_25_year_avg
+entity_type: node
+bundle: weather_monthly_data
+label: 'GDD: Yearly 25 year avg'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

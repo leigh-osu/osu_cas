@@ -1,0 +1,16 @@
+uuid: 2cedfb38-4893-4495-8433-7eeab4f28ed6
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: nw_plant_eval
+label: nw_plant_eval
+logic: and
+conditions:
+  2a674483-9526-4fb0-9928-51f8e9341c8e:
+    id: request_path
+    negate: false
+    uuid: 2a674483-9526-4fb0-9928-51f8e9341c8e
+    pages: "/node/49351\r\n/node/49671\r\n/node/49711\r\n/node/49736\r\n/node/49741\r\n/node/49761sid"
+allow_other_conditions: null

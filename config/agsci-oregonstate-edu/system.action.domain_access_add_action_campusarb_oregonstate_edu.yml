@@ -1,0 +1,15 @@
+uuid: ac32c852-c5cc-4b59-a8ed-afed727f0812
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.campusarb_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_campusarb_oregonstate_edu
+label: 'Add selected content to the OSU Campus Arboretum domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - campusarb_oregonstate_edu

@@ -1,0 +1,15 @@
+uuid: 056e4950-94e7-41df-91fc-33604eaf0125
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.www_cropinfo_net
+  module:
+    - domain_access
+id: domain_access_remove_action_www_cropinfo_net
+label: 'Remove selected content from the Malheur Experiment Station domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - www_cropinfo_net

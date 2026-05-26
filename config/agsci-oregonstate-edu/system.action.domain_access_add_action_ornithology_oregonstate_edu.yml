@@ -1,0 +1,15 @@
+uuid: 22ed2a78-8004-4f3a-a4bc-c3843afa3d9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.ornithology_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_ornithology_oregonstate_edu
+label: 'Add selected content to the Ornithology domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - ornithology_oregonstate_edu

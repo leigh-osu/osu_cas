@@ -1,0 +1,21 @@
+uuid: 2bd1d297-187f-419f-8a12-0464b31c8e3a
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_dfsg_degree_level
+field_name: field_dfsg_degree_level
+entity_type: node
+type: list_string
+settings:
+  allowed_values: {  }
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

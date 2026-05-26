@@ -1,0 +1,8 @@
+uuid: b24d9e3d-7702-47ef-81aa-fe445469f8dd
+langcode: en
+status: true
+dependencies: {  }
+id: menu-og-253231
+label: 'Cabbage Maggot Portal'
+description: 'OG Menu for Cabbage Maggot Portal'
+locked: false

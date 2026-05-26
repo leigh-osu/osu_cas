@@ -1,0 +1,16 @@
+uuid: e3d38572-bfe8-451b-b5c6-f1eaf63adb74
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: hemp_media
+label: hemp_media
+logic: and
+conditions:
+  f6571be3-81c7-4a07-b19a-400bfe0b01f2:
+    id: request_path
+    negate: false
+    uuid: f6571be3-81c7-4a07-b19a-400bfe0b01f2
+    pages: /node/216706
+allow_other_conditions: null

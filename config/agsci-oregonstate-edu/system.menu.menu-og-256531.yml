@@ -1,0 +1,8 @@
+uuid: 83d092b6-86a8-4b3d-8d1d-f85ec5d532cc
+langcode: en
+status: true
+dependencies: {  }
+id: menu-og-256531
+label: 'Climate-Smart Potatoes from the Pacific Northwest'
+description: 'OG Menu for Climate-Smart Potatoes from the Pacific Northwest'
+locked: false

@@ -1,0 +1,15 @@
+uuid: 9bbdb4bb-ee89-4142-981b-5dcda9e03c34
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.entomology_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_entomology_oregonstate_edu
+label: 'Add editors to the Entomology Program domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - entomology_oregonstate_edu

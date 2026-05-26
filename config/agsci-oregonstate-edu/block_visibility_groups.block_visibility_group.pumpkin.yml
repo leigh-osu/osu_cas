@@ -1,0 +1,16 @@
+uuid: 1edaa9e0-7eaf-4cde-a591-801b61fd9cf2
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: pumpkin
+label: pumpkin
+logic: and
+conditions:
+  5a23ac02-0ee9-4517-a8fb-38932bc7d7e6:
+    id: request_path
+    negate: false
+    uuid: 5a23ac02-0ee9-4517-a8fb-38932bc7d7e6
+    pages: "/malheur-experiment-station/crops/pumpkin-seed\r\n/mes/crops/pumpkin-seed\r\n/node/45331"
+allow_other_conditions: null

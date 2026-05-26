@@ -1,0 +1,14 @@
+uuid: 150db306-459a-4476-bcac-97d4852e3691
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.manage_webforms
+  module:
+    - user
+id: user_remove_role_action.manage_webforms
+label: 'Remove the Manage Webforms role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: manage_webforms

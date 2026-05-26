@@ -1,0 +1,8 @@
+uuid: a39e438a-e902-4dd2-8ace-d9da28b140c0
+langcode: en
+status: true
+dependencies: {  }
+id: menu-og-266621
+label: 'Vegetable Weed Science Lab'
+description: 'OG Menu for Vegetable Weed Science Lab'
+locked: false

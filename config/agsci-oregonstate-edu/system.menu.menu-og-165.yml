@@ -1,0 +1,8 @@
+uuid: dcd6314e-6251-453f-8fb8-c46602b87437
+langcode: en
+status: true
+dependencies: {  }
+id: menu-og-165
+label: 'Bioresource Research'
+description: 'OG Menu for Bioresource Research'
+locked: false

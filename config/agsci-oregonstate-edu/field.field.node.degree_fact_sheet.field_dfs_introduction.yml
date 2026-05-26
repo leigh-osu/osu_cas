@@ -1,0 +1,19 @@
+uuid: 73c397c2-adb9-4b29-81cc-94b627d7de32
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfs_introduction
+    - node.type.degree_fact_sheet
+id: node.degree_fact_sheet.field_dfs_introduction
+field_name: field_dfs_introduction
+entity_type: node
+bundle: degree_fact_sheet
+label: Introduction
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

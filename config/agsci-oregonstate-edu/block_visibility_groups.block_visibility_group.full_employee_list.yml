@@ -1,0 +1,16 @@
+uuid: 85be0332-f15a-481c-81f1-c4595519f7e1
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: full_employee_list
+label: full_employee_list
+logic: and
+conditions:
+  05bf73e0-3f44-47f4-811e-e931750ae485:
+    id: request_path
+    negate: false
+    uuid: 05bf73e0-3f44-47f4-811e-e931750ae485
+    pages: /node/227111
+allow_other_conditions: null

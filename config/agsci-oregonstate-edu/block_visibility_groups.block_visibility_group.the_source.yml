@@ -1,0 +1,16 @@
+uuid: 9fc8100f-0b31-4aa4-b885-a8c6df6c2641
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: the_source
+label: the_source
+logic: and
+conditions:
+  c8cdc5aa-32dc-42ec-bbc3-286c1724abbe:
+    id: request_path
+    negate: false
+    uuid: c8cdc5aa-32dc-42ec-bbc3-286c1724abbe
+    pages: "/main/source/*\r\n/newsletter/*\r\n/main/newsletter/*\r\n/source/*\r\n/thesource/*\r\n/newsroom/source*"
+allow_other_conditions: null

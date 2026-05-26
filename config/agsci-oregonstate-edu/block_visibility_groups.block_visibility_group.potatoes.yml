@@ -1,0 +1,16 @@
+uuid: 0509abc7-4b04-4a82-afb3-674cda5b5961
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: potatoes
+label: potatoes
+logic: and
+conditions:
+  e27de6ae-14c3-4133-a394-2625131710b4:
+    id: request_path
+    negate: false
+    uuid: e27de6ae-14c3-4133-a394-2625131710b4
+    pages: "/malheur-experiment-station/crops/potatoes\r\n/mes/crops/potatoes\r\n/node/45281"
+allow_other_conditions: null

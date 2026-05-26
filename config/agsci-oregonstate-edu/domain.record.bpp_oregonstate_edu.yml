@@ -1,0 +1,12 @@
+uuid: 075de596-01ad-413c-8c55-8d27545de1c9
+langcode: en
+status: true
+dependencies: {  }
+id: bpp_oregonstate_edu
+domain_id: 1861385
+hostname: bpp.oregonstate.edu
+name: 'Botany & Plant Pathology'
+scheme: https
+weight: 5
+is_default: false
+path_prefix: ''

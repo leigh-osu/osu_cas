@@ -1,0 +1,27 @@
+uuid: f9d74c92-68e8-43f6-bc29-14d5eda7d7b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfsg_pdf_flyer
+    - node.type.degree_fact_sheet_graduate
+  module:
+    - file
+id: node.degree_fact_sheet_graduate.field_dfsg_pdf_flyer
+field_name: field_dfsg_pdf_flyer
+entity_type: node
+bundle: degree_fact_sheet_graduate
+label: 'PDF Flyer'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: ''
+  file_extensions: pdf
+  max_filesize: ''
+  description_field: false
+field_type: file

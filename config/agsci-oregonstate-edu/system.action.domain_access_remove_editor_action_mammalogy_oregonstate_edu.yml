@@ -1,0 +1,15 @@
+uuid: a9c386f1-d7a3-4fd3-9ec8-31c08c5e708a
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.mammalogy_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_mammalogy_oregonstate_edu
+label: 'Remove editors from the Mammalogy domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - mammalogy_oregonstate_edu

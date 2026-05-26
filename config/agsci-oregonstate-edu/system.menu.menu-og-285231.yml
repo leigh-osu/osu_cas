@@ -1,0 +1,8 @@
+uuid: 2d533584-e7dc-4063-ba51-98b02df9fe7b
+langcode: en
+status: true
+dependencies: {  }
+id: menu-og-285231
+label: 'Weed Management in Specialty Perennial Crops'
+description: 'OG Menu for Weed Management in Specialty Perennial Crops'
+locked: false

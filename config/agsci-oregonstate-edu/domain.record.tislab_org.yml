@@ -1,0 +1,12 @@
+uuid: 2a2b8a90-3826-4215-9ed5-ff7934deff53
+langcode: en
+status: false
+dependencies: {  }
+id: tislab_org
+domain_id: 15968964
+hostname: tislab.org
+name: 'Translational and Integrative Science Center'
+scheme: https
+weight: 30
+is_default: false
+path_prefix: ''

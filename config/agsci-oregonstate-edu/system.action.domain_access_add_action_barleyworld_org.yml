@@ -1,0 +1,15 @@
+uuid: 90587dc1-189d-47bf-b1dc-396004395d53
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.barleyworld_org
+  module:
+    - domain_access
+id: domain_access_add_action_barleyworld_org
+label: 'Add selected content to the Barley World domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - barleyworld_org

@@ -1,0 +1,16 @@
+uuid: ff273843-11c5-4ee4-9e1b-e7d0d02da15e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: art_quick_edit
+label: art_quick_edit
+logic: and
+conditions:
+  9ba2985a-e406-4821-916c-520398ff4f3b:
+    id: request_path
+    negate: false
+    uuid: 9ba2985a-e406-4821-916c-520398ff4f3b
+    pages: /art-about-agriculture/quick-edit
+allow_other_conditions: null

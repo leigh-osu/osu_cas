@@ -1,0 +1,20 @@
+uuid: 0e818877-03ad-4889-853a-8c4959ddbec2
+langcode: en
+status: true
+dependencies:
+  theme:
+    - manzanita
+_core:
+  default_config_hash: I0QG0TKmF6r5iHOorCnvsBwhK0yGCW7v4BCj4FhlqWU
+id: manzanita_page_title
+theme: manzanita
+region: content
+weight: -4
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

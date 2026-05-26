@@ -1,0 +1,15 @@
+uuid: fb930b2e-bd09-48a7-b190-95ae77379f76
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.open_sensing_org
+  module:
+    - domain_access
+id: domain_access_add_action_open_sensing_org
+label: 'Add selected content to the Open Sensing Lab domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - open_sensing_org

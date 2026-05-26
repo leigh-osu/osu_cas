@@ -1,0 +1,15 @@
+uuid: d4387566-9701-42e9-852f-2f93439e4241
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.support_roots_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_support_roots_oregonstate_edu
+label: 'Add editors to the Roots IT Support domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - support_roots_oregonstate_edu

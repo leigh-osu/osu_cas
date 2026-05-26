@@ -1,0 +1,15 @@
+uuid: 500557ca-de8e-49cf-8526-82265391ae98
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.gardenecology_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_gardenecology_oregonstate_edu
+label: 'Remove selected content from the Garden Ecology Lab domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - gardenecology_oregonstate_edu

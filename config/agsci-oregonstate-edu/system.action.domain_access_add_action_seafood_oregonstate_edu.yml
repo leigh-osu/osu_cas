@@ -1,0 +1,15 @@
+uuid: b8855bfc-9778-44fd-8ef6-2cd4d776af5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.seafood_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_seafood_oregonstate_edu
+label: 'Add selected content to the Seafood Network Information Center domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - seafood_oregonstate_edu

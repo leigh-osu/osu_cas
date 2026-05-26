@@ -1,0 +1,29 @@
+uuid: 8733af38-a2d8-4841-bc65-76e4ba160ab9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_story_osu_employee
+    - node.type.story
+id: node.story.field_story_osu_employee
+field_name: field_story_osu_employee
+entity_type: node
+bundle: story
+label: 'OSU Employee'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: name
+      direction: ASC
+    auto_create: false
+    filter:
+      type: _none
+    include_anonymous: false
+field_type: entity_reference

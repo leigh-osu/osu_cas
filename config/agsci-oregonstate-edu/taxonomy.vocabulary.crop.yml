@@ -1,0 +1,9 @@
+uuid: 04f33bf9-374a-4f18-9eb2-3e99aa421144
+langcode: en
+status: true
+dependencies: {  }
+name: Crop
+vid: crop
+description: null
+weight: 0
+new_revision: false

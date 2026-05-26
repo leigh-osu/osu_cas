@@ -1,0 +1,31 @@
+uuid: 7c574e75-324d-4710-b301-5acdc37d9c45
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.the_source_2023_fall
+    - system.menu.menu-fall-2023
+  module:
+    - block_visibility_groups
+    - system
+  theme:
+    - madrone
+id: the_source_2023_fall_menu_fall_2023
+theme: madrone
+region: sidebar
+weight: 1
+provider: null
+plugin: 'system_menu_block:menu-fall-2023'
+settings:
+  id: 'system_menu_block:menu-fall-2023'
+  label: 'Fall 2023'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: the_source_2023_fall

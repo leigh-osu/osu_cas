@@ -1,0 +1,21 @@
+uuid: 3e755f13-b3bd-4017-99bf-57660d4e9cdc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_fac_nonthesis
+    - node.type.osu_profile
+id: node.osu_profile.field_profile_fac_nonthesis
+field_name: field_profile_fac_nonthesis
+entity_type: node
+bundle: osu_profile
+label: 'I advise nonthesis (PSM) students'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

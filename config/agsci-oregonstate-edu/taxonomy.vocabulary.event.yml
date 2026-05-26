@@ -1,0 +1,9 @@
+uuid: feaff800-cb98-47e9-8940-44808dc0c587
+langcode: en
+status: true
+dependencies: {  }
+name: 'Event type'
+vid: event
+description: 'Types of Events'
+weight: 0
+new_revision: false

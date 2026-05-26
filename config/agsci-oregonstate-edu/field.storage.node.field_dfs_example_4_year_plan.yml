@@ -1,0 +1,19 @@
+uuid: dff2d340-4d0a-44a2-b2d0-f2bcb5329c44
+langcode: und
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_dfs_example_4_year_plan
+field_name: field_dfs_example_4_year_plan
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

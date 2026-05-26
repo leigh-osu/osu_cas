@@ -1,0 +1,16 @@
+uuid: 2221f9ae-179c-4297-9f44-8cdb6f2cda55
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: swd_images
+label: swd_images
+logic: and
+conditions:
+  77bd557d-6eb9-420d-a6bc-cda850115f95:
+    id: request_path
+    negate: false
+    uuid: 77bd557d-6eb9-420d-a6bc-cda850115f95
+    pages: /node/80056
+allow_other_conditions: null

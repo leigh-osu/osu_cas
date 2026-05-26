@@ -1,0 +1,26 @@
+uuid: e17db505-6fa6-44df-9e09-ff1f85e94fd1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weed_stem
+    - filter.format.basic_html
+    - filter.format.full_html
+    - node.type.weed
+  module:
+    - text
+id: node.weed.field_weed_stem
+field_name: field_weed_stem
+entity_type: node
+bundle: weed
+label: Stem
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+    - basic_html
+field_type: text_long
