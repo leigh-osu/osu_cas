@@ -472,7 +472,10 @@
             "tbachert/spi": true
         },
         "audit": {
-            "ignore": ["SA-CONTRIB-2025-077"]
+            "ignore": {
+                "SA-CONTRIB-2025-077": "",
+                "PKSA-dwsq-ppd2-mb1x": "CVE-2026-46644 in symfony/polyfill-intl-idn ~1.37.0 pinned by drupal/core 10.6.9; polyfill is inert because ext-intl is present. Remove once core relaxes the pin to allow 1.38.1+."
+            }
         }
     },
     "extra": {
