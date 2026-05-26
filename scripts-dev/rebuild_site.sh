@@ -268,11 +268,26 @@ section_6() {
   ddev snapshot restore afterparanodes
 
   ddev drush migrate:import upgrade_d7_view_modes
+
+  # Group field config (storage + instances + group_content enablers) must be
+  # imported before the CAS group migrations, which populate those fields.
+  echo 'installing group settings'
+  ddev drush config:import --partial --source=../config_imports/group -y
+
+  ddev drush cr -y
+
+  # Base OG / Parent Unit group creation. These create the group entities
+  # (keyed by nid) and satisfy the shared membership / menu / organization
+  # migrations, which look up groups by these base migration IDs.
   ddev drush migrate:import upgrade_d7_node_og_group
   ddev drush migrate:import upgrade_d7_node_parent_unit_group
 
-  echo 'installing group settings'
-  ddev drush config:import --partial --source=../config_imports/group -y
+  # CAS field-mapping group migrations. They update the same group entities with
+  # the CAS field data (body, contact, location, social, parent unit reference,
+  # site coordinators, info-sheet media document, etc.). cas_node_parent_unit_group
+  # must run before cas_node_og_group so field_group_parent_unit can resolve.
+  ddev drush migrate:import cas_node_parent_unit_group
+  ddev drush migrate:import cas_node_og_group
 
   ddev drush migrate:import upgrade_d7_user_og_memberships
   ddev drush migrate:import upgrade_d7_node_og_organization
@@ -296,7 +311,24 @@ section_7() {
   # ddev drush migrate:import --tag='OSU Groups' --force
   ddev drush migrate:import --tag='OSU Alias'
   ddev drush migrate:import --tag='OSU Redirect'
+
+  # Base profile nodes: upgrade_d7_user_to_profile creates one osu_profile node
+  # per user (matched later by uid -> nid), and the generic per-bundle
+  # migrations (upgrade_d7_user_profile_osu_*) map the shared base fields.
   ddev drush migrate:import --tag='OSU Drupal Profile'
+
+  # CAS profile field migrations (osu_migrations_cas). One per D7 profile2 bundle;
+  # each updates the existing osu_profile node (uid -> nid lookup) with the
+  # additional CAS fields, using overwrite_properties so only its own fields are
+  # written. Must run after the base 'OSU Drupal Profile' migrations above.
+  # cas_user_profile_agricultural_sciences also needs the faculty_expertise terms
+  # from --tag='OSU Taxonomy' (section 2).
+  ddev drush migrate:import cas_user_profile_osu_person
+  ddev drush migrate:import cas_user_profile_osu_employee
+  ddev drush migrate:import cas_user_profile_osu_faculty
+  ddev drush migrate:import cas_user_profile_osu_student
+  ddev drush migrate:import cas_user_profile_agricultural_sciences
+
   ddev drush migrate:import --tag='OSU Menus'
   ddev drush migrate:import --tag='OSU Blocks'
 
