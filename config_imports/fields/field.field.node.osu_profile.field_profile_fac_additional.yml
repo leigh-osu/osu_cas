@@ -1,0 +1,22 @@
+uuid: cbd28f55-3589-44da-a406-bd7a7dc81ee4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_fac_additional
+    - node.type.osu_profile
+  module:
+    - text
+id: node.osu_profile.field_profile_fac_additional
+field_name: field_profile_fac_additional
+entity_type: node
+bundle: osu_profile
+label: 'Additional Information'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

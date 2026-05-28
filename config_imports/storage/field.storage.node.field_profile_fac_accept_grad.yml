@@ -1,0 +1,72 @@
+uuid: 9a1d5c72-6f4b-4e83-bb2a-3d8e0f5c1b22
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_profile_fac_accept_grad
+field_name: field_profile_fac_accept_grad
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: grad-stu-ag-ed
+      label: 'I accept graduate students for the Agricultural Education & Agricultural Sciences Department'
+    -
+      value: grad-stu-applied-econ
+      label: 'I accept graduate students for the Applied Economics Department'
+    -
+      value: grad-stu-animal-range
+      label: 'I accept graduate students for Animal and Rangeland Sciences Department'
+    -
+      value: grad-stu-bee
+      label: 'I accept graduate students for the Biological & Ecological Engineering Department'
+    -
+      value: grad-stu-bpp
+      label: 'I accept graduate students for the Botany and Plant Pathology Department'
+    -
+      value: grad-stu-css
+      label: 'I accept graduate students for the Crop and Soil Science Department'
+    -
+      value: grad-stu-crop
+      label: 'I accept graduate students for the Crop Science Program'
+    -
+      value: grad-stu-emt
+      label: 'I accept graduate students for the Environmental and Molecular Toxicology Department'
+    -
+      value: grad-stu-ent
+      label: 'I accept graduate students for the Entomology Program'
+    -
+      value: grad-stu-fw
+      label: 'I accept graduate students for the Fisheries and Wildlife Department'
+    -
+      value: nonthesis-psm
+      label: 'I advise nonthesis (PSM) students'
+    -
+      value: grad-stu-fst
+      label: 'I accept graduate students for the Food Science and Technology Department'
+    -
+      value: grad-stu-horticulture
+      label: 'I accept graduate students for Horticulture'
+    -
+      value: grad-stu-microbiology
+      label: 'I accept graduate students for the Microbiology Department'
+    -
+      value: grad-stu-soil
+      label: 'I accept graduate students for the Soil Science Program'
+    -
+      value: grad-stu-no
+      label: 'I can serve on graduate committees'
+    -
+      value: co-advise
+      label: 'I can serve or co-advise but not be the sole advisor'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,22 @@
+uuid: 0949acc6-5380-4f2b-b510-564223181c51
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_fac_career_int
+    - node.type.osu_profile
+  module:
+    - text
+id: node.osu_profile.field_profile_fac_career_int
+field_name: field_profile_fac_career_int
+entity_type: node
+bundle: osu_profile
+label: 'Research/Career Interests'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long
