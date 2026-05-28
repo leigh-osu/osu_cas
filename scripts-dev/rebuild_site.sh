@@ -116,6 +116,17 @@ section_1() {
 
   ddev drush migrate:import --tag='OSU Accounts'
 
+  # CAS login mappings (uid -> externalauth authmap, provider 'cas').
+  # The stock contrib upgrade_d7_cas_user migration silently de-registers here:
+  # its d7_cas_user source declares source_module=cas, and our D7 source has the
+  # cas module flagged disabled (system.status=0) even though the cas_user table
+  # is fully populated, so checkRequirements() filters it out. cas_user_authmap
+  # (osu_migrations_cas) uses the osu_cas_user source, which gates on the
+  # cas_user TABLE instead of the module flag, so it works durably across source
+  # re-imports with no manual {system} edit. Only users migrated by
+  # upgrade_d7_users_with_roles get a mapping; the rest are skipped.
+  ddev drush migrate:import cas_user_authmap
+
   ddev drush migrate:import --tag='OSU Media'
 
   snapshot_save aftermedia
@@ -291,9 +302,22 @@ section_6() {
 
   ddev drush migrate:import upgrade_d7_user_og_memberships
   ddev drush migrate:import upgrade_d7_node_og_organization
-  ddev drush migrate:import upgrade_d7_book_menu_group_menu
+
+  # OG menus -> group menus (links into each group's auto-created menu).
+  # OG menus are excluded from the generic upgrade_d7_menu / upgrade_d7_menu_links
+  # migrations by osu_migrations_cas_migration_plugins_alter (cas_skip_og_menu),
+  # so this is the sole importer of OG menu links -- no id:mlid clash with the
+  # 'OSU Menus' tag in section 7.
+  ddev drush migrate:import cas_og_menu_group_menu
 
   ddev drush migrate:import --tag='CAS Groups' --force
+
+  # Book-toc menus -> group menus. Must run AFTER the CAS Groups tag: its
+  # requirements gate depends on cas_book_group_content / cas_page_group_content
+  # (repointed from the never-run upgrade_d7_* deps by
+  # osu_migrations_cas_migration_plugins_alter), and the og_book_menu plugin
+  # needs each group's content menu to already exist.
+  ddev drush migrate:import upgrade_d7_book_menu_group_menu
 
   ddev drush pqe -y
 
@@ -331,6 +355,13 @@ section_7() {
 
   ddev drush migrate:import --tag='OSU Menus'
   ddev drush migrate:import --tag='OSU Blocks'
+
+  # upgrade_d7_block recreates block placements for D7 themes that are not
+  # installed in D10 (bootstrap, doug_fir, bartik, seven, larch, adminimal),
+  # leaving orphan block.block.* config that breaks every later
+  # `drush config:import` ("... depends on the X theme that will not be
+  # installed"). Remove those orphans so config import stays clean.
+  ddev drush scr scripts-dev/prune_orphan_blocks.php
 
   ddev drush pqe -y
   ddev drush cr
