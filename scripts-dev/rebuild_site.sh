@@ -91,6 +91,13 @@ section_1() {
       osu_migrate_content og_to_group paragraphs_to_layout_builder osu_user_to_profiles devel migrate_devel \
       domain_migrate domain_access_migrate -y
 
+  # osu_digital_measures provides the osu_digital_measures_report field formatter
+  # used by node.osu_profile display config (field_profile_dm_pubs / _awards). It
+  # must be enabled before `config:import ../config_imports/display` in section 3,
+  # otherwise that partial import aborts on the unmet module dependency and NO
+  # display config is applied.
+  ddev drush en osu_digital_measures -y
+
 
   ddev drush cr -y
 
@@ -125,6 +132,10 @@ section_1() {
   # cas_user TABLE instead of the module flag, so it works durably across source
   # re-imports with no manual {system} edit. Only users migrated by
   # upgrade_d7_users_with_roles get a mapping; the rest are skipped.
+  # cas_user_authmap is defined in osu_migrations_cas, which is otherwise not
+  # enabled until section 3 — enable it here (pulls in the cas module) so the
+  # migration ID is valid at this point.
+  ddev drush en osu_migrations_cas -y
   ddev drush migrate:import cas_user_authmap
 
   ddev drush migrate:import --tag='OSU Media'
