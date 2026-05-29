@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "858de6f48febe26dd7d006ecfd448bed",
+    "content-hash": "22e2d7ad544124d5a4b7f72ad77d80d4",
     "packages": [
         {
             "name": "algolia/places",
@@ -17769,6 +17769,35 @@
                 "issues": "https://github.com/leigh-osu/manzanita/issues"
             },
             "time": "2026-02-27T22:08:26+00:00"
+        },
+        {
+            "name": "leigh-osu/osu_digital_measures",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:leigh-osu/osu_digital_measures.git",
+                "reference": "600213c2a86cba99153c77758b918cbe77193674"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leigh-osu/osu_digital_measures/zipball/600213c2a86cba99153c77758b918cbe77193674",
+                "reference": "600213c2a86cba99153c77758b918cbe77193674",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/externalauth": "^2.0",
+                "php": ">=8.1"
+            },
+            "type": "drupal-custom-module",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Displays a Digital Measures report for a profile, keyed on the profile owner's ONID (CAS) account.",
+            "support": {
+                "source": "https://github.com/leigh-osu/osu_digital_measures/tree/v1.0.0",
+                "issues": "https://github.com/leigh-osu/osu_digital_measures/issues"
+            },
+            "time": "2026-05-29T20:52:38+00:00"
         },
         {
             "name": "leigh-osu/osu_migrations_cas",
