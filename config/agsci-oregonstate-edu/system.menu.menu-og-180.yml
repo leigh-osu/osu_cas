@@ -1,8 +1,0 @@
-uuid: 5afa59a2-12ff-49c4-a15e-3c47b453f4b2
-langcode: en
-status: true
-dependencies: {  }
-id: menu-og-180
-label: 'Crop and Soil Science'
-description: 'OG Menu for Crop and Soil Science'
-locked: false

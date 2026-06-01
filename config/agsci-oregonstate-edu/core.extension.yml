@@ -131,6 +131,7 @@ module:
   osu_bootstrap_layout_builder: 0
   osu_ckeditor_plugins: 0
   osu_default_content: 0
+  osu_digital_measures: 0
   osu_google_tag: 0
   osu_groups: 0
   osu_groups_basic_group: 0

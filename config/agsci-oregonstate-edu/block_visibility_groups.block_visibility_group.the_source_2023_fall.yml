@@ -1,4 +1,4 @@
-uuid: 6a467d4d-2569-42ef-ad62-383120cd69d1
+uuid: ce4c02a2-fd44-43c9-9b39-3d520e430691
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: the_source_2023_fall
 label: the_source_2023_fall
 logic: and
 conditions:
-  e19473f3-2ab6-488d-ae64-62700708b47c:
+  0f120286-263c-4b54-8d8e-a5e510597aa3:
     id: request_path
     negate: false
-    uuid: e19473f3-2ab6-488d-ae64-62700708b47c
+    uuid: 0f120286-263c-4b54-8d8e-a5e510597aa3
     pages: "/thesource/fall-2023\r\n/thesource/fall-2023*"
 allow_other_conditions: null

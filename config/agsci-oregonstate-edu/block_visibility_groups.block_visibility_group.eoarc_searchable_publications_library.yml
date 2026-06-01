@@ -1,4 +1,4 @@
-uuid: 6f1a3f2b-75c4-4169-b668-70575c257189
+uuid: 24d87acd-bbe8-4e84-8e79-0a1c5c968b40
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: eoarc_searchable_publications_library
 label: eoarc_searchable_publications-library
 logic: and
 conditions:
-  ad9e4130-c1d3-492a-be86-17f9dc06dc9a:
+  bf450d2d-b581-46a9-b7f3-b68045f165df:
     id: request_path
     negate: false
-    uuid: ad9e4130-c1d3-492a-be86-17f9dc06dc9a
+    uuid: bf450d2d-b581-46a9-b7f3-b68045f165df
     pages: /node/99021
 allow_other_conditions: null

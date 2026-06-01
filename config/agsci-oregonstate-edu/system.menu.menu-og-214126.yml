@@ -1,8 +1,0 @@
-uuid: c9ea577b-33eb-427c-8af4-c2e1bcaedee4
-langcode: en
-status: true
-dependencies: {  }
-id: menu-og-214126
-label: 'Biological Data Sciences'
-description: 'OG Menu for Biological Data Sciences'
-locked: false

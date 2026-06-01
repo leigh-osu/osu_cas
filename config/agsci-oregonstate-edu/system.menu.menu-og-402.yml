@@ -1,8 +1,0 @@
-uuid: 527981a0-6e5c-4702-bcd8-fb32510f532b
-langcode: en
-status: true
-dependencies: {  }
-id: menu-og-402
-label: 'Goyer Laboratory'
-description: 'OG Menu for Goyer Laboratory'
-locked: false

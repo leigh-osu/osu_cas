@@ -1,4 +1,4 @@
-uuid: ea88dafe-f93e-4947-9756-f9f43ca64eea
+uuid: f7ec55db-8675-46a3-891a-b6a8bb1491a2
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: ngc_nursery
 label: ngc_nursery
 logic: and
 conditions:
-  ddf44315-2adb-46cd-b1b4-272e54a8a7bf:
+  342eb0e5-cfab-46b7-9452-0c20e0b0b046:
     id: request_path
     negate: false
-    uuid: ddf44315-2adb-46cd-b1b4-272e54a8a7bf
+    uuid: 342eb0e5-cfab-46b7-9452-0c20e0b0b046
     pages: "/node/79961\r\n/node/63566"
 allow_other_conditions: null

@@ -1,8 +1,0 @@
-uuid: 0cca010c-a118-4d26-8394-69f1273bc98b
-langcode: en
-status: true
-dependencies: {  }
-id: menu-fall-2024
-label: 'December 2024'
-description: 'December 2024 issue of The Source'
-locked: false

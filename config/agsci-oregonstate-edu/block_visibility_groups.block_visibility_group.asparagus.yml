@@ -1,4 +1,4 @@
-uuid: 1444a907-4d60-4028-bc28-de9730aa4ff7
+uuid: f048a067-1876-49d8-bac1-52f89b8f6ac0
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: asparagus
 label: asparagus
 logic: and
 conditions:
-  20502337-32b7-466a-8614-2b73440fb06a:
+  5d39c0ce-fd61-4186-8595-657d5d898c85:
     id: request_path
     negate: false
-    uuid: 20502337-32b7-466a-8614-2b73440fb06a
+    uuid: 5d39c0ce-fd61-4186-8595-657d5d898c85
     pages: /mes/crops/asparagus
 allow_other_conditions: null

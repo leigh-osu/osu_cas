@@ -1,4 +1,4 @@
-uuid: 8de91eab-3773-4194-abf6-233cab4d81be
+uuid: cb9bc94e-6cc8-4570-8552-f5560401451a
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: ngc_publications
 label: ngc_publications
 logic: and
 conditions:
-  5e0aac05-cbbf-4977-82df-2514b1254c6e:
+  6e1b8adc-5bdb-4783-b1ed-38043a1f8619:
     id: request_path
     negate: false
-    uuid: 5e0aac05-cbbf-4977-82df-2514b1254c6e
+    uuid: 6e1b8adc-5bdb-4783-b1ed-38043a1f8619
     pages: /node/79936
 allow_other_conditions: null

@@ -1,8 +1,0 @@
-uuid: c11d42f1-3676-48ec-aa9a-e7fe5c9b3152
-langcode: en
-status: true
-dependencies: {  }
-id: menu-og-27355
-label: 'Open Sensing Lab'
-description: 'OG Menu for Open Sensing Lab'
-locked: false

@@ -1,4 +1,4 @@
-uuid: 0e106327-5014-4a24-9ce2-2701977fa8f9
+uuid: 2b07d7d3-8cf0-43e6-8e83-53759563f823
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: onions
 label: onions
 logic: and
 conditions:
-  5f0af3ac-2ff4-4b2c-8296-740fa7792ff1:
+  65d34329-f218-44e3-8473-8cb354b112cc:
     id: request_path
     negate: false
-    uuid: 5f0af3ac-2ff4-4b2c-8296-740fa7792ff1
+    uuid: 65d34329-f218-44e3-8473-8cb354b112cc
     pages: /mes/crops/onions
 allow_other_conditions: null

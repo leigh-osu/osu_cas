@@ -1,8 +1,0 @@
-uuid: efe26647-ceee-4ec7-b327-65cba90955bc
-langcode: en
-status: true
-dependencies: {  }
-id: menu-og-16025
-label: 'Environmental and Molecular Toxicology'
-description: 'OG Menu for Environmental and Molecular Toxicology'
-locked: false

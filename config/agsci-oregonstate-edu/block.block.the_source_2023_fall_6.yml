@@ -1,11 +1,11 @@
-uuid: fb6be916-ba2e-474d-8a5e-7b1ecdf38cc2
+uuid: 6b6c12ef-af66-47b8-9c82-039b10a5c1fa
 langcode: en
 status: true
 dependencies:
   config:
     - block_visibility_groups.block_visibility_group.the_source_2023_fall
   content:
-    - 'block_content:basic:ac5ff0d0-8652-4a2e-b7f9-c5ebe2b3afdf'
+    - 'block_content:basic:8b6b190b-569c-4735-bbc2-4a6dc89af3a7'
   module:
     - block_content
     - block_visibility_groups
@@ -16,9 +16,9 @@ theme: madrone
 region: full_top
 weight: -7
 provider: null
-plugin: 'block_content:ac5ff0d0-8652-4a2e-b7f9-c5ebe2b3afdf'
+plugin: 'block_content:8b6b190b-569c-4735-bbc2-4a6dc89af3a7'
 settings:
-  id: 'block_content:ac5ff0d0-8652-4a2e-b7f9-c5ebe2b3afdf'
+  id: 'block_content:8b6b190b-569c-4735-bbc2-4a6dc89af3a7'
   label: ''
   label_display: visible
   provider: block_content

@@ -1,8 +1,0 @@
-uuid: 52b4662f-4071-44e1-b4ba-2beb90759ee0
-langcode: en
-status: true
-dependencies: {  }
-id: menu-og-67286
-label: 'OSU Seafood Lab'
-description: 'OG Menu for OSU Seafood Lab'
-locked: false

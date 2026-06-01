@@ -1,4 +1,4 @@
-uuid: b9f92cb8-8468-4149-8ac5-f6bc8aaec034
+uuid: 608b1d4d-5095-4bc7-b431-6836797a65ca
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: honeybee_directory
 label: honeybee_directory
 logic: and
 conditions:
-  698c735f-4972-43b3-8516-cd896f113942:
+  616fe181-131b-44d4-8859-ea371968d587:
     id: request_path
     negate: false
-    uuid: 698c735f-4972-43b3-8516-cd896f113942
+    uuid: 616fe181-131b-44d4-8859-ea371968d587
     pages: /node/80201
 allow_other_conditions: null

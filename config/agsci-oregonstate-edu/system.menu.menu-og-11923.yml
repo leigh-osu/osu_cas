@@ -1,8 +1,0 @@
-uuid: 9aa72ff5-0349-4036-8482-8943f43d5bcb
-langcode: en
-status: true
-dependencies: {  }
-id: menu-og-11923
-label: 'Student Clubs & Organizations'
-description: 'OG Menu for CAS Student Clubs & Organizations'
-locked: false

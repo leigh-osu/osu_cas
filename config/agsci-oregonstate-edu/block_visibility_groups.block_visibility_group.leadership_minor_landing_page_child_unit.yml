@@ -1,4 +1,4 @@
-uuid: f095aae0-7b2d-4cbe-be0a-88d2e1234b0d
+uuid: 20e053af-6fd9-4b7c-ac14-83fd1e963075
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: leadership_minor_landing_page_child_unit
 label: leadership_minor_landing-page-child-unit
 logic: and
 conditions:
-  beb37862-5791-4c84-8b98-2b827bc7e054:
+  c557fb92-4522-4db8-98ec-f0977d2780d1:
     id: request_path
     negate: false
-    uuid: beb37862-5791-4c84-8b98-2b827bc7e054
+    uuid: c557fb92-4522-4db8-98ec-f0977d2780d1
     pages: /leadership_minor
 allow_other_conditions: null

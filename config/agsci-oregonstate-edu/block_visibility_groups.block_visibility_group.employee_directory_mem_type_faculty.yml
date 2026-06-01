@@ -1,4 +1,4 @@
-uuid: e2270ef9-1cd6-494b-a269-eeab21f88b1a
+uuid: f985e83c-73b6-49ff-9475-7488eb9b974a
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: employee_directory_mem_type_faculty
 label: employee_directory_mem_type_faculty
 logic: and
 conditions:
-  4f1ac868-2f4a-4553-bee8-61545a573d60:
+  ac76ef64-c724-4457-b462-4dcac7055a38:
     id: request_path
     negate: false
-    uuid: 4f1ac868-2f4a-4553-bee8-61545a573d60
+    uuid: ac76ef64-c724-4457-b462-4dcac7055a38
     pages: /applied-economics/people/faculty
 allow_other_conditions: null

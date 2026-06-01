@@ -1,8 +1,0 @@
-uuid: 206ff9f3-bd6b-47c6-84fa-f5fc9832a647
-langcode: en
-status: true
-dependencies: {  }
-id: menu-og-256241
-label: 'Curtin Lab'
-description: 'OG Menu for Curtin Lab'
-locked: false

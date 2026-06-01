@@ -1,8 +1,0 @@
-uuid: 2ef361a9-ee5b-4324-abc4-2a1b10d65a88
-langcode: en
-status: true
-dependencies: {  }
-id: menu-og-56723
-label: 'Seed Crops'
-description: 'OG Menu for Seed Crops'
-locked: false

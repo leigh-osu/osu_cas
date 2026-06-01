@@ -1,4 +1,4 @@
-uuid: 218f2872-eeb5-420b-9200-235cb2cf9af8
+uuid: bbcd3441-b2ea-4ab1-a9ab-001807d491e8
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: weather_links
 label: weather_links
 logic: and
 conditions:
-  55889ad1-73b8-4b4c-9211-c46e428bb54d:
+  83a61d10-e7ee-464b-9346-8faeaddcca1d:
     id: request_path
     negate: false
-    uuid: 55889ad1-73b8-4b4c-9211-c46e428bb54d
+    uuid: 83a61d10-e7ee-464b-9346-8faeaddcca1d
     pages: "/malheur/weather/yearly/*\r\n/malheur/weather/yearly-summary/*"
 allow_other_conditions: null

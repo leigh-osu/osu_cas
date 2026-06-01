@@ -1,8 +1,0 @@
-uuid: ef10ae07-4b74-4e0b-80b9-6c666ad142c4
-langcode: en
-status: true
-dependencies: {  }
-id: menu-og-110936
-label: 'Malheur Weather Station'
-description: 'OG Menu for Malheur Weather Station'
-locked: false

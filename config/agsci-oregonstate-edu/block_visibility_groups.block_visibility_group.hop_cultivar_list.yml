@@ -1,4 +1,4 @@
-uuid: 67b57c4e-6b4d-43d1-bd82-2f4dfd8fd55d
+uuid: a1fdecd5-c547-408e-b922-785d580a6fd6
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: hop_cultivar_list
 label: hop_cultivar_list
 logic: and
 conditions:
-  bd67d750-8a84-44da-857f-21062dbdc9f7:
+  08d758a8-4b1e-4bb1-be44-fac0e1413ca9:
     id: request_path
     negate: false
-    uuid: bd67d750-8a84-44da-857f-21062dbdc9f7
+    uuid: 08d758a8-4b1e-4bb1-be44-fac0e1413ca9
     pages: /hop-breeding/hop-cultivars
 allow_other_conditions: null

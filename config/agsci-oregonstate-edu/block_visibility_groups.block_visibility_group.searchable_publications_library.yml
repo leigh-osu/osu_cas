@@ -1,4 +1,4 @@
-uuid: fecd8a2e-c7a5-44e7-932f-0c6a63d2a14c
+uuid: 0f1b94b4-9408-410f-9203-36089d07fb42
 langcode: en
 status: true
 dependencies:
@@ -8,14 +8,14 @@ id: searchable_publications_library
 label: searchable_publications-library
 logic: and
 conditions:
-  4a8c3589-9cfc-45b1-ada8-e4dbb22f169f:
+  8b8331a0-0a85-488d-87d4-bc5cf9974c54:
     id: request_path
     negate: false
-    uuid: 4a8c3589-9cfc-45b1-ada8-e4dbb22f169f
+    uuid: 8b8331a0-0a85-488d-87d4-bc5cf9974c54
     pages: '/*/publications-database'
-  41058af7-738d-4827-9954-c846744d9037:
+  c167930b-2d51-4703-b87f-6342eb8f4756:
     id: request_path
     negate: true
-    uuid: 41058af7-738d-4827-9954-c846744d9037
+    uuid: c167930b-2d51-4703-b87f-6342eb8f4756
     pages: /node/99021
 allow_other_conditions: null

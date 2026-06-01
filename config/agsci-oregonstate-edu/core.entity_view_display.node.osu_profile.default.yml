@@ -61,6 +61,7 @@ dependencies:
     - layout_builder_restrictions
     - link
     - options
+    - osu_digital_measures
     - telephone
     - text
     - user
@@ -1385,22 +1386,20 @@ content:
     weight: 109
     region: content
   field_profile_dm_awards:
-    type: boolean
-    label: above
+    type: osu_digital_measures_report
+    label: hidden
     settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
+      dm_client_id: 2cfeb85a-dd60-5a8e-ac02-f152b05d8056
+      dm_report_id: 0aa2716d-72f6-11e9-bd83-c358f7262fdf
     third_party_settings: {  }
     weight: 129
     region: content
   field_profile_dm_pubs:
-    type: boolean
-    label: above
+    type: osu_digital_measures_report
+    label: hidden
     settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
+      dm_client_id: 2cfeb85a-dd60-5a8e-ac02-f152b05d8056
+      dm_report_id: 0fd43295-7837-11e9-bd83-ad6b7dcb6872
     third_party_settings: {  }
     weight: 128
     region: content

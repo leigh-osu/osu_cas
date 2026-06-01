@@ -1,8 +1,0 @@
-uuid: 7059c073-d201-49f7-91e3-4cae44cdf182
-langcode: en
-status: true
-dependencies: {  }
-id: menu-academics
-label: Academics
-description: ''
-locked: false

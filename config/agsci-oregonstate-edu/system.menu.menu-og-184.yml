@@ -1,8 +1,0 @@
-uuid: c8dbc753-7cd4-4889-8551-d333ac2170f4
-langcode: en
-status: true
-dependencies: {  }
-id: menu-og-184
-label: 'Botany and Plant Pathology'
-description: 'OG Menu for Botany and Plant Pathology'
-locked: false

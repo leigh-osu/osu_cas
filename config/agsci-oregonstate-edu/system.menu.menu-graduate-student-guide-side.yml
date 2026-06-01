@@ -1,8 +1,0 @@
-uuid: a1dd0484-3ed9-4c00-b751-ad7067631df0
-langcode: en
-status: true
-dependencies: {  }
-id: menu-graduate-student-guide-side
-label: 'Graduate Student Guide'
-description: ''
-locked: false

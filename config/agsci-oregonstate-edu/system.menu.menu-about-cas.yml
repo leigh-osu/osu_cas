@@ -1,8 +1,0 @@
-uuid: 74e6fd69-eeed-4843-bec8-af302439d567
-langcode: en
-status: true
-dependencies: {  }
-id: menu-about-cas
-label: 'About CAS'
-description: 'This is the right sidebar menu for the About CAS portion of the web site'
-locked: false

@@ -1,8 +1,0 @@
-uuid: bbdc28d3-0aa8-4006-b4ed-3d91f02fda5a
-langcode: en
-status: true
-dependencies: {  }
-id: menu-og-16033
-label: 'Entomology Program'
-description: 'OG Menu for Entomology Program'
-locked: false

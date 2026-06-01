@@ -1,4 +1,4 @@
-uuid: 0c26fb83-3d1b-4021-9940-632749dba9d0
+uuid: 03c364c5-73c1-4dc7-8201-878ad15589c5
 langcode: en
 status: true
 dependencies:
@@ -8,10 +8,10 @@ id: weed_sidebar
 label: weed_sidebar
 logic: and
 conditions:
-  f4238764-6c9d-4b0c-8d71-581c01cca246:
+  e7440e0b-488b-4a60-a9a4-5318106df3e7:
     id: 'entity_bundle:node'
     negate: false
-    uuid: f4238764-6c9d-4b0c-8d71-581c01cca246
+    uuid: e7440e0b-488b-4a60-a9a4-5318106df3e7
     context_mapping:
       node: '@node.node_route_context:node'
     bundles:

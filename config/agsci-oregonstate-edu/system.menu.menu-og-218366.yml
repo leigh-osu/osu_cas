@@ -1,8 +1,0 @@
-uuid: d8dfb122-a6c6-44f9-9b9c-3173b93f2c07
-langcode: en
-status: true
-dependencies: {  }
-id: menu-og-218366
-label: 'Marcus Lab'
-description: 'OG Menu for Marcus Lab'
-locked: false

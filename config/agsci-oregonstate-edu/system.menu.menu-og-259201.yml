@@ -1,8 +1,0 @@
-uuid: 052e8ad1-a374-40ef-8ee8-60e9628a793f
-langcode: en
-status: true
-dependencies: {  }
-id: menu-og-259201
-label: 'My FWCS'
-description: 'OG Menu for My FWCS'
-locked: false

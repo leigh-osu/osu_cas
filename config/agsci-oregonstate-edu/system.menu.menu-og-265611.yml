@@ -1,8 +1,0 @@
-uuid: 7e99d92c-3c53-47c7-92bc-388bca11223f
-langcode: en
-status: true
-dependencies: {  }
-id: menu-og-265611
-label: Agrivoltaics
-description: 'OG Menu for Agrivoltaics'
-locked: false

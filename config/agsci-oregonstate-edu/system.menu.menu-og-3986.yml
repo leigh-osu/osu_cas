@@ -1,8 +1,0 @@
-uuid: e3429d73-03b4-4779-9ede-d6f090c0ac74
-langcode: en
-status: true
-dependencies: {  }
-id: menu-og-3986
-label: 'Hyslop Weather Station'
-description: 'OG Menu for Hyslop Weather Station'
-locked: false

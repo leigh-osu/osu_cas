@@ -1,8 +1,0 @@
-uuid: ef6b182d-1374-4ac2-807b-948f456ae3e5
-langcode: en
-status: true
-dependencies: {  }
-id: menu-og-218481
-label: 'Simonich Lab'
-description: 'OG Menu for Simonich Lab'
-locked: false

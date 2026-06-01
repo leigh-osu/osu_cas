@@ -1,8 +1,0 @@
-uuid: 82752c08-3b91-4ebc-8eb2-ece9bb8b5920
-langcode: en
-status: true
-dependencies: {  }
-id: menu-og-259326
-label: 'OSU Garden Ecology Lab'
-description: 'OG Menu for OSU Garden Ecology Lab'
-locked: false

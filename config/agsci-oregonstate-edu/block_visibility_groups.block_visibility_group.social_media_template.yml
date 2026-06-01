@@ -1,4 +1,4 @@
-uuid: ccee23f6-514f-4dcf-a27b-5dc415cbbecd
+uuid: ebbd36b5-2b78-441f-adee-181729f0f922
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: social_media_template
 label: social_media_template
 logic: and
 conditions:
-  21f38a36-ac5a-4d0d-bd0c-13465b795570:
+  335c5fac-4d03-4475-8b33-cd0440bc9767:
     id: request_path
     negate: false
-    uuid: 21f38a36-ac5a-4d0d-bd0c-13465b795570
+    uuid: 335c5fac-4d03-4475-8b33-cd0440bc9767
     pages: "/social-media/*\r\n/main/social-media-and-multimedia\r\n/main/newsletters"
 allow_other_conditions: null

@@ -1,4 +1,4 @@
-uuid: cdc71182-803d-4117-ace7-47e14e621233
+uuid: 292c8922-c0bd-4763-8997-ca943fd05258
 langcode: en
 status: true
 dependencies:
@@ -49,9 +49,9 @@ matchers:
     uuid: 1c1d49ac-212e-4ed6-9e16-7467297a44ec
     settings: {  }
     weight: -10
-  6f777f65-0cec-42c2-b690-de1dba041cc8:
+  95adda9a-5372-44a0-af1f-e4798c97a1db:
     id: 'entity:group'
-    uuid: 6f777f65-0cec-42c2-b690-de1dba041cc8
+    uuid: 95adda9a-5372-44a0-af1f-e4798c97a1db
     settings:
       metadata: 'by [group:author:account-name] | [group:author:created:medium]'
       bundles: {  }

@@ -1,4 +1,4 @@
-uuid: 253ccad9-6187-4906-948a-c8c59b068a00
+uuid: 967a127d-f76b-4e0b-8d8f-aa0f64010483
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: onion_header
 label: onion_header
 logic: and
 conditions:
-  859b243f-a715-4984-9227-f55b7f56099e:
+  1d05556e-a809-4cde-b873-25972461f756:
     id: request_path
     negate: false
-    uuid: 859b243f-a715-4984-9227-f55b7f56099e
+    uuid: 1d05556e-a809-4cde-b873-25972461f756
     pages: "/mes/sustainable/onion/*\r\n/mes/sustainable-onion-production/*"
 allow_other_conditions: null

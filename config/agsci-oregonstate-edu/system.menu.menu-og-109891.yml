@@ -1,8 +1,0 @@
-uuid: 3a4979da-be29-4c51-ae3c-73a7ce62e3ca
-langcode: en
-status: true
-dependencies: {  }
-id: menu-og-109891
-label: Newsroom
-description: 'OG Menu for Newsroom'
-locked: false

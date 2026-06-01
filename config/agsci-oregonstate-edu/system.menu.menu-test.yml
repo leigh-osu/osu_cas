@@ -1,8 +1,0 @@
-uuid: 7b3dd337-37e5-44f7-9847-8c76a1f3ef66
-langcode: en
-status: true
-dependencies: {  }
-id: menu-test
-label: test
-description: ''
-locked: false

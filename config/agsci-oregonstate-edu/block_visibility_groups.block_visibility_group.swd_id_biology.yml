@@ -1,4 +1,4 @@
-uuid: 03258dda-1ae1-4c5a-90d1-fa6c08fa7eb2
+uuid: f66be055-6449-431b-9a65-a3fb6d843aee
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: swd_id_biology
 label: swd_id_biology
 logic: and
 conditions:
-  06a1e629-21af-46bd-ab34-b76e7df35576:
+  22ba9959-3f42-4242-ad9a-d76ad2f2ad07:
     id: request_path
     negate: false
-    uuid: 06a1e629-21af-46bd-ab34-b76e7df35576
+    uuid: 22ba9959-3f42-4242-ad9a-d76ad2f2ad07
     pages: /node/80101
 allow_other_conditions: null
