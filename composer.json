@@ -119,15 +119,19 @@
         },
         {
             "type": "vcs",
+            "url": "https://github.com/leigh-osu/osu_cas_legacy_link.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/leigh-osu/osu_digital_measures.git"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/leigh-osu/manzanita.git"
         },
         {
             "type": "vcs",
             "url": "https://github.com/leigh-osu/osu_migrations_cas.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/leigh-osu/osu_digital_measures.git"
         },
         {
             "type": "package",
