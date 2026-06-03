@@ -1,0 +1,10 @@
+uuid: 7861f329-e30d-4284-a213-9fd15557670d
+langcode: en
+status: true
+dependencies: {  }
+id: letitiacarson_dev_oregonstate_edu
+domain_id: letitiacarson_oregonstate_edu
+pattern: letitiacarson.dev.oregonstate.edu
+redirect: 0
+environment: dev
+weight: 0

@@ -1,0 +1,10 @@
+uuid: 5af000c6-7591-401c-9871-dd7f5611c891
+langcode: en
+status: true
+dependencies: {  }
+id: cropandsoil_dev_oregonstate_edu
+domain_id: cropandsoil_oregonstate_edu
+pattern: cropandsoil.dev.oregonstate.edu
+redirect: 0
+environment: dev
+weight: 0

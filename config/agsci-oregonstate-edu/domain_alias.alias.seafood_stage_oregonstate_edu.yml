@@ -1,0 +1,10 @@
+uuid: d442db57-153a-46e7-8613-a7f3e142bba9
+langcode: en
+status: true
+dependencies: {  }
+id: seafood_stage_oregonstate_edu
+domain_id: seafood_oregonstate_edu
+pattern: seafood.stage.oregonstate.edu
+redirect: 0
+environment: stage
+weight: 0

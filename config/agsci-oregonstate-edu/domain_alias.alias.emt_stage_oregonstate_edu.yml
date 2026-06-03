@@ -1,0 +1,10 @@
+uuid: 6583dc98-2207-4190-89a1-e4725efa2d11
+langcode: en
+status: true
+dependencies: {  }
+id: emt_stage_oregonstate_edu
+domain_id: emt_oregonstate_edu
+pattern: emt.stage.oregonstate.edu
+redirect: 0
+environment: stage
+weight: 0

@@ -1,0 +1,10 @@
+uuid: b5893902-a6d8-4354-b915-5dbd174e682c
+langcode: en
+status: true
+dependencies: {  }
+id: stage_mintgenome_org
+domain_id: mintgenome_org
+pattern: stage.mintgenome.org
+redirect: 0
+environment: stage
+weight: 0

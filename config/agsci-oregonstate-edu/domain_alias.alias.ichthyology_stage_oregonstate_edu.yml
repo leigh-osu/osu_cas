@@ -1,0 +1,10 @@
+uuid: 044e9487-d802-4d59-9d4c-66b4ca07bb67
+langcode: en
+status: true
+dependencies: {  }
+id: ichthyology_stage_oregonstate_edu
+domain_id: ichthyology_oregonstate_edu
+pattern: ichthyology.stage.oregonstate.edu
+redirect: 0
+environment: stage
+weight: 0

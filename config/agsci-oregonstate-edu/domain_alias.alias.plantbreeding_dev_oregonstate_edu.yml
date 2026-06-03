@@ -1,0 +1,10 @@
+uuid: d7d4bbdd-726c-4efb-8394-c3ed0ce4ea3e
+langcode: en
+status: true
+dependencies: {  }
+id: plantbreeding_dev_oregonstate_edu
+domain_id: plantbreeding_oregonstate_edu_
+pattern: plantbreeding.dev.oregonstate.edu
+redirect: 0
+environment: dev
+weight: 0

@@ -1,0 +1,10 @@
+uuid: d1641300-a08f-41c8-af7a-1991401d72eb
+langcode: en
+status: true
+dependencies: {  }
+id: entomology_dev_oregonstate_edu
+domain_id: entomology_oregonstate_edu
+pattern: entomology.dev.oregonstate.edu
+redirect: 0
+environment: dev
+weight: 0

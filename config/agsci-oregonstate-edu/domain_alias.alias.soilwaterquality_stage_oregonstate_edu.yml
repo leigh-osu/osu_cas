@@ -1,0 +1,10 @@
+uuid: e8c820d1-00cc-4cb5-bbfb-d60da611c79a
+langcode: en
+status: true
+dependencies: {  }
+id: soilwaterquality_stage_oregonstate_edu
+domain_id: soilwaterquality_oregonstate_edu
+pattern: soilwaterquality.stage.oregonstate.edu
+redirect: 0
+environment: stage
+weight: 0

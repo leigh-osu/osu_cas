@@ -1,0 +1,10 @@
+uuid: 8ce3733a-8697-4806-9798-cbac67802cef
+langcode: en
+status: true
+dependencies: {  }
+id: appliedecon_dev_oregonstate_edu
+domain_id: appliedecon_oregonstate_edu_
+pattern: appliedecon.dev.oregonstate.edu
+redirect: 0
+environment: dev
+weight: 0

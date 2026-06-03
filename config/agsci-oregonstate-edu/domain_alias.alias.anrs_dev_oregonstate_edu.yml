@@ -1,0 +1,10 @@
+uuid: f86c434c-8026-440e-8a10-580f98aaf789
+langcode: en
+status: true
+dependencies: {  }
+id: anrs_dev_oregonstate_edu
+domain_id: anrs_oregonstate_edu
+pattern: anrs.dev.oregonstate.edu
+redirect: 0
+environment: dev
+weight: 0

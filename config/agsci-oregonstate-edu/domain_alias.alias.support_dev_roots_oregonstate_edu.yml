@@ -1,0 +1,10 @@
+uuid: ed5ccf0c-c309-4c6c-9238-246aeb397dea
+langcode: en
+status: true
+dependencies: {  }
+id: support_dev_roots_oregonstate_edu
+domain_id: support_roots_oregonstate_edu
+pattern: support.dev.roots.oregonstate.edu
+redirect: 0
+environment: dev
+weight: 0

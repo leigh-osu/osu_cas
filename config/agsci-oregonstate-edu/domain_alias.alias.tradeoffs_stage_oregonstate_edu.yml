@@ -1,0 +1,10 @@
+uuid: bfbee42d-e95b-4346-b697-3fa5b1f33d2f
+langcode: en
+status: true
+dependencies: {  }
+id: tradeoffs_stage_oregonstate_edu
+domain_id: tradeoffs_oregonstate_edu
+pattern: tradeoffs.stage.oregonstate.edu
+redirect: 0
+environment: stage
+weight: 0

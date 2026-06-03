@@ -1,0 +1,10 @@
+uuid: 615b68b8-2ef0-4a91-9b5f-3ca8fda2e813
+langcode: en
+status: true
+dependencies: {  }
+id: support_stage_roots_oregonstate_edu
+domain_id: support_roots_oregonstate_edu
+pattern: support.stage.roots.oregonstate.edu
+redirect: 0
+environment: stage
+weight: 0

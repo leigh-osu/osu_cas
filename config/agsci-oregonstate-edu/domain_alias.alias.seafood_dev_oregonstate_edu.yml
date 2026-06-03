@@ -1,0 +1,10 @@
+uuid: 8ec8fe6a-e589-4e3c-b00e-9ddcc16c02d0
+langcode: en
+status: true
+dependencies: {  }
+id: seafood_dev_oregonstate_edu
+domain_id: seafood_oregonstate_edu
+pattern: seafood.dev.oregonstate.edu
+redirect: 0
+environment: dev
+weight: 0

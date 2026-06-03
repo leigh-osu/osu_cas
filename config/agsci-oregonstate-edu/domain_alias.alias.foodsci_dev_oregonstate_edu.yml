@@ -1,0 +1,10 @@
+uuid: 8a185185-0ecf-4a6b-99ec-487bc8e44b97
+langcode: en
+status: true
+dependencies: {  }
+id: foodsci_dev_oregonstate_edu
+domain_id: foodsci_oregonstate_edu
+pattern: foodsci.dev.oregonstate.edu
+redirect: 0
+environment: dev
+weight: 0

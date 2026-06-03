@@ -1,0 +1,10 @@
+uuid: cdb5b244-ee5c-4195-87d1-a21ab769194c
+langcode: en
+status: true
+dependencies: {  }
+id: smallfarms_dev_oregonstate_edu
+domain_id: smallfarms_oregonstate_edu
+pattern: smallfarms.dev.oregonstate.edu
+redirect: 0
+environment: dev
+weight: 0

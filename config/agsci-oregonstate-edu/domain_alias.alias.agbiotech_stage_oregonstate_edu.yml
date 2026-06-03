@@ -1,0 +1,10 @@
+uuid: e191a774-825c-41f1-bc0d-205e9c27fdfd
+langcode: en
+status: true
+dependencies: {  }
+id: agbiotech_stage_oregonstate_edu
+domain_id: agbiotech_oregonstate_edu
+pattern: agbiotech.stage.oregonstate.edu
+redirect: 0
+environment: stage
+weight: 0

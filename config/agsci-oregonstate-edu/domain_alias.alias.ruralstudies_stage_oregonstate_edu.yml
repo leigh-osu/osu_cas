@@ -1,0 +1,10 @@
+uuid: b77457f5-8b97-49b1-ad39-d650c5063c06
+langcode: en
+status: true
+dependencies: {  }
+id: ruralstudies_stage_oregonstate_edu
+domain_id: ruralstudies_oregonstate_edu
+pattern: ruralstudies.stage.oregonstate.edu
+redirect: 0
+environment: stage
+weight: 0

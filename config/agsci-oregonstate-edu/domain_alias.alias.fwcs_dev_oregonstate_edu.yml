@@ -1,0 +1,10 @@
+uuid: 9c401f84-9ac3-40dd-8188-51555724d198
+langcode: en
+status: true
+dependencies: {  }
+id: fwcs_dev_oregonstate_edu
+domain_id: fw_oregonstate_edu
+pattern: fwcs.dev.oregonstate.edu
+redirect: 0
+environment: dev
+weight: 0

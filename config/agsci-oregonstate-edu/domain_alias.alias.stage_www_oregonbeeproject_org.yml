@@ -1,0 +1,10 @@
+uuid: a9b275d9-a5ae-49fc-8c40-46f898763a96
+langcode: en
+status: true
+dependencies: {  }
+id: stage_www_oregonbeeproject_org
+domain_id: www_oregonbeeproject_org
+pattern: stage.www.oregonbeeproject.org
+redirect: 0
+environment: stage
+weight: 0

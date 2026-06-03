@@ -1,0 +1,10 @@
+uuid: 6c229ed2-5927-4a93-ad0a-8bef60f28f25
+langcode: en
+status: true
+dependencies: {  }
+id: entomology_stage_oregonstate_edu
+domain_id: entomology_oregonstate_edu
+pattern: entomology.stage.oregonstate.edu
+redirect: 0
+environment: stage
+weight: 0

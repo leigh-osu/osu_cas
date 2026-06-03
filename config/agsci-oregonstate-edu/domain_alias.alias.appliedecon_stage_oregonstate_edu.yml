@@ -1,0 +1,10 @@
+uuid: d360cf12-ccfc-41fc-91b3-0fb071561a1e
+langcode: en
+status: true
+dependencies: {  }
+id: appliedecon_stage_oregonstate_edu
+domain_id: appliedecon_oregonstate_edu_
+pattern: appliedecon.stage.oregonstate.edu
+redirect: 0
+environment: stage
+weight: 0

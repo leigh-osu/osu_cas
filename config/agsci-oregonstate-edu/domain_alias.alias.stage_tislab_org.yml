@@ -1,0 +1,10 @@
+uuid: cbb79181-cca1-473a-a85f-560e1ee2084a
+langcode: en
+status: true
+dependencies: {  }
+id: stage_tislab_org
+domain_id: tislab_org
+pattern: stage.tislab.org
+redirect: 0
+environment: stage
+weight: 0

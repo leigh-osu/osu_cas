@@ -1,0 +1,10 @@
+uuid: 27aa50ea-83b2-4af3-b0d2-82decbf9c7c5
+langcode: en
+status: true
+dependencies: {  }
+id: gardenecology_dev_oregonstate_edu
+domain_id: gardenecology_oregonstate_edu
+pattern: gardenecology.dev.oregonstate.edu
+redirect: 0
+environment: dev
+weight: 0

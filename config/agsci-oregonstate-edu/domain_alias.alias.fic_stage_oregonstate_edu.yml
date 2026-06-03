@@ -1,0 +1,10 @@
+uuid: 447c055f-bf37-41a8-bdf1-3e36901813ff
+langcode: en
+status: true
+dependencies: {  }
+id: fic_stage_oregonstate_edu
+domain_id: fic_oregonstate_edu
+pattern: fic.stage.oregonstate.edu
+redirect: 0
+environment: stage
+weight: 0

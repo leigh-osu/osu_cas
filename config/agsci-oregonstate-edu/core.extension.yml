@@ -129,6 +129,7 @@ module:
   options: 0
   osu_block_types: 0
   osu_bootstrap_layout_builder: 0
+  osu_cas_legacy_link: 0
   osu_ckeditor_plugins: 0
   osu_default_content: 0
   osu_digital_measures: 0

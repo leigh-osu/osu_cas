@@ -1,0 +1,10 @@
+uuid: d790e377-45c0-48f3-81f1-8581b0231f0f
+langcode: en
+status: true
+dependencies: {  }
+id: agsci_dev_oregonstate_edu
+domain_id: agsci_oregonstate_edu
+pattern: agsci.dev.oregonstate.edu
+redirect: 0
+environment: dev
+weight: 0

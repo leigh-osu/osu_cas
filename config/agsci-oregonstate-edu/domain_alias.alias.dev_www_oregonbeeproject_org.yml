@@ -1,0 +1,10 @@
+uuid: dd53e7b7-bcdf-45d3-9b14-55c09e76e343
+langcode: en
+status: true
+dependencies: {  }
+id: dev_www_oregonbeeproject_org
+domain_id: www_oregonbeeproject_org
+pattern: dev.www.oregonbeeproject.org
+redirect: 0
+environment: dev
+weight: 0

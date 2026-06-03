@@ -1,0 +1,10 @@
+uuid: ab7a61c0-d777-43b5-b242-7006fb89e799
+langcode: en
+status: true
+dependencies: {  }
+id: foodsci_stage_oregonstate_edu
+domain_id: foodsci_oregonstate_edu
+pattern: foodsci.stage.oregonstate.edu
+redirect: 0
+environment: stage
+weight: 0

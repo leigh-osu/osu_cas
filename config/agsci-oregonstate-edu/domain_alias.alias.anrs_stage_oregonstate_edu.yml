@@ -1,0 +1,10 @@
+uuid: b1555bd1-d69c-4b32-b187-4314b6b3cd30
+langcode: en
+status: true
+dependencies: {  }
+id: anrs_stage_oregonstate_edu
+domain_id: anrs_oregonstate_edu
+pattern: anrs.stage.oregonstate.edu
+redirect: 0
+environment: stage
+weight: 0

@@ -1,0 +1,10 @@
+uuid: 6a77d481-6f39-4a3c-a012-4a2547b8aabb
+langcode: en
+status: true
+dependencies: {  }
+id: ichthyology_dev_oregonstate_edu
+domain_id: ichthyology_oregonstate_edu
+pattern: ichthyology.dev.oregonstate.edu
+redirect: 0
+environment: dev
+weight: 0

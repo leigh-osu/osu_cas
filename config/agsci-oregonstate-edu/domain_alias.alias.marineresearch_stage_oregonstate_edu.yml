@@ -1,0 +1,10 @@
+uuid: 7874d330-3f1d-4e55-8e33-a6b2167916d9
+langcode: en
+status: true
+dependencies: {  }
+id: marineresearch_stage_oregonstate_edu
+domain_id: http_marineresearch_oregonstate_edu
+pattern: marineresearch.stage.oregonstate.edu
+redirect: 0
+environment: stage
+weight: 0

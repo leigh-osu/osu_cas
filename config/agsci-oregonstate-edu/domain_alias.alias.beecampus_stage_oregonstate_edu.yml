@@ -1,0 +1,10 @@
+uuid: bccb1a63-0cca-47ce-bc08-6a517c8dbbe6
+langcode: en
+status: true
+dependencies: {  }
+id: beecampus_stage_oregonstate_edu
+domain_id: beecampus_oregonstate_edu
+pattern: beecampus.stage.oregonstate.edu
+redirect: 0
+environment: stage
+weight: 0

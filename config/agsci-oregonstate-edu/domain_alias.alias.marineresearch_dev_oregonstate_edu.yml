@@ -1,0 +1,10 @@
+uuid: 4bbf9c60-62a8-44a6-9d41-57a2b73dd26e
+langcode: en
+status: true
+dependencies: {  }
+id: marineresearch_dev_oregonstate_edu
+domain_id: http_marineresearch_oregonstate_edu
+pattern: marineresearch.dev.oregonstate.edu
+redirect: 0
+environment: dev
+weight: 0

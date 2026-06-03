@@ -1,0 +1,10 @@
+uuid: a2671b8d-cb07-465c-ae38-83738d70971c
+langcode: en
+status: true
+dependencies: {  }
+id: valleyfieldcrops_dev_oregonstate_edu
+domain_id: willamette_valley_field_crops
+pattern: valleyfieldcrops.dev.oregonstate.edu
+redirect: 0
+environment: dev
+weight: 0

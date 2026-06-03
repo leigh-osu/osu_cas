@@ -1,0 +1,10 @@
+uuid: a91abe79-ee4f-4842-97ef-0201ec07d299
+langcode: en
+status: true
+dependencies: {  }
+id: owri_stage_oregonstate_edu
+domain_id: owri_oregonstate_edu
+pattern: owri.stage.oregonstate.edu
+redirect: 0
+environment: stage
+weight: 0
