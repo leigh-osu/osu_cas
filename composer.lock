@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "22e2d7ad544124d5a4b7f72ad77d80d4",
+    "content-hash": "3517ea0623fd5e20fa9f35e3628801c6",
     "packages": [
         {
             "name": "algolia/places",
@@ -17769,6 +17769,34 @@
                 "issues": "https://github.com/leigh-osu/manzanita/issues"
             },
             "time": "2026-02-27T22:08:26+00:00"
+        },
+        {
+            "name": "leigh-osu/osu_cas_legacy_link",
+            "version": "v1.0.01",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leigh-osu/osu_cas_legacy_link.git",
+                "reference": "ce312f3a2c2140e6924d378b0a6d3d5bca2ce577"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leigh-osu/osu_cas_legacy_link/zipball/ce312f3a2c2140e6924d378b0a6d3d5bca2ce577",
+                "reference": "ce312f3a2c2140e6924d378b0a6d3d5bca2ce577",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/core": "^10 || ^11"
+            },
+            "type": "drupal-module",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "OSU CAS legacy link module",
+            "support": {
+                "source": "https://github.com/leigh-osu/osu_cas_legacy_link/tree/v1.0.01",
+                "issues": "https://github.com/leigh-osu/osu_cas_legacy_link/issues"
+            },
+            "time": "2026-06-03T17:29:12+00:00"
         },
         {
             "name": "leigh-osu/osu_digital_measures",
