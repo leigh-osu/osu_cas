@@ -23,7 +23,7 @@
 
 # Ignore configuration files that may contain sensitive information.
 /docroot/sites/*/settings.local.php
-/docroot/sites/*/services*.yml
+#/docroot/sites/*/services*.yml
 
 # Ignore paths that contain user-generated content.
 /docroot/sites/*/files
