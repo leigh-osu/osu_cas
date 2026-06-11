@@ -17741,16 +17741,16 @@
         },
         {
             "name": "leigh-osu/manzanita",
-            "version": "1.0beta1",
+            "version": "v1.0.0-beta-2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leigh-osu/manzanita.git",
-                "reference": "afbedf2100b964124cd966a38c10e4e88ec4419a"
+                "reference": "5823c585f5cf69b1fdd085a00c7f65f4e77dfe84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/manzanita/zipball/afbedf2100b964124cd966a38c10e4e88ec4419a",
-                "reference": "afbedf2100b964124cd966a38c10e4e88ec4419a",
+                "url": "https://api.github.com/repos/leigh-osu/manzanita/zipball/5823c585f5cf69b1fdd085a00c7f65f4e77dfe84",
+                "reference": "5823c585f5cf69b1fdd085a00c7f65f4e77dfe84",
                 "shasum": ""
             },
             "type": "drupal-custom-theme",
@@ -17765,38 +17765,38 @@
             ],
             "description": "Drupal Theme for OSU College of Agricultural Sciences",
             "support": {
-                "source": "https://github.com/leigh-osu/manzanita/tree/1.0beta1",
+                "source": "https://github.com/leigh-osu/manzanita/tree/v1.0.0-beta-2",
                 "issues": "https://github.com/leigh-osu/manzanita/issues"
             },
-            "time": "2026-02-27T22:08:26+00:00"
+            "time": "2026-06-11T18:24:52+00:00"
         },
         {
             "name": "leigh-osu/osu_cas_legacy_link",
-            "version": "v1.0.01",
+            "version": "v1.0.03",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leigh-osu/osu_cas_legacy_link.git",
-                "reference": "ce312f3a2c2140e6924d378b0a6d3d5bca2ce577"
+                "reference": "dcb148757ac2b84e3ecb326a2efcfa5b75a44295"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_cas_legacy_link/zipball/ce312f3a2c2140e6924d378b0a6d3d5bca2ce577",
-                "reference": "ce312f3a2c2140e6924d378b0a6d3d5bca2ce577",
+                "url": "https://api.github.com/repos/leigh-osu/osu_cas_legacy_link/zipball/dcb148757ac2b84e3ecb326a2efcfa5b75a44295",
+                "reference": "dcb148757ac2b84e3ecb326a2efcfa5b75a44295",
                 "shasum": ""
             },
             "require": {
                 "drupal/core": "^10 || ^11"
             },
-            "type": "drupal-module",
+            "type": "drupal-custom-module",
             "license": [
                 "GPL-2.0-or-later"
             ],
             "description": "OSU CAS legacy link module",
             "support": {
-                "source": "https://github.com/leigh-osu/osu_cas_legacy_link/tree/v1.0.01",
+                "source": "https://github.com/leigh-osu/osu_cas_legacy_link/tree/v1.0.03",
                 "issues": "https://github.com/leigh-osu/osu_cas_legacy_link/issues"
             },
-            "time": "2026-06-03T17:29:12+00:00"
+            "time": "2026-06-04T22:49:55+00:00"
         },
         {
             "name": "leigh-osu/osu_digital_measures",
