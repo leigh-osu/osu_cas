@@ -484,7 +484,10 @@
         "audit": {
             "ignore": {
                 "SA-CONTRIB-2025-077": "",
-                "PKSA-dwsq-ppd2-mb1x": "CVE-2026-46644 in symfony/polyfill-intl-idn ~1.37.0 pinned by drupal/core 10.6.9; polyfill is inert because ext-intl is present. Remove once core relaxes the pin to allow 1.38.1+."
+                "PKSA-dwsq-ppd2-mb1x": "CVE-2026-46644 in symfony/polyfill-intl-idn ~1.37.0 pinned by drupal/core 10.6.9; polyfill is inert because ext-intl is present. Remove once core relaxes the pin to allow 1.38.1+.",
+                "PKSA-93qv-9n9h-6k6p": "CVE-2026-55767 (dot-only cookie domains match all hosts) in guzzlehttp/guzzle, fixed in 7.12.1. drupal/core 10.6.11 pins guzzle ~7.10.0, so the fix is unreachable on D10. Remove once core relaxes the guzzle pin to allow 7.12.1+.",
+                "PKSA-k22t-f949-t9g6": "CVE-2026-55568 (silent HTTPS proxy downgrade to cleartext) in guzzlehttp/guzzle, fixed in 7.12.1. drupal/core 10.6.11 pins guzzle ~7.10.0, so the fix is unreachable on D10. Remove once core relaxes the guzzle pin to allow 7.12.1+.",
+                "PKSA-7qs6-zvnz-h66r": "CVE-2026-55766 (CRLF injection in HTTP start-line serialization) in guzzlehttp/psr7, fixed in 2.12.1. drupal/core 10.6.11 pins psr7 ~2.10.4, so the fix is unreachable on D10. Remove once core relaxes the psr7 pin to allow 2.12.1+."
             }
         }
     },
