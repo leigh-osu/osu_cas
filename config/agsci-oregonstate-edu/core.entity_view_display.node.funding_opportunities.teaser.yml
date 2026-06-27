@@ -51,3 +51,4 @@ hidden:
   field_fundop_posted_date: true
   field_fundop_sponsor: true
   field_tax_cas_section: true
+  langcode: true

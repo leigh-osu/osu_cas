@@ -43,3 +43,4 @@ hidden:
   field_fun_facts_source: true
   field_tax_big_fish_species: true
   field_tax_big_fish_topic: true
+  langcode: true

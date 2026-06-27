@@ -11,6 +11,7 @@ dependencies:
     - filter
     - google_cse
     - media
+    - osu_cas_legacy_link
     - responsive_preview
     - search
     - shortcut
@@ -40,6 +41,7 @@ permissions:
   - 'use admin toolbar search'
   - 'use text format basic_html'
   - 'view media'
+  - 'view osu cas legacy link'
   - 'view own unpublished media'
   - 'view published sitewide alert entities'
   - 'view the administration theme'

@@ -13,7 +13,7 @@ _core:
 id: manzanita_main_menu
 theme: manzanita
 region: primary_menu
-weight: 0
+weight: -6
 provider: null
 plugin: 'superfish:main'
 settings:

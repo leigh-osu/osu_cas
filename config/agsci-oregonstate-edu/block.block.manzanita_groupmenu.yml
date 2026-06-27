@@ -14,7 +14,7 @@ _core:
 id: manzanita_groupmenu
 theme: manzanita
 region: primary_menu
-weight: 10
+weight: -5
 provider: null
 plugin: 'group_content_menu:group'
 settings:

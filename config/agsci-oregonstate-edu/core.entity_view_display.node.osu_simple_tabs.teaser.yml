@@ -45,3 +45,4 @@ hidden:
   field_simple_tab_column_right: true
   field_simple_tab_sort_weight: true
   field_simple_tabs_tags: true
+  langcode: true

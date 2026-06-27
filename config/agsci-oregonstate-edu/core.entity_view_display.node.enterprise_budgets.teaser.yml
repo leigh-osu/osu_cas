@@ -53,3 +53,4 @@ hidden:
   field_tax_commodity: true
   field_tax_county: true
   field_tax_region: true
+  langcode: true

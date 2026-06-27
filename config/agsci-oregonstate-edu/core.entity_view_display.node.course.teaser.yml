@@ -55,3 +55,4 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_tax_topic: true
+  langcode: true

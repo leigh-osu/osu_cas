@@ -32,3 +32,4 @@ hidden:
   field_block_serialized_data: true
   field_eb_background_fc: true
   field_styles: true
+  langcode: true

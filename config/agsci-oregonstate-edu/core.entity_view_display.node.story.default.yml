@@ -1603,5 +1603,6 @@ hidden:
   field_osu_organizations: true
   field_osu_story_caption: true
   field_tax_veg_topics: true
+  langcode: true
   layout_builder__layout: true
   toc_js: true

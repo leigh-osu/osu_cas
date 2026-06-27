@@ -44,6 +44,8 @@ module:
   domain: 0
   domain_access_migrate: 0
   domain_alias: 0
+  domain_config: 0
+  domain_config_ui: 0
   domain_content: 0
   domain_migrate: 0
   dropzonejs: 0
@@ -88,6 +90,7 @@ module:
   jquery_ui: 0
   jquery_ui_autocomplete: 0
   jquery_ui_menu: 0
+  language: 0
   layout_builder: 0
   layout_builder_blocks: 0
   layout_builder_component_attributes: 0

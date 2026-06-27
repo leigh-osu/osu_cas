@@ -71,3 +71,4 @@ hidden:
   field_pub_type: true
   field_pub_volume: true
   field_pub_year_publication: true
+  langcode: true

@@ -521,4 +521,5 @@ content:
     third_party_settings: {  }
     weight: 2
     region: blb_region_col_1
-hidden: {  }
+hidden:
+  langcode: true

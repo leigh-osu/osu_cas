@@ -5,6 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.plant_variety_release.body
+    - field.field.node.plant_variety_release.field_domain_access
+    - field.field.node.plant_variety_release.field_domain_all_affiliates
     - field.field.node.plant_variety_release.field_pvr_banner_picture
     - field.field.node.plant_variety_release.field_pvr_benefits
     - field.field.node.plant_variety_release.field_pvr_characteristics
@@ -103,3 +105,4 @@ hidden:
   field_pvr_summary: true
   field_pvr_yield: true
   field_tax_classification: true
+  langcode: true

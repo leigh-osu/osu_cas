@@ -5,9 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.150_species.body
+    - field.field.node.150_species.field_150_species_photo
     - field.field.node.150_species.field_domain_access
     - field.field.node.150_species.field_domain_all_affiliates
-    - field.field.node.150_species.field_150_species_photo
     - field.field.node.150_species.field_tax_type
     - field.field.node.150_species.og_user_node
     - node.type.150_species
@@ -40,4 +40,5 @@ hidden:
   field_species_photo: true
   field_species_type: true
   field_tax_type: true
+  langcode: true
   og_user_node: true

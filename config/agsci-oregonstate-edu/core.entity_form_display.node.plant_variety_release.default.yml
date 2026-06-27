@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.plant_variety_release.body
+    - field.field.node.plant_variety_release.field_domain_access
+    - field.field.node.plant_variety_release.field_domain_all_affiliates
     - field.field.node.plant_variety_release.field_pvr_banner_picture
     - field.field.node.plant_variety_release.field_pvr_benefits
     - field.field.node.plant_variety_release.field_pvr_characteristics
@@ -403,6 +405,13 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
     third_party_settings: {  }
   path:
     type: path

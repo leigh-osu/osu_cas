@@ -374,6 +374,16 @@ section_7() {
   # installed"). Remove those orphans so config import stays clean.
   ddev drush scr scripts-dev/prune_orphan_blocks.php
 
+  # Per-domain config overrides (Domain Config): each domain's front page and
+  # site name, pulled from D7. Imported here at the very end of the rebuild so
+  # that no earlier config:import or migration can overwrite them. domain_config
+  # applies the overrides at runtime; domain_config_ui exposes them in the UI.
+  # `drush config:import --partial` only reads the default collection and
+  # ignores the domain.<id> config collections, so a helper script writes those
+  # collections directly from config_imports/domain/.
+  ddev drush en domain_config domain_config_ui -y
+  ddev drush scr scripts-dev/import_domain_config.php
+
   ddev drush pqe -y
   ddev drush cr
 

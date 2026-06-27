@@ -4,18 +4,21 @@ status: true
 dependencies:
   config:
     - field.field.node.video.body
-    - field.field.node.video.field_vid_affiliation
+    - field.field.node.video.field_domain_access
+    - field.field.node.video.field_domain_all_affiliates
     - field.field.node.video.field_tax_coarec_topics
+    - field.field.node.video.field_tax_event
     - field.field.node.video.field_tax_nursery_topics
     - field.field.node.video.field_tax_owri_topics
-    - field.field.node.video.field_vid_presenter
-    - field.field.node.video.field_vid_publish_date
-    - field.field.node.video.field_vid_show_on_profile
     - field.field.node.video.field_tax_swd_topics
     - field.field.node.video.field_tax_turf_topics
     - field.field.node.video.field_tax_veg_topics
-    - field.field.node.video.field_vid_video
     - field.field.node.video.field_tax_work_area
+    - field.field.node.video.field_vid_affiliation
+    - field.field.node.video.field_vid_presenter
+    - field.field.node.video.field_vid_publish_date
+    - field.field.node.video.field_vid_show_on_profile
+    - field.field.node.video.field_vid_video
     - node.type.video
   module:
     - datetime
@@ -186,6 +189,13 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
     third_party_settings: {  }
   path:
     type: path

@@ -202,3 +202,4 @@ hidden:
   field_domain_all_affiliates: true
   field_osu_organizations: true
   field_pub_osu_profile: true
+  langcode: true

@@ -7,51 +7,51 @@ dependencies:
     - field.field.node.osu_profile.field_domain_all_affiliates
     - field.field.node.osu_profile.field_osu_organizations
     - field.field.node.osu_profile.field_profile_address
+    - field.field.node.osu_profile.field_profile_alt_phone
     - field.field.node.osu_profile.field_profile_biography
     - field.field.node.osu_profile.field_profile_credentials
     - field.field.node.osu_profile.field_profile_curriculum_vitae
+    - field.field.node.osu_profile.field_profile_dm_awards
+    - field.field.node.osu_profile.field_profile_dm_pubs
     - field.field.node.osu_profile.field_profile_email
+    - field.field.node.osu_profile.field_profile_ext_pubs
+    - field.field.node.osu_profile.field_profile_fac_accept_grad
+    - field.field.node.osu_profile.field_profile_fac_additional
+    - field.field.node.osu_profile.field_profile_fac_affiliations
+    - field.field.node.osu_profile.field_profile_fac_awards
+    - field.field.node.osu_profile.field_profile_fac_career_int
+    - field.field.node.osu_profile.field_profile_fac_career_links
+    - field.field.node.osu_profile.field_profile_fac_courses
+    - field.field.node.osu_profile.field_profile_fac_education
+    - field.field.node.osu_profile.field_profile_fac_employment
+    - field.field.node.osu_profile.field_profile_fac_grads
+    - field.field.node.osu_profile.field_profile_fac_lab_group
+    - field.field.node.osu_profile.field_profile_fac_nonthesis
+    - field.field.node.osu_profile.field_profile_fac_outreach_ext
+    - field.field.node.osu_profile.field_profile_fac_presentations
+    - field.field.node.osu_profile.field_profile_fac_service
+    - field.field.node.osu_profile.field_profile_fac_specialty
+    - field.field.node.osu_profile.field_profile_fac_type
+    - field.field.node.osu_profile.field_profile_fax
     - field.field.node.osu_profile.field_profile_first_name
+    - field.field.node.osu_profile.field_profile_google_scholar
     - field.field.node.osu_profile.field_profile_image
     - field.field.node.osu_profile.field_profile_last_name
     - field.field.node.osu_profile.field_profile_middle_name
+    - field.field.node.osu_profile.field_profile_name_suffix
     - field.field.node.osu_profile.field_profile_office_phone
+    - field.field.node.osu_profile.field_profile_personal_interests
+    - field.field.node.osu_profile.field_profile_personal_links
+    - field.field.node.osu_profile.field_profile_preferred_name
     - field.field.node.osu_profile.field_profile_primary_title
     - field.field.node.osu_profile.field_profile_pronouns
-    - field.field.node.osu_profile.field_profile_preferred_name
-    - field.field.node.osu_profile.field_profile_name_suffix
-    - field.field.node.osu_profile.field_profile_personal_links
-    - field.field.node.osu_profile.field_profile_personal_interests
-    - field.field.node.osu_profile.field_profile_google_scholar
-    - field.field.node.osu_profile.field_profile_researchgate
     - field.field.node.osu_profile.field_profile_pub_med
     - field.field.node.osu_profile.field_profile_pubs_website
-    - field.field.node.osu_profile.field_profile_dm_pubs
-    - field.field.node.osu_profile.field_profile_dm_awards
-    - field.field.node.osu_profile.field_profile_ext_pubs
-    - field.field.node.osu_profile.field_profile_alt_phone
-    - field.field.node.osu_profile.field_profile_fax
-    - field.field.node.osu_profile.field_profile_fac_career_int
-    - field.field.node.osu_profile.field_profile_fac_career_links
-    - field.field.node.osu_profile.field_profile_fac_education
-    - field.field.node.osu_profile.field_profile_fac_specialty
-    - field.field.node.osu_profile.field_profile_fac_type
-    - field.field.node.osu_profile.field_profile_fac_courses
-    - field.field.node.osu_profile.field_profile_fac_awards
-    - field.field.node.osu_profile.field_profile_fac_additional
-    - field.field.node.osu_profile.field_profile_fac_employment
-    - field.field.node.osu_profile.field_profile_fac_affiliations
-    - field.field.node.osu_profile.field_profile_fac_grads
-    - field.field.node.osu_profile.field_profile_fac_lab_group
-    - field.field.node.osu_profile.field_profile_fac_service
-    - field.field.node.osu_profile.field_profile_fac_presentations
-    - field.field.node.osu_profile.field_profile_fac_accept_grad
-    - field.field.node.osu_profile.field_profile_fac_nonthesis
-    - field.field.node.osu_profile.field_profile_fac_outreach_ext
-    - field.field.node.osu_profile.field_tax_faculty_expertise
-    - field.field.node.osu_profile.field_profile_stu_majors
-    - field.field.node.osu_profile.field_profile_stu_major_prof
+    - field.field.node.osu_profile.field_profile_researchgate
     - field.field.node.osu_profile.field_profile_stu_ac_interests
+    - field.field.node.osu_profile.field_profile_stu_major_prof
+    - field.field.node.osu_profile.field_profile_stu_majors
+    - field.field.node.osu_profile.field_tax_faculty_expertise
     - image.style.x_large
     - node.type.osu_profile
   module:
@@ -60,7 +60,6 @@ dependencies:
     - focal_point
     - link
     - media_library
-    - options
     - path
     - telephone
     - text
@@ -609,6 +608,13 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
     third_party_settings: {  }
   path:
     type: path

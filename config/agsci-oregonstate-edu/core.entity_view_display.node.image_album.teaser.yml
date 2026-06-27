@@ -37,3 +37,4 @@ hidden:
   field_domain_all_affiliates: true
   field_image_album_images: true
   field_image_album_show_profile: true
+  langcode: true
