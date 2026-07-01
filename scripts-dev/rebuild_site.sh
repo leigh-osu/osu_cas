@@ -84,6 +84,16 @@ section_1() {
   # Install modules
   echo "Installing modules..."
 
+  # osu_publications' config/install objects (node.type.publications, the
+  # default form/view displays) declare config dependencies on these contrib
+  # modules, but osu_publications.info.yml does not list them as module
+  # dependencies. So drush won't auto-enable them, and enabling osu_publications
+  # first aborts with UnmetDependenciesException -- which, because this script
+  # runs without `set -e`, silently cascades: no custom migration modules get
+  # enabled and every later migrate:import fails as an "invalid migration ID",
+  # leaving an empty site. Enable the config-dependency modules up front.
+  ddev drush en field_group date_ap_style node_revision_delete toc_js toc_js_per_node -y
+
   ddev drush en osu_icon_field osu_publications -y
   ddev drush en domain domain_access domain_alias domain_content multiselect layout_builder_modal -y
   ddev drush en migrate migrate_drupal phpass migrate_plus -y
