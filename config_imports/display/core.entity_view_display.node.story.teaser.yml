@@ -128,7 +128,7 @@ hidden:
   field_tax_swd_topics: true
   field_tax_tags: true
   field_tax_turf_topics: true
-  field_tax_vegetable_topics: true
+  field_tax_veg_topics: true
   field_tax_work_area: true
   field_tax_year: true
   layout_builder__layout: true

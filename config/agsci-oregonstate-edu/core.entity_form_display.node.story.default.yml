@@ -67,7 +67,7 @@ third_party_settings:
         - field_tax_owri_topics
         - field_tax_swd_topics
         - field_tax_turf_topics
-        - field_tax_vegetable_topics
+        - field_tax_veg_topics
         - field_tax_work_area
       label: 'Assign Topics'
       region: content
@@ -314,7 +314,7 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_tax_vegetable_topics:
+  field_tax_veg_topics:
     type: multiselect
     weight: 34
     region: content
@@ -395,5 +395,4 @@ content:
     third_party_settings: {  }
 hidden:
   field_osu_story_caption: true
-  field_tax_veg_topics: true
   layout_builder__layout: true

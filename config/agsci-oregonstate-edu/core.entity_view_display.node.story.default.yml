@@ -515,7 +515,7 @@ third_party_settings:
             uuid: 2d855a18-955f-40c6-a2f1-8a9eaaa4c7f8
             region: blb_region_col_1
             configuration:
-              id: 'field_block:node:story:field_tax_vegetable_topics'
+              id: 'field_block:node:story:field_tax_veg_topics'
               label_display: '0'
               context_mapping:
                 entity: layout_builder.entity
@@ -1567,7 +1567,7 @@ content:
     third_party_settings: {  }
     weight: 115
     region: blb_region_col_1
-  field_tax_vegetable_topics:
+  field_tax_veg_topics:
     type: entity_reference_label
     label: above
     settings:
@@ -1602,7 +1602,6 @@ hidden:
   field_domain_all_affiliates: true
   field_osu_organizations: true
   field_osu_story_caption: true
-  field_tax_veg_topics: true
   langcode: true
   layout_builder__layout: true
   toc_js: true
