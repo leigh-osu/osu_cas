@@ -1,4 +1,4 @@
-uuid: bbc43162-36a0-4d9e-b9e3-895e09596d08
+uuid: 2fd01762-e64a-4c58-acf9-129423e49d67
 langcode: en
 status: true
 dependencies:
@@ -9,15 +9,15 @@ id: dashboard_group_user
 label: dashboard-group-user
 logic: and
 conditions:
-  f93f80f7-2193-4e92-8a21-425060af8df7:
+  5cc01594-fc14-419f-88f4-29b3c5174bd0:
     id: request_path
     negate: false
-    uuid: f93f80f7-2193-4e92-8a21-425060af8df7
+    uuid: 5cc01594-fc14-419f-88f4-29b3c5174bd0
     pages: /admin/dashboard
-  0988dfc2-39e5-4e10-afe0-a3f3c46c6816:
+  83a8d32c-ab6c-4ee3-a35d-3d782e9c1717:
     id: user_role
     negate: false
-    uuid: 0988dfc2-39e5-4e10-afe0-a3f3c46c6816
+    uuid: 83a8d32c-ab6c-4ee3-a35d-3d782e9c1717
     context_mapping:
       user: '@user.current_user_context:current_user'
     roles:

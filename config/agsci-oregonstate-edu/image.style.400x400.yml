@@ -1,12 +1,12 @@
-uuid: 9ed5e457-7544-4953-a24a-f1aeae400072
+uuid: aee90e4f-65b5-4ca2-ac90-1757c530532d
 langcode: en
 status: true
 dependencies: {  }
 name: 400x400
 label: 400x400
 effects:
-  d7e2383b-d728-4d0d-9fc2-27458acaaaf1:
-    uuid: d7e2383b-d728-4d0d-9fc2-27458acaaaf1
+  d61078cc-5ac6-4fb8-bf41-4cea0656b9a2:
+    uuid: d61078cc-5ac6-4fb8-bf41-4cea0656b9a2
     id: image_scale
     weight: 1
     data:

@@ -1,0 +1,209 @@
+uuid: 853e6acb-80e8-4cb6-8a41-e523472fc28a
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_86981
+title: Registration
+description: null
+categories: {  }
+elements: |-
+  first_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'First Name'
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Last Name'
+    '#required': true
+  affiliation:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Affiliation
+    '#required': true
+  phone_number:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Phone Number'
+  email_address:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Email Address'
+    '#required': true
+  address:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Address
+  city:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': City
+  state:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': State
+  zip:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Zip
+  are_you_a:
+    '#type': radios
+    '#options':
+      'undergrad ': ' undergraduate student'
+      'grad ': ' graduate student'
+      'postdoc ': ' post-doctoral scholar'
+      'other ': ' other'
+    '#title': 'Are you a:'
+    '#required': true
+  how_will_you_attend:
+    '#type': radios
+    '#options':
+      'how_will_you_attend_yes ': ' in person'
+      'how_will_you_attend_no ': ' via webcast'
+    '#title': 'How will you attend?'
+    '#required': true
+  attending_lunch:
+    '#type': radios
+    '#options':
+      lunch_yes: 'Yes'
+      lunch_no: 'No'
+    '#title': 'Will you be attending lunch?'
+    '#required': true
+    '#states':
+      visible:
+        - ':input[name="how_will_you_attend"]':
+            value: 'how_will_you_attend_yes '
+  dietary_restriction:
+    '#type': radios
+    '#options':
+      dietary_restriction_yes: 'Yes'
+      dietary_restriction_no: 'No'
+    '#title': 'Do you have any dietary restriction?'
+    '#required': true
+    '#states':
+      visible:
+        - ':input[name="attending_lunch"]':
+            value: lunch_yes
+  please_describe_your_dietary_restrictions:
+    '#type': textarea
+    '#title': 'Please describe your dietary restrictions'
+    '#states':
+      visible:
+        - ':input[name="dietary_restriction"]':
+            value: dietary_restriction_yes
+  like_to_present_a_poster:
+    '#type': radios
+    '#options':
+      present_poster: 'Yes'
+      present_no: 'No'
+    '#title': 'Would you like to present a poster?'
+    '#required': true
+    '#states':
+      visible:
+        - ':input[name="how_will_you_attend"]':
+            value: 'how_will_you_attend_yes '
+  presentation_title:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Presentation Title'
+    '#required': true
+    '#states':
+      visible:
+        - ':input[name="like_to_present_a_poster"]':
+            value: present_poster
+  do_you_require_parking_permit:
+    '#type': radios
+    '#options':
+      park_yes: 'Yes'
+      park_no: 'No'
+    '#title': 'Do you require a OSU visitor parking permit?'
+    '#required': true
+    '#states':
+      visible:
+        - ':input[name="how_will_you_attend"]':
+            value: 'how_will_you_attend_yes '
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<p>\r\n\tThank you for registering!</p>\r\n\r\n<p>\r\n\tIf you are unable to attend in person, but have selected to participate via the webcast, a separate email will be sent describing how to log in.</p>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email_address:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: 'OSU Environmental Public Health in the 21st Century Research Symposium'
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |-
+        Thank you for registering! 
+
+        Submitted on [webform_submission:date:long]
+        Submitted by user: [webform_submission:user]
+        Submitted values are:
+        [webform_submission:values]
+
+        The results of this submission may be viewed at:
+        [webform_submission:url]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

@@ -1,0 +1,269 @@
+uuid: a8cc307b-7fba-44c5-82fc-52dde6bb73ae
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_242816
+title: 'Senior Sunday Survey'
+description: null
+categories: {  }
+elements: |-
+  name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Name
+    '#required': true
+  email:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': Email
+    '#required': true
+  hometown:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Hometown
+  major:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Major
+    '#required': true
+  fieldset_social_media_handles:
+    '#type': fieldset
+    '#open': true
+    '#title': 'Social media handles'
+    instagram_3:
+      '#type': textfield
+      '#unique': false
+      '#title_display': inline
+      '#title': Instagram
+    tiktok_3:
+      '#type': textfield
+      '#unique': false
+      '#title_display': inline
+      '#title': TikTok
+    twitter_3:
+      '#type': textfield
+      '#unique': false
+      '#title_display': inline
+      '#title': Twitter
+    facebook_3:
+      '#type': textfield
+      '#unique': false
+      '#title_display': inline
+      '#title': Facebook
+    linkedin_3:
+      '#type': textfield
+      '#unique': false
+      '#title_display': inline
+      '#title': LinkedIn
+    others_3:
+      '#type': textfield
+      '#unique': false
+      '#title_display': inline
+      '#title': Others
+  plans_for_next_year_if_known:
+    '#type': textarea
+    '#title': 'Plans for next year if known'
+  college_involvement:
+    '#type': textarea
+    '#title': 'College involvement'
+  any_extra_fun_facts_they_would_like_to_share:
+    '#type': textarea
+    '#title': 'Any extra fun facts they would like to share'
+  upload_model_release_form:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png txt pdf doc pptx'
+    '#title': 'Upload Model Release Form'
+    '#description': 'In order to publish your photos and story, we will need you to sign an OSU model release. Please <a href="https://oregonstate.app.box.com/s/q1w78xaln34sn6q0438ncs4s6qtjcw7k">download the form</a>, sign, and upload here.'
+  fieldset_pictures_videos_to_include_in_the_post:
+    '#type': fieldset
+    '#open': true
+    '#title': 'Pictures/videos to include in the post (the more, the better)'
+    pictures_videos_7_17:
+      '#type': managed_file
+      '#max_filesize': 2.0
+      '#file_extensions': 'gif jpg jpeg png pdf doc docx pptx avi mov mp3 ogg wav zip'
+      '#title_display': inline
+      '#title': 'Pictures/videos 7'
+    pictures_videos_6_17:
+      '#type': managed_file
+      '#max_filesize': 2.0
+      '#file_extensions': 'gif jpg jpeg png pdf doc docx pptx avi mov mp3 ogg wav zip'
+      '#title_display': inline
+      '#title': 'Pictures/videos 6'
+    pictures_videos_5_17:
+      '#type': managed_file
+      '#max_filesize': 2.0
+      '#file_extensions': 'gif jpg jpeg png pdf doc docx pptx avi mov mp3 ogg wav zip mp4'
+      '#title_display': inline
+      '#title': 'Pictures/videos 5'
+    pictures_videos_4_17:
+      '#type': managed_file
+      '#max_filesize': 2.0
+      '#file_extensions': 'gif jpg jpeg png pdf doc docx pptx avi mov mp3 ogg wav zip mp4'
+      '#title_display': inline
+      '#title': 'Pictures/videos 4'
+    pictures_videos_3_17:
+      '#type': managed_file
+      '#max_filesize': 2.0
+      '#file_extensions': 'gif jpg jpeg png pdf doc docx pptx avi mov mp3 ogg wav zip mp4'
+      '#title_display': inline
+      '#title': 'Pictures/videos 3'
+    pictures_videos_2_17:
+      '#type': managed_file
+      '#max_filesize': 2.0
+      '#file_extensions': 'gif jpg jpeg png pdf doc docx pptx avi mov mp3 ogg wav zip mp4'
+      '#title_display': inline
+      '#title': 'Pictures/videos 2'
+    pictures_videos_1_17:
+      '#type': managed_file
+      '#max_filesize': 2.0
+      '#file_extensions': 'gif jpg jpeg png pdf doc docx pptx avi mov mp3 ogg wav zip mp4'
+      '#title_display': inline
+      '#title': 'Pictures/videos 1'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: kamppij@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: agsci@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_3:
+    id: email
+    handler_id: email_3
+    label: 'Email 3'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 3
+    settings:
+      states:
+        - completed
+      to_mail: papkel@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

@@ -1,4 +1,4 @@
-uuid: f3092805-e57e-401f-b7a7-c2e4d0bced44
+uuid: 0ba06bf5-1a21-41bb-b2ae-5653add4bfbb
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: unit_media
 label: unit-media
 logic: and
 conditions:
-  3a6aaf39-7c57-4d24-b455-04ef165569b5:
+  a1ee6abc-5814-4e36-9087-b8c6c411a726:
     id: request_path
     negate: false
-    uuid: 3a6aaf39-7c57-4d24-b455-04ef165569b5
+    uuid: a1ee6abc-5814-4e36-9087-b8c6c411a726
     pages: '/*our-media*'
 allow_other_conditions: null

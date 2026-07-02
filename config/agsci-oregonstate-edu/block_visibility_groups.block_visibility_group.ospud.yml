@@ -1,4 +1,4 @@
-uuid: 366666bb-88a2-4f7b-a25d-9685a5ab2ddb
+uuid: a763c4a6-299a-4573-be19-6cdc8a55e6c3
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: ospud
 label: ospud
 logic: and
 conditions:
-  afd5beea-d358-476b-81f7-dbcdc1be8d8d:
+  b5ace358-955e-4770-844f-a6acb220d766:
     id: request_path
     negate: false
-    uuid: afd5beea-d358-476b-81f7-dbcdc1be8d8d
+    uuid: b5ace358-955e-4770-844f-a6acb220d766
     pages: /node/86251
 allow_other_conditions: null

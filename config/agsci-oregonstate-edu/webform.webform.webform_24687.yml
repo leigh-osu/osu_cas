@@ -1,0 +1,147 @@
+uuid: ba3660b4-8468-4097-a7ee-785493d677f8
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 1
+template: false
+archive: false
+id: webform_24687
+title: 'New Student Questionnaire'
+description: null
+categories: {  }
+elements: |-
+  name:
+    '#type': textfield
+    '#title': Name
+    '#required': true
+  student_id_no_dashes:
+    '#type': textfield
+    '#title': 'Student ID# (no dashes)'
+    '#required': true
+  onid_email_address:
+    '#type': email
+    '#size': 20
+    '#title': 'ONID email address'
+    '#required': true
+  phone_number:
+    '#type': textfield
+    '#title': 'Phone Number'
+    '#required': true
+  preferred_method_of_communication:
+    '#type': radios
+    '#options':
+      email: Email
+      phone: Phone
+      either: 'No preference'
+    '#title': 'Preferred Method of Communication'
+    '#required': true
+  how_did_you_learn_about_this_program:
+    '#type': textarea
+    '#title': 'How did you learn about this program?'
+    '#required': true
+  why_did_you_choose_this_degree_program:
+    '#type': textarea
+    '#title': 'Why did you choose this degree program?'
+    '#required': true
+  how_will_you_use_your_degree_upon_program_completion:
+    '#type': textarea
+    '#title': 'How will you use your degree upon program completion?'
+    '#required': true
+  are_you_currently_using_financial_aid_to_fund_your_education:
+    '#type': radios
+    '#options':
+      yes_key: 'Yes'
+      no_key: 'No'
+    '#title': 'Are you currently using Financial Aid to fund your education?'
+    '#required': true
+  please_indicate_which_of_the_following_you_are_comfortable_with:
+    '#type': radios
+    '#options':
+      word: 'Creating and Editing Word Documents'
+      dload: 'Downloading Files'
+      email: Email
+      surfing: 'Surfing the Web'
+      chat: 'Using Live Chat or Video Chat Programs'
+      network: 'Using Social Networking Sites (i.e. Facebook or LinkedIn)'
+      none: 'None of the Above'
+    '#title': 'Please indicate which of the following you are comfortable with'
+    '#required': true
+  i_have_concerns_about:
+    '#type': textarea
+    '#title': 'I have concerns about'
+  what_are_some_things_in_your_life_that_might_distract_you_from_school:
+    '#type': textarea
+    '#title': 'What are some things in your life that might distract you from school?'
+    '#required': true
+  could_you_tell_us_more_about_where_you_live:
+    '#type': textarea
+    '#title': 'Could you tell us more about where you live?'
+    '#required': true
+  what_is_your_idea_of_a_perfect_weekend:
+    '#type': textarea
+    '#title': 'What is your idea of a perfect weekend?'
+    '#required': true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: '<p><strong>Thank you for submitting the new student questionnaire. Brianna Beene, the E-campus Advisor for AREc, will contact you soon, via your preferred communication method, to set up a time to chat with you further about the program and your goals for your time at OSU.</strong></p>'
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: tjrichardson@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: 'Applied Economics'
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: '[webform_submission:values:name:raw]'
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

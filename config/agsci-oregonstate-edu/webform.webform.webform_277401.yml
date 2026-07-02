@@ -1,0 +1,128 @@
+uuid: c1833780-0cec-4e6c-974e-3d9809626208
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 23971
+template: false
+archive: false
+id: webform_277401
+title: '2025 BES Office Support Staff Conference Registration'
+description: null
+categories: {  }
+elements: |-
+  events:
+    '#type': checkboxes
+    '#options':
+      event_1: "Dinner with Dean's office Oct 28 (optional)"
+      event_2: 'Conference only Oct 29'
+    '#multiple': true
+    '#title': Events
+    '#description': 'Select all of the events you plan to attend.'
+    '#required': true
+  first_and_last_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'First and last name'
+    '#required': true
+  name_of_farm:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Ag Experiment Station/Research & Extension Center'
+    '#required': true
+  email_address:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Email address'
+    '#required': true
+  do_you_have_any_food_sensitivities:
+    '#type': checkboxes
+    '#options':
+      food_gluten: 'Gluten Free'
+      food_dairy: 'Dairy Free'
+      food_nuts: 'Nut Free'
+      food_vegetarian: Vegetarian
+      food_vegan: Vegan
+      food_kosher: Kosher
+      food_other: Other
+      food_none: None
+    '#multiple': true
+    '#title': 'Do you have any dietary restrictions?'
+    '#required': true
+  if_other_please_specify:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'If other, please specify:'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email_address:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |-
+        [webform_submission:values:first_name] [webform_submission:values:last_name],
+
+        Thank you for registering for the 2025 BES Office Support Staff Conference, we have received your entry.
+        For accommodations related to accessibility, please contact Lisa Farrell by Tuesday, October 28 at lisa.farrell@oregonstate.edu or 971-221-8849.
+        We look forward to seeing you on Wednesday, October 29, 2025.
+      excluded_elements:
+        name_of_farm: name_of_farm
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

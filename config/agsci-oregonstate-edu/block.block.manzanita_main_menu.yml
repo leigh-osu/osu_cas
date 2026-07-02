@@ -1,4 +1,4 @@
-uuid: 9aeefab2-7f6e-4a81-b56c-582df6909ad1
+uuid: 1716e897-68ad-4895-b349-2280bc7df206
 langcode: en
 status: true
 dependencies:
@@ -9,16 +9,16 @@ dependencies:
   theme:
     - manzanita
 _core:
-  default_config_hash: JVdUAX5i7Stg6A3kplrwgpoua8JJOoc7oQs5u93SMBM
+  default_config_hash: 6mKba3cvbpfQYXL89fIiJ0XN84SrmI-lwXgSw8smFyI
 id: manzanita_main_menu
 theme: manzanita
 region: primary_menu
-weight: -6
+weight: 0
 provider: null
 plugin: 'superfish:main'
 settings:
   id: 'superfish:main'
-  label: Menu
+  label: Main
   label_display: '0'
   provider: superfish
   level: 1
@@ -54,7 +54,7 @@ settings:
   smallech: ''
   smallicm: ''
   smallich: ''
-  smallamt: ''
+  smallamt: Main
   smallabt: 1
   supersubs: 1
   minwidth: 12

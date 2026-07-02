@@ -1,0 +1,39 @@
+uuid: 7f2758f1-ec2d-4bc7-b6c9-b739fa4ecc9d
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 8166
+template: false
+archive: false
+id: webform_96521
+title: 'Fisheries and Wildlife Room Request Form'
+description: null
+categories: {  }
+elements: ''
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }

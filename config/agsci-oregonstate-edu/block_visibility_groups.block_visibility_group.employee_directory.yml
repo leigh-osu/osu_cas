@@ -1,4 +1,4 @@
-uuid: 8a24aa1a-4500-4f37-89de-36b35e137c54
+uuid: d0077c0b-587a-48ff-a3ce-72138aea4bc2
 langcode: en
 status: true
 dependencies:
@@ -8,14 +8,14 @@ id: employee_directory
 label: employee_directory
 logic: and
 conditions:
-  e0383879-d0aa-476a-9550-f0fc8660297a:
+  9ce8b7f3-6572-4bdf-8005-27b4fd47302e:
     id: request_path
     negate: false
-    uuid: e0383879-d0aa-476a-9550-f0fc8660297a
+    uuid: 9ce8b7f3-6572-4bdf-8005-27b4fd47302e
     pages: "/*directory\r\n/*/people\r\n/node/80301\r\n/node/167201"
-  716ba761-7add-49ec-8a12-fa0c8c835893:
+  9e8c2012-bd87-4406-b533-665c63e66060:
     id: request_path
     negate: true
-    uuid: 716ba761-7add-49ec-8a12-fa0c8c835893
-    pages: "/research/oregon-agricultural-experiment-station/research-project-directory\r\n/webteam/staff-directory\r\n/directory\r\n/applied-economics/directory\r\n/appliedecon/directory\r\n/applied-economics/people/faculty\r\n/eco-informatics-summer-institute/program/people\r\n/node/33696\r\n/biological-and-ecological-engineering/directory/graduate-student-directory\r\n/bee/directory\r\n/environmental-chem/faculty-directory\r\n/node/40926\r\n/fisheries-and-wildlife/directory\r\n/node/38526\r\n/state-fisheries-genetics-lab/people\r\n/node/67296\r\n/about/administrative-directory\r\n/node/94666\r\n/wrcefs/people\r\n/flock/people\r\n/garcia-jaramillolab/people\r\n/marcus-annalora-lab/people\r\n/hemp/about/directory\r\n/agprogrameou/people\r\n/pollinator-health/people\r\n/centerforsmallfarms/about/people\r\n/organicgradcert/people\r\n/seabird-oceanography/people\r\n/sorec/people\r\n/nwrec/people\r\n/campusarb/people\r\n/heppelllab/people\r\n/curtin-lab/people\r\n/weed-science-hort/people\r\n/dairy-center/people\r\n/node/111606\r\n/node/124416\r\n/node/155\r\n/node/168461\r\n/node/101851\r\n/node/25818\r\n/node/216671\r\n/node/217751\r\n/node/227111\r\n/node/241501\r\n/node/24740\r\n/node/262466\r\n/node/263076\r\n/node/265496\r\n/node/265801\r\n/node/266656\r\n/node/268341\r\n/node/269151\r\n/node/37051\r\n/node/3906\r\n/node/406\r\n/node/45416\r\n/node/61316\r\n/node/80806\r\n/node/97341\r\n/osuseafoodlab/*\r\n/node/270916\r\n/node/241906\r\n/node/238321\r\n/cbarc/directory\r\n/node/57776\r\n/node/279056\r\n/soilwaterquality/people\r\n/juliayuecuilab/people\r\n/moretti-lab/people"
+    uuid: 9e8c2012-bd87-4406-b533-665c63e66060
+    pages: "/research/oregon-agricultural-experiment-station/research-project-directory\r\n/webteam/staff-directory\r\n/directory\r\n/applied-economics/directory\r\n/appliedecon/directory\r\n/applied-economics/people/faculty\r\n/eco-informatics-summer-institute/program/people\r\n/node/33696\r\n/biological-and-ecological-engineering/directory/graduate-student-directory\r\n/bee/directory\r\n/environmental-chem/faculty-directory\r\n/node/40926\r\n/fisheries-and-wildlife/directory\r\n/node/38526\r\n/state-fisheries-genetics-lab/people\r\n/node/67296\r\n/about/administrative-directory\r\n/node/94666\r\n/wrcefs/people\r\n/flock/people\r\n/garcia-jaramillolab/people\r\n/marcus-annalora-lab/people\r\n/hemp/about/directory\r\n/agprogrameou/people\r\n/pollinator-health/people\r\n/centerforsmallfarms/about/people\r\n/organicgradcert/people\r\n/seabird-oceanography/people\r\n/sorec/people\r\n/nwrec/people\r\n/campusarb/people\r\n/heppelllab/people\r\n/curtin-lab/people\r\n/weed-science-hort/people\r\n/dairy-center/people\r\n/node/111606\r\n/node/124416\r\n/node/155\r\n/node/168461\r\n/node/101851\r\n/node/25818\r\n/node/216671\r\n/node/217751\r\n/node/227111\r\n/node/241501\r\n/node/24740\r\n/node/262466\r\n/node/263076\r\n/node/265496\r\n/node/265801\r\n/node/266656\r\n/node/268341\r\n/node/269151\r\n/node/37051\r\n/node/3906\r\n/node/406\r\n/node/45416\r\n/node/61316\r\n/node/80806\r\n/node/97341\r\n/osuseafoodlab/*\r\n/node/270916\r\n/node/241906\r\n/node/238321\r\n/cbarc/directory\r\n/node/57776\r\n/node/279056\r\n/soilwaterquality/people\r\n/juliayuecuilab/people\r\n/moretti-lab/people\r\n/node/286496"
 allow_other_conditions: null

@@ -1,4 +1,4 @@
-uuid: 40667800-8b29-4746-adea-0835a75ec9ab
+uuid: 894b1014-5ded-4b00-a019-7d653f2456df
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: turf_athl_field
 label: turf_athl_field
 logic: and
 conditions:
-  03ac2b9f-348e-4a57-b11a-e7aa48a39198:
+  87d98300-6a6e-4386-ad47-591b4437d937:
     id: request_path
     negate: false
-    uuid: 03ac2b9f-348e-4a57-b11a-e7aa48a39198
+    uuid: 87d98300-6a6e-4386-ad47-591b4437d937
     pages: /node/77606
 allow_other_conditions: null

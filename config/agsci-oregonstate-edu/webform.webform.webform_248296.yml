@@ -1,0 +1,215 @@
+uuid: bf93417b-b5e1-4e94-b3d1-332ef1dc426f
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_248296
+title: 'ER Jackman Annual Meeting Registration '
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	[[{"fid":"501801","view_mode":"default","fields":{"format":"default","alignment":"center","field_file_image_alt_text[und][0][value]":"E.R. Jackman Friends &amp; Alumni Annual Meeting","field_file_image_title_text[und][0][value]":"E.R. Jackman Friends &amp; Alumni Annual Meeting","external_url":""},"type":"media","field_deltas":{"1":{"format":"default","alignment":"center","field_file_image_alt_text[und][0][value]":"E.R. Jackman Friends &amp; Alumni Annual Meeting","field_file_image_title_text[und][0][value]":"E.R. Jackman Friends &amp; Alumni Annual Meeting","external_url":""}},"link_text":null,"attributes":{"alt":"E.R. Jackman Friends &amp; Alumni Annual Meeting","title":"E.R. Jackman Friends &amp; Alumni Annual Meeting","height":366,"width":771,"class":"media-element file-default media-wysiwyg-align-center","data-delta":"1"}}]]</p>
+
+      <h4 style="text-align: center;">
+      	<br />
+      	Friday, October 10, 2025<br />
+      	2:00pm-3:30pm</h4>
+
+      <p style="text-align: center;">
+      	OSU Foundation, Main Board Room<br />
+      	4238 SW Research Way<br />
+      	Corvallis, OR 97333</p>
+
+      <p style="text-align: center;">
+      	<strong><em>Registration closes on September 26, 2025</em></strong></p>
+  first_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'First name'
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Last name'
+    '#required': true
+  email:
+    '#type': email
+    '#size': 20
+    '#title_display': inline
+    '#title': Email
+    '#required': true
+  primary_phone_number:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Primary Phone Number'
+    '#required': true
+  mailing_address:
+    '#type': textarea
+    '#title': 'Mailing Address'
+  i_am_osu_staff_faculty:
+    '#type': radios
+    '#options':
+      fac_yes: 'Yes'
+      fac_no: 'No'
+    '#title': 'I am OSU Staff/Faculty'
+    '#required': true
+  i_am_an_osu_alumni:
+    '#type': radios
+    '#options':
+      alumni_yes: 'Yes'
+      alumni_no: 'No'
+    '#title': 'I am an OSU Alumni'
+    '#required': true
+  if_yes_what_major_grad_year:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'If yes, what major / grad year'
+    '#states':
+      visible:
+        - ':input[name="i_am_an_osu_alumni"]':
+            value: alumni_yes
+  i_plan_to_attend:
+    '#type': radios
+    '#options':
+      in-person: 'In Person'
+      zoom: 'Over Zoom'
+    '#title': 'I plan to attend:'
+    '#required': true
+  do_you_have_any_food_restrictions_allergies:
+    '#type': checkboxes
+    '#options':
+      food_gluten: 'Gluten Free'
+      food_dairy: 'Dairy Free'
+      food_nut: 'Nut Free'
+      food_vegetarian: Vegetarian
+      food_kosher: Kosher
+      food_: Other
+    '#multiple': true
+    '#title': 'Do you have any food restrictions/allergies?'
+    '#states':
+      visible:
+        - ':input[name="i_plan_to_attend"]':
+            value: in-person
+  if_other_please_elaborate:
+    '#type': textarea
+    '#title': 'If other, please elaborate'
+    '#states':
+      visible:
+        - ':input[name="do_you_have_any_food_restrictions_allergies[food_]"]':
+            checked: true
+  bring_guest:
+    '#type': radios
+    '#options':
+      guest_yes: 'Yes'
+      guest_no: 'No'
+    '#title': 'I plan to bring a guest'
+    '#states':
+      visible:
+        - ':input[name="i_plan_to_attend"]':
+            value: in-person
+  guest_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Guest name'
+    '#states':
+      visible:
+        - ':input[name="bring_guest"]':
+            value: guest_yes
+  additional_feedback:
+    '#type': textarea
+    '#title': 'Additional feedback'
+  conclusion:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	<strong>Questions?</strong> Contact Ally Miklasz, Director of Alumni Relations, College of Agricultural Sciences, at <a href="mailto:ally.miklasz@osualum.com">ally.miklasz@osualum.com</a> or 541-556-9516</p>
+
+      <ul>
+      	<li>
+      		<a href="https://agsci.oregonstate.edu/er-jackman" originalsrc="https://agsci.oregonstate.edu/er-jackman-friends-and-alumni" shash="l1avQhi44faH8Kt6ATqPn3ZzMuLuNsHDkwhdUJP45NO4fv7VOTV4NvitFuI978v6BEZzejc/DWKbJgXhEjjp7c4LFrsnbUQ24Wazb3TXIcNvCEmxGkaAOWFVJkskMBFnHgWOBYPJifSfMXr8RvGd4yTnlYb5wwoOO5UEHRvoXyo=">ER Jackman Friends &amp; Alumni</a></li>
+      </ul>
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<p>\r\n\tThank you for registering for the ER Jackman Annual Meeting</p>\r\n\r\n<p>\r\n\tWe look forward to seeing you on <strong>Friday, October 10<sup>th</sup> </strong>from <strong>2:00pm-3:30pm </strong>in the <strong>OSU Foundation, Main Board Room, 4238 SW Research Way, Corvallis, OR 97333</strong> and via <strong>Zoom.</strong></p>\r\n\r\n<p>\r\n\tFor anyone that registered to attend via zoom, a zoom link will be sent to the email address you used to register prior to the meeting.</p>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: 'ER Jackman Annual Meeting Registration '
+      body: |-
+        [webform_submission:values:first_name] [webform_submission:values:last_name],
+
+        Thank you for registering to attend ER Jackman Annual Meeting on October 10 at 2:00pm in the OSU Foundation, Main Board Room. If something comes up and you’re not able to attend the event, please email ally.miklasz@osualum.com so she may remove you from our expected attendees list.
+
+        I look forward to seeing you at our meeting where I will be sharing updates about our college and our future plans.
+
+        Go Beavs! 
+
+        Staci L. Simonich, Ph.D., M.B.A.
+        Dean and Reub Long Professor
+        College of Agricultural Sciences
+        Director of the Oregon Agricultural Experiment Station
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

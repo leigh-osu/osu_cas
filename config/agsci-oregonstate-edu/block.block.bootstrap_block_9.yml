@@ -1,0 +1,30 @@
+uuid: f8390353-8c6d-4d1e-a10b-f9eb0e8d5f67
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:79b76b95-16a1-4162-b21a-db580f96a18e'
+  module:
+    - block_content
+    - system
+  theme:
+    - bootstrap
+id: bootstrap_block_9
+theme: bootstrap
+region: ''
+weight: 0
+provider: null
+plugin: 'block_content:79b76b95-16a1-4162-b21a-db580f96a18e'
+settings:
+  id: 'block_content:79b76b95-16a1-4162-b21a-db580f96a18e'
+  label: 'Branch Stations'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /research/college-administration/oaes-branch-stations

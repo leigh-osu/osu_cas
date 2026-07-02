@@ -1,0 +1,216 @@
+uuid: 7b9be8c2-f69b-4fa4-8ad7-f072cb3d77ed
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_254496
+title: 'uStore Creation Request Form'
+description: null
+categories: {  }
+elements: |-
+  your_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Your Name'
+  store_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Store Name'
+    '#required': true
+  who_needs_access_to_the_ustore:
+    '#type': textarea
+    '#title': 'Who will need access to the Ustore to monitor registration, fulfillments and run reports?'
+    '#description': 'Please list everyone that may need access to the store.'
+  when_will_this_store_to_be_functional:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'When will this store need to be functional?'
+  list_your_products:
+    '#type': textarea
+    '#default_value': |-
+      Product 1:
+      Description:
+      Price:
+      Index/Account Code/Activity Code:
+
+      Product 2:
+      Description:
+      Price:
+      Index/Account Code/Activity Code:
+    '#title': 'List your product(s), product description, price and index/account code/activity code.'
+  will_discount_codes_be_used_for_some_products_if_so_please_explain:
+    '#type': textarea
+    '#title': 'Will discount codes be used for some products? If so, please explain'
+    '#description': 'ie. do students pay a different price than the general public? Is there a short term promotional price for a product?'
+  shipping_cost:
+    '#type': textarea
+    '#title': 'What is the shipping cost associated with your product(s)? Are there special shipping instructions that we need to include?'
+  what_is_your_refund_policy:
+    '#type': textarea
+    '#title': 'What is your refund policy?'
+  email_address:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'What email address should be used as the contact for store?'
+  introductory_overview_informaton:
+    '#type': textarea
+    '#title': 'Introductory/overview information you would like on the homepage of the uStore'
+  what_you_want_to_be_in_the_order_confirmation_email_message:
+    '#type': textarea
+    '#title': 'What you want to be in the order confirmation email message?'
+  is_there_anythig_else_we_should_know_about_your_store:
+    '#type': textarea
+    '#title': 'Is there anything else we should know about your store?'
+    '#description': 'Is there anything unique about your store that we should plan for when building it?'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: sara.monk@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: Janna.Whippo@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |-
+        Submitted on [webform_submission:completed_date:long]
+        Submitted by user: [webform_submission:user]
+
+        Submitted values are:
+        [webform_submission:values]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_3:
+    id: email
+    handler_id: email_3
+    label: 'Email 3'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 3
+    settings:
+      states:
+        - completed
+      to_mail: stephanie.harvey@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |
+        Submitted on [webform_submission:completed_date:long]
+        Submitted by user: [webform_submission:user]
+
+
+        Submitted values are:
+        [webform_submission:values]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

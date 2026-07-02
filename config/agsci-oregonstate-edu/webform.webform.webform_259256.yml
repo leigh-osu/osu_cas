@@ -1,0 +1,135 @@
+uuid: 1ed6ae57-9413-447d-8691-ed71dedd21ac
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_259256
+title: 'International Student Experiential Learning Trips survey'
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	Please share your experience from leading international student experiential learning trips.</p>
+  name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Name
+    '#required': true
+  department:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Department
+  where_did_you_go:
+    '#type': textarea
+    '#title': 'Where did you go? '
+  how_many_students_joined_you:
+    '#type': textarea
+    '#title': 'How many students joined you?'
+  what_was_the_primary_focus_of_this_experiential_learning_opportunity:
+    '#type': textarea
+    '#title': 'What was the primary focus of this experiential learning opportunity?'
+  could_you_provide_quotes_or_testimonial_feedback_from_students_about_their_experience:
+    '#type': textarea
+    '#title': 'Could you provide quotes or testimonial feedback from students about their experience?'
+  how_many_international_experiential_opportunities_have_you_led:
+    '#type': textarea
+    '#title': 'How many international experiential opportunities have you led?'
+  why_do_you_do_it:
+    '#type': textarea
+    '#title': 'Why do you do it?'
+  anything_else_you_would_like_to_add:
+    '#type': textarea
+    '#title': 'Anything else you would like to add about this trip or the impact of experiential learning and/or international learning you would like to add?'
+  do_you_have_photos_if_so_please_upload_below:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png pdf doc docx ppt pptx'
+    '#title': 'Do you have photos? If so, please upload below:'
+  photo2:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png pdf doc docx ppt pptx'
+    '#title_display': inline
+    '#title': 'Photo 2'
+  photo3:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png pdf doc docx ppt pptx'
+    '#title_display': inline
+    '#title': 'Photo 3'
+  photo4:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png pdf doc docx ppt pptx'
+    '#title_display': inline
+    '#title': 'Photo 4'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<p>\r\n\tThank you for sharing about your experience with the college.</p>\r\n\r\n<p>\r\n\tReturn to the <a href=\"https://agsci.oregonstate.edu/\">College of Agricultural Sciences</a> website.</p>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: ben.davis@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

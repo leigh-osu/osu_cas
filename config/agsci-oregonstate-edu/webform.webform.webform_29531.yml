@@ -1,0 +1,175 @@
+uuid: 0c3f473f-80d9-4895-94c7-15a31424413a
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_29531
+title: 'Begin a New Application'
+description: null
+categories: {  }
+elements: |-
+  introduction:
+    '#type': processed_text
+    '#format': full_html
+    '#text': '<p>The following form is to create an account to fill out the Eco-Informatics Summer Institute application. Please be sure to fill out all of the required fields marked with a <font color="red">*</font>. Email <a href="/eco-informatics-summer-institute/contact-us">the EISI program manager</a> if you have any questions.</p><h4>Personal Information</h4>'
+  first_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'First Name'
+    '#required': true
+  middle_initial:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Middle Initial'
+  last_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Last Name'
+    '#required': true
+  email:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': Email
+    '#required': true
+  website:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Website
+  academic_information:
+    '#type': processed_text
+    '#format': full_html
+    '#text': '<h4>Academic Information</h4>'
+  student_status:
+    '#type': select
+    '#options':
+      status_undergraduate: Undergraduate
+      status_graduate: Graduate
+    '#title_display': inline
+    '#title': 'Student Status'
+    '#required': true
+  institution:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Institution
+    '#required': true
+  discipline_of_major:
+    '#type': select
+    '#options':
+      major_bioengineering: Bioengineering
+      major_computer: 'Computer Science'
+      major_mathematics: Mathematics
+      major_ecosystem: 'Ecosystem Science'
+      major_earth: 'Earth Science'
+    '#title_display': inline
+    '#title': 'Discipline of Major'
+    '#required': true
+  research_interests:
+    '#type': select
+    '#options':
+      interests_climate: 'climate change'
+      interests_carbon: carbon
+      interests_meta-analysis: meta-analysis
+      interests_geomorphology: geomorphology
+      interests_hydrology: hydrology
+      interests_mapping: 'species distribution mapping'
+      interests_water: 'water quality'
+      interests_vegetation: vegetation
+      interests_macroinvertebrates: 'benthic macroinvertebrates'
+      interests_fish: fish
+      interests_hyporheic: 'hyporheic flow'
+      interests_grassland: 'grassland meadows'
+      interests_restoration: restoration
+      interests_soils: soils
+      interests_nutrient: 'nutrient cycling'
+      interests_debris: 'debris flows'
+      interests_sediment: sediment
+      'interests_mathematical ': 'mathematical modeling'
+      'interests_computer ': 'computer programming'
+      interests_visualization: visualization
+      interests_statistics: statistics
+    '#multiple': true
+    '#title_display': inline
+    '#title': 'Research Interests'
+    '#description': 'Select all that apply by holding down the control key on a PC or the ⌘(command) key on a Mac and clicking on all your choices. Feel free to add others below. '
+    '#required': true
+  other_research_interests:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Other Research Interests'
+  mailing_address:
+    '#type': processed_text
+    '#format': full_html
+    '#text': '<h4>Mailing Address</h4>'
+  address_line_1:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Address Line 1'
+    '#required': true
+  address_line_2:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Address Line 2'
+  city:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': City
+    '#required': true
+  state:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': State
+    '#required': true
+  zip_code:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Zip Code'
+    '#required': true
+  country:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Country
+    '#required': true
+  phone_number:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Phone Number'
+    '#required': true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }

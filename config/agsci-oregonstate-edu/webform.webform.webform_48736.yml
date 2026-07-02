@@ -1,0 +1,153 @@
+uuid: e7516d1f-b51c-44df-a3ef-04c744b1a65e
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 5416
+template: false
+archive: false
+id: webform_48736
+title: 'Guest form for PolliNation Podcast'
+description: null
+categories: {  }
+elements: |-
+  first_name:
+    '#type': textfield
+    '#title': 'First name'
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#title': 'Last name'
+    '#required': true
+  email:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title': 'Email address'
+    '#required': true
+  phone_number:
+    '#type': textfield
+    '#title': 'Phone number (hardline preferred)'
+    '#required': true
+  skype_username_if_applicable:
+    '#type': textfield
+    '#title': 'Skype username (if applicable)'
+  upload_headshot_photo_5mb_size_limit:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Upload headshot photo (5MB size limit)'
+    '#required': true
+  short_bio_200_words_or_less_including_position_title:
+    '#type': textarea
+    '#title': 'Short bio (200 words or less including position title)'
+    '#required': true
+  facebook_username_if_applicable:
+    '#type': textfield
+    '#title': 'Facebook username (if applicable)'
+  twitter_username:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Twitter username (if applicable)'
+    '#required': true
+  address_line_2:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Address line 2'
+    '#required': true
+  address_line_1:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Address line 1'
+    '#required': true
+  city:
+    '#type': textfield
+    '#unique': false
+    '#title': City
+    '#required': true
+  state:
+    '#type': textfield
+    '#unique': false
+    '#title': State
+    '#required': true
+  zip_code:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Zip code'
+    '#required': true
+  ideas_for_future_guests:
+    '#type': textarea
+    '#title': 'Ideas for future guests'
+  fieldset_vvvvvv:
+    '#type': fieldset
+    '#open': true
+    '#title': 'If your mailing address is outside the U.S., please provide a phone number above. Phone numbers are required for international mail.'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: '<p>Thank you for your interest in being a guest on the PolliNation Podcast.&nbsp; We will be in touch with you soon!</p>'
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: andony.melathopoulos@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |-
+        Submitted on [webform_submission:date:long]
+        Submitted by user: [webform_submission:user]
+        Submitted values are:
+        [webform_submission:values]
+
+        The results of this submission may be viewed at:
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

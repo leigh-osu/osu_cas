@@ -1,11 +1,11 @@
-uuid: dc34df48-a8f0-4c35-9693-53c7c3cc5067
+uuid: deba0790-558b-49bb-85b6-b8f5de560367
 langcode: en
 status: true
 dependencies:
   config:
     - block_visibility_groups.block_visibility_group.emt_academics
   content:
-    - 'block_content:basic:f197585c-edb9-4ecd-9c15-599006119610'
+    - 'block_content:basic:0d798e12-94c4-4085-b1bc-c826b63e830a'
   module:
     - block_content
     - block_visibility_groups
@@ -16,9 +16,9 @@ theme: madrone
 region: sidebar
 weight: -9
 provider: null
-plugin: 'block_content:f197585c-edb9-4ecd-9c15-599006119610'
+plugin: 'block_content:0d798e12-94c4-4085-b1bc-c826b63e830a'
 settings:
-  id: 'block_content:f197585c-edb9-4ecd-9c15-599006119610'
+  id: 'block_content:0d798e12-94c4-4085-b1bc-c826b63e830a'
   label: ''
   label_display: visible
   provider: block_content

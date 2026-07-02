@@ -1,0 +1,116 @@
+uuid: 97d49f6f-cefa-441f-914a-23b6f5b3311b
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_96126
+title: 'Poster Session RSVP'
+description: null
+categories: {  }
+elements: |-
+  name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Name
+    '#required': true
+  email_address:
+    '#type': email
+    '#size': 20
+    '#title_display': inline
+    '#title': 'Email Address'
+    '#required': true
+  do_you_plan_to_present_a_poster_at_the_experiential_expo_on_october_16:
+    '#type': radios
+    '#options':
+      'yes': 'Yes'
+      'no': 'No'
+    '#title': 'Do you plan to present a poster at the Experiential Expo on October 16'
+  which_programs_did_you_attend_or_benefit_from:
+    '#type': checkboxes
+    '#options':
+      programs_erjfa: 'ERJFA Internship Support'
+      programs_nzexchange: 'New Zealand Exchange'
+      programs_ewa_palau: 'EWA Palau'
+      programs_flobal_exp: 'Global Experiences Fund'
+      programs_sc_agtour: 'Southcentral US Ag Tour'
+      programs_puerto_rico: 'Puerto Rico Service Learning'
+      programs_bes: 'Branch Experiment Station'
+      programs_continuing: 'Continuing Researcher'
+      programs_begining: 'Beginning Researcher'
+    '#multiple': true
+    '#title': 'Which program(s) did you attend or benefit from? '
+    '#description': 'Check all that apply'
+  what_is_the_theme_of_your_poster:
+    '#type': textfield
+    '#size': 200
+    '#title': 'What is the theme/title of your poster'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: casstudy@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |
+        Submitted on [webform_submission:date:long]
+        Submitted by user: [webform_submission:user]
+        Submitted values are:
+        [webform_submission:values]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

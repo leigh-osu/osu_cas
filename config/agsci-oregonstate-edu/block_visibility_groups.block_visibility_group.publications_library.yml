@@ -1,4 +1,4 @@
-uuid: 5863627d-0185-4acc-a51f-777c87a9f7ab
+uuid: 64723f72-33d7-492b-8a1a-8f572f710b93
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: publications_library
 label: publications-library
 logic: and
 conditions:
-  465ad428-7f77-416e-9d68-406b49a2f0ca:
+  13130f0a-30a5-4607-bc00-1c53ff6208b7:
     id: request_path
     negate: false
-    uuid: 465ad428-7f77-416e-9d68-406b49a2f0ca
+    uuid: 13130f0a-30a5-4607-bc00-1c53ff6208b7
     pages: "/*/publications-library\r\n/publications-library\r\n/osu-seafood-lab/publications\r\n/node/67446\r\n/node/84566"
 allow_other_conditions: null

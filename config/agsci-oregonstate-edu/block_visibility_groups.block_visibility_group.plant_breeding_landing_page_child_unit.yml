@@ -1,4 +1,4 @@
-uuid: cfe6fd4f-6ea8-40f3-9c9f-d6a42c6a9e3a
+uuid: 455ed63f-8a50-4a31-a86a-2900b3d2742d
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: plant_breeding_landing_page_child_unit
 label: plant-breeding_landing-page-child-unit
 logic: and
 conditions:
-  17d1cb9e-50f5-48d9-93d6-686a3e651818:
+  a3a925a1-560e-4f5e-b21f-66a8ba189377:
     id: request_path
     negate: false
-    uuid: 17d1cb9e-50f5-48d9-93d6-686a3e651818
+    uuid: a3a925a1-560e-4f5e-b21f-66a8ba189377
     pages: "/plantbreeding\r\n/node/25817"
 allow_other_conditions: null

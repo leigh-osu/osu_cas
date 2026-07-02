@@ -1,0 +1,233 @@
+uuid: a2c73cc3-cda1-41fa-9f27-f28aa000c4cf
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 11396
+template: false
+archive: false
+id: webform_166666
+title: 'Defense Logistics '
+description: null
+categories: {  }
+elements: |-
+  student_name:
+    '#type': textfield
+    '#title': 'Student Name '
+    '#required': true
+  student_email:
+    '#type': email
+    '#size': 20
+    '#title': 'Student Email'
+    '#required': true
+  title_of_defense:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Title of Defense'
+    '#required': true
+  date_of_defense:
+    '#type': date
+    '#title': 'Date of Defense'
+    '#required': true
+  time_of_defense:
+    '#type': webform_time
+    '#step': 60
+    '#title': 'Time of Defense'
+  broadcasting_seminar_via_zoom:
+    '#type': select
+    '#options':
+      safe_key: 'Yes'
+      safe_key1: 'No'
+    '#title': 'Broadcasting seminar via Zoom?'
+    '#required': true
+  major_professor:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Name of Major Professor'
+  major_professor_email_address:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title': 'Major Professor Email Address'
+  graduate_representative_name:
+    '#type': textfield
+    '#title': 'Graduate Council Representative (GCR) Name'
+  graduate_representative_email:
+    '#type': email
+    '#size': 20
+    '#title': 'Graduate Council Representative (GCR) Email'
+  name_of_committee_member_1:
+    '#type': textfield
+    '#title': 'Committee Member 1 Name'
+  committee_member_1_email_address:
+    '#type': email
+    '#size': 20
+    '#title': 'Committee Member 1 Email'
+  name_of_committee_member_2:
+    '#type': textfield
+    '#title': 'Committee Member 2 Name'
+  committee_member_2_email_address:
+    '#type': email
+    '#size': 20
+    '#title': 'Committee Member 2 Email '
+  name_of_committee_member_3:
+    '#type': textfield
+    '#title': 'Committee Member 3 Name'
+  committee_member_3_email_address:
+    '#type': email
+    '#size': 20
+    '#title': 'Committee Member 3 Email '
+  name_of_committee_member_4:
+    '#type': textfield
+    '#title': 'Committee Member 4 Name'
+  committee_member_4_email_address:
+    '#type': email
+    '#size': 20
+    '#title': 'Committee Member 4 Email '
+  name_of_committee_member_5:
+    '#type': textfield
+    '#title': 'Committee Member 5 Name'
+  committee_member_5_email_address:
+    '#type': email
+    '#size': 20
+    '#title': 'Committee Member 5 Email '
+  additional_information:
+    '#type': textarea
+    '#title': 'Additional Information'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: url
+  confirmation_url: 'https://fw.oregonstate.edu/finishing'
+  confirmation_message: "<p>\r\n\tThank you for submitting the Department of Fisheries and Wildlife Defense Logistics form.&nbsp;</p>\r\n\r\n<p>\r\n\tYou will receive an email response within 3&nbsp;business days with the location of your defense. If you would like advertising for your defense to include an announcement in OSU Today &amp; departmental flyer, contact <a href=\"mailto:amanda.polley@oregonstate.edu\">Amanda Polley</a>&nbsp;with photos of your research.&nbsp;</p>\r\n\r\n<p>\r\n\tBest of luck,</p>\r\n\r\n<p>\r\n\t-Department of Fisheries and Wildlife</p>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: Amanda.Polley@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: ''
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: 'Response: Defense Logistics'
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: Susie.Dunham@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: ''
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: 'Response: Defense Logistics'
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_3:
+    id: email
+    handler_id: email_3
+    label: 'Email 3'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 3
+    settings:
+      states:
+        - completed
+      to_mail: scarlett.arbuckle@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

@@ -1,12 +1,12 @@
-uuid: ebef9d63-a76a-4f9c-984d-be4217c60e1f
+uuid: 8e59755f-9443-4a56-a53e-ba291275bd15
 langcode: en
 status: true
 dependencies: {  }
 name: 200high
 label: 250height
 effects:
-  91d8798d-783a-4dda-977c-87247252b603:
-    uuid: 91d8798d-783a-4dda-977c-87247252b603
+  6d6a1c21-09bd-46ed-9bab-8d9433d6531a:
+    uuid: 6d6a1c21-09bd-46ed-9bab-8d9433d6531a
     id: image_scale
     weight: 1
     data:

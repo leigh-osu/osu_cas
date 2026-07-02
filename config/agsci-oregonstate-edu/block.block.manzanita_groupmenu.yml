@@ -1,4 +1,4 @@
-uuid: 0ce9a69b-ef89-40a3-b37d-3d1181c19453
+uuid: 284893fe-41b7-40e4-804a-841092297f7b
 langcode: en
 status: true
 dependencies:
@@ -14,7 +14,7 @@ _core:
 id: manzanita_groupmenu
 theme: manzanita
 region: primary_menu
-weight: -5
+weight: 10
 provider: null
 plugin: 'group_content_menu:group'
 settings:

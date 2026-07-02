@@ -1,0 +1,222 @@
+uuid: 9c5fb045-de21-4ffb-a3aa-8a277f16ea71
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_251241
+title: 'OSU College of Agricultural Sciences Arizona Friend & Alumni Event'
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p style="margin-left:48px">
+      	<em>Hi, there! Thank you for your interest in the OSU College of Agricultural Sciences Arizona Friends &amp; Alumni Event. We are moving our event to combine efforts with the OSU Alumni Association meetup Friday, February 17<sup>th</sup> at State 48 Brewery from 4-6pm. We hope you’ll join us! Register at the link below, and please contact Ally Rumpakis, Director of Alumni Relations for the College of Agricultural Sciences, with any questions at <a href="mailto:ally.rumpakis@osualum.com" style="color:#0563c1; text-decoration:underline">ally.rumpakis@osualum.com</a> or 541-556-9516. </em></p>
+
+      <p style="margin-left:48px">
+      	&nbsp;</p>
+
+      <p style="margin-left:48px">
+      	<em><a href="https://beaver-baseball-in-the-desert-surprise-az.eventfarm.com/app/pages/f9d9c06b-362e-451c-a94d-42e2dda1d1ac">Beaver Baseball in the Desert - Surprise, AZ (eventfarm.com)</a><br />
+      	*Click the orange “Register” button to RSVP for the Friday event</em></p>
+
+      <p style="margin-left:48px">
+      	&nbsp;</p>
+
+      <p style="margin-left:48px">
+      	<em>Thanks, and Go Beavs!</em></p>
+  first_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'First Name'
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Last Name'
+    '#required': true
+  job_title:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Job Title'
+  name_of_company:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Company Name'
+  i_plan_to_bring_a_guest:
+    '#type': radios
+    '#options':
+      guest_yes: 'Yes'
+      guest_no: 'No'
+    '#title_display': inline
+    '#title': 'I plan to bring a guest'
+  guest_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Guest name'
+  i_am_osu_staff_faculty:
+    '#type': radios
+    '#options':
+      faculty_yes: 'Yes'
+      faculty_no: 'No'
+    '#title_display': inline
+    '#title': 'I am OSU Staff/Faculty '
+  i_am_an_osu_alumni:
+    '#type': radios
+    '#options':
+      alumni_yes: 'Yes'
+      alumni_no: 'No'
+    '#title_display': inline
+    '#title': 'I am an OSU Alumni '
+  email_address:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Email address'
+    '#required': true
+  phone_numbers:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Primary phone number'
+    '#required': true
+  fieldset_mailing_address:
+    '#type': fieldset
+    '#open': true
+    '#title': 'Mailing address'
+    street_address_14:
+      '#type': textfield
+      '#unique': false
+      '#title_display': inline
+      '#title': 'Street Address'
+      '#required': true
+    street_address2_14:
+      '#type': textfield
+      '#unique': false
+      '#title_display': inline
+      '#title': 'Street Address 2'
+    city_14:
+      '#type': textfield
+      '#unique': false
+      '#title_display': inline
+      '#title': City
+      '#required': true
+    state_14:
+      '#type': textfield
+      '#unique': false
+      '#title_display': inline
+      '#title': State
+      '#required': true
+    zip_14:
+      '#type': textfield
+      '#unique': false
+      '#title_display': inline
+      '#title': Zip
+      '#required': true
+  do_you_have_any_food_sensitivities:
+    '#type': checkboxes
+    '#options':
+      food_gluten: 'Gluten Free'
+      food_dairy: 'Dairy Free'
+      food_nuts: 'Nut Free'
+      food_vegetarian: Vegetarian
+      food_kosher: Kosher
+      food_other: Other
+    '#multiple': true
+    '#title': 'Do you have any food preferences?'
+  other_food_preferences:
+    '#type': textarea
+    '#title': 'Other food preferences'
+  additional_feedback:
+    '#type': textarea
+    '#title': 'Additional feedback'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<p>\r\n\tThank you for registering for the OSU College of Agricultural Sciences Arizona Friends &amp; Alumni Event. You should receive an email shortly with additional details. Please contact Ally Rumpakis, Director of Alumni Relations for the College of Agricultural Sciences, with any questions.</p>\r\n\r\n<p>\r\n\t<a href=\"mailto:ally.rumpakis@osualum.com\" style=\"color:blue; text-decoration:underline\">ally.rumpakis@osualum.com</a>, 541-556-9516</p>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email_address:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |
+        Hello [webform_submission:values:first_name] [webform_submission:values:last_name],
+
+        Thank you for your interest in the OSU College of Agricultural Sciences Arizona Friends & Alumni Event. We are moving our event to combine efforts with the OSU Alumni Association meetup Friday, February 17th at State 48 Brewery from 4-6pm. We hope you’ll join us! Register at the link below, and please contact Ally Rumpakis, Director of Alumni Relations for the College of Agricultural Sciences, with any questions at ally.rumpakis@osualum.com or 541-556-9516. 
+
+        Beaver Baseball in the Desert - Surprise, AZ (eventfarm.com)
+        https://beaver-baseball-in-the-desert-surprise-az.eventfarm.com/app/pages/f9d9c06b-362e-451c-a94d-42e2dda1d1ac
+        *Click the orange “Register” button to RSVP for the Friday event
+
+        Thanks, and Go Beavs!
+      excluded_elements:
+        name_of_company: name_of_company
+        phone_numbers: phone_numbers
+        mailing_address: mailing_address
+        street_address: street_address
+        street_address2: street_address2
+        city: city
+        state: state
+        zip: zip
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

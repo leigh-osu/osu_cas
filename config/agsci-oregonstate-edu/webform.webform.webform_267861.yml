@@ -1,0 +1,97 @@
+uuid: 0c1b3043-64b5-4b89-bed9-d0faa19d8ab8
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_267861
+title: 'archived Shark Plate Preregistration'
+description: null
+categories: {  }
+elements: |-
+  photo:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	[[{"fid":"493751","view_mode":"default","fields":{"alt":"OSU Shark License Plate","title":"OSU Shark License Plate","height":1000,"width":2000,"class":"media-element file-default cke_widget_element","data-delta":"1","format":"default","alignment":"","field_file_image_alt_text[und][0][value]":"OSU Shark License Plate","field_file_image_title_text[und][0][value]":"OSU Shark License Plate","external_url":""},"type":"media","field_deltas":{"1":{"alt":"OSU Shark License Plate","title":"OSU Shark License Plate","height":1000,"width":2000,"class":"media-element file-default cke_widget_element","data-delta":"1","format":"default","alignment":"","field_file_image_alt_text[und][0][value]":"OSU Shark License Plate","field_file_image_title_text[und][0][value]":"OSU Shark License Plate","external_url":""}},"link_text":null,"attributes":{"alt":"OSU Shark License Plate","title":"OSU Shark License Plate","height":1000,"width":2000,"class":"media-element file-default","data-delta":"1"}}]]</p>
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	A shark license plate is hitting Oregon soon! Sign up to pre-register and we will follow up with payment information as soon as it becomes available. Your purchase will directly support shark research and the education of future shark scientists in Oregon.</p>
+  name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Name
+    '#required': true
+  e_mail:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': E-mail
+    '#required': true
+  address_line_1:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Address line 1'
+    '#required': true
+  address_line_2:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Address line 2'
+    '#required': true
+  city:
+    '#type': textfield
+    '#title_display': inline
+    '#title': City
+    '#required': true
+  state:
+    '#type': textfield
+    '#unique': false
+    '#default_value': OR
+    '#title_display': inline
+    '#title': State
+    '#required': true
+  zip_code:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Zip Code'
+    '#required': true
+  phone:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Phone
+    '#required': true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }

@@ -1,0 +1,368 @@
+uuid: 21c1a5bd-a8f9-4c5c-924a-01839a966832
+langcode: en
+status: closed
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 16861
+template: false
+archive: false
+id: webform_260951
+title: 'Oregon Seed Association Scholarship, Oregon Seed Cleaning Scholarship and William Kent Wiley Jr. Memorial Scholarship'
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <h3>
+      	Application Deadline: November 14, 2025</h3>
+
+      <p>
+      	Supporting Oregon State University students interested in the Oregon seed industry is an important endeavor. Within the following scholarship application packet are three separate scholarships, each with their own applicant criteria and expectations. Please review this information in full and reach out to the Crop and Soil Science (CSS) Scholarship Committee Chair&nbsp;Alyssa DuVal (alyssa.duval@oregonstate.edu) with any application questions.</p>
+
+      <h3>
+      	Available Scholarships and Associated Criteria:</h3>
+
+      <ul>
+      	<li>
+      		<h5>
+      			Oregon Seed Association Scholarship</h5>
+
+      		<ul>
+      			<li>
+      				<strong>Criteria:</strong>
+
+      				<ul>
+      					<li>
+      						Current undergraduate student within the College of Agricultural Sciences at Oregon State University (includes campus and Ecampus students)</li>
+      					<li>
+      						Financial Need</li>
+      					<li>
+      						Interest in the seed industry (production, improvement, marketing, etc.)</li>
+      				</ul>
+      			</li>
+      			<li>
+      				<strong>Student Tasks:</strong>
+      				<ul>
+      					<li>
+      						Submit a completed application (below)</li>
+      					<li>
+      						Attach&nbsp;a letter of recommendation from an advisor, supervisor, counselor, instructor, or employer (must be a letter of recommendation written within the past year) to application below.</li>
+      					<li>
+      						Participate in an interview with Oregon Seed Association representatives (either in-person or via Zoom) in late-November.</li>
+      				</ul>
+      			</li>
+      		</ul>
+      	</li>
+      	<li>
+      		<h5>
+      			Oregon Seed Cleaning Scholarship</h5>
+
+      		<ul>
+      			<li>
+      				<strong>Criteria:</strong>
+
+      				<ul>
+      					<li>
+      						Current undergraduate student enrolled within the Crop and Soil Science Department at Oregon State University (includes campus and Ecampus students)</li>
+      					<li>
+      						Oregon resident</li>
+      					<li>
+      						Current Sophomore or Junior academic standing (including transfer students)</li>
+      					<li>
+      						Preference for this scholarship is given to candidates with a stated interest in pursuing a career within the Pacific Northwest in a field related to seed production, improvement, or marketing</li>
+      				</ul>
+      			</li>
+      			<li>
+      				<strong>Student Tasks:</strong>
+      				<ul>
+      					<li>
+      						Submit a completed application (below)</li>
+      					<li>
+      						Participate in an interview with Oregon Seed industry representatives (either in-person or via Zoom) in late-November.</li>
+      				</ul>
+      			</li>
+      		</ul>
+      	</li>
+      	<li>
+      		<h5>
+      			William Kent Wiley Jr. Memorial Scholarship</h5>
+
+      		<ul>
+      			<li>
+      				<strong>Criteria:</strong>
+
+      				<ul>
+      					<li>
+      						Current graduate student majoring in Crop Science at Oregon State University</li>
+      					<li>
+      						Student research project shall address needs of the grass seed industry</li>
+      				</ul>
+      			</li>
+      			<li>
+      				<strong>Student Tasks:</strong>
+      				<ul>
+      					<li>
+      						Submit a completed application (below)</li>
+      					<li>
+      						Submit a 1-2 page overview of your current research project (attach below)</li>
+      					<li>
+      						Participate in an interview with Oregon Seed industry representatives (either in-person or via Zoom) in late-November</li>
+      				</ul>
+      			</li>
+      		</ul>
+      	</li>
+      </ul>
+
+      <h3>
+      	Payment of Scholarships:</h3>
+
+      <ul>
+      	<li>
+      		Recipients of the above scholarships will be selected following interviews conducted in mid-November.
+      		<ul>
+      			<li>
+      				Applicants selected to receive an Oregon Seed Association Scholarship will be invited to attend the Oregon Seed Association annual meeting in January 2026. Oregon Seed Association Scholarship awards will be mailed directly to recipients.</li>
+      			<li>
+      				Applicants selected to receive an Oregon Seed Cleaning Scholarship will have their award direct-deposited into their OSU Student Accounts to be disbursed during the 2026-2027&nbsp;academic year.</li>
+      			<li>
+      				Applicants selected to receive a William Kent Wiley Jr. Memorial Scholarship will have their award direct-deposited into their OSU Student Accounts to be disbursed during the 2026-2027&nbsp;academic year.</li>
+      		</ul>
+      	</li>
+      </ul>
+
+      <h3>
+      	Additional Information:</h3>
+
+      <p>
+      	Application must be completed and submitted by the deadline to be considered.&nbsp;Following the application deadline, all submitted documents will be forwarded to the associated scholarship selection committees.</p>
+  applicant_information:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <h3 style="text-align:center">
+      	<span style="font-size:48px;">Scholarship Application</span></h3>
+
+      <h3>
+      	Applicant Information:</h3>
+  full_name:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Full Name'
+    '#required': true
+  current_mailing_address:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Current Mailing Address'
+    '#required': true
+  email_address:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title': 'Email Address'
+    '#required': true
+  are_you_a_current_oregon_resident:
+    '#type': radios
+    '#options':
+      'yes': 'Yes'
+      'no': 'No'
+    '#title': 'Are you a current Oregon resident?'
+    '#required': true
+  which_scholarships_are_you_applying_for_check_all_that_apply:
+    '#type': checkboxes
+    '#options':
+      oregon_seed_association_scholarship: 'Oregon Seed Association Scholarship'
+      oregon_seed_cleaning_scholarship: 'Oregon Seed Cleaning Scholarship'
+      william_kent_wiley_jr_memorial_scholarship: 'William Kent Wiley Jr. Memorial Scholarship'
+    '#multiple': true
+    '#title': 'Which scholarship(s) are you applying for? (check all that apply)'
+    '#required': true
+  applicants_class_standing_in_the_coming_fall_term:
+    '#type': select
+    '#options':
+      freshman: Freshman
+      sophmore: Sophmore
+      junior: Junior
+      senior: Senior
+      postbacc.: 'Post Bacc.'
+      masters: Masters
+      doctorate: Doctorate
+    '#title': 'Current college class standing (Freshman, Sophomore, MS candidate, etc.):'
+    '#required': true
+  applicants_proposed_major_field_at_osu:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Proposed major field at OSU:'
+    '#required': true
+  essay_questions:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <h3>
+      	Essay Questions:</h3>
+  1_please_tell_us_a_little_about_yourself_and_your_background1:
+    '#type': textarea
+    '#title': '1. Provide a brief biography of yourself as well as describe your prior work experiences and/or interest with the seed industry (minimum of 150 words).'
+    '#description': '*Note: Minimum of 150 words'
+    '#required': true
+  2_briefly_describe_your_academic_and_professional_goals_and_interests:
+    '#type': textarea
+    '#title': '2. Describe your current overall financial need status (i.e. how will a scholarship assist you in completing your educational goals, etc.).'
+    '#required': true
+  3_please_discuss_an_event_that_you_have_experiences_within_the_past_five_years:
+    '#type': textarea
+    '#title': '3. Identify one course that you have completed while pursuing studies at Oregon State University and explain how you will use the information gained toward your future occupation.'
+    '#required': true
+  4_describe_future_plans:
+    '#type': textarea
+    '#title': '4. Describe your future plans toward an agricultural vocation and if/how you will be involved within the seed industry.'
+    '#required': true
+  statement_of_applicant:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <h3>
+      	Statement of Applicant:</h3>
+
+      <p>
+      	The Family Educational Rights and Privacy Act (FERPA) of 1974 protects students' privacy and their educational records. The OSU Department of Crop and Soil Science collaborates with the Oregon Seed Association Scholarship&nbsp;selection committee by collecting scholarship applications each year. These applications will then be forwarded to the Oregon Seed Association Scholarship selection committee, who will review the submitted applications and select the scholarship recipient(s).</p>
+
+      <p>
+      	I, the undersigned, certify that all of the above information is complete and accurate. I grant my permission to the Department of Crop and Soil Science to release the information from this application to the Oregon Seed Association Scholarship selection committee. I also grant my permission to the Department of Crop and Soil Science to publish my name and brief biography in their associated newsletters, social media sites, and website.</p>
+
+      <p>
+      	<br />
+      	PLEASE NOTE: Your acceptance of these terms is <em>required</em> for a complete application. Applications without acceptance of these terms will not be considered for this scholarship.</p>
+  applicant_name:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Applicant Signature *Type your name as a digital signature'
+    '#required': true
+  date:
+    '#type': date
+    '#title': Date
+    '#required': true
+  parent_guardian_name_and_signature:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Parent/Guardian Name and Signature *Parent/Guardian must sign if applicant is under 18 years of age at the time of submission'
+    '#description': '*Type your name as a digital signature'
+  date_parent_guardian:
+    '#type': date
+    '#title': Date
+  upload_files:
+    '#type': managed_file
+    '#max_filesize': 10.0
+    '#file_extensions': 'pdf doc docx'
+    '#title': 'Upload application materials here'
+    '#description': |-
+      Required documents: 
+      Oregon Seed Association Scholarship - Letter of recommendation,
+      William Kent Wiley Jr. Memorial Scholarship - 1-2 page overview of your current research project
+  questions_or_technical_difficulties:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	If you have any questions about the application or experience any technical difficulties please contact Rachel Swindon, rachel.swindon@oregonstate.edu.</p>
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '1'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: rachel.swindon@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: alyssa.duval@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

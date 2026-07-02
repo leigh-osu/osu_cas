@@ -1,4 +1,4 @@
-uuid: abd4a5c0-fd9a-46b7-b0d9-4111421e80bf
+uuid: 72536a4f-3e11-49d6-b66c-1f0bf59a4de6
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: current_weather_table
 label: current_weather_table
 logic: and
 conditions:
-  9af31edf-742d-4025-9623-6776f2cff9f8:
+  1b8d1ff4-9355-4919-9348-95f1160525e8:
     id: request_path
     negate: false
-    uuid: 9af31edf-742d-4025-9623-6776f2cff9f8
+    uuid: 1b8d1ff4-9355-4919-9348-95f1160525e8
     pages: /mes-weather
 allow_other_conditions: null

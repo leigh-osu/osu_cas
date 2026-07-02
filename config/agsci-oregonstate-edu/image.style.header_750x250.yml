@@ -1,12 +1,12 @@
-uuid: c07800b7-f7a8-42d4-9ad8-135e9119d979
+uuid: c95d9aea-4a2f-40d5-b94a-dfca47916689
 langcode: en
 status: true
 dependencies: {  }
 name: header_750x250
 label: 'header 750x250'
 effects:
-  1ca6942c-0fe2-4f4e-93b2-67942a2f49ed:
-    uuid: 1ca6942c-0fe2-4f4e-93b2-67942a2f49ed
+  4c74ae9d-467a-4ed7-b9c5-091e782554e8:
+    uuid: 4c74ae9d-467a-4ed7-b9c5-091e782554e8
     id: image_scale_and_crop
     weight: 1
     data:

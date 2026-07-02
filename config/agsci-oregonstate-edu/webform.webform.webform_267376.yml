@@ -1,0 +1,129 @@
+uuid: 19172fb6-65bc-4bf6-9ccb-d70af33ec872
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_267376
+title: '2026 MCAREC Field Day Registration'
+description: null
+categories: {  }
+elements: |-
+  first_and_last_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'First and last name'
+    '#required': true
+  email_address:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Email address'
+    '#required': true
+  if_other_please_elaborate:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'If other, please elaborate'
+    '#required': true
+    '#states':
+      visible:
+        - ':input[name="i_am_a"]':
+            value: other
+  name_of_company:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Company/Farm Name'
+    '#required': true
+  i_am_a:
+    '#type': radios
+    '#options':
+      grower: Grower/Farmer/Rancher
+      vendor: Vendor
+      employee: 'OSU/USDA Employee'
+      other: Other
+    '#title': 'I am a'
+    '#required': true
+  i_am_an_osu_alumni:
+    '#type': radios
+    '#options':
+      alumni_yes: 'Yes'
+      alumni_no: 'No'
+    '#title_display': inline
+    '#title': 'I am an OSU Alumni '
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email_address:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |-
+        [webform_submission:values:first_name] [webform_submission:values:last_name],
+
+        Thank you for registering for the MCAREC Field Day. For accommodations related to accessibility, please contact Lisa Farrell by Wednesday, July 29.
+
+        lisa.farrell@oregonstate.edu
+        541-386-2030 ext.38252
+
+        We look forward to seeing you on Thursday, July 30, 2026 for the MCAREC Field Day!
+      excluded_elements:
+        name_of_company: name_of_company
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

@@ -1,0 +1,192 @@
+uuid: 08a817c4-50bb-40c9-b781-160305bbfb3d
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_267516
+title: 'Celebrate 25 Years of OSU’s Food Innovation Center'
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	[[{"fid":"493991","view_mode":"default","fields":{"format":"default","alignment":"center","field_file_image_alt_text[und][0][value]":"Drawing of the FIC Building","field_file_image_title_text[und][0][value]":"Drawing of the FIC Building","external_url":""},"type":"media","field_deltas":{"1":{"format":"default","alignment":"center","field_file_image_alt_text[und][0][value]":"Drawing of the FIC Building","field_file_image_title_text[und][0][value]":"Drawing of the FIC Building","external_url":""}},"link_text":null,"attributes":{"alt":"Drawing of the FIC Building","title":"Drawing of the FIC Building","height":398,"width":740,"class":"media-element file-default media-wysiwyg-align-center","data-delta":"1"}}]]</p>
+
+      <p>
+      	Please join us as we celebrate 25 years of OSU’s Food Innovation Center support of the food and beverage industry on Wednesday, July 24, 2024. We’re very proud to be part of a passionate community that has made this milestone possible – partners in Portland and around the state, entrepreneurs and food and beverage makers, network supporters, non-profit organizations, and many, many more. Our shared love of Oregon and the role of food in our lives has made everything the FIC has accomplished possible and we look forward to celebrating this milestone with you.</p>
+
+      <p>
+      	It will be a fun evening including a tour of the FIC, food trucks, delicious beverages, vendors, music and much more. We look forward to seeing you there!</p>
+
+      <p>
+      	<strong>Date:</strong> Wednesday, July 24, 2024<br />
+      	<br />
+      	<strong>Time:</strong> 4:00 – 7:00 pm</p>
+
+      <p>
+      	<strong>Location:</strong></p>
+
+      <p style="margin-left: 40px;">
+      	OSU Food Innovation Center<br />
+      	1207 NW Naito Pkwy<br />
+      	Portland, OR 97209</p>
+
+      <p>
+      	<strong>Program:</strong></p>
+
+      <ul>
+      	<li>
+      		4:00 – 4:30 gathering</li>
+      	<li>
+      		4:30 – 5:30 guided tours</li>
+      	<li>
+      		5:30 – 6:00 welcoming remarks</li>
+      	<li>
+      		6:00 – 7:00 eat, drink, visit vendors and socialize!</li>
+      </ul>
+
+      <p>
+      	<strong>RSVP Deadline:&nbsp;</strong>July 20, 2024</p>
+  first_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'First Name'
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Last Name'
+    '#required': true
+  job_title:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Job Title'
+  name_of_company:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Company/Farm Name'
+    '#required': true
+  i_plan_to_bring_a_guest:
+    '#type': radios
+    '#options':
+      guest_yes: 'Yes'
+      guest_no: 'No'
+    '#title_display': inline
+    '#title': 'I plan to bring a guest'
+  i_am_osu_staff_faculty:
+    '#type': radios
+    '#options':
+      faculty_yes: 'Yes'
+      faculty_no: 'No'
+    '#title_display': inline
+    '#title': 'I am OSU Staff/Faculty '
+    '#required': true
+  guest_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Guest name'
+  i_am_an_osu_alumni:
+    '#type': radios
+    '#options':
+      alumni_yes: 'Yes'
+      alumni_no: 'No'
+    '#title_display': inline
+    '#title': 'I am an OSU Alumni '
+    '#required': true
+  email_address:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Email address'
+    '#required': true
+  phone_numbers:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Primary phone number'
+    '#required': true
+  fond_memory:
+    '#type': textarea
+    '#title': 'Share a fond memory of the Food Innovation Center for our white board'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email_address:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |-
+        [webform_submission:values:first_name] [webform_submission:values:last_name],
+
+        Thank you for registering to attend the celebration of 25 years of OSU’s Food Innovation Center.
+
+        We look forward to seeing you at 4:00pm on July 24th at the Food Innovation Center.
+      excluded_elements:
+        name_of_company: name_of_company
+        phone_numbers: phone_numbers
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

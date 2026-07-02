@@ -1,0 +1,30 @@
+uuid: 88366961-c534-4d29-aa51-fb8941c4f65c
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:f6260913-61b2-4acd-a5a7-fc3b3327abd3'
+  module:
+    - block_content
+    - system
+  theme:
+    - doug_fir
+id: doug_fir_block_2
+theme: doug_fir
+region: ''
+weight: 0
+provider: null
+plugin: 'block_content:f6260913-61b2-4acd-a5a7-fc3b3327abd3'
+settings:
+  id: 'block_content:f6260913-61b2-4acd-a5a7-fc3b3327abd3'
+  label: 'CAS Google Calendar'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

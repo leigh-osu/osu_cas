@@ -1,0 +1,33 @@
+uuid: ebe38d16-4933-464a-bf48-07f4c6db7272
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:f727a9c2-cc85-4e2a-bb3e-db57973efe77'
+  module:
+    - block_content
+    - system
+  theme:
+    - manzanita
+id: larch_block_126
+theme: manzanita
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:f727a9c2-cc85-4e2a-bb3e-db57973efe77'
+settings:
+  id: 'block_content:f727a9c2-cc85-4e2a-bb3e-db57973efe77'
+  label: '<none>'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: |-
+      /agprogrameou/academics
+      /agprogrameou/resources
+      /agprogrameou/students/join-us

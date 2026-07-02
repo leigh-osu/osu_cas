@@ -1,4 +1,4 @@
-uuid: a30fea70-b85b-4595-9a15-08e2b478345c
+uuid: fe8cc213-f95b-48bc-be7e-3691ff76e290
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: daily_weather_table
 label: daily_weather_table
 logic: and
 conditions:
-  6eee40fc-c4ae-42f1-8f2e-89e37c6c283b:
+  781e2d15-e8a4-494f-8900-e98efad8d549:
     id: request_path
     negate: false
-    uuid: 6eee40fc-c4ae-42f1-8f2e-89e37c6c283b
+    uuid: 781e2d15-e8a4-494f-8900-e98efad8d549
     pages: '/weather/monthly/*'
 allow_other_conditions: null

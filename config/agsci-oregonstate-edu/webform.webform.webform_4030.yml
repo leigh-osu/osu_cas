@@ -1,0 +1,263 @@
+uuid: 8f1ca1b0-378a-47be-a5a2-38675f1ee383
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 0
+template: false
+archive: false
+id: webform_4030
+title: 'Petition Form '
+description: null
+categories: {  }
+elements: |-
+  instructions_1:
+    '#type': processed_text
+    '#format': full_html
+    '#text': '<p style="text-align: center;">This form is for those who took a class prior to attending Oregon State Univeristy or those that&nbsp;would like to petition for a current class at OSU to apply towards their Skills and Traits credits. Talk to your advisor before submitting a request.</p><hr><p>1. ) Complete all fields below</p><p>2. ) Prepare supplemental documentation for the department offering the OSU course you believe is equivalent to your transfer course. The supplemental documentation should consist of this form, syllabus and/or course description from course catalogue, and anything you feel would be helpful in reviewing to your request.</p><p>3. ) The electronic form will be reviewed by the department. The review process may take up to two weeks. You will be notified via e-mail to your ONID account when the evaluation is completed.</p><p>&nbsp;</p>'
+  first_name:
+    '#type': textfield
+    '#unique': false
+    '#title': 'First Name'
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Last Name'
+    '#required': true
+  onid_e_mail_address:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title': 'ONID E-mail Address'
+    '#required': true
+  student_id_:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Student ID #'
+    '#required': true
+  major:
+    '#type': textfield
+    '#unique': false
+    '#title': Major
+    '#required': true
+  current_street_address:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Current Street Address'
+    '#required': true
+  city___state___zip_code:
+    '#type': textfield
+    '#unique': false
+    '#title': 'City / State / Zip Code'
+    '#required': true
+  phone_number:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Phone Number'
+    '#required': true
+  campus_status:
+    '#type': radios
+    '#options':
+      '01': 'Corvallis Campus'
+      '02': 'Extended Campus'
+    '#title': 'Campus Status '
+    '#required': true
+  if_you_have_met_with_a_leadership_minor_advisor_about_your:
+    '#type': radios
+    '#options':
+      haley.clement@oregonstate.edu: 'Haley Clement'
+      daw.moyer@oregonstate.edu: 'Dawn Moyer'
+      Jonathan.Velez@oregonstate.edu: 'Jonathan Velez'
+      leadershipminor@oregonstate.edu: 'I have not met with an advisor about my proposal'
+    '#title': 'If you have met with a Leadership Minor advisor about your proposal prior to submitting this document please indicate that individual below'
+    '#required': true
+  type_of_petition:
+    '#type': radios
+    '#options':
+      '01': 'Already took a class and want it to count for a required leadership minor course'
+      '02': 'I want to take a class in the future and have it satisfy a specific course/credit'
+    '#title': 'Type of Petition '
+    '#required': true
+  instructions_3:
+    '#type': processed_text
+    '#format': full_html
+    '#text': '<p><em>Please answer the following questions that apply to your type of petition in the space provided.&nbsp;&nbsp;</em></p>'
+  course_description_for_the_class_you_already_took:
+    '#type': textarea
+    '#title': 'Course description (for the class you already took) '
+    '#required': true
+  course_description_for_the_class_at_osu_that_you_want_transfer_credit_for:
+    '#type': textarea
+    '#title': 'Course description (for the class at OSU that you want transfer credit for) '
+    '#required': true
+  course_description_that_you_want_to_take:
+    '#type': textarea
+    '#title': 'Course description (that you want to take) '
+    '#required': true
+  clearly_state_your_request:
+    '#type': textarea
+    '#title': 'Clearly state your request '
+    '#required': true
+  explain_why_this_request_should_be_granted:
+    '#type': textarea
+    '#title': 'Explain why this request should be granted'
+    '#required': true
+  syllabi:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Syllabi '
+  additional_resource:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Additional Resource (if needed) '
+  additional_resource2:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Additional Resource (if needed) '
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:if_you_have_met_with_a_leadership_minor_advisor_about_your:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements:
+        instructions_1: instructions_1
+        instructions_3: instructions_3
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: ag.education@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements:
+        instructions_1: instructions_1
+        instructions_3: instructions_3
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_3:
+    id: email
+    handler_id: email_3
+    label: 'Email 3'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 3
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:onid_e_mail_address:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements:
+        instructions_1: instructions_1
+        instructions_3: instructions_3
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

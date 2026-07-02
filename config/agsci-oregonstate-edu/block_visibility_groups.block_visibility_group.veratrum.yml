@@ -1,4 +1,4 @@
-uuid: 3f5f0d02-7591-477d-b77a-862f5e6cad94
+uuid: 6d5a8fc2-9542-4e64-93ec-8f72f066339c
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: veratrum
 label: veratrum
 logic: and
 conditions:
-  0b8238d1-ec33-422c-83ac-5dfb7d2c40bf:
+  2b46ff31-8b51-46fb-aa15-ea538000d2db:
     id: request_path
     negate: false
-    uuid: 0b8238d1-ec33-422c-83ac-5dfb7d2c40bf
+    uuid: 2b46ff31-8b51-46fb-aa15-ea538000d2db
     pages: /node/112821
 allow_other_conditions: null

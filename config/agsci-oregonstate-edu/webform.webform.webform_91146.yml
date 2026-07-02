@@ -1,0 +1,391 @@
+uuid: 0ee3a4cf-3c4a-46bf-8f60-c2cd77667917
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 0
+template: false
+archive: false
+id: webform_91146
+title: 'Faces of AgSci questionnaire'
+description: null
+categories: {  }
+elements: |-
+  instructions:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <h6>
+      	Congratulations on being recommended!&nbsp;<span style="caret-color:#000000"><span style="color:#000000"><span style="font-family:-webkit-standard"><span style="font-style:normal"><span style="font-variant-caps:normal"><span style="font-weight:normal"><span style="letter-spacing:normal"><span style="orphans:auto"><span style="text-transform:none"><span style="white-space:normal"><span style="widows:auto"><span style="word-spacing:0px"><span style="-webkit-text-size-adjust:auto"><span style="text-decoration:none"><i><span style="font-size:12pt"><span style="font-family:&quot;Kievit Offc&quot;, sans-serif"><span style="color:black"></span></span></span></i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h6>
+
+      <p>
+      	Faces of AgSci is a spotlight series that showcases the outstanding students, faculty, alumni and industry partners who make up the College of Agricultural Sciences. It is an opportunity for us to and celebrate the diversity of the remarkable community of agricultural sciences in Oregon.&nbsp;</p>
+
+      <p>
+      	We want to hear about the great work you are doing and your motivation for doing it. This is also a chance for you to inspire others to pursue their passions and achieve their goals.</p>
+
+      <p>
+      	&nbsp;</p>
+
+      <h3>
+      	The Process</h3>
+
+      <p>
+      	1) Fill out the questionnaire below the best you can. *Don't feel obligated to answer every single question. Just the ones that compel you.</p>
+
+      <p>
+      	2) Download the model release form, sign it and upload it below. (It allows us to publish your story on the web and social media).</p>
+
+      <p>
+      	3) Upload your best pictures -- about 8-10 is ideal. The best pictures for web publishing are horizontally-framed and show your face clearly—but more importantly, they give a sense of context and setting and show your personality! *Please make sure each picture is at least 1MB in size!*</p>
+
+      <p>
+      	&nbsp;</p>
+
+      <p>
+      	<a class="btn btn-primary" href="/sites/agscid7/files/osu-model-release-2017-shortform.pdf">Model release form</a></p>
+  name:
+    '#type': textfield
+    '#unique': false
+    '#title': Name
+    '#required': true
+  i_am:
+    '#type': radios
+    '#options':
+      student: Student
+      alumni: Alumni
+      faculty_staff: Faculty/Staff
+      stakeholder: Stakeholder
+    '#title_display': inline
+    '#title': 'I am '
+    '#required': true
+  major:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Current Major'
+    '#states':
+      visible:
+        - ':input[name="i_am"]':
+            value: student
+  degrees_earned:
+    '#type': textfield
+    '#title': 'Degrees Earned & Year'
+    '#states':
+      visible:
+        - ':input[name="i_am"]':
+            value: alumni
+        - ':input[name=""]': {  }
+        - ':input[name="i_am"]':
+            value: faculty_staff
+        - ':input[name="i_am"]':
+            value: stakeholder
+        - ':input[name=""]': {  }
+  hometown:
+    '#type': textfield
+    '#unique': false
+    '#title': Hometown
+  class_standing:
+    '#type': textfield
+    '#title': 'Expected graduation date'
+    '#states':
+      visible:
+        - ':input[name="i_am"]':
+            value: student
+  professional_title:
+    '#type': textfield
+    '#title': 'Professional Title'
+    '#states':
+      visible:
+        - ':input[name="i_am"]':
+            value: alumni
+        - ':input[name=""]': {  }
+        - ':input[name="i_am"]':
+            value: faculty_staff
+        - ':input[name="i_am"]':
+            value: stakeholder
+        - ':input[name=""]': {  }
+  awards__affiliations:
+    '#type': textfield
+    '#title': 'Awards & Affiliations'
+    '#description': '(clubs, professional organizations, etc.)'
+  blogs___website:
+    '#type': textfield
+    '#title': 'Blogs / website / Social Media'
+  first_generation:
+    '#type': textarea
+    '#title': 'Are you (or were you) a first generation college student?'
+  about_yourself1:
+    '#type': textarea
+    '#title': 'Tell us about yourself. (What talents or hobbies do you have? What are you most passionate about?)'
+  choose_your_major:
+    '#type': textarea
+    '#title': 'Why did you choose your field of study, and how might your work impact society in the future?'
+    '#states':
+      visible:
+        - ':input[name="i_am"]':
+            value: student
+  tell_us_about_your_research:
+    '#type': textarea
+    '#title': 'Tell us about your research. Why did you choose this field?'
+    '#states':
+      visible:
+        - ':input[name="i_am"]':
+            value: faculty_staff
+  tell_us_about_your_career_journey_faculty_staff_alumni:
+    '#type': textarea
+    '#title': 'Tell us about your career journey. Why did you pursue it?'
+    '#states':
+      visible:
+        - ':input[name="i_am"]':
+            value: stakeholder
+        - ':input[name=""]': {  }
+        - ':input[name="i_am"]':
+            value: alumni
+        - ':input[name=""]': {  }
+  about_your_internship:
+    '#type': textarea
+    '#title': 'Where has your field of study taken you (internships, research locations, study abroad, post-docs, private/public industry)? What was the most valuable part of these experiences? The most interesting? The most fun?'
+  hands_on_experience:
+    '#type': textarea
+    '#title': 'What opportunities have you found to gain hands-on experience through the College of Ag Sciences, and how did you find them? How important was/is that experience in your overall education/professional experience?'
+  agsci_helping_you:
+    '#type': textarea
+    '#title': 'Where do you see yourself in five years, and how is AgSci helping you get there?'
+    '#states':
+      visible:
+        - ':input[name="i_am"]':
+            value: student
+  how_did_agsci_help_you_get_to_where_you_are:
+    '#type': textarea
+    '#title': 'How did AgSci help you get to where you are? Or, what is it doing for you currently?'
+    '#states':
+      visible:
+        - ':input[name="i_am"]':
+            value: alumni
+        - ':input[name=""]': {  }
+        - ':input[name="i_am"]':
+            value: faculty_staff
+        - ':input[name="i_am"]':
+            value: stakeholder
+        - ':input[name=""]': {  }
+  challenges_have_you_faced:
+    '#type': textarea
+    '#title': 'If you are comfortable sharing, what challenges (systemic, personal, professional, etc) have you faced in continuing your education/professional development? How did you address them?'
+  what_do_you_wish_the_college_might_have_done_differently:
+    '#type': textarea
+    '#title': 'What do you wish the College might have done differently to help you navigate challenges and/or opportunities while you were here?'
+  defining_moment:
+    '#type': textarea
+    '#title': 'What was a defining moment in your life that caused a major shift in perspective/interests/etc.?'
+  advice_would_you_give:
+    '#type': textarea
+    '#title': 'What advice would you give to incoming students and/or students preparing to enter professional life? What do you wish someone would have told you when you were in school/starting your career?'
+  upcoming_research:
+    '#type': textarea
+    '#title': 'Do you have any research/work that would make a compelling video or have existing video to share? Let us know, and we will help film your work and/or add preexisting media to your feature.'
+  what_would_have_improved_your_experience:
+    '#type': textarea
+    '#title': 'What would have improved your experience?'
+  images__files:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'gif jpg jpeg png txt pdf doc docx ppt pptx avi mov mp3 wav zip'
+    '#title': 'Upload Model Release Form'
+  image1:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Image 1'
+  image_2:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Image 2'
+  image_3:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Image 3'
+  image_4:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Image 4'
+  image_5:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Image 5'
+  image_6:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Image 6'
+  image_7:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Image 7'
+  image_8:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Image 8'
+  image_9:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Image 9'
+  image_10:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Image 10'
+  video:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'avi mov mp3 ogg wav'
+    '#title': Video
+  media_please:
+    '#type': textarea
+    '#title': 'If your work (or your hobbies) have been featured in any media, please include links here:'
+  experience_here:
+    '#type': textarea
+    '#title': 'Is there anything else you would like to add about yourself or your experience at the College of Agricultural Sciences?'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<p>\r\n\tThanks for submitting. <span class=\"awesome\">You rock!</span></p>\r\n\r\n<p>\r\n\tYou will hear from us soon.</p>\r\n\r\n<p>\r\n\tBTW, please like us on <a href=\"https://www.facebook.com/OSUAgSci/\">Facebook</a> and follow us on <a href=\"https://twitter.com/OSUAgSci\">Twitter</a>&nbsp;and <a href=\"https://www.instagram.com/osuagsci/\">Instagram</a>.</p>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: Kira.Sabin@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: ben.davis@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_3:
+    id: email
+    handler_id: email_3
+    label: 'Email 3'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 3
+    settings:
+      states:
+        - completed
+      to_mail: kamppij@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

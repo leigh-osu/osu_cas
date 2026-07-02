@@ -1,12 +1,12 @@
-uuid: 209d9954-572a-451b-a90a-b12e614ef1a6
+uuid: 12378137-d8c3-4bce-84fb-ffbb1bc64a68
 langcode: en
 status: true
 dependencies: {  }
 name: sidebar_carousel__270x268_
 label: 'Sidebar Carousel (270x268)'
 effects:
-  cb984612-1ca3-40a1-9086-9fe0c843e8fd:
-    uuid: cb984612-1ca3-40a1-9086-9fe0c843e8fd
+  1aa9c468-c536-470a-8afc-dbc17ecf91c9:
+    uuid: 1aa9c468-c536-470a-8afc-dbc17ecf91c9
     id: image_scale_and_crop
     weight: 1
     data:

@@ -1,0 +1,30 @@
+uuid: 2296676c-9bbd-4446-a831-1c3222fb08a0
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:d206b8fd-9aef-43df-9b88-521b770e8442'
+  module:
+    - block_content
+    - system
+  theme:
+    - doug_fir
+id: doug_fir_block_45
+theme: doug_fir
+region: ''
+weight: 0
+provider: null
+plugin: 'block_content:d206b8fd-9aef-43df-9b88-521b770e8442'
+settings:
+  id: 'block_content:d206b8fd-9aef-43df-9b88-521b770e8442'
+  label: ''
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /node/26835

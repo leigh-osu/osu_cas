@@ -1,0 +1,149 @@
+uuid: d590fd8c-31aa-4f0b-b694-177b03410bc0
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_282246
+title: 'President and Provost Engagement Session Registration'
+description: null
+categories: {  }
+elements: |-
+  introduction:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	&nbsp;<br />
+      	You are invited to join your College of Agricultural Sciences community for our President &amp; Provost Engagement event on February 5, 2026 at 11am.</p>
+
+      <p style="margin-left:40px">
+      	<span data-teams="true">CH2M Hill Alumni Center</span><br />
+      	<strong>Thursday, February 5, 2026</strong><br />
+      	<strong>11:00am - 11:45am:</strong> Town hall style visit with the OSU President &amp; Provost.<br />
+      	<strong>11:45am - 12:00pm:</strong> Reception with Beaver Classic ice cream</p>
+
+      <p>
+      	This event is open to all staff, faculty and students who call the College of Agricultural Sciences home. This is an opportunity to hear directly from OSU leadership about priorities and goals as they align with our core strengths and values as well as the University’s strategic plan. You will also have the opportunity to submit specific questions in advance that you would like to have addressed.&nbsp;</p>
+
+      <p>
+      	Registration is required for both remote and in-person attendees. Please register and submit any questions you would like addressed by January 30.&nbsp;</p>
+  name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Name
+    '#required': true
+  department:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Department
+  email:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': Email
+    '#required': true
+  i_plan_to_attend:
+    '#type': radios
+    '#options':
+      person: ' In Person'
+      zoom: 'Over Zoom'
+      not_attend: 'I do not plan to attend but wanted to submit a question'
+    '#title': 'I plan to attend'
+    '#required': true
+  what_questions_would_you_like_for_the_president_to_address:
+    '#type': textarea
+    '#title': 'What questions would you like for the President and Provost to address?'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<p>\r\n\tThank you for registering to attend the CAS President and Provost Engagement Session on Thursday, February 5, 2026 from 11am - 12pm.</p>\r\n\r\n<p style=\"margin-left: 40px;\">\r\n\t<a href=\"/sites/agscid7/files/main/about/2026cas_town_hall_with_president_murthy-provost_haggerty.ics\">Add to your calendar</a></p>\r\n\r\n<p>\r\n\tGo Beavs!</p>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_3:
+    id: email
+    handler_id: email_3
+    label: 'Email 3'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 3
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |-
+        [webform_submission:values:name], 
+
+        Thank you for registering to attend the CAS Town Hall with President Murthy & Provost Haggerty, February 5, 2026 from 11:00am-12:00 pm. in the Alumni Center Ballroom.
+
+
+        Join Zoom Meeting 
+
+        https://oregonstate.zoom.us/j/91443339552?pwd=LVmy5rW9BDKIj2RwNEVTRFBM2HPjiB.1&from=addon
+
+
+
+        Password: 082031
+
+        Phone Dial-In Information
+             US: +1 971 247 1195 or +1 253 215 8782 or +1 301 715 8592 
+
+        Meeting ID: 914 4333 9552
+
+        Join by Polycom/Cisco/Other Room System 
+        Password: 	082031
+        91443339552@zoomcrc.com 
+
+        Password: 	082031
+
+        <p><a href="https://agsci.oregonstate.edu/sites/agscid7/files/main/about/2026cas_town_hall_with_president_murthy-provost_haggerty.ics">Add to your calendar</a></p>
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

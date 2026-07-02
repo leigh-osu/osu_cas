@@ -1,11 +1,11 @@
-uuid: 89a31bc7-e5f6-4068-a9b9-b524bb3b87c4
+uuid: afa29220-2e72-4beb-ae80-0d6337581a15
 langcode: en
 status: true
 dependencies:
   config:
     - block_visibility_groups.block_visibility_group.wildflower_header
   content:
-    - 'block_content:basic:44daaccb-c833-4007-b845-382efec083b8'
+    - 'block_content:basic:8d9dbf13-d0c4-4ece-a9a4-0bd52e361540'
   module:
     - block_content
     - block_visibility_groups
@@ -16,9 +16,9 @@ theme: madrone
 region: content
 weight: -10
 provider: null
-plugin: 'block_content:44daaccb-c833-4007-b845-382efec083b8'
+plugin: 'block_content:8d9dbf13-d0c4-4ece-a9a4-0bd52e361540'
 settings:
-  id: 'block_content:44daaccb-c833-4007-b845-382efec083b8'
+  id: 'block_content:8d9dbf13-d0c4-4ece-a9a4-0bd52e361540'
   label: ''
   label_display: visible
   provider: block_content

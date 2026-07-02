@@ -1,12 +1,12 @@
-uuid: 097dcf71-b232-46aa-b994-e4cdd2fda560
+uuid: 516b111b-8b31-40f4-b74a-c13c6066ec4b
 langcode: en
 status: true
 dependencies: {  }
 name: header_1200_x_400
 label: 'header 1200 x 300'
 effects:
-  da478aa5-8c51-4a41-929f-285db9d01683:
-    uuid: da478aa5-8c51-4a41-929f-285db9d01683
+  3621be37-6903-4383-abdf-f5aced9990e8:
+    uuid: 3621be37-6903-4383-abdf-f5aced9990e8
     id: image_scale_and_crop
     weight: 1
     data:

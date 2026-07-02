@@ -1,0 +1,43 @@
+uuid: f22d34e4-043a-4707-b61a-d1e68ccd670a
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 1440
+template: false
+archive: false
+id: webform_27576
+title: Questions
+description: null
+categories: {  }
+elements: |-
+  have_a_question:
+    '#type': textfield
+    '#title': 'Have a Question? '
+    '#description': 'Ask any question you may have about slugs and one of our experts will try to answer it as soon as they can!'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: inline
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }

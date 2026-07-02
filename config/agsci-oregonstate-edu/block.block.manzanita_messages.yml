@@ -1,4 +1,4 @@
-uuid: 6bc53c9c-9bd9-4743-a5d2-524f8a1275cb
+uuid: 3d744cdc-efae-46a7-a2ef-7012fd23d906
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ _core:
 id: manzanita_messages
 theme: manzanita
 region: highlighted
-weight: -5
+weight: 0
 provider: null
 plugin: system_messages_block
 settings:

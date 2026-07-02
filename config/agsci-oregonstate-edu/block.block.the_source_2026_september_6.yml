@@ -1,0 +1,32 @@
+uuid: 2fc54f3d-9bac-4d0b-96fe-4ebec9024631
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.the_source_2026_september
+  content:
+    - 'block_content:basic:52da8ad3-09aa-4339-82a3-04ef4d9526a6'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - madrone
+id: the_source_2026_september_6
+theme: madrone
+region: full_top
+weight: -7
+provider: null
+plugin: 'block_content:52da8ad3-09aa-4339-82a3-04ef4d9526a6'
+settings:
+  id: 'block_content:52da8ad3-09aa-4339-82a3-04ef4d9526a6'
+  label: ''
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: the_source_2026_september

@@ -1,0 +1,246 @@
+uuid: 0f6831bc-aa27-4540-9564-df492d3543a1
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_224951
+title: 'Awards Questionnaire'
+description: null
+categories: {  }
+elements: |-
+  recipient_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Recipient name'
+    '#required': true
+  recipient_department:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Recipient department'
+  your_email_address:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Your Email Address'
+    '#required': true
+  title_of_grant_award_etc_received:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Title of grant/award/etc. received'
+  date_grant_award_etc_received:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Date grant/award/etc. received'
+  brief_description_of_grant_award_etc_received:
+    '#type': textarea
+    '#title': 'Brief description of grant/award/etc. received'
+  funding_amount:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Funding amount'
+  brief_description_of_research_being_funded:
+    '#type': textarea
+    '#title': 'Brief description of research being funded'
+  major_issues_addressed_by_researchbeing_funded:
+    '#type': textarea
+    '#title': 'Major issues addressed by research being funded'
+  what_would_happen_if_research_like_this_wasnt_happening:
+    '#type': textarea
+    '#title': 'What would happen if research like this wasn’t happening?'
+    '#description': '(What economic/environmental/other issues are at stake?)'
+  when_is_research_scheduled_to_begin_end:
+    '#type': textfield
+    '#unique': false
+    '#title': 'When is research scheduled to begin/end'
+  when_is_reasonable_for_cascomms_to_follow_up_re_stories:
+    '#type': textfield
+    '#unique': false
+    '#title': 'When is reasonable for CASCOMMS to follow up re: stories?'
+    '#description': '(i.e. One month, early fall, next year, etc.)'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<p>\r\n\tThanks for submitting your grant information.</p>\r\n\r\n<p>\r\n\tReturn to:</p>\r\n\r\n<ul>\r\n\t<li>\r\n\t\t<a href=\"https://agsci.oregonstate.edu/\">College of Agricultural Sciences</a></li>\r\n\t<li>\r\n\t\t<a href=\"https://progress.oregonstate.edu\">Progress magazine</a></li>\r\n</ul>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: progress@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:your_email_address:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |+
+        Submitted on [webform_submission:completed_date:long]
+        Submitted by user: [webform_submission:user]
+        Submitted values are:
+        [webform_submission:values]
+
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_3:
+    id: email
+    handler_id: email_3
+    label: 'Email 3'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 3
+    settings:
+      states:
+        - completed
+      to_mail: agsci@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_4:
+    id: email
+    handler_id: email_4
+    label: 'Email 4'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 4
+    settings:
+      states:
+        - completed
+      to_mail: ben.davis@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

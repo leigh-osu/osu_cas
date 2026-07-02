@@ -1,0 +1,161 @@
+uuid: 5562f5f7-4cad-4705-aaa9-279839f9ccf0
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 0
+template: false
+archive: false
+id: webform_39761
+title: 'OWRI Grape Day'
+description: null
+categories: {  }
+elements: |-
+  info:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p align="center">
+      	<strong>2019 Grape Day</strong><br />
+      	LaSells Stewart Center, OSU Campus, Wednesday, April 3<br />
+      	For maps and parking information, click&nbsp;<a href="https://lasells.oregonstate.edu/parking">here</a>.<br />
+      	Registration:&nbsp;$150/person, includes lunch and a research abstract booklet&nbsp;<br />
+      	Registration Closes: March 22, 2019, 5PM<br />
+      	&nbsp;</p>
+
+      <p>
+      	Join us on campus at Oregon State University for our annual event highlighting research relevant to the Oregon Wine Industry. This information will be presented by members of the Oregon Wine Research Institute and guest speakers from the University of California Cooperative Extension and Washington State University.&nbsp;<br />
+      	&nbsp;</p>
+  first_name:
+    '#type': textfield
+    '#title': 'First Name'
+    '#description': 'Note: Your name will appear on your name badge exactly as it is entered here.'
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Last Name'
+    '#required': true
+  company:
+    '#type': textfield
+    '#unique': false
+    '#title': Company
+    '#required': true
+  phone_number:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Phone Number'
+    '#required': true
+  email_address:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title': 'Email Address'
+    '#required': true
+  if_registering_for_someone_other_than_yourself_please_list_the_names_of_those_attendees1:
+    '#type': textarea
+    '#title': 'If registering for someone other than yourself, please list the name(s) of those attendees '
+  dietary_restrictions:
+    '#type': textarea
+    '#title': 'Dietary Restrictions'
+    '#description': 'What are your dietary restrictions (i.e. vegetarian, vegan, gluten free, dairy free, other)?'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<p>\r\n\tRegistration is a two-step process: one click to submit the registration(s) and one click to pay. Registration is not valid until payment is received.</p>\r\n\r\n<form action=\"https://secure.touchnet.net/C20159_upay/web/index.jsp\" id=\"UPayForm\" method=\"post\">\r\n\t<p>\r\n\t\t<input name=\"UPAY_SITE_ID\" type=\"hidden\" value=\"78\" />If you are paying for more than one registration, please add total number of registration(s) fee x $150: <input type=\"submit\" value=\"Click Here To Pay\" />&nbsp;</p>\r\n\r\n\t<p>\r\n\t\t&nbsp;</p>\r\n</form>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: denise.dewey@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: mark.chien@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

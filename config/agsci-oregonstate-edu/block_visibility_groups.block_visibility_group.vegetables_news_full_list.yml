@@ -1,4 +1,4 @@
-uuid: 45cae8cb-e5d0-4817-a54b-cbb0bccbc36f
+uuid: 979f22fb-76ed-4975-a160-492a808af6e8
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: vegetables_news_full_list
 label: vegetables_news_full_list
 logic: and
 conditions:
-  a52b1736-a91a-44c7-9209-cc5d14be139f:
+  5d7e5acd-0de8-4186-92ca-3a693408c260:
     id: request_path
     negate: false
-    uuid: a52b1736-a91a-44c7-9209-cc5d14be139f
+    uuid: 5d7e5acd-0de8-4186-92ca-3a693408c260
     pages: "/oregon-vegetables/news\r\n/node/77586"
 allow_other_conditions: null

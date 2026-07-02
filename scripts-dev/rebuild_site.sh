@@ -398,7 +398,7 @@ section_7() {
   # written. Must run after the base 'OSU Drupal Profile' migrations above.
   # cas_user_profile_agricultural_sciences also needs the faculty_expertise terms
   # from --tag='OSU Taxonomy' (section 2).
-  ddev drush migrate:import cas_user_profile_osu_person
+  ddev drush migrate:import cas_us/btwer_profile_osu_person
   ddev drush migrate:import cas_user_profile_osu_employee
   ddev drush migrate:import cas_user_profile_osu_faculty
   ddev drush migrate:import cas_user_profile_osu_student

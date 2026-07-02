@@ -1,5 +1,5 @@
 _core:
-  default_config_hash: Ytm7bJfO_TyebetmSWGF2NscXlvoPOXpBmCuMMUpiGc
+  default_config_hash: VGSo9TVOfDSNWpfTgWJ1eCI2GtjJTU1mMt1rHVKLcbg
 minimum_lifetime: 86400
 xsl: 1
 prefetch_aliases: 1
@@ -11,7 +11,7 @@ frontpage_changefreq: 86400
 lastmod_format: 'Y-m-d\TH:i\Z'
 gz: false
 clean_url: 0
-disable_cron_regeneration: false
+disable_cron_regeneration: true
 i18n_selection_mode: simple
 cron_threshold_error: 1209600
 cron_threshold_warning: 172800

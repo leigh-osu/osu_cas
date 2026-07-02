@@ -1,0 +1,78 @@
+uuid: 37e14e24-6cd4-41d2-9e11-887ed4e075e3
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_274401
+title: 'Graduation RSVP'
+description: null
+categories: {  }
+elements: |-
+  name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Name
+    '#required': true
+  number_of_guests_that_will_be_attending_with_you:
+    '#type': textfield
+    '#size': 20
+    '#title_display': inline
+    '#title': 'Number of Guests that will be attending with you'
+    '#required': true
+  department_you_are_graduating_from:
+    '#type': radios
+    '#options':
+      dept_aged: 'Agricultural Sciences & Agricultural Education'
+      dept_anrs: 'Animal & Rangeland Sciences'
+      dept_appecon: 'Applied Economics'
+      dept_bee: 'Biological & Ecological Engineering'
+      dept_brr: 'Bioresource Research'
+      dept_bpp: 'Botany and Plant Pathology'
+      dept_css: 'Crop & Soil Science'
+      dept_fwcs: 'Fisheries, Wildlife, & Conservation Sciences'
+      dept_fst: 'Food Science & Technology'
+      dept_hort: Horticulture
+      dept_micro: Microbiology
+      dept_tox: Toxicology
+      dept_sus: Sustainability
+    '#title': 'Which department best encompasses your degree?'
+    '#description': '(this will help us decide where to seat you for the event)'
+    '#required': true
+  degree_level:
+    '#type': radios
+    '#options':
+      deg_und: Undergraduate
+      deg_grad: Graduate
+    '#title_display': inline
+    '#title': 'Degree Level'
+    '#required': true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }

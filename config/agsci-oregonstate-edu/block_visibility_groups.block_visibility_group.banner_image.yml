@@ -1,4 +1,4 @@
-uuid: 7b47981d-d572-412b-8eff-ba44ed01fc83
+uuid: a24846af-3ef9-477c-82b0-aa55728f296a
 langcode: en
 status: true
 dependencies:
@@ -8,10 +8,10 @@ id: banner_image
 label: banner_image
 logic: and
 conditions:
-  09c4676f-cc1a-48fc-9b05-4e29ad3c38db:
+  744df5b2-38bd-4c11-8f9b-a2473751b5cc:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 09c4676f-cc1a-48fc-9b05-4e29ad3c38db
+    uuid: 744df5b2-38bd-4c11-8f9b-a2473751b5cc
     context_mapping:
       node: '@node.node_route_context:node'
     bundles:

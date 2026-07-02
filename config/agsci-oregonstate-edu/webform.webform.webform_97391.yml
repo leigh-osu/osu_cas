@@ -1,0 +1,97 @@
+uuid: e5aef58f-f3d6-4540-bc08-ec95e317501a
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 8166
+template: false
+archive: false
+id: webform_97391
+title: 'PopDy and EcoSci Interest Form'
+description: null
+categories: {  }
+elements: |-
+  name:
+    '#type': textfield
+    '#title': Name
+    '#required': true
+  email_address:
+    '#type': email
+    '#size': 20
+    '#title': 'Email Address'
+    '#required': true
+  year_in_school:
+    '#type': textfield
+    '#title': 'Year In School'
+    '#required': true
+  institution:
+    '#type': textfield
+    '#title': Institution
+    '#required': true
+  where_did_you_hear_about_us:
+    '#type': textfield
+    '#title': 'Where did you hear about us? '
+    '#required': true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<h3>\r\n\tThank you for your interest in the PopDy&nbsp;and EcoSci&nbsp;2019 Summer Camp!&nbsp;</h3>\r\n\r\n<h6>\r\n\tWe will be in touch with application instructions and more details about the program.&nbsp;</h6>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: amanda.polley@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: 'Department of Fisheries and Wildlife'
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: 'PopDy and EcoSci Interest Form Response'
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

@@ -1,9 +1,9 @@
-uuid: c8013ba0-ef38-461a-8d65-d520bcedff56
+uuid: 107d4e1b-c4df-435f-b602-fef0e9a26866
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: E-QpLiupyWc2X2DNQEuYR9hmxI3lbyn1jt16oUNrRlE
+  default_config_hash: Bdj923Pbjl0P1iTrIoJ5nup8DaHeMTOt51pSB0M1eTk
 id: cas_article_to_story
 class: null
 idMap: {  }

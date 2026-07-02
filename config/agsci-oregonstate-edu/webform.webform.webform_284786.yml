@@ -1,0 +1,463 @@
+uuid: 7ad8d4e8-bf26-485b-bfe1-be21cf634ce8
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_284786
+title: 'Thank you letter'
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <h3 style="text-align:center">
+      	Help us thank our donors!</h3>
+
+      <p style="text-align:center">
+      	<strong>Many OSU scholarships are made possible by the generosity of our donors, and it is incredibly meaningful for donors to learn about the students their gifts support.</strong></p>
+
+      <p>
+      	<strong>By selecting Yes below, I agree to the following:</strong></p>
+
+      <p>
+      	The Family Educational Rights and Privacy Act (FERPA) of 1974 is a federal law designed to protect the privacy of your student records and regulates how information is utilized. Release of student records at Oregon State University is bound by the federal law (FERPA), the Oregon Revised Statutes, and by the Oregon Administrative Rules. In accordance with these laws and rules, it is necessary for Oregon State University to obtain formal consent from the student in order to release protected information to a third party, such as scholarship donors.</p>
+
+      <ol>
+      	<li>
+      		I authorize Oregon State University to release information about my scholarship award, demographic profile, university activities, and academic program to the Oregon State University Foundation, and to the donors who support this scholarship program, for the purpose of donor and scholarship management.</li>
+      	<li>
+      		I understand that this authorization will remain valid until I notify Oregon State University’s Scholarship Office in writing that I am revoking this authorization.</li>
+      	<li>
+      		I understand that if I do not agree to these terms (by clicking “No” below), that I am still able to receive this scholarship, if eligible.</li>
+      </ol>
+  i_have_read_the_above_statements_and_would_like_to_send_a_thank_you_letter_for_my_scholarship:
+    '#type': radios
+    '#options':
+      ty_yes: 'Yes'
+      ty_no: 'No'
+    '#title': 'I have read the above statements and would like to send a thank you letter for my scholarship'
+    '#required': true
+  first_name_and_last_name:
+    '#type': textfield
+    '#unique': false
+    '#title': 'First Name and Last Name'
+    '#required': true
+  select_your_scholarship:
+    '#type': select
+    '#options':
+      schol1: 'Dr. Dale W. Weber Internship Support'
+      schol2: 'A.L. Strand Memorial Scholarship'
+      schol3: 'ACCO Scholarship for the Agriculture Ambassador Program'
+      schol4: 'Adams Family Scholarship'
+      schol5: 'Ag Honors Pool'
+      schol6: 'Agricultural Sciences Scholarship (CAS Scholarship)'
+      schol7: 'Albert N. Halter Fellowship'
+      schol8: 'Ambassadors Administration Fund'
+      schol9: 'Ambassadors Agricultural Sciences Scholarship'
+      schol10: 'Animal and Rangeland Sciences Scholarships'
+      schol11: 'Animal Sciences Department Scholarship'
+      schol12: 'Anita S. Summers Ambassador Scholarship'
+      schol13: 'Arbuthnot Success Grant Fund'
+      schol14: 'ARCO Research Scholarship'
+      schol15: 'Arthur G. B. Bouquet Horticulture Award'
+      schol16: 'Arthur King Memorial Scholarship'
+      schol17: 'Arthur T. & Lula M. Matthews Scholarship'
+      schol18: 'Beglau Scholarship'
+      schol19: 'Ben and Phyllis Newell Scholarship'
+      schol20: 'Bill & La Rea Johnston Outstanding Senior Award'
+      schol21: 'Bob & Phyllis Mace Watchable Wildlife Scholarship'
+      schol22: 'Bob McCracken, Jr. Scholarship'
+      schol23: 'Bodyfelt Undergraduate Scholarship'
+      schol24: 'Botany & Plant Pathology Scholarship'
+      schol25: 'Briggs Biogeography Scholarship'
+      schol26: 'Bruce & Helle Ruddenklau Scholarship'
+      schol27: 'Bruce Faddis Memorial Scholarship'
+      schol28: 'Burkhart Scholarship'
+      schol29: 'Carl & Lenora Bond Scholarship'
+      schol30: 'Charles & Helen Fulton Memorial Botany Scholarship'
+      schol31: 'Charles E. & Clara Marie Eckelman Ag Honors Scholarship'
+      schol32: 'Charles E. & Clara Marie Eckelman Scholarship'
+      schol33: 'Charles E. Warren Award'
+      schol34: 'Charles F. Baker Scholarship'
+      schol35: 'Charles Farris Scholarship'
+      schol36: 'Charles M. Fischer/Oregon Fryer Commission Scholarship'
+      schol37: 'Charles, Fern & Mary Hecht Scholarship'
+      schol38: 'Charlotte L. and Willis P. Duruz Scholarship'
+      schol39: 'Chris & Judy Bonte-Friedheim Scholarship'
+      schol40: 'Clifford E. Samuels Memorial Scholarship'
+      schol41: 'Clifford Smith Memorial Agricultural Honors Scholarship'
+      schol42: 'College of Agricultural Sciences Emergency Fund'
+      schol43: 'College of Agricultural Sciences Student Hardship Scholarship'
+      schol44: 'Coombs-Simpson Memorial Fellowship'
+      schol45: 'Crop & Soil Science Unrestricted Scholarship'
+      schol46: 'Crop and Soil Science Graduate Scholarship'
+      schol47: 'Crop and Soil Science Undergraduate Scholarship'
+      schol48: 'Crop Science General Scholarship'
+      schol49: 'D. Curtis Mumford Memorial Scholarship'
+      schol50: 'Dairy Sciences Experiential Learning Fund'
+      schol51: 'Dale H. Friedemann Scholarship'
+      schol52: 'Dale W. Weber Animal Sciences Scholarship'
+      schol53: 'Dan & Wanda Arp Endowed Scholarship'
+      schol54: 'David B & Georgia Leupold Marshall Wildlife Grad Scholarship'
+      schol55: 'David J Ashkenas Fellowship'
+      schol56: 'Davis Fisheries and Wildlife Scholarship'
+      schol57: 'DeLoach Distinguished Graduate Fellowship'
+      schol58: 'DeLoach Graduate Scholarship'
+      schol59: 'Dennis & Diane Barry Scholarship'
+      schol60: 'Dolan Family Agriculture Ambassador Scholarship'
+      schol62: 'Don & Ginger Helfer Scholarship'
+      schol63: 'Don Burlingham Scholarship'
+      schol64: 'Donald D. Hill Memorial Scholarship in Crop Science'
+      schol65: 'Donald L. Claeys and Ardith A. Claeys Animal Science and Crop Science Endowed Scholarship'
+      schol66: 'Donald Voorhies Memorial Scholarship'
+      schol67: 'Donald Welp Memorial Scholarship'
+      schol68: 'Dora Krueger Memorial Student Aid Scholarship'
+      schol69: 'Doris Mardis Tibbetts Memorial Scholarship'
+      schol70: 'Dr. Alayne Linda Boyko, Ph.D. Scholarship'
+      schol71: 'Dr. Dale W. Weber Internship Support Program Application - Winter 2026'
+      schol72: 'Dr. Erin Peterson Internship Award in Fisheries, Wildlife & Conservation Sciences'
+      schol73: 'Dr. Ernest L. Bergman Fellowship'
+      schol74: 'Dr. Ishwar P. Murarka Graduate Fellowship'
+      schol75: 'Dustin Goedeck Scholarship'
+      schol76: 'E. Paul & Nancy L. Peloquin Scholarship'
+      schol77: 'E.L. Potter Scholarship'
+      schol78: 'E.R. Jackman General Scholarship'
+      schol79: 'E.R. Jackman Internship Support'
+      schol80: 'Earl Meier Dairy Science Memorial Scholarship'
+      schol81: 'Eastern Oregon University Oldfield Scholarship Fund'
+      schol82: 'Eckelman Memorial Student Support Scholarship in Agriculture & Resource Economics'
+      schol83: 'Edward A. & Paula R. Ball Endowed Scholarship'
+      schol84: 'Edward Earnest Agribusiness Management Scholarship'
+      schol85: 'Emery Castle Scholarship'
+      schol86: 'Entomology Education Scholarship'
+      schol87: 'Environmental Sciences Diversity Scholarship'
+      schol88: 'Ermine L. Potter & Norma Olson Memorial Scholarship'
+      schol89: 'Ernest & Josephine Wiegand Scholarship'
+      schol90: 'Eugene H. Fisher Agricultural Honors Scholarship'
+      schol91: 'Ezra Kraus Scholarship'
+      schol92: 'F. Gilbert & Helen W. Lamb Food Science Scholarship'
+      schol93: 'Florence A. Winger Scholarship'
+      schol94: 'Food Science & Technology Alumni Undergraduate Scholarship'
+      schol95: 'Food Science Scholarship'
+      schol96: 'Fox Agricultural Honors Continuing Venture Scholarship'
+      schol97: 'Frank Burlingham Memorial Agricultural Honors Scholarship'
+      schol98: 'Fred F. & Corinne McKenzie Memorial Fellowship'
+      schol99: 'Fred Obermiller Memorial Scholarship'
+      schol100: 'Fritzell Diversity Scholarship'
+      schol101: 'Gamma Sigma Delta Scholarship'
+      schol102: 'Garrit Evensen Scholarship'
+      schol103: 'Garvin Crabtree & Arnold Appleby Scholarship'
+      schol104: 'George L. Crookham Memorial Scholarship'
+      schol105: 'Gerald "Jerry" Fisher Scholarship in Aquaculture & Hatchery Management'
+      schol106: 'Gilman Keasey Memorial Fellowship'
+      schol107: 'Grange Co-op Agricultural Honors Scholarship'
+      schol108: 'H Richard Carlson Scholarship'
+      schol109: 'Hal and Lois Schudel Scholarship'
+      schol110: 'Harry & Dorothy Schoth Memorial Scholarship'
+      schol111: 'Harvey Educational Endowed Scholarship'
+      schol112: 'Henry E. Mastin Memorial Scholarship'
+      schol113: 'Henry H. Rampton Memorial Scholarship'
+      schol114: 'Herb & Anita Summers Agricultural Honors Scholarship'
+      schol115: 'Herb Summers Memorial Scholarship'
+      schol116: 'Hogg-Hubbard Scholarship'
+      schol117: 'Horticulture DEI Scholarship'
+      schol118: 'Horticulture Department Scholarship'
+      schol119: 'Horticulture Society Scholarship'
+      schol120: 'HOTV Scholarship'
+      schol121: 'Howard Horton Fisheries Management Scholarship'
+      schol122: 'Hugo Krueger Scholarship Fund in Fish Physiology'
+      schol123: 'Human Dimensions of Marine Mammals Course Scholarship'
+      schol124: 'Hyslop Agricultural Resources Memorial Scholarship'
+      schol125: 'Izma Bailey Conser Memorial Scholarship'
+      schol126: 'J. Frank Schmidt, Jr. Scholarship'
+      schol127: 'J. Ritchie Cowan Memorial Scholarship'
+      schol128: 'J.C. Miller Scholarship'
+      schol129: 'J.D. Rowell Fellowship'
+      schol130: 'Jackson County Master Gardeners Association'
+      schol131: 'Jaclyn J. Rusch Food Science Scholarship'
+      schol132: 'James H. Weatherspoon Scholarship'
+      schol133: 'James H. Weatherspoon Viticulture Fellowship'
+      schol134: 'James Sedell Graduate Scholarship'
+      schol135: 'Jan & Linda Wepster Hazelnut Fellowship'
+      schol136: 'Jane Kerr Platt Memorial Scholarship'
+      schol137: 'Jason Oliver Memorial Scholarship'
+      schol138: 'Jayantilal Nemchand Shah Food Science Scholarship'
+      schol139: 'Jean L. Siddall Memorial Botany Scholarship'
+      schol140: 'Jeffry D. Culbertson Scholarship'
+      schol141: 'Jernstedt Family Agricultural Honors Scholarship'
+      schol142: 'Jess Hanson Poultry Science Scholarship'
+      schol143: 'Jesse Hanson Agriculture Scholarship'
+      schol144: 'Jim and Bonnie Hall Fisheries and Wildlife Diversity Scholarship'
+      schol145: 'John & Florence Scharff Agricultural Honors Scholarship'
+      schol146: 'John D. Bergen & John H. Bergen Scholarship'
+      schol147: 'John W. DeMuth, Jr. Agricultural Sciences Scholarship'
+      schol148: 'Johnny R. and Helen H. Thomas Scholarship'
+      schol149: 'Jones Book Award'
+      schol150: 'Joni Katz Scholarship'
+      schol151: 'Josephine & Jim Piro Food Science & Technology Scholarship'
+      schol152: 'Juice Products Association Scholarship'
+      schol153: 'Julianne Wood-Rethwill and Craig Rethwill Scholarship'
+      schol154: 'Karla S. Chambers Leadership Agricultural Honors Scholarship'
+      schol155: 'Kathryn Merrifield Scholarship'
+      schol156: 'Kenneth W. Wong Endowed Scholarship'
+      schol157: 'Kori May Memorial Scholarship'
+      schol158: 'Krautscheid Family Scholarship for Crop and Soil Science'
+      schol159: 'Larry W. Mirosh Memorial Scholarship'
+      schol160: 'Lawrence E. & Marguerite Kaseberg Memorial Agricultural Honors Scholarship'
+      schol161: 'Lee Wallace Kuhn Memorial Scholarship'
+      schol162: 'Leo and Jane Sansregret Scholarship'
+      schol163: 'Leo L. Anderson, Jr. Memorial Extension Scholarship in Agricultural Sciences'
+      schol164: 'Leo L. Anderson, Jr. Memorial Scholarship in Soil Science'
+      schol165: 'LeRoy Breithaupt Memorial Scholarship'
+      schol166: 'Linda Blythe Pre Veterinary Student Support Fund'
+      schol167: 'Lindsay Ball Fisheries & Wildlife Scholarship'
+      schol168: 'Link Family Scholarship'
+      schol169: 'Lois & Kenneth Klarquist Scholarship in Fisheries & Wildlife'
+      schol170: 'Loren J. Smith Memorial Agricultural Honors Scholarship'
+      schol171: 'Loy & Nancy Kirksey Scholarship'
+      schol172: 'M. Dale Chipman Memorial Scholarship'
+      schol173: 'Malcolm Johnson Scholarship'
+      schol174: 'Mary and Gene Sayler Food Science and Technology Scholarship'
+      schol175: 'Matava Sustainable Agriculture Scholarship'
+      schol176: 'MBAA District NW Scholarship'
+      schol177: 'McGuire Crop Science Scholarship'
+      schol178: 'Mentors Scholarship'
+      schol179: 'Mike & Kay Brown Scholarship for Fisheries & Wildlife'
+      schol180: 'Multnomah Anglers & Hunters/Milt Guymon Scholarship'
+      schol181: 'Munson Wildlife Graduate Scholarship Fund'
+      schol182: 'Naumes Family Agricultural Honors Scholarship'
+      schol183: 'Neil Armantrout Memorial Graduate Fellowship'
+      schol184: 'Nerken Graduate Fellowship'
+      schol185: 'North Pacific Canners & Packers Scholarship'
+      schol186: 'O.M. Plummer Memorial Scholarship'
+      schol187: 'One at a Time Foundation Scholarship'
+      schol188: 'Oregon Coalition for Educating Anglers (OCEAN) Scholarship'
+      schol189: 'Oregon Dairy Industries Memorial Scholarship'
+      schol190: 'Oregon Garden Research Fund'
+      schol191: 'Oregon Women for Agriculture Ag Honors Scholarship'
+      schol192: 'Pangburn Internship Scholarship'
+      schol193: 'Parviz Kamangar Animal Sciences Scholarship'
+      schol194: 'Patricia E. de Jong Memorial Scholarship'
+      schol195: 'Paul & Frances Montecucco Beginning Venture Scholarship'
+      schol196: 'Paul D. Culbertson Memorial Scholarship'
+      schol197: 'Paul H. Krumperman Memorial Scholarship'
+      schol198: 'Phillip W. Schneider Scholarship'
+      schol199: 'Price Education Endowment Fund'
+      schol200: 'Prosser E. Clark Memorial Scholarship'
+      schol201: 'Pubols Agriculture Scholarship'
+      schol202: 'Ralph E. Berry Integrated Pest Management Scholarship'
+      schol203: 'Richard R. Halse Botany Scholarship'
+      schol204: 'Robert Dean Jones Continuing Venture Agricultural Honors Scholarship'
+      schol205: 'Robert G. Anthony Scholarship'
+      schol206: 'Robert H. Warrens Memorial Scholarship'
+      schol207: 'Robert J. Metzger Scholarship'
+      schol208: 'Robert Johnson Fellowship'
+      schol209: 'Robert L. Levy Family Scholarship'
+      schol210: 'Roberta Mitchell Jansen Scholarship'
+      schol211: 'Rod and Ruby Frakes Scholarship'
+      schol212: 'Rogue Flyfishers Scholarship'
+      schol213: 'Roland E. Dimick Memorial Scholarship'
+      schol214: 'Ronald Wrolstad Food Chemistry Scholarship'
+      schol215: 'Roy and Jane Arnold Scholarship'
+      schol216: 'Russell O. & Dorothy A. Sinnhuber Memorial Fellowship'
+      schol217: 'Santiam Fish & Game Association Scholarship'
+      schol218: 'Schaeffer Oil and Crop Enhancement Scholarship'
+      schol219: 'Scullen Memorial Scholarship'
+      schol220: 'Sheldon L. Ladd Memorial Scholarship'
+      schol221: 'Sheri & John Roberts Scholarship'
+      schol222: 'Sheridan Perseverance Scholarship'
+      schol223: 'Silvies Valley Ranch Scholarship'
+      schol224: 'Silvies Valley Ranch Scholarship'
+      schol225: 'Southern Oregon Flyfishers Scholarship'
+      schol226: 'Stan & Nancy Starr Scholarship'
+      schol227: 'Stan Gregory Stream Team Scholarship'
+      schol228: 'Susanne Szentandrasi Fellowship'
+      schol229: 'Tamal Reece Memorial Scholarship'
+      schol230: 'Taylor L. & Lucille K. Leedy Memorial Scholarship'
+      schol231: 'Ted Thorgaard Student Research Fund'
+      schol232: 'Tex Frazier Memorial Scholarship'
+      schol233: 'Thayne & Missy Dutson Scholarship'
+      schol234: 'The Grant & Alice Schoenhard Research Scholarship'
+      schol235: 'The Grant & Alice Schoenhard Study/Work Abroad Scholarship'
+      schol236: 'Thomas C. Moore Memorial Scholarship'
+      schol237: 'Thomas G. McGillivray Scholarship in Agriculture and Natural Resources'
+      schol238: 'Thomas G. Scott Achievement Award'
+      schol239: 'Tietz Family Agricultural Sciences Scholarship Fund'
+      schol240: 'Tillamook County Creamery Association Agricultural Honors Scholarship'
+      schol241: 'Tom Cook Legacy Scholarship'
+      schol242: 'Tommy Thompson Memorial Scholarship'
+      schol243: 'Ursula Bolt Knaus Scholarship'
+      schol244: 'V. Kent Searles & Nancy J. Billingsley Searles Scholarship'
+      schol245: 'Vivian Shriver Thompson Scholarship'
+      schol246: 'Walter Bailey Scholarship'
+      schol247: 'Walter J. & Florence J. Jaeger Undergraduate Scholarship'
+      schol248: 'Wayne and Joann Chambers Scholarship'
+      schol249: 'Wayne Endicott Scholarship'
+      schol250: 'Wilbur Powers Memorial Scholarship'
+      schol251: 'Wilbur-Ellis (Madras) Scholarship'
+      schol252: 'Wilco Farmers Ag Honors Scholarship'
+      schol253: 'William A.L. Lyons Memorial Scholarship'
+      schol254: 'William B. & Jean Morse Scholarship'
+      schol255: 'William E. & Dorene Hall Scholarship'
+      schol256: 'William Kent Wiley, Jr. Memorial Fellowship'
+      schol257: 'William P. Harris Scholarship'
+      schol258: 'William Q. Wick Memorial Scholarship'
+      schol259: "Wilson H. Foote\_ Memorial Scholarship"
+      schol260: 'WM Paul and Elsa Danskine Agricultural Scholarship in Crop and Soil Science'
+      schol261: 'WM Paul and Elsa Danskine Agricultural Scholarship in Horticulture'
+      schol262: ' Other Scholarship'
+    '#title': 'Select your scholarship'
+    '#description': "Select your scholarship from the list. If you can't find it, please choose (Other Scholarship) and type the name of your scholarship. "
+    '#required': true
+    '#states':
+      invisible:
+        - ':input[name="i_have_read_the_above_statements_and_would_like_to_send_a_thank_you_letter_for_my_scholarship"]':
+            value: ty_no
+  name_of_the_scholarship_fellowship:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Name of the scholarship/fellowship'
+    '#states':
+      invisible:
+        - ':input[name="i_have_read_the_above_statements_and_would_like_to_send_a_thank_you_letter_for_my_scholarship"]':
+            value: ty_no
+  hometown_state:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Hometown, State'
+    '#states':
+      invisible:
+        - ':input[name="i_have_read_the_above_statements_and_would_like_to_send_a_thank_you_letter_for_my_scholarship"]':
+            value: ty_no
+  major:
+    '#type': textfield
+    '#unique': false
+    '#title': Major
+    '#required': true
+    '#states':
+      invisible:
+        - ':input[name="i_have_read_the_above_statements_and_would_like_to_send_a_thank_you_letter_for_my_scholarship"]':
+            value: ty_no
+  minor:
+    '#type': textfield
+    '#unique': false
+    '#title': Minor
+    '#description': 'Please leave blank if n/a'
+    '#states':
+      invisible:
+        - ':input[name="i_have_read_the_above_statements_and_would_like_to_send_a_thank_you_letter_for_my_scholarship"]':
+            value: ty_no
+  class_standing_this_term:
+    '#type': select
+    '#options':
+      class_incoming: 'Incoming Student'
+      class_firstyear: 'First Year'
+      class_sophomore: Sophomore
+      class_junior: Junior
+      class_senior: Senior
+      class_graduate: 'Graduate Student'
+      class_other: Other
+    '#title': 'Class standing (this term)'
+    '#required': true
+    '#states':
+      invisible:
+        - ':input[name="i_have_read_the_above_statements_and_would_like_to_send_a_thank_you_letter_for_my_scholarship"]':
+            value: ty_no
+  message_to_your_donor:
+    '#type': textarea
+    '#title': 'Message to your donor'
+    '#description': 'Your message to the donor is a personal thank you to those who provided you with this scholarship. It should be addressed directly to them.'
+    '#required': true
+    '#states':
+      visible:
+        - ':input[name="i_have_read_the_above_statements_and_would_like_to_send_a_thank_you_letter_for_my_scholarship"]':
+            value: ty_no
+  how_did_you_decide_osu_was_the_right_school_for_you:
+    '#type': textarea
+    '#title': 'How did you decide OSU was the right school for you?'
+    '#required': true
+    '#states':
+      invisible:
+        - ':input[name="i_have_read_the_above_statements_and_would_like_to_send_a_thank_you_letter_for_my_scholarship"]':
+            value: ty_no
+  imagine_yourself_10_years_from_now_what_do_you_hope_to_be_doing:
+    '#type': textarea
+    '#title': 'Imagine yourself 10 years from now – What do you hope to be doing?'
+    '#required': true
+    '#states':
+      invisible:
+        - ':input[name="i_have_read_the_above_statements_and_would_like_to_send_a_thank_you_letter_for_my_scholarship"]':
+            value: ty_no
+  what_would_you_be_proud_to_contribute_to_society:
+    '#type': textarea
+    '#title': 'What would you be proud to contribute to society?'
+    '#required': true
+    '#states':
+      invisible:
+        - ':input[name="i_have_read_the_above_statements_and_would_like_to_send_a_thank_you_letter_for_my_scholarship"]':
+            value: ty_no
+  how_will_receiving_this_scholarship_help_you_pursue_your_education_at_osu:
+    '#type': textarea
+    '#title': 'How will receiving this scholarship help you pursue your education at OSU?'
+    '#required': true
+    '#states':
+      invisible:
+        - ':input[name="i_have_read_the_above_statements_and_would_like_to_send_a_thank_you_letter_for_my_scholarship"]':
+            value: ty_no
+  upload_a_photo:
+    '#type': managed_file
+    '#max_filesize': 20.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Upload a photo'
+    '#description': |-
+      One file only.
+      20 MB limit.
+      Allowed types: jpg gif png.
+    '#required': true
+    '#states':
+      invisible:
+        - ':input[name="i_have_read_the_above_statements_and_would_like_to_send_a_thank_you_letter_for_my_scholarship"]':
+            value: ty_no
+  usage:
+    '#type': radios
+    '#options':
+      use_yes: 'Yes'
+      use_no: 'No'
+    '#title': Usage
+    '#description': 'Sometimes we feature scholarship students on our website, in newsletters to our alumni, or in promotional materials to prospective students. Please indicate whether we may use your responses and photo in this way.'
+    '#required': true
+    '#states':
+      invisible:
+        - ':input[name="i_have_read_the_above_statements_and_would_like_to_send_a_thank_you_letter_for_my_scholarship"]':
+            value: ty_no
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: true
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }

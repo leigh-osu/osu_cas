@@ -1,0 +1,254 @@
+uuid: 7e0d0d7f-43fa-4927-aa00-10720e1802e4
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 21
+template: false
+archive: false
+id: webform_42101
+title: 'Digital Signage in Strand Agriculture Hall'
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	The CAS Web Team manages two digital screens in Strand Agriculture Hall on the first floor. If you'd like to post content on these displays, please submit the form below. All submissions are subject to approval by the CAS Web Team.</p>
+
+      <h3>
+      	General Advertising Guidelines</h3>
+
+      <ul>
+      	<li>
+      		<span>Digital signage must be submitted by, and in promotion of events or programs affiliated with OSU departments and CAS affliated programs.&nbsp;</span></li>
+      	<li>
+      		<span><span>For events,the signage must have a notice for disability accomodations. For example:&nbsp;</span></span>
+      		<ol>
+      			<li>
+      				<span>&nbsp;</span><span><em>For alternative formats or accommodations related to a disability, please contact (sponsoring department/organization contact name) at (phone or email)</em>; or</span></li>
+      			<li>
+      				<span>&nbsp;</span><span><em>Accommodation requests related to disability should be made by [specific date] to [sponsoring department/organization contact person, phone number, and email address].</em></span></li>
+      		</ol>
+      	</li>
+      </ul>
+
+      <h3>
+      	Signage Guidelines</h3>
+
+      <ul>
+      	<li>
+      		All slides need to be sized at 1920 x 1080px and saved as a jpg.</li>
+      	<li>
+      		Please make sure that all your text is legible. (We’ve had a few instances lately where that text was either so small or such a light color that it wasn’t readable on screen).</li>
+      	<li>
+      		Contact <a href="mailto:caswebrequest@oregonstate.edu">caswebrequest@oregonstate.edu</a> if you have any questions.</li>
+      </ul>
+
+      <p>
+      	&nbsp;</p>
+  requester_first_name:
+    '#type': textfield
+    '#title': 'Requester First Name'
+    '#required': true
+  requester_last_name:
+    '#type': textfield
+    '#title': 'Requester Last Name'
+    '#required': true
+  department_or_unit2:
+    '#type': textfield
+    '#title': 'Department or Unit'
+  contact_email2:
+    '#type': textfield
+    '#title': 'Contact Email'
+    '#required': true
+  start_date_of_display:
+    '#type': date
+    '#title': 'Start date of display'
+  end_date_of_display:
+    '#type': date
+    '#title': 'End date of display'
+  upload_your_digital_sign:
+    '#type': managed_file
+    '#max_filesize': 5.0
+    '#file_extensions': 'jpg jpeg'
+    '#title': 'Upload your digital sign'
+  any_additional_information:
+    '#type': textarea
+    '#title': 'Any additional information?'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: '<p>Thank you for submitting for digital sign.</p>'
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: ben.davis@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: kamppij@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_3:
+    id: email
+    handler_id: email_3
+    label: 'Email 3'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 3
+    settings:
+      states:
+        - completed
+      to_mail: Stephen.Ward@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_4:
+    id: email
+    handler_id: email_4
+    label: 'Email 4'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 4
+    settings:
+      states:
+        - completed
+      to_mail: papkel@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

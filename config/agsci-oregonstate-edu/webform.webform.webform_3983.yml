@@ -1,0 +1,178 @@
+uuid: 8c16ca0d-26d6-4327-82a2-accf775b24e6
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_3983
+title: 'Plot Management Request'
+description: null
+categories: {  }
+elements: |-
+  introduction:
+    '#type': processed_text
+    '#format': full_html
+    '#text': '<p>The BPP field is asking farm users to provide information concerning management of their plots. Please fill out the following request noting the specific plot, desired services, and approximate timeline for plot activities. For services such as irrigation (or fertilizers), please indicate whether you want the farm crew to maximize plant growth (frequent irrigation), or to maintain the plants in a healthy but non- vigorous condition. Please do this for each plot or space you have on the Botany &amp; Plant pathology Field Lab.</p>'
+  contact_person:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Contact Person'
+    '#required': true
+  plot:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Plot
+  crop:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Crop
+  experimental_purpose:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Experimental Purpose'
+  annuals:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <hr />
+      <h4>
+      	Annuals</h4>
+  field_preparation:
+    '#type': textarea
+    '#default_value': |-
+      Approximate date-
+      Other requirements (isolation, border management, etc.)-
+      Fertilizers-
+    '#title': 'Field Preparation'
+  planting:
+    '#type': textarea
+    '#default_value': |-
+      Approximate date-
+      Farm crew assistance required?-
+    '#title': Planting
+  irrigation:
+    '#type': textarea
+    '#default_value': 'Desired frequency relative to management goal-'
+    '#title': Irrigation
+  pest_control_herbicides_insecticides_fungicide:
+    '#type': textarea
+    '#default_value': |-
+      Farm crew responsibility?-
+      Pest control activities done by user-
+    '#title': 'Pest control (Herbicides, Insecticides, Fungicide)'
+  harvest:
+    '#type': textarea
+    '#default_value': |-
+      Approximate date-
+      Farm crew assistance required?-
+    '#title': Harvest
+  perennials:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <hr />
+      <h4>
+      	Perennials</h4>
+  pruning:
+    '#type': textarea
+    '#default_value': |-
+      Winter-
+      Summer-
+      Farm crew assistance desired?-
+    '#title': Pruning
+  irrigation_p:
+    '#type': textarea
+    '#default_value': 'Desired frequency relative to management goal-'
+    '#title': Irrigation
+  pest_control_herbicides_insecticides_fungicide_p:
+    '#type': textarea
+    '#default_value': |-
+      Farm crew responsibility?-
+      Pest control activities done by user-
+    '#title': 'Pest control (Herbicides, Insecticides, Fungicide)'
+  mowing_p:
+    '#type': textarea
+    '#default_value': 'Desired height and frequency-'
+    '#title': Mowing
+  harvest_p:
+    '#type': textarea
+    '#default_value': |-
+      Approximate date-
+      Farm crew assistance required?
+    '#title': Harvest
+  line:
+    '#type': processed_text
+    '#format': full_html
+    '#text': '<hr>'
+  miscellaneous_or_special_requests:
+    '#type': textarea
+    '#title': 'Miscellaneous or special requests'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: jared.powell@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements:
+        introduction: introduction
+        annuals: annuals
+        perennials: perennials
+        line: line
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

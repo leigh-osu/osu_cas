@@ -1,4 +1,4 @@
-uuid: 8c8e2b43-12e8-432a-9873-7522d0b5413d
+uuid: 5025d61a-e686-44f9-8b66-33576b619b9a
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: sweet_potatoes
 label: sweet_potatoes
 logic: and
 conditions:
-  3e3c2b7d-ad76-4cbb-af49-97832ba1180e:
+  7f392092-6cc9-41a4-b574-ff06fe0d6225:
     id: request_path
     negate: false
-    uuid: 3e3c2b7d-ad76-4cbb-af49-97832ba1180e
+    uuid: 7f392092-6cc9-41a4-b574-ff06fe0d6225
     pages: "/malheur-experiment-station/crops/swet_potatoes\r\n/mes/crops/sweet_potatoes\r\n/node/45336"
 allow_other_conditions: null

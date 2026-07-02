@@ -1,4 +1,4 @@
-uuid: a1be6850-fbf4-4d1c-b15d-da1a503aa5aa
+uuid: 813532fb-ba4b-4ce1-ae46-bc4d417c422d
 langcode: en
 status: true
 dependencies:
@@ -16,7 +16,7 @@ _core:
 id: manzanita_groupoperations
 theme: manzanita
 region: highlighted
-weight: -6
+weight: -10
 provider: null
 plugin: group_operations
 settings:

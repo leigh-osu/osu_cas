@@ -1,4 +1,4 @@
-uuid: a772a3f8-510a-4628-a671-feb8bec99b40
+uuid: adef3092-13f8-478f-8b43-a673b8fbf7c2
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: swd_images
 label: swd_images
 logic: and
 conditions:
-  36ae9824-2699-44ef-a0a1-acd3bba98c0e:
+  feaa8bee-c03b-44c3-9a47-66d1af0d56d0:
     id: request_path
     negate: false
-    uuid: 36ae9824-2699-44ef-a0a1-acd3bba98c0e
+    uuid: feaa8bee-c03b-44c3-9a47-66d1af0d56d0
     pages: /node/80056
 allow_other_conditions: null

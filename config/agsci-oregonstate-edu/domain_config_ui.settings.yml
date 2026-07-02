@@ -1,5 +1,0 @@
-overridable_configurations:
-  -
-    name: system.site
-    domains:
-      - agsci_oregonstate_edu

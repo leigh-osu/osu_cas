@@ -1,0 +1,150 @@
+uuid: 025e805a-2941-47ad-8430-5aafd30a4c7f
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 16861
+template: false
+archive: false
+id: webform_254716
+title: 'Hyslop Field Day Speaker/Exhibit Proposal'
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	If you are interested in presenting as a speaker or hosting an exhibit/demonstration table for Hyslop&nbsp;Farm Field Day, please complete this form by <strong>April 16th, 2026</strong>.&nbsp;The field day is scheduled for <strong>May 20th&nbsp;from 9-1:30pm</strong>. The exhibit/demonstration section will take place from approximately 11:45am to 1:30pm. We are limited in the number of speakers and field stops, thus the organizing committee will jointly review speaker submissions and make selections based on timeliness, relevance to local seed and cereal production challenges, and projects with field trials at Hyslop. Speakers will be required to submit a 1-page research summary by <strong>May 1, 2026&nbsp;</strong>to ensure the timely printing of the Hyslop&nbsp;Farm Field Day Handbook.</p>
+  name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Name
+    '#required': true
+  email_address:
+    '#type': email
+    '#size': 20
+    '#title_display': inline
+    '#title': 'Email Address'
+    '#required': true
+  speaker_or_exhibit:
+    '#type': checkboxes
+    '#options':
+      speaker: Speaker
+      exhibit_table: 'Exhibit Table'
+    '#multiple': true
+    '#title': 'Are you interested in being a speaker or hosting an exhibit table?'
+    '#required': true
+  presentation_title_or_topic:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Presentation title or topic'
+    '#required': true
+    '#states':
+      visible:
+        - ':input[name="speaker_or_exhibit[speaker]"]':
+            checked: true
+  a_brief_description_of_your_research_work_and_relevance_in_150_words:
+    '#type': textarea
+    '#title': 'A brief description of your research work and relevance in 150 words'
+    '#required': true
+    '#states':
+      visible:
+        - ':input[name="speaker_or_exhibit[speaker]"]':
+            checked: true
+  field_trial_or_plot:
+    '#type': radios
+    '#options':
+      'yes': 'Yes'
+      'no': 'No'
+    '#title': 'Do you have a field trial or plot at Hyslop that accompanies this work?'
+    '#required': true
+    '#states':
+      visible:
+        - ':input[name="speaker_or_exhibit[speaker]"]':
+            checked: true
+  exhibit_table_topic:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Exhibit table topic'
+    '#required': true
+    '#states':
+      visible:
+        - ':input[name="speaker_or_exhibit[exhibit_table]"]':
+            checked: true
+  scope_of_your_exhibit:
+    '#type': textarea
+    '#title': 'Scope of your exhibit'
+    '#required': true
+    '#states':
+      visible:
+        - ':input[name="speaker_or_exhibit[exhibit_table]"]':
+            checked: true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email_address:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: 'Department of Crop and Soil Science'
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |-
+        Thank you for submitting your for speaker and/or exhibit proposal for the Hyslop Field Day. The Hyslop Field Day planning committee will be in touch once proposals have been reviewed and the speakers and exhibits selected.
+        [webform_submission:values]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

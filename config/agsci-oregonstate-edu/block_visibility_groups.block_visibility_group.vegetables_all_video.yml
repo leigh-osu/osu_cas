@@ -1,4 +1,4 @@
-uuid: 0f9a7baf-a677-4649-8fc6-0aa16ba9755c
+uuid: 4ac53074-3f10-4061-a27c-6f626ac14e0c
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: vegetables_all_video
 label: vegetables_all_video
 logic: and
 conditions:
-  b6d08998-3b55-4c25-991f-01184d32d9f1:
+  eee8be8e-4885-4b69-b074-02d77c25e6ae:
     id: request_path
     negate: false
-    uuid: b6d08998-3b55-4c25-991f-01184d32d9f1
+    uuid: eee8be8e-4885-4b69-b074-02d77c25e6ae
     pages: /node/80271
 allow_other_conditions: null

@@ -1,4 +1,4 @@
-uuid: 7e3b2547-b2e0-4264-8f64-816e96b9e0c3
+uuid: d9e02a6a-dc36-446b-9701-842c78da6d00
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ dependencies:
   theme:
     - stable9
 _core:
-  default_config_hash: JVdUAX5i7Stg6A3kplrwgpoua8JJOoc7oQs5u93SMBM
+  default_config_hash: 6mKba3cvbpfQYXL89fIiJ0XN84SrmI-lwXgSw8smFyI
 id: stable9_main_menu
 theme: stable9
 region: primary_menu
@@ -18,7 +18,7 @@ provider: null
 plugin: 'superfish:main'
 settings:
   id: 'superfish:main'
-  label: Menu
+  label: Main
   label_display: '0'
   provider: superfish
   level: 1
@@ -54,7 +54,7 @@ settings:
   smallech: ''
   smallicm: ''
   smallich: ''
-  smallamt: ''
+  smallamt: Main
   smallabt: 1
   supersubs: 1
   minwidth: 12
