@@ -185,12 +185,13 @@ This is a Drupal 7 to Drupal 10 content migration project for agsci.oregonstate.
 
 - `migrate_plus`
 - `migrate_domain`
+- `webform_migrate` (contrib — provides `d7_webform` / `d7_webform_submission`)
 - `osu_migrations_cas` (custom — primary migration module for this project)
 
 ### Content Types Migration Map
 
 **1:1 mapping:**
-150 Species, Article → Story, Art About Agriculture, Biblio → Publication, Course, Degree Fact Sheet, Degree Fact Sheet - Graduate, Enterprise Budgets, Funding Opportunities, Fun Facts, Image Album, Plant Variety Release, Project, Story, Video, Weather daily/monthly/data, Weed, Basic page
+150 Species, Article → Story, Art About Agriculture, Biblio → Publication, Course, Degree Fact Sheet, Degree Fact Sheet - Graduate, Enterprise Budgets, Funding Opportunities, Fun Facts, Image Album, Plant Variety Release, Project, Story, Video, Weather daily/monthly/data, Weed, Basic page, Webform
 
 **Consolidating to existing types:**
 - Book page, Feature Page, Paragraph page → Basic page
@@ -198,7 +199,9 @@ This is a Drupal 7 to Drupal 10 content migration project for agsci.oregonstate.
 
 **Manual recreation required:** Feed
 
-**NOT migrating:** Announcement, Degree, FAQ, Highlight, Multi Menu, Navigation Grid, Poster, Sidebar Carousel, Simple Tab, Slide Show, Stylesheet Overlay, Webform
+**NOT migrating:** Announcement, Degree, FAQ, Highlight, Multi Menu, Navigation Grid, Poster, Sidebar Carousel, Simple Tab, Slide Show, Stylesheet Overlay
+
+**Webforms:** `d7_webform` (webform_migrate) creates one `webform_<nid>` config entity per D7 webform node (elements, email handlers, conditionals → `#states`); `cas_webform_to_webform_node` migrates the nodes and links each to its form; `cas_webform_group_content` places them in groups (runs with the `CAS Groups` tag). Submissions (`d7_webform_submission`, ~33k rows incl. PII) import last; orphaned D7 submissions whose webform node was deleted are skipped via a `migration_lookup` added in `osu_migrations_cas_migration_plugins_alter()`.
 
 ### Complex Migration Requirements
 

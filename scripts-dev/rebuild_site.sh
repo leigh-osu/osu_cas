@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 # Drupal Multisite Rebuild Script for Migration Testing
@@ -25,7 +24,7 @@
 #   2  taxonomy + custom blocks          -> snapshot afterosublocks
 #   3  config + paragraphs               -> snapshot afterparagraphs
 #   4  nodes                             -> snapshot afternodes
-#   5  pages + stories                   -> snapshot afterparanodes
+#   5  pages + stories + webforms        -> snapshot afterparanodes
 #   6  groups                            -> snapshot aftergroups
 #   7  aliases + redirects + profiles + menus + blocks
 
@@ -99,7 +98,7 @@ section_1() {
   ddev drush en migrate migrate_drupal phpass migrate_plus -y
   ddev drush en osu_migrations osu_user_accounts osu_migrations_files osu_migrations_media osu_migrations_taxonomy \
       osu_migrate_content og_to_group paragraphs_to_layout_builder osu_user_to_profiles devel migrate_devel \
-      domain_migrate domain_access_migrate -y
+      domain_migrate domain_access_migrate webform_migrate -y
 
   # osu_digital_measures provides the osu_digital_measures_report field formatter
   # used by node.osu_profile display config (field_profile_dm_pubs / _awards). It
@@ -148,7 +147,22 @@ section_1() {
   ddev drush en osu_migrations_cas -y
   ddev drush migrate:import cas_user_authmap
 
-  ddev drush migrate:import --tag='OSU Media'
+  # drush migrate:import --tag aborts the remaining migrations in the tag as
+  # soon as one migration reports failed rows (MigrateRunnerCommands throws
+  # after each migration with failures). A single corrupt source image in
+  # upgrade_d7_media_images is enough to starve every non-image media
+  # migration, and the missing upgrade_d7_media_documents then gates out
+  # cas_course/project/video/article/og_group downstream. Import each media
+  # migration individually, in dependency order (files before media), so one
+  # migration's failed rows can't stop the others.
+  ddev drush migrate:import upgrade_d7_file_private
+  ddev drush migrate:import upgrade_d7_files
+  ddev drush migrate:import upgrade_d7_media_images
+  ddev drush migrate:import upgrade_d7_media_documents
+  ddev drush migrate:import upgrade_d7_media_audio
+  ddev drush migrate:import upgrade_d7_media_kaltura
+  ddev drush migrate:import upgrade_d7_media_local_video
+  ddev drush migrate:import upgrade_d7_media_remote_video
 
   snapshot_save aftermedia
 }
@@ -263,10 +277,10 @@ section_4() {
 }
 
 # ---------------------------------------------------------------------------
-# Section 5: pages + stories  -> snapshot afterparanodes
+# Section 5: pages + stories + webforms  -> snapshot afterparanodes
 # ---------------------------------------------------------------------------
 section_5() {
-  echo "=== Section 5: pages + stories ==="
+  echo "=== Section 5: pages + stories + webforms ==="
 
   ddev snapshot restore afternodes
 
@@ -279,6 +293,21 @@ section_5() {
   ddev drush migrate:import cas_feature_story_to_story
   ddev drush migrate:import cas_story_to_story
   ddev drush migrate:import cas_article_to_story
+
+  # Webforms. d7_webform (webform_migrate) builds one webform config entity per
+  # D7 webform node -- elements, email handlers, conditionals->#states -- keyed
+  # webform_<nid>; cas_webform_to_webform_node then creates the webform nodes
+  # and links each to its form. Group placement (cas_webform_group_content)
+  # runs in section 6 via the 'CAS Groups' tag. Submissions
+  # (d7_webform_submission, ~33k rows incl. PII) import last; orphaned D7 rows
+  # whose webform node was deleted are skipped via the migration_lookup added
+  # in osu_migrations_cas_migration_plugins_alter().
+  # The `en` is defensive for runs resumed from a pre-webform snapshot; it is
+  # a no-op when section 1 already enabled webform_migrate.
+  ddev drush en webform_migrate -y
+  ddev drush migrate:import d7_webform
+  ddev drush migrate:import cas_webform_to_webform_node
+  ddev drush migrate:import d7_webform_submission
 
   ddev drush pqe -y
 
@@ -320,6 +349,7 @@ section_6() {
   # must run before cas_node_og_group so field_group_parent_unit can resolve.
   ddev drush migrate:import cas_node_parent_unit_group
   ddev drush migrate:import cas_node_og_group
+  ddev drush pqe -y
 
   ddev drush migrate:import upgrade_d7_user_og_memberships
   ddev drush migrate:import upgrade_d7_node_og_organization
@@ -422,7 +452,7 @@ Sections:
   2       taxonomy + custom blocks                     -> snapshot afterosublocks
   3       config + paragraphs                          -> snapshot afterparagraphs
   4       nodes                                        -> snapshot afternodes
-  5       pages + stories                              -> snapshot afterparanodes
+  5       pages + stories + webforms                   -> snapshot afterparanodes
   6       groups                                       -> snapshot aftergroups
   7       aliases + redirects + profiles + menus + blocks
   verify  post-rebuild verification (no DB changes; exits non-zero on regression)

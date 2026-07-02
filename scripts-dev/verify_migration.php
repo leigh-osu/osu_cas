@@ -118,6 +118,7 @@ $type_map = [
   'page'                     => ['page', 'book', 'feature_page', 'paragraph_page'],
   'story'                    => ['story', 'feature_story', 'article'],
   'publications'             => ['biblio'],
+  'webform'                  => ['webform'],
 ];
 
 foreach ($type_map as $d10_bundle => $d7_bundles) {
@@ -203,6 +204,45 @@ $safe(function () use ($d7, $d10, $record) {
   $record('paragraph_block blocks (D10 ≥ 0.8 × D7 live)', $d10_pb >= 0.8 * $d7_live,
     "D7 live paragraphs_item={$d7_live}  D10 paragraph_block={$d10_pb}");
 }, 'paragraph_block blocks (D10 ≥ 0.8 × D7 live)');
+
+// Webform entities — d7_webform creates one webform_<nid> config entity per
+// live D7 webform node (orphaned {webform} rows without a node are excluded
+// by the source's inner join).
+$safe(function () use ($d7, $d10, $record) {
+  $d7_forms = (int) $d7->query("SELECT COUNT(*) FROM webform w
+    JOIN node n ON n.nid = w.nid WHERE n.type = 'webform'")->fetchField();
+  $d10_forms = (int) $d10->query("SELECT COUNT(*) FROM config
+    WHERE name LIKE 'webform.webform.webform_%'")->fetchField();
+  $record('webform entities', $d7_forms === $d10_forms,
+    "D7={$d7_forms}  D10={$d10_forms}");
+}, 'webform entities');
+
+// Every migrated webform node should reference its own form
+// (cas_webform_to_webform_node maps webform/target_id = webform_<nid>).
+$safe(function () use ($d10, $record) {
+  $nodes = (int) $d10->query("SELECT COUNT(*) FROM node_field_data
+    WHERE type = 'webform' AND default_langcode = 1")->fetchField();
+  $linked = (int) $d10->query("SELECT COUNT(*) FROM node__webform
+    WHERE deleted = 0 AND webform_target_id IS NOT NULL")->fetchField();
+  $record('webform nodes linked to their form', $nodes > 0 && $linked === $nodes,
+    "nodes={$nodes}  linked={$linked}");
+}, 'webform nodes linked to their form');
+
+// Webform group placements (cas_webform_group_content) — one group_content
+// row per D7 OG membership of a webform node.
+$safe(function () use ($d7, $d10, $record) {
+  $d7_m = (int) $d7->query("SELECT COUNT(*) FROM og_membership om
+    JOIN node n ON n.nid = om.etid
+    WHERE om.entity_type = 'node' AND om.group_type = 'node'
+      AND n.type = 'webform'")->fetchField();
+  // Group 2.x keeps the group_content entity type id but stores rows in the
+  // group_relationship* tables.
+  $d10_m = (int) $d10->query("SELECT COUNT(*) FROM group_relationship_field_data
+    WHERE type = 'basic_group-group_node-webform'
+      AND default_langcode = 1")->fetchField();
+  $record('webform group content', $d7_m === $d10_m,
+    "D7 memberships={$d7_m}  D10 group_content={$d10_m}");
+}, 'webform group content');
 
 // ===========================================================================
 // 4. CAS-fix spot checks.

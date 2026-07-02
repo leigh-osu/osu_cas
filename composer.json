@@ -371,6 +371,7 @@
         "drupal/views_year_filter": "^2.1",
         "drupal/we_megamenu": "^1.16",
         "drupal/webform": "^6.1",
+        "drupal/webform_migrate": "^2.0@alpha",
         "drupal/workbench": "^1.6",
         "drupal/xls_serialization": "^2.0",
         "drupal/xmlsitemap": "^2.0",
