@@ -564,7 +564,8 @@
                 "OSU Migrations CAS biblio settings": "patches/0001-fix-biblio-dates.patch",
                 "background process plugins: handle empty migrate lookup result": "patches/0001-background-process-empty-lookup.patch",
                 "Recover live paragraphs core d7_paragraphs_item silently drops": "patches/0001-osu-paragraphs-item-recover-dropped.patch",
-                "Map larch theme block regions to manzanita": "patches/0001-osu-migrations-larch-block-regions.patch"
+                "Map larch theme block regions to manzanita": "patches/0001-osu-migrations-larch-block-regions.patch",
+                "Map legacy FontAwesome 3 icon classes on menu bar items": "patches/0001-osu-migrations-menu-item-legacy-icons.patch"
             },
             "osu-wams/osu_standard": {
                 "OSU Standard Profile updates": "patches/0001-cas-remove-distro-info.patch",
