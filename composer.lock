@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c10217311416fcdea6a30e8df0327d7d",
+    "content-hash": "b9bc2943addcfc40fdf43178a1ea89fb",
     "packages": [
         {
             "name": "algolia/places",
@@ -17879,16 +17879,16 @@
         },
         {
             "name": "leigh-osu/manzanita",
-            "version": "v1.0.1-beta.2",
+            "version": "v1.0.1-beta.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leigh-osu/manzanita.git",
-                "reference": "a8ff4853f54d24dab67bbb22a803011dc2ab92ab"
+                "reference": "720fca335d9f6a2c6912b4e078110e97d964b6f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/manzanita/zipball/a8ff4853f54d24dab67bbb22a803011dc2ab92ab",
-                "reference": "a8ff4853f54d24dab67bbb22a803011dc2ab92ab",
+                "url": "https://api.github.com/repos/leigh-osu/manzanita/zipball/720fca335d9f6a2c6912b4e078110e97d964b6f5",
+                "reference": "720fca335d9f6a2c6912b4e078110e97d964b6f5",
                 "shasum": ""
             },
             "type": "drupal-custom-theme",
@@ -17903,10 +17903,10 @@
             ],
             "description": "Drupal Theme for OSU College of Agricultural Sciences",
             "support": {
-                "source": "https://github.com/leigh-osu/manzanita/tree/v1.0.1-beta.2",
+                "source": "https://github.com/leigh-osu/manzanita/tree/v1.0.1-beta.3",
                 "issues": "https://github.com/leigh-osu/manzanita/issues"
             },
-            "time": "2026-06-11T18:36:40+00:00"
+            "time": "2026-06-27T01:06:26+00:00"
         },
         {
             "name": "leigh-osu/osu_cas_legacy_link",
@@ -17967,16 +17967,16 @@
         },
         {
             "name": "leigh-osu/osu_migrations_cas",
-            "version": "v1.0.14",
+            "version": "v1.0.15",
             "source": {
                 "type": "git",
                 "url": "git@github.com:leigh-osu/osu_migrations_cas.git",
-                "reference": "574203c10d76ad18c457894e5da2788613613a47"
+                "reference": "1d872acda926e808cb5f02ee26f1c6074d654775"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_migrations_cas/zipball/574203c10d76ad18c457894e5da2788613613a47",
-                "reference": "574203c10d76ad18c457894e5da2788613613a47",
+                "url": "https://api.github.com/repos/leigh-osu/osu_migrations_cas/zipball/1d872acda926e808cb5f02ee26f1c6074d654775",
+                "reference": "1d872acda926e808cb5f02ee26f1c6074d654775",
                 "shasum": ""
             },
             "require": {
@@ -17992,10 +17992,10 @@
             },
             "description": "Drupal 7 to 10 migration code for OSU CAS",
             "support": {
-                "source": "https://github.com/leigh-osu/osu_migrations_cas/tree/v1.0.14",
+                "source": "https://github.com/leigh-osu/osu_migrations_cas/tree/v1.0.15",
                 "issues": "https://github.com/leigh-osu/osu_migrations_cas/issues"
             },
-            "time": "2026-05-29T20:27:02+00:00"
+            "time": "2026-07-02T03:53:50+00:00"
         },
         {
             "name": "leongersen/nouislider",
@@ -19213,24 +19213,26 @@
         },
         {
             "name": "osu-wams/madrone",
-            "version": "1.4.4",
+            "version": "1.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/osu-wams/madrone.git",
-                "reference": "d036b6418f533d7d7d36c963157673838586f9bb"
+                "reference": "1b1c4b8d625ce67734b22971c9bed219117312d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/osu-wams/madrone/zipball/d036b6418f533d7d7d36c963157673838586f9bb",
-                "reference": "d036b6418f533d7d7d36c963157673838586f9bb",
+                "url": "https://api.github.com/repos/osu-wams/madrone/zipball/1b1c4b8d625ce67734b22971c9bed219117312d9",
+                "reference": "1b1c4b8d625ce67734b22971c9bed219117312d9",
                 "shasum": ""
             },
             "require-dev": {
                 "brainmaestro/composer-git-hooks": "^2.8",
-                "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
-                "drupal/coder": "^8.3",
-                "friendsoftwig/twigcs": "^6.2",
-                "squizlabs/php_codesniffer": "^3.5"
+                "dealerdirect/phpcodesniffer-composer-installer": "^1.2",
+                "drupal/coder": "^9.0",
+                "drupol/phpcsfixer-configs-drupal": "^2.2",
+                "friendsofphp/php-cs-fixer": "^3.95",
+                "friendsoftwig/twigcs": "^6.6",
+                "squizlabs/php_codesniffer": "^4.0"
             },
             "type": "drupal-custom-theme",
             "extra": {
@@ -19254,17 +19256,11 @@
                 }
             },
             "scripts": {
-                "cs": [
-                    "phpcs"
-                ],
                 "cs-checkstyle": [
                     "phpcs -q --report=checkstyle"
                 ],
                 "phpcs": [
                     "phpcs"
-                ],
-                "cbf": [
-                    "phpcbf"
                 ],
                 "phpcbf": [
                     "phpcbf"
@@ -19290,10 +19286,10 @@
             ],
             "description": "Drupal Theme for OSU",
             "support": {
-                "source": "https://github.com/osu-wams/madrone/tree/1.4.4",
+                "source": "https://github.com/osu-wams/madrone/tree/1.4.6",
                 "issues": "https://github.com/osu-wams/madrone/issues"
             },
-            "time": "2026-02-21T00:59:42+00:00"
+            "time": "2026-07-01T21:51:17+00:00"
         },
         {
             "name": "osu-wams/osu_block_types",
@@ -19730,16 +19726,16 @@
         },
         {
             "name": "osu-wams/osu_migrations",
-            "version": "1.0.36",
+            "version": "1.0.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/osu-wams/osu_migrations.git",
-                "reference": "6fee2b50b1b5ed993b4949a44790d1b1b688731c"
+                "reference": "b82753180e1a6b4522e9ed2909be4c2b6c8f1e0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/osu-wams/osu_migrations/zipball/6fee2b50b1b5ed993b4949a44790d1b1b688731c",
-                "reference": "6fee2b50b1b5ed993b4949a44790d1b1b688731c",
+                "url": "https://api.github.com/repos/osu-wams/osu_migrations/zipball/b82753180e1a6b4522e9ed2909be4c2b6c8f1e0f",
+                "reference": "b82753180e1a6b4522e9ed2909be4c2b6c8f1e0f",
                 "shasum": ""
             },
             "require-dev": {
@@ -19775,10 +19771,10 @@
             ],
             "description": "Drupal Migrations to upgrade from OSU Drupal 7.",
             "support": {
-                "source": "https://github.com/osu-wams/osu_migrations/tree/1.0.36",
+                "source": "https://github.com/osu-wams/osu_migrations/tree/1.0.37",
                 "issues": "https://github.com/osu-wams/osu_migrations/issues"
             },
-            "time": "2026-02-05T19:28:24+00:00"
+            "time": "2026-05-26T20:38:35+00:00"
         },
         {
             "name": "osu-wams/osu_paragraphs",
