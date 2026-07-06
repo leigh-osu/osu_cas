@@ -227,6 +227,7 @@ section_3() {
   ddev drush migrate:import paragraph_divider__to__layout_builder
   ddev drush migrate:import paragraph_menu__to__layout_builder
   ddev drush migrate:import paragraph_1_col__to__layout_builder
+  ddev drush migrate:import paragraph_1_column_background_video__to__layout_builder
   ddev drush migrate:import paragraph_2_col_left__to__layout_builder
   ddev drush migrate:import paragraph_2_col_right__to__layout_builder
   ddev drush migrate:import paragraph_2_column_4_8_left__to__layout_builder
@@ -359,7 +360,12 @@ section_6() {
   # migrations by osu_migrations_cas_migration_plugins_alter (cas_skip_og_menu),
   # so this is the sole importer of OG menu links -- no id:mlid clash with the
   # 'OSU Menus' tag in section 7.
+  # Only each group's canonical OG menu goes to its group menu; extra OG menus
+  # (The Source's per-issue menus, EMT's Academics, FWCS's Confluence) become
+  # standalone menus via cas_og_extra_menu / cas_og_extra_menu_links.
   ddev drush migrate:import cas_og_menu_group_menu
+  ddev drush migrate:import cas_og_extra_menu
+  ddev drush migrate:import cas_og_extra_menu_links
 
   ddev drush migrate:import --tag='CAS Groups' --force
 
