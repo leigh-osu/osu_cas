@@ -1,14 +1,7 @@
-uuid: 759ec795-a23e-4a36-8737-3750fbc5fb59
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: bIxY2oH7Y3rPqnT_Wgo48odOAUZ01heW9sKjUvNk1gE
 id: cas_feature_page_to_page
-class: null
-idMap: {  }
-field_plugin_method: null
-cck_plugin_method: null
 migration_tags:
   - 'Drupal 7'
   - Content
@@ -52,6 +45,7 @@ source:
       sacnas_officer_body_text: paragraph_sacnas_officer_body_text__to__layout_builder
       lp_vertical_tabs: paragraph_lp_vertical_tabs__to__layout_builder
       lp_picbox_grid: paragraph_lp_picbox_grid__to__layout_builder
+      1_column_background_video: paragraph_1_column_background_video__to__layout_builder
 process:
   title: title
   body:
@@ -146,6 +140,7 @@ migration_dependencies:
     - paragraph_accordian__to__layout_builder
     - paragraph_lp_picbox_grid__to__layout_builder
     - paragraph_lp_vertical_tabs__to__layout_builder
+    - paragraph_1_column_background_video__to__layout_builder
     - upgrade_d7_media_audio
     - upgrade_d7_media_documents
     - upgrade_d7_media_kaltura

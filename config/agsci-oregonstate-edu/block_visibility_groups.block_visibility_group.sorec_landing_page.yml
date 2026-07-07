@@ -1,4 +1,4 @@
-uuid: cd59b2e3-61af-4b58-b8c4-e16633d27f89
+uuid: 445e2854-a9d3-422b-9ac4-4b4092306cff
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: sorec_landing_page
 label: sorec_landing_page
 logic: and
 conditions:
-  a05a4d0f-e1f9-492c-87d8-8dff02bab817:
+  a71c6afe-3640-4dff-8a91-88da13786ec5:
     id: request_path
     negate: false
-    uuid: a05a4d0f-e1f9-492c-87d8-8dff02bab817
+    uuid: a71c6afe-3640-4dff-8a91-88da13786ec5
     pages: /node/230236
 allow_other_conditions: null

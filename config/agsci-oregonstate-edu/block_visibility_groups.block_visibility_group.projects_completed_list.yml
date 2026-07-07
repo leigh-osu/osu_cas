@@ -1,4 +1,4 @@
-uuid: 6fe3ff2c-8726-4473-a3ad-5c7a15bd0e19
+uuid: be61e2ce-cbd2-455f-b241-1fde734a18ff
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: projects_completed_list
 label: projects_completed_list
 logic: and
 conditions:
-  ce93a07c-8a0d-41a1-bf64-69533edd91aa:
+  f78f6cec-de04-4d45-8c4f-64c4dd617a56:
     id: request_path
     negate: false
-    uuid: ce93a07c-8a0d-41a1-bf64-69533edd91aa
+    uuid: f78f6cec-de04-4d45-8c4f-64c4dd617a56
     pages: /node/79786
 allow_other_conditions: null

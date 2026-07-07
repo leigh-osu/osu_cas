@@ -1,4 +1,4 @@
-uuid: 0d3a5b1e-cb8d-4de1-8d17-8eeeee7b0c7f
+uuid: a45ad584-2e65-4059-bc60-96397def1530
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: ov_edit_pubs
 label: ov_edit_pubs
 logic: and
 conditions:
-  aa990ff3-900d-4a32-a549-aec3e9d92380:
+  d2b14c78-3401-4ac7-b15d-17a5dee8f412:
     id: request_path
     negate: false
-    uuid: aa990ff3-900d-4a32-a549-aec3e9d92380
+    uuid: d2b14c78-3401-4ac7-b15d-17a5dee8f412
     pages: /node/122476
 allow_other_conditions: null

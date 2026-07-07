@@ -1,4 +1,4 @@
-uuid: fa24c33b-a7bb-4558-8a65-bcb4559edf1b
+uuid: f2e48164-9f24-4d49-9049-7d30e59c32a3
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: anrs_digital_signage
 label: anrs_digital_signage
 logic: and
 conditions:
-  6faa1499-7c77-4c8e-86a0-6998820a1431:
+  1880279a-90c4-4277-b781-f329b23d3504:
     id: request_path
     negate: false
-    uuid: 6faa1499-7c77-4c8e-86a0-6998820a1431
+    uuid: 1880279a-90c4-4277-b781-f329b23d3504
     pages: /node/213721
 allow_other_conditions: null

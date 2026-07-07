@@ -1,14 +1,7 @@
-uuid: 6266f69a-ba80-416d-93be-d85d53802307
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: gPqPlxUBQ-DobrRLypmEZG7akuw7Mmp5vrLUt-qRbuQ
 id: cas_paragraph_page_to_page
-class: null
-idMap: {  }
-field_plugin_method: null
-cck_plugin_method: null
 migration_tags:
   - 'Drupal 7'
   - Content
@@ -48,6 +41,7 @@ source:
       paragraph_menu: paragraph_menu__to__layout_builder
       lp_vertical_tabs: paragraph_lp_vertical_tabs__to__layout_builder
       lp_picbox_grid: paragraph_lp_picbox_grid__to__layout_builder
+      1_column_background_video: paragraph_1_column_background_video__to__layout_builder
       lp_adjustable_columns: paragraph_lp_adjustable_columns__to__layout_builder
 process:
   _skip_oversize_layout:
@@ -141,3 +135,4 @@ migration_dependencies:
     - paragraph_lp_vertical_tabs__to__layout_builder
     - paragraph_lp_picbox_grid__to__layout_builder
     - paragraph_lp_adjustable_columns__to__layout_builder
+    - paragraph_1_column_background_video__to__layout_builder

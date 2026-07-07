@@ -1,4 +1,4 @@
-uuid: 55ce040f-ff76-4c98-a102-93be2a865804
+uuid: 536206e6-49a1-4595-a717-ce2937f45a03
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: completed_projects_view
 label: completed_projects_view
 logic: and
 conditions:
-  65a5c14a-cd63-4a04-bcf9-20f86de204b6:
+  300ae0dc-c821-4f8c-ae71-782e3d2801dc:
     id: request_path
     negate: false
-    uuid: 65a5c14a-cd63-4a04-bcf9-20f86de204b6
+    uuid: 300ae0dc-c821-4f8c-ae71-782e3d2801dc
     pages: "/weed-science-hort/research/completed-projects\r\n/node/257241"
 allow_other_conditions: null

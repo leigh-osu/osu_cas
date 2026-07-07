@@ -1,14 +1,7 @@
-uuid: d3ef3d87-c08d-4514-8b10-8b43b2999b67
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: crYGUFXqqFMU18huMEpZA87GcaILeeX8UwEC7ZtJz0I
 id: cas_page_to_page
-class: null
-idMap: {  }
-field_plugin_method: null
-cck_plugin_method: null
 migration_tags:
   - 'Drupal 7'
   - Content
@@ -49,6 +42,8 @@ source:
       sacnas_officer_body_text: paragraph_sacnas_officer_body_text__to__layout_builder
       lp_adjustable_columns: paragraph_lp_adjustable_columns__to__layout_builder
       lp_picbox_grid: paragraph_lp_picbox_grid__to__layout_builder
+      lp_vertical_tabs: paragraph_lp_vertical_tabs__to__layout_builder
+      1_column_background_video: paragraph_1_column_background_video__to__layout_builder
 process:
   body:
     -
@@ -135,3 +130,5 @@ migration_dependencies:
     - paragraph_sacnas_officer_body_text__to__layout_builder
     - paragraph_lp_adjustable_columns__to__layout_builder
     - paragraph_lp_picbox_grid__to__layout_builder
+    - paragraph_lp_vertical_tabs__to__layout_builder
+    - paragraph_1_column_background_video__to__layout_builder

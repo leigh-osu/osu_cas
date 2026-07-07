@@ -1,4 +1,4 @@
-uuid: 24849843-c8c7-4c38-bd91-1edcda50d844
+uuid: e200b3b2-d3a2-4c26-b8ee-7a6ceb4a9391
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: the_source_2024_fall
 label: the_source_2024_fall
 logic: and
 conditions:
-  f47d6697-d57b-4ab4-af9d-e478866954ff:
+  22b69bb5-0b18-40d0-bbf8-84d21a4e351e:
     id: request_path
     negate: false
-    uuid: f47d6697-d57b-4ab4-af9d-e478866954ff
+    uuid: 22b69bb5-0b18-40d0-bbf8-84d21a4e351e
     pages: "/thesource/fall-2024\r\n/thesource/fall-2024*\r\n/thesource/2024-is4\r\n/thesource/2024-is4*\r\n/thesource/2024-iv\r\n/thesource/2024-iv*\r\n/thesource/2024-dec\r\n/thesource/2024-dec/*"
 allow_other_conditions: null

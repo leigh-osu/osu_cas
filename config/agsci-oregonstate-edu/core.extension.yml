@@ -184,9 +184,11 @@ module:
   serialization: 0
   shortcut: 0
   simple_popup_blocks: 0
+  simple_styleguide: 0
   sitewide_alert: 0
   smart_date: 0
   sophron: 0
+  styleguide: 0
   superfish: 0
   syslog: 0
   system: 0

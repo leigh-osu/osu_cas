@@ -1,0 +1,8 @@
+uuid: b26ce639-eed3-40c7-80c7-608ced4875ff
+langcode: en
+status: true
+dependencies: {  }
+id: menu-june-2026
+label: 'June 2026'
+description: 'The June 2026 issue of The Source'
+locked: false

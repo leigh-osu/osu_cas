@@ -1,4 +1,4 @@
-uuid: 53b7d5b2-d263-483b-b380-112d04f254f7
+uuid: 172789c6-14df-4a56-ba58-dbb38d7fea8e
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: hemp_media
 label: hemp_media
 logic: and
 conditions:
-  19c25fd0-abb0-4128-b6b2-66e3a8bc5d2f:
+  68e1f083-f9e2-4c0d-b4fe-2d58ddb66ac6:
     id: request_path
     negate: false
-    uuid: 19c25fd0-abb0-4128-b6b2-66e3a8bc5d2f
+    uuid: 68e1f083-f9e2-4c0d-b4fe-2d58ddb66ac6
     pages: /node/216706
 allow_other_conditions: null

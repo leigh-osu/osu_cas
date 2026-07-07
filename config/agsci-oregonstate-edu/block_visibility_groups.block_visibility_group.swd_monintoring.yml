@@ -1,4 +1,4 @@
-uuid: 6d0a8d12-ba38-48a4-81ae-0e12d6f3bf1f
+uuid: 5f3cef7b-d7cc-4a23-a1fa-51d020de28ac
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: swd_monintoring
 label: swd_monintoring
 logic: and
 conditions:
-  8c59424b-5940-4b6b-910f-f8070d06a2bb:
+  7b948106-e166-4d21-acd5-319d70f19316:
     id: request_path
     negate: false
-    uuid: 8c59424b-5940-4b6b-910f-f8070d06a2bb
+    uuid: 7b948106-e166-4d21-acd5-319d70f19316
     pages: /node/80106
 allow_other_conditions: null

@@ -1,4 +1,4 @@
-uuid: 87e1fb5c-0512-431e-b740-25144891b2aa
+uuid: e2efb714-28b0-43db-b25d-544531df27f1
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: articles_topic
 label: articles_topic
 logic: and
 conditions:
-  107c044f-8cbd-4175-b082-f11c5eea6c4e:
+  f7825240-991c-4ffc-b96c-b1277422a16f:
     id: request_path
     negate: false
-    uuid: 107c044f-8cbd-4175-b082-f11c5eea6c4e
+    uuid: f7825240-991c-4ffc-b96c-b1277422a16f
     pages: /node/38026
 allow_other_conditions: null

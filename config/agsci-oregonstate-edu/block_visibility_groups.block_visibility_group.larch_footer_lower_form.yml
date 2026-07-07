@@ -1,4 +1,4 @@
-uuid: daa7aed2-02a0-40ca-895d-b2e0156ee283
+uuid: 2e6fd563-f623-44a8-bf1d-3bf619c40cf1
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: larch_footer_lower_form
 label: larch_footer_lower_form
 logic: and
 conditions:
-  4db9800d-6295-406c-ad4c-c78a5461141b:
+  bca50b28-60a4-4a15-92f8-4393ad912540:
     id: request_path
     negate: false
-    uuid: 4db9800d-6295-406c-ad4c-c78a5461141b
+    uuid: bca50b28-60a4-4a15-92f8-4393ad912540
     pages: "/plant-clinic\r\n/plant-clinic/*"
 allow_other_conditions: null

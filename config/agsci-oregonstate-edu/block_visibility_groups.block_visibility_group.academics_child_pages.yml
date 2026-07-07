@@ -1,4 +1,4 @@
-uuid: 90cebb3c-c69b-4cb8-b250-334ebf15d949
+uuid: 70ce2a6a-ffc2-4785-84e0-c9adc3a24a04
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: academics_child_pages
 label: academics-child-pages
 logic: and
 conditions:
-  a5d7c8df-5322-4aed-b266-3863e2340a81:
+  1986eeba-e6c9-4d49-a963-ab3b2a664c40:
     id: request_path
     negate: false
-    uuid: a5d7c8df-5322-4aed-b266-3863e2340a81
+    uuid: 1986eeba-e6c9-4d49-a963-ab3b2a664c40
     pages: "/academics/*\r\n/main/academics/*\r\n/academic-programs/*\r\n/education/*\r\n/education"
 allow_other_conditions: null

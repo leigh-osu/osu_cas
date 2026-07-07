@@ -1,4 +1,4 @@
-uuid: 1e48135f-03e1-4686-90e0-26e92ed3c417
+uuid: 06af6c04-f9b5-4109-910a-6b0f2a97a9d2
 langcode: en
 status: true
 dependencies:
@@ -8,10 +8,10 @@ id: degree_fact_sheet
 label: degree_fact_sheet
 logic: and
 conditions:
-  7d9268ea-1ccf-4107-900a-b7a9731b71b5:
+  a184033a-19af-40d0-aedf-3d5c2b90bbaa:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 7d9268ea-1ccf-4107-900a-b7a9731b71b5
+    uuid: a184033a-19af-40d0-aedf-3d5c2b90bbaa
     context_mapping:
       node: '@node.node_route_context:node'
     bundles:

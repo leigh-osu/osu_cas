@@ -1,4 +1,4 @@
-uuid: 27754e16-6caa-46cd-becf-a59c9ec56071
+uuid: c50b3c23-be89-4bb3-9119-030ba3a5877d
 langcode: en
 status: true
 dependencies:
@@ -8,14 +8,14 @@ id: video_child_page
 label: video-child-page
 logic: and
 conditions:
-  563798db-a502-4b98-bb66-289caef56818:
+  bba5a018-10f1-4f70-9e77-29273a32253a:
     id: request_path
     negate: false
-    uuid: 563798db-a502-4b98-bb66-289caef56818
+    uuid: bba5a018-10f1-4f70-9e77-29273a32253a
     pages: '/*/videos'
-  e00cca7b-163b-4aa7-a4fe-2f26f9ab4f49:
+  e8283624-6835-41df-9b2b-941406293f33:
     id: request_path
     negate: true
-    uuid: e00cca7b-163b-4aa7-a4fe-2f26f9ab4f49
+    uuid: e8283624-6835-41df-9b2b-941406293f33
     pages: "/node/24294\r\n/oregon-vegetables/resources/videos\r\n/spotted-wing-drosophila/photos-and-videos/videos"
 allow_other_conditions: null

@@ -1,12 +1,12 @@
-uuid: 3553cf81-8d6b-46bb-ad22-3ff8c1ba5c4a
+uuid: 214e5817-9130-4b0d-89a4-0d8ee314a0e1
 langcode: en
 status: true
 dependencies: {  }
 name: 640_scale_crop
 label: '640 square Scale Crop'
 effects:
-  3e8e3d4f-a8ae-40b8-a06b-3957cd5a022e:
-    uuid: 3e8e3d4f-a8ae-40b8-a06b-3957cd5a022e
+  7179c667-8a07-44cf-acea-1b45f5b90077:
+    uuid: 7179c667-8a07-44cf-acea-1b45f5b90077
     id: image_scale_and_crop
     weight: 1
     data:

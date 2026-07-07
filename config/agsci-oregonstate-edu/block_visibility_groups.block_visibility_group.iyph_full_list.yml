@@ -1,4 +1,4 @@
-uuid: 9fd1666a-6474-46b2-96c3-d449418111c3
+uuid: f4daa66d-724a-4685-83dc-8d5f1acfbcbf
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: iyph_full_list
 label: iyph_full_list
 logic: and
 conditions:
-  cbbd9944-e13f-477f-a977-09f25cd79bd7:
+  3c788255-1c63-4585-b044-7802ea22a107:
     id: request_path
     negate: false
-    uuid: cbbd9944-e13f-477f-a977-09f25cd79bd7
+    uuid: 3c788255-1c63-4585-b044-7802ea22a107
     pages: /node/217366
 allow_other_conditions: null
