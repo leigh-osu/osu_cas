@@ -347,7 +347,7 @@
         "drupal/tamper": "^1.0alpha2",
         "drupal/tb_megamenu": "^3@alpha",
         "drupal/text_field_formatter": "^2.0",
-        "drupal/toc_js": "^2.0",
+        "drupal/toc_js": "^3.6",
         "drupal/token_or": "^2.3",
         "drupal/token_url_plus": "^1.0",
         "drupal/tour": "^2.0",
@@ -572,7 +572,8 @@
             "osu-wams/osu_standard": {
                 "OSU Standard Profile updates": "patches/0001-cas-remove-distro-info.patch",
                 "Split Group module install to avoid 2.3.x post-install field race": "patches/osu_standard-split-group-install.patch",
-                "Disable xmlsitemap cron regeneration to prevent drush install batch crash": "patches/osu_standard-xmlsitemap-disable-cron-regeneration.patch"
+                "Disable xmlsitemap cron regeneration to prevent drush install batch crash": "patches/osu_standard-xmlsitemap-disable-cron-regeneration.patch",
+                "Remove webform_bootstrap from install list": "patches/osu_standard-remove-webform-bootstrap.patch"
             }
         },
         "drupal-scaffold": {
