@@ -80,6 +80,14 @@ section_1() {
 
   # ddev import-db --file="/Users/leighr/Sites/osu/osu_cas/scripts-dev/agsci_oregonstate_edu_1772688701.sql"
 
+  # site:install (core 10.6.12 / drush 13.7.5) leaves group's cached
+  # group-type -> plugin map stale, missing basic_group-group_membership.
+  # Group reruns installEnforced() on every subsequent module install
+  # (hook_modules_installed), so without this rebuild every drush en below
+  # throws "'group_content_type' entity with ID 'basic_group-group_membership'
+  # already exists" after installing its modules.
+  ddev drush cr -y
+
   # Install modules
   echo "Installing modules..."
 
