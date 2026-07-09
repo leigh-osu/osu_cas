@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1043676cfee31518621b2548ab80516a",
+    "content-hash": "5c1d40fe1145c84a2cc18e85d1e173da",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -17894,16 +17894,16 @@
         },
         {
             "name": "leigh-osu/manzanita",
-            "version": "v1.0.1-beta.4",
+            "version": "1.0.1-beta.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leigh-osu/manzanita.git",
-                "reference": "2bd857e330f6d8b769a46861f93a586ad3caca35"
+                "reference": "874378ce11d02754c5bb250e4d0e465719c31c0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/manzanita/zipball/2bd857e330f6d8b769a46861f93a586ad3caca35",
-                "reference": "2bd857e330f6d8b769a46861f93a586ad3caca35",
+                "url": "https://api.github.com/repos/leigh-osu/manzanita/zipball/874378ce11d02754c5bb250e4d0e465719c31c0a",
+                "reference": "874378ce11d02754c5bb250e4d0e465719c31c0a",
                 "shasum": ""
             },
             "type": "drupal-custom-theme",
@@ -17918,10 +17918,10 @@
             ],
             "description": "Drupal Theme for OSU College of Agricultural Sciences",
             "support": {
-                "source": "https://github.com/leigh-osu/manzanita/tree/v1.0.1-beta.4",
+                "source": "https://github.com/leigh-osu/manzanita/tree/1.0.1-beta.6",
                 "issues": "https://github.com/leigh-osu/manzanita/issues"
             },
-            "time": "2026-07-07T23:13:01+00:00"
+            "time": "2026-07-08T23:33:50+00:00"
         },
         {
             "name": "leigh-osu/osu_cas_legacy_link",
@@ -17982,16 +17982,16 @@
         },
         {
             "name": "leigh-osu/osu_migrations_cas",
-            "version": "v1.0.18",
+            "version": "v1.0.19",
             "source": {
                 "type": "git",
                 "url": "git@github.com:leigh-osu/osu_migrations_cas.git",
-                "reference": "75c653d8618bc826409646f9bdf1a624431e11a2"
+                "reference": "e62574c3a2ccc28ed2f5db478106243a5d68f868"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_migrations_cas/zipball/75c653d8618bc826409646f9bdf1a624431e11a2",
-                "reference": "75c653d8618bc826409646f9bdf1a624431e11a2",
+                "url": "https://api.github.com/repos/leigh-osu/osu_migrations_cas/zipball/e62574c3a2ccc28ed2f5db478106243a5d68f868",
+                "reference": "e62574c3a2ccc28ed2f5db478106243a5d68f868",
                 "shasum": ""
             },
             "require": {
@@ -18007,10 +18007,10 @@
             },
             "description": "Drupal 7 to 10 migration code for OSU CAS",
             "support": {
-                "source": "https://github.com/leigh-osu/osu_migrations_cas/tree/v1.0.18",
+                "source": "https://github.com/leigh-osu/osu_migrations_cas/tree/v1.0.19",
                 "issues": "https://github.com/leigh-osu/osu_migrations_cas/issues"
             },
-            "time": "2026-07-06T20:04:15+00:00"
+            "time": "2026-07-08T23:30:13+00:00"
         },
         {
             "name": "leongersen/nouislider",
