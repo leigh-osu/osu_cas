@@ -561,6 +561,7 @@
                 "3194370-5 Memory Limit issues": "https://www.drupal.org/files/issues/2022-09-15/memory-limit-3194370-5.patch"
             },
             "osu-wams/osu_migrations": {
+                "Map larch inline text classes in accordion bodies via osu_migrations_cas": "patches/osu_migrations-accordion-inline-classes.patch",
                 "OSU Migrations CAS file settings": "patches/0001-osu_migrations_files_cas.patch",
                 "OSU Migrations CAS user settings": "patches/0002-osu_user_accounts_cas.patch",
                 "OSU Migrations CAS biblio settings": "patches/0001-fix-biblio-dates.patch",
@@ -573,7 +574,8 @@
                 "OSU Standard Profile updates": "patches/0001-cas-remove-distro-info.patch",
                 "Split Group module install to avoid 2.3.x post-install field race": "patches/osu_standard-split-group-install.patch",
                 "Disable xmlsitemap cron regeneration to prevent drush install batch crash": "patches/osu_standard-xmlsitemap-disable-cron-regeneration.patch",
-                "Remove webform_bootstrap from install list": "patches/osu_standard-remove-webform-bootstrap.patch"
+                "Remove webform_bootstrap from install list": "patches/osu_standard-remove-webform-bootstrap.patch",
+                "Full OSU brand background palette and orange text color in bootstrap_styles": "patches/osu_standard-brand-background-palette.patch"
             }
         },
         "drupal-scaffold": {

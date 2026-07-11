@@ -18,7 +18,7 @@ index f31b3f1..9f2cab7 100644
      # /var/www/html/docroot/sites/site_fqdn/files-private/files
 -    source_base_path: '/var/www/d7-files-private/files'
 +#    source_base_path: '/var/www/d7-files-private/files'
-+    source_base_path: '../databackup/sites/agscid7/files-private/'
++    source_base_path: '/var/www/d7/sites/agscid7/files-private/'
  process:
    filename: filename
    source_full_path:
@@ -32,7 +32,7 @@ index 9443fed..9002418 100644
      # section below.
 -    source_base_path: '/var/www/html/docroot'
 +#    source_base_path: '/var/www/html/docroot'
-+    source_base_path: '../databackup'
++    source_base_path: '/var/www/d7'
  process:
    # If you are using this file to build a custom migration consider removing
    # the fid field to allow incremental migrations.

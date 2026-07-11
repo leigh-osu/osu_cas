@@ -1,0 +1,19 @@
+Rewrite D7 larch inline text-color classes (.osu-orange, .larch-white) in
+accordion bodies to native osu-text-* names, delegating to the CAS class map
+in osu_migrations_cas when that module is available.
+
+--- a/modules/paragraphs_to_layout_builder/src/Plugin/migrate/process/AccordionItem.php
++++ b/modules/paragraphs_to_layout_builder/src/Plugin/migrate/process/AccordionItem.php
+@@ -56,6 +56,12 @@
+         $bodyValue = $accordion->field_p_accordion_group_content_value;
+         // Pass it to our service to get the new embed value.
+         $transformedEmbedCode = $this->osuMediaEmbed->transformEmbedCode($bodyValue);
++        // CAS: rewrite D7 larch inline text-color classes to native osu-text-*
++        // names when the CAS migration module is present (the class map lives
++        // there as the single source of truth).
++        if (class_exists(\Drupal\osu_migrations_cas\Plugin\migrate\process\CasLarchInlineClasses::class)) {
++          $transformedEmbedCode = \Drupal\osu_migrations_cas\Plugin\migrate\process\CasLarchInlineClasses::mapText($transformedEmbedCode);
++        }
+ 
+         $paragraph_items[] = Paragraph::create([
+           'type' => 'osu_accordion_item',
