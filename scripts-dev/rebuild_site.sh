@@ -454,6 +454,11 @@ section_7() {
 section_verify() {
   echo "=== Section 8: post-rebuild verification ==="
   bash "${PROJECT_ROOT}/scripts-dev/verify_migration.sh"
+  local verify_rc=$?
+  # Refresh the dead legacy-file-URL report (see the script header for the
+  # column semantics); informational only, never fails the run.
+  ddev drush scr scripts-dev/generate_dead_legacy_file_urls.php || true
+  return $verify_rc
 }
 
 # ---------------------------------------------------------------------------
