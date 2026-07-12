@@ -443,6 +443,11 @@ section_7() {
   ddev drush en domain_config domain_config_ui -y
   ddev drush scr scripts-dev/import_domain_config.php
 
+  # Group 2.x node access joins group_relationship_field_data without DISTINCT,
+  # so nodes in multiple groups repeat in every node listing (group issue
+  # #3172135). Force the views "distinct" query option on all node-based views.
+  ddev drush scr scripts-dev/set_views_distinct.php
+
   ddev drush pqe -y
   ddev drush cr
 

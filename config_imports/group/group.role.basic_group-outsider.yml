@@ -1,12 +1,9 @@
-uuid: c4d64c99-f2f1-4376-95a7-544d145eca91
 langcode: en
 status: true
 dependencies:
   config:
     - group.type.basic_group
     - user.role.authenticated
-_core:
-  default_config_hash: 1h7m3rCyRMjWPwdUjfp3kyh_utrRuhlFsGMC6WZ3HLY
 id: basic_group-outsider
 label: Outsider
 weight: -9
@@ -19,3 +16,4 @@ permissions:
   - 'view group'
   - 'view group_node:osu_profile entity'
   - 'view group_node:page entity'
+

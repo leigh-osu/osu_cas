@@ -1,12 +1,9 @@
-uuid: 3baa2f6e-1e9a-46d9-a45a-1023f82c0601
 langcode: en
 status: true
 dependencies:
   config:
     - group.type.basic_group
     - user.role.anonymous
-_core:
-  default_config_hash: gqkSh7mt_UMaP-CfupHX8W6WBVHyu4nC4ElY7mTyDos
 id: basic_group-anonymous
 label: Anonymous
 weight: -10
@@ -18,3 +15,4 @@ permissions:
   - 'view group'
   - 'view group_node:osu_profile entity'
   - 'view group_node:page entity'
+
