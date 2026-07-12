@@ -418,6 +418,11 @@ section_7() {
   ddev drush migrate:import cas_user_profile_osu_student
   ddev drush migrate:import cas_user_profile_agricultural_sciences
 
+  # Profile group placement (D7 user OG memberships -> group_node:osu_profile).
+  # Deliberately NOT tagged 'CAS Groups' (section 6): it must run after the
+  # profile nodes above exist, or every row skips on the profile lookup.
+  ddev drush migrate:import cas_profile_group_content --force
+
   ddev drush migrate:import --tag='OSU Menus'
   ddev drush migrate:import --tag='OSU Blocks'
 
