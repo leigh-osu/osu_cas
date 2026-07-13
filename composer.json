@@ -119,7 +119,7 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/leigh-osu/osu_cas_legacy_link.git"
+            "url": "https://github.com/leigh-osu/osu_cas_site_sync.git"
         },
         {
             "type": "vcs",
@@ -383,7 +383,7 @@
         "google/charts": "^45.0",
         "google/recaptcha": "^1.3",
         "leigh-osu/manzanita": "^1@beta",
-        "leigh-osu/osu_cas_legacy_link": "^1.0",
+        "leigh-osu/osu_cas_site_sync": "^1.0",
         "leigh-osu/osu_digital_measures": "^1.0",
         "leigh-osu/osu_migrations_cas": "^1.0",
         "mnsami/composer-custom-directory-installer": "^2.0",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4d50aa6059d2c18a9f4d66eaf297c4db",
+    "content-hash": "e4c4a793cdb1ea43cf9cd23a6c7ee18b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -17925,17 +17925,17 @@
             "time": "2026-07-12T17:20:19+00:00"
         },
         {
-            "name": "leigh-osu/osu_cas_legacy_link",
-            "version": "v1.0.03",
+            "name": "leigh-osu/osu_cas_site_sync",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/leigh-osu/osu_cas_legacy_link.git",
-                "reference": "dcb148757ac2b84e3ecb326a2efcfa5b75a44295"
+                "url": "https://github.com/leigh-osu/osu_cas_site_sync.git",
+                "reference": "a6678e791009f2515fdca56ba91a90ce4df20cce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_cas_legacy_link/zipball/dcb148757ac2b84e3ecb326a2efcfa5b75a44295",
-                "reference": "dcb148757ac2b84e3ecb326a2efcfa5b75a44295",
+                "url": "https://api.github.com/repos/leigh-osu/osu_cas_site_sync/zipball/a6678e791009f2515fdca56ba91a90ce4df20cce",
+                "reference": "a6678e791009f2515fdca56ba91a90ce4df20cce",
                 "shasum": ""
             },
             "require": {
@@ -17945,12 +17945,12 @@
             "license": [
                 "GPL-2.0-or-later"
             ],
-            "description": "OSU CAS legacy link module",
+            "description": "OSU CAS prod site sync module",
             "support": {
-                "source": "https://github.com/leigh-osu/osu_cas_legacy_link/tree/v1.0.03",
-                "issues": "https://github.com/leigh-osu/osu_cas_legacy_link/issues"
+                "source": "https://github.com/leigh-osu/osu_cas_site_sync/tree/v1.1.0",
+                "issues": "https://github.com/leigh-osu/osu_cas_site_sync/issues"
             },
-            "time": "2026-06-04T22:49:55+00:00"
+            "time": "2026-07-13T03:37:23+00:00"
         },
         {
             "name": "leigh-osu/osu_digital_measures",
