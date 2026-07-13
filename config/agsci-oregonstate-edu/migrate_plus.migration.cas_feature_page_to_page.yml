@@ -78,6 +78,9 @@ process:
   path/pathauto:
     plugin: default_value
     default_value: 0
+  cover_temp:
+    plugin: cas_cover_photo_section
+    source: field_cover_photo
   default_temp:
     plugin: default_layout
     bundle: page
@@ -87,8 +90,9 @@ process:
   layout_builder__layout:
     plugin: get
     source:
-      - '@paragraphs_temp'
+      - '@cover_temp'
       - '@default_temp'
+      - '@paragraphs_temp'
   type:
     plugin: default_value
     default_value: page
