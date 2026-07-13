@@ -17926,16 +17926,16 @@
         },
         {
             "name": "leigh-osu/osu_cas_site_sync",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leigh-osu/osu_cas_site_sync.git",
-                "reference": "a6678e791009f2515fdca56ba91a90ce4df20cce"
+                "reference": "1837c51702e4fd530b25974ed9f6eb79c4edcd9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_cas_site_sync/zipball/a6678e791009f2515fdca56ba91a90ce4df20cce",
-                "reference": "a6678e791009f2515fdca56ba91a90ce4df20cce",
+                "url": "https://api.github.com/repos/leigh-osu/osu_cas_site_sync/zipball/1837c51702e4fd530b25974ed9f6eb79c4edcd9b",
+                "reference": "1837c51702e4fd530b25974ed9f6eb79c4edcd9b",
                 "shasum": ""
             },
             "require": {
@@ -17947,10 +17947,10 @@
             ],
             "description": "OSU CAS prod site sync module",
             "support": {
-                "source": "https://github.com/leigh-osu/osu_cas_site_sync/tree/v1.1.0",
+                "source": "https://github.com/leigh-osu/osu_cas_site_sync/tree/v1.2.0",
                 "issues": "https://github.com/leigh-osu/osu_cas_site_sync/issues"
             },
-            "time": "2026-07-13T03:37:23+00:00"
+            "time": "2026-07-13T03:58:09+00:00"
         },
         {
             "name": "leigh-osu/osu_digital_measures",
