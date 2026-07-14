@@ -156,14 +156,17 @@ section_1() {
   # employee, site coordinators). The nodes stay skeletal until the
   # section-7 'OSU Drupal Profile' field migrations fill them in.
   #
-  # Content migrations preserve their D7 nids (destid == D7 nid). The profile
-  # migration auto-increments, so run this early it would otherwise plant
-  # profiles on low nids (1, 2, ... 134 ...) that later collide with the
-  # preserved D7 nid of a content node ("Update existing node revision while
-  # changing the revision ID is not supported" -> that content row fails).
-  # Seed the node auto-increment above the D7 max nid (287726, frozen source)
-  # so every early profile lands at 300000+, leaving all D7 nids free.
+  # Content migrations preserve their D7 nids AND vids (revision ids). The
+  # profile migration auto-increments both, so running it early it would
+  # otherwise plant profiles on low nids/vids that later collide with the
+  # preserved D7 nid/vid of a content node — the nid clash gives "Update
+  # existing node revision while changing the revision ID is not supported",
+  # the vid clash gives "Duplicate entry for key node__vid". Seed both
+  # auto-increments above the D7 maxima (frozen source: max nid 287726, max
+  # vid 1115981) so every early profile lands well above all D7 ids, leaving
+  # every D7 nid and vid free.
   ddev drush sql:query "ALTER TABLE node AUTO_INCREMENT = 300000;"
+  ddev drush sql:query "ALTER TABLE node_revision AUTO_INCREMENT = 1200000;"
   ddev drush migrate:import upgrade_d7_user_to_profile
 
   # CAS login mappings (uid -> externalauth authmap, provider 'cas').
@@ -531,6 +534,11 @@ run_from() {
 if [ "${BASH_SOURCE[0]}" != "${0}" ]; then
   return 0 2>/dev/null
 fi
+
+# Prevent idle sleep for the duration of this rebuild (macOS). -w $$ ties
+# caffeinate's lifetime to this script's PID, so it exits automatically when
+# the rebuild ends.
+command -v caffeinate >/dev/null 2>&1 && caffeinate -i -w $$ &
 
 case "${1:-}" in
   "")
