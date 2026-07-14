@@ -477,6 +477,28 @@ section_7() {
   # #3172135). Force the views "distinct" query option on all node-based views.
   ddev drush scr scripts-dev/set_views_distinct.php
 
+  # Site-sync dev helper (prod compare window + slideshow). Not in the
+  # section-1 module list, so enable it here so it is available after every
+  # rebuild without a manual install, and place its block in the pre-footer.
+  ddev drush en osu_cas_site_sync -y
+  ddev drush php:eval '
+    if (!\Drupal\block\Entity\Block::load("manzanita_sitesync")) {
+      \Drupal\block\Entity\Block::create([
+        "id" => "manzanita_sitesync", "theme" => "manzanita",
+        "region" => "pre_footer", "weight" => 0, "plugin" => "osu_cas_site_sync",
+        "settings" => [
+          "id" => "osu_cas_site_sync", "label" => "Prod site sync",
+          "label_display" => 0, "provider" => "osu_cas_site_sync",
+          "base_url" => "https://agsci.oregonstate.edu", "link_text" => "View D7",
+        ],
+        "visibility" => [],
+      ])->save();
+    }'
+
+  # Disable the Group module "Group operations" admin block (the big
+  # Add-content / Leave-group block) on the front-facing themes.
+  ddev drush php:eval 'foreach (["manzanita_groupoperations", "madrone_groupoperations"] as $id) { if ($b = \Drupal\block\Entity\Block::load($id)) { $b->disable()->save(); } }'
+
   ddev drush pqe -y
   ddev drush cr
 
