@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e7236b42918d4e374e50a04f4953258e",
+    "content-hash": "8e04072586ebbab57aa7d9ef46e5352f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -17926,16 +17926,16 @@
         },
         {
             "name": "leigh-osu/osu_cas_site_sync",
-            "version": "v1.4.0",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leigh-osu/osu_cas_site_sync.git",
-                "reference": "688c333d873b9e0395c4df629e69a41f3cc2fb6f"
+                "reference": "3a6c595cf6625d4154d9a73a42aaf5370aa9f456"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_cas_site_sync/zipball/688c333d873b9e0395c4df629e69a41f3cc2fb6f",
-                "reference": "688c333d873b9e0395c4df629e69a41f3cc2fb6f",
+                "url": "https://api.github.com/repos/leigh-osu/osu_cas_site_sync/zipball/3a6c595cf6625d4154d9a73a42aaf5370aa9f456",
+                "reference": "3a6c595cf6625d4154d9a73a42aaf5370aa9f456",
                 "shasum": ""
             },
             "require": {
@@ -17947,10 +17947,10 @@
             ],
             "description": "OSU CAS prod site sync module",
             "support": {
-                "source": "https://github.com/leigh-osu/osu_cas_site_sync/tree/v1.4.0",
+                "source": "https://github.com/leigh-osu/osu_cas_site_sync/tree/v1.4.1",
                 "issues": "https://github.com/leigh-osu/osu_cas_site_sync/issues"
             },
-            "time": "2026-07-13T22:57:50+00:00"
+            "time": "2026-07-14T19:00:50+00:00"
         },
         {
             "name": "leigh-osu/osu_digital_measures",
