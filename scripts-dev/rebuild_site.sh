@@ -155,6 +155,15 @@ section_1() {
   # creates (course instructor, DFS advisor, project leader/member, story
   # employee, site coordinators). The nodes stay skeletal until the
   # section-7 'OSU Drupal Profile' field migrations fill them in.
+  #
+  # Content migrations preserve their D7 nids (destid == D7 nid). The profile
+  # migration auto-increments, so run this early it would otherwise plant
+  # profiles on low nids (1, 2, ... 134 ...) that later collide with the
+  # preserved D7 nid of a content node ("Update existing node revision while
+  # changing the revision ID is not supported" -> that content row fails).
+  # Seed the node auto-increment above the D7 max nid (287726, frozen source)
+  # so every early profile lands at 300000+, leaving all D7 nids free.
+  ddev drush sql:query "ALTER TABLE node AUTO_INCREMENT = 300000;"
   ddev drush migrate:import upgrade_d7_user_to_profile
 
   # CAS login mappings (uid -> externalauth authmap, provider 'cas').
