@@ -576,6 +576,9 @@
                 "Disable xmlsitemap cron regeneration to prevent drush install batch crash": "patches/osu_standard-xmlsitemap-disable-cron-regeneration.patch",
                 "Remove webform_bootstrap from install list": "patches/osu_standard-remove-webform-bootstrap.patch",
                 "Full OSU brand background palette and orange text color in bootstrap_styles": "patches/osu_standard-brand-background-palette.patch"
+            },
+            "osu-wams/osu_story": {
+                "External-story redirect duplicate check hashes with node language instead of und": "patches/osu_story-external-redirect-hash-langcode.patch"
             }
         },
         "drupal-scaffold": {

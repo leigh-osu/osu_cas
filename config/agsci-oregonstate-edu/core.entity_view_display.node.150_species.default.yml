@@ -1,4 +1,4 @@
-uuid: dfae7085-d361-4c94-8c6e-374cf21b2ad9
+uuid: 56b1050a-637c-4741-8cba-74d3d6e199a9
 langcode: en
 status: true
 dependencies:
@@ -24,7 +24,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
   field_150_species_photo:
     type: image
@@ -35,7 +35,7 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
   field_species_photo:
     type: image
@@ -75,3 +75,4 @@ hidden:
   field_domain_all_affiliates: true
   field_species_type: true
   langcode: true
+

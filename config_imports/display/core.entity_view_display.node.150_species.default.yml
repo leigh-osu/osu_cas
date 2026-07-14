@@ -4,9 +4,9 @@ dependencies:
   config:
     - field.field.node.150_species.body
     - field.field.node.150_species.field_150_species_photo
-    - field.field.node.150_species.field_tax_type
     - field.field.node.150_species.field_domain_access
     - field.field.node.150_species.field_domain_all_affiliates
+    - field.field.node.150_species.field_tax_type
     - field.field.node.150_species.og_user_node
     - node.type.150_species
   module:
@@ -23,7 +23,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
   field_150_species_photo:
     type: image
@@ -34,15 +34,7 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 1
-    region: content
-  field_tax_type:
-    type: entity_reference_label
-    label: inline
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 2
+    weight: 0
     region: content
   field_species_photo:
     type: image
@@ -54,6 +46,14 @@ content:
         attribute: lazy
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_tax_type:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
     region: content
   links:
     settings: {  }
@@ -73,3 +73,5 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_species_type: true
+  langcode: true
+

@@ -16,14 +16,12 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:user'
+  handler: 'default:node'
   handler_settings:
-    target_bundles: null
+    target_bundles:
+      osu_profile: osu_profile
     sort:
-      field: _none
+      field: title
       direction: ASC
     auto_create: false
-    filter:
-      type: _none
-    include_anonymous: true
 field_type: entity_reference

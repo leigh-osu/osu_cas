@@ -4,9 +4,9 @@ dependencies:
   config:
     - field.field.node.150_species.body
     - field.field.node.150_species.field_150_species_photo
-    - field.field.node.150_species.field_tax_type
     - field.field.node.150_species.field_domain_access
     - field.field.node.150_species.field_domain_all_affiliates
+    - field.field.node.150_species.field_tax_type
     - field.field.node.150_species.og_user_node
     - image.style.thumbnail
     - node.type.150_species
@@ -54,12 +54,6 @@ content:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-  field_tax_type:
-    type: options_buttons
-    weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_domain_access:
     type: entity_reference_autocomplete
     weight: 11
@@ -92,6 +86,19 @@ content:
     weight: 1
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_tax_type:
+    type: options_buttons
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
     third_party_settings: {  }
   og_user_node:
     type: entity_reference_autocomplete
@@ -154,3 +161,4 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden: {  }
+

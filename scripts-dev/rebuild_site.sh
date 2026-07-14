@@ -88,6 +88,16 @@ section_1() {
   # already exists" after installing its modules.
   ddev drush cr -y
 
+  # Adopt the committed site UUID so every rebuild matches the exported
+  # config: full `drush config:import` refuses to run against a mismatched
+  # site uuid, and this stops system.site churn in the export. Config-entity
+  # uuids still regenerate per rebuild — that churn stays out of the repo
+  # until the site stops being recreated.
+  SITE_UUID=$(grep '^uuid:' "${PROJECT_ROOT}/config/${CONFIG_DIR}/system.site.yml" | awk '{print $2}')
+  if [ -n "${SITE_UUID}" ] && [ "${SITE_UUID}" != "null" ]; then
+    ddev drush config:set system.site uuid "${SITE_UUID}" -y
+  fi
+
   # Install modules
   echo "Installing modules..."
 
@@ -139,6 +149,13 @@ section_1() {
   ddev drush migrate:import upgrade_d7_users_with_roles
 
   ddev drush migrate:import --tag='OSU Accounts'
+
+  # Base profile nodes immediately after accounts: content migrations in
+  # later sections reference people through the uid -> profile-nid map this
+  # creates (course instructor, DFS advisor, project leader/member, story
+  # employee, site coordinators). The nodes stay skeletal until the
+  # section-7 'OSU Drupal Profile' field migrations fill them in.
+  ddev drush migrate:import upgrade_d7_user_to_profile
 
   # CAS login mappings (uid -> externalauth authmap, provider 'cas').
   # The stock contrib upgrade_d7_cas_user migration silently de-registers here:
