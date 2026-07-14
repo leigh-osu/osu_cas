@@ -33,52 +33,45 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 101
+    weight: 6
     region: content
   field_course_class_location:
     type: list_default
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 108
-    region: content
-  field_course_course_level:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 104
+    weight: 5
     region: content
   field_course_course_number:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 102
+    weight: 0
     region: content
   field_course_credits:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 109
+    weight: 2
     region: content
   field_course_frequency:
     type: list_default
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 107
+    weight: 4
     region: content
   field_course_instructor:
     type: entity_reference_label
-    label: above
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
-    weight: 103
+    weight: 1
     region: content
   field_course_links:
     type: link
@@ -90,38 +83,30 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 112
+    weight: 9
     region: content
   field_course_student_perspective:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 110
+    weight: 7
     region: content
   field_course_syllabus:
     type: entity_reference_entity_view
-    label: above
+    label: inline
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
-    weight: 111
+    weight: 8
     region: content
   field_course_term:
     type: list_default
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 106
-    region: content
-  field_tax_topic:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 105
+    weight: 3
     region: content
   links:
     settings: {  }
@@ -130,6 +115,8 @@ content:
     region: content
 hidden:
   entitygroupfield: true
+  field_course_course_level: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_tax_topic: true
   langcode: true
