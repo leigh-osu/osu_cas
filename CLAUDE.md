@@ -179,7 +179,7 @@ This is a Drupal 7 to Drupal 10 content migration project for agsci.oregonstate.
 
 - **D10 codebase (current)**: This directory
 - **D7 codebase (legacy)**: Available at `./legacy-d7/` (symlink to original D7 site)
-- **D7 database connection**: Configured in `settings/migrate.ddev.php`
+- **D7 database connection**: The `$databases['migrate']` block in `docroot/sites/agsci.oregonstate.edu/settings.local.php` (untracked, per-environment)
 
 ### Active Migration Modules
 
@@ -216,7 +216,7 @@ This is a Drupal 7 to Drupal 10 content migration project for agsci.oregonstate.
 - Migration configs: `docroot/modules/custom/osu_migrations_cas/migrations/`
 - Source plugins: `docroot/modules/custom/osu_migrations_cas/src/Plugin/migrate/source/`
 - Process plugins: `docroot/modules/custom/osu_migrations_cas/src/Plugin/migrate/process/`
-- D7 database settings: `settings/migrate.ddev.php`
+- D7 database settings: `$databases['migrate']` in `docroot/sites/agsci.oregonstate.edu/settings.local.php`
 - D7 custom modules: `legacy-d7/sites/all/modules/custom/`
 
 ### Migration Dependency Order
