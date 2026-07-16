@@ -172,6 +172,14 @@ section_1() {
   # every D7 nid and vid free.
   ddev drush sql:query "ALTER TABLE node AUTO_INCREMENT = 300000;"
   ddev drush sql:query "ALTER TABLE node_revision AUTO_INCREMENT = 1200000;"
+
+  # Enable osu_migrations_cas BEFORE the profile migration: its
+  # hook_migration_plugins_alter() swaps upgrade_d7_user_to_profile onto the
+  # cas_d7_user_profile_domain source and maps field_domain_access from each
+  # user's D7 domain_editor rows. Enabled later, the profile migration runs with
+  # the stock d7_user source and every profile lands with NO domain assignment.
+  # (Also provides cas_user_authmap below, and pulls in the cas module.)
+  ddev drush en osu_migrations_cas -y
   ddev drush migrate:import upgrade_d7_user_to_profile
 
   # CAS login mappings (uid -> externalauth authmap, provider 'cas').
@@ -183,10 +191,7 @@ section_1() {
   # cas_user TABLE instead of the module flag, so it works durably across source
   # re-imports with no manual {system} edit. Only users migrated by
   # upgrade_d7_users_with_roles get a mapping; the rest are skipped.
-  # cas_user_authmap is defined in osu_migrations_cas, which is otherwise not
-  # enabled until section 3 — enable it here (pulls in the cas module) so the
-  # migration ID is valid at this point.
-  ddev drush en osu_migrations_cas -y
+  # cas_user_authmap is defined in osu_migrations_cas (enabled just above).
   ddev drush migrate:import cas_user_authmap
 
   # drush migrate:import --tag aborts the remaining migrations in the tag as
