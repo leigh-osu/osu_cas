@@ -125,6 +125,11 @@ section_1() {
   # display config is applied.
   ddev drush en osu_digital_measures -y
 
+  # osu_cas_multisite: degree-fact-sheet node template + the colorbox caption
+  # preprocess (uses field_media_caption as the gallery lightbox caption instead
+  # of the media filename).
+  ddev drush en osu_cas_multisite -y
+
 
   ddev drush cr -y
 
@@ -308,6 +313,14 @@ section_4() {
   ddev drush migrate:import cas_weather_daily_data_to_weather_daily_data
   ddev drush migrate:import cas_weather_monthly_data_to_weather_monthly_data
   ddev drush migrate:import upgrade_d7_biblio_publication
+
+  # Maximise D7 image text on media. The media migration already carries
+  # file-level alt/title; these two backfill from the D7 per-delta *field*
+  # alt/title where the media is still empty, then seed field_media_caption from
+  # the resulting alt/title. Order matters: alt backfill first, caption seed
+  # second (it reads the just-backfilled alt/title).
+  ddev drush migrate:import cas_media_alt_backfill
+  ddev drush migrate:import cas_media_caption_seed
 
   ddev drush pqe -y
 

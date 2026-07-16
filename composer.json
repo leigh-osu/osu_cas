@@ -134,6 +134,10 @@
             "url": "https://github.com/leigh-osu/osu_migrations_cas.git"
         },
         {
+            "type": "vcs",
+            "url": "https://github.com/leigh-osu/osu_cas_multisite.git"
+        },
+        {
             "type": "package",
             "package": {
                 "name": "billboardjs/billboard",
@@ -383,6 +387,7 @@
         "google/charts": "^45.0",
         "google/recaptcha": "^1.3",
         "leigh-osu/manzanita": "^1@beta",
+        "leigh-osu/osu_cas_multisite": "^1.0",
         "leigh-osu/osu_cas_site_sync": "^1.0",
         "leigh-osu/osu_digital_measures": "^1.0",
         "leigh-osu/osu_migrations_cas": "^1.0",
