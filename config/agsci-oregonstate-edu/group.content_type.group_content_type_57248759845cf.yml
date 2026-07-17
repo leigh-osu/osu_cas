@@ -7,7 +7,7 @@ dependencies:
   module:
     - gnode
     - node
-id: basic_group-group_node-profile
+id: group_content_type_57248759845cf
 group_type: basic_group
 content_plugin: 'group_node:osu_profile'
 plugin_config:
