@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.art_about_agriculture.field_tax_aaa
     - node.type.art_about_agriculture
   module:
+    - entitygroupfield
     - media_library
     - multiselect
     - path
@@ -38,6 +39,16 @@ content:
       summary_rows: 3
       placeholder: ''
       show_summary: false
+    third_party_settings: {  }
+  entitygroupfield:
+    type: entitygroupfield_select_widget
+    weight: -50
+    region: content
+    settings:
+      help_text: ''
+      label: 'Group name'
+      multiple: true
+      required: false
     third_party_settings: {  }
   field_aaa_artist:
     type: string_textfield
@@ -165,7 +176,6 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  entitygroupfield: true
   field_domain_access: true
   field_domain_all_affiliates: true
   promote: true

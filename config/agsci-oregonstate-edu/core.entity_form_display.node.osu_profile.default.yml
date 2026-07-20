@@ -56,6 +56,7 @@ dependencies:
     - node.type.osu_profile
   module:
     - address
+    - entitygroupfield
     - field_group
     - focal_point
     - link
@@ -220,6 +221,16 @@ content:
     weight: 2
     region: content
     settings: {  }
+    third_party_settings: {  }
+  entitygroupfield:
+    type: entitygroupfield_select_widget
+    weight: -50
+    region: content
+    settings:
+      help_text: ''
+      label: 'Group name'
+      multiple: true
+      required: false
     third_party_settings: {  }
   field_domain_access:
     type: options_buttons
@@ -666,5 +677,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  entitygroupfield: true
+hidden: {  }

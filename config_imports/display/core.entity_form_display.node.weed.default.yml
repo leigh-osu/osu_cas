@@ -33,6 +33,7 @@ dependencies:
     - field.field.node.weed.field_weed_seed_or_seed_pods
     - node.type.weed
   module:
+    - entitygroupfield
     - link
     - media_library
     - path
@@ -57,6 +58,16 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  entitygroupfield:
+    type: entitygroupfield_select_widget
+    weight: -50
+    region: content
+    settings:
+      help_text: ''
+      label: 'Group name'
+      multiple: true
+      required: false
     third_party_settings: {  }
   field_flowers:
     type: text_textarea
@@ -308,6 +319,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  entitygroupfield: true
   field_domain_access: true
   field_domain_all_affiliates: true

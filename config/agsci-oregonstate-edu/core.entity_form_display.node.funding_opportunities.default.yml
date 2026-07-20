@@ -18,6 +18,7 @@ dependencies:
     - node.type.funding_opportunities
   module:
     - datetime
+    - entitygroupfield
     - link
     - multiselect
     - path
@@ -42,6 +43,16 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  entitygroupfield:
+    type: entitygroupfield_select_widget
+    weight: -50
+    region: content
+    settings:
+      help_text: ''
+      label: 'Group name'
+      multiple: true
+      required: false
     third_party_settings: {  }
   field_fundop_award_ceiling:
     type: number
@@ -163,6 +174,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  entitygroupfield: true
   field_domain_access: true
   field_domain_all_affiliates: true

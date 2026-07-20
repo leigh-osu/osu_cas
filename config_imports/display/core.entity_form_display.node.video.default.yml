@@ -69,7 +69,7 @@ content:
     third_party_settings: {  }
   entitygroupfield:
     type: entitygroupfield_select_widget
-    weight: 15
+    weight: -50
     region: content
     settings:
       help_text: ''

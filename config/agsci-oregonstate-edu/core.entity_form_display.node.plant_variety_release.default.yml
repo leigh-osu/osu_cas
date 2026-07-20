@@ -45,6 +45,7 @@ dependencies:
     - node.type.plant_variety_release
   module:
     - datetime
+    - entitygroupfield
     - field_group
     - media_library
     - path
@@ -123,6 +124,16 @@ content:
     weight: 17
     region: content
     settings: {  }
+    third_party_settings: {  }
+  entitygroupfield:
+    type: entitygroupfield_select_widget
+    weight: -50
+    region: content
+    settings:
+      help_text: ''
+      label: 'Group name'
+      multiple: true
+      required: false
     third_party_settings: {  }
   field_pvr_banner_picture:
     type: media_library_widget
@@ -464,6 +475,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  entitygroupfield: true
   field_domain_access: true
   field_domain_all_affiliates: true

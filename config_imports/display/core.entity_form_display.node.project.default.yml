@@ -34,6 +34,7 @@ dependencies:
     - field.field.node.project.field_tax_work_area
     - node.type.project
   module:
+    - entitygroupfield
     - field_group
     - link
     - media_library
@@ -128,6 +129,16 @@ content:
     weight: 8
     region: content
     settings: {  }
+    third_party_settings: {  }
+  entitygroupfield:
+    type: entitygroupfield_select_widget
+    weight: -50
+    region: content
+    settings:
+      help_text: ''
+      label: 'Group name'
+      multiple: true
+      required: false
     third_party_settings: {  }
   field_project_end_year:
     type: number
@@ -366,6 +377,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  entitygroupfield: true
   field_domain_access: true
   field_domain_all_affiliates: true
