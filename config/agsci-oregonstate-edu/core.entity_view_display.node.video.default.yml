@@ -22,7 +22,6 @@ dependencies:
     - node.type.video
   module:
     - datetime
-    - file
     - text
     - user
 id: node.video.default
@@ -47,7 +46,7 @@ content:
     region: content
   field_vid_presenter:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -63,16 +62,11 @@ content:
     weight: 4
     region: content
   field_vid_video:
-    type: file_video
+    type: entity_reference_entity_view
     label: hidden
     settings:
-      controls: true
-      autoplay: false
-      loop: false
-      multiple_file_display_type: topics
-      muted: false
-      width: 640
-      height: 480
+      view_mode: default
+      link: false
     third_party_settings: {  }
     weight: 1
     region: content
@@ -102,3 +96,4 @@ hidden:
   field_vid_veg_topics: true
   field_vid_work_area: true
   langcode: true
+

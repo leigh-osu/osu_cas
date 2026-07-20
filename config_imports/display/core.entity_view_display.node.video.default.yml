@@ -3,22 +3,24 @@ status: true
 dependencies:
   config:
     - field.field.node.video.body
-    - field.field.node.video.field_vid_affiliation
+    - field.field.node.video.field_domain_access
+    - field.field.node.video.field_domain_all_affiliates
     - field.field.node.video.field_tax_coarec_topics
+    - field.field.node.video.field_tax_event
     - field.field.node.video.field_tax_nursery_topics
     - field.field.node.video.field_tax_owri_topics
-    - field.field.node.video.field_vid_presenter
-    - field.field.node.video.field_vid_publish_date
-    - field.field.node.video.field_vid_show_on_profile
     - field.field.node.video.field_tax_swd_topics
     - field.field.node.video.field_tax_turf_topics
     - field.field.node.video.field_tax_veg_topics
-    - field.field.node.video.field_vid_video
     - field.field.node.video.field_tax_work_area
+    - field.field.node.video.field_vid_affiliation
+    - field.field.node.video.field_vid_presenter
+    - field.field.node.video.field_vid_publish_date
+    - field.field.node.video.field_vid_show_on_profile
+    - field.field.node.video.field_vid_video
     - node.type.video
   module:
     - datetime
-    - file
     - text
     - user
 id: node.video.default
@@ -43,7 +45,7 @@ content:
     region: content
   field_vid_presenter:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -59,16 +61,11 @@ content:
     weight: 4
     region: content
   field_vid_video:
-    type: file_video
+    type: entity_reference_entity_view
     label: hidden
     settings:
-      controls: true
-      autoplay: false
-      loop: false
-      multiple_file_display_type: topics
-      muted: false
-      width: 640
-      height: 480
+      view_mode: default
+      link: false
     third_party_settings: {  }
     weight: 1
     region: content
@@ -79,6 +76,16 @@ content:
     region: content
 hidden:
   entitygroupfield: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_tax_coarec_topics: true
+  field_tax_event: true
+  field_tax_nursery_topics: true
+  field_tax_owri_topics: true
+  field_tax_swd_topics: true
+  field_tax_turf_topics: true
+  field_tax_veg_topics: true
+  field_tax_work_area: true
   field_vid_coarec_topics: true
   field_vid_nursery_topics: true
   field_vid_owri_topics: true
@@ -87,3 +94,5 @@ hidden:
   field_vid_turf_topics: true
   field_vid_veg_topics: true
   field_vid_work_area: true
+  langcode: true
+
