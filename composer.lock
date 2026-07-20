@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aa00c39766139568300174a86cd517d3",
+    "content-hash": "ad70455cd53ca18acd6ff59a8a0ce02b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -17896,16 +17896,16 @@
         },
         {
             "name": "leigh-osu/manzanita",
-            "version": "v1.0.1-beta.14",
+            "version": "v1.0.1-beta.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leigh-osu/manzanita.git",
-                "reference": "b00836ebd7e245f87de9586699d20030129976ef"
+                "reference": "ef3cbce2b37722e9b37f6d9e90efb26b22c5e629"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/manzanita/zipball/b00836ebd7e245f87de9586699d20030129976ef",
-                "reference": "b00836ebd7e245f87de9586699d20030129976ef",
+                "url": "https://api.github.com/repos/leigh-osu/manzanita/zipball/ef3cbce2b37722e9b37f6d9e90efb26b22c5e629",
+                "reference": "ef3cbce2b37722e9b37f6d9e90efb26b22c5e629",
                 "shasum": ""
             },
             "type": "drupal-custom-theme",
@@ -17920,10 +17920,10 @@
             ],
             "description": "Drupal Theme for OSU College of Agricultural Sciences",
             "support": {
-                "source": "https://github.com/leigh-osu/manzanita/tree/v1.0.1-beta.14",
+                "source": "https://github.com/leigh-osu/manzanita/tree/v1.0.1-beta.15",
                 "issues": "https://github.com/leigh-osu/manzanita/issues"
             },
-            "time": "2026-07-14T23:13:40+00:00"
+            "time": "2026-07-20T20:10:37+00:00"
         },
         {
             "name": "leigh-osu/osu_cas_multisite",
