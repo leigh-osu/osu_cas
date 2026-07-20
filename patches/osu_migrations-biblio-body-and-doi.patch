@@ -1,0 +1,75 @@
+Stop writing junk body and malformed DOI links on migrated publications.
+
+Two mappings in the biblio publication migration produce bad data on every
+affected node.
+
+body/value was mapped from {biblio}.biblio_full_text. That column is a flag
+recording whether full text exists, not the text itself, and it holds 0 for
+every row -- so all 8169 migrated publications ended up with a body of the
+literal string "0", rendered under a "Full Text" label. Biblio has no
+body-equivalent column, so the mapping is removed rather than repointed.
+
+field_pub_doi/uri concatenated a constant https://dx.doi.org/ base with
+biblio_doi without inspecting it, but that column is dirty. On agsci's 8173
+rows: 4382 are empty or whitespace-only, ~80 already hold a full
+https://doi.org/ URL, and 14 carry stray padding. The result was a link to a
+bare https://dx.doi.org/ on the empty ones, and doubled-up URLs such as
+"https://dx.doi.org/     https://doi.org/10.1371/..." on the rest.
+
+Trim first, so whitespace-only values register as empty for skip_on_empty
+(which uses empty() and would otherwise let "   " through); skip the property
+rather than the row when no DOI is present; then normalise with a regex that
+strips any existing doi.org prefix before applying the canonical one.
+
+--- a/modules/osu_migrate_content/migrations/upgrade_d7_biblio_publication.yml
++++ b/modules/osu_migrate_content/migrations/upgrade_d7_biblio_publication.yml
+@@ -39,22 +39,39 @@
+       source: author
+       process:
+         value: name
+-  body/value: biblio_full_text
+-  body/format:
+-    - plugin: default_value
+-      default_value: 'full_html'
++  # NOTE: {biblio}.biblio_full_text is a flag recording whether full text
++  # exists, not the text itself -- every row holds 0. Mapping it to the body
++  # stamped the string "0" onto every migrated publication. Biblio has no
++  # body-equivalent column, so body is intentionally left unmapped.
+   field_pub_abstract/value: biblio_abst_e
+   field_pub_abstract/format:
+     - plugin: default_value
+       default_value: 'full_html'
+   field_pub_issn: biblio_issn
+-  field_pub_doi/title: biblio_doi
++  # biblio_doi is dirty: about half the rows are empty or whitespace, ~80
++  # already contain a full https://doi.org/ URL, and a few carry stray
++  # padding. Blindly concatenating the base URL gave a bare
++  # https://dx.doi.org/ on the empty ones and a double-prefixed URL on the
++  # rest. Trim first so whitespace-only counts as empty for skip_on_empty
++  # (which uses empty() and would otherwise pass "   " through), skip the
++  # property when there is no DOI, then normalise: the regex strips any
++  # existing doi.org prefix before applying the canonical one.
++  field_pub_doi/title:
++    - plugin: callback
++      callable: trim
++      source: biblio_doi
++    - plugin: skip_on_empty
++      method: process
+   field_pub_doi/uri:
+-    - plugin: concat
+-      source:
+-        - constants/doi_base_url
+-        - biblio_doi
+-      delimiter: ''
++    - plugin: callback
++      callable: trim
++      source: biblio_doi
++    - plugin: skip_on_empty
++      method: process
++    - plugin: str_replace
++      regex: true
++      search: '~^(?:https?://(?:dx\.)?doi\.org/)?(.+)$~i'
++      replace: 'https://dx.doi.org/$1'
+   field_pub_year_publication: biblio_year
+   field_pub_date_published/value:
+     - plugin: normalize_biblio_date

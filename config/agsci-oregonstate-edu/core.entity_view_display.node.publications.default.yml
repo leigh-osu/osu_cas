@@ -37,19 +37,12 @@ targetEntityType: node
 bundle: publications
 mode: default
 content:
-  body:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 17
-    region: content
   field_pub_abstract:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 16
+    weight: 12
     region: content
   field_pub_authors:
     type: string
@@ -57,15 +50,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 3
-    region: content
-  field_pub_book_title:
-    type: string
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 9
+    weight: 1
     region: content
   field_pub_date_published:
     type: timestamp_ap_style
@@ -84,7 +69,7 @@ content:
       timezone: ''
       month_only: false
     third_party_settings: {  }
-    weight: 8
+    weight: 7
     region: content
   field_pub_doi:
     type: link
@@ -96,7 +81,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 13
+    weight: 10
     region: content
   field_pub_issn:
     type: string
@@ -104,7 +89,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 15
+    weight: 9
     region: content
   field_pub_issue:
     type: string
@@ -112,7 +97,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 7
+    weight: 5
     region: content
   field_pub_journal:
     type: string
@@ -120,7 +105,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 4
+    weight: 3
     region: content
   field_pub_pages:
     type: string
@@ -136,35 +121,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 11
-    region: content
-  field_pub_publisher_city:
-    type: string
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 12
-    region: content
-  field_pub_pubmed_id:
-    type: link
-    label: inline
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 14
-    region: content
-  field_pub_series_title:
-    type: string
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 10
+    weight: 8
     region: content
   field_pub_type:
     type: entity_reference_label
@@ -172,7 +129,7 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-    weight: 1
+    weight: 11
     region: content
   field_pub_volume:
     type: string
@@ -180,7 +137,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 5
+    weight: 4
     region: content
   field_pub_year_publication:
     type: number_integer
@@ -197,9 +154,15 @@ content:
     weight: 0
     region: content
 hidden:
+  body: true
   entitygroupfield: true
   field_domain_access: true
   field_domain_all_affiliates: true
   field_osu_organizations: true
+  field_pub_book_title: true
   field_pub_osu_profile: true
+  field_pub_publisher_city: true
+  field_pub_pubmed_id: true
+  field_pub_series_title: true
   langcode: true
+
