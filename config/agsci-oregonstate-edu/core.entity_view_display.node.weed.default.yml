@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.media.full
+    - core.entity_view_mode.media.gallery_card
     - field.field.node.weed.body
     - field.field.node.weed.field_domain_access
     - field.field.node.weed.field_domain_all_affiliates
@@ -33,6 +35,7 @@ dependencies:
     - field.field.node.weed.field_weed_stem
     - node.type.weed
   module:
+    - colorbox
     - link
     - options
     - text
@@ -47,21 +50,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 26
-    region: content
-  field_flowers:
-    type: text_default
-    label: inline
-    settings: {  }
-    third_party_settings: {  }
-    weight: 13
-    region: content
-  field_stem:
-    type: text_default
-    label: inline
-    settings: {  }
-    third_party_settings: {  }
-    weight: 16
+    weight: 23
     region: content
   field_tax_life_cycle:
     type: entity_reference_label
@@ -69,50 +58,35 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 5
+    weight: 3
     region: content
   field_weed_bittercress_and_aphid:
     type: text_default
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 18
-    region: content
-  field_weed_brief_description:
-    type: text_default
-    label: inline
-    settings: {  }
-    third_party_settings: {  }
-    weight: 4
-    region: content
-  field_weed_common_name:
-    type: string
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 3
+    weight: 16
     region: content
   field_weed_control_description:
     type: text_default
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 20
+    weight: 17
     region: content
   field_weed_cotyledon_or_seedling:
     type: text_default
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 15
+    weight: 13
     region: content
   field_weed_dissemination:
     type: text_default
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 10
+    weight: 9
     region: content
   field_weed_family:
     type: string
@@ -127,63 +101,72 @@ content:
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 9
+    weight: 8
     region: content
   field_weed_favorable_environment:
     type: text_default
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 8
+    weight: 7
+    region: content
+  field_weed_flowers:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
     region: content
   field_weed_foliage:
     type: text_default
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 11
+    weight: 10
     region: content
   field_weed_habit:
     type: text_default
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 7
+    weight: 5
     region: content
   field_weed_image:
-    type: entity_reference_entity_view
-    label: inline
+    type: colorbox_view_modes
+    label: hidden
     settings:
-      view_mode: default
-      link: false
+      colorbox_view_mode: gallery_card
+      colorbox_modal_view_mode: full
+      colorbox_gallery: post
+      colorbox_gallery_custom: ''
     third_party_settings: {  }
-    weight: 23
+    weight: -50
     region: content
   field_weed_latin_name:
     type: string
-    label: inline
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
   field_weed_literature_cited:
     type: text_default
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 25
+    weight: 22
     region: content
   field_weed_look_alikes:
     type: text_default
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 19
+    weight: 18
     region: content
   field_weed_management_link:
     type: link
-    label: inline
+    label: above
     settings:
       trim_length: 80
       url_only: false
@@ -191,44 +174,51 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 22
+    weight: 20
     region: content
   field_weed_of_interest:
     type: text_default
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 24
+    weight: 21
     region: content
   field_weed_physical_description:
     type: text_default
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 21
+    weight: 19
     region: content
   field_weed_plant_status:
     type: list_default
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 6
+    weight: 4
     region: content
   field_weed_roots:
     type: text_default
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 17
+    weight: 15
     region: content
   field_weed_rosette:
     type: text_default
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 12
+    weight: 11
     region: content
   field_weed_seed_or_seed_pods:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_weed_stem:
     type: text_default
     label: inline
     settings: {  }
@@ -244,6 +234,9 @@ hidden:
   entitygroupfield: true
   field_domain_access: true
   field_domain_all_affiliates: true
-  field_weed_flowers: true
-  field_weed_stem: true
+  field_flowers: true
+  field_stem: true
+  field_weed_brief_description: true
+  field_weed_common_name: true
   langcode: true
+
