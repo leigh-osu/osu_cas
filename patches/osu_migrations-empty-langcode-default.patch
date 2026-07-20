@@ -1,0 +1,42 @@
+Default an empty D7 node language to en.
+
+The content migration group's shared_configuration maps langcode with
+static_map + bypass: true, which passes any unmapped value through unchanged.
+D7 sites can carry nodes whose {node}.language is the empty string rather than
+und or en (70 of them on agsci), and those migrate to a node with
+langcode = ''. Drupal loads field values by matching the entity's langcode
+against the field tables, which the migration writes as en, so every field on
+such a node resolves empty: the body, image references and everything else
+render as if the node had no content at all, with no error anywhere.
+
+Chain a non-strict default_value after the map. It treats '' as falsy and
+substitutes en, while und (already mapped) and real language codes pass
+through untouched.
+
+--- a/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration_group.content.yml
++++ b/modules/paragraphs_to_layout_builder/config/install/migrate_plus.migration_group.content.yml
+@@ -16,11 +16,19 @@
+     vid: vid
+     type: type
+     langcode:
+-      plugin: static_map
+-      bypass: true
+-      source: language
+-      map:
+-        und: en
++      # A handful of D7 nodes carry language = '' rather than und or en.
++      # static_map with bypass passes those through unchanged, leaving the node
++      # with an empty langcode that matches none of its field rows (written as
++      # en), so every field on it silently loads empty. default_value is not
++      # strict, so it treats '' as falsy and substitutes en while leaving real
++      # language codes untouched.
++      - plugin: static_map
++        bypass: true
++        source: language
++        map:
++          und: en
++      - plugin: default_value
++        default_value: en
+     title: title
+     uid: node_uid
+     status: status
