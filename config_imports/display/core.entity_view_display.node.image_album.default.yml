@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.full
-    - core.entity_view_mode.media.token
+    - core.entity_view_mode.media.gallery_card
     - field.field.node.image_album.body
     - field.field.node.image_album.field_domain_access
     - field.field.node.image_album.field_domain_all_affiliates
@@ -31,7 +31,7 @@ content:
     type: colorbox_view_modes
     label: hidden
     settings:
-      colorbox_view_mode: token
+      colorbox_view_mode: gallery_card
       colorbox_modal_view_mode: full
       colorbox_gallery: post
       colorbox_gallery_custom: ''
