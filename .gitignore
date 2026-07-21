@@ -50,3 +50,6 @@
 /files/agsci/private-files
 /.claude
 /legacy-d7
+
+# Acquia CLI local state (app/environment binding), written by acli commands.
+/.acquia-cli.yml
