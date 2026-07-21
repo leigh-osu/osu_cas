@@ -271,7 +271,9 @@ section_3() {
   ddev drush migrate:import paragraph_accordian__to__layout_builder
   ddev drush migrate:import paragraph_accordion__to__layout_builder
   ddev drush migrate:import paragraph_alert_message__to__layout_builder
-  ddev drush migrate:import paragraph_divider__to__layout_builder
+  # paragraph_divider__to__layout_builder intentionally not run: dividers are
+  # migrated as component-less Layout Builder sections (min-height + background)
+  # by CasParagraphsLayout, not as empty blocks.
   ddev drush migrate:import paragraph_menu__to__layout_builder
   ddev drush migrate:import paragraph_1_col__to__layout_builder
   ddev drush migrate:import paragraph_1_column_background_video__to__layout_builder
