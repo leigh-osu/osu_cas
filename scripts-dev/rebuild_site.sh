@@ -497,10 +497,41 @@ section_7() {
   # #3172135). Force the views "distinct" query option on all node-based views.
   ddev drush scr scripts-dev/set_views_distinct.php
 
-  # Site-sync dev helper (prod compare window + slideshow). Not in the
-  # section-1 module list, so enable it here so it is available after every
-  # rebuild without a manual install, and place its block in the pre-footer.
-  ddev drush en osu_cas_site_sync -y
+  # Dev helpers not in the section-1 module list: the site-sync block (prod
+  # compare window + slideshow) and Simple Styleguide. Enable them here so they
+  # are available after every rebuild without a manual install; the site-sync
+  # block is then placed in the pre-footer below.
+  ddev drush en osu_cas_site_sync simple_styleguide -y
+
+  # Import the contrib dev-tool config (Simple Styleguide colour palette and the
+  # osu_card / osu_accordion / osu_menu_bar sample patterns). Runs after the
+  # module enable above so the styleguide_pattern entity type exists.
+  ddev drush config:import --partial --source=../config_imports/contrib -y
+
+  # Make the site-sync block and the styleguide visible to everyone. Granted
+  # per-permission (not via a role config import) so other role permissions are
+  # left untouched.
+  ddev drush role:perm:add anonymous 'use osu cas site sync,access style guide'
+  ddev drush role:perm:add authenticated 'use osu cas site sync,access style guide'
+
+  # Create a reusable sample osu_accordion block for the styleguide. The migrated
+  # accordion blocks are all inline (non-reusable) and render empty standalone,
+  # so the osu_accordion styleguide pattern -- which renders whichever reusable
+  # osu_accordion block exists -- needs this sample to show real content.
+  ddev drush php:eval '
+    $storage = \Drupal::entityTypeManager()->getStorage("block_content");
+    if (!$storage->loadByProperties(["type" => "osu_accordion", "info" => "Styleguide sample accordion", "reusable" => 1])) {
+      $items = [];
+      foreach ([["Overview", "<p>A short summary panel. Click a heading to expand or collapse its content.</p>"], ["Details", "<p>The second panel holds more detail -- this is body text inside an accordion item.</p>"]] as $pair) {
+        $item = \Drupal\paragraphs\Entity\Paragraph::create(["type" => "osu_accordion_item", "field_p_accordion_title" => $pair[0], "field_p_accordion_body" => ["value" => $pair[1], "format" => "full_html"]]);
+        $item->save();
+        $items[] = ["target_id" => $item->id(), "target_revision_id" => $item->getRevisionId()];
+      }
+      $section = \Drupal\paragraphs\Entity\Paragraph::create(["type" => "osu_accordion_section", "field_p_accordion_heading" => "Sample accordion", "field_osu_paragraph_item" => $items]);
+      $section->save();
+      \Drupal\block_content\Entity\BlockContent::create(["type" => "osu_accordion", "info" => "Styleguide sample accordion", "reusable" => 1, "field_osu_paragraph_item" => [["target_id" => $section->id(), "target_revision_id" => $section->getRevisionId()]]])->save();
+    }'
+
   ddev drush php:eval '
     if (!\Drupal\block\Entity\Block::load("manzanita_sitesync")) {
       \Drupal\block\Entity\Block::create([
