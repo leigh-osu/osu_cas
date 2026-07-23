@@ -112,7 +112,7 @@ section_1() {
   ddev drush en field_group date_ap_style node_revision_delete toc_js toc_js_per_node -y
 
   ddev drush en osu_icon_field osu_publications -y
-  ddev drush en domain domain_access domain_alias domain_content multiselect layout_builder_modal -y
+  ddev drush en domain domain_access domain_alias domain_content domain_source multiselect layout_builder_modal -y
   ddev drush en migrate migrate_drupal phpass migrate_plus -y
   ddev drush en osu_migrations osu_user_accounts osu_migrations_files osu_migrations_media osu_migrations_taxonomy \
       osu_migrate_content og_to_group paragraphs_to_layout_builder osu_user_to_profiles devel migrate_devel \
