@@ -1,3 +1,13 @@
+# Acquia Cloud Next environments for the 'osucas' application.
+#
+# Refresh the connection details with:
+#   acli api:applications:environment-list 5cc57811-0a85-46ba-8728-be1636449924
+#
+# The application has three environments. Acquia names the staging one
+# 'stage', not 'test', and there is no RA environment -- aliases for both used
+# to be here and could not connect. Cloud Next has no livedev either, so the
+# /mnt/gfs livedev sub-aliases are gone as well.
+
 # Application 'osucas', environment 'dev'.
 dev:
   root: /var/www/html/osucas.dev/docroot
@@ -7,11 +17,20 @@ dev:
   uri: osucasdev.prod.acquia-sites.com
   ssh:
     options: '-q'
-  dev.livedev:
-    parent: '@osucas.dev'
-    root: /mnt/gfs/osucas.dev/livedev/docroot
   host: osucasdev.ssh.prod.acquia-sites.com
   user: osucas.dev
+
+# Application 'osucas', environment 'stage'.
+stage:
+  root: /var/www/html/osucas.stage/docroot
+  ac-site: osucas
+  ac-env: stage
+  ac-realm: prod
+  uri: osucasstage.prod.acquia-sites.com
+  ssh:
+    options: '-q'
+  host: osucasstage.ssh.prod.acquia-sites.com
+  user: osucas.stage
 
 # Application 'osucas', environment 'prod'.
 prod:
@@ -19,41 +38,8 @@ prod:
   ac-site: osucas
   ac-env: prod
   ac-realm: prod
-  uri: osucas.prod.acquia-sites.com
+  uri: osucasprod.prod.acquia-sites.com
   ssh:
     options: '-q'
-  prod.livedev:
-    parent: '@osucas.prod'
-    root: /mnt/gfs/osucas.prod/livedev/docroot
-  host: osucas.ssh.prod.acquia-sites.com
+  host: osucasprod.ssh.prod.acquia-sites.com
   user: osucas.prod
-
-# Application 'osucas', environment 'ra'.
-ra:
-  root: /var/www/html/osucas.ra/docroot
-  ac-site: osucas
-  ac-env: ra
-  ac-realm: prod
-  uri: osucasra.prod.acquia-sites.com
-  ra.livedev:
-    parent: '@osucas.ra'
-    root: /mnt/gfs/osucas.ra/livedev/docroot
-  host: osucasra.ssh.prod.acquia-sites.com
-  user: osucas.ra
-
-# Application 'osucas', environment 'test'.
-test:
-  root: /var/www/html/osucas.test/docroot
-  ac-site: osucas
-  ac-env: test
-  ac-realm: prod
-  uri: osucasstg.prod.acquia-sites.com
-  ssh:
-    options: '-q'
-  test.livedev:
-    parent: '@osucas.test'
-    root: /mnt/gfs/osucas.test/livedev/docroot
-  host: osucasstg.ssh.prod.acquia-sites.com
-  user: osucas.test
-  paths:
-

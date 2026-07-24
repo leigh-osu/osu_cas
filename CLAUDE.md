@@ -170,7 +170,7 @@ Deployment hooks in `hooks/` run `drush updatedb` and `drush cache:rebuild` for 
 
 Remote Acquia environments accessible via:
 - `drush @osucas.dev` — development
-- `drush @osucas.test` — staging
+- `drush @osucas.stage` — staging
 - `drush @osucas.prod` — production
 
 ## Migration Context
