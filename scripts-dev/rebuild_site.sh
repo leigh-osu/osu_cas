@@ -112,7 +112,7 @@ section_1() {
   ddev drush en field_group date_ap_style node_revision_delete toc_js toc_js_per_node -y
 
   ddev drush en osu_icon_field osu_publications -y
-  ddev drush en domain domain_access domain_alias domain_content domain_source multiselect layout_builder_modal -y
+  ddev drush en domain domain_access domain_alias domain_content domain_source multiselect layout_builder_modal layout_builder_reorder -y
   ddev drush en migrate migrate_drupal phpass migrate_plus -y
   ddev drush en osu_migrations osu_user_accounts osu_migrations_files osu_migrations_media osu_migrations_taxonomy \
       osu_migrate_content og_to_group paragraphs_to_layout_builder osu_user_to_profiles devel migrate_devel \
@@ -594,8 +594,25 @@ section_7() {
       ])->save();
     }'
 
+  # Give Roger Leigh's migrated account the administrator role (is_admin:
+  # true, bypasses all permission checks) so the usual dev login works as a
+  # superadmin without hunting for the uid-1 uli link. Keyed by email: the
+  # migrated uid is stable today (112) but the address is the durable
+  # identifier if account migrations ever renumber.
+  ddev drush php:eval '
+    $users = \Drupal::entityTypeManager()->getStorage("user")->loadByProperties(["mail" => "roger.leigh@oregonstate.edu"]);
+    if ($u = reset($users)) { $u->addRole("administrator"); $u->save(); print "administrator role -> " . $u->getAccountName() . " (uid " . $u->id() . ")\n"; }
+    else { print "WARNING: roger.leigh@oregonstate.edu not found; no administrator role granted\n"; }'
+
   ddev drush pqe -y
   ddev drush cr
+  # Each site directory compiles its own container; the bare cr above only
+  # rebuilds the default one. Without this, the agsci container (used by the
+  # browser and by --uri drush) stays stale after the section-7 module
+  # enables — e.g. masquerade's route access checks aren't registered and
+  # rendering the account menu throws "No check has been registered for
+  # access_check.masquerade.unmasquerade".
+  ddev drush --uri="${SITE_URI}" cr
 
   echo ""
   echo "=== Site rebuild complete! ==="
