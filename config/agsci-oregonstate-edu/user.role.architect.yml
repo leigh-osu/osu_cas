@@ -51,6 +51,7 @@ dependencies:
     - layout_builder_restrictions
     - linkit
     - linkpurpose
+    - masquerade
     - media
     - media_bulk_upload
     - metatag
@@ -280,6 +281,7 @@ permissions:
   - 'manage layout builder component attributes'
   - 'mark as hidden in editoria11y'
   - 'mark as ok in editoria11y'
+  - 'masquerade as any user'
   - 'override xmlsitemap link settings'
   - 'revert all revisions'
   - 'revert all sitewide alert revisions'
