@@ -594,15 +594,17 @@ section_7() {
       ])->save();
     }'
 
-  # Give Roger Leigh's migrated account the administrator role (is_admin:
-  # true, bypasses all permission checks) so the usual dev login works as a
-  # superadmin without hunting for the uid-1 uli link. Keyed by email: the
-  # migrated uid is stable today (112) but the address is the durable
+  # Give the platform maintainers' migrated accounts the administrator role
+  # (is_admin: true, bypasses all permission checks) so the usual dev logins
+  # work as superadmins without hunting for the uid-1 uli link. Keyed by
+  # email: migrated uids are stable today but the address is the durable
   # identifier if account migrations ever renumber.
   ddev drush php:eval '
-    $users = \Drupal::entityTypeManager()->getStorage("user")->loadByProperties(["mail" => "roger.leigh@oregonstate.edu"]);
-    if ($u = reset($users)) { $u->addRole("administrator"); $u->save(); print "administrator role -> " . $u->getAccountName() . " (uid " . $u->id() . ")\n"; }
-    else { print "WARNING: roger.leigh@oregonstate.edu not found; no administrator role granted\n"; }'
+    foreach (["roger.leigh@oregonstate.edu", "sara.monk@oregonstate.edu"] as $mail) {
+      $users = \Drupal::entityTypeManager()->getStorage("user")->loadByProperties(["mail" => $mail]);
+      if ($u = reset($users)) { $u->addRole("administrator"); $u->save(); print "administrator role -> " . $u->getAccountName() . " (uid " . $u->id() . ")\n"; }
+      else { print "WARNING: $mail not found; no administrator role granted\n"; }
+    }'
 
   ddev drush pqe -y
   ddev drush cr
