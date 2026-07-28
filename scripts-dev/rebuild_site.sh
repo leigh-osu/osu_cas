@@ -180,6 +180,16 @@ section_1() {
   # the stock d7_user source and every profile lands with NO domain assignment.
   # (Also provides cas_user_authmap below, and pulls in the cas module.)
   ddev drush en osu_migrations_cas -y
+
+  # Recently-active role-less users (352 as of the 2026-07 audit): no
+  # editorial role, so upgrade_d7_users_with_roles skips them, but they
+  # logged in via CAS within the fixed window (see login_since in the
+  # migration) — mostly faculty/staff who maintain their own profile. Must
+  # run BEFORE upgrade_d7_user_to_profile (whose uid lookup, altered in
+  # osu_migrations_cas, consults this migration's map so their profiles are
+  # owned by them instead of uid 1) and before cas_user_authmap below.
+  ddev drush migrate:import cas_d7_active_users
+
   ddev drush migrate:import upgrade_d7_user_to_profile
 
   # CAS login mappings (uid -> externalauth authmap, provider 'cas').
