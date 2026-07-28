@@ -10,8 +10,8 @@ dependencies:
     - manzanita
 id: manzanita_account_menu
 theme: manzanita
-region: breadcrumb
-weight: 10
+region: highlighted
+weight: -20
 provider: null
 plugin: 'system_menu_block:account'
 settings:

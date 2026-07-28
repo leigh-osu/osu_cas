@@ -560,15 +560,12 @@ section_7() {
   # Add-content / Leave-group block) on the front-facing themes.
   ddev drush php:eval 'foreach (["manzanita_groupoperations", "madrone_groupoperations"] as $id) { if ($b = \Drupal\block\Entity\Block::load($id)) { $b->disable()->save(); } }'
 
-  # Masquerade: lets dx_administrator / architect step into any non-admin
-  # account (e.g. to exercise profile self-edit as a real profile owner). The
-  # permission is 'masquerade as any user' -- deliberately NOT
-  # 'masquerade as super user' (uid 1). The block renders in the highlighted
-  # region below the messages block (weight 0) and is only visible to users
-  # who hold a masquerade permission.
+  # Masquerade: Administrator-only (is_admin covers every permission, so no
+  # role grants are needed -- and deliberately none are made: dx_administrator
+  # and architect must NOT be able to masquerade). The block renders in the
+  # highlighted region below the messages block (weight 0) and is only
+  # visible to users who hold a masquerade permission.
   ddev drush en masquerade -y
-  ddev drush role:perm:add dx_administrator 'masquerade as any user'
-  ddev drush role:perm:add architect 'masquerade as any user'
   ddev drush php:eval '
     if (!\Drupal\block\Entity\Block::load("manzanita_masquerade")) {
       \Drupal\block\Entity\Block::create([
@@ -576,15 +573,16 @@ section_7() {
         "region" => "highlighted", "weight" => 10, "plugin" => "masquerade",
         "settings" => [
           "id" => "masquerade", "label" => "Masquerade",
-          "label_display" => "visible", "provider" => "masquerade",
+          "label_display" => "0", "provider" => "masquerade",
         ],
         "visibility" => [],
       ])->save();
     }'
 
-  # Account menu below the breadcrumbs: manzanita places no account menu
-  # block, so logged-in users had no account UI at all. This also surfaces
-  # the My OSU Profile / My Groups links (osu_cas_multisite routes; each link
+  # Account menu at the top of the highlighted region (above messages and
+  # the masquerade block): manzanita places no account menu block, so
+  # logged-in users had no account UI at all. This also surfaces the
+  # My OSU Profile / My Groups links (osu_cas_multisite routes; each link
   # hides itself for users without an owned profile / any group membership).
   # The member group-role permissions that make own-profile view/edit work are
   # imported with config_imports/group in section 6
@@ -593,7 +591,7 @@ section_7() {
     if (!\Drupal\block\Entity\Block::load("manzanita_account_menu")) {
       \Drupal\block\Entity\Block::create([
         "id" => "manzanita_account_menu", "theme" => "manzanita",
-        "region" => "breadcrumb", "weight" => 10,
+        "region" => "highlighted", "weight" => -20,
         "plugin" => "system_menu_block:account",
         "settings" => [
           "id" => "system_menu_block:account", "label" => "User account menu",
