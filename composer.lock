@@ -17896,16 +17896,16 @@
         },
         {
             "name": "leigh-osu/manzanita",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leigh-osu/manzanita.git",
-                "reference": "a313c3ba1d06836e9488f353d0591f329db6c029"
+                "reference": "535d5e536cf9de01d59c16923344355e5d7594e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/manzanita/zipball/a313c3ba1d06836e9488f353d0591f329db6c029",
-                "reference": "a313c3ba1d06836e9488f353d0591f329db6c029",
+                "url": "https://api.github.com/repos/leigh-osu/manzanita/zipball/535d5e536cf9de01d59c16923344355e5d7594e2",
+                "reference": "535d5e536cf9de01d59c16923344355e5d7594e2",
                 "shasum": ""
             },
             "type": "drupal-custom-theme",
@@ -17920,10 +17920,10 @@
             ],
             "description": "Drupal Theme for OSU College of Agricultural Sciences",
             "support": {
-                "source": "https://github.com/leigh-osu/manzanita/tree/v1.1.0",
+                "source": "https://github.com/leigh-osu/manzanita/tree/v1.1.1",
                 "issues": "https://github.com/leigh-osu/manzanita/issues"
             },
-            "time": "2026-07-28T21:57:53+00:00"
+            "time": "2026-07-28T22:18:36+00:00"
         },
         {
             "name": "leigh-osu/osu_cas_multisite",
