@@ -196,6 +196,12 @@ html {
 #madrone-breadcrumb-container .breadcrumb-item.active {
   color: #e9e5e4;
 }
+#madrone-breadcrumb-container .breadcrumb-item:last-child::after {
+  content: var(--bs-breadcrumb-divider, ">");
+  padding-left: var(--bs-breadcrumb-item-padding-x, 0.5rem);
+  color: #b7b1af;
+  font-weight: 900;
+}
 
 footer[role=contentinfo] {
   font-size: 0.9em;

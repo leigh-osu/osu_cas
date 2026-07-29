@@ -49,5 +49,15 @@
     &.active {
       color: $neutral-200;
     }
+
+    // Trailing divider after the last crumb — the trail no longer shows the
+    // current page, so it reads "CBARC > Research >" pointing at the page
+    // you are on. Mirrors Bootstrap's ::before divider.
+    &:last-child::after {
+      content: var(--bs-breadcrumb-divider, '>');
+      padding-left: var(--bs-breadcrumb-item-padding-x, 0.5rem);
+      color: $neutral-400;
+      font-weight: 900;
+    }
   }
 }
