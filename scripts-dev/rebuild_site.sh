@@ -477,6 +477,12 @@ section_7() {
   ddev drush migrate:import cas_user_profile_osu_student
   ddev drush migrate:import cas_user_profile_agricultural_sciences
 
+  # D7 editor-set focal points -> focal_point crop entities (18k). Runs late:
+  # media saves throughout the migration auto-create centered default crops,
+  # and this migration UPSERTS them (cas_existing_crop_id) so the D7 focus
+  # wins. Feeds the picbox_800x580 style (config_imports/display).
+  ddev drush migrate:import cas_focal_points
+
   # Profile group placement (D7 user OG memberships -> group_node:osu_profile).
   # Deliberately NOT tagged 'CAS Groups' (section 6): it must run after the
   # profile nodes above exist, or every row skips on the profile lookup.
@@ -598,7 +604,15 @@ section_7() {
           "label_display" => "0", "provider" => "system",
           "level" => 1, "depth" => 1, "expand_all_items" => FALSE,
         ],
-        "visibility" => [],
+        // Authenticated only: anonymous users get no account menu (and so no
+        // Log in link — it is the same toggling menu link as Log out).
+        "visibility" => [
+          "user_role" => [
+            "id" => "user_role", "negate" => FALSE,
+            "context_mapping" => ["user" => "@user.current_user_context:current_user"],
+            "roles" => ["authenticated" => "authenticated"],
+          ],
+        ],
       ])->save();
     }'
 

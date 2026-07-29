@@ -25,8 +25,6 @@ third_party_settings:
       restricted_categories: {  }
     entity_view_mode_restriction_by_region:
       allowed_layouts: {  }
-_core:
-  default_config_hash: 82Q_VXNjZoVH6LHbcyxz0yx3lNcXdyJVUL3O8Fk7eEE
 id: block_content.osu_card.picbox
 targetEntityType: block_content
 bundle: osu_card
@@ -43,7 +41,7 @@ content:
     type: entity_reference_entity_view
     label: hidden
     settings:
-      view_mode: 800x450
+      view_mode: picbox
       link: false
     third_party_settings: {  }
     weight: 0
@@ -60,4 +58,5 @@ content:
     third_party_settings: {  }
     weight: 2
     region: blb_region_col_1
-hidden: {  }
+hidden:
+  langcode: true
