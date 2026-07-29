@@ -156,9 +156,9 @@ Migration source database connection is configured via environment variables (`D
 
 ### Deployment (Acquia Cloud)
 
-- `develop` branch → deploys to Acquia **dev** environment automatically via Acquia Pipelines
-- `master` branch → deploys to Acquia **stage** environment automatically
-- Production deploys are manual (Acquia Cloud UI)
+- `develop` branch → Pipelines builds `pipelines-build-develop` → Acquia **dev** environment (automatic)
+- `main` branch → Pipelines builds `pipelines-build-main` → Acquia **stage** environment (automatic). Promote with `git push origin develop:main`.
+- **prod** tracks the `master` ref on Acquia's internal repo; production deploys are manual (Acquia Cloud UI)
 
 Deployment hooks in `hooks/` run `drush updatedb` and `drush cache:rebuild` for all multisite domains in parallel after code deploy.
 
