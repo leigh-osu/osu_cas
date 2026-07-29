@@ -1,0 +1,90 @@
+uuid: a7a40896-0205-44aa-80b0-267e71dda367
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 8166
+template: false
+archive: false
+id: webform_215126
+title: 'FWCS Mailing List Request Form'
+description: null
+categories: {  }
+elements: |-
+  name:
+    '#type': textfield
+    '#title': Name
+    '#required': true
+  email:
+    '#type': email
+    '#size': 20
+    '#title': Email
+    '#required': true
+  relation_to_fwcs:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Relation to FWCS'
+    '#required': true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<p>\r\n\tThank you for your interest in our department!</p>\r\n\r\n<p>\r\n\tWe will add you to our mailing list so you can hear about events, research updates, and other FWCS related news.&nbsp;</p>\r\n\r\n<p>\r\n\t&nbsp;</p>\r\n\r\n<p>\r\n\t&nbsp;</p>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: amanda.polley@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: 'FW Webform'
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: 'Response: 85th Anniversary Interest Form'
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

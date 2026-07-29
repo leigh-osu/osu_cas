@@ -1,0 +1,45 @@
+Disable xmlsitemap cron regeneration in the profile's shipped config.
+
+The osu_standard install crashes intermittently under `drush site:install`
+with:
+
+  TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid
+  callback, function "xmlsitemap_batch_variable_set" not found ...
+  in _drush_batch_worker() (drush/includes/batch.inc:257)
+
+Root cause: cron runs during install, and xmlsitemap_cron() calls
+xmlsitemap_run_unprogressive_batch('xmlsitemap_regenerate_batch'). Under CLI
+that dispatches via drush_backend_batch_process(), which processes the batch in
+a Drush subprocess. xmlsitemap_regenerate_batch() defines no 'file' key, so its
+operation callbacks (xmlsitemap_batch_variable_set, etc. — defined in
+xmlsitemap.module) are never loaded in that subprocess and call_user_func_array
+throws a TypeError. Via the web installer xmlsitemap.module is always loaded, so
+the bug only surfaces under Drush.
+
+The TypeError propagates up through module_installer->install([...]) inside the
+profile's osu_standard_default_modules task and aborts it mid-way, leaving
+modules such as osu_block_types (and their entity_reference_revisions /
+date_ap_style / metatag field-type config) written to active storage but never
+enabled. Every subsequent `drush en` then fails with
+"The '<field_type>' plugin does not exist", producing an empty, unbuildable
+site.
+
+xmlsitemap_cron() short-circuits before building the batch when
+disable_cron_regeneration is TRUE (see xmlsitemap.module:197-199), so shipping
+the profile config with it enabled makes `drush site:install` deterministic. It
+only affects cron-driven sitemap *file* regeneration (not link indexing), which
+a fresh install / migration rebuild does not need; any site can re-enable it in
+active config post-install.
+
+diff --git a/config/install/xmlsitemap.settings.yml b/config/install/xmlsitemap.settings.yml
+--- a/config/install/xmlsitemap.settings.yml
++++ b/config/install/xmlsitemap.settings.yml
+@@ -9,7 +9,7 @@
+ lastmod_format: 'Y-m-d\TH:i\Z'
+ gz: false
+ clean_url: 0
+-disable_cron_regeneration: false
++disable_cron_regeneration: true
+ i18n_selection_mode: simple
+ cron_threshold_error: 1209600
+ cron_threshold_warning: 172800

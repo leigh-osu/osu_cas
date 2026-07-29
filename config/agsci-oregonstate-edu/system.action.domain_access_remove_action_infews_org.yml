@@ -1,0 +1,15 @@
+uuid: 90de995d-81e2-4626-9170-4c59634f40c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.infews_org
+  module:
+    - domain_access
+id: domain_access_remove_action_infews_org
+label: 'Remove selected content from the Infews domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - infews_org

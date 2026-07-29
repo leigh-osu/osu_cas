@@ -1,0 +1,11 @@
+name: 'Toc.js Filter'
+type: module
+description: 'Provides a filter that replaces [toc] with a table of contents.'
+core_version_requirement:  ^10 || ^11
+dependencies:
+  - toc_js:toc_js
+
+# Information added by Drupal.org packaging script on 2026-04-27
+version: '3.6.0'
+project: 'toc_js'
+datestamp: 1777293225

@@ -1,0 +1,9 @@
+services:
+  google_cse.route_subscriber:
+    class: Drupal\google_cse\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
+
+  Drupal\google_cse\Hook\GoogleCseHooks:
+    class: Drupal\google_cse\Hook\GoogleCseHooks
+    autowire: true

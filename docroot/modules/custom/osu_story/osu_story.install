@@ -1,0 +1,154 @@
+<?php
+
+/**
+ * @file
+ * The OSU Story module's installation and upgrade functions.
+ */
+
+use Drupal\Core\Config\FileStorage;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\image\Entity\ImageStyle;
+use Drupal\layout_builder\Plugin\SectionStorage\OverridesSectionStorage;
+
+/**
+ * Add meta-tag for a story.
+ */
+function osu_story_update_9001(&$sandbox) {
+  $install_path = Drupal::service('module_handler')
+    ->getModule('osu_story')
+    ->getPath();
+  $config_path = realpath($install_path . '/config/install');
+  $source = new FileStorage($config_path);
+  /** @var \Drupal\Core\Config\CachedStorage $config_storage */
+  $config_storage = \Drupal::service('config.storage');
+  $config_storage->write('metatag.metatag_defaults.node__story', $source->read('metatag.metatag_defaults.node__story'));
+
+  $config_storage->write('core.entity_view_display.node.story.teaser', $source->read('core.entity_view_display.node.story.teaser'));
+  return t('Add/updated the metatag defaults for OSU Story.');
+}
+
+/**
+ * Update the description of the field_osu_story_external_url.
+ */
+function osu_story_update_9002(&$sandbox) {
+  /** @var \Drupal\Core\Config\CachedStorage $config_storage */
+  $config_storage = \Drupal::service('config.storage');
+
+  // Load the field's existing configuration.
+  $field_config = $config_storage->read('field.field.node.story.field_osu_story_external_url');
+  // Update the description.
+  $field_config['description'] = 'Put a URL here if you want to link to story on another website and not write your own story.';
+  // Write the updated configuration back.
+  $config_storage->write('field.field.node.story.field_osu_story_external_url', $field_config);
+
+  return t('Updated the description of field_osu_story_external_url for OSU Story.');
+}
+
+/**
+ * Add realtime_seo (Yoast!) to stories; remove layout override capability.
+ */
+function osu_story_update_9003(&$sandbox) {
+  /** @var \Drupal\Core\ProxyClass\Extension\ModuleInstaller $module_installer */
+  $module_installer = Drupal::service('module_installer');
+  $module_installer->install(['yoast_seo']);
+  $logger = \Drupal::logger('osu_story');
+  $install_path = Drupal::service('module_handler')
+    ->getModule('osu_story')
+    ->getPath();
+  $config_path = realpath($install_path . '/config/install');
+  $optional_config_path = realpath($install_path . '/config/optional');
+  $source = new FileStorage($config_path);
+  $optional_source = new FileStorage($optional_config_path);
+  /** @var \Drupal\Core\Config\CachedStorage $config_storage */
+  $config_storage = \Drupal::service('config.storage');
+  try {
+    if (FieldConfig::loadByName('node', 'story', 'field_osu_story_realtime_seo') !== NULL) {
+      FieldConfig::loadByName('node', 'story', 'field_osu_story_realtime_seo')
+        ->delete();
+    }
+  }
+  catch (\Exception $e) {
+    $logger->notice('Failed to delete field_osu_story_realtime_seo field: @message', ['@message' => $e->getMessage()]);
+  }
+  try {
+    if (FieldStorageConfig::loadByName('node', 'field_osu_story_realtime_seo') !== NULL) {
+      FieldStorageConfig::loadByName('node', 'field_osu_story_realtime_seo')
+        ->delete();
+    }
+  }
+  catch (\Exception $e) {
+    $logger->notice('Failed to delete field_osu_story_realtime_seo field storage: @message', ['@message' => $e->getMessage()]);
+  }
+  $config_storage->delete('field.storage.node.field_osu_story_realtime_seo');
+  $config_storage->delete('field.field.node.story.field_osu_story_realtime_seo');
+  FieldStorageConfig::create($source->read('field.storage.node.field_osu_story_realtime_seo'))
+    ->save();
+  FieldConfig::create($source->read('field.field.node.story.field_osu_story_realtime_seo'))
+    ->save();
+  $updated_form = $source->read('core.entity_form_display.node.story.default');
+  $existing_form = $config_storage->read('core.entity_form_display.node.story.default');
+  $existing_form['content']['field_osu_story_realtime_seo'] = $updated_form['content']['field_osu_story_realtime_seo'];
+  unset($existing_form['hidden']['field_osu_story_realtime_seo']);
+  $config_storage->write('core.entity_form_display.node.story.default', $existing_form);
+  // Check to see if _any_ stories have layout overrides.
+  $num_stories_with_overrides = \Drupal::entityTypeManager()
+    ->getStorage('node')
+    ->getQuery()
+    ->accessCheck(FALSE)
+    ->exists(OverridesSectionStorage::FIELD_NAME)
+    ->condition('type', 'story')
+    ->count()
+    ->execute();
+  // Only write the default display if there are no overrides.
+  if ($num_stories_with_overrides === 0) {
+    $config_storage->write('core.entity_view_display.node.story.default', $source->read('core.entity_view_display.node.story.default'));
+  }
+  // Check to see if the view was changed from the original view and overwrite
+  // with changes.
+  $osu_stories_db_view = $config_storage->read('views.view.osu_stories');
+  $osu_stories_update_view = $source->read('views.view.osu_stories');
+  if ($osu_stories_db_view === $osu_stories_update_view) {
+    $config_storage->write('views.view.osu_stories', $source->read('views.view.osu_stories'));
+  }
+  if (Drupal::moduleHandler()->moduleExists('group')) {
+    $config_storage->write('views.view.osu_stories__groups', $optional_source->read('views.view.osu_stories__groups'));
+  }
+  return t('Added realtime_seo field and removed layout override capability for OSU Story.');
+}
+
+/**
+ * Create a new Image style and Update Views Archive page.
+ */
+function osu_story_update_9004(&$sandbox): TranslatableMarkup {
+  /** @var string $osu_media_module_path */
+  $osu_media_module_path = Drupal::service('module_handler')
+    ->getModule('osu_story')
+    ->getPath();
+  $osu_media_config_path = $osu_media_module_path . '/config/install';
+  $osu_media_config = new FileStorage($osu_media_config_path);
+  $existing_image_styles = ImageStyle::load('osu_stories_archive');
+  if (!$existing_image_styles) {
+    ImageStyle::create($osu_media_config->read('image.style.osu_stories_archive'))
+      ->save();
+  }
+  /** @var Drupal\Core\Config\ConfigFactory $config_factory */
+  $config_factory = Drupal::service('config.factory');
+  /** @var Drupal\Core\Config\Config $osu_story_view_config */
+  $osu_story_view_config = $config_factory->getEditable('views.view.osu_stories');
+  $osu_story_view_archive_image_style = $osu_story_view_config->get('display.stories_archive.display_options.fields.field_osu_story_cover_image.settings.image_style');
+  if ($osu_story_view_archive_image_style === '1400x900') {
+    $osu_story_view_config->set('display.stories_archive.display_options.fields.field_osu_story_cover_image.settings.image_style', 'osu_stories_archive');
+  }
+  $osu_story_view_config->save();
+  return t('Created new Image style and updated the Views Archive page for OSU Story.');
+}
+
+/**
+ * Rerun update 9003.
+ */
+function osu_story_update_9005(&$sandbox): TranslatableMarkup {
+  osu_story_update_9003($sandbox);
+  return t('Reran update 9003 for OSU Story.');
+}

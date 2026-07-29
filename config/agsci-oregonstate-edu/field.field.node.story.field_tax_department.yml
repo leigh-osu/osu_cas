@@ -1,0 +1,29 @@
+uuid: bb8cc4ee-61dc-4f7a-8c7a-b361821f09e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tax_department
+    - node.type.story
+    - taxonomy.vocabulary.unit
+id: node.story.field_tax_department
+field_name: field_tax_department
+entity_type: node
+bundle: story
+label: Department
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      unit: unit
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

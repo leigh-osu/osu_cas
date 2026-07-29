@@ -1,0 +1,24 @@
+{
+    "name": "drupal/toc_js",
+    "type": "drupal-module",
+    "description": "The Toc.js module automatically generates tables of contents from headings on client side.",
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "homepage": "https://www.drupal.org/project/toc_js",
+    "authors": [
+        {
+            "name": "flocondetoile",
+            "homepage": "https://www.drupal.org/u/flocondetoile",
+            "role": "Maintainer"
+        },
+        {
+            "name": "mably",
+            "homepage": "https://www.drupal.org/u/mably",
+            "role": "Maintainer"
+        }
+    ],
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/toc_js",
+        "source": "https://git.drupalcode.org/project/toc_js"
+    }
+}

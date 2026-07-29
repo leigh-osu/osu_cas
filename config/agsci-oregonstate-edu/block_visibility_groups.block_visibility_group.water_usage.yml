@@ -1,0 +1,16 @@
+uuid: f6555ffe-2792-4eb2-89f7-22ca6ec17c41
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: water_usage
+label: water_usage
+logic: and
+conditions:
+  2bf951e0-68b8-47d5-8096-0428db1439f5:
+    id: request_path
+    negate: false
+    uuid: 2bf951e0-68b8-47d5-8096-0428db1439f5
+    pages: /node/112826
+allow_other_conditions: null

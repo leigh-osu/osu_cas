@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dw_date
+    - node.type.weather_daily_data
+  module:
+    - datetime
+id: node.weather_daily_data.field_dw_date
+field_name: field_dw_date
+entity_type: node
+bundle: weather_daily_data
+label: Date
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

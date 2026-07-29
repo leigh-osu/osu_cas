@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Contains paragraphs_view_mode installation and update functions.
+ */
+
+/**
+ * Unlock the paragraph_view_mode field.
+ */
+function paragraph_view_mode_update_8001() {
+  /** @var \Drupal\paragraph_view_mode\StorageManagerInterface $storage_manager */
+  $storage_manager = \Drupal::service('paragraph_view_mode.storage_manager');
+  $storage_manager
+    ->getFieldStorage()
+    ->setLocked(FALSE)
+    ->save();
+}

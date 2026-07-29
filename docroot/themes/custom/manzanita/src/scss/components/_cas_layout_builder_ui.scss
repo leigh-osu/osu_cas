@@ -1,0 +1,7 @@
+// Layout Builder edit-UI tweaks.
+
+// The Rearrange link (layout_builder_reorder) renders flush against the
+// neighbouring Add-section/Add-block links; give it breathing room.
+.layout-builder__link--rearrange {
+  margin-left: 1em;
+}

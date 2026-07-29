@@ -1,0 +1,10 @@
+{
+    "name": "leigh-osu/osu_digital_measures",
+    "description": "Displays a Digital Measures report for a profile, keyed on the profile owner's ONID (CAS) account.",
+    "type": "drupal-custom-module",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=8.1",
+        "drupal/externalauth": "^2.0"
+    }
+}

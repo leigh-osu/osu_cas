@@ -1,0 +1,34 @@
+.responsive-preview-navigation-bar {
+  margin: 0;
+  padding: 0;
+  border-radius: 4px;
+  background-color: #eee;
+}
+
+.responsive-preview-navigation-bar button {
+  width: 50px;
+  height: 35px;
+  padding: 3px 10px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25px 25px;
+  font-size: 0 !important;
+}
+
+.responsive-preview-navigation-bar button.device-icon-mobile {
+  background-image: url("../images/mobile.svg");
+}
+
+.responsive-preview-navigation-bar button.device-icon-desktop {
+  background-image: url("../images/desktop.svg");
+}
+
+.responsive-preview-navigation-bar button.active {
+  border-color: #eee;
+  border-radius: 4px;
+  background-color: #fff;
+}

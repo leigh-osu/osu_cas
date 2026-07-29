@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_dates
+    - node.type.date_test
+  module:
+    - datetime_range
+id: node.date_test.field_event_dates
+field_name: field_event_dates
+entity_type: node
+bundle: date_test
+label: 'Event Dates'
+description: 'Date range for events covered in this article'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

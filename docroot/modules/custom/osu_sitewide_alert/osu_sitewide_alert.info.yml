@@ -1,0 +1,8 @@
+name: OSU Sitewide Alert
+type: module
+description: 'Provide OSU specifics for the Sitewide Alert module.'
+package: OSU
+core_version_requirement: ^10 || ^11
+version: 1.0.0
+dependencies:
+  - sitewide_alert:sitewide_alert

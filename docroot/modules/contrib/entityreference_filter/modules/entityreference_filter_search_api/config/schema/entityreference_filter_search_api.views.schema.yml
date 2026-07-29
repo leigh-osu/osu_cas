@@ -1,0 +1,3 @@
+views.filter.entityreference_filter_view_result_search_api:
+  type: views.filter.entityreference_filter_view_result
+  label: 'Entity reference filter (Search API)'

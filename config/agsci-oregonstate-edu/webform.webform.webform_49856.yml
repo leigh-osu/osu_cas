@@ -1,0 +1,274 @@
+uuid: 996ec05c-1371-44fc-a43e-7ae869bd5cd7
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_49856
+title: 'AG 410 Internship Class - Application Form'
+description: null
+categories: {  }
+elements: |-
+  introduction:
+    '#type': processed_text
+    '#format': full_html
+    '#text': '<p>Please fill out this form before the beginning of the term that you wish to intern or as early in the term as possible. Late forms may be past the deadline to add classes. Be aware that once you begin your application, you will not be able to pause or save your progress. Make sure you read through all sections and contact your employer for necessary information. Incomplete applications will not be reviewed.</p>'
+  fieldset_student:
+    '#type': fieldset
+    '#open': true
+    '#title': Student
+    '#description': 'To be completed by student. *Please note, OSU cannot authorize distance education based on internship opportunities in Maryland, Massachusetts, New Hampshire, and Tennessee.'
+    last_name_2:
+      '#type': textfield
+      '#unique': false
+      '#title': 'Last Name'
+      '#required': true
+    first_name_2:
+      '#type': textfield
+      '#unique': false
+      '#title': 'First Name'
+      '#required': true
+    middle_initial_2:
+      '#type': textfield
+      '#size': 5
+      '#title': M.I.
+    address_2:
+      '#type': textfield
+      '#unique': false
+      '#title': Address
+      '#description': 'Street, City, State, Zip'
+      '#required': true
+    telephone_2:
+      '#type': textfield
+      '#unique': false
+      '#title': Telephone
+      '#required': true
+    permanent_address_2:
+      '#type': textfield
+      '#unique': false
+      '#title': 'Permanent Address'
+      '#description': 'Street, City, State, Zip'
+    permanent_telephone_2:
+      '#type': textfield
+      '#unique': false
+      '#title': Telephone
+    email_2:
+      '#type': email
+      '#size': 20
+      '#unique': false
+      '#title': Email
+      '#required': true
+    major_minor_2:
+      '#type': textfield
+      '#unique': false
+      '#title': Major/Minor
+      '#required': true
+    id_number_2:
+      '#type': textfield
+      '#unique': false
+      '#title': 'ID Number'
+      '#required': true
+    class_standing_2:
+      '#type': radios
+      '#options':
+        freshman: Freshman
+        sophomore: Sophomore
+        junior: Junior
+        senior: Senior
+        grad: Grad
+      '#title': 'Class Standing'
+      '#required': true
+  fieldset_organization_offering_internship:
+    '#type': fieldset
+    '#open': true
+    '#title': 'Organization Offering Internship'
+    '#description': 'To be completed by student and internship supervisor.'
+    company_agency_14:
+      '#type': textfield
+      '#unique': false
+      '#title': Company/Agency
+      '#required': true
+    students_job_title_14:
+      '#type': textfield
+      '#unique': false
+      '#title': "Student's Job Title"
+      '#required': true
+    name_of_supervisor_14:
+      '#type': textfield
+      '#unique': false
+      '#title': 'Name of Supervisor'
+      '#required': true
+    title_14:
+      '#type': textfield
+      '#unique': false
+      '#title': "Supervisor's Title"
+      '#required': true
+    company_address_14:
+      '#type': textfield
+      '#unique': false
+      '#title': 'Company Address'
+      '#description': 'Street, City, State, Zip'
+      '#required': true
+    company_telephone_14:
+      '#type': textfield
+      '#unique': false
+      '#title': Telephone
+      '#required': true
+    payment_if_applicable_salary_mo_14:
+      '#type': textfield
+      '#unique': false
+      '#title': 'Payment (if applicable) Salary/Mo'
+    or_stipend_amount_14:
+      '#type': textfield
+      '#unique': false
+      '#title': 'Or Stipend Amount'
+    hours_per_week_14:
+      '#type': textfield
+      '#unique': false
+      '#title': 'Hours per week'
+      '#required': true
+    supervisors_email_14:
+      '#type': email
+      '#size': 20
+      '#unique': false
+      '#title': "Supervisor's Email"
+      '#required': true
+    health_insurance_coverage_provided_14:
+      '#type': radios
+      '#options':
+        insurance_yes: 'Yes'
+        insurance_no: 'No'
+      '#title': 'Health Insurance Coverage Provided'
+      '#required': true
+    liability_insurance_workers_comp_coverage_provided_14:
+      '#type': radios
+      '#options':
+        wc_yes: 'Yes'
+        wc_no: 'No'
+      '#title': "Liability Insurance (Worker's Comp.) Coverage Provided"
+      '#required': true
+  fieldset_internship_job_description:
+    '#type': fieldset
+    '#open': true
+    '#title': 'Internship/Job Description'
+    please_describe_in_detail_what_your_roles_and_responsibilities_will_be_27:
+      '#type': textarea
+      '#title': 'Please describe in detail what your role(s) and responsibilities will be at the site. List duties, including projects to be completed with deadlines (if relevant).'
+      '#required': true
+    internship_start_date_27:
+      '#type': date
+      '#title': ' Internship Start Date'
+      '#required': true
+    end_date_27:
+      '#type': date
+      '#title': 'End Date'
+      '#required': true
+  fieldset_students_learning_objectives:
+    '#type': fieldset
+    '#open': true
+    '#title': "Student's Learning Objectives "
+    instruction_31:
+      '#type': processed_text
+      '#format': full_html
+      '#text': '<p>To be completed by student and internship supervisor.</p><p>It is recommended to establish at least one to two objectives within the following categories, with specific strategies for each objective. <em>If it is not possible immediately to complete together</em>, review these objectives with your internship supervisor within one week of start date.</p><p><strong>Academic Learning:</strong> ideas, concepts or theories related to major/field of study or current research.</p><p><strong>Skill Development:</strong> skills specific to major, occupation, technical, critical thinking, oral/written communication, problem solving, identification, participating in research.</p><p><strong>Personal/Professional Development:</strong> career awareness, clarification of work and professional values, self-confidence, leadership.</p><p><strong>LEARNING OBJECTIVES:</strong> Please note which category your objective falls under (see above).</p><p><em>Example</em>: I want to learn preferred methods; timing and technicalities about planting cover crops. This will enhance my academic learning within soil quality, and increase my technical skill development. By the end of fall, I hope to have learned about two new crops.</p><p><em>Example</em>: I would like to increase my professional development and career awareness by experiencing a new area of the industry.</p>'
+    '1_31':
+      '#type': textarea
+      '#title_display': inline
+      '#title': 1)
+    '2_31':
+      '#type': textarea
+      '#title_display': inline
+      '#title': 2)
+    '3_31':
+      '#type': textarea
+      '#title_display': inline
+      '#title': 3)
+    '4_31':
+      '#type': textarea
+      '#title_display': inline
+      '#title': 4)
+    '5_31':
+      '#type': textarea
+      '#title_display': inline
+      '#title': 5)
+    additional_requirements_31:
+      '#type': processed_text
+      '#format': full_html
+      '#text': '<p>A. ADDITIONAL REQUIREMENTS</p><p>Please describe here regular interactions, responsibilities and measures by which student will interact with employer in the day to day. Please also describe if there are additional evaluations and their criteria that go along with these responsibilities.</p>'
+    student_responsibilities_31:
+      '#type': textarea
+      '#title': 'Student Responsibilities'
+      '#required': true
+    employer_responsibilities_31:
+      '#type': textarea
+      '#title': 'Employer Responsibilities'
+      '#required': true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: Ag.Education@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: '[webform_submission:values:last_name:raw]'
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |-
+        Submitted on [webform_submission:date:long]
+        Submitted by user: [webform_submission:user]
+        Submitted values are:
+        [webform_submission:values]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

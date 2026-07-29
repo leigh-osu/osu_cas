@@ -1,0 +1,16 @@
+uuid: 63946226-bdc5-4b2a-baf5-b4cd1b0b3de6
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: ngc_nursery
+label: ngc_nursery
+logic: and
+conditions:
+  46ac36c7-0ce3-426c-aa70-cafac6d4f049:
+    id: request_path
+    negate: false
+    uuid: 46ac36c7-0ce3-426c-aa70-cafac6d4f049
+    pages: "/node/79961\r\n/node/63566"
+allow_other_conditions: null

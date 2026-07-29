@@ -1,0 +1,9 @@
+section_library:
+  css:
+    theme:
+      css/section-library.css: { }
+  js:
+    js/section-library.js: { }
+  dependencies:
+    - core/drupal
+    - core/once

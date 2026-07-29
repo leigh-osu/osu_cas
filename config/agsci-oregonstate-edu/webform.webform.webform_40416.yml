@@ -1,0 +1,177 @@
+uuid: 73b517d8-307e-475e-aedf-932b292b7ad0
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 1022
+template: false
+archive: false
+id: webform_40416
+title: 'Industry Partners'
+description: null
+categories: {  }
+elements: |-
+  introduction:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	[[{"fid":"94221","view_mode":"default","fields":{"format":"default","alignment":"center","field_file_image_alt_text[und][0][value]":false,"field_file_image_title_text[und][0][value]":false,"external_url":""},"type":"media","field_deltas":{"3":{"format":"default","alignment":"center","field_file_image_alt_text[und][0][value]":false,"field_file_image_title_text[und][0][value]":false,"external_url":""}},"link_text":null,"attributes":{"class":"media-element file-default media-wysiwyg-align-center","data-delta":"3"}}]]</p>
+
+      <p>
+      	Oregon State University’s Department of Biological &amp; Ecological Engineering is looking for opportunities to strengthen our existing connections with industry and to develop new relationships—locally, nationally, and worldwide.</p>
+
+      <p>
+      	If you're serious about wanting to help shape the next generation of biological and ecological engineers, access an exceptional pool of engineering and scientific research talent, and connect with Oregon State's Biological &amp; Ecological programs in other ways, we want to work with you.</p>
+
+      <h3>
+      	<strong>Recruiting for Internships and Jobs</strong></h3>
+
+      <p>
+      	Biological &amp; Ecological Engineering students make great interns and employees! They are passionate about the environment, creative and innovative thinkers, good communicators, work well on teams, and are effective leaders. Many of the undergraduate students in our department are looking for part-time work or internships during the school year and full-time work or internships during the summer break (mid-June through mid-September). Graduating students (both undergraduate and graduate) are interested in full-time positions.</p>
+
+      <p>
+      	If you are interested in recruiting an Ecological Engineering student for an internship or part-time/full-time job position, please contact the BEE academic advisor, <a href="https://bee.oregonstate.edu/users/rachel-jones">Rachel Jones</a>. In addition, we recommend that you post the position on <a href="https://oregonstate.joinhandshake.com/login">Handshake</a>. Handshake is the OSU career management platform and your online connection to OSU students and alumni. The first step to posting a position is to request a Handshake account. Once approved, you can select "Post a job" from your homepage or the "Jobs" tab on the left side to see your current jobs and to add new ones. Please refer to this <a href="https://career.oregonstate.edu/employers/guide-recruiting-oregon-state">recruiting guide</a> or <a href="https://career.oregonstate.edu/employers/internship-guide">internship guide</a> for more information.</p>
+
+      <h3>
+      	Attending a Career Fair</h3>
+
+      <p>
+      	Each term, the Career Development Center and other OSU departments offer&nbsp;Career Fairs&nbsp;for our current students and alumni. Find out when our upcoming fairs are taking place and register on&nbsp;<a href="https://oregonstate.joinhandshake.com/login">Handshake</a>.</p>
+
+      <h3>
+      	<strong>Hosting Field Trips</strong></h3>
+
+      <p>
+      	Students benefit from seeing classroom knowledge applied in the real-world. Coordinate an onsite presentation/tour to familiarize our students with your company and its facilities.&nbsp; Hosting field trips requires as little commitment as a few hours showing students around your workplace once per year.&nbsp; We will arrange for students to be transported to your place of work. &nbsp;</p>
+
+      <h3>
+      	<strong>Guest Lecturing</strong></h3>
+
+      <p>
+      	Present a seminar or workshop here on campus to broaden our students' (and faculty's) perspectives on real-world engineering issues, career options, communication skills, challenges of working on project teams, and other industry-relevant topics.&nbsp; We are interested in having you come speak to our students at any time you are available, and also during our fall term seminar course, if that fits in your schedule. &nbsp;</p>
+
+      <h3>
+      	<strong>Job Shadowing</strong></h3>
+
+      <p>
+      	The department’s Job Shadowing program is designed to allow students to see “a day in the life” of your profession.&nbsp;&nbsp; This program is open to students of all levels and is a useful tool for them to explore various career paths and professional interests.&nbsp; Students will arrange for their own transportation to your place of work and will work around your schedule to shadow you.</p>
+
+      <h3>
+      	<strong>Mentoring</strong></h3>
+
+      <p>
+      	Mentor programs offer a structured setting in which to develop beneficial one-on-one relationships between students and professionals. Acting as a friend, a teacher, and a guide to the real world, mentors have the opportunity to encourage and advise students by sharing their own experiences and knowledge of the profession.</p>
+
+      <p>
+      	Time commitment will vary based on individual needs, but mentors should communicate with protégés at least once every two weeks.&nbsp;&nbsp; Mentors and protégés may, but do not have to, meet in-person.&nbsp; Virtual meetings are welcome.&nbsp; Should you choose to participate in this program; the department will provide guidelines and suggested activities.</p>
+
+      <h3>
+      	<strong>Industry Advisory Board</strong></h3>
+
+      <p>
+      	Our BEE Industry Advisory Board members serve the department in an advisory role, helping us with program planning, decision making, and direction setting. Board membership also provides many opportunities for close association with department faculty and students. Please visit the <a href="/biological-and-ecological-engineering/industry-advisory-board">advisory board webpage</a> for more information.</p>
+
+      <h3>
+      	<strong>Contact</strong></h3>
+
+      <p>
+      	If you would like more information or to let us know how you would like to be involved, contact Jennifer Cohen: <a href="/user/1229/contact">Email contact form</a>, phone 541.737.6292, or use the form below. &nbsp;</p>
+
+      <h4>
+      	Your contact information:</h4>
+  name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Name
+  company:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Company
+  telephone:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Telephone
+  email:
+    '#type': email
+    '#size': 20
+    '#title_display': inline
+    '#title': Email
+  im_interested_in:
+    '#type': checkboxes
+    '#options':
+      interested_field_trips: 'hosting field trips'
+      interested_guest: 'guest lecturing'
+      interested_job_shadow: 'providing job shadowing opportunities'
+      interested_internships: 'providing internships'
+      interested_mentoring: mentoring
+      interested_ind_board: 'serving on the Industry Advisory Board'
+    '#multiple': true
+    '#title': "I'm interested in"
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: kathleen.martin@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |
+        Submitted on [webform_submission:date:long]
+        Submitted by user: [webform_submission:user]
+        Submitted values are:
+        [webform_submission:values]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

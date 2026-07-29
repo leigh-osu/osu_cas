@@ -1,0 +1,12 @@
+name: 'ShURLy Service'
+description: 'Provides web services for the ShURLy module.'
+type: module
+package: ShURLy
+core_version_requirement: ^9.3 || ^10 || ^11
+dependencies:
+  - shurly:shurly
+
+# Information added by Drupal.org packaging script on 2024-07-25
+version: '8.x-1.0-beta4'
+project: 'shurly'
+datestamp: 1721938762

@@ -1,0 +1,15 @@
+uuid: 92ba7bef-48b4-46be-8903-d0e1653669bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.bee_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_bee_oregonstate_edu
+label: 'Remove selected content from the Biological &amp; Ecological Engineering domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - bee_oregonstate_edu

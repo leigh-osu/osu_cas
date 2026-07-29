@@ -1,0 +1,7 @@
+parameters:
+  level: 5
+  excludePaths:
+    - src/Plugin/views/filter/ViewsSearchApiYearFilterDate.php
+  ignoreErrors:
+    - '#Call to an undefined method Drupal\\views\\Plugin\\views\\query\\QueryPluginBase::addWhereExpression\(\)#'
+    - '#Parameter \#1 \$haystack of function strpos expects string, object given.#'

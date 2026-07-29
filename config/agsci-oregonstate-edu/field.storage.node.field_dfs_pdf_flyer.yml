@@ -1,0 +1,23 @@
+uuid: 39082db3-6b5d-405b-9c0e-801340e72ec0
+langcode: und
+status: true
+dependencies:
+  module:
+    - file
+    - node
+id: node.field_dfs_pdf_flyer
+field_name: field_dfs_pdf_flyer
+entity_type: node
+type: file
+settings:
+  target_type: file
+  display_field: false
+  display_default: false
+  uri_scheme: public
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

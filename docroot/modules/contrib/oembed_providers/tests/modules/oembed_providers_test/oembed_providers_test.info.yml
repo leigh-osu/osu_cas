@@ -1,0 +1,15 @@
+name: oEmbed Providers Testing
+description: A module for oEmbed Providers tests
+package: Testing
+
+type: module
+core_version_requirement: ^10 || ^11
+
+dependencies:
+  - drupal:media
+  - oembed_providers:oembed_providers
+
+# Information added by Drupal.org packaging script on 2025-12-01
+version: '2.2.3'
+project: 'oembed_providers'
+datestamp: 1764608498

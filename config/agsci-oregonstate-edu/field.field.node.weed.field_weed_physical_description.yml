@@ -1,0 +1,26 @@
+uuid: dfef32c3-66cd-486c-b618-67a5dab9f4a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weed_physical_description
+    - filter.format.basic_html
+    - filter.format.full_html
+    - node.type.weed
+  module:
+    - text
+id: node.weed.field_weed_physical_description
+field_name: field_weed_physical_description
+entity_type: node
+bundle: weed
+label: 'Physical Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+    - basic_html
+field_type: text_long

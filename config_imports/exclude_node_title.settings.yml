@@ -1,0 +1,12 @@
+translation_sync: true
+search: true
+type: remove
+content_types:
+  page: user
+  osu_simple_tabs: all
+content_type_modes:
+  page:
+    - full
+  osu_simple_tabs:
+    - simple_tab_content
+

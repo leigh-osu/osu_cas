@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Provides a navigation with responsive preview icons.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function responsive_preview_navigation_theme() {
+  return [
+    'responsive_preview_navigation' => [
+      'variables' => [
+        'items' => [],
+        'attributes' => [],
+      ],
+    ],
+  ];
+}

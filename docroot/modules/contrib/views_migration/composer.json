@@ -1,0 +1,28 @@
+{
+  "name": "drupal/views_migration",
+  "description": "Migrate Drupal 7 Views to Drupal 9",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "homepage": "https://drupal.org/project/views_migration",
+  "authors": [
+    {
+      "name": "Jeya Sundharam (Jeya sundhar)",
+      "homepage": "https://www.drupal.org/u/jeya-sundhar",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Contributors",
+      "homepage": "https://git.drupalcode.org/project/views_migration/-/graphs/HEAD",
+      "role": "Contributor"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/views_migration",
+    "source": "https://git.drupalcode.org/project/views_migration"
+  },
+  "require": {
+    "drupal/migrate_tools": "^6.0",
+    "drupal/migrate_plus": "^6.0"
+  }
+}

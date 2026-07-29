@@ -1,0 +1,16 @@
+uuid: f60dd88a-8bcf-4bd4-b121-603c2544e934
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: coarec_annual_reports
+label: coarec_annual_reports
+logic: and
+conditions:
+  59c97dc3-8be8-42ce-9958-f940e2505c5b:
+    id: request_path
+    negate: false
+    uuid: 59c97dc3-8be8-42ce-9958-f940e2505c5b
+    pages: /node/118256
+allow_other_conditions: null

@@ -1,0 +1,8 @@
+uuid: 7660670c-035d-484e-a290-291bde6a1827
+langcode: en
+status: true
+dependencies: {  }
+id: menu-summer-2024
+label: 'Summer 2024'
+description: ''
+locked: false

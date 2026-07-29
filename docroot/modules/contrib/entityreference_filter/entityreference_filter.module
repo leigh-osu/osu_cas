@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * @file
+ * Procedural hook shims for Drupal 10.3 / 11.0 compatibility.
+ *
+ * The hook implementations live in the OOP class
+ * \Drupal\entityreference_filter\Hook\EntityReferenceFilterHooks behind the
+ * #[Hook] attribute, which core only discovers from Drupal 11.1 onwards. These
+ * thin procedural wrappers keep the module functional on Drupal 10.3–11.0,
+ * where the attribute is ignored. On Drupal 11.1+ the #[LegacyHook] attribute
+ * makes core skip these wrappers and call the OOP implementation directly, so
+ * the hook never runs twice.
+ *
+ * @see https://www.drupal.org/node/3442349
+ */
+
+declare(strict_types=1);
+
+use Drupal\Core\Hook\Attribute\LegacyHook;
+use Drupal\entityreference_filter\Hook\EntityReferenceFilterHooks;
+
+/**
+ * Implements hook_views_data_alter().
+ */
+#[LegacyHook]
+function entityreference_filter_views_data_alter(array &$data): void {
+  \Drupal::service(EntityReferenceFilterHooks::class)->viewsDataAlter($data);
+}

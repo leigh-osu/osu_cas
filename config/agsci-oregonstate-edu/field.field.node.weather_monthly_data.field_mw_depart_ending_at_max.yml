@@ -1,0 +1,23 @@
+uuid: 016eb424-c174-44fb-91f2-4d08d0db4468
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mw_depart_ending_at_max
+    - node.type.weather_monthly_data
+id: node.weather_monthly_data.field_mw_depart_ending_at_max
+field_name: field_mw_depart_ending_at_max
+entity_type: node
+bundle: weather_monthly_data
+label: 'Air Temp Departure: Ending at Observaton Max'
+description: 'Monthly departure from the normal.Air Temperature: 24 hours Ending at Observation Max '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

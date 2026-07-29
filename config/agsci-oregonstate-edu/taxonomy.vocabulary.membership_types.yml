@@ -1,0 +1,9 @@
+uuid: 520ebbb3-cca1-43e0-ab04-5cd781c91844
+langcode: en
+status: true
+dependencies: {  }
+name: 'Membership Types'
+vid: membership_types
+description: null
+weight: 0
+new_revision: false

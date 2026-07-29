@@ -1,0 +1,19 @@
+uuid: d1cd135c-bf94-4e8f-bc08-7decc1e2c7d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_credits
+    - node.type.course
+id: node.course.field_course_credits
+field_name: field_course_credits
+entity_type: node
+bundle: course
+label: Credits
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

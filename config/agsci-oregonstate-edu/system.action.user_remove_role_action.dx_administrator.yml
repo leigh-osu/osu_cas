@@ -1,0 +1,14 @@
+uuid: f485b19b-7c83-4b0e-afee-20077c65368e
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.dx_administrator
+  module:
+    - user
+id: user_remove_role_action.dx_administrator
+label: 'Remove the DX Administrator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: dx_administrator

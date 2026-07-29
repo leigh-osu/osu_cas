@@ -1,0 +1,106 @@
+<?php
+
+/**
+ * @file
+ * Provides hooks and integrations for the Tourauto module.
+ */
+
+use Drupal\Core\Session\AccountInterface;
+use Drupal\tourauto\TourautoManager;
+use Drupal\user\Entity\User;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter() for user_form.
+ */
+function tourauto_form_user_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $account = $form_state->getBuildInfo()['callback_object']->getEntity();
+  $manager = \Drupal::service('tourauto.manager')->getManagerForAccount($account);
+  assert($account instanceof AccountInterface);
+  assert($manager instanceof TourautoManager);
+
+  $form['tourauto'] = [
+    '#type' => 'details',
+    '#title' => $manager->translate('Tours'),
+    '#open' => TRUE,
+  ];
+  $form['tourauto']['tourauto_enable'] = [
+    '#type' => 'checkbox',
+    '#title' => 'Open tours automatically',
+    '#default_value' => $manager->tourautoEnabled(),
+  ];
+  $form['tourauto']['tourauto_clear'] = [
+    '#type' => 'checkbox',
+    '#title' => 'Clear status (mark all tours as unseen)',
+    '#default_value' => FALSE,
+  ];
+  array_unshift($form['actions']['submit']['#submit'], '_tourauto_user_form_submit');
+}
+
+/**
+ * Helper function that saves user's tourauto data.
+ */
+function _tourauto_user_form_submit(&$form, FormStateInterface $form_state) {
+  $account = $form_state->getBuildInfo()['callback_object']->getEntity();
+  $manager = \Drupal::service('tourauto.manager')->getManagerForAccount($account);
+  assert($account instanceof AccountInterface);
+  assert($manager instanceof TourautoManager);
+
+  $enable = $form_state->getValue('tourauto_enable');
+  $manager->setTourautoPreference($enable);
+
+  $clear = $form_state->getValue('tourauto_clear');
+  if ($clear) {
+    $manager->clearState();
+  }
+}
+
+/**
+ * Implements hook_page_bottom().
+ */
+function tourauto_page_bottom(array &$page_bottom) {
+  $build = [];
+  $manager = \Drupal::service('tourauto.manager');
+  assert($manager instanceof TourautoManager);
+
+  if ($manager->tourautoEnabled()) {
+    $tours = $manager->getCurrentTours();
+
+    // Determine if there are any tours on this page that the user hasn't seen.
+    $available = array_keys($tours);
+    $seen = $manager->getSeenTours();
+    $new_tours = array_diff($available, $seen);
+    $should_open = (count($new_tours) > 0);
+
+    // Update the user's profile to show they've seen the tours on this page.
+    $manager->markToursSeen($new_tours);
+
+    // Let the client know whether it should pop open the tour window.
+    $build['#attached']['drupalSettings']['tourauto_open'] = $should_open;
+    $build['#attached']['library'][] = 'tourauto/tourauto';
+
+    // Add debugging information.
+    if (\Drupal::currentUser()->hasPermission('administer site configuration')) {
+      $build['#attached']['drupalSettings']['tourauto_debug'] = [
+        'enabled' => $manager->tourautoEnabled(),
+        'available_tours' => $available,
+        'seen_tours' => $seen,
+        'new_tours' => $new_tours,
+        'should_open' => $should_open,
+        'route' => \Drupal::routeMatch()->getRouteName(),
+        'tour_count' => count($tours),
+        'available_count' => count($available),
+        'seen_count' => count($seen),
+        'new_count' => count($new_tours),
+      ];
+    }
+  }
+
+  // The results of all this logic depend on the current page's tours...
+  $build['#cache'] = $page_bottom['tour']['#cache'] ?? [];
+  // And also on the current user.
+  $build['#cache']['contexts'][] = 'user';
+  \Drupal::service('renderer')->addCacheableDependency($build, User::load(\Drupal::currentUser()->id()));
+
+  $page_bottom['tourauto'] = $build;
+}

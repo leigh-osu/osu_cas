@@ -1,0 +1,29 @@
+@import '../abstracts/cas_variables';
+
+// Simple Styleguide (/simple-styleguide) styles its content column at 1030px,
+// narrower than the site's content width. Widen it to $cas-fixed-width so
+// full-width samples -- e.g. the edge-to-edge menu bar, whose content caps at
+// $cas-fixed-width -- line up with the rest of the page rather than overshooting
+// the column. Scoped with .layout-container to win over the module's own
+// .simple-styleguide--site-styles rule regardless of stylesheet order.
+.layout-container .simple-styleguide--site-styles {
+  max-width: $cas-fixed-width;
+}
+
+// Centred preview column for block samples (osu_card, osu_accordion). The
+// per-sample width is applied inline; here we centre it and cancel manzanita's
+// edge-to-edge bleed so a .w-100 Layout Builder section (e.g. the default
+// osu_card view mode) stays inside the preview column instead of stretching to
+// the viewport.
+.manzanita-styleguide-card {
+  margin-inline: auto;
+
+  div:has(> .w-100 > .layout-builder__layout) {
+    margin-inline: 0 !important;
+  }
+
+  .w-100:has(> .layout-builder__layout) {
+    max-width: none !important;
+    margin-inline: 0 !important;
+  }
+}

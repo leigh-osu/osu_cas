@@ -1,0 +1,15 @@
+uuid: 526e3970-e8c0-41f7-bd64-82e418dc8a92
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.campusarb_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_campusarb_oregonstate_edu
+label: 'Add editors to the OSU Campus Arboretum domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - campusarb_oregonstate_edu

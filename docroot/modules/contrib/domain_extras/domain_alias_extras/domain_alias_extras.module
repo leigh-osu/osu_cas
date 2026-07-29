@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations for domain_alias_extras module.
+ */
+
+use Drupal\Core\Hook\Attribute\LegacyHook;
+use Drupal\domain_alias_extras\Hook\DomainAliasExtrasHooks;
+
+/**
+ * Implements hook_domain_config_ui_disallowed_routes_alter().
+ */
+#[LegacyHook]
+function domain_alias_extras_domain_config_ui_disallowed_routes_alter(&$disallowed) {
+  \Drupal::service(DomainAliasExtrasHooks::class)->domainConfigUiDisallowedRoutesAlter($disallowed);
+}

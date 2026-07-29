@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Provides domain switcher integration with admin toolbar.
+ */
+
+use Drupal\Core\Hook\Attribute\LegacyHook;
+use Drupal\domain_sso_admin_toolbar\Hook\DomainSsoAdminToolbarHooks;
+
+/**
+ * Implements hook_toolbar_alter().
+ */
+#[LegacyHook]
+function domain_sso_admin_toolbar_toolbar_alter(&$items) {
+  \Drupal::service(DomainSsoAdminToolbarHooks::class)->toolbarAlter($items);
+}

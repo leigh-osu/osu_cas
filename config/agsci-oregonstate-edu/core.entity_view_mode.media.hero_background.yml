@@ -1,0 +1,13 @@
+uuid: dec8947d-0760-4433-81d2-1ff11b0791fd
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: '-zMmYD72ogZdFXy_EgHns5ttm1sijx1MQPXztcXgmvU'
+id: media.hero_background
+label: 'Hero Background'
+description: ''
+targetEntityType: media
+cache: true

@@ -1,0 +1,16 @@
+uuid: c6582286-a5ec-487a-afc3-b17a98302118
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: swd_id_biology
+label: swd_id_biology
+logic: and
+conditions:
+  cbd48d02-6456-4ef1-bcf6-20157dd4e374:
+    id: request_path
+    negate: false
+    uuid: cbd48d02-6456-4ef1-bcf6-20157dd4e374
+    pages: /node/80101
+allow_other_conditions: null

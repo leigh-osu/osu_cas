@@ -1,0 +1,78 @@
+uuid: 56b1050a-637c-4741-8cba-74d3d6e199a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.150_species.body
+    - field.field.node.150_species.field_150_species_photo
+    - field.field.node.150_species.field_domain_access
+    - field.field.node.150_species.field_domain_all_affiliates
+    - field.field.node.150_species.field_tax_type
+    - field.field.node.150_species.og_user_node
+    - node.type.150_species
+  module:
+    - image
+    - text
+    - user
+id: node.150_species.default
+targetEntityType: node
+bundle: 150_species
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_150_species_photo:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_species_photo:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_tax_type:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  og_user_node:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  entitygroupfield: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_species_type: true
+  langcode: true
+

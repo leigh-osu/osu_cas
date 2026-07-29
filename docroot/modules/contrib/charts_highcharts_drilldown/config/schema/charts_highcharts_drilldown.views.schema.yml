@@ -1,0 +1,16 @@
+views.style.chart_highcharts_drilldown:
+  type: views.style.chart
+  label: 'Chart highcharts drilldown'
+  mapping:
+    fields_series_field:
+      type: string
+      label: 'Series Field'
+    fields_drilldown_series_field:
+      type: string
+      label: 'Drilldown Field'
+    fields_data_field:
+      type: string
+      label: 'Data Field'
+    fields_operator:
+      type: string
+      label: 'Operator Field'

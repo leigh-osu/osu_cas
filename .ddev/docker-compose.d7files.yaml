@@ -1,0 +1,8 @@
+# Mount the live agscid7 D7 project's docroot (read-only) so the file
+# migrations can copy directly from the current D7 files directories instead
+# of the stale ./databackup snapshot. Host path is relative to .ddev/.
+# Used by patches/0001-osu_migrations_files_cas.patch (source_base_path).
+services:
+  web:
+    volumes:
+      - "../../agscid7/docroot:/var/www/d7:ro"

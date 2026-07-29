@@ -1,0 +1,16 @@
+uuid: a239ebd6-9812-42f6-93df-3d4dbba5b6b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: vegetables_news_full_list
+label: vegetables_news_full_list
+logic: and
+conditions:
+  6f7c2dd9-fa69-4829-914e-26a2d0f70784:
+    id: request_path
+    negate: false
+    uuid: 6f7c2dd9-fa69-4829-914e-26a2d0f70784
+    pages: "/oregon-vegetables/news\r\n/node/77586"
+allow_other_conditions: null

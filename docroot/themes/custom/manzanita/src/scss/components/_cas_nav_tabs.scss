@@ -1,0 +1,28 @@
+@import '../abstracts/cas_variables';
+
+// Bootstrap nav-tabs (the osu_simple_tabs view's views_bootstrap_tab style,
+// and any other .nav-tabs in content): the selected tab reads dark grey,
+// the rest sit back in very light grey.
+.nav-tabs {
+  .nav-link {
+    background-color: $neutral-100;
+    color: $neutral-700;
+    // The light-grey fill paints under the default transparent bottom
+    // border, which used to let the tab row's full-width rule show through;
+    // draw that rule back in (the .active tab's own border override — the
+    // orange underline — still wins on the selected tab).
+    border-bottom-color: var(--bs-nav-tabs-border-color);
+
+    &.active {
+      background-color: $neutral-800;
+      color: $bucktoothwhite;
+    }
+
+    // madrone flips the hover/focus background to near-black
+    // ($paddletailblack); the text must follow it to stay legible.
+    &:not(.active):hover,
+    &:not(.active):focus {
+      color: $bucktoothwhite;
+    }
+  }
+}

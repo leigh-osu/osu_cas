@@ -1,0 +1,125 @@
+uuid: 5f05b16f-f3d8-4c0b-9539-e110177cdfb5
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_283026
+title: 'Student Engagement'
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <div>
+      	<p>
+      		Oregon State University is excited to invite FFA chapters and high school teachers to apply for our Agrivoltaics Research Kit Program. This program will&nbsp;provide&nbsp;a hands-on opportunity to explore the innovative intersection of agriculture and solar energy. These kits give students the chance to investigate how crops, soil, and solar panels interact, helping them build real-world scientific skills while contributing to emerging agrivoltaics research.</p>
+
+      	<p>
+      		Because we have a limited supply of kits, we will distribute them strategically to capture data from a wide range of growing conditions across the United States. This approach ensures that students’ findings collectively reflect the diversity of agricultural environments nationwide.</p>
+
+      	<p>
+      		We encourage curious, motivated FFA chapters and high school teachers to apply and take part in shaping the future of sustainable food and energy systems.</p>
+
+      	<p>
+      		Please complete the application form by <strong>May 30, 2026</strong>, to be considered in the initial review. Applications will continue to be accepted after this date and will be reviewed on a rolling basis until all kits have been distributed. Kits will be allocated based on geographic diversity and overall project fit, and all applicants from the initial review period will be notified of their status by <strong>June 14, 2026</strong>.</p>
+      </div>
+  name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Point of Contact Name'
+    '#required': true
+  phone:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Phone
+    '#required': true
+  email:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': Email
+    '#required': true
+  mailing_address_to_send_materials:
+    '#type': textarea
+    '#title': 'Mailing address to send materials'
+    '#required': true
+  affiliation:
+    '#type': textfield
+    '#title': Affiliation
+    '#description': 'School or FFA affiliation'
+    '#required': true
+  approximate_number_of_students_who_will_be_participating_in_the_research:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Approximate number of students who will be participating in the research'
+    '#required': true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: laurie.houston@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: '[webform_submission:values:name:raw]'
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

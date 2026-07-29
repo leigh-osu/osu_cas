@@ -1,0 +1,16 @@
+uuid: b997a83a-e119-4dba-86be-572c13736e4a
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: leadership_minor_landing_page_child_unit
+label: leadership_minor_landing-page-child-unit
+logic: and
+conditions:
+  e67fe8ea-7a08-4a6c-82f9-d53a33e5d380:
+    id: request_path
+    negate: false
+    uuid: e67fe8ea-7a08-4a6c-82f9-d53a33e5d380
+    pages: /leadership_minor
+allow_other_conditions: null

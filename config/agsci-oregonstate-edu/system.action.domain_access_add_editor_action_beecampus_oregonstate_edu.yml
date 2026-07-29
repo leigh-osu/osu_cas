@@ -1,0 +1,15 @@
+uuid: b6aeb6d5-29ab-460d-b109-07b2ca179c9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.beecampus_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_beecampus_oregonstate_edu
+label: 'Add editors to the Bee Campus USA domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - beecampus_oregonstate_edu

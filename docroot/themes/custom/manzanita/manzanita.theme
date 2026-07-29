@@ -1,0 +1,440 @@
+<?php
+
+/**
+ * @file
+ * Functions to support the Manzanita theme.
+ */
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * Content blocks (including inline blocks placed via Layout Builder) have no
+ * block config entity, so the region-based block suggestions added by the base
+ * Madrone theme never fire for them. Add a suggestion keyed on the content
+ * block bundle and the view mode it is rendered in, e.g.:
+ * block--block-content--view-type--osu-card--picbox.html.twig.
+ */
+function manzanita_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  if (isset($variables['elements']['content']['#block_content'])) {
+    $bundle = $variables['elements']['content']['#block_content']->bundle();
+    $view_mode = $variables['elements']['#configuration']['view_mode'] ?? 'default';
+    $suggestions[] = 'block__block_content__view_type__' . $bundle . '__' . $view_mode;
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block templates.
+ *
+ * Prepares the "osu_card" content block in the "picbox" view mode to render
+ * like the Drupal 7 lp_picbox grid: the card link's title is overlaid on top of
+ * the image in a translucent box, and the link's target wraps the whole card.
+ * The D7 headline field was not migrated, so the link title is the only title
+ * text available on the card.
+ *
+ * @see block--block-content--view-type--osu-card--picbox.html.twig
+ */
+function manzanita_preprocess_block(array &$variables) {
+  // Branding block: show the active domain's name (from Domain settings) in the
+  // header instead of the global system.site name, so each domain shows its own
+  // name. The block template already renders {{ site_name }}.
+  if (($variables['base_plugin_id'] ?? NULL) === 'system_branding_block') {
+    $domain = \Drupal::service('domain.negotiator')->getActiveDomain();
+    if ($domain) {
+      $variables['site_name'] = $domain->label();
+    }
+  }
+
+  // On a site's front page — or a group's landing node reached by its own
+  // path — keep the group-size site name but drop the group breadcrumb: the
+  // page IS the group/site top level, so the group name would just repeat
+  // it. Cache varies per route (landing detection) and front-page state.
+  if (isset($variables['content']['group_name_link'])) {
+    $variables['#cache']['contexts'][] = 'url.path.is_front';
+    $variables['#cache']['contexts'][] = 'route';
+    $group = _manzanita_header_current_group();
+    $variables['hide_group_breadcrumb'] = \Drupal::service('path.matcher')->isFrontPage()
+      || _manzanita_is_group_landing_node()
+      // The "Home" group is the main site itself; never show it as a name.
+      || ($group && strcasecmp((string) $group->label(), 'Home') === 0);
+  }
+
+  // Domain front pages and group landing nodes suppress the page title
+  // block: the header's site name is the same string (or, on the home
+  // node, the title is just "Home"), and D7 landing pages showed no H1.
+  if (($variables['base_plugin_id'] ?? NULL) === 'page_title_block') {
+    $variables['#cache']['contexts'][] = 'route';
+    $variables['#cache']['contexts'][] = 'url.path.is_front';
+    if (\Drupal::service('path.matcher')->isFrontPage() || _manzanita_is_group_landing_node()) {
+      $variables['content'] = [];
+    }
+  }
+
+  // Branding block: point the group-name header link at the group's landing
+  // page like D7 did, instead of the group entity page.
+  if (isset($variables['content']['group_name_link']['#url'])) {
+    _manzanita_group_header_link_to_landing_page($variables['content']['group_name_link']);
+  }
+
+  // Branding block: if the current group has a parent unit, expose it so the
+  // header can show it after the site name (D7 rendered the parent between
+  // light-grey » marks).
+  if (isset($variables['content']['group_name_link'])) {
+    $group = _manzanita_header_current_group();
+    if ($group instanceof \Drupal\group\Entity\GroupInterface
+      && $group->hasField('field_group_parent_unit')
+      && !$group->get('field_group_parent_unit')->isEmpty()
+      && ($parent = $group->get('field_group_parent_unit')->entity)) {
+      $variables['parent_unit_name'] = $parent->label();
+      // Link the parent unit to its canonical domain's home page (D7 linked
+      // the parent unit to its domain). Fall back to a landing node / group
+      // page when no canonical domain is set.
+      $parent_domain = $parent->hasField('field_domain_source') && !$parent->get('field_domain_source')->isEmpty()
+        ? $parent->get('field_domain_source')->entity
+        : NULL;
+      if ($parent_domain) {
+        $variables['parent_unit_url'] = $parent_domain->getScheme() . $parent_domain->getHostname() . base_path();
+      }
+      else {
+        $landing_nid = _manzanita_group_landing_nid($parent->id());
+        try {
+          $variables['parent_unit_url'] = $landing_nid
+            ? \Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $landing_nid])->toString()
+            : $parent->toUrl()->toString();
+        }
+        catch (\Exception $e) {
+          // No resolvable URL; the template renders the name without a link.
+        }
+      }
+      $variables['#cache']['tags'][] = 'group:' . $parent->id();
+    }
+  }
+
+  $block = $variables['elements']['content']['#block_content'] ?? NULL;
+  $view_mode = $variables['elements']['#configuration']['view_mode'] ?? NULL;
+  if (!$block instanceof \Drupal\block_content\BlockContentInterface
+    || $block->bundle() !== 'osu_card'
+    || $view_mode !== 'picbox') {
+    return;
+  }
+
+  // The link provides both the whole-card target (URI) and the overlay title.
+  if ($block->hasField('field_osu_card_link') && !$block->get('field_osu_card_link')->isEmpty()) {
+    $link = $block->get('field_osu_card_link')->first();
+    try {
+      $variables['card_url'] = $link->getUrl()->toString();
+    }
+    catch (\Exception $e) {
+      // Migrated links are sometimes stored as bare paths with no URI scheme,
+      // which Url rejects; the raw value is still a usable href.
+      $variables['card_url'] = $link->uri ?: NULL;
+    }
+    $variables['card_title'] = $link->title;
+  }
+
+  // Render image and description through their configured field formatters so
+  // the 800x450 image style and text format are preserved.
+  $variables['card_image'] = $variables['content']['field_osu_card_image'] ?? NULL;
+  $variables['card_description'] = $variables['content']['body'] ?? NULL;
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for Simple Styleguide patterns.
+ *
+ * Renders a live sample content block into the osu_card ("osu_card_default" /
+ * "osu_card_picbox") and osu_accordion ("osu_accordion") styleguide patterns,
+ * so the styleguide shows the real block markup -- including manzanita's
+ * view-mode overrides -- rather than a static, drift-prone snapshot. If no
+ * matching block exists to preview, the pattern's own configured text is left
+ * in place as a fallback.
+ *
+ * @see \Drupal\simple_styleguide\Controller\DefaultController::styleguide()
+ */
+function manzanita_preprocess_simple_styleguide_pattern(array &$variables) {
+  $pattern_id = $variables['pattern_id'] ?? NULL;
+
+  // The osu_menu_bar pattern renders a real Layout Builder menu-bar section
+  // (four icon buttons on an orange bar), forced edge-to-edge so the orange
+  // background bleeds to the viewport while the buttons keep the content width.
+  // It fills the content width, so it gets no centred-column wrapper.
+  if ($pattern_id === 'osu_menu_bar') {
+    if (($markup = _manzanita_styleguide_menu_bar()) !== NULL) {
+      $variables['pattern'] = $markup;
+    }
+    return;
+  }
+
+  // pattern id => [block bundle, view mode, required non-empty fields, column width].
+  $samples = [
+    'osu_card_default' => ['osu_card', 'default', ['field_osu_card_image', 'field_osu_card_link'], '33.3333%'],
+    'osu_card_picbox' => ['osu_card', 'picbox', ['field_osu_card_image', 'field_osu_card_link'], '33.3333%'],
+    'osu_accordion' => ['osu_accordion', 'default', ['field_osu_paragraph_item'], '50%'],
+  ];
+  if (!isset($samples[$pattern_id])) {
+    return;
+  }
+  [$bundle, $view_mode, $require_fields, $width] = $samples[$pattern_id];
+
+  // Pick a reusable block of this bundle that has the required fields
+  // populated. Reusable blocks render reliably standalone; inline (Layout
+  // Builder) blocks resolve their content through a host entity that is absent
+  // here, so they would render empty.
+  $storage = \Drupal::entityTypeManager()->getStorage('block_content');
+  $query = $storage->getQuery()
+    ->condition('type', $bundle)
+    ->condition('reusable', 1)
+    ->accessCheck(FALSE)
+    ->range(0, 1);
+  foreach ($require_fields as $field) {
+    $query->exists($field);
+  }
+  $ids = $query->execute();
+  if (empty($ids)) {
+    return;
+  }
+  /** @var \Drupal\block_content\BlockContentInterface $block */
+  $block = $storage->load(reset($ids));
+
+  // Render the block through the content entity view builder wrapped in a block
+  // theme element, so the manzanita view-mode suggestion
+  // (block--block-content--view-type--<bundle>--<view_mode>) fires exactly as it
+  // does for an inline block in Layout Builder. Using the entity view builder
+  // (rather than the block plugin manager) means this also works for
+  // non-reusable blocks, which have no block_content:<uuid> plugin derivative.
+  $content = \Drupal::entityTypeManager()
+    ->getViewBuilder('block_content')
+    ->view($block, $view_mode);
+  // Let the suggestion and preprocess see the entity and view mode.
+  $content['#block_content'] = $block;
+  $build = [
+    '#theme' => 'block',
+    '#configuration' => [
+      'view_mode' => $view_mode,
+      'label' => '',
+      'label_display' => '0',
+      'provider' => 'block_content',
+    ],
+    '#plugin_id' => 'inline_block:' . $bundle,
+    '#base_plugin_id' => 'inline_block',
+    '#derivative_plugin_id' => $bundle,
+    '#id' => 'styleguide_' . $pattern_id,
+    'content' => $content,
+  ];
+  $rendered = \Drupal::service('renderer')->renderInIsolation($build);
+
+  // Show the sample in a centred column of the given width. The wrapper's
+  // centring and the edge-to-edge bleed cancellation (needed for the .w-100
+  // default osu_card view mode) live in _cas_styleguide.scss.
+  $variables['pattern'] = \Drupal\Core\Render\Markup::create(
+    '<div class="manzanita-styleguide-card" style="width:' . $width . ';max-width:' . $width . ';">' . $rendered . '</div>'
+  );
+}
+
+/**
+ * Renders the sample menu-bar section for the osu_menu_bar styleguide pattern.
+ *
+ * Uses a real menu-bar section from an existing page (node 246806, section
+ * index 2): a blb_col_4 layout with four osu_menu_bar_item icon buttons on an
+ * orange (osu-bg-osuorange) background. The section's container is forced to
+ * "w-100" (Edge to Edge) so manzanita's fixed-width rule (_cas_fixed_width.scss)
+ * bleeds the orange background to the viewport while the buttons stay within the
+ * content column.
+ *
+ * @return \Drupal\Component\Render\MarkupInterface|null
+ *   The rendered section markup, or NULL if the source section is unavailable.
+ */
+function _manzanita_styleguide_menu_bar() {
+  $node = \Drupal::entityTypeManager()->getStorage('node')->load(246806);
+  if (!$node instanceof \Drupal\node\NodeInterface
+    || !$node->hasField('layout_builder__layout')
+    || $node->get('layout_builder__layout')->isEmpty()) {
+    return NULL;
+  }
+  $sections = $node->get('layout_builder__layout')->getSections();
+  if (!isset($sections[2])) {
+    return NULL;
+  }
+
+  // Clone the section so forcing edge-to-edge does not mutate the loaded node.
+  $section = clone $sections[2];
+  $settings = $section->getLayoutSettings();
+  $settings['container'] = 'w-100';
+  $section->setLayoutSettings($settings);
+
+  $contexts = [
+    'layout_builder.entity' => \Drupal\Core\Plugin\Context\EntityContext::fromEntity($node),
+    'view_mode' => new \Drupal\Core\Plugin\Context\Context(
+      \Drupal\Core\Plugin\Context\ContextDefinition::create('string'), 'full'
+    ),
+  ];
+  $build = $section->toRenderArray($contexts);
+  return \Drupal::service('renderer')->renderInIsolation($build);
+}
+
+/**
+ * Points the branding block's group-name link at the group's landing page.
+ *
+ * The Drupal 7 header linked the group name to the node inside the group
+ * whose title matches the group name — the group's top-level book/landing
+ * page — via its URL alias (larch's _osu_groups_get_top_level_book_path()).
+ * osu_groups_basic_group's branding-block alter links to the group entity
+ * page (/group/GID) instead. When a matching landing node exists, rewrite
+ * the link to it; otherwise leave the group entity URL as a fallback.
+ *
+ * @param array $link
+ *   The 'group_name_link' render element from the branding block content.
+ *
+ * @see \Drupal\osu_groups_basic_group\OsuGroupsBasicGroupSystemBrandingBlockAlter::preRender()
+ */
+function _manzanita_group_header_link_to_landing_page(array &$link) {
+  $url = $link['#url'];
+  if (!$url instanceof \Drupal\Core\Url
+    || !$url->isRouted()
+    || $url->getRouteName() !== 'entity.group.canonical') {
+    return;
+  }
+  $group_id = $url->getRouteParameters()['group'] ?? NULL;
+  if (!$group_id) {
+    return;
+  }
+
+  $nid = _manzanita_group_landing_nid($group_id);
+
+  if ($nid) {
+    $link['#url'] = \Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid]);
+    // The rewrite depends on the landing node's title matching the group
+    // label, so invalidate with both entities.
+    $link['#cache']['tags'][] = 'node:' . $nid;
+    $link['#cache']['tags'][] = 'group:' . $group_id;
+  }
+}
+
+/**
+ * Whether the current route is a group's landing node.
+ *
+ * The landing node (title == group label) is a group's front page; the
+ * header suppresses the group name and page title there because both would
+ * just repeat the site name.
+ */
+function _manzanita_is_group_landing_node(): bool {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if (!$node instanceof \Drupal\node\NodeInterface) {
+    return FALSE;
+  }
+  $group = _manzanita_header_current_group();
+  if (!$group instanceof \Drupal\group\Entity\GroupInterface) {
+    return FALSE;
+  }
+  return (int) _manzanita_group_landing_nid($group->id()) === (int) $node->id();
+}
+
+/**
+ * Finds a group's landing node (the group_node whose title matches the label).
+ *
+ * @param int|string $group_id
+ *   The group id.
+ *
+ * @return int|null
+ *   The landing node id, or NULL if the group has no matching node.
+ */
+function _manzanita_group_landing_nid($group_id) {
+  return \Drupal::database()->queryRange(
+    'SELECT n.nid
+     FROM {group_relationship_field_data} gr
+     JOIN {node_field_data} n ON n.nid = gr.entity_id
+     JOIN {groups_field_data} g ON g.id = gr.gid
+     WHERE gr.gid = :gid
+       AND gr.plugin_id LIKE :plugin
+       AND n.title = g.label
+       AND n.status = 1
+       AND n.default_langcode = 1
+     ORDER BY n.nid ASC',
+    0, 1,
+    [':gid' => $group_id, ':plugin' => 'group_node:%']
+  )->fetchField();
+}
+
+/**
+ * Resolves the group for the current route (a node's group, or a group page).
+ *
+ * Mirrors OsuGroupsBasicGroupSystemBrandingBlockAlter so the header parent-unit
+ * marker targets the same group as the group-name link.
+ *
+ * @return \Drupal\group\Entity\GroupInterface|null
+ *   The current group, or NULL if the route is not in a group context.
+ */
+function _manzanita_header_current_group() {
+  $route_match = \Drupal::routeMatch();
+  $node = $route_match->getParameter('node');
+  if ($node !== NULL) {
+    if (!$node instanceof \Drupal\node\NodeInterface) {
+      $node = \Drupal::entityTypeManager()->getStorage('node')->load($node);
+    }
+    if ($node instanceof \Drupal\node\NodeInterface) {
+      $group_content = \Drupal::service('osu_groups.group_handler')->getGroupContentFromNode($node);
+      if ($group_content) {
+        return $group_content->getGroup();
+      }
+    }
+  }
+  $group = $route_match->getParameter('group');
+  return $group instanceof \Drupal\group\Entity\GroupInterface ? $group : NULL;
+}
+
+/**
+ * Resolves the current build environment for the indicator badge.
+ *
+ * @return array|null
+ *   [machine_key, label] for the environment, or NULL when it can't be
+ *   determined. Acquia sets AH_SITE_ENVIRONMENT (dev/test/prod); DDEV sets
+ *   IS_DDEV_PROJECT.
+ */
+function _manzanita_environment(): ?array {
+  $ah = getenv('AH_SITE_ENVIRONMENT');
+  if ($ah !== FALSE && $ah !== '') {
+    $ah = strtolower($ah);
+    if (str_contains($ah, 'prod') || str_contains($ah, 'live')) {
+      return ['prod', 'Prod'];
+    }
+    if (str_contains($ah, 'test') || str_contains($ah, 'stage')) {
+      return ['test', 'Test'];
+    }
+    if (str_contains($ah, 'dev')) {
+      return ['dev', 'Dev'];
+    }
+    return ['other', strtoupper($ah)];
+  }
+  if (getenv('IS_DDEV_PROJECT') === 'true') {
+    return ['local', 'DDEV'];
+  }
+  return NULL;
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for the page template.
+ *
+ * Injects a colour-coded build-environment badge into the header region
+ * (red dev, yellow test, green prod, blue local). Shown to authenticated
+ * users only, so public visitors on prod don't see it.
+ */
+function manzanita_preprocess_page(array &$variables) {
+  if (!\Drupal::currentUser()->isAuthenticated()) {
+    return;
+  }
+  $env = _manzanita_environment();
+  if (!$env) {
+    return;
+  }
+  [$key, $label] = $env;
+  $variables['page']['header']['env_indicator'] = [
+    '#type' => 'html_tag',
+    '#tag' => 'div',
+    '#value' => $label,
+    '#attributes' => [
+      'class' => ['env-indicator', 'env-indicator--' . $key],
+      'title' => t('Build environment: @label', ['@label' => $label]),
+    ],
+    '#weight' => 1000,
+  ];
+  // Vary the header cache by environment + auth so the badge is correct.
+  $variables['#cache']['contexts'][] = 'user.roles:authenticated';
+}

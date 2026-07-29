@@ -1,0 +1,7 @@
+action.configuration.file_delete_mark_temporary:
+  type: action_configuration_default
+  label: 'Mark file for deletion'
+
+action.configuration.file_delete_immediately:
+  type: action_configuration_default
+  label: 'Immediate delete'

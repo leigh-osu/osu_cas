@@ -1,0 +1,6 @@
+date_ap_style.settings:
+  title: 'AP style date display settings'
+  route_name: date_ap_style.settings
+  description: 'Set default options for displaying dates according to Associated Press style guidelines.'
+  parent: system.admin_config_regional
+  weight: 99

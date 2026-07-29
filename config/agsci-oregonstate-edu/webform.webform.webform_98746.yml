@@ -1,0 +1,119 @@
+uuid: 62165182-4e39-4b79-b17a-096e7239ede6
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 8166
+template: false
+archive: false
+id: webform_98746
+title: 'WET (Web Enabled Teleconference) Request Form'
+description: null
+categories: {  }
+elements: |-
+  name:
+    '#type': textfield
+    '#title': Name
+    '#required': true
+  email_address:
+    '#type': email
+    '#size': 20
+    '#title': 'Email Address'
+    '#required': true
+  which_room_do_you_need:
+    '#type': select
+    '#options':
+      104J: ' Nash 104J (Capacity: 16)'
+      '032': 'Nash 032 (Capacity: 52)'
+    '#title': 'Which room are you requesting?'
+    '#required': true
+  course_name_thesis_title_club_name_etc:
+    '#type': textfield
+    '#unique': false
+    '#title': Title
+    '#description': '(Course name, thesis title, club name, etc.)'
+    '#required': true
+  is_this_a_recurring_event:
+    '#type': select
+    '#options':
+      'YES': 'Yes'
+      'NO': 'No'
+    '#title': 'Is this a recurring event?'
+    '#required': true
+  recurrence:
+    '#type': textarea
+    '#title': Recurrence
+    '#description': 'Tell us which days of the week or recurring dates. Ex. MWF from 1-1:50pm/Every Tuesday at 11:00am '
+    '#required': true
+    '#states':
+      visible:
+        - ':input[name="is_this_a_recurring_event"]':
+            value: 'YES'
+  end_recurrence:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Recurrence End Date'
+    '#required': true
+    '#states':
+      visible:
+        - ':input[name="is_this_a_recurring_event"]':
+            value: 'YES'
+  date_needed:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Date Needed'
+    '#required': true
+    '#states':
+      visible:
+        - ':input[name="is_this_a_recurring_event"]':
+            value: 'NO'
+  event_time:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Event Time'
+    '#required': true
+    '#states':
+      visible:
+        - ':input[name="is_this_a_recurring_event"]':
+            value: 'NO'
+  additional_information:
+    '#type': textarea
+    '#title': 'Additional Information'
+    '#description': 'Any addition information you think is relevant to your meeting/event that we should know.'
+    '#states':
+      visible:
+        - ':input[name="is_this_a_recurring_event"]':
+            value: 'YES'
+  do_you_have_any_information_to_add:
+    '#type': textarea
+    '#title': 'Do you have any information to add? '
+    '#states':
+      visible:
+        - ':input[name="is_this_a_recurring_event"]':
+            value: 'NO'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }

@@ -1,0 +1,15 @@
+uuid: 70d777db-a1e9-4ff4-9b19-25de2a242aab
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.spottedwing_org
+  module:
+    - domain_access
+id: domain_access_add_action_spottedwing_org
+label: 'Add selected content to the Spotted Wing Drosophila domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - spottedwing_org

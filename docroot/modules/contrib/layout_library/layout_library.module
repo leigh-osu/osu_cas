@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * @file
+ * Provides hook implementations for Layout Library.
+ */
+
+use Drupal\Core\Hook\Attribute\LegacyHook;
+use Drupal\layout_library\Hook\LayoutLibraryHooks;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\layout_builder\Entity\LayoutEntityDisplayInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+#[LegacyHook]
+function layout_library_entity_view_display_insert(LayoutEntityDisplayInterface $display) {
+  \Drupal::service(LayoutLibraryHooks::class)->entityViewDisplayInsert($display);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+#[LegacyHook]
+function layout_library_entity_view_display_update(LayoutEntityDisplayInterface $display) {
+  \Drupal::service(LayoutLibraryHooks::class)->entityViewDisplayUpdate($display);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+#[LegacyHook]
+function layout_library_form_entity_view_display_edit_form_alter(array &$form, FormStateInterface $form_state) {
+  \Drupal::service(LayoutLibraryHooks::class)->formEntityViewDisplayEditFormAlter($form, $form_state);
+}
+
+/**
+ * Entity builder for entity_view_display_edit_form.
+ */
+function _layout_library_entity_view_display_form_entity_builder($entity_type_id, LayoutEntityDisplayInterface $display, &$form, FormStateInterface &$form_state) {
+  if ($display->isLayoutBuilderEnabled()) {
+    $enable_library = (bool) $form_state->getValue(['layout', 'library'], FALSE);
+    $display->setThirdPartySetting('layout_library', 'enable', $enable_library);
+  }
+}

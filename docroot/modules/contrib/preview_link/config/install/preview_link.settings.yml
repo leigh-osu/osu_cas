@@ -1,0 +1,4 @@
+enabled_entity_types: {}
+expiry_seconds : 604800
+multiple_entities: true
+display_message: 'subsequent'

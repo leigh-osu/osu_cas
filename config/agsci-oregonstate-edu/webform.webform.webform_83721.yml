@@ -1,0 +1,124 @@
+uuid: b5a03f05-8b5e-4865-b3c9-335ce4bff7b8
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_83721
+title: 'Principles of Vineyard Management - Spring 2018'
+description: null
+categories: {  }
+elements: |-
+  introduction:
+    '#type': processed_text
+    '#format': full_html
+    '#text': '<p><strong><span>Registration is now closed.</span></strong></p><p><strong>Principles of Vineyard Management - Spring 2018</strong></p><p>This non-credit online course will cover the most relevant principles of vineyard production from vineyard design to pest management. Online participants will learn jointly with upper division students at Oregon State University who are taking this course as part of&nbsp;the B.S. in Horticulture Degree, with an option in Viticulture and Enology.&nbsp;This course provides professional development for industry members seeking continuing education or for those new to vineyard and winery production. Focus will be placed on the importance of making informed vineyard management decisions by understanding impacts on grapevine physiology, sustainability, and economics.</p><p>Major topics to be covered include vineyard site selection and design, nutrient management, irrigation management, canopy management, vineyard floor management, pest management, managing fruit yield and quality, harvest operations, vineyard technology, labor and economics.</p><p><strong>Dates and Times</strong> - Registration closes 08:00 am, March 23, 2018</p><p>Tuesdays and Thursdays,&nbsp;April 3 to June 7, 2018<br>Lectures are held 8:00 -&nbsp;9:50 AM PST</p><p>This course will be offered online. Once registered, you will be contacted with connection details for the online classroom. Those who live/work in close proximity to the OSU main campus (Corvallis) must check with the instructor if they choose to participate in the classroom rather than online.</p><p><strong>Registration fee</strong></p><p>$500 (on or before March 16, 2018), $600 (March 17 - March 23, 2018)</p><p>For more details on this course, please see the course <a href="http://horticulture.oregonstate.edu/system/files/u178/brochure_1_Sp2018_vit_course.pdf" data-cke-saved-href="/system/files/u178/brochure_1_Sp2018_vit_course.pdf">brochure</a>.</p>'
+  first_name:
+    '#type': textfield
+    '#unique': false
+    '#title': 'First Name'
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Last Name'
+    '#required': true
+  organization:
+    '#type': textfield
+    '#title': Organization
+  address:
+    '#type': textfield
+    '#unique': false
+    '#title': Address
+    '#required': true
+  city:
+    '#type': textfield
+    '#unique': false
+    '#title': City
+    '#required': true
+  state:
+    '#type': textfield
+    '#unique': false
+    '#title': State
+    '#required': true
+  zip:
+    '#type': textfield
+    '#unique': false
+    '#title': Zip
+    '#required': true
+  daytime_phone:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Daytime phone'
+    '#required': true
+  email:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title': Email
+    '#required': true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: '<p>Thank you for registering for the Principals of Vineyard Management course.&nbsp;</p><p>Payment is by credit card only:</p><p>$500 (on or before March 16, 2018), $600 (on or after March 17, 2018)</p><form action="https://secure.touchnet.net/C20159_upay/web/index.jsp" method="post"><p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="Hidden Field" title="Hidden Field" class="cke_hidden" data-cke-realelement="%3Cinput%20data-cke-saved-name%3D%22UPAY_SITE_ID%22%20name%3D%22UPAY_SITE_ID%22%20value%3D%2214%22%20type%3D%22hidden%22%20data-cke-editable%3D%221%22%20contenteditable%3D%22false%22%20%2F%3E" data-cke-real-node-type="1" data-cke-real-element-type="hiddenfield" align=""> <img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="Hidden Field" title="Hidden Field" class="cke_hidden" data-cke-realelement="%3Cinput%20data-cke-saved-name%3D%22EXT_TRANS_ID%22%20name%3D%22EXT_TRANS_ID%22%20value%3D%22x%22%20type%3D%22hidden%22%20data-cke-editable%3D%221%22%20contenteditable%3D%22false%22%20%2F%3E" data-cke-real-node-type="1" data-cke-real-element-type="hiddenfield" align=""> <img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="Hidden Field" title="Hidden Field" class="cke_hidden" data-cke-realelement="%3Cinput%20data-cke-saved-name%3D%22AMT%22%20name%3D%22AMT%22%20value%3D%22y%22%20type%3D%22hidden%22%20data-cke-editable%3D%221%22%20contenteditable%3D%22false%22%20%2F%3E" data-cke-real-node-type="1" data-cke-real-element-type="hiddenfield" align=""> <input value="Click Here To Pay Now" data-cke-editable="1" type="submit"></p></form><p>&nbsp;</p>'
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: LeeAnn.Julson@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

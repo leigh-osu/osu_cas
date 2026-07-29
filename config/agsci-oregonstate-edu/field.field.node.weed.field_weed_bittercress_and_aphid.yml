@@ -1,0 +1,26 @@
+uuid: 10d253d4-7267-49f5-ae02-3b5f1a24fc5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weed_bittercress_and_aphid
+    - filter.format.basic_html
+    - filter.format.full_html
+    - node.type.weed
+  module:
+    - text
+id: node.weed.field_weed_bittercress_and_aphid
+field_name: field_weed_bittercress_and_aphid
+entity_type: node
+bundle: weed
+label: 'Bittercress and Aphids'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+    - basic_html
+field_type: text_long

@@ -1,0 +1,309 @@
+uuid: 5bcfcdea-fa79-436c-8d8e-c41c3688e335
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_41021
+title: 'Alumni Submission Form'
+description: null
+categories: {  }
+elements: |-
+  introduction:
+    '#type': processed_text
+    '#format': full_html
+    '#text': '<p>Want to be listed in our alumni directory?&nbsp; Please take a minute to fill out this form.</p><p>Please provide us with your most current contact information. Phone numbers and emails will not be displayed publicly without permission.</p>'
+  first_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'First Name'
+    '#required': true
+  maiden_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Maiden Name'
+  last_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Last Name'
+    '#required': true
+  phone_number:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Phone Number'
+  email:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': Email
+    '#required': true
+  share_email:
+    '#type': select
+    '#options':
+      share_yes: 'Yes'
+      share_no: 'No'
+    '#title_display': inline
+    '#title': 'Share Email:'
+    '#description': 'Giving others the ability to email you via our site can be a great resource for current students looking to network. We do not actually share your email, but provide a form-fill for others to fill out. Please let us know if we can give people the ability to email you?'
+    '#required': true
+  personal_website:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Personal Website'
+  degree:
+    '#type': select
+    '#options':
+      '01': 'BS Ecological Engineering'
+      '02': 'MS Biological & Ecological Engineering'
+      '03': 'PhD Biological & Ecological Engineering'
+      '04': 'MS Bioresource Engineering'
+      '05': 'PhD Bioresource Engineering'
+      '06': 'BS Ag Engineering'
+      '07': 'MS Ag Engineering'
+      '08': 'PhD Ag Engineering'
+    '#multiple': true
+    '#title': Degree
+    '#required': true
+  graduation_year:
+    '#type': select
+    '#options':
+      '01': '1939'
+      '02': '1940'
+      '03': '1941'
+      '04': '1942'
+      '05': '1943'
+      '06': '1944'
+      '07': '1945'
+      '08': '1946'
+      '09': '1947'
+      10: '1948'
+      11: '1949'
+      12: '1950'
+      13: '1951'
+      14: '1952'
+      15: '1953'
+      16: '1954'
+      17: '1955'
+      18: '1956'
+      19: '1957'
+      20: '1958'
+      21: '1959'
+      22: '1960'
+      23: '1961'
+      24: '1962'
+      25: '1963'
+      26: '1964'
+      27: '1965'
+      28: '1966'
+      29: '1967'
+      30: '1968'
+      31: '1969'
+      32: '1970'
+      33: '1971'
+      34: '1972'
+      35: '1973'
+      36: '1974'
+      37: '1975'
+      38: '1976'
+      39: '1977'
+      40: '1978'
+      41: '1979'
+      42: '1980'
+      43: '1981'
+      44: '1982'
+      45: '1983'
+      46: '1984'
+      47: '1985'
+      48: '1986'
+      49: '1987'
+      50: '1988'
+      51: '1989'
+      52: '1990'
+      53: '1991'
+      54: '1992'
+      55: '1993'
+      56: '1994'
+      57: '1995'
+      58: '1996'
+      59: '1997'
+      60: '1998'
+      61: '1999'
+      62: '2000'
+      63: '2001'
+      64: '2002'
+      65: '2003'
+      66: '2004'
+      67: '2005'
+      68: '2006'
+      69: '2007'
+      70: '2008'
+      71: '2009'
+      72: '2010'
+      73: '2011'
+      74: '2012'
+      75: '2013'
+      76: '2014'
+      77: '2015'
+      78: '2016'
+      79: '2017'
+    '#title': 'Graduation Year'
+    '#required': true
+  city_and_state_country_of_current_residence:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'City and State/Country of Current Residence'
+    '#required': true
+  photo:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title_display': inline
+    '#title': Photo
+    '#description': 'If you have a photo of yourself, you may upload it here'
+  current_occupation:
+    '#type': textarea
+    '#title': 'Current Occupation'
+    '#description': 'What are you doing? Where are you working?'
+  how_did_osu_prepare_you_for_your_job:
+    '#type': textarea
+    '#title': 'How did OSU prepare you for your job?'
+    '#description': 'Please let us know how OSU prepared you for the your job'
+  photo_memory_from_osu:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title_display': inline
+    '#title': 'Photo Memory from OSU'
+    '#description': 'If you have photos from your time at OSU, please feel free to share them'
+  milestones:
+    '#type': textarea
+    '#title': Milestones
+    '#description': 'Get a new job? Win an award? Have a child? Get married? List any milestones in your life. Example: Married John Doe in 2002. 2005 Popular Mechanics Breakthrough Award.'
+  advice_to_current_students:
+    '#type': textarea
+    '#title': 'Advice to Current Students'
+  favorite_memories_from_osu:
+    '#type': textarea
+    '#title': 'Favorite Memories from OSU'
+  facebook:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Facebook
+  linkedin:
+    '#type': textfield
+    '#title_display': inline
+    '#title': LinkedIn
+  twitter:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Twitter
+  google:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Google+
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: jennifer.cohen@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_4:
+    id: email
+    handler_id: email_4
+    label: 'Email 4'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 4
+    settings:
+      states:
+        - completed
+      to_mail: bee.info@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

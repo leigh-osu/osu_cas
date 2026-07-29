@@ -1,0 +1,9 @@
+uuid: f9495b5f-167e-486e-affb-02f7cb96fad3
+langcode: en
+status: true
+dependencies: {  }
+id: smallfarms_footer
+label: smallfarms_footer
+logic: and
+conditions: {  }
+allow_other_conditions: null

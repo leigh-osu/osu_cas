@@ -1,0 +1,35 @@
+uuid: 4d2de091-6440-4f07-8671-6ed9ba060035
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:164078fb-b5a4-4ced-b9cb-159512a56c2d'
+  module:
+    - block_content
+    - system
+  theme:
+    - manzanita
+id: larch_block_10
+theme: manzanita
+region: sidebar
+weight: 2
+provider: null
+plugin: 'block_content:164078fb-b5a4-4ced-b9cb-159512a56c2d'
+settings:
+  id: 'block_content:164078fb-b5a4-4ced-b9cb-159512a56c2d'
+  label: '<none>'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: |-
+      /global-experiences-fund
+      /international/global-agriculture/about
+      /main/main/global-experiences-fund
+      /academics/global-cultural-opportunities
+      /main/international/college-agricultural-sciences-global-experiences-fund

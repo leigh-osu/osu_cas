@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Header search block — madrone's template plus the utility links D7's
+ * larch theme hardcoded next to the search box (page.tpl.php): Apply and
+ * MyCAS. Overrides madrone's block--header--plugin-id--search-form-block
+ * (that suggestion comes from madrone_theme_suggestions_block_alter and
+ * outranks the plain plugin-id template).
+ */
+#}
+{% set classes = [
+  'block',
+  'block-' ~ configuration.provider|clean_class,
+  'block-' ~ plugin_id|clean_class,
+  'col-3',
+  'col-lg-4',
+  'd-flex',
+  'justify-content-end',
+  'align-items-center',
+] %}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    <div{{ content_attributes.addClass('block__content', 'h-100', 'border-start', 'border-neutral-200', 'd-none', 'd-lg-block') }}>
+      {{ content }}
+    </div>
+    <div class="border-start border-neutral-200 d-flex d-lg-none align-items-center h-100 p-4">
+      <a href="{{ path('search.view') }}"><span class="sr-only">Open Search Page</span><i
+          class="fa fa-2x fa-search osu-text-icon" aria-hidden="true"></i></a>
+    </div>
+  {% endblock %}
+  <nav class="cas-header-links d-none d-lg-flex align-items-center"
+       aria-label="{{ 'Utility links'|t }}">
+    <a href="https://admissions.oregonstate.edu/apply-choose-application">{{ 'Apply'|t }}</a>
+    <a href="/mycas">{{ 'MyCAS'|t }}</a>
+  </nav>
+</div>

@@ -1,0 +1,10 @@
+colorbox-media-video:
+  css:
+    theme:
+      css/colorbox-media-video.css: {}
+  js:
+    js/colorbox-media-video.js: {}
+  dependencies:
+    - system/drupal.system
+    - colorbox/colorbox
+    - core/once

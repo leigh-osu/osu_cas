@@ -1,0 +1,23 @@
+uuid: 7648505b-87cb-4580-aa84-8886f4972cb4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_personal_links
+    - node.type.osu_profile
+  module:
+    - link
+id: node.osu_profile.field_profile_personal_links
+field_name: field_profile_personal_links
+entity_type: node
+bundle: osu_profile
+label: 'Personal Links'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 16
+field_type: link

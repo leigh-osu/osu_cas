@@ -1,0 +1,7 @@
+charts_apexcharts_api_example.display:
+  path: /charts/example/apexcharts
+  defaults:
+    _controller: '\Drupal\charts_apexcharts_api_example\Controller\ApexchartsApiExample::display'
+    _title: 'ApexCharts API Example'
+  requirements:
+    _permission: 'access content'

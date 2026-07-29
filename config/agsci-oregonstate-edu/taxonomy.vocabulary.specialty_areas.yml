@@ -1,0 +1,9 @@
+uuid: aee41938-ce9f-492b-90ea-7407d594b06e
+langcode: en
+status: true
+dependencies: {  }
+name: 'Specialty Areas'
+vid: specialty_areas
+description: null
+weight: 0
+new_revision: false

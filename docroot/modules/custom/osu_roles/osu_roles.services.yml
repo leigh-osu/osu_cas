@@ -1,0 +1,5 @@
+services:
+  osu_roles.route_subscriber:
+    class: Drupal\osu_roles\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }

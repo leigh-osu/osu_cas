@@ -1,0 +1,164 @@
+<?php
+
+/**
+ * @file
+ * Provides view migration Drupal 7 to Drupal 8.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\migrate\MigrateMessage;
+use Drupal\migrate\Plugin\MigrationInterface;
+use Drupal\migrate_tools\MigrateBatchExecutable;
+
+/**
+ * Implements hook_help().
+ */
+function views_migration_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.views_migration':
+      $output = '';
+      $output .= '<h3>' . t('Views Migration') . '</h3>';
+      $output .= '<p>' . t('The views module migrates default drupal entity views') . '</p>';
+      return $output;
+  }
+}
+
+/**
+ *
+ */
+function views_migration_form_migration_execute_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $routeMatch = \Drupal::routeMatch();
+  $routeName = $routeMatch->getRouteName();
+  if ($routeName == 'migrate_tools.execute') {
+    $migrationGroup = $routeMatch->getParameter('migration_group')->id();
+    $migration = $routeMatch->getParameter('migration')->id();
+    if ($migrationGroup == 'views_migration') {
+      $form['options']['idlist'] = [
+        '#type' => 'textfield',
+        '#title' => t('Views ID List:'),
+        '#description' => t('List view ids with comma separator ( , ).'),
+      ];
+      $form['#submit'] = [
+        'views_migration_execute_form_submit',
+      ];
+    }
+  }
+}
+
+/**
+ *
+ */
+function views_migration_execute_form_submit(&$form, FormStateInterface $form_state): void {
+  $migrationPluginManager = \Drupal::service('plugin.manager.migration');
+  $messenger = \Drupal::messenger();
+  $operation = $form_state->getValue('operation');
+  $routeMatch = \Drupal::routeMatch();
+  $idlist = '';
+  if ($form_state->getValue('idlist')) {
+    $idlist = $form_state->getValue('idlist');
+  }
+  if ($form_state->getValue('limit')) {
+    $limit = $form_state->getValue('limit');
+  }
+  else {
+    $limit = 0;
+  }
+
+  if ($form_state->getValue('update')) {
+    $update = $form_state->getValue('update');
+  }
+  else {
+    $update = 0;
+  }
+  if ($form_state->getValue('force')) {
+    $force = $form_state->getValue('force');
+  }
+  else {
+    $force = 0;
+  }
+
+  $migration = $routeMatch->getParameter('migration');
+  if ($migration) {
+    $migration_id = $migration->id();
+    /** @var \Drupal\migrate\Plugin\MigrationInterface $migration_plugin */
+    $migration_plugin = $migrationPluginManager->createInstance($migration_id, $migration->toArray());
+    $migrateMessage = new MigrateMessage();
+
+    switch ($operation) {
+      case 'import':
+
+        $options = [
+          'limit' => $limit,
+          'update' => $update,
+          'force' => $force,
+        ];
+        if (!is_null($idlist) && !empty($idlist)) {
+          $options['idlist'] = $idlist;
+          $options['idlist-delimiter'] = ',';
+        }
+        $executable = new MigrateBatchExecutable($migration_plugin, $migrateMessage, $options);
+        $executable->batchImport();
+
+        break;
+
+      case 'rollback':
+
+        $options = [
+          'limit' => $limit,
+          'update' => $update,
+          'force' => $force,
+        ];
+        if (!is_null($idlist) && !empty($idlist)) {
+          $options['idlist'] = $idlist;
+          $options['idlist-delimiter'] = ',';
+        }
+        $executable = new MigrateBatchExecutable($migration_plugin, $migrateMessage, $options);
+        $status = $executable->rollback();
+        if ($status === MigrationInterface::RESULT_COMPLETED) {
+          $messenger->addStatus(t('Rollback completed', ['@id' => $migration_id]));
+        }
+        else {
+          $messenger->addError(t('Rollback of !name migration failed.', ['!name' => $migration_id]));
+        }
+        break;
+
+      case 'stop':
+
+        $migration_plugin->interruptMigration(MigrationInterface::RESULT_STOPPED);
+        $status = $migration_plugin->getStatus();
+        switch ($status) {
+          case MigrationInterface::STATUS_IDLE:
+            $messenger->addStatus(t('Migration @id is idle', ['@id' => $migration_id]));
+            break;
+
+          case MigrationInterface::STATUS_DISABLED:
+            $messenger->addWarning(t('Migration @id is disabled', ['@id' => $migration_id]));
+            break;
+
+          case MigrationInterface::STATUS_STOPPING:
+            $messenger->addWarning(t('Migration @id is already stopping', ['@id' => $migration_id]));
+            break;
+
+          default:
+            $migration->interruptMigration(MigrationInterface::RESULT_STOPPED);
+            $messenger->addStatus(t('Migration @id requested to stop', ['@id' => $migration_id]));
+            break;
+        }
+        break;
+
+      case 'reset':
+        $status = $migration_plugin->getStatus();
+        if ($status === MigrationInterface::STATUS_IDLE) {
+          $messenger->addWarning(t('Migration @id is already Idle', ['@id' => $migration_id]));
+        }
+        else {
+          $messenger->addStatus(t('Migration @id reset to Idle', ['@id' => $migration_id]));
+        }
+        $migration_plugin->setStatus(MigrationInterface::STATUS_IDLE);
+
+        break;
+
+    }
+  }
+}

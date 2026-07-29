@@ -1,0 +1,230 @@
+include:
+  ################
+  # DrupalCI includes:
+  # As long as you include this, any future includes added by the Drupal Association will be accessible to your pipelines automatically.
+  # View these include files at https://git.drupalcode.org/project/gitlab_templates/
+  ################
+  - project: $_GITLAB_TEMPLATES_REPO
+    ref: $_GITLAB_TEMPLATES_REF
+    file:
+      - '/includes/include.drupalci.main.yml'
+      - '/includes/include.drupalci.variables.yml'
+      - '/includes/include.drupalci.workflows.yml'
+
+#
+# Start custom overrides.
+#
+
+# Customize stages to add matrix builds and testing.
+stages:
+  # The first three are supported by the upstream DA templates.
+  - build
+  - validate
+  - test
+  # Once tests pass on the "canary", build other configurations.
+  - matrix-build
+  # There is no matrix-validate. We only need to validate the initial build.
+  - matrix-test
+
+
+# Global variables.
+variables:
+  _CSPELL_WORDS: "variationcache, gnode, gcontent"
+  SKIP_ESLINT: '1'
+
+
+# Job overrides
+
+cspell:
+  allow_failure: false
+
+phpcs:
+  allow_failure: false
+
+## After every composer job, dump out the composer info about drupal/group
+.composer-base:
+  after_script:
+    - composer show drupal/group
+
+## Before every phpunit job, dump out the composer info about drupal/group
+.phpunit-base:
+  before_script:
+    - composer show drupal/group
+
+
+# Hidden pseudo jobs to share common settings across multiple jobs.
+
+## Hidden job to require Group V2.2
+.composer-group2_2:
+  extends: .composer-base
+  before_script:
+    - composer remove drupal/group --no-update
+    - composer require 'drupal/group:2.2.*' --no-update
+
+## Hidden job to require Group V2.3
+.composer-group2_3:
+  extends: .composer-base
+  before_script:
+    - composer remove drupal/group --no-update
+    - composer require 'drupal/group:2.3.*' --no-update
+
+## Hidden job to require Group V3.2
+.composer-group3_2:
+  extends: .composer-base
+  before_script:
+    - composer remove drupal/group --no-update
+    - composer require 'drupal/group:3.2.*' --no-update
+
+## Hidden job to require Group V3.3.
+.composer-group3_3:
+  extends: .composer-base
+  before_script:
+    - composer remove drupal/group --no-update
+    - composer require 'drupal/group:3.3.*' --no-update
+
+
+#
+# The default build and test environment: Drupal 10.5, Group 3.3.x
+#
+composer:
+  extends: .composer-group3_3
+  variables:
+    DRUPAL_CORE: "10.5.x"
+    PHP_VERSION: "8.2"
+    PHP_IMAGE_VARIANT: "apache"
+    IGNORE_PROJECT_DRUPAL_CORE_VERSION: 1
+
+
+#
+# Matrix builds (automatically run after the primary build and test pass)
+#
+
+## Drupal 11.2, Group V3.3
+composer-d11_2-g3_3:
+  stage: matrix-build
+  extends: .composer-group3_3
+  variables:
+    DRUPAL_CORE: "11.2.x"
+    PHP_VERSION: "8.3"
+    PHP_IMAGE_VARIANT: "ubuntu-apache"
+  dependencies: []
+  needs:
+    - phpunit
+  rules:
+    - when: on_success
+
+## Legacy (bridge) support for Drupal 9 and Group 2.2
+composer-d9_5-g2_2:
+  stage: matrix-build
+  extends: .composer-group2_2
+  variables:
+    DRUPAL_CORE: "9.5.x"
+    PHP_VERSION: "7.4"
+    PHP_IMAGE_VARIANT: "apache"
+  dependencies: []
+  needs:
+    - phpunit
+  rules:
+    - when: on_success
+
+#
+# Matrix tests
+#
+
+phpunit-d11_2-g3_3:
+  extends: .phpunit-base
+  stage: matrix-test
+  needs:
+    - composer-d11_2-g3_3
+
+phpunit-d9_5-g2_2:
+  extends: .phpunit-base
+  stage: matrix-test
+  needs:
+    - composer-d9_5-g2_2
+
+
+#
+# Manual builds (all other combinations)
+#
+
+## Drupal 11.2, Group V2.3
+composer-d11_2-g2_3:
+  stage: build
+  extends: .composer-group2_3
+  variables:
+    DRUPAL_CORE: "11.2.x"
+    PHP_VERSION: "8.3"
+    PHP_IMAGE_VARIANT: "ubuntu-apache"
+  dependencies: []
+  rules:
+    - when: manual
+  allow_failure: true
+
+## Drupal 10.5, Group V2.3
+composer-d10_5-g2_3:
+  stage: build
+  extends: .composer-group2_3
+  variables:
+    DRUPAL_CORE: "10.5.x"
+    PHP_VERSION: "8.2"
+    PHP_IMAGE_VARIANT: "apache"
+  dependencies: []
+  rules:
+    - when: manual
+  allow_failure: true
+
+## Drupal 10.5, Group V3.2
+composer-d10_5-g3_2:
+  stage: build
+  extends: .composer-group3_2
+  variables:
+    DRUPAL_CORE: "10.5.x"
+    PHP_VERSION: "8.2"
+    PHP_IMAGE_VARIANT: "apache"
+  dependencies: []
+  rules:
+    - when: manual
+  allow_failure: true
+
+## Drupal 9.5, Group V3.2
+composer-d9_5-g3_2:
+  stage: build
+  extends: .composer-group3_2
+  variables:
+    DRUPAL_CORE: "9.5.x"
+    PHP_VERSION: "8.1"
+    PHP_IMAGE_VARIANT: "apache"
+  dependencies: []
+  rules:
+    - when: manual
+  allow_failure: true
+
+
+#
+# Manual tests
+#
+
+phpunit-d11_2-g2_3:
+  extends: .phpunit-base
+  stage: test
+  needs:
+    - composer-d11_2-g2_3
+
+phpunit-d10_5-g2_3:
+  extends: .phpunit-base
+  stage: test
+  needs:
+    - composer-d10_5-g2_3
+
+phpunit-d10_5-g3_2:
+  extends: .phpunit-base
+  stage: test
+  needs:
+    - composer-d10_5-g3_2
+
+phpunit-d9_5-g3_2:
+  extends: .phpunit-base
+  stage: test
+  needs:
+    - composer-d9_5-g3_2

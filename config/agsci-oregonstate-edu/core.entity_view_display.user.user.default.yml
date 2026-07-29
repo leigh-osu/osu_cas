@@ -1,0 +1,38 @@
+uuid: fde959ce-956b-4169-8a4e-1f00986bbe3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_domain_access
+    - field.field.user.user.field_domain_admin
+    - field.field.user.user.field_domain_all_affiliates
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - image
+    - user
+_core:
+  default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  member_for:
+    weight: 5
+    region: content
+  user_picture:
+    type: image
+    label: hidden
+    settings:
+      image_link: content
+      image_style: thumbnail
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  entitygroupfield: true
+  field_domain_access: true
+  field_domain_admin: true
+  field_domain_all_affiliates: true
+  langcode: true

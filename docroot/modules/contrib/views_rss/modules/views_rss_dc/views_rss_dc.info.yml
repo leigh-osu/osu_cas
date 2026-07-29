@@ -1,0 +1,12 @@
+name: 'Advanced Views RSS Feed: DC Elements'
+type: module
+description: 'Provides Dublin Core Metadata element set for Views RSS.'
+package: Views
+core_version_requirement: ^10.3 || ^11
+dependencies:
+  - views_rss:views_rss
+
+# Information added by Drupal.org packaging script on 2025-04-07
+version: '8.x-2.4'
+project: 'views_rss'
+datestamp: 1744036344

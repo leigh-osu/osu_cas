@@ -1,0 +1,20 @@
+uuid: 004e9dde-ad9c-4c20-89ce-6eaef15b55fc
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_dfsg_fellowships
+field_name: field_dfsg_fellowships
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

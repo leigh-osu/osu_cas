@@ -1,0 +1,10 @@
+rangebar:
+  label: 'Range Bar'
+  axis: 'xy'
+  axis_inverted: true
+  stacking: true
+treemap:
+  label: 'Treemap'
+  axis: 'xy'
+  axis_inverted: false
+  stacking: false

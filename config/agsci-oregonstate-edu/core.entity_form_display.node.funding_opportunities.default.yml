@@ -1,0 +1,178 @@
+uuid: f0b18c62-fb8c-4a82-b4f4-e369270a3bd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.funding_opportunities.body
+    - field.field.node.funding_opportunities.field_domain_access
+    - field.field.node.funding_opportunities.field_domain_all_affiliates
+    - field.field.node.funding_opportunities.field_fundop_award_ceiling
+    - field.field.node.funding_opportunities.field_fundop_due_date_full
+    - field.field.node.funding_opportunities.field_fundop_due_date_loi
+    - field.field.node.funding_opportunities.field_fundop_link
+    - field.field.node.funding_opportunities.field_fundop_number
+    - field.field.node.funding_opportunities.field_fundop_open_ended
+    - field.field.node.funding_opportunities.field_fundop_posted_date
+    - field.field.node.funding_opportunities.field_fundop_sponsor
+    - field.field.node.funding_opportunities.field_tax_cas_section
+    - node.type.funding_opportunities
+  module:
+    - datetime
+    - entitygroupfield
+    - link
+    - multiselect
+    - path
+    - text
+id: node.funding_opportunities.default
+targetEntityType: node
+bundle: funding_opportunities
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 121
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  entitygroupfield:
+    type: entitygroupfield_select_widget
+    weight: -50
+    region: content
+    settings:
+      help_text: ''
+      label: 'Group name'
+      multiple: true
+      required: false
+    third_party_settings: {  }
+  field_fundop_award_ceiling:
+    type: number
+    weight: 127
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_fundop_due_date_full:
+    type: datetime_default
+    weight: 126
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_fundop_due_date_loi:
+    type: datetime_default
+    weight: 125
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_fundop_link:
+    type: link_default
+    weight: 122
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_fundop_number:
+    type: string_textfield
+    weight: 123
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_fundop_open_ended:
+    type: boolean_checkbox
+    weight: 129
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_fundop_posted_date:
+    type: datetime_default
+    weight: 124
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_fundop_sponsor:
+    type: string_textfield
+    weight: 128
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_tax_cas_section:
+    type: multiselect
+    weight: 21
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 15
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 120
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 16
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_domain_access: true
+  field_domain_all_affiliates: true

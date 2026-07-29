@@ -1,0 +1,15 @@
+uuid: 001752b5-bf9e-4d5e-8251-b683c963b4f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.plantbreeding_oregonstate_edu_
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_plantbreeding_oregonstate_edu_
+label: 'Remove editors from the Plant Breeding and Genetics domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - plantbreeding_oregonstate_edu_

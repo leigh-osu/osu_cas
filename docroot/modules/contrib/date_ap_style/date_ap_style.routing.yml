@@ -1,0 +1,26 @@
+
+date_ap_style.settings:
+  path: '/admin/config/regional/date-ap-style'
+  defaults:
+    _form: '\Drupal\date_ap_style\Form\DateAPStyleSettings'
+    _title: 'AP style date display settings'
+  requirements:
+    _permission: 'administer ap style settings'
+  options:
+    _admin_route: TRUE
+
+# @deprecated in date_ap_style 2.1.x and will be removed in date_ap_style 3.0.0.
+# Use date_ap_style.settings instead.
+date_ap_style.date_ap_style_settings:
+  path: '/admin/config/content/date-ap-style'
+  defaults:
+    _form: '\Drupal\date_ap_style\Form\DateAPStyleSettings'
+    _title: 'AP Style Date Settings (Deprecated Route)'
+  requirements:
+    _permission: 'administer ap style settings'
+  options:
+    _admin_route: TRUE
+  deprecated:
+    package: 'date_ap_style'
+    version: '2.1.0'
+    message: 'The route "date_ap_style.date_ap_style_settings" is deprecated in date_ap_style:2.1.0 and is removed from date_ap_style:3.0.0. Use "date_ap_style.settings" route instead. See https://www.drupal.org/project/date_ap_style/issues/3543620'

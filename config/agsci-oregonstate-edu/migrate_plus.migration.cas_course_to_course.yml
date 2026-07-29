@@ -1,0 +1,149 @@
+uuid: 842033fd-71b9-437b-92bb-b09ed7fd8bca
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 6cnqPwlPjc1c_K9QnS6omI5JIE6vr0mt4afFSunJyg8
+id: cas_course_to_course
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - 'Layout content'
+  - OSU
+  - CAS
+  - 'CAS Content'
+migration_group: content
+label: 'Basic Course to Course Migration'
+source:
+  plugin: d7_node_domain_access
+  node_type: course
+  high_water_property:
+    name: changed
+process:
+  title: title
+  body:
+    plugin: sub_process
+    source: body
+    process:
+      value:
+        plugin: osu_media_wysiwyg_filter
+        source: value
+      summary: summary
+      format:
+        plugin: default_value
+        default_value: full_html
+  field_course_course_number:
+    plugin: get
+    source: field_course_number
+  field_course_credits:
+    plugin: get
+    source: field_credits
+  field_course_class_location:
+    plugin: get
+    source: field_class_location
+  field_course_course_level:
+    plugin: get
+    source: field_course_level
+  field_course_frequency:
+    plugin: get
+    source: field_frequency
+  field_course_term:
+    plugin: get
+    source: field_term
+  field_course_student_perspective:
+    plugin: sub_process
+    source: field_student_perspective
+    process:
+      value:
+        plugin: osu_media_wysiwyg_filter
+        source: value
+      format:
+        plugin: default_value
+        default_value: full_html
+  field_course_links:
+    plugin: sub_process
+    source: field_links
+    process:
+      uri: url
+      title: title
+  field_course_instructor:
+    plugin: sub_process
+    source: field_instructor
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: upgrade_d7_user_to_profile
+          source: uid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+        -
+          plugin: skip_on_empty
+          method: process
+  field_course_syllabus:
+    plugin: sub_process
+    source: field_syllabus
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: upgrade_d7_media_documents
+          source: fid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  field_tax_topic:
+    plugin: sub_process
+    source: field_course_topic
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: 'upgrade_d7_taxonomy_terms:sorting_topics'
+          source: tid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  field_meta_tags:
+    plugin: d7_metatag_entities
+    source: pseudo_metatag_entities
+  path/pathauto:
+    plugin: default_value
+    default_value: 0
+  type:
+    plugin: default_value
+    default_value: course
+  field_domain_access:
+    plugin: sub_process
+    source: domain_access_node
+    process:
+      target_id: target_id
+  field_domain_all_affiliates:
+    plugin: get
+    source: domain_all_affiliates
+  field_domain_source:
+    plugin: get
+    source: domain_source
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+destination:
+  plugin: 'entity:node'
+  default_bundle: course
+migration_dependencies:
+  required:
+    - upgrade_d7_files
+    - upgrade_d7_users_with_roles
+    - 'upgrade_d7_taxonomy_terms:sorting_topics'
+    - upgrade_d7_media_documents

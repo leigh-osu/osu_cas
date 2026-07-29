@@ -1,0 +1,73 @@
+# Schema for the views style plugins.
+
+views.style.rss_fields:
+  type: views_style
+  label: 'Advanced RSS feed'
+  mapping:
+    channel:
+      type: mapping
+      label: 'RSS Feed - Channel'
+      mapping:
+        core:
+          type: mapping
+          label: 'RSS Feed - Channel - Core'
+          mapping:
+            views_rss_core:
+              type: mapping
+              mapping:
+                description:
+                  type: string
+                  label: Description
+                language:
+                  type: string
+                  label: Language
+                category:
+                  type: string
+                  label: Category
+                image:
+                  type: string
+                  label: Image
+                copyright:
+                  type: string
+                  label: Copyright
+                managingEditor:
+                  type: string
+                  label: managingEditor
+                webMaster:
+                  type: string
+                  label: webMaster
+                generator:
+                  type: string
+                  label: Generator
+                docs:
+                  type: uri
+                  label: Docs
+                cloud:
+                  type: uri
+                  label: Cloud
+                ttl:
+                  type: integer
+                  label: 'Time to live (TTL)'
+                skipHours:
+                  type: string
+                  label: skipHours
+                skipDays:
+                  type: string
+                  label: skipDays
+    feed_settings:
+      type: mapping
+      label: 'RSS Feed - Feed settings'
+      mapping:
+        absolute_paths:
+          type: boolean
+          label: 'Replace relative paths with absolute URLs'
+        feed_in_links:
+          type: boolean
+          label: 'Display feed icon in the links attached to the view'
+    namespaces:
+      type: mapping
+      label: 'RSS Feed - Namespaces'
+      mapping:
+        add_rdf_namespaces:
+          type: boolean
+          label: 'Merge RDF namespaces'

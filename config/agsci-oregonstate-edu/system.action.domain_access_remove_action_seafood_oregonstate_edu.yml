@@ -1,0 +1,15 @@
+uuid: 3de221ff-3b35-499a-b1f6-f93388f8ac76
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.seafood_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_seafood_oregonstate_edu
+label: 'Remove selected content from the Seafood Network Information Center domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - seafood_oregonstate_edu

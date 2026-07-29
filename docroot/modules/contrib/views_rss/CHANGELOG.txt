@@ -1,0 +1,179 @@
+Advanced Views RSS Feed 8.x-2.x-dev, 202x-xx-xx
+-----------------------------------------------
+
+
+Advanced Views RSS Feed 8.x-2.3, 2024-09-16
+-------------------------------------------
+#3409451 by DamienMcKenna: RSS output is no longer valid XML.
+#3410597 by greenSkin, DamienMcKenna: Nested CDATA breaks XML validity.
+#3410684 by DamienMcKenna: dc:date is incorrect due to 10.1 core change.
+#3425960 by thatguy, edwardsay, ivnish, DamienMcKenna, misterdidi: Wrong
+  Content-type header for RSS Feed.
+#3420191 by DamienMcKenna: Add GitLab CI test file.
+#3414012 by DamienMcKenna, ivnish, sidharth_soman: Fix tests, module for Drupal
+  10.2 & PHP 8.2.
+#3414467 by ivnish, DamienMcKenna, scottop: Use getID3 v2 correctly; document
+  installation procedure.
+#3413726 by DamienMcKenna, ivnish: Date values should be in RFC-822 format, not
+  RFC-2822.
+#3414467 by ivnish: Follow-up to correct phpcs issues.
+#3419023 by DamienMcKenna: Tighten up output, remove unnecessary whitespace.
+#3451387 by Project Update Bot, DamienMcKenna: Automated Drupal 11 compatibility
+  fixes.
+#3446813 by ivnish, doxigo, damienmckenna: Warning: Undefined array key "#row"
+  in views_rss_core_preprocess_views_view_rss().
+
+
+Advanced Views RSS Feed 8.x-2.2, 2023-09-24
+-------------------------------------------
+#3386146 by idebr, Lendude: Warning: filesize(): stat failed when file is not
+  available on the filesystem.
+#3383734 by DamienMcKenna, idebr: Warning: filesize(): stat failed for [image
+  url] when using a static image as the feed thumbnail.
+#3303538 by DamienMcKenna: Channel image link is empty.
+
+
+Advanced Views RSS Feed 8.x-2.1, 2023-07-11
+-------------------------------------------
+#3365915 by DamienMcKenna: Merge Views RSS Media submodules.
+#3299453 by afsch, DamienMcKenna, Project Update Bot: Automated Drupal 10
+  compatibility fixes for media submodules.
+#3366706 by DamienMcKenna: Add support for media fields in media:thumbnail.
+#3366701 by DamienMcKenna: Fix tests in D10.0.
+#3366793 by DamienMcKenna: Fix channel pubDate value on Drupal 10.1.
+#3367232 by DamienMcKenna: media:thumbnail URL should be absolute.
+#3367232 by DamienMcKenna: A better location for the absolute URL logic.
+#3367234 by DamienMcKenna: Coding standards improvements.
+#3367262 by DamienMcKenna: Don't add empty media:thumbnail element.
+#3203306 by DamienMcKenna, mventure2021, mlncn: Error: Call to undefined
+  function Drupal\views_rss\Plugin\views\style\_url().
+#3373838 by vengador, DamienMcKenna: Invalid placeholder warning.
+#3367284 by idebr, nils.destoop, Lendude, DamienMcKenna: media:content width
+  and height attribute should be determined from the image style instead of the
+  original image.
+#3230274 by cesarmiquel, idebr, nkraft, DamienMcKenna: Restore itok parameter to
+  image URLs in Media elements.
+
+
+Advanced Views RSS Feed 8.x-2.0, 2023-06-14
+-------------------------------------------
+#3264517 by DamienMcKenna: Document how to set up the module.
+
+
+Advanced Views RSS Feed 8.x-2.0-rc3, 2023-05-23
+-----------------------------------------------
+#3313908 by idebr, DamienMcKenna: Implement configuration schema.
+#3306849 by DamienMcKenna, adaucyj, lucasbaralm, LeoAlcci, urvashi_vora,
+  juancec, idebr: Update code to follow Drupal coding standards.
+#3330834 by DamienMcKenna, idebr: Rename the module and plugins for usability.
+#3303532 by vpa24, reenaraghavan, DamienMcKenna, Ludo.R: Update Views RSS to be
+  compatible with D10.
+
+
+Views RSS 8.x-2.0-rc2, 2022-08-30
+---------------------------------
+#3303531 by DamienMcKenna: Remove slogan from default title.
+#3303535 by DamienMcKenna: Fix views_rss_dc submodule.
+#3303536 by DamienMcKenna: Don't use \Drupal::service('renderer')->render().
+#3303702 by DamienMcKenna: Fix site slogan option on channel description.
+#3305462 by DamienMcKenna: Test coverage for the channel output.
+#3306603 by DamienMcKenna: Test coverage for channel link.
+#3306799 by DamienMcKenna: Pubdate values use the wrong format.
+#3306819 by DamienMcKenna: dc:date uses wrong format.
+
+
+Views RSS 8.x-2.0-rc1, 2022-04-29
+---------------------------------
+#3055046 by idebr, SocialNicheGuru: LogicException: Render context is
+  empty, because render() was called outside of a renderRoot() or renderPlain()
+  call. Use renderPlain()/renderRoot().
+#3007533 by evilehk, a.boutakaoua: User error : value is an invalid render
+  array key dans Drupal\Core\Render\Element::children().
+#2761635 by idebr: Add automated test coverage
+#3070596 by idebr, anneke_vde: Row description is expected to be a
+  renderable array in Drupal Core.
+#3070608 by idebr, anneke_vde: <source url> and <atom:link href> attribute
+  values do not include query parameters.
+#3070986 by idebr, anneke_vde: Derive channel pubDate from the highest
+  item pubDate.
+#3070996 by idebr, anneke_vde: Use the current date and time for the
+  channel lastBuildDate.
+#3027921 by hilly510, idebr: Error: 'Drupal\media_entity\Entity\Media' not
+  found in views_rss_core_preprocess_item_description_image().
+#3012577 by chipway, Aanal.addweb: Apply new format for dependencies.
+#3088763 by idebr: Change the media type to application/rss+xml.
+#2932590 by d.novikov, idebr: Remove hard-coded podtrac.com redirect.
+#3055049 by idebr: Views_rss comments always provides a relative url even
+  if absolute is used.
+#3149297 by Project Update Bot: Automated Drupal 9 compatibility fixes
+#3027932 by idebr, hilly510: Notice: Undefined index: #image_style in
+  views_rss_core_preprocess_item_enclosure().
+#3153444 by ravimane23, divyesh19, idebr: Drupal 9 Readiness
+#3153282 by pradeepjha, idebr: Remove unused views-view-rss.html.twig.
+#3163605 by jiong_ye: Object of class Drupal\Core\Link could not be
+  converted to string.
+#3192236 by jennypanighetti, Suresh Prabhu Parkala: Absolute URLs in
+  data-src or srcset not changed.
+#3221240 by Lendude: Remove 'core' key from test module.
+#3251846 by idebr: Fix deprecations in automated test.
+#3241646 by jiong_ye, idebr: Call to undefined method
+  Drupal\taxonomy\Entity\Term::url() in Drupal 9.
+#3259296: TypeError: htmlspecialchars(): Argument #1 ($string) must be of
+  type string, Drupal\Core\Url given.
+#3264519 by DamienMcKenna: Drop Drupal 8 support.
+#3136272 by Majstr, DamienMcKenna, useernamee, idebr: RssFields.php calls
+  undefined check_plain() function.
+#3055269 by DamienMcKenna, SocialNicheGuru: Author field creates
+  dc:creator which fails validation.
+#3265466 by DamienMcKenna: Coding standards improvements.
+#3266892 by Lendude, DamienMcKenna, anneke_vde: Passing null to parameter
+  #1 ($datetime) of type string is deprecated.
+#3265464 by DamienMcKenna: Add option to wrap elements in CDATA.
+#3268114 by DamienMcKenna: Add support for content:encoded item.
+#3268146 by DamienMcKenna: Remove unnecessary whitespace from new twig
+  file.
+#3268143 by DamienMcKenna: Add a CHANGELOG.txt.
+#3277978 by DamienMcKenna: Merge Views RSS Content into Views RSS Core.
+#3203477 by DamienMcKenna, mventure2021: Channel image does not render properly.
+
+
+Views RSS 8.x-2.0-unstable1, 2017-11-18
+---------------------------------------
+By maciej.zgadzaj: First initially working take on version 8.x.
+By maciej.zgadzaj: Handle image styles for enclosure elements.
+By maciej.zgadzaj: Minor fixes.
+By maciej.zgadzaj: Fixed support for element subgroups.
+By maciej.zgadzaj: Added length and type attributes to enclosure element for
+  image styles.
+By maciej.zgadzaj: Added views_rss_format submodule.
+By maciej.zgadzaj: Length and type attributes for <enclosure> element from text
+  links.
+By maciej.zgadzaj: Added domain attribute support to item <category> element.
+By maciej.zgadzaj: Updated row plugin RssFields::mapRow to put raw items in the
+  "items" subarray.
+By maciej.zgadzaj: Added validate() method to both class and row plugin.
+By maciej.zgadzaj: Added support for "Content: All taxonomy terms" field as a
+  source for item <category> element.
+By maciej.zgadzaj: Fixed channel <image> preprocess function.
+By maciej.zgadzaj: Fixed channel <description> preprocess function.
+By maciej.zgadzaj: Fixed channel <link> preprocess function.
+By maciej.zgadzaj: Fixed channel <language> preprocess function.
+By maciej.zgadzaj: Create image derivative if it does not exist yet when
+  preprocessing item <enclosure> element.
+By maciej.zgadzaj: Fixed template_preprocess_views_view_rss() overriding Views
+  RSS-preprocessed channel values.
+By maciej.zgadzaj: Added missing backslash at the end of base_url in channel
+  <link> and <image><link> elements.
+By maciej.zgadzaj: Fixed and re-enabled channel <pubDate> and <lastBuildDate>
+  elements.
+#2744449 by dindrala: Cannot use Drupal\Component\Utility\String in
+  views_rss_cores.inc.
+#2760991 by MiSc: On install, PHP Fatal error: Call to undefined method
+  Drupal\Core\Cache\DatabaseBackend::invalidateTags().
+#2685113 by MiSc: Call to undefined method
+  Drupal\Component\Utility\SafeMarkup::set().
+#2761079 by MiSc: Remove deprecated functions.
+#2746975 by ashish-deynap: Removing @file doc comment in views rss.
+#2746987 by ashish-deynap: Needs Indentation of files in views rss.
+By MiSc: added basic composer.json.
+#2761449 by Nate_S: [META] Creating a stable 8.x-2 release.

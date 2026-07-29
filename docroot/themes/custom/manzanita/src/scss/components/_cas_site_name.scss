@@ -1,0 +1,51 @@
+@import '../abstracts/cas_variables';
+
+// Site name in the header: white, all-caps, in Stratum2 Light (the 300 weight
+// of the Stratum2Web family). Overrides .osu-text-osuorange and .fw-bolder.
+.block__content__site-name,
+.block__content__site-name a,
+.block__content__site-name span,
+.block__content__site-name h1 {
+  color: #fff !important;
+  font-family: 'Stratum2Web', serif !important;
+  font-weight: 300 !important;
+  text-transform: uppercase !important;
+}
+
+// Header links (site name, parent unit, group name): underline on hover only.
+.block__content__site-name a {
+  text-decoration: none;
+}
+
+.block__content__site-name a:hover {
+  // !important beats the group link's Bootstrap .text-decoration-none class.
+  text-decoration-line: underline !important;
+  text-decoration-color: $osuorange !important;
+}
+
+// Parent-unit breadcrumb marks: crater grey, distinct from the white site name.
+// Higher specificity + !important to beat the white span rule above.
+.block__content__site-name .site-name__sep {
+  color: $crater !important;
+}
+
+// Site name and parent unit sit on one line (group name drops below).
+.block__content__site-name .site-name__site-line {
+  column-gap: 0.4em;
+}
+
+// Size the site name, parent and » marks on that line at 1.1rem (the a/span
+// overrides beat Bootstrap's fs-6 on the links).
+.block__content__site-name .site-name__site-line,
+.block__content__site-name .site-name__site-line a,
+.block__content__site-name .site-name__site-line span {
+  font-size: 1.1rem !important;
+}
+
+// Alone on the home page, the site name takes the larger current-group size
+// (~1.5rem) rather than the small in-line size. Must follow the rule above
+// (same specificity) to win.
+.block__content__site-name .site-name__site-line--home,
+.block__content__site-name .site-name__site-line--home a {
+  font-size: 1.5rem !important;
+}

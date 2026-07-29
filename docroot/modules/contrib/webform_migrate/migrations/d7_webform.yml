@@ -1,0 +1,59 @@
+id: d7_webform
+label: 'Webform'
+migration_tags:
+  - 'Drupal 7'
+  - Configuration
+source:
+  plugin: d7_webform
+  constants:
+    settings:
+      # "settings/page" must be boolean.
+      page: true
+      # "settings/preview" must be integer.
+      preview: 0
+      # "settings/wizard_progress_bar" must be boolean.
+      wizard_progress_bar: true
+      # "settings/page_submit_path" must be string.
+      page_submit_path: ''
+      # "settings/page_confirm_path" must be string.
+      page_confirm_path: ''
+process:
+  id: webform_id
+  uid: node_uid
+  title: title
+  status: status
+  elements: elements
+  handlers: handlers
+  access: access
+  'settings/page': constants/settings/page
+  'settings/page_submit_path': constants/settings/page_submit_path
+  'settings/page_confirm_path': constants/settings/page_confirm_path
+  # TODO submit label should be migrated as part of the "elements".
+  # 'settings/form_submit_label': submit_text
+  'settings/wizard_progress_bar': constants/settings/wizard_progress_bar
+  # Webform does not define schema nor default value for
+  # "wizard_complete_label".
+  # 'settings/wizard_complete_label': {}
+  'settings/preview': constants/settings/preview
+  # Webform does not define schema nor default value for
+  # "preview_next_button_label".
+  # 'settings/preview_next_button_label': {}
+  # Webform does not define schema nor default value for
+  # "preview_prev_button_label".
+  # 'settings/preview_prev_button_label': {}
+  'settings/draft': allow_draft
+  'settings/draft_auto_save': auto_save
+  # Webform does not define schema nor default value for "draft_button_label".
+  # 'settings/draft_button_label': {}
+  'settings/confirmation_type': confirmation_type
+  'settings/confirmation_url': redirect_url
+  'settings/confirmation_message': confirmation
+  'settings/limit_total': total_submit_limit
+  'settings/limit_user': submit_limit
+destination:
+  plugin: 'entity:webform'
+migration_dependencies:
+  required:
+    - d7_user_role
+  optional:
+    - d7_node:webform

@@ -1,0 +1,12 @@
+name: 'ApexCharts'
+type: module
+description: 'Charts module integration with ApexCharts.'
+package: Charts
+core_version_requirement: ^10.3 || ^11 || ^12
+dependencies:
+  - charts:charts
+
+# Information added by Drupal.org packaging script on 2026-06-22
+version: '1.0.3'
+project: 'charts_apexcharts'
+datestamp: 1782145579

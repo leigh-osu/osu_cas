@@ -1,0 +1,9 @@
+uuid: e577da92-fe27-4fb9-8534-b0c0bf3b79af
+langcode: en
+status: true
+dependencies: {  }
+name: 'CAS Impact Areas'
+vid: cas_impact_areas
+description: null
+weight: 0
+new_revision: false

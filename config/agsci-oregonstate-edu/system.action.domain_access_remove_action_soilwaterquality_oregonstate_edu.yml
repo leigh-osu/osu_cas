@@ -1,0 +1,15 @@
+uuid: 43c7f4ed-2167-416a-8308-9af26eee73ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.soilwaterquality_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_soilwaterquality_oregonstate_edu
+label: 'Remove selected content from the Soil Water Quality domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - soilwaterquality_oregonstate_edu

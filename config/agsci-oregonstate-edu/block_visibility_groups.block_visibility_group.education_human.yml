@@ -1,0 +1,16 @@
+uuid: 671670f5-d520-4632-8525-d451b485811e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: education_human
+label: education_human
+logic: and
+conditions:
+  b7c9a012-f1ed-4f78-bf7c-d858c02f5d52:
+    id: request_path
+    negate: false
+    uuid: b7c9a012-f1ed-4f78-bf7c-d858c02f5d52
+    pages: /node/44699
+allow_other_conditions: null

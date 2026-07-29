@@ -1,0 +1,12 @@
+name: 'Apache ECharts Charts (Experimental)'
+type: module
+description: 'Charts module integration with Apache ECharts.'
+package: Charts
+core_version_requirement: ^8.8 || ^9 || ^10 || ^11
+dependencies:
+  - 'charts:charts'
+
+# Information added by Drupal.org packaging script on 2025-08-20
+version: '1.0.1'
+project: 'charts_echarts'
+datestamp: 1755656088

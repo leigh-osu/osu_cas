@@ -1,0 +1,9 @@
+uuid: 9867e1e3-661a-44c3-b4ba-765b10fb05d1
+langcode: en
+status: true
+dependencies: {  }
+name: FAQ
+vid: faq
+description: 'Frequently Asked Question Topics'
+weight: 0
+new_revision: false

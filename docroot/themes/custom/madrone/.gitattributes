@@ -1,0 +1,2 @@
+*.theme linguist-language=PHP
+*.css.map merge=ours

@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies: { }
+id: d7_shurly_flood
+migration_tags:
+  - Drupal 7
+  - ShURLy
+  - OSU ShURLy
+  - OSU
+label: "Migrate ShURLy Flood"
+source:
+  plugin: d7_shurly_flood
+process:
+  fid: fid
+  event: event,
+  identifier: identifier,
+  timestamp: timestamp,
+  expiration: expiration,
+destination:
+  plugin: 'shurly_flood'
+migration_dependencies: { }

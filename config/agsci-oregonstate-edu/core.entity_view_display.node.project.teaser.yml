@@ -1,0 +1,88 @@
+uuid: cd0b01a8-8f64-41eb-94e9-9bfc31a207b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.project.body
+    - field.field.node.project.field_domain_access
+    - field.field.node.project.field_domain_all_affiliates
+    - field.field.node.project.field_project_end_year
+    - field.field.node.project.field_project_funding_source
+    - field.field.node.project.field_project_image
+    - field.field.node.project.field_project_impacts
+    - field.field.node.project.field_project_key_activities
+    - field.field.node.project.field_project_leader
+    - field.field.node.project.field_project_literature
+    - field.field.node.project.field_project_media
+    - field.field.node.project.field_project_member
+    - field.field.node.project.field_project_objectives
+    - field.field.node.project.field_project_outputs
+    - field.field.node.project.field_project_partners
+    - field.field.node.project.field_project_start_year
+    - field.field.node.project.field_project_status
+    - field.field.node.project.field_project_thumbnail
+    - field.field.node.project.field_project_website
+    - field.field.node.project.field_tax_cbarc
+    - field.field.node.project.field_tax_focus_area
+    - field.field.node.project.field_tax_fwcs_topics
+    - field.field.node.project.field_tax_nursery_topics
+    - field.field.node.project.field_tax_organic_ag_topics
+    - field.field.node.project.field_tax_owri_topics
+    - field.field.node.project.field_tax_swd_topics
+    - field.field.node.project.field_tax_turf_topics
+    - field.field.node.project.field_tax_veg_topics
+    - field.field.node.project.field_tax_work_area
+    - node.type.project
+  module:
+    - text
+    - user
+id: node.project.teaser
+targetEntityType: node
+bundle: project
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entitygroupfield: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_project_end_year: true
+  field_project_funding_source: true
+  field_project_image: true
+  field_project_impacts: true
+  field_project_key_activities: true
+  field_project_leader: true
+  field_project_literature: true
+  field_project_media: true
+  field_project_member: true
+  field_project_objectives: true
+  field_project_outputs: true
+  field_project_partners: true
+  field_project_start_year: true
+  field_project_status: true
+  field_project_thumbnail: true
+  field_project_website: true
+  field_tax_cbarc: true
+  field_tax_focus_area: true
+  field_tax_fwcs_topics: true
+  field_tax_nursery_topics: true
+  field_tax_organic_ag_topics: true
+  field_tax_owri_topics: true
+  field_tax_swd_topics: true
+  field_tax_turf_topics: true
+  field_tax_veg_topics: true
+  field_tax_work_area: true
+  langcode: true

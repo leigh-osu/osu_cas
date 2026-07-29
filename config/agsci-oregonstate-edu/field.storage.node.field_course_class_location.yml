@@ -1,0 +1,36 @@
+uuid: 6dc413a4-d298-4351-ac72-4c36a1f1c617
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_course_class_location
+field_name: field_course_class_location
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: location_corvallis
+      label: 'Corvallis Campus'
+    -
+      value: location_cascade
+      label: 'Cascades Campus'
+    -
+      value: location_eou
+      label: 'La Grande Campus'
+    -
+      value: location_newport
+      label: 'Newport Campus'
+    -
+      value: location_online
+      label: 'Ecampus (Online)'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

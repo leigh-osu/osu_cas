@@ -1,0 +1,15 @@
+uuid: a064d80f-1d76-4640-a1ef-7576b27fef70
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.bpp_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_bpp_oregonstate_edu
+label: 'Add selected content to the Botany &amp; Plant Pathology domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - bpp_oregonstate_edu

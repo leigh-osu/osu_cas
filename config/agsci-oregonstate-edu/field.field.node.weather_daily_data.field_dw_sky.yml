@@ -1,0 +1,21 @@
+uuid: 59ad5038-c92e-44b8-9a9b-67d101277b14
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dw_sky
+    - node.type.weather_daily_data
+  module:
+    - options
+id: node.weather_daily_data.field_dw_sky
+field_name: field_dw_sky
+entity_type: node
+bundle: weather_daily_data
+label: Sky
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

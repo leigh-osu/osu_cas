@@ -1,0 +1,55 @@
+@import '../abstracts/cas_variables';
+
+// Gallery of media rendered in the gallery_card view mode (image style 220x220,
+// already square): fixed 220px square tiles in a grid that reflows by column
+// count. Used by any node field whose formatter is colorbox_view_modes with the
+// gallery_card thumbnail view mode -- image_album's field_image_album_images and
+// weed's field_weed_image.
+//
+// Tiles keep their size and the row fits fewer or more of them rather than
+// stretching (which minmax(220px, 1fr) would do).
+//
+// Markup per field:
+//   .field--name-…  (also carries .field__items)
+//     .field__item
+//       a.colorbox
+//         article.media--view-mode-gallery-card
+//           img  (220x220)
+$cas-gallery-tile: 220px;
+
+.field--name-field-image-album-images.field__items,
+.field--name-field-weed-image.field__items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, $cas-gallery-tile);
+  gap: 1rem;
+  justify-content: start;
+
+  .field__item {
+    margin: 0;
+  }
+
+  // The colorbox trigger is an inline <a> by default, which would leave
+  // descender whitespace under the image inside the tile.
+  a.colorbox {
+    display: block;
+    line-height: 0;
+  }
+}
+
+// Tile + image styling keys off the view mode, so it is shared by every gallery
+// field without repeating per-field selectors.
+.media--view-mode-gallery-card {
+  width: $cas-gallery-tile;
+  height: $cas-gallery-tile;
+  overflow: hidden;
+  border-radius: 10px;
+
+  // The 220x220 style already crops square; object-fit is belt and braces for
+  // any media whose derivative predates the style (or fails to generate).
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

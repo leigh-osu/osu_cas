@@ -1,0 +1,15 @@
+--- A/osu_standard.info.yml
++++ B/osu_standard.info.yml
+@@ -3,9 +3,9 @@
+ description: 'Standard Drupal Installation Profile.'
+ core_version_requirement: ^10 || ^11
+ version: 1.1.29
++# distribution:
++#   name: Oregon State
++#   langcode: en
+-distribution:
+-  name: Oregon State
+-  langcode: en
+ dependencies:
+   # Core
+   - big_pipe

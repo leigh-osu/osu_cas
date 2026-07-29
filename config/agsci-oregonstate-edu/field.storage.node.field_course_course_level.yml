@@ -1,0 +1,27 @@
+uuid: 00cc698b-0e7d-4d79-9410-3aaf1fef16e1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_course_course_level
+field_name: field_course_course_level
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: level_undergrad
+      label: Undergraduate
+    -
+      value: level_grad
+      label: Graduate
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

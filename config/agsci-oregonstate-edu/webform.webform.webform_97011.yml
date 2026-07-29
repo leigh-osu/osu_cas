@@ -1,0 +1,197 @@
+uuid: dde0d573-d2e9-4d95-9a57-16fd16c8b29a
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 0
+template: false
+archive: false
+id: webform_97011
+title: 'Oregon IPM Research and Extension Summit Registration '
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p style="text-align: center;">
+      	[[{"fid":"204461","view_mode":"default","fields":{"format":"default","alignment":"center","field_file_image_alt_text[und][0][value]":"image of farm with text of event title and time","field_file_image_title_text[und][0][value]":false,"external_url":""},"type":"media","field_deltas":{"1":{"format":"default","alignment":"center","field_file_image_alt_text[und][0][value]":"image of farm with text of event title and time","field_file_image_title_text[und][0][value]":false,"external_url":""}},"link_text":null,"attributes":{"alt":"image of farm with text of event title and time","class":"media-element file-default media-wysiwyg-align-center","data-delta":"1"}}]]</p>
+
+      <h3>
+      	Fourth Annual IPM Research &amp; Extension Summit, presented by the Oregon IPM Center</h3>
+
+      <p>
+      	A day of discussion and development for Oregon State University professionals working in Integrated Pest Management. The Research and Extension summit at OSU is an opportunity to network&nbsp;and&nbsp;share knowledge about&nbsp;IPM through flash talks, activities, and breakout sessions.</p>
+
+      <h5>
+      	Important Notes</h5>
+
+      <p>
+      	Date: <strong>March 14, 2022, 8:30am - 4:30pm</strong>. Finalized agenda coming soon! This event will be held <strong>in-person&nbsp;at the Memorial Union</strong>, MU 109,&nbsp;Oregon State University, Corvallis, OR. We are not planning for a&nbsp;hybrid event as previously advertised. This event is currently only open to Oregon State University employees, students and courtesy faculty.&nbsp;&nbsp;</p>
+
+      <p>
+      	<strong>Registration for this event is required.&nbsp;</strong>Registration is free.&nbsp;<strong><a href="/sites/agscid7/files/ippc/2022_ipm_summit_agenda.pdf"> Please&nbsp;see the full agenda here</a>&nbsp;</strong></p>
+
+      <p>
+      	Please let us know of any accessibility requirements or requests as soon as possible so we are able to accommodate. Please send requests to <a href="mailto:chris.hedstrom@oregonstate.edu">chris.hedstrom@oregonstate.edu</a></p>
+
+      <p>
+      	<u5:p></u5:p></p>
+  name:
+    '#type': textfield
+    '#title': Name
+    '#required': true
+  main_areas_of_work:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Main Areas of Work'
+    '#description': 'Main area(s) of work within IPM (crops, industries, disciplines, other contexts)'
+  position_title_location:
+    '#type': textfield
+    '#title': 'Position title, Location '
+    '#required': true
+  email:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title': Email
+    '#required': true
+  flash_talk_volunteers:
+    '#type': radios
+    '#options':
+      yes_key: 'Yes'
+      no_key: 'No'
+    '#title': 'Flash Talk Volunteers'
+    '#description': |
+      We are asking for volunteers to give 3-minute flash talks (no slides!). We’d like to hear your IPM success stories, challenges, anecdotes, experiences. it's up to you! Are you interested in giving a flash talk this year? 
+  program_update_volunteers:
+    '#type': radios
+    '#options':
+      yes_key: 'Yes'
+      no_key: 'No'
+    '#title': 'Program Update?'
+    '#description': "Would you like to give a short update (~3-5 minutes) on your or your program's IPM activities? (Lab work, new research, new developments)?"
+  breakout_session_suggestions:
+    '#type': textfield
+    '#title': 'Breakout Session Suggestions'
+    '#description': 'We are planning to have up to four 1 hour long breakout sessions or workshops for specialized IPM topics. If there is a topic you would like to suggest, or would like to lead a session, please let us know here: '
+  other:
+    '#type': textfield
+    '#size': 300
+    '#title': Other
+    '#description': "Any other comments? Want to help plan? Want to help with a breakout session? We'd love your input! "
+  foodrequest:
+    '#type': textfield
+    '#size': 300
+    '#title': 'Dietary Restrictions'
+    '#description': 'We are planning to offer lunch for attendees. If you have any dietary restrictions you would like us to consider, please let us know and we will do our best to accomodate.'
+  thank_you:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	Thank you! We're looking forward to seeing you in March!</p>
+
+      <p>
+      	For more information: <a href="mailto:chris.hedstrom@oregonstate.edu">Chris.hedstrom@oregonstate.edu&nbsp;</a></p>
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: false
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: katie.murray@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: chris.hedstrom@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

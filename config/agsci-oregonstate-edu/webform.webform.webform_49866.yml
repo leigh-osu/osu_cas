@@ -1,0 +1,719 @@
+uuid: d7d4b3a1-232c-41c5-8a23-2a8a4bffa742
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_49866
+title: 'Final Evaluation of Student'
+description: null
+categories: {  }
+elements: |-
+  introduction:
+    '#type': processed_text
+    '#format': full_html
+    '#text': '<p>To be done by Internship Supervisor.</p>'
+  students_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Student’s Name'
+    '#required': true
+  position:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Position
+  date:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Date
+  internship_agency_busines:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Internship Agency/Busines'
+  agency_business_supervisor__title:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Agency/Business Supervisor & Title'
+  instructions:
+    '#type': processed_text
+    '#format': full_html
+    '#text': '<p>INSTRUCTIONS: To be completed by the Agency/Business Supervisor. The Agency/Business Supervisor should review and discuss his/her evaluations with the student before mailing to the Internship Coordinator. If you have no basis to rate item, <u>select Did Not Observe</u>.</p><p>Rating Scale:&nbsp; 5 = Excellent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4= Above Average&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3 = Average&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 = Fair&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 = Unsatisfactory</p>'
+  fieldset_performance_and_completion_of_assignments:
+    '#type': fieldset
+    '#open': true
+    '#title': 'A. Performance and Completion of Assignments'
+    executes_all_work_assignments_completely_and_within_a_reasonable_time_period_8:
+      '#type': select
+      '#options':
+        reasonable_time_5: '5 = Excellent'
+        reasonable_time_4: '4= Above Average'
+        reasonable_time_3: '3 = Average'
+        reasonable_time_2: '2 = Fair'
+        reasonable_time_1: '1 = Unsatisfactory'
+        reasonable_time_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '1. Executes all work assignments completely and within a reasonable time period.'
+      '#required': true
+    careful_and_precise_in_completing_assignments_8:
+      '#type': select
+      '#options':
+        careful_5: '5 = Excellent'
+        careful_4: '4= Above Average'
+        careful_3: '3 = Average'
+        careful_2: '2 = Fair'
+        careful_1: '1 = Unsatisfactory'
+        careful_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '2. Careful and precise in completing assignments'
+      '#required': true
+    punctual_in_turning_in_reports_and_assignments_8:
+      '#type': select
+      '#options':
+        punctual_5: '5 = Excellent'
+        punctual_4: '4= Above Average'
+        punctual_3: '3 = Average'
+        punctual_2: '2 = Fair'
+        punctual_1: '1 = Unsatisfactory'
+        punctual_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '3. Punctual in turning in reports and assignments'
+      '#required': true
+    able_to_perform_well_without_supervision_8:
+      '#type': select
+      '#options':
+        wo_supervision_5: '5 = Excellent'
+        wo_supervision_4: '4= Above Average'
+        wo_supervision_3: '3 = Average'
+        wo_supervision_2: '2 = Fair'
+        wo_supervision_1: '1 = Unsatisfactory'
+        wo_supervision_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '5. Able to perform well without supervision'
+      '#required': true
+    reliably_performs_all_assigned_tasks_8:
+      '#type': select
+      '#options':
+        reliably_5: '5 = Excellent'
+        reliably_4: '4= Above Average'
+        reliably_3: '3 = Average'
+        reliably_2: '2 = Fair'
+        reliably_1: '1 = Unsatisfactory'
+        reliably_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '4. Reliably performs all assigned tasks'
+      '#required': true
+  fieldset_the_agency_business_setting:
+    '#type': fieldset
+    '#open': true
+    '#title': 'B. The Agency/Business Setting'
+    studies_available_materials_14:
+      '#type': select
+      '#options':
+        studies_5: '5 = Excellent'
+        studies_4: '4= Above Average'
+        studies_3: '3 = Average'
+        studies_2: '2 = Fair'
+        studies_1: '1 = Unsatisfactory'
+        studies_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '6. Studies available materials about the Agency/Business concerning policies, rules, regulations, procedures, and practices'
+      '#required': true
+    asks_relevant_questions_14:
+      '#type': select
+      '#options':
+        asks_questions_5: '5 = Excellent'
+        asks_questions_4: '4= Above Average'
+        asks_questions_3: '3 = Average'
+        asks_questions_2: '2 = Fair'
+        asks_questions_1: '1 = Unsatisfactory'
+        asks_questions_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '7. Asks relevant questions concerning the Agency/Business'
+      '#required': true
+    demonstrates_interest_14:
+      '#type': select
+      '#options':
+        demonstrates_interest_5: '5 = Excellent'
+        demonstrates_interest_4: '4= Above Average'
+        demonstrates_interest_3: '3 = Average'
+        demonstrates_interest_2: '2 = Fair'
+        demonstrates_interest_1: '1 = Unsatisfactory'
+        demonstrates_interest_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '8. Demonstrates interest in the operations and functions of the Agency/Business'
+      '#required': true
+  fieldset_professional_relationships:
+    '#type': fieldset
+    '#open': true
+    '#title': 'C. Professional Relationships'
+    demonstrates_courtesy_and_good_manners_18:
+      '#type': select
+      '#options':
+        courtesy_5: '5 = Excellent'
+        courtesy_4: '4= Above Average'
+        courtesy_3: '3 = Average'
+        courtesy_2: '2 = Fair'
+        courtesy_1: '1 = Unsatisfactory'
+        courtesy_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '9. Demonstrates courtesy and good manners'
+      '#required': true
+    consideration_regard_for_feelings_circumstances_others_18:
+      '#type': select
+      '#options':
+        others_feelings_5: '5 = Excellent'
+        others_feelings_4: '4= Above Average'
+        others_feelings_3: '3 = Average'
+        others_feelings_2: '2 = Fair'
+        others_feelings_1: '1 = Unsatisfactory'
+        others_feelings_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '10. Shows consideration and regard for the feelings and circumstances of others.'
+      '#required': true
+    difficult_situations_18:
+      '#type': select
+      '#options':
+        difficult_situations_5: '5 = Excellent'
+        difficult_situations_4: '4= Above Average'
+        difficult_situations_3: '3 = Average'
+        difficult_situations_2: '2 = Fair'
+        difficult_situations_1: '1 = Unsatisfactory'
+        difficult_situations_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '11. Shows skill in dealing with persons or difficult situations without giving offense'
+      '#required': true
+    demonstrates_self_respect_18:
+      '#type': select
+      '#options':
+        self-respect_5: '5 = Excellent'
+        self-respect_4: '4= Above Average'
+        self-respect_3: '3 = Average'
+        self-respect_2: '2 = Fair'
+        self-respect_1: '1 = Unsatisfactory'
+        self-respect_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '12. Demonstrates self-respect and pride in conducting the affairs of his/her position'
+      '#required': true
+    adjusts_to_changes_and_modification_18:
+      '#type': select
+      '#options':
+        adjusts_to_changes_5: '5 = Excellent'
+        adjusts_to_changes_4: '4= Above Average'
+        adjusts_to_changes_3: '3 = Average'
+        adjusts_to_changes_2: '2 = Fair'
+        adjusts_to_changes_1: '1 = Unsatisfactory'
+        adjusts_to_changes_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '13. Adjusts to changes and modification'
+      '#required': true
+    shows_enthusiasm_for_the_work_activities_and_setting_18:
+      '#type': select
+      '#options':
+        shows_enthusiasm_5: '5 = Excellent'
+        shows_enthusiasm_4: '4= Above Average'
+        shows_enthusiasm_3: '3 = Average'
+        shows_enthusiasm_2: '2 = Fair'
+        shows_enthusiasm_1: '1 = Unsatisfactory'
+        shows_enthusiasm_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '14. Shows enthusiasm for the work activities and setting'
+      '#required': true
+  fieldset_acceptance_of_direct_and_indirect_supervision:
+    '#type': fieldset
+    '#open': true
+    '#title': 'D. Acceptance of Direct and Indirect Supervision'
+    shows_ability_to_accept_constructive_criticism_25:
+      '#type': select
+      '#options':
+        constructive_criticism_5: '5 = Excellent'
+        constructive_criticism_4: '4= Above Average'
+        constructive_criticism_3: '3 = Average'
+        constructive_criticism_2: '2 = Fair'
+        constructive_criticism_1: '1 = Unsatisfactory'
+        constructive_criticism_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '15. Shows ability to accept constructive criticism'
+      '#required': true
+    openness_to_new_ideas_25:
+      '#type': select
+      '#options':
+        new_ideas_5: '5 = Excellent'
+        new_ideas_4: '4= Above Average'
+        new_ideas_3: '3 = Average'
+        new_ideas_2: '2 = Fair'
+        new_ideas_1: '1 = Unsatisfactory'
+        new_ideas_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '16. Openness to new ideas'
+      '#required': true
+    willingness_to_correct_inappropriate_actions_25:
+      '#type': select
+      '#options':
+        correct_inappropriate_actions_5: '5 = Excellent'
+        correct_inappropriate_actions_4: '4= Above Average'
+        correct_inappropriate_actions_3: '3 = Average'
+        correct_inappropriate_actions_2: '2 = Fair'
+        correct_inappropriate_actions_1: '1 = Unsatisfactory'
+        correct_inappropriate_actions_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '17. Willingness to correct inappropriate actions'
+      '#required': true
+    makes_use_of_suggestions_25:
+      '#type': select
+      '#options':
+        suggestions_5: '5 = Excellent'
+        suggestionss_4: '4= Above Average'
+        suggestions_3: '3 = Average'
+        suggestions_2: '2 = Fair'
+        suggestions_1: '1 = Unsatisfactory'
+        suggestions_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '18. Makes use of suggestions'
+      '#required': true
+    is_interested_in_learning_new_ideas_as_opportunities_are_made_available_25:
+      '#type': select
+      '#options':
+        new_ideas_5: '5 = Excellent'
+        new_ideas_4: '4= Above Average'
+        new_ideas_3: '3 = Average'
+        new_ideas_2: '2 = Fair'
+        new_ideas_1: '1 = Unsatisfactory'
+        new_ideas_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '19. Is interested in learning new ideas as opportunities are made available'
+      '#required': true
+  fieldset_personal_appearance:
+    '#type': fieldset
+    '#open': true
+    '#title': 'E. Personal Appearance'
+    demonstrates_ability_and_desire_to_maintain_a_standard_of_personal_appearance_31:
+      '#type': select
+      '#options':
+        personal_appearance_5: '5 = Excellent'
+        personal_appearance_4: '4= Above Average'
+        personal_appearance_3: '3 = Average'
+        personal_appearance_2: '2 = Fair'
+        personal_appearance_1: '1 = Unsatisfactory'
+        personal_appearance_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '20. Demonstrates ability and desire to maintain a standard of personal appearance in keeping with the demands and prestige of the position'
+      '#required': true
+    wears_appropriate_dress_for_the_setting_and_activity_31:
+      '#type': select
+      '#options':
+        appropriate_dress_5: '5 = Excellent'
+        appropriate_dress_4: '4= Above Average'
+        appropriate_dress_3: '3 = Average'
+        appropriate_dress_2: '2 = Fair'
+        appropriate_dress_1: '1 = Unsatisfactory'
+        appropriate_dress_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '21. Wears appropriate dress for the setting and activity'
+      '#required': true
+    maintains_good_personal_hygiene_31:
+      '#type': select
+      '#options':
+        personal_hygiene_5: '5 = Excellent'
+        personal_hygiene_4: '4= Above Average'
+        personal_hygiene_3: '3 = Average'
+        personal_hygiene_2: '2 = Fair'
+        personal_hygiene_1: '1 = Unsatisfactory'
+        personal_hygiene_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '22. Maintains good personal hygiene'
+      '#required': true
+  fieldset_agency_business_goals:
+    '#type': fieldset
+    '#open': true
+    '#title': 'F. Agency/Business Goals'
+    observes_rules_and_regulations_set_by_the_agency_business_35:
+      '#type': select
+      '#options':
+        rules_regulations_5: '5 = Excellent'
+        rules_regulations_4: '4= Above Average'
+        rules_regulations_3: '3 = Average'
+        rules_regulations_2: '2 = Fair'
+        rules_regulations_1: '1 = Unsatisfactory'
+        rules_regulations_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '25. Observes rules and regulations set by the Agency/Business'
+      '#required': true
+    participates_in_and_contributes_to_staff_meetings_35:
+      '#type': select
+      '#options':
+        staff_meetings_5: '5 = Excellent'
+        staff_meetings_4: '4= Above Average'
+        staff_meetings_3: '3 = Average'
+        staff_meetings_2: '2 = Fair'
+        staff_meetings_1: '1 = Unsatisfactory'
+        staff_meetings_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '24. Participates in and contributes to staff meetings'
+      '#required': true
+    ability_to_adapt_to_the_agency_business_program_35:
+      '#type': select
+      '#options':
+        ability_to_adapt_5: '5 = Excellent'
+        ability_to_adapt_4: '4= Above Average'
+        ability_to_adapt_3: '3 = Average'
+        ability_to_adapt_2: '2 = Fair'
+        ability_to_adapt_1: '1 = Unsatisfactory'
+        ability_to_adapt_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '26. Ability to adapt to the Agency/Business program'
+      '#required': true
+    ability_to_make_constructive_recommendations_for_changes_or_improvements_35:
+      '#type': select
+      '#options':
+        constructive_recommendations_5: '5 = Excellent'
+        constructive_recommendations_4: '4= Above Average'
+        constructive_recommendations_3: '3 = Average'
+        constructive_recommendations_2: '2 = Fair'
+        constructive_recommendations_1: '1 = Unsatisfactory'
+        constructive_recommendations_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '27. Ability to make constructive recommendations for changes or improvements'
+      '#required': true
+    loyal_in_carrying_out_the_policies_and_procedures_of_the_agency_business_35:
+      '#type': select
+      '#options':
+        policies_procedures_5: '5 = Excellent'
+        policies_procedures_4: '4= Above Average'
+        policies_procedures_3: '3 = Average'
+        policies_procedures_2: '2 = Fair'
+        policies_procedures_1: '1 = Unsatisfactory'
+        policies_procedures_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '23. Loyal in carrying out the policies and procedures of the Agency/Business'
+      '#required': true
+  fieldset_agency_business_programs_or_projects:
+    '#type': fieldset
+    '#open': true
+    '#title': 'G. Agency/Business Programs or Projects'
+    willingness_to_take_responsibility_for_the_coordinating_implementing_and_evaluating_of_needed_programs_or_projects_41:
+      '#type': select
+      '#options':
+        coordinating_implementing_5: '5 = Excellent'
+        coordinating_implementing_4: '4= Above Average'
+        coordinating_implementing_3: '3 = Average'
+        coordinating_implementing_2: '2 = Fair'
+        coordinating_implementing_1: '1 = Unsatisfactory'
+        coordinating_implementing_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '33. Willingness to take responsibility for the coordinating, implementing, and evaluating of needed programs or projects'
+      '#required': true
+    ability_to_analyze_problems_41:
+      '#type': select
+      '#options':
+        analyze_problems_5: '5 = Excellent'
+        analyze_problems_4: '4= Above Average'
+        analyze_problems_3: '3 = Average'
+        analyze_problems_2: '2 = Fair'
+        analyze_problems_1: '1 = Unsatisfactory'
+        analyze_problems_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '28. Ability to analyze problems'
+      '#required': true
+    ability_to_organize_and_use_available_resources_41:
+      '#type': select
+      '#options':
+        available_resources_5: '5 = Excellent'
+        available_resources_4: '4= Above Average'
+        available_resources_3: '3 = Average'
+        available_resources_2: '2 = Fair'
+        available_resources_1: '1 = Unsatisfactory'
+        available_resources_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '29. Ability to organize and use available resources'
+      '#required': true
+    ability_to_schedule_facilities_41:
+      '#type': select
+      '#options':
+        schedule_facilities_5: '5 = Excellent'
+        schedule_facilities_4: '4= Above Average'
+        schedule_facilities_3: '3 = Average'
+        schedule_facilities_2: '2 = Fair'
+        schedule_facilities_1: '1 = Unsatisfactory'
+        schedule_facilities_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '30. Ability to schedule facilities'
+      '#required': true
+    ability_to_express_assigned_program_areas_in_writing_41:
+      '#type': select
+      '#options':
+        writing_5: '5 = Excellent'
+        writing_4: '4= Above Average'
+        writing_3: '3 = Average'
+        writing_2: '2 = Fair'
+        writing_1: '1 = Unsatisfactory'
+        writing_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '31. Ability to express assigned program areas in writing'
+      '#required': true
+    awareness_of_limitations_of_resources_and_equipment_41:
+      '#type': select
+      '#options':
+        limitations_5: '5 = Excellent'
+        limitations_4: '4= Above Average'
+        limitations_3: '3 = Average'
+        limitations_2: '2 = Fair'
+        limitations_1: '1 = Unsatisfactory'
+        limitations_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '36. Awareness of limitations of resources and equipment'
+      '#required': true
+    ability_to_use_good_judgment_in_considering_consequences_of_actions_prior_to_implementation_of_program_areas_41:
+      '#type': select
+      '#options':
+        good_judgment_5: '5 = Excellent'
+        good_judgment_4: '4= Above Average'
+        good_judgment_3: '3 = Average'
+        good_judgment_2: '2 = Fair'
+        good_judgment_1: '1 = Unsatisfactory'
+        good_judgment_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '35. Ability to use good judgment in considering consequences of actions prior to implementation of program areas'
+      '#required': true
+    ability_to_arouse_and_develop_participant_interest_in_assigned_program_areas_41:
+      '#type': select
+      '#options':
+        interest_5: '5 = Excellent'
+        interest_4: '4= Above Average'
+        interest_3: '3 = Average'
+        interest_2: '2 = Fair'
+        interest_1: '1 = Unsatisfactory'
+        interest_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '34. Ability to arouse and develop participant interest in assigned program areas'
+      '#required': true
+    ability_to_express_assigned_program_areas_verbally_41:
+      '#type': select
+      '#options':
+        verbally_5: '5 = Excellent'
+        verbally_4: '4= Above Average'
+        verbally_3: '3 = Average'
+        verbally_2: '2 = Fair'
+        verbally_1: '1 = Unsatisfactory'
+        verbally_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '32. Ability to express assigned program areas verbally'
+      '#required': true
+  fieldset_evaluating:
+    '#type': fieldset
+    '#open': true
+    '#title': 'H. Evaluating'
+    ability_to_report_results_51:
+      '#type': select
+      '#options':
+        report_results_5: '5 = Excellent'
+        report_results_4: '4= Above Average'
+        report_results_3: '3 = Average'
+        report_results_2: '2 = Fair'
+        report_results_1: '1 = Unsatisfactory'
+        report_results_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '38. Ability to report results of assigned program areas with suggestions and recommendations for improvements'
+      '#required': true
+    ability_to_assess_the_agency_business_measurable_goals_and_objectives_51:
+      '#type': select
+      '#options':
+        goals_5: '5 = Excellent'
+        goals_4: '4= Above Average'
+        goals_3: '3 = Average'
+        goals_2: '2 = Fair'
+        goals_1: '1 = Unsatisfactory'
+        goals_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '37. Ability to assess the Agency/Business measurable goals and objectives'
+      '#required': true
+  fieldset_i_work_deportment:
+    '#type': fieldset
+    '#open': true
+    '#title': 'I. Work Deportment'
+    demonstrates_promptness_and_preparedness_for_daily_activities_when_reporting_to_work_55:
+      '#type': select
+      '#options':
+        daily_activities_5: '5 = Excellent'
+        daily_activities_4: '4= Above Average'
+        daily_activities_3: '3 = Average'
+        daily_activities_2: '2 = Fair'
+        daily_activities_1: '1 = Unsatisfactory'
+        daily_activities_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '39. Demonstrates promptness and preparedness for daily activities when reporting to work'
+      '#required': true
+    punctual_in_reporting_for_work_55:
+      '#type': select
+      '#options':
+        punctual_5: '5 = Excellent'
+        punctual_4: '4= Above Average'
+        punctual_3: '3 = Average'
+        punctual_2: '2 = Fair'
+        punctual_1: '1 = Unsatisfactory'
+        punctual_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '40. Punctual in reporting for work'
+      '#required': true
+    reliably_reports_to_work_when_expected_55:
+      '#type': select
+      '#options':
+        reliable_5: '5 = Excellent'
+        reliable_4: '4= Above Average'
+        reliable_3: '3 = Average'
+        reliable_2: '2 = Fair'
+        reliable_1: '1 = Unsatisfactory'
+        reliable_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '41. Reliably reports to work when expected (no unauthorized absences)'
+      '#required': true
+  fieldset_professional_role:
+    '#type': fieldset
+    '#open': true
+    '#title': 'J. Professional Role'
+    conducts_self_in_a_straightforward_ethical_manner_59:
+      '#type': select
+      '#options':
+        straightforward_ethical_5: '5 = Excellent'
+        straightforward_ethical_4: '4= Above Average'
+        straightforward_ethical_3: '3 = Average'
+        straightforward_ethical_2: '2 = Fair'
+        straightforward_ethical_1: '1 = Unsatisfactory'
+        straightforward_ethical_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '42. Conducts self in a straightforward, ethical manner'
+      '#required': true
+    shows_level_headedness_and_dignity_in_the_performance_of_his_her_duties_59:
+      '#type': select
+      '#options':
+        level_headedness_5: '5 = Excellent'
+        level_headedness_4: '4= Above Average'
+        level_headedness_3: '3 = Average'
+        level_headedness_2: '2 = Fair'
+        level_headedness_1: '1 = Unsatisfactory'
+        level_headedness_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '43.  Shows level headedness and dignity in the performance of his/her duties'
+      '#required': true
+    understanding_and_tolerance_of_others_where_views_are_different_59:
+      '#type': select
+      '#options':
+        tolerance_5: '5 = Excellent'
+        tolerance_4: '4= Above Average'
+        tolerance_3: '3 = Average'
+        tolerance_2: '2 = Fair'
+        tolerance_1: '1 = Unsatisfactory'
+        tolerance_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '44. Understanding and tolerance of others where views are different from his/her own'
+      '#required': true
+    conducts_self_as_a_professional_in_a_manner_dictated_by_the_prestige_of_his_her_position_59:
+      '#type': select
+      '#options':
+        professional_manner_5: '5 = Excellent'
+        professional_manner_4: '4= Above Average'
+        professional_manner_3: '3 = Average'
+        professional_manner_2: '2 = Fair'
+        professional_manner_1: '1 = Unsatisfactory'
+        professional_manner_na: 'Did Not Observe'
+      '#title_display': inline
+      '#title': '45. Conducts self as a professional in a manner dictated by the prestige of his/her position'
+      '#required': true
+  fieldset_general_overall_rating:
+    '#type': fieldset
+    '#open': true
+    '#title': 'K. General Overall Rating'
+    overall_rating_63:
+      '#type': select
+      '#options':
+        overall_rating_5: '5 = Excellent'
+        overall_rating_4: '4= Above Average'
+        overall_rating_3: '3 = Average'
+        overall_rating_2: '2 = Fair'
+        overall_rating_1: '1 = Unsatisfactory'
+      '#title_display': inline
+      '#title': 'Overall Rating'
+      '#required': true
+  strong_points:
+    '#type': textarea
+    '#title': 'Strong Points'
+  weak_points:
+    '#type': textarea
+    '#title': 'Weak Points'
+  additional_comments:
+    '#type': textarea
+    '#title': 'Additional Comments'
+  initials_of_agency_supervisor:
+    '#type': textfield
+    '#size': 5
+    '#title_display': inline
+    '#title': 'Initials of Agency Supervisor'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: Ag.Education@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |
+        Submitted on [webform_submission:date:long]
+        Submitted by user: [webform_submission:user]
+        Submitted values are:
+        [webform_submission:values]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

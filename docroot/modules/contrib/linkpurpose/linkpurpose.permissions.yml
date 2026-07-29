@@ -1,0 +1,4 @@
+'administer linkpurpose':
+  title: 'Administer Link Purpose'
+  description: 'Select how to mark external, document and email links.'
+  restrict access: true

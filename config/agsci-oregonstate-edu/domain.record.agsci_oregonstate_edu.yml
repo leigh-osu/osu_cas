@@ -1,0 +1,12 @@
+uuid: 0f670ec9-5e78-4f02-af64-95f34d816852
+langcode: en
+status: true
+dependencies: {  }
+id: agsci_oregonstate_edu
+domain_id: 4071059
+hostname: agsci.oregonstate.edu
+name: 'College of Agricultural Sciences'
+scheme: https
+weight: -1
+is_default: true
+path_prefix: ''

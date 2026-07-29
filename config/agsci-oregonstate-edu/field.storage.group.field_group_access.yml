@@ -1,0 +1,18 @@
+uuid: a37734a0-250b-4733-a9a9-f0f545ebec5f
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+id: group.field_group_access
+field_name: field_group_access
+entity_type: group
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

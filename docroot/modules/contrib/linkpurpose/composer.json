@@ -1,0 +1,24 @@
+{
+    "name": "drupal/linkpurpose",
+    "description": "Link Purpose provides visual and auditory cues for links that open new windows, leave the site, trigger a download or email, etc.",
+    "type": "drupal-module",
+    "homepage": "http://drupal.org/project/linkpurpose",
+    "authors": [
+      {
+        "name": "John Jameson",
+        "homepage": "https://www.drupal.org/u/itmaybejj",
+        "role": "Maintainer"
+      },
+      {
+        "name": "Brian Osborne",
+        "homepage": "https://www.drupal.org/u/bkosborne",
+        "role": "Maintainer"
+      }
+    ],
+    "support": {
+      "issues": "http://drupal.org/project/issues/linkpurpose",
+      "source": "https://git.drupalcode.org/project/linkpurpose"
+    },
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev"
+  }

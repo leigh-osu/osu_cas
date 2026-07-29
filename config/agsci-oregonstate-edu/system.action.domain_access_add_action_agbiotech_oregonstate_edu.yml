@@ -1,0 +1,15 @@
+uuid: a8da73e2-89b5-4ed3-9845-6ef643c1f13c
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.agbiotech_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_agbiotech_oregonstate_edu
+label: 'Add selected content to the Biotechnology in Agriculture domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - agbiotech_oregonstate_edu

@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies: { }
+id: d7_shurly_history
+migration_tags:
+  - Drupal 7
+  - ShURLy
+  - OSU ShURLy
+  - OSU
+label: "Migrate ShURLy shortened URL's history."
+source:
+  plugin: d7_shurly_history
+process:
+  hid: hid
+  rid: rid
+  vid: vid
+  source: source
+  destination: destination
+  last_date: last_date
+  count: count
+destination:
+  plugin: 'shurly_history'
+migration_dependencies:
+  required:
+    - d7_shurly

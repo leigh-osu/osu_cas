@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations for domain_access_linkit module.
+ */
+
+use Drupal\Core\Hook\Attribute\LegacyHook;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\domain_access_linkit\Hook\DomainAccessLinkitHooks;
+
+/**
+ * Implements hook_node_grants_alter().
+ */
+#[LegacyHook]
+function domain_access_linkit_node_grants_alter(&$grants, AccountInterface $account, $op) {
+  \Drupal::service(DomainAccessLinkitHooks::class)->nodeGrantsAlter($grants, $account, $op);
+}

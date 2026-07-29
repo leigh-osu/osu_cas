@@ -1,0 +1,479 @@
+uuid: 012134e9-06aa-4ddc-b90f-a074508b5615
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.plant_variety_release.body
+    - field.field.node.plant_variety_release.field_domain_access
+    - field.field.node.plant_variety_release.field_domain_all_affiliates
+    - field.field.node.plant_variety_release.field_pvr_banner_picture
+    - field.field.node.plant_variety_release.field_pvr_benefits
+    - field.field.node.plant_variety_release.field_pvr_characteristics
+    - field.field.node.plant_variety_release.field_pvr_contact_for_breeder
+    - field.field.node.plant_variety_release.field_pvr_date_of_pvp
+    - field.field.node.plant_variety_release.field_pvr_date_of_release
+    - field.field.node.plant_variety_release.field_pvr_disease_resistance
+    - field.field.node.plant_variety_release.field_pvr_genus
+    - field.field.node.plant_variety_release.field_pvr_hops_alpha_acids
+    - field.field.node.plant_variety_release.field_pvr_hops_availability
+    - field.field.node.plant_variety_release.field_pvr_hops_beta_acids
+    - field.field.node.plant_variety_release.field_pvr_hops_cohumulone
+    - field.field.node.plant_variety_release.field_pvr_hops_date_received
+    - field.field.node.plant_variety_release.field_pvr_hops_leaf_color
+    - field.field.node.plant_variety_release.field_pvr_hops_maturity
+    - field.field.node.plant_variety_release.field_pvr_hops_method_received
+    - field.field.node.plant_variety_release.field_pvr_hops_oil
+    - field.field.node.plant_variety_release.field_pvr_hops_origin
+    - field.field.node.plant_variety_release.field_pvr_hops_primary_site
+    - field.field.node.plant_variety_release.field_pvr_hops_references
+    - field.field.node.plant_variety_release.field_pvr_hops_selection
+    - field.field.node.plant_variety_release.field_pvr_hops_sex
+    - field.field.node.plant_variety_release.field_pvr_hops_sidearm_length
+    - field.field.node.plant_variety_release.field_pvr_hops_storage_stability
+    - field.field.node.plant_variety_release.field_pvr_hops_usda_acc
+    - field.field.node.plant_variety_release.field_pvr_hops_vigor
+    - field.field.node.plant_variety_release.field_pvr_image
+    - field.field.node.plant_variety_release.field_pvr_major_traits
+    - field.field.node.plant_variety_release.field_pvr_other_information
+    - field.field.node.plant_variety_release.field_pvr_pedigree
+    - field.field.node.plant_variety_release.field_pvr_quality
+    - field.field.node.plant_variety_release.field_pvr_region
+    - field.field.node.plant_variety_release.field_pvr_species
+    - field.field.node.plant_variety_release.field_pvr_summary
+    - field.field.node.plant_variety_release.field_pvr_yield
+    - field.field.node.plant_variety_release.field_tax_classification
+    - node.type.plant_variety_release
+  module:
+    - datetime
+    - entitygroupfield
+    - field_group
+    - media_library
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_pvr_general_information:
+      children:
+        - field_pvr_banner_picture
+        - field_pvr_image
+        - title
+        - field_pvr_genus
+        - field_pvr_species
+        - field_pvr_pedigree
+      label: 'General Information'
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        description: ''
+        required_fields: true
+    group_pvr_hops:
+      children:
+        - field_pvr_hops_usda_acc
+        - field_pvr_hops_primary_site
+        - field_pvr_hops_selection
+        - field_pvr_hops_origin
+        - field_pvr_hops_date_received
+        - field_pvr_hops_method_received
+        - field_pvr_hops_availability
+        - field_pvr_hops_maturity
+        - field_pvr_hops_references
+        - field_pvr_hops_leaf_color
+        - field_pvr_hops_sex
+        - field_pvr_hops_vigor
+        - field_pvr_hops_sidearm_length
+        - field_pvr_hops_alpha_acids
+        - field_pvr_hops_beta_acids
+        - field_pvr_hops_cohumulone
+        - field_pvr_hops_storage_stability
+        - field_pvr_hops_oil
+      label: Hops
+      region: content
+      parent_name: ''
+      weight: 13
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        description: ''
+        required_fields: true
+id: node.plant_variety_release.default
+targetEntityType: node
+bundle: plant_variety_release
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 3
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 17
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  entitygroupfield:
+    type: entitygroupfield_select_widget
+    weight: -50
+    region: content
+    settings:
+      help_text: ''
+      label: 'Group name'
+      multiple: true
+      required: false
+    third_party_settings: {  }
+  field_pvr_banner_picture:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_pvr_benefits:
+    type: text_textarea
+    weight: 4
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_characteristics:
+    type: text_textarea
+    weight: 5
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_contact_for_breeder:
+    type: text_textarea
+    weight: 12
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_date_of_pvp:
+    type: datetime_default
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_pvr_date_of_release:
+    type: datetime_default
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_pvr_disease_resistance:
+    type: media_library_widget
+    weight: 6
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_pvr_genus:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_hops_alpha_acids:
+    type: string_textfield
+    weight: 34
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_hops_availability:
+    type: string_textfield
+    weight: 27
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_hops_beta_acids:
+    type: string_textfield
+    weight: 35
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_hops_cohumulone:
+    type: string_textfield
+    weight: 36
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_hops_date_received:
+    type: string_textfield
+    weight: 25
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_hops_leaf_color:
+    type: string_textfield
+    weight: 30
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_hops_maturity:
+    type: string_textfield
+    weight: 28
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_hops_method_received:
+    type: string_textfield
+    weight: 26
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_hops_oil:
+    type: string_textfield
+    weight: 38
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_hops_origin:
+    type: string_textfield
+    weight: 24
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_hops_primary_site:
+    type: text_textarea
+    weight: 22
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_hops_references:
+    type: text_textarea
+    weight: 29
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_hops_selection:
+    type: text_textarea
+    weight: 23
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_hops_sex:
+    type: string_textfield
+    weight: 31
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_hops_sidearm_length:
+    type: string_textfield
+    weight: 33
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_hops_storage_stability:
+    type: string_textfield
+    weight: 37
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_hops_usda_acc:
+    type: string_textfield
+    weight: 21
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_hops_vigor:
+    type: string_textfield
+    weight: 32
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_image:
+    type: media_library_widget
+    weight: 2
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_pvr_major_traits:
+    type: text_textarea
+    weight: 14
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_other_information:
+    type: text_textarea
+    weight: 15
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_pedigree:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_quality:
+    type: text_textfield
+    weight: 9
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_region:
+    type: media_library_widget
+    weight: 8
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_pvr_species:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_summary:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pvr_yield:
+    type: text_textarea
+    weight: 7
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_tax_classification:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 18
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 22
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 19
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 16
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 21
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_domain_access: true
+  field_domain_all_affiliates: true

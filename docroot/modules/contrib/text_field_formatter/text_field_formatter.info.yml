@@ -1,0 +1,10 @@
+name: 'Text Field Formatter'
+type: module
+description: 'This is the extension of the plain text field formatter with additional wrappers, classes and attributes.'
+core_version_requirement: ">=8"
+package: 'Field formatters'
+
+# Information added by Drupal.org packaging script on 2025-07-02
+version: '2.0.2'
+project: 'text_field_formatter'
+datestamp: 1751445015

@@ -1,0 +1,16 @@
+uuid: f2e48164-9f24-4d49-9049-7d30e59c32a3
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: anrs_digital_signage
+label: anrs_digital_signage
+logic: and
+conditions:
+  1880279a-90c4-4277-b781-f329b23d3504:
+    id: request_path
+    negate: false
+    uuid: 1880279a-90c4-4277-b781-f329b23d3504
+    pages: /node/213721
+allow_other_conditions: null

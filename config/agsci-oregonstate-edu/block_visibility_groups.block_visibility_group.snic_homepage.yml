@@ -1,0 +1,16 @@
+uuid: 3b6c616d-e33f-48b3-9fb6-f21f36b3363c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: snic_homepage
+label: snic_homepage
+logic: and
+conditions:
+  bee3eced-0b4d-4883-b80e-fcb5656c0a35:
+    id: request_path
+    negate: false
+    uuid: bee3eced-0b4d-4883-b80e-fcb5656c0a35
+    pages: /node/82281
+allow_other_conditions: null

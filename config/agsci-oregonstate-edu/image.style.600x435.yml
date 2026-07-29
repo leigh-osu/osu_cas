@@ -1,0 +1,15 @@
+uuid: 837e9724-9fa5-4006-9c8b-c71246bc0a68
+langcode: en
+status: true
+dependencies: {  }
+name: 600x435
+label: '600x432 (larch box)'
+effects:
+  e21675c3-b3a9-42ac-bdf0-2e4bbeffce05:
+    uuid: e21675c3-b3a9-42ac-bdf0-2e4bbeffce05
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 600
+      height: 432
+      anchor: center-center

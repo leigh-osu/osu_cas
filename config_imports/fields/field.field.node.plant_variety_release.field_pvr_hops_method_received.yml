@@ -1,0 +1,19 @@
+uuid: 6743dddb-56de-4f5c-908a-068ea1c72eb3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pvr_hops_method_received
+    - node.type.plant_variety_release
+id: node.plant_variety_release.field_pvr_hops_method_received
+field_name: field_pvr_hops_method_received
+entity_type: node
+bundle: plant_variety_release
+label: 'Method Received'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

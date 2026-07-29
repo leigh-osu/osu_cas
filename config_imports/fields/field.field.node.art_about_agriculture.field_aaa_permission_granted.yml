@@ -1,0 +1,21 @@
+uuid: 79a14397-43e2-4a08-af73-5c74719b2dd5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_aaa_permission_granted
+    - node.type.art_about_agriculture
+id: node.art_about_agriculture.field_aaa_permission_granted
+field_name: field_aaa_permission_granted
+entity_type: node
+bundle: art_about_agriculture
+label: 'Permission Granted'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

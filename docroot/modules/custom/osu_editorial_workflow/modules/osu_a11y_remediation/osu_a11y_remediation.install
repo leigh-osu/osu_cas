@@ -1,0 +1,111 @@
+<?php
+
+/**
+ * @file
+ * Installs the accessibility remediation email field.
+ */
+
+use Drupal\user\Entity\Role;
+
+/**
+ * Implements hook_install().
+ */
+function osu_a11y_remediation_install(): void {
+  $entity_type_manager = \Drupal::entityTypeManager();
+  /** @var \Drupal\node\Entity\NodeType[] $node_types */
+  $node_types = $entity_type_manager
+    ->getStorage('node_type')
+    ->loadMultiple();
+  _osu_a11y_remediation_setup_workflow($node_types);
+  _osu_a11y_add_field_to_node_type($node_types);
+  _osu_a11y_grant_permissions();
+}
+
+/**
+ * Sets up our Editorial Workflow.
+ *
+ * We add a new State for PRESERVE and enforce every content type to be
+ * enrolled in content moderation.
+ *
+ * @param \Drupal\node\Entity\NodeType[] $node_types
+ *   Array of node types.
+ */
+function _osu_a11y_remediation_setup_workflow(array $node_types): void {
+  $entity_type_manager = \Drupal::entityTypeManager();
+  /** @var \Drupal\content_moderation\ModerationInformation $moderation_information */
+  $moderation_information = \Drupal::service('content_moderation.moderation_information');
+
+  // Add preserve state to moderation states.
+  $workflow_storage = $entity_type_manager->getStorage('workflow');
+  $workflows = $workflow_storage->loadByProperties(['id' => 'editorial']);
+  /** @var \Drupal\workflows\Entity\Workflow $workflow */
+  $workflow = $workflows ? array_values($workflows)[0] : NULL;
+  if (!is_null($workflow)) {
+    /** @var \Drupal\content_moderation\Plugin\WorkflowType\ContentModeration $type_plugin */
+    $type_plugin = $workflow->getTypePlugin();
+    $type_plugin->addState('preserve', 'Preserved');
+    foreach ($node_types as $bundle_id => $bundle) {
+      if (!$moderation_information->shouldModerateEntitiesOfBundle($bundle->getEntityType(), $bundle_id)) {
+        $type_plugin->addEntityTypeAndBundle('node', $bundle_id);
+      }
+    }
+    // Get the configuration and set published and default revision flags.
+    $configuration = $type_plugin->getConfiguration();
+    $configuration['states']['preserve']['published'] = TRUE;
+    $configuration['states']['preserve']['default_revision'] = TRUE;
+    $type_plugin->setConfiguration($configuration);
+    $type_plugin->addTransition('preserve', 'Preserve', [
+      'published',
+      'archived',
+    ], 'preserve');
+    $workflow->save();
+  }
+}
+
+/**
+ * Adds custom field to all node types.
+ *
+ * This adds our Custom Field to all node types to ensure it is present for the
+ * moderation workflow steps.
+ *
+ * @param \Drupal\node\Entity\NodeType[] $node_types
+ *   Array of node types.
+ */
+function _osu_a11y_add_field_to_node_type(array $node_types): void {
+  $definition_update_manager = \Drupal::entityDefinitionUpdateManager();
+  $field_definition = \Drupal::service('entity_field.manager')
+    ->getFieldStorageDefinitions('node')['osu_a11y_remediation_email'];
+  $definition_update_manager->installFieldStorageDefinition(
+    'osu_a11y_remediation_email',
+    'node',
+    'osu_a11y_remediation',
+    $field_definition,
+  );
+  $display_repository = \Drupal::service('entity_display.repository');
+  foreach ($node_types as $bundle_id => $bundle) {
+    $display_repository->getFormDisplay('node', $bundle_id)
+      ->setComponent('osu_a11y_remediation_email', [
+        'type' => 'email_default',
+        'weight' => 50,
+      ])
+      ->save();
+    $display_repository->getViewDisplay('node', $bundle_id)
+      ->removeComponent('osu_a11y_remediation_email')
+      ->save();
+  }
+}
+
+/**
+ * Grant Permissions to use the new transition/state.
+ */
+function _osu_a11y_grant_permissions(): void {
+  $roles = [
+    'manage_content',
+    'content_authors',
+    'group_content_author',
+  ];
+  foreach (Role::loadMultiple($roles) as $role) {
+    $role->grantPermission('use editorial transition preserve');
+    $role->save();
+  }
+}

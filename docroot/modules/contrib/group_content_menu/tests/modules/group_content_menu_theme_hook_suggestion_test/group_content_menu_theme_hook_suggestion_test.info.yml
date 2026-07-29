@@ -1,0 +1,10 @@
+name: 'Group Content Menu theme_hook_suggestion option test'
+type: module
+description: 'Tests the theme_hook_suggestion block configuration option.'
+package: Testing
+core_version_requirement: ^9.3 || ^10 || ^11
+
+# Information added by Drupal.org packaging script on 2026-01-01
+version: '2.0.8'
+project: 'group_content_menu'
+datestamp: 1767282136

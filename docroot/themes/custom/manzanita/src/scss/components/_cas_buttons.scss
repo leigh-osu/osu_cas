@@ -1,0 +1,12 @@
+// Buttons: subtle rounded corners (the Bootstrap default radius, matching
+// the menu bar items) instead of madrone's 1.5rem pill ends. madrone bakes
+// $btn-border-radius into its compiled CSS, but Bootstrap 5 buttons resolve
+// their radius through this custom property at runtime, so overriding here
+// needs no madrone patch.
+.btn {
+  --bs-btn-border-radius: 0.75rem;
+  // madrone pads 1.5rem horizontally (pill proportions); halved padding on
+  // both axes now that the corners are square-ish.
+  --bs-btn-padding-x: 0.75rem;
+  --bs-btn-padding-y: 0.28rem;
+}

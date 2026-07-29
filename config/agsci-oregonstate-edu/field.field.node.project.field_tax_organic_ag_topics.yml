@@ -1,0 +1,29 @@
+uuid: ec0d543c-2069-4810-b7d0-04b43542dd23
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tax_organic_ag_topics
+    - node.type.project
+    - taxonomy.vocabulary.organic_ag
+id: node.project.field_tax_organic_ag_topics
+field_name: field_tax_organic_ag_topics
+entity_type: node
+bundle: project
+label: 'Organic Ag Topics'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      organic_ag: organic_ag
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

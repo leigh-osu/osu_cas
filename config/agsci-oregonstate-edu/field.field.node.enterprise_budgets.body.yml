@@ -1,0 +1,24 @@
+uuid: b7e39ff1-c567-4477-9179-7bd192c2dc58
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.enterprise_budgets
+  module:
+    - text
+id: node.enterprise_budgets.body
+field_name: body
+entity_type: node
+bundle: enterprise_budgets
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

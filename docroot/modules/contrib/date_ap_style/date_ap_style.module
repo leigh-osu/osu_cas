@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Date Ap Style.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ *
+ * {@inheritdoc}
+ */
+function date_ap_style_help($route_name, RouteMatchInterface $route_match): string {
+  switch ($route_name) {
+    case 'help.page.date_ap_style':
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module outputs date fields in AP Style and aims to meet most of these requirements.') . '</p>';
+      $output .= '<h3>' . t('More Information') . '</h3>';
+      $output .= '<p>' . t('For more information, please visit the <a href="@link">module page</a>.', ['@link' => 'https://www.drupal.org/project/date_ap_style']) . '</p>';
+      return $output;
+  }
+  return '';
+}
+
+/**
+ * Returns timezone identifiers including empty option for config validation.
+ *
+ * @return array
+ *   Array of timezone identifiers with empty string included.
+ */
+function date_ap_style_get_timezone_options(): array {
+  // Start with empty option for "Default site/user time zone".
+  $timezones = [''];
+
+  // Add all valid timezone identifiers.
+  $timezones = array_merge($timezones, \DateTimeZone::listIdentifiers());
+
+  return $timezones;
+}

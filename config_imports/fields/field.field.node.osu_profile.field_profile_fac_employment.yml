@@ -1,0 +1,22 @@
+uuid: bf2acf44-a6d7-497d-aa31-4c0dd09ba38a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_fac_employment
+    - node.type.osu_profile
+  module:
+    - text
+id: node.osu_profile.field_profile_fac_employment
+field_name: field_profile_fac_employment
+entity_type: node
+bundle: osu_profile
+label: 'Employment'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

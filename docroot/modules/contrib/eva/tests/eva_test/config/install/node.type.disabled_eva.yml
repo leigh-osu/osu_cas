@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Entity with disabled-by-default Eva'
+type: disabled_eva
+description: 'Contains an Eva that should not appear.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

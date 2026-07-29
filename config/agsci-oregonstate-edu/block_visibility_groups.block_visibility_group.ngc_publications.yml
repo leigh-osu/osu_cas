@@ -1,0 +1,16 @@
+uuid: 5ced4a26-e10f-4a7f-8589-7bdd0423a279
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: ngc_publications
+label: ngc_publications
+logic: and
+conditions:
+  fd1e1e4a-e787-46d3-93f0-9550857cb27b:
+    id: request_path
+    negate: false
+    uuid: fd1e1e4a-e787-46d3-93f0-9550857cb27b
+    pages: /node/79936
+allow_other_conditions: null

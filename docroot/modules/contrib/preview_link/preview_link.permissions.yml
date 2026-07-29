@@ -1,0 +1,8 @@
+administer preview link settings:
+  title: 'Administer preview link settings'
+  description: 'Allows the user to administer the default preview link settings'
+  restrict access: TRUE
+
+generate preview links:
+  title: 'Generate preview links'
+  description: 'Allows the user to generate a preview link for a piece of content'

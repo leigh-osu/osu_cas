@@ -1,0 +1,23 @@
+uuid: afb34c6d-7f15-40bd-8233-300609e76634
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: picbox_800x580
+label: 'Picbox (800x580, focal point)'
+effects:
+  b47e8639-f3bd-4e2c-b712-34381d91cfbb:
+    uuid: b47e8639-f3bd-4e2c-b712-34381d91cfbb
+    id: image_convert
+    weight: 1
+    data:
+      extension: webp
+  7808c00d-e1a2-4380-a55d-994795b98226:
+    uuid: 7808c00d-e1a2-4380-a55d-994795b98226
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 800
+      height: 580
+      crop_type: focal_point

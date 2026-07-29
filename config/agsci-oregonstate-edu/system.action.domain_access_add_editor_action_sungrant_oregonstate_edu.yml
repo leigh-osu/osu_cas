@@ -1,0 +1,15 @@
+uuid: 822af22f-d2ed-4cfd-acf4-2f384d68996c
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.sungrant_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_sungrant_oregonstate_edu
+label: 'Add editors to the Sungrant domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - sungrant_oregonstate_edu

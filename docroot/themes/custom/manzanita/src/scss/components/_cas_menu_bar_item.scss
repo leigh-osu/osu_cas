@@ -1,0 +1,38 @@
+// Migrated D7 menu-bar items land as field blocks
+// (block-field-block…osu-menu-bar-item…field-osu-menu-bar-item-link), not the
+// inline-block variant madrone's _osu_menubar.scss styles, so they inherit the
+// default field font size (~18px) and look oversized. Size the link like the
+// compact uppercase D7 menu-bar buttons. Targets the field so it applies to
+// both migrated (field) and native (inline) blocks.
+// The icon and label field blocks carry bootstrap_styles' bs-text-center class,
+// but that class ships only in bootstrap_styles' example CSS (not attached on
+// the front end), so the button content is left-aligned. Centre it here so the
+// icon sits above a centred label.
+.block--type-osu-menu-bar-item {
+  text-align: center;
+  // Centre the button vertically in its menu-bar cell (items with and
+  // without icons otherwise top-align at different heights).
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.field--name-field-osu-menu-bar-item-link {
+  // The gap between wrapped label lines comes from this block's line-height
+  // strut (inherited ~2.25 from the body), not the inline <a>, so tighten it
+  // here rather than on the anchor.
+  line-height: 1.1;
+
+  a {
+    // Block, not inline-block: an inline-block sits on the wrapper line
+    // box's baseline, which pushed the label visibly below the bar's
+    // vertical centre.
+    display: block;
+    padding-block: 0.5em;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+}

@@ -1,0 +1,65 @@
+uuid: f646ff27-c363-4cac-8d23-175df9ebc173
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vFM02Eojr9QT4iGdEH-lRIEHJT92Dy_nxBcl59gREXQ
+id: cas_node_parent_unit_group
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7 OG'
+  - 'OSU Groups Structure'
+  - 'OSU Groups'
+  - OSU
+  - CAS
+migration_group: osu_groups
+label: 'CAS: Create Groups that were Parent Units (with fields)'
+source:
+  plugin: d7_node
+  node_type: parent_unit
+process:
+  type:
+    plugin: default_value
+    default_value: basic_group
+  id: nid
+  uid:
+    plugin: default_value
+    default_value: 1
+  label: title
+  path/pathauto:
+    plugin: default_value
+    default_value: 0
+  path/alias: alias
+  body:
+    plugin: sub_process
+    source: body
+    process:
+      value:
+        plugin: osu_media_wysiwyg_filter
+        source: value
+      summary: summary
+      format:
+        plugin: default_value
+        default_value: full_html
+  field_group_email:
+    plugin: sub_process
+    source: field_group_email
+    process:
+      value: email
+  field_group_phone: field_group_phone
+  field_group_location_name: field_group_location_name
+  field_group_location_address: field_group_location_address
+  field_group_location_city: field_group_location_city
+  field_group_location_state: field_group_location_state
+  field_group_location_zip: field_group_location_zip
+  field_group_facebook: field_group_facebook
+  field_group_twitter: field_group_twitter
+  field_group_linkedin: field_group_linkedin
+  field_group_youtube: field_group_youtube
+  field_group_instagram: field_group_instagram
+destination:
+  plugin: 'entity:group'
+migration_dependencies: {  }

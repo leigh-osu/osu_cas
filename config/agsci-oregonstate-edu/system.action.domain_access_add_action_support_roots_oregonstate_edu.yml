@@ -1,0 +1,15 @@
+uuid: e043796f-725e-4512-8d47-15583bb848a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.support_roots_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_support_roots_oregonstate_edu
+label: 'Add selected content to the Roots IT Support domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - support_roots_oregonstate_edu

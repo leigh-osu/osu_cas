@@ -1,0 +1,22 @@
+uuid: 0235c6e6-8262-487f-8e4c-cf403974428a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_fac_courses
+    - node.type.osu_profile
+  module:
+    - text
+id: node.osu_profile.field_profile_fac_courses
+field_name: field_profile_fac_courses
+entity_type: node
+bundle: osu_profile
+label: 'Courses Taught'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

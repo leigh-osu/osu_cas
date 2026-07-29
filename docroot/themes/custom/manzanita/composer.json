@@ -1,0 +1,13 @@
+{
+    "name": "leigh-osu/manzanita",
+    "description": "Drupal Theme for OSU College of Agricultural Sciences",
+    "minimum-stability": "stable",
+    "license": "GPL-2.0-or-later",
+    "type": "drupal-custom-theme",
+    "authors": [
+        {
+            "name": "Roger Leigh",
+            "email": "roger.leigh@oregonstate.edu"
+        }
+    ]
+}

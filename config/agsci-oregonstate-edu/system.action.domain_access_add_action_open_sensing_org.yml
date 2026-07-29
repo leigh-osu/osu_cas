@@ -1,0 +1,15 @@
+uuid: 70efa482-2a31-4b93-ba4a-600a0dce2088
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.open_sensing_org
+  module:
+    - domain_access
+id: domain_access_add_action_open_sensing_org
+label: 'Add selected content to the Open Sensing Lab domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - open_sensing_org

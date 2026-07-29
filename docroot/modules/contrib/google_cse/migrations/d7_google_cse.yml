@@ -1,0 +1,80 @@
+id: d7_google_cse
+label: Google CSE configuration
+migration_tags:
+  - Drupal 7
+  - Configuration
+source:
+  plugin: variable
+  variables:
+    - google_cse_results_prefix
+    - google_cse_results_suffix
+    - google_cse_cx
+    - google_cse_results_searchbox_width
+    - google_cse_custom_results_display
+    - google_cse_results_display
+    - google_cse_custom_css
+  constants:
+    google_cse_search: google_cse_search
+    google_cse: google_cse
+    status: true
+    label: Google CSE Search
+process:
+  module: 'constants/google_cse'
+  module_exists: 'constants/status'
+  search_active_modules:
+    -
+      plugin: default_value
+      source: search_active_modules
+      strict: true
+      default_value:
+        - node
+        - user
+    -
+      plugin: flatten
+  status:
+    plugin: callback
+    callable: 'in_array'
+    unpack_source: true
+    source:
+      - 'constants/google_cse'
+      - '@search_active_modules'
+  id: 'constants/google_cse_search'
+  plugin: 'constants/google_cse_search'
+  label: 'constants/label'
+  'configuration/results_prefix':
+    plugin: default_value
+    source: 'google_cse_results_prefix'
+    strict: true
+    default_value: ''
+  'configuration/results_suffix':
+    plugin: default_value
+    source: 'google_cse_results_suffix'
+    strict: true
+    default_value: ''
+  'configuration/cx':
+    plugin: default_value
+    source: 'google_cse_cx'
+    strict: true
+    default_value: ''
+  'configuration/results_searchbox_width':
+    plugin: default_value
+    source: 'google_cse_results_searchbox_width'
+    strict: true
+    default_value: 40
+  'configuration/custom_results_display':
+    plugin: default_value
+    source: 'google_cse_custom_results_display'
+    strict: true
+    default_value: 'results-only'
+  'configuration/results_display':
+     plugin: default_value
+     source: 'google_cse_results_display'
+     strict: true
+     default_value: 'here'
+  'configuration/custom_css':
+    plugin: default_value
+    source: 'google_cse_custom_css'
+    strict: true
+    default_value: ''
+destination:
+  plugin: entity:search_page

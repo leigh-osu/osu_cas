@@ -1,0 +1,16 @@
+uuid: 1c9cad94-269e-4fc9-a4fc-abe96dd78af0
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: unpublished_content
+label: unpublished_content
+logic: and
+conditions:
+  e61f023a-dfc2-4213-8a94-9d323d28856a:
+    id: request_path
+    negate: false
+    uuid: e61f023a-dfc2-4213-8a94-9d323d28856a
+    pages: '/*/unpublished-content'
+allow_other_conditions: null

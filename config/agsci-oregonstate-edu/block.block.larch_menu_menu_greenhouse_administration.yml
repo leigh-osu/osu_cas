@@ -1,0 +1,42 @@
+uuid: 3dd3c57c-9222-420b-bd96-1a31641bcb22
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.menu-greenhouse-administration
+  module:
+    - system
+    - user
+  theme:
+    - manzanita
+id: larch_menu_menu_greenhouse_administration
+theme: manzanita
+region: sidebar
+weight: 1
+provider: null
+plugin: 'system_menu_block:menu-greenhouse-administration'
+settings:
+  id: 'system_menu_block:menu-greenhouse-administration'
+  label: ''
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      3: '3'
+      5: '5'
+      6: '6'
+  request_path:
+    id: request_path
+    negate: false
+    pages: |-
+      /greenhouse
+      /greenhouse/*
+      /greenhouse-operations/*

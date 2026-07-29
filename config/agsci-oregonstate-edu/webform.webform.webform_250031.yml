@@ -1,0 +1,233 @@
+uuid: 311745f6-7f4a-4fcd-bc58-9c3508de40f3
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 16861
+template: false
+archive: false
+id: webform_250031
+title: 'CSS Room and/or Parking Space Reservation'
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	Please use this form to reserve CSS rooms in the Crops and ALS building or the Crops building parking space. A few things to note:</p>
+
+      <ul>
+      	<li>
+      		Reservations must be made at least 2 business days in advance</li>
+      	<li>
+      		Parking space can ONLY be reserved for people who do not already have an OSU parking permit</li>
+      	<li>
+      		Crop 122 is a university controlled classroom and therefore subject to additional rules and regulations. It cannot be reserved for the first 3 weeks of any term</li>
+      	<li>
+      		The CSS main office staff will respond with the status of your reservation request via email&nbsp;</li>
+      </ul>
+  first_name:
+    '#type': textfield
+    '#title': 'First and last name'
+    '#required': true
+  email:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title': Email
+    '#required': true
+  what_do_you_want_to_reserve:
+    '#type': checkboxes
+    '#options':
+      crop119: 'Crop 119'
+      crop122: 'Crop 122'
+      crop138: 'Crop 138'
+      crop150: 'Crop 150'
+      crop232: 'Crop 232'
+      als3005: 'ALS 3005'
+      als3006: 'ALS 3006'
+      cropparkingspace: 'Crop Building Parking Space'
+    '#multiple': true
+    '#title': 'Please select the room(s) or parking space you would like to reserve'
+    '#description': 'Please select all that apply'
+    '#required': true
+  event_name:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Event Name'
+    '#required': true
+  date:
+    '#type': date
+    '#title': Date
+    '#required': true
+  start_time:
+    '#type': webform_time
+    '#step': 1800
+    '#title': 'Start time'
+    '#required': true
+  end_time:
+    '#type': webform_time
+    '#step': 1800
+    '#title': 'End time'
+    '#required': true
+  email_for_parking_pass:
+    '#type': email
+    '#size': 20
+    '#title': 'Email for parking pass'
+    '#description': 'Please provide an email address for the person using the parking space. We will send them an email inviting them to claim a virtual parking permit.'
+    '#required': true
+    '#states':
+      visible:
+        - ':input[name="what_do_you_want_to_reserve[cropparkingspace]"]':
+            checked: true
+  name_guest_using_parking_space:
+    '#type': textfield
+    '#title': 'Name of guest using parking space'
+    '#description': 'The CSS parking space can only be used by someone without a OSU parking permit. Please provide the name of the person who will be using the parking space.'
+    '#required': true
+    '#states':
+      visible:
+        - ':input[name="what_do_you_want_to_reserve[cropparkingspace]"]':
+            checked: true
+  expected_head_count:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Expected head count'
+    '#required': true
+    '#states':
+      invisible:
+        - ':input[name="what_do_you_want_to_reserve[cropparkingspace]"]':
+            checked: true
+  event_description:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Event description'
+    '#required': true
+    '#states':
+      invisible:
+        - ':input[name="what_do_you_want_to_reserve[cropparkingspace]"]':
+            checked: true
+  event_information:
+    '#type': checkboxes
+    '#options':
+      alcohol: 'Will alcohol be served at this event?'
+      food: 'Will there be food or beverages?'
+      outside_people: 'Will this involve large numbers of attendees from outside the OSU Community (i.e. not faculty, staff, students, etc.)?'
+      remote_technology: 'Will you be requiring the use of remote technology in this room to include remote attendees (via Zoom or similar)?'
+      political_religious: 'Will the event involve political or religious activities?'
+      tickets: 'Will tickets be sold at this event?'
+      money: 'Will tickets be sold at this event?'
+      celebrities: 'Will this event involve high-profile attendee(s) (e.g. celebrities, politicians, etc.)?'
+    '#multiple': true
+    '#title': 'Event Information'
+    '#description': 'Please select all that apply to your event'
+    '#states':
+      invisible:
+        - ':input[name="what_do_you_want_to_reserve[cropparkingspace]"]':
+            checked: true
+  additional_information:
+    '#type': textfield
+    '#title': 'Additional Information'
+    '#description': 'Add any additional information about your event here.'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: rachel.swindon@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: emmalie.goodwin@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

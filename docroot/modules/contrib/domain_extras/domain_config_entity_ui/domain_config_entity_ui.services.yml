@@ -1,0 +1,24 @@
+services:
+  _defaults:
+    autoconfigure: true
+    autowire: true
+
+  Drupal\domain_config_entity_ui\DomainAwareSwapRegistry: ~
+
+  Drupal\domain_config_entity_ui\Hook\DomainConfigEntityUiEntityTypeHooks: ~
+
+  Drupal\domain_config_entity_ui\Hook\DomainConfigEntityUiFormHooks: ~
+
+  Drupal\domain_config_entity_ui\EventSubscriber\DomainConfigEntityUiSettingsSubscriber: ~
+
+  domain_config_entity_ui.paramconverter.configentity_admin:
+    class: Drupal\domain_config_entity_ui\ParamConverter\DomainOverrideConfigEntityConverter
+    arguments:
+      - '@entity_type.manager'
+      - '@config.factory'
+      - '@router.admin_context'
+      - '@entity.repository'
+      - '@domain_config_ui.manager'
+    tags:
+      # Higher priority than core's paramconverter.configentity_admin (5).
+      - { name: paramconverter, priority: 10 }

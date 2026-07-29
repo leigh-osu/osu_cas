@@ -1,0 +1,9 @@
+uuid: 472f6f3c-a2ff-4e8e-95f5-f40426774349
+langcode: en
+status: true
+dependencies: {  }
+id: global_context
+label: global_context
+logic: and
+conditions: {  }
+allow_other_conditions: null

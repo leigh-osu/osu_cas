@@ -1,0 +1,4 @@
+configure layout builder iframe modal:
+  title: 'Configure layout builder iframe modal'
+  description: 'Allows access to configuration for layout builder iframe modal.'
+  restrict access: true

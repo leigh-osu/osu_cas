@@ -1,0 +1,19 @@
+uuid: 8c0d140f-557f-472f-ba3f-b55b7eff871f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pvr_hops_cohumulone
+    - node.type.plant_variety_release
+id: node.plant_variety_release.field_pvr_hops_cohumulone
+field_name: field_pvr_hops_cohumulone
+entity_type: node
+bundle: plant_variety_release
+label: Cohumulone
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

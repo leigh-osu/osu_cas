@@ -1,0 +1,12 @@
+uuid: 94b9f4a3-faf2-48c0-b54c-8be6bdcac50b
+langcode: en
+status: true
+dependencies: {  }
+id: smallfarms_oregonstate_edu
+domain_id: 8456319
+hostname: smallfarms.oregonstate.edu
+name: 'Small Farms Program'
+scheme: https
+weight: 27
+is_default: false
+path_prefix: ''

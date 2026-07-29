@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Domain Maintenance Mode module uninstall hook.
+ */
+
+use Drupal\domain_maintenance\Service\DomainMaintenanceMode;
+
+/**
+ * Implements hook_uninstall().
+ */
+function domain_maintenance_uninstall() {
+  $state = \Drupal::state();
+  $storage = \Drupal::entityTypeManager()->getStorage('domain');
+  $domains = $storage->loadMultiple();
+  foreach ($domains as $domain) {
+    $state->delete(DomainMaintenanceMode::getStateName($domain->id()));
+  }
+}

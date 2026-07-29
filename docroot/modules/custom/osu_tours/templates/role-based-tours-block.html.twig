@@ -1,0 +1,24 @@
+<div class="osu-tours-block mt-3 mb-6">
+  <h2>Tours Available</h2>
+  {% if links is not empty %}
+  <p>These are the tours available based on your permissions. These tours walk you through functionality with links to more detailed instruction.</p>
+  <p>Click the <strong>Take a tour of this page</strong> link in the upper right-hand corner to launch the tour.</p>
+  <div class="container">
+    <div class="row">
+      {% for category, items in links %}
+      <div class="osu-tours-category col-auto col-lg-4">
+        <h3 class="osu-tours-category-title">{{ category }}</h3>
+        <ul class="osu-tours-links">
+          {% for item in items %}
+          <li class="osu-tours-link"><a href="{{ item.url }}">{{ item.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% else %}
+  <p>No tours available for your roles.</p>
+  {% endif %}
+</div>
+

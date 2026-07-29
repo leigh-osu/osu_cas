@@ -1,0 +1,23 @@
+uuid: 0fc97eea-ad74-40d9-a3a1-876c3dad95b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfsg_preferred_link
+    - node.type.degree_fact_sheet_graduate
+  module:
+    - link
+id: node.degree_fact_sheet_graduate.field_dfsg_preferred_link
+field_name: field_dfsg_preferred_link
+entity_type: node
+bundle: degree_fact_sheet_graduate
+label: 'Preferred Link'
+description: 'Use this field if you want Views to point to a page other than this fact sheet'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

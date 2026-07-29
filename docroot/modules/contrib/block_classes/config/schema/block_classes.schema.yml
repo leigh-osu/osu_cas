@@ -1,0 +1,13 @@
+block.block.*.third_party.block_classes:
+  type: mapping
+  label: 'Block classes settings'
+  mapping:
+    block_class:
+      type: string
+      label: 'Block CSS class(es)'
+    title_class:
+      type: string
+      label: 'Title CSS class(es)'
+    content_class:
+      type: string
+      label: 'Content CSS class(es)'

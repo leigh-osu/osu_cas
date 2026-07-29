@@ -1,0 +1,15 @@
+uuid: 4505ab7c-b485-47f6-a892-4e9192d0350a
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.honeybeelab_oregonstate_edu_
+  module:
+    - domain_access
+id: domain_access_add_action_honeybeelab_oregonstate_edu_
+label: 'Add selected content to the Honey Bee Lab domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - honeybeelab_oregonstate_edu_

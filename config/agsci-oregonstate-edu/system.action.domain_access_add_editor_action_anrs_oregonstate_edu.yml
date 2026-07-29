@@ -1,0 +1,15 @@
+uuid: 3bc96b60-5812-4812-9d84-9acf26f6aec1
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.anrs_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_anrs_oregonstate_edu
+label: 'Add editors to the Animal and Rangeland Sciences domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - anrs_oregonstate_edu

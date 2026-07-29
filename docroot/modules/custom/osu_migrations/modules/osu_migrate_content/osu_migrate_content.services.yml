@@ -1,0 +1,21 @@
+services:
+  osu_migrate_content.event_subscriber:
+    class: Drupal\osu_migrate_content\EventSubscriber\BlockVisibilityGroupsPostRowMigrate
+    arguments: [ '@entity_type.manager', '@migrate.lookup' ]
+    tags:
+      - { name: event_subscriber }
+  osu_migrate_content.text_area_migration_subscriber:
+    class: Drupal\osu_migrate_content\EventSubscriber\NodeTextFormatMigrationSubscriber
+    arguments: [ '@entity_field.manager' ]
+    tags:
+      - { name: event_subscriber }
+  osu_migrate_content.file_field_migration_subscriber:
+    class: Drupal\osu_migrate_content\EventSubscriber\FileFieldMigrationSubscriber
+    arguments: [ ]
+    tags:
+      - { name: event_subscriber }
+  osu_migrate_content.post_import_subscriber:
+    class: Drupal\osu_migrate_content\EventSubscriber\PostImportSubscriber
+    arguments: [ '@database' ]
+    tags:
+      - { name: event_subscriber }

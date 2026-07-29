@@ -1,0 +1,102 @@
+uuid: 0b01d849-c630-4d88-b0b4-f77090d3bfce
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_239181
+title: 'old Mailing List Subscription'
+description: null
+categories: {  }
+elements: |-
+  email_address:
+    '#type': email
+    '#size': 20
+    '#title_display': inline
+    '#title': 'Email address'
+    '#required': true
+  first_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'First Name'
+  last_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Last Name'
+  name_of_company_if_applicable:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Name of Company (if applicable)'
+  industry_sector:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Industry Sector'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<p>\r\n\tRequest submitted. Thank you for your interest in the Global Hemp Innovation Center.</p>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: hemp@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: 'GHIC Mailing List'
+      body: |
+        Submitted on [webform_submission:completed_date:long]
+        Submitted by user: [webform_submission:user]
+        Submitted values are:
+        [webform_submission:values]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

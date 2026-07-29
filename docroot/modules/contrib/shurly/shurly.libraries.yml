@@ -1,0 +1,7 @@
+clipboardjs:
+  version: 1.6.1
+  js:
+    js/clipboard.min.js: { minified: true }
+    js/shurly.js: {}
+  dependencies:
+    - core/jquery

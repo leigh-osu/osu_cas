@@ -1,0 +1,12 @@
+name: 'Entity Group Field'
+description: 'Defines a field to view and edit the groups associated with content.'
+package: 'Group'
+type: 'module'
+core_version_requirement: ^9.2 || ^10 || ^11
+dependencies:
+  - group:group
+
+# Information added by Drupal.org packaging script on 2025-11-08
+version: '2.0.0-rc1'
+project: 'entitygroupfield'
+datestamp: 1762562383

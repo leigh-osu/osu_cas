@@ -1,0 +1,15 @@
+name: 'Path Redirect Import'
+type: module
+description: 'Bulk handling of redirects'
+core_version_requirement: ^10.3 || ^11
+package: 'Migration'
+configure: 'entity.redirect.migrate'
+dependencies:
+  - migrate_source_csv:migrate_source_csv
+  - migrate_tools:migrate_tools (>=6.1.0)
+  - redirect:redirect
+
+# Information added by Drupal.org packaging script on 2025-07-14
+version: '2.1.1'
+project: 'path_redirect_import'
+datestamp: 1752487773

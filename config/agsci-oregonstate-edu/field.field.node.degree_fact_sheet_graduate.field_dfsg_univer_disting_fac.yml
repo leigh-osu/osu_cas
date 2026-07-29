@@ -1,0 +1,23 @@
+uuid: ef62f30f-c951-4b59-b91a-1a8724633295
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfsg_univer_disting_fac
+    - node.type.degree_fact_sheet_graduate
+id: node.degree_fact_sheet_graduate.field_dfsg_univer_disting_fac
+field_name: field_dfsg_univer_disting_fac
+entity_type: node
+bundle: degree_fact_sheet_graduate
+label: 'University Distinguished Faculty'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

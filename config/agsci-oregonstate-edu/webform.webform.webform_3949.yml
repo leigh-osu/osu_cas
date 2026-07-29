@@ -1,0 +1,196 @@
+uuid: f85523eb-8e58-4686-b59b-d1253a452a48
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_3949
+title: 'TOA-MD Software'
+description: null
+categories: {  }
+elements: |-
+  introduction:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	<img alt="TOA-MD: Multidimensional Impact Assesment" height="175" src="/sites/default/files/toa/toa-logo.png" style="float: right; margin-left: 10px; margin-right: 10px;" title="TOA-MD: Multidimensional Impact Assesment" width="200" />Please complete this form to receive an installation file containing the TOA-MD7.0 software.</p>
+
+      <p>
+      	<b><i>Trial version*</i></b></p>
+
+      <p>
+      	If you would like to test and find out more about the TOA-MD model, please check the box below for the Trial version of the software and how you would like to receive it. You will receive the installation file along with the first two chapters of the book, <i>Tradeoff Analysis Model for Multi-dimensional Assessment of Agricultural Systems</i></p>
+
+      <p>
+      	You can receive the non-trial version of the software if you <a href="https://secure.touchnet.net/C20159_ustores/web/store_main.jsp?STOREID=145">purchase the TOA book online</a> (a student discount is available). All of the proceeds from the book are used to help provide the software to the research community for public good use, and to continue training programs and software development.</p>
+
+      <p>
+      	*The trial version expires after 60 days</p>
+
+      <p>
+      	<b><i>Non-trial version</i></b></p>
+
+      <p>
+      	If you purchased our book, <i>Tradeoff Analysis Model for Multi-dimensional Assessment of Agricultural Systems</i> please indicate below the purchase order number and how you would like to receive the software, and you will receive an email with instructions how to obtain the non-trial TOA-MD software.</p>
+
+      <p>
+      	The requested information below will be used by the TOA Team only for software support. After sending you the TOA-MD software, the TOA-MD Team will not contact you again unless you indicate that you would like to be on our email list for Registered Users. We will not share this list with anyone. We will limit emails to essential announcements about software updates, etc. <em>Please note that ALL fields in the form are required. Incomplete information may result in your submission being ignored.</em></p>
+  please_check_one:
+    '#type': radios
+    '#options':
+      trial_version: 'I would like to receive the trial version of the software'
+      non_trial_version: 'I purchased the TOA-MD book and would like to receive the non-trial version of the TOA-MD 7.0 software'
+    '#title': 'Please check one'
+    '#required': true
+  my_book_purchase_order_number_is:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'My book purchase order number is '
+    '#states':
+      required:
+        - ':input[name="please_check_one"]':
+            value: non_trial_version
+  the_installation_file:
+    '#type': radios
+    '#options':
+      installation_file_attachment: 'send installation file as an email attachment'
+      installation_file_dropbox: 'send by Dropbox'
+    '#title': 'The installation file'
+    '#required': true
+  become_a_registered_user:
+    '#type': radios
+    '#options':
+      register_yes: 'YES! I would like to receive information about TOA-MD updates by email.'
+      register_no: 'NO! I would NOT like to receive emails from the TOA Team.'
+    '#title': 'Become a Registered User'
+    '#required': true
+  first_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'First Name'
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Last Name'
+    '#required': true
+  email_address:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Email Address'
+    '#required': true
+  organization:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Organization
+    '#required': true
+  city:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': City
+    '#required': true
+  country:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Country
+    '#required': true
+  conventional_mailing_address:
+    '#type': textarea
+    '#title': 'Conventional mailing address'
+    '#description': '(Please include city and country)'
+  title_or_position_in_this_organization:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Title or Position in this Organization'
+    '#required': true
+  operating_system_and_version:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Operating system and version'
+    '#required': true
+  please_describe_the_projects_or_anticipated_uses_for_toa_md_software:
+    '#type': textarea
+    '#title': 'Please describe the projects or anticipated uses for TOA-MD software'
+    '#required': true
+  please_indicate_the_name_of_the_project_or_institution_you_are_will_be_working_with:
+    '#type': textarea
+    '#title': 'Please indicate the name of the project or institution you are/will be working with (if you purchased the TOA-MD Book with a student discount, indicate your institution, program and supervisor names AND contact email)'
+    '#description': '(e.g. TOA-MD Course, AgMIP, CCAFS, IDRC, WorldFish, etc.)'
+    '#required': true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: Tradeoffs.Team@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: 'Tradeoff Analysis Project'
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements:
+        introduction: introduction
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

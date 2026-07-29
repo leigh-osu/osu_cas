@@ -1,0 +1,58 @@
+uuid: 0d7c2a71-c6fe-4916-a933-5fe9dd2d9c99
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_212701
+title: 'January 29 RSVP'
+description: null
+categories: {  }
+elements: |-
+  your_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Your Name'
+    '#required': true
+  i_am:
+    '#type': radios
+    '#options':
+      person: 'planning to attend in person'
+      zoom: 'planning to attend using Zoom'
+      not: 'not planning to attend'
+    '#title': 'I am'
+    '#required': true
+  do_you_have_questions_that_you_would_like_us_to_address_during_this_session:
+    '#type': textarea
+    '#title': 'Do you have questions that you would like us to address during this session'
+  do_you_have_a_topic_you_would_like_us_to_cover_in_the_hands_on_portion_of_the_session:
+    '#type': textarea
+    '#title': 'Do you have a topic you would like us to cover in the training portion of the session'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }

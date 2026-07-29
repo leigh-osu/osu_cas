@@ -1,0 +1,65 @@
+uuid: 3ce8387b-49bb-47cb-aa14-4d3ffcda6d3f
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_41606
+title: 'Request Information'
+description: null
+categories: {  }
+elements: |-
+  introduction:
+    '#type': processed_text
+    '#format': full_html
+    '#text': '<p>Need more information about the Biological and Ecological Engineering Program at OSU? Send us your comments or request by filling out the information below. To protect your privacy, any information you provide will be kept strictly confidential. We welcome all of your comments and suggestions.</p>'
+  your_request:
+    '#type': textarea
+    '#title': 'Your request'
+  your_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Your Name'
+  email:
+    '#type': email
+    '#size': 20
+    '#title_display': inline
+    '#title': Email
+  telephone:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Telephone
+  im_interested_in:
+    '#type': radios
+    '#options':
+      grad_program: 'Graduate Programs (Biological Engineering, Ecological Engineering, Water Resource Engineering)'
+      undergrad_program: 'Ecological Engineering Undergraduate Program'
+    '#title': "I'm interested in"
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }

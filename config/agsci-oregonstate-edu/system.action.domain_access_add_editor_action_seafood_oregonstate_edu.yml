@@ -1,0 +1,15 @@
+uuid: 534f6752-2d36-4b23-a2ac-5facb80f753a
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.seafood_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_seafood_oregonstate_edu
+label: 'Add editors to the Seafood Network Information Center domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - seafood_oregonstate_edu

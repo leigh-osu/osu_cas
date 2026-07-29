@@ -1,0 +1,19 @@
+uuid: a2f07623-edf0-46c0-8a70-1d36315780d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pvr_pedigree
+    - node.type.plant_variety_release
+id: node.plant_variety_release.field_pvr_pedigree
+field_name: field_pvr_pedigree
+entity_type: node
+bundle: plant_variety_release
+label: Pedigree
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

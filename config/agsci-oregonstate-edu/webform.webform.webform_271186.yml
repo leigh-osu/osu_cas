@@ -1,0 +1,145 @@
+uuid: 7339ec22-5b80-424f-8311-4cd531eed2f8
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 15131
+template: false
+archive: false
+id: webform_271186
+title: 'ER Jackman Friends & Alumni Fellow Application'
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	[[{"fid":"515111","view_mode":"default","fields":{"format":"default","alignment":"center","field_file_image_alt_text[und][0][value]":"ER Jackman logo","field_file_image_title_text[und][0][value]":"ER Jackman Logo","external_url":""},"type":"media","field_deltas":{"5":{"format":"default","alignment":"center","field_file_image_alt_text[und][0][value]":"ER Jackman logo","field_file_image_title_text[und][0][value]":"ER Jackman Logo","external_url":""}},"link_text":null,"attributes":{"alt":"ER Jackman logo","title":"ER Jackman Logo","height":171,"width":346,"class":"media-element file-default media-wysiwyg-align-center","data-delta":"5"}}]]</p>
+
+      <h3 style="text-align: center;">
+      	ER Jackman Friends &amp; Alumni Fellow Application</h3>
+  first_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'First name'
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Last name'
+    '#required': true
+  email:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': Email
+    '#required': true
+  primary_phone_number:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Primary Phone Number'
+    '#required': true
+  gift_amount:
+    '#type': textfield
+    '#size': 20
+    '#min': '1000'
+    '#field_prefix': $
+    '#title': 'Gift Amount ($3000 minimum)'
+    '#required': true
+  payment_schedule:
+    '#type': radios
+    '#options':
+      1: 'Pay now (1 time payment in full)'
+      2: 'Payment over three years'
+    '#title': 'Payment Schedule'
+    '#required': true
+  conclusion:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	<strong>Thank you</strong> for your contribution to ER Jackman Friends &amp; Alumni. Someone from the OSU Foundation will be following up via email with more information.</p>
+
+      <p>
+      	<strong>Questions?</strong> Contact Ally Miklasz (Rumpakis), Director of Alumni Relations, College of Agricultural Sciences, at <a href="mailto:ally.rumpakis@osualum.com">ally.rumpakis@osualum.com</a> or 541-556-9516</p>
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<p>\r\n\tThank you for your contribution to ER Jackman Friends &amp; Alumni. Someone from the OSU Foundation will be following up via email with more information.</p>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: 'ER Jackman Annual Meeting Registration '
+      body: |-
+        [webform_submission:values:first_name] [webform_submission:values:last_name],
+
+        Thank you for registering to attend ER Jackman Annual Meeting on October 18 at 1:00pm in the OSU Foundation, Main Board Room. If something comes up and you’re not able to attend the event, please email Ally.Rumpakis@osualum.com so she may remove you from our expected attendees list.
+
+        I look forward to seeing you at our meeting where I will be sharing updates about our college and our future plans.
+
+        Go Beavs! 
+
+        Staci L. Simonich, Ph.D., M.B.A.
+        Dean and Reub Long Professor
+        College of Agricultural Sciences
+        Director of the Oregon Agricultural Experiment Station
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

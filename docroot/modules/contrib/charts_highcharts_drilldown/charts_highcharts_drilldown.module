@@ -1,0 +1,62 @@
+<?php
+
+/**
+ * @file
+ * File implementing hooks related to the charts_highcharts_drilldown.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function charts_highcharts_drilldown_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the charts_highcharts_drilldown module.
+    case 'help.page.charts_highcharts_drilldown':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t("This module creates a Views style plugin that extends the
+      Charts module's style plugin to enable the Highcharts drilldown feature.") . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_chart_alter().
+ */
+function charts_highcharts_drilldown_chart_alter(array &$element, $chart_id) {
+  $element['#attached']['library'][] = 'charts_highcharts_drilldown/drilldown';
+}
+
+/**
+ * Implements hook_chart_definition_alter().
+ */
+function charts_highcharts_drilldown_chart_definition_alter(array &$definition, array $element, $chart_id) {
+  if ($element['#chart_library'] !== 'highcharts' || !isset($definition['drilldown'])) {
+    return;
+  }
+
+  // Overwriting yAxis.
+  $yaxis = [
+    'title' => ['text' => $definition['yAxis'][0]['title']['text'] ?? ''],
+  ];
+  if (!empty($definition['yAxis']['plotLines'])) {
+    $yaxis['plotLines'] = $definition['yAxis']['plotLines'];
+  }
+  $definition['yAxis'] = $yaxis;
+
+  // Overwriting xAxis.
+  $definition['xAxis'] = ['type' => 'category'];
+
+  $definition['accessibility']['announceNewData'] = ['enabled' => TRUE];
+  $definition['plotOptions']['series']['dataLabels'] = ['enabled' => TRUE];
+  if (!empty($definition['legend']['enabled']) && !in_array($definition['chart']['type'], ['donut', 'pie'])) {
+    $definition['legend']['symbolPadding'] = 0;
+    $definition['legend']['symbolWidth'] = 0;
+    $definition['legend']['symbolHeight'] = 0;
+    $definition['legend']['squareSymbol'] = FALSE;
+  }
+}

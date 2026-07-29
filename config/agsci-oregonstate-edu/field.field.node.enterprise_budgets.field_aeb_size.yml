@@ -1,0 +1,23 @@
+uuid: 108e81dc-3433-4d16-a09e-b97ce3ef11ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_aeb_size
+    - node.type.enterprise_budgets
+id: node.enterprise_budgets.field_aeb_size
+field_name: field_aeb_size
+entity_type: node
+bundle: enterprise_budgets
+label: Size
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

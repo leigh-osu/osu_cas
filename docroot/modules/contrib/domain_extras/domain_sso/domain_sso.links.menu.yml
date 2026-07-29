@@ -1,0 +1,9 @@
+domain_sso.sso_login:
+  title: 'SSO'
+  description: 'Log in with Domain Single Sign-On'
+  route_name: domain_sso.sso_login
+  menu_name: account
+  weight: 20
+  options:
+    attributes:
+      class: ['domain-sso-login-link']

@@ -1,0 +1,11 @@
+name: Simple Styleguide
+type: module
+description: Creates a simple, configurable styleguide. Users can select from a static list of default patterns or add their own.
+core_version_requirement: ^9.1 || ^10 || ^11
+package: Styleguide
+configure: simple_styleguide.styleguide_settings
+
+# Information added by Drupal.org packaging script on 2024-07-10
+version: '2.0.2'
+project: 'simple_styleguide'
+datestamp: 1720620791

@@ -1,0 +1,12 @@
+uuid: 0910cef3-3906-4c62-bee3-8db79923e125
+langcode: en
+status: true
+dependencies: {  }
+id: open_sensing_org
+domain_id: 8872499
+hostname: open-sensing.org
+name: 'Open Sensing Lab'
+scheme: https
+weight: 16
+is_default: false
+path_prefix: ''

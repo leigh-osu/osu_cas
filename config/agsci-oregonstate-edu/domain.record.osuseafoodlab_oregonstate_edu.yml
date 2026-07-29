@@ -1,0 +1,12 @@
+uuid: d83c52d5-08ef-4495-a1a8-f72362dd1ed5
+langcode: en
+status: true
+dependencies: {  }
+id: osuseafoodlab_oregonstate_edu
+domain_id: 13117245
+hostname: osuseafoodlab.oregonstate.edu
+name: 'Seafood Research and Education Center'
+scheme: https
+weight: 22
+is_default: false
+path_prefix: ''

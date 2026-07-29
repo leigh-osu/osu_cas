@@ -1,0 +1,15 @@
+uuid: e66e95fa-aa55-4aec-828a-8e9ae81826b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.plantbreeding_oregonstate_edu_
+  module:
+    - domain_access
+id: domain_access_remove_action_plantbreeding_oregonstate_edu_
+label: 'Remove selected content from the Plant Breeding and Genetics domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - plantbreeding_oregonstate_edu_

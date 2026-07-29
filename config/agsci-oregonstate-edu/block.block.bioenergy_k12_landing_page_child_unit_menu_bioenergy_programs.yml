@@ -1,0 +1,31 @@
+uuid: 573962dd-537e-459e-867c-a6c2ad3f5061
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.bioenergy_k12_landing_page_child_unit
+    - system.menu.menu-bioenergy-programs
+  module:
+    - block_visibility_groups
+    - system
+  theme:
+    - madrone
+id: bioenergy_k12_landing_page_child_unit_menu_bioenergy_programs
+theme: madrone
+region: sidebar
+weight: -5
+provider: null
+plugin: 'system_menu_block:menu-bioenergy-programs'
+settings:
+  id: 'system_menu_block:menu-bioenergy-programs'
+  label: 'Program Links'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: bioenergy_k12_landing_page_child_unit

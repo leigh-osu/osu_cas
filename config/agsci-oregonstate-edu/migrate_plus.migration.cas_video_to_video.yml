@@ -1,0 +1,230 @@
+uuid: 099beb9f-22de-4daf-bd77-59f4f28d1ee8
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: _YG0KMo3VIuEsNPENUB5Ftz333we4-IW6TidCTd3Md4
+id: cas_video_to_video
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - 'Layout content'
+  - OSU
+  - CAS
+  - 'CAS Content'
+migration_group: content
+label: 'Basic Video to Video Migration'
+source:
+  plugin: d7_node_domain_access
+  node_type: video
+  high_water_property:
+    name: changed
+process:
+  title: title
+  body:
+    plugin: sub_process
+    source: body
+    process:
+      value:
+        plugin: osu_media_wysiwyg_filter
+        source: value
+      summary: summary
+      format:
+        plugin: default_value
+        default_value: full_html
+  field_vid_affiliation:
+    plugin: get
+    source: field_affiliation
+  field_vid_presenter:
+    plugin: get
+    source: field_presenter
+  field_vid_publish_date:
+    plugin: sub_process
+    source: publish_date
+    process:
+      value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: 'Y-m-d\TH:i:s'
+        source: value
+  field_vid_show_on_profile:
+    plugin: sub_process
+    source: field_show_on_profile
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: upgrade_d7_users_with_roles
+          source: target_id
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  field_vid_video:
+    plugin: sub_process
+    source: field_video
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration:
+            - upgrade_d7_media_remote_video
+            - upgrade_d7_media_kaltura
+            - upgrade_d7_media_local_video
+          source: fid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  field_tax_coarec_topics:
+    plugin: sub_process
+    source: field_coarec_topics
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: 'upgrade_d7_taxonomy_terms:coarec_topics'
+          source: tid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  field_tax_event:
+    plugin: sub_process
+    source: field_event
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: 'upgrade_d7_taxonomy_terms:event_list'
+          source: tid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  field_tax_nursery_topics:
+    plugin: sub_process
+    source: field_nursery_tags
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: 'upgrade_d7_taxonomy_terms:nursery'
+          source: tid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  field_tax_owri_topics:
+    plugin: sub_process
+    source: field_owri_tags
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: 'upgrade_d7_taxonomy_terms:owri'
+          source: tid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  field_tax_swd_topics:
+    plugin: sub_process
+    source: field_swd_tags
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: 'upgrade_d7_taxonomy_terms:swd'
+          source: tid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  field_tax_turf_topics:
+    plugin: sub_process
+    source: field_turf_tags
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: 'upgrade_d7_taxonomy_terms:turf'
+          source: tid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  field_tax_veg_topics:
+    plugin: sub_process
+    source: field_veg_tags
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: 'upgrade_d7_taxonomy_terms:veg'
+          source: tid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  field_tax_work_area:
+    plugin: sub_process
+    source: field_work_area_tags
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: 'upgrade_d7_taxonomy_terms:work_areas'
+          source: tid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  field_meta_tags:
+    plugin: d7_metatag_entities
+    source: pseudo_metatag_entities
+  path/pathauto:
+    plugin: default_value
+    default_value: 0
+  type:
+    plugin: default_value
+    default_value: video
+  field_domain_access:
+    plugin: sub_process
+    source: domain_access_node
+    process:
+      target_id: target_id
+  field_domain_all_affiliates:
+    plugin: get
+    source: domain_all_affiliates
+  field_domain_source:
+    plugin: get
+    source: domain_source
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+destination:
+  plugin: 'entity:node'
+  default_bundle: video
+migration_dependencies:
+  required:
+    - upgrade_d7_files
+    - upgrade_d7_users_with_roles
+    - upgrade_d7_media_remote_video
+    - upgrade_d7_media_kaltura
+    - upgrade_d7_media_local_video
+    - 'upgrade_d7_taxonomy_terms:coarec_topics'
+    - 'upgrade_d7_taxonomy_terms:event_list'
+    - 'upgrade_d7_taxonomy_terms:nursery'
+    - 'upgrade_d7_taxonomy_terms:owri'
+    - 'upgrade_d7_taxonomy_terms:swd'
+    - 'upgrade_d7_taxonomy_terms:turf'
+    - 'upgrade_d7_taxonomy_terms:veg'
+    - 'upgrade_d7_taxonomy_terms:work_areas'

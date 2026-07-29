@@ -1,0 +1,71 @@
+uuid: ae1ad6e6-c03b-40e8-b530-ef7bbdf7d2d6
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 22Mr_SerKnTq-bZ47Eem3UJ1g8ULY3D-VRFa6B87ylw
+id: cas_user_profile_agricultural_sciences
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - OSU
+  - CAS
+  - 'CAS Content'
+migration_group: content
+label: 'CAS Agricultural Sciences profile - additional fields'
+source:
+  plugin: d7_osu_profile2
+  profile2_type: agricultural_sciences
+process:
+  nid:
+    -
+      plugin: migration_lookup
+      migration: upgrade_d7_user_to_profile
+      source: uid
+      no_stub: true
+    -
+      plugin: skip_on_empty
+      method: row
+  field_profile_fac_accept_grad: field_do_you_accept_grad_student
+  field_profile_fac_nonthesis: field_do_you_advise_nonthesis_st
+  field_profile_fac_outreach_ext:
+    plugin: sub_process
+    source: field_outreach_and_extension
+    process:
+      value:
+        plugin: osu_media_wysiwyg_filter
+        source: value
+      format:
+        plugin: default_value
+        default_value: full_html
+  field_tax_faculty_expertise:
+    plugin: sub_process
+    source: field_faculty_expertise
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: 'upgrade_d7_taxonomy_terms:faculty_expertise'
+          source: tid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  type:
+    plugin: default_value
+    default_value: osu_profile
+destination:
+  plugin: 'entity:node'
+  default_bundle: osu_profile
+  overwrite_properties:
+    - field_profile_fac_accept_grad
+    - field_profile_fac_nonthesis
+    - field_profile_fac_outreach_ext
+    - field_tax_faculty_expertise
+migration_dependencies:
+  required:
+    - upgrade_d7_user_to_profile
+    - 'upgrade_d7_taxonomy_terms:faculty_expertise'

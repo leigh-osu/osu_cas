@@ -1,0 +1,198 @@
+date_ap_style.dateapstylesettings:
+  type: mapping
+  label: 'Date AP Style Settings'
+  deprecated: "The 'date_ap_style.dateapstylesettings' config schema is deprecated in date_ap_style:2.1.0 and is removed from date_ap_style:3.0.0. Use the 'date_ap_style.settings' config schema instead. See https://www.drupal.org/i/3542751."
+  mapping:
+    always_display_year:
+      type: integer
+      label: 'Always display year'
+    use_today:
+      type: integer
+      label: 'Use "Today"'
+    cap_today:
+      type: integer
+      label: 'Capitalize "Today"'
+    display_day:
+      type: integer
+      label: 'Display day of the week'
+    display_time:
+      type: integer
+      label: 'Display time'
+    hide_date:
+      type: integer
+      label: 'Hide date'
+    time_before_date:
+      type: integer
+      label: 'Display time before date'
+    display_noon_and_midnight:
+      type: integer
+      label: 'Display noon and midnight'
+    capitalize_noon_and_midnight:
+      type: integer
+      label: 'Capitalize Noon and Midnight'
+    use_all_day:
+      type: integer
+      label: 'Use "All Day"'
+    separator:
+      type: string
+      label: 'Date range separator'
+    timezone:
+      type: string
+      label: 'Timezone'
+    month_only:
+      type: integer
+      label: 'Display only the month'
+
+date_ap_style.settings:
+  type: config_object
+  label: 'Default AP Style Date Display Settings'
+  mapping:
+    always_display_year:
+      type: boolean
+      label: 'Always display year'
+    use_today:
+      type: boolean
+      label: 'Use "Today"'
+    cap_today:
+      type: boolean
+      label: 'Capitalize "Today"'
+    display_day:
+      type: boolean
+      label: 'Display day of the week'
+    display_time:
+      type: boolean
+      label: 'Display time'
+    hide_date:
+      type: boolean
+      label: 'Hide date'
+    time_before_date:
+      type: boolean
+      label: 'Display time before date'
+    display_noon_and_midnight:
+      type: boolean
+      label: 'Display noon and midnight'
+    capitalize_noon_and_midnight:
+      type: boolean
+      label: 'Capitalize Noon and Midnight'
+    use_all_day:
+      type: boolean
+      label: 'Use "All Day"'
+    separator:
+      type: string
+      label: 'Date range separator'
+      constraints:
+        Choice:
+          - endash
+          - to
+          - hyphen
+    timezone:
+      type: string
+      label: 'Timezone Override'
+      constraints:
+        Choice:
+          callback: 'date_ap_style_get_timezone_options'
+    month_only:
+      type: boolean
+      label: 'Display only the month'
+
+field.formatter.settings.timestamp_ap_style:
+  type: mapping
+  label: 'Timestamp AP Style formatter settings'
+  mapping:
+    langcode:
+      type: langcode
+      label: 'Language code'
+    always_display_year:
+      type: boolean
+      label: 'Always display year'
+    use_today:
+      type: boolean
+      label: 'Use "Today"'
+    cap_today:
+      type: boolean
+      label: 'Capitalize "Today"'
+    display_day:
+      type: boolean
+      label: 'Display day of the week'
+    display_time:
+      type: boolean
+      label: 'Display time'
+    hide_date:
+      type: boolean
+      label: 'Hide date'
+    time_before_date:
+      type: boolean
+      label: 'Display time before date'
+    display_noon_and_midnight:
+      type: boolean
+      label: 'Display noon and midnight'
+    capitalize_noon_and_midnight:
+      type: boolean
+      label: 'Capitalize Noon and Midnight'
+    use_all_day:
+      type: boolean
+      label: 'Use "All Day"'
+    timezone:
+      type: string
+      label: 'Timezone'
+      constraints:
+        Choice:
+          callback: 'date_ap_style_get_timezone_options'
+    month_only:
+      type: boolean
+      label: 'Display only the month'
+
+field.formatter.settings.daterange_ap_style:
+  type: mapping
+  label: 'Date Range AP Style formatter settings'
+  mapping:
+    langcode:
+      type: langcode
+      label: 'Language code'
+    always_display_year:
+      type: boolean
+      label: 'Always display year'
+    use_today:
+      type: boolean
+      label: 'Use "Today"'
+    cap_today:
+      type: boolean
+      label: 'Capitalize "Today"'
+    display_day:
+      type: boolean
+      label: 'Display day of the week'
+    display_time:
+      type: boolean
+      label: 'Display time'
+    hide_date:
+      type: boolean
+      label: 'Hide date'
+    time_before_date:
+      type: boolean
+      label: 'Display time before date'
+    display_noon_and_midnight:
+      type: boolean
+      label: 'Display noon and midnight'
+    capitalize_noon_and_midnight:
+      type: boolean
+      label: 'Capitalize Noon and Midnight'
+    use_all_day:
+      type: boolean
+      label: 'Use "All Day"'
+    separator:
+      type: string
+      label: 'Date range separator'
+      constraints:
+        Choice:
+          - endash
+          - to
+          - hyphen
+    timezone:
+      type: string
+      label: 'Timezone Override'
+      constraints:
+        Choice:
+          callback: 'date_ap_style_get_timezone_options'
+    month_only:
+      type: boolean
+      label: 'Display only the month'

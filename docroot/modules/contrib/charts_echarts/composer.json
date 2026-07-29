@@ -1,0 +1,38 @@
+{
+    "name": "drupal/charts_echarts",
+    "description": "Charts module integration with Apache ECharts.",
+    "type": "drupal-module",
+    "homepage": "https://drupal.org/project/charts_echarts",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/charts_echarts"
+    },
+    "license": "Apache-2.0",
+    "require": {
+        "oomphinc/composer-installers-extender": "^2",
+        "npm-asset/echarts": "^5.3"
+    },
+    "repositories": {
+        "asset-packagist": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    },
+    "extra": {
+        "installer-types": [
+            "npm-asset"
+        ],
+        "installer-paths": {
+            "web/libraries/echarts": [
+                "type:drupal-library",
+                "vendor:npm-asset",
+                "vendor:bower-asset"
+            ]
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "oomphinc/composer-installers-extender": true
+        }
+    }
+}

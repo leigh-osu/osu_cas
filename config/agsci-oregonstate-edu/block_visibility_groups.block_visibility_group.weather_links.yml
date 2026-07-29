@@ -1,0 +1,16 @@
+uuid: 407e978c-9743-4279-84b1-9baf3addb2cb
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: weather_links
+label: weather_links
+logic: and
+conditions:
+  db3d2de4-08e5-4b3b-ae5f-433e8ed31b4a:
+    id: request_path
+    negate: false
+    uuid: db3d2de4-08e5-4b3b-ae5f-433e8ed31b4a
+    pages: "/malheur/weather/yearly/*\r\n/malheur/weather/yearly-summary/*"
+allow_other_conditions: null

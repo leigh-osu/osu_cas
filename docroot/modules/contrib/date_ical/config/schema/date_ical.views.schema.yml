@@ -1,0 +1,43 @@
+views.row.date_ical:
+  type: views.field.field
+  label: 'iCal Fields'
+  mapping:
+    date_field:
+      type: string
+      label: 'Date field'
+    end_field:
+      type: string
+      label: 'End date field'
+    summary_field:
+      type: string
+      label: 'Summary field'
+    description_field:
+      type: string
+      label: 'Description field'
+    location_field:
+      type: string
+      label: 'Location field'
+    categories_field:
+      type: string
+      label: 'Categories field'
+    organizer_field:
+      type: string
+      label: 'Organizer field'
+    status_field:
+      type: string
+      label: 'Status field'
+    url_field:
+      type: string
+      label: 'URL field'
+    attendee_field:
+      type: string
+      label: 'email field'
+    alarm_field:
+      type: string
+      label: 'Alarm field'
+    attach_field:
+      type: string
+      label: 'Attach field'
+    geo_field:
+      type: string
+      label: 'Geolocation field'

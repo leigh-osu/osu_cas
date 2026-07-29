@@ -1,0 +1,13 @@
+uuid: 00150bdb-b3af-4432-88ae-7b5930893e65
+langcode: en
+status: true
+dependencies:
+  config:
+    - oembed_providers.provider.osu_mediaspace
+_core:
+  default_config_hash: 4wHzGZuFhdCsUKlh9cNsELS6OZGL9wwMSewBMNoc4vE
+id: kaltura
+label: Kaltura
+providers:
+  - 'OSU MediaSpace'
+description: ''

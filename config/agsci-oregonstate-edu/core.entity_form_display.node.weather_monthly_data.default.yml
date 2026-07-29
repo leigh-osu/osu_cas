@@ -1,0 +1,419 @@
+uuid: 6bd3bd36-0d5f-4c35-97eb-f63ea9e34c89
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.weather_monthly_data.body
+    - field.field.node.weather_monthly_data.field_domain_access
+    - field.field.node.weather_monthly_data.field_domain_all_affiliates
+    - field.field.node.weather_monthly_data.field_mw_air_temp_max_mon_max
+    - field.field.node.weather_monthly_data.field_mw_air_temp_max_mon_min
+    - field.field.node.weather_monthly_data.field_mw_air_temp_min_mon_max
+    - field.field.node.weather_monthly_data.field_mw_air_temp_min_mon_min
+    - field.field.node.weather_monthly_data.field_mw_average_ending_at_max
+    - field.field.node.weather_monthly_data.field_mw_average_ending_at_min
+    - field.field.node.weather_monthly_data.field_mw_average_rain
+    - field.field.node.weather_monthly_data.field_mw_date
+    - field.field.node.weather_monthly_data.field_mw_depart_ending_at_max
+    - field.field.node.weather_monthly_data.field_mw_depart_ending_at_min
+    - field.field.node.weather_monthly_data.field_mw_depart_rain
+    - field.field.node.weather_monthly_data.field_mw_evaporation_total
+    - field.field.node.weather_monthly_data.field_mw_gdd_monthly_25_year_avg
+    - field.field.node.weather_monthly_data.field_mw_gdd_monthly_total
+    - field.field.node.weather_monthly_data.field_mw_gdd_yearly_25_year_avg
+    - field.field.node.weather_monthly_data.field_mw_gdd_yearly_accumulation
+    - field.field.node.weather_monthly_data.field_mw_location
+    - field.field.node.weather_monthly_data.field_mw_normal_ending_at_max
+    - field.field.node.weather_monthly_data.field_mw_normal_ending_at_min
+    - field.field.node.weather_monthly_data.field_mw_normal_rain
+    - field.field.node.weather_monthly_data.field_mw_precipitation_total
+    - field.field.node.weather_monthly_data.field_mw_snow_total
+    - field.field.node.weather_monthly_data.field_mw_soil_temp_max_mon_max
+    - field.field.node.weather_monthly_data.field_mw_soil_temp_max_mon_min
+    - field.field.node.weather_monthly_data.field_mw_soil_temp_mean_mon_max
+    - field.field.node.weather_monthly_data.field_mw_soil_temp_mean_mon_min
+    - field.field.node.weather_monthly_data.field_mw_soil_temp_min_mon_max
+    - field.field.node.weather_monthly_data.field_mw_soil_temp_min_mon_min
+    - node.type.weather_monthly_data
+  module:
+    - datetime
+    - entitygroupfield
+    - field_group
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_mw_air_temperature:
+      children:
+        - field_mw_normal_ending_at_max
+        - field_mw_normal_ending_at_min
+        - field_mw_depart_ending_at_max
+        - field_mw_depart_ending_at_min
+        - field_mw_average_ending_at_max
+        - field_mw_average_ending_at_min
+        - field_mw_air_temp_max_mon_max
+        - field_mw_air_temp_max_mon_min
+        - field_mw_air_temp_min_mon_max
+        - field_mw_air_temp_min_mon_min
+      label: 'Air Temperature'
+      region: content
+      parent_name: ''
+      weight: 4
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        description: ''
+        required_fields: true
+    group_mw_precipitation:
+      children:
+        - field_mw_precipitation_total
+        - field_mw_normal_rain
+        - field_mw_depart_rain
+        - field_mw_average_rain
+        - field_mw_snow_total
+      label: Precipitation
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        description: ''
+        required_fields: true
+    group_mw_soil_temperature:
+      children:
+        - field_mw_soil_temp_mean_mon_max
+        - field_mw_soil_temp_mean_mon_min
+        - field_mw_soil_temp_max_mon_max
+        - field_mw_soil_temp_max_mon_min
+        - field_mw_soil_temp_min_mon_max
+        - field_mw_soil_temp_min_mon_min
+      label: 'Soil Temperature'
+      region: content
+      parent_name: ''
+      weight: 5
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        description: ''
+        required_fields: true
+    group_mw_growing_degree_days:
+      children:
+        - field_mw_gdd_monthly_total
+        - field_mw_gdd_monthly_25_year_avg
+        - field_mw_gdd_yearly_accumulation
+        - field_mw_gdd_yearly_25_year_avg
+      label: 'Growing Degree Days'
+      region: content
+      parent_name: ''
+      weight: 6
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        description: ''
+        required_fields: true
+id: node.weather_monthly_data.default
+targetEntityType: node
+bundle: weather_monthly_data
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 7
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  entitygroupfield:
+    type: entitygroupfield_select_widget
+    weight: -50
+    region: content
+    settings:
+      help_text: ''
+      label: 'Group name'
+      multiple: true
+      required: false
+    third_party_settings: {  }
+  field_domain_access:
+    type: entity_reference_autocomplete
+    weight: 15
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_domain_all_affiliates:
+    type: boolean_checkbox
+    weight: 16
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_mw_air_temp_max_mon_max:
+    type: number
+    weight: 14
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_air_temp_max_mon_min:
+    type: number
+    weight: 15
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_air_temp_min_mon_max:
+    type: number
+    weight: 16
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_air_temp_min_mon_min:
+    type: number
+    weight: 17
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_average_ending_at_max:
+    type: number
+    weight: 12
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_average_ending_at_min:
+    type: number
+    weight: 13
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_average_rain:
+    type: number
+    weight: 27
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_date:
+    type: datetime_default
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_mw_depart_ending_at_max:
+    type: number
+    weight: 10
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_depart_ending_at_min:
+    type: number
+    weight: 11
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_depart_rain:
+    type: number
+    weight: 26
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_evaporation_total:
+    type: number
+    weight: 2
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_gdd_monthly_25_year_avg:
+    type: number
+    weight: 21
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_gdd_monthly_total:
+    type: number
+    weight: 20
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_gdd_yearly_25_year_avg:
+    type: number
+    weight: 23
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_gdd_yearly_accumulation:
+    type: number
+    weight: 22
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_location:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_mw_normal_ending_at_max:
+    type: number
+    weight: 8
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_normal_ending_at_min:
+    type: number
+    weight: 9
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_normal_rain:
+    type: number
+    weight: 25
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_precipitation_total:
+    type: number
+    weight: 24
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_snow_total:
+    type: number
+    weight: 28
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_soil_temp_max_mon_max:
+    type: number
+    weight: 26
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_soil_temp_max_mon_min:
+    type: number
+    weight: 27
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_soil_temp_mean_mon_max:
+    type: number
+    weight: 24
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_soil_temp_mean_mon_min:
+    type: number
+    weight: 25
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_soil_temp_min_mon_max:
+    type: number
+    weight: 28
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mw_soil_temp_min_mon_min:
+    type: number
+    weight: 29
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 10
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 14
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 11
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 8
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  title: true

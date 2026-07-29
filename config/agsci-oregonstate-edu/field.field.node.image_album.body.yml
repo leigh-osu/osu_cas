@@ -1,0 +1,24 @@
+uuid: 47ba2eea-ca24-44cb-8caa-88804be0effc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.image_album
+  module:
+    - text
+id: node.image_album.body
+field_name: body
+entity_type: node
+bundle: image_album
+label: 'Album Description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

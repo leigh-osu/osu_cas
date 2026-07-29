@@ -1,0 +1,9 @@
+name: Preview Link Test Time
+type: module
+description: Supports mocking time.
+package: Testing
+
+# Information added by Drupal.org packaging script on 2026-04-20
+version: '2.2.1'
+project: 'preview_link'
+datestamp: 1776652949

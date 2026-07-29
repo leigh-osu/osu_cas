@@ -1,0 +1,12 @@
+name: "Block List Override"
+description: Remove unnecessary blocks from the block list for better system performance.
+type: module
+core_version_requirement: ^10.1 || ^11
+dependencies:
+  - drupal:block
+configure: block_list_override.settings
+
+# Information added by Drupal.org packaging script on 2024-11-20
+version: '1.0.3'
+project: 'block_list_override'
+datestamp: 1732143199

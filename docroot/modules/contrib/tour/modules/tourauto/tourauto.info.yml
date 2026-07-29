@@ -1,0 +1,12 @@
+name: Tourauto
+type: module
+description: Lets tour authors choose whether their tour should open automatically.
+package: User interface
+core_version_requirement: ^9 || ^10 || ^11
+dependencies:
+  - tour
+
+# Information added by Drupal.org packaging script on 2026-01-30
+version: '2.0.17'
+project: 'tour'
+datestamp: 1769735181

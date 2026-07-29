@@ -1,0 +1,41 @@
+@import "../abstracts/osu_variables";
+
+.form-item {
+  .form-label.form-required::after {
+    color: $lava-400;
+    content: '*';
+    left: 0.5em;
+    position: relative;
+  }
+
+  & > .required:focus {
+    border-color: $lava-400;
+  }
+}
+
+select {
+  option:checked {
+    background-color: $neutral-200;
+  }
+}
+
+/*
+ * Remove the background image that google_cse adds.
+ */
+form.search-form,
+form.header-search-block-form {
+  input {
+    background-image: none !important;
+  }
+}
+
+form.header-search-block-form input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.layout-builder-form {
+  .layout-builder__message .messages,
+  .layout-builder__message--overrides .messages {
+    background-image: none !important;
+  }
+}

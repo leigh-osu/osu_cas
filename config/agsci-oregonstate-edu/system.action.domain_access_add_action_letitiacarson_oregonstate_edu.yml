@@ -1,0 +1,15 @@
+uuid: d303bf32-c898-4fbf-9ca1-80c870ee4db4
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.letitiacarson_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_letitiacarson_oregonstate_edu
+label: 'Add selected content to the Letitia Carson  domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - letitiacarson_oregonstate_edu

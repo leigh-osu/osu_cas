@@ -1,0 +1,15 @@
+uuid: 61ce3b20-d016-41a5-bad8-a9b9ec760558
+langcode: en
+status: true
+dependencies: {  }
+name: sidebar_carousel__270x268_
+label: 'Sidebar Carousel (270x268)'
+effects:
+  23c77ef4-947e-4800-b266-7a99ec6ae658:
+    uuid: 23c77ef4-947e-4800-b266-7a99ec6ae658
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 270
+      height: 268
+      anchor: center-center

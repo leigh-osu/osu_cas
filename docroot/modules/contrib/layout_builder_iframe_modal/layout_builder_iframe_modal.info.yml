@@ -1,0 +1,13 @@
+name: Layout Builder iFrame Modal
+type: module
+description: 'Render Layout Builder edit forms in an iframe'
+core_version_requirement: ^10.3 || ^11 || ^12
+lifecycle: stable
+configure: layout_builder_iframe_modal.settings
+dependencies:
+  - drupal:layout_builder
+
+# Information added by Drupal.org packaging script on 2026-07-09
+version: '1.3.8'
+project: 'layout_builder_iframe_modal'
+datestamp: 1783598898

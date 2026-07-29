@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Install hooks for this module.
+ */
+
+use JamesHeinrich\GetID3\GetID3;
+
+/**
+ * Implements hook_requirements().
+ */
+function views_rss_media_getid3_requirements($phase) {
+  $requirements = [];
+
+  if ($phase === 'install' && !class_exists(GetID3::class)) {
+    $requirements['views_rss_media_getid3'] = [
+      'description' => t('Views RSS: Media getID3 requires the getID3 library, please see the README.md file included in this module for details.'),
+      'severity' => REQUIREMENT_ERROR,
+    ];
+  }
+
+  return $requirements;
+}

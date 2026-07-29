@@ -1,0 +1,13 @@
+name: ShURLy
+description: 'A complete short URL service.'
+type: module
+package: ShURLy
+core_version_requirement: ^9.3 || ^10 || ^11
+configure: shurly.admin
+dependencies:
+  - drupal:views
+
+# Information added by Drupal.org packaging script on 2024-07-25
+version: '8.x-1.0-beta4'
+project: 'shurly'
+datestamp: 1721938762

@@ -1,0 +1,10 @@
+id: phone
+label: 'Phone'
+weight: 0
+status: 1
+orientation: portrait
+dimensions:
+  width: 1170
+  height: 2532
+  dppx: !!float 3
+langcode: en

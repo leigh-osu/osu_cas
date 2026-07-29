@@ -1,0 +1,16 @@
+uuid: 50625f52-8ceb-41d3-a245-0529a760a7d4
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: sitewide
+label: sitewide
+logic: and
+conditions:
+  7f3f4b6e-710d-43ff-8fce-08b855d935ac:
+    id: request_path
+    negate: false
+    uuid: 7f3f4b6e-710d-43ff-8fce-08b855d935ac
+    pages: '*'
+allow_other_conditions: null

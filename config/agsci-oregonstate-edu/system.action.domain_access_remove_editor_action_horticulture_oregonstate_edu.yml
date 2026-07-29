@@ -1,0 +1,15 @@
+uuid: c7fecc86-b94d-4c2f-8ac5-6a023a787db0
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.horticulture_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_horticulture_oregonstate_edu
+label: 'Remove editors from the Horticulture domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - horticulture_oregonstate_edu

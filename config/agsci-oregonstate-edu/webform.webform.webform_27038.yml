@@ -1,0 +1,99 @@
+uuid: a60c54f0-8435-4f34-8dba-c0afd41893dd
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_27038
+title: 'Letter of Recommendation for the Dr. Eric A. Andreasen Graduate Award'
+description: null
+categories: {  }
+elements: |-
+  introduction:
+    '#type': processed_text
+    '#format': full_html
+    '#text': '<p>You have been selected to provide a letter of recommendation by a student who has applied for the <strong><a href="/emt/andreasen-menu" target="_blank">Dr. Eric A. Andreasen Graduate Student Travel Award for Excellence in Research and Scholarship</a></strong></p><p>Please fill out this short form and attach the letter.&nbsp;</p><p>We will notify the student when their application is complete.</p>'
+  name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Name
+    '#required': true
+  student_applying_for_award:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Student Applying for Award'
+    '#required': true
+  letter_of_recommendation:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'pdf doc docx'
+    '#title_display': inline
+    '#title': 'Letter of recommendation'
+    '#required': true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: robert.tanguay@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

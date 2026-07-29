@@ -1,0 +1,81 @@
+langcode: en
+status: true
+dependencies: { }
+id: upgrade_d7_magnetics_biblio_publication
+migration_tags:
+  - Drupal 7
+  - Magnetics
+  - Publication
+  - OSU Content
+  - OSU
+source:
+  plugin: osu_biblio_reference
+  constants:
+    doi_base_url: 'https://dx.doi.org/'
+    pubmed_base_url: 'https://pubmed.ncbi.nlm.nih.gov/'
+process:
+  type:
+    - plugin: default_value
+      default_value: publications
+  nid: nid
+  title: title
+  uid:
+    - plugin: migration_lookup
+      migration: upgrade_d7_users_with_roles
+      source: node_uid
+      no_stub: true
+    - plugin: default_value
+      default_value: 1
+  field_pub_type:
+    - plugin: entity_lookup
+      value_key: name
+      entity_type: taxonomy_term
+      bundle_key: vid
+      bundle: publication_type
+      source: biblio_type
+  field_pub_authors:
+    - plugin: sub_process
+      source: author
+      process:
+        value: name
+  body/value: biblio_full_text
+  body/format:
+    - plugin: default_value
+      default_value: 'full_html'
+  field_pub_abstract/value: biblio_abst_e
+  field_pub_abstract/format:
+    - plugin: default_value
+      default_value: 'full_html'
+  field_pub_issn: biblio_issn
+  field_pub_doi/title: biblio_doi
+  field_pub_doi/uri:
+    - plugin: concat
+      source:
+        - constants/doi_base_url
+        - biblio_doi
+      delimiter: ''
+  field_pub_year_publication: biblio_year
+  field_pub_date_published/value:
+    - plugin: format_date
+      from_format: 'M-d-Y'
+      to_format: 'Y-m-d'
+      source: biblio_date
+  field_pub_journal: biblio_secondary_title
+  field_pub_issue: biblio_issue
+  field_pub_volume: biblio_volume
+  field_pub_pages: biblio_pages
+  field_pub_publisher: biblio_publisher
+  status: status
+  created: created
+  changed: changed
+  comment: comment
+  promote: promote
+  sticky: sticky
+  path/pathauto:
+    plugin: default_value
+    default_value: 0
+destination:
+  plugin: 'entity:node'
+migration_dependencies:
+  required:
+    - upgrade_d7_users_with_roles

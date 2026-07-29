@@ -1,0 +1,113 @@
+uuid: b2e755e5-d45c-452a-8d99-6d5f90a24079
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_27039
+title: 'Submit Application for Dr. Eric A. Andreasen Graduate Award'
+description: null
+categories: {  }
+elements: |-
+  introduction:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <h3>
+      	<strong>Dr. Eric A. Andreasen Graduate Student Travel Award for Excellence in Research and Scholarship</strong></h3>
+
+      <p>
+      	The Dr. Eric A. Andreasen Graduate Student Travel Award for Excellence in Research and Scholarship will recognize an outstanding graduate student that best embodies the scientific excellence and leadership exhibited by Dr. Andreasen.</p>
+
+      <p>
+      	The recipient will receive an engraved plaque and a $500 cash award.</p>
+
+      <p>
+      	Selection criteria include academic background, scientific merit, the potential for research impact, and evidence of leadership and mentoring activities.</p>
+
+      <p>
+      	Applicants must be enrolled either at Oregon State University or University of Wisconsin-Madison at time of the award.</p>
+
+      <p>
+      	<strong>Use the on-line <a href="https://www.judgify.me/eric.andreasen.award.2020" target="_blank">link</a>&nbsp;below to complete the application packet, which includes:</strong></p>
+
+      <ol>
+      	<li>
+      		Accepted scientific meeting abstract</li>
+      	<li>
+      		Current student CV</li>
+      	<li>
+      		Paragraph, written by applicant, describing mentorship and leadership activities and career goals</li>
+      </ol>
+
+      <p>
+      	<strong>Applications will be accepted between December 15th and February 1st.</strong></p>
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: robert.tanguay@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |-
+        Submitted on [webform_submission:date:long]
+        Submitted by user: [webform_submission:user]
+        Submitted values are:
+        [webform_submission:values]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

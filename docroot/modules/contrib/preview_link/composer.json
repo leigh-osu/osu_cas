@@ -1,0 +1,21 @@
+{
+    "name": "drupal/preview_link",
+    "type": "drupal-module",
+    "description": "Allows anyone to preview unpublished content with a unique link.",
+    "keywords": ["Drupal"],
+    "license": "GPL-2.0+",
+    "homepage": "https://www.drupal.org/project/preview_link",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/preview_link",
+        "source": "https://git.drupalcode.org/project/preview_link"
+    },
+    "require": {
+        "php": ">=8.1",
+        "drupal/core": "^10.2 || ^11",
+        "drupal/dynamic_entity_reference": "^3 || ^4"
+    },
+    "require-dev": {
+        "drupal/paragraphs": "^1"
+    }
+}

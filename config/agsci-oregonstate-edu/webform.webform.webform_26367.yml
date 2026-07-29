@@ -1,0 +1,132 @@
+uuid: 7094c377-d203-4731-9d19-cc11c47d4d63
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 21
+template: false
+archive: false
+id: webform_26367
+title: 'Talk to an Ambassador'
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	College of Agricultural Sciences Ambassadors would love to connect with you and provide you with more information on the areas that you’re interested in. Please complete the fields below as accurately as possible. We will be in contact with you soon to provide you with additional information, or to schedule a meeting with an Ambassador.</p>
+  student_group_type:
+    '#type': radios
+    '#options':
+      1: 'High school student - individual/family'
+      3: 'Transfer student - individual/family'
+      4: 'Other (please describe)'
+    '#title': 'Student/Group Type'
+    '#required': true
+  describe_group:
+    '#type': textarea
+    '#title': Describe
+  im_interested_in:
+    '#type': checkboxes
+    '#options':
+      int_agsci: 'Agricultural Sciences'
+      int_anrs: 'Animal Sciences'
+      int_ag-food-bm: 'Agricultural Food Business Management'
+      int_brr: 'Bioresource Research'
+      int_bio-data: 'Biological Data Sciences'
+      int_botany: Botany
+      int_css: 'Crop and Soil Sciences'
+      int_envi-eco-pol: 'Environmental Economics and Policy'
+      int_foodsci: 'Food Science and Technology'
+      int_fw: 'Fisheries and Wildlife Sciences'
+      int_hort: Horticulture
+      int_rangeland: 'Rangeland Sciences'
+      int_sustainability: Sustainability
+    '#multiple': true
+    '#title': "I'm interested in"
+    '#description': 'Please check all that apply'
+  your_email:
+    '#type': email
+    '#size': 20
+    '#title': 'Your email'
+    '#required': true
+  your_phone_number:
+    '#type': textfield
+    '#title': 'Your phone number'
+  school_name:
+    '#type': textfield
+    '#title': 'School name'
+  school_city:
+    '#type': textfield
+    '#title': 'School city'
+  school_state:
+    '#type': textfield
+    '#title': 'School state'
+  any_additional_information:
+    '#type': textarea
+    '#title': 'Any additional information'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: '<p class="p1"><span class="s1">Thank you for your submission. Go back to the </span><span class="s1"><a href="http://agsci.oregonstate.edu/student-clubs/ambassadors">to Ambassador Homepage</a></span><span class="s2">.</span></p>'
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: CAS.Ambassadors@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

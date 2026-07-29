@@ -1,0 +1,15 @@
+uuid: ce068c41-1321-4a05-b693-a05a6bfcef45
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.fw_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_fw_oregonstate_edu
+label: 'Remove selected content from the Fisheries, Wildlife, and Conservation Sciences domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - fw_oregonstate_edu

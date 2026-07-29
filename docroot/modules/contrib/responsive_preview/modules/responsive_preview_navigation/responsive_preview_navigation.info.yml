@@ -1,0 +1,13 @@
+name: 'Responsive Preview Navigation'
+type: module
+description: 'Provides a navigation with responsive preview icons.'
+core_version_requirement: ^11.1
+package: 'Responsive Preview'
+dependencies:
+  - drupal:responsive_preview
+  - drupal:navigation
+
+# Information added by Drupal.org packaging script on 2026-01-27
+version: '2.3.2'
+project: 'responsive_preview'
+datestamp: 1769512420

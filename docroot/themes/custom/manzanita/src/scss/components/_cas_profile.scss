@@ -1,0 +1,80 @@
+// osu_profile full page: replicate the D7 people profile layout — photo left,
+// contact details beside it, career interests below, then the field_group
+// accordion sections styled like the D7 collapsed gray panels.
+// Markup comes from node--osu-profile--full.html.twig plus the field_group
+// "details" elements in the node.osu_profile.full view display.
+.node--type-osu-profile.node--view-mode-full {
+  .profile-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2.5rem;
+    margin-bottom: 1.5rem;
+
+    &__photo {
+      flex: 0 0 auto;
+      max-width: 220px;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &__info {
+      flex: 1 1 20rem;
+      padding-top: 0.25rem;
+
+      .field {
+        margin-bottom: 0.25rem;
+      }
+
+      // D7 separated the position/email block from the address block.
+      .field--name-field-profile-address {
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  .profile-summary {
+    margin-bottom: 1.5rem;
+
+    .field {
+      margin-bottom: 1rem;
+    }
+  }
+
+  // D7 rendered the remaining profile sections as collapsed full-width gray
+  // accordion bars (At OSU, Biography, Professional Accomplishments, ...).
+  .profile-sections {
+    > details {
+      margin-bottom: 0.75rem;
+      padding: 0 1rem;
+      border: 1px solid #ddd;
+      border-radius: 0.25rem;
+      background-color: #f5f5f5;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+
+      > summary {
+        margin: 0 -1rem;
+        padding: 0.65rem 1rem;
+        cursor: pointer;
+      }
+
+      &[open] {
+        padding-bottom: 0.75rem;
+        background-color: #fff;
+
+        > summary {
+          margin-bottom: 0.75rem;
+          border-bottom: 1px solid #ddd;
+          background-color: #f5f5f5;
+        }
+      }
+
+      .field {
+        margin-bottom: 0.75rem;
+      }
+    }
+  }
+}

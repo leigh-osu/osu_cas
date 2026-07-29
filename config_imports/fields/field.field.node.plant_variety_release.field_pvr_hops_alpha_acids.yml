@@ -1,0 +1,19 @@
+uuid: fde491c8-7f5f-4c8b-873f-f2e716d78d40
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pvr_hops_alpha_acids
+    - node.type.plant_variety_release
+id: node.plant_variety_release.field_pvr_hops_alpha_acids
+field_name: field_pvr_hops_alpha_acids
+entity_type: node
+bundle: plant_variety_release
+label: 'Alpha Acids'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

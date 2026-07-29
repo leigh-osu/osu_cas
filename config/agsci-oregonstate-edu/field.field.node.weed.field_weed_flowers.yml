@@ -1,0 +1,26 @@
+uuid: cb9f3ab7-e091-442e-91e2-a75014e84f2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weed_flowers
+    - filter.format.basic_html
+    - filter.format.full_html
+    - node.type.weed
+  module:
+    - text
+id: node.weed.field_weed_flowers
+field_name: field_weed_flowers
+entity_type: node
+bundle: weed
+label: Flowers
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+    - basic_html
+field_type: text_long

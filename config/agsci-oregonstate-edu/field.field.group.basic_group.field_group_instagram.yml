@@ -1,0 +1,19 @@
+uuid: cae2f798-8119-48d3-a723-8c3bd4779f92
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_group_instagram
+    - group.type.basic_group
+id: group.basic_group.field_group_instagram
+field_name: field_group_instagram
+entity_type: group
+bundle: basic_group
+label: Instagram
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

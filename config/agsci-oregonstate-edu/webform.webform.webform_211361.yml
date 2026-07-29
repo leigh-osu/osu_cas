@@ -1,0 +1,196 @@
+uuid: 477808de-7c67-4fc6-8844-75a7fb6a7fd9
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_211361
+title: 'Report a Shark Sighting'
+description: null
+categories: {  }
+elements: |-
+  what_type_of_shark_did_you_see:
+    '#type': radios
+    '#options':
+      white: 'White shark'
+      salmon: 'Salmon Shark'
+      mako: 'Mako Shark'
+      blue: 'Blue Shark'
+      thresher: 'Common Thresher Shark'
+      basking: 'Basking Shark'
+      broadnose_sevngill: 'Broadnose Sevengill Shark'
+      leopard: 'Leopard Shark'
+      angel: 'Pacific Angel Shark'
+      catshark: 'Brown Catshark'
+      smoothound: 'Brown Smoothound'
+      dogfish: 'Spiny Dogfish'
+      soupfin: 'School/Soupfin Shark'
+      sixgill: Sixgill
+      unknown: unknown
+      other: Other
+    '#title': 'What type of shark did you see?'
+    '#description': '</h5><a href="https://marineresearch.oregonstate.edu/big-fish/report-shark-sighting/shark-id">Shark ID Key</a></h5>'
+  other:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Other
+    '#states':
+      visible:
+        - ':input[name="what_type_of_shark_did_you_see"]':
+            value: other
+  ocean_activity:
+    '#type': textfield
+    '#title': 'Ocean Activity'
+  general_location:
+    '#type': textarea
+    '#title': 'General Location'
+    '#description': 'Please be as specific as you are able'
+  latitude_longitude:
+    '#type': textfield
+    '#title': Latitude/Longitude
+  time:
+    '#type': textfield
+    '#title': Time
+  temperature:
+    '#type': textfield
+    '#title': Temperature
+  lure:
+    '#type': textfield
+    '#title': Lure
+  bait:
+    '#type': textfield
+    '#title': Bait
+  water_depth:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Water depth'
+  water_temperature:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Water temperature'
+  disposition:
+    '#type': textfield
+    '#unique': false
+    '#title': Disposition
+    '#description': '(alive, dead, unknown)'
+  air_temperature:
+    '#type': textfield
+    '#title': 'Air temperature'
+  picture:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': Picture
+    '#description': 'Please upload any pictures you have of the shark'
+  picture_2:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Picture 2'
+  picture_3:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Picture 3'
+  video:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'mov mp3'
+    '#title': Video
+    '#description': 'Please upload any videos you have of the shark'
+  link_to_video:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Link to Video'
+    '#description': 'If you have a video of the shark, please upload it to YouTube and paste the YouTube link here.'
+  your_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Your Name'
+    '#description': 'If you would like to be contacted, please submit your name and contact information.'
+  phone_number:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Phone Number'
+  email_address:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Email Address'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: 4402589768@vtext.com
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: 'Shark sighting'
+      body: |-
+        [webform_submission:url]
+        [webform_submission:date:long]
+        Type: [webform_submission:values:what_type_of_shark_did_you_see]
+        Location: [webform_submission:values:location_of_sighting]
+        Other: [webform_submission:values:other]
+        Name: [webform_submission:values:your_name]
+        Phone: [webform_submission:values:phone_number]
+        Emaill: [webform_submission:values:email_address]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

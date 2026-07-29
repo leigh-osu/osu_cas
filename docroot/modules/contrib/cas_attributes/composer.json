@@ -1,0 +1,15 @@
+{
+    "name": "drupal/cas_attributes",
+    "description": "Provides tokens for CAS attributes and an interface for token replacement in user account fields as well as advanced role mapping capability.",
+    "type": "drupal-module",
+    "keywords": ["Drupal", "CAS", "single sign-on"],
+    "homepage": "https://www.drupal.org/project/cas_attributes",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/cas_attributes",
+        "source": "https://git.drupalcode.org/project/cas_attributes"
+    },
+    "license": "GPL-2.0+",
+    "require": {
+        "drupal/cas": "^2.1"
+    }
+}

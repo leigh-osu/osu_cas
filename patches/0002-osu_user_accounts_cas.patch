@@ -1,0 +1,122 @@
+From 1d0a21303a04c578503c58ff0f05ed364840e44a Mon Sep 17 00:00:00 2001
+From: Roger Leigh <roger.leigh@oregonstate.edu>
+Date: Tue, 21 Apr 2026 13:59:18 -0700
+Subject: [PATCH] osu_user_accounts_cas
+
+---
+ .../upgrade_d7_users_with_roles.yml           | 10 ++-
+ .../source/UserFilteredDomainAccess.php       | 70 +++++++++++++++++++
+ 2 files changed, 79 insertions(+), 1 deletion(-)
+ create mode 100644 modules/osu_user_accounts/src/Plugin/migrate/source/UserFilteredDomainAccess.php
+
+diff --git a/modules/osu_user_accounts/migrations/upgrade_d7_users_with_roles.yml b/modules/osu_user_accounts/migrations/upgrade_d7_users_with_roles.yml
+index 8b2c90d..f125d48 100644
+--- a/modules/osu_user_accounts/migrations/upgrade_d7_users_with_roles.yml
++++ b/modules/osu_user_accounts/migrations/upgrade_d7_users_with_roles.yml
+@@ -12,12 +12,15 @@ migration_tags:
+ migration_group: insert_users
+ label: 'Filtered User Accounts'
+ source:
+-  plugin: d7_user_filtered
++  plugin: d7_user_filtered_domain_access
+   role_names:
+     - earl
+     - architect
+     - author
+     - manager
++    - group user
++    - paragraph editor
++    - profile editor
+ process:
+   uid: uid
+   name: name
+@@ -44,5 +47,10 @@ process:
+   roles:
+     plugin: osu_user_role_map
+     source: roles
++  field_domain_access:
++    plugin: sub_process
++    source: domain_access_user
++    process:
++      target_id: target_id
+ destination:
+   plugin: 'entity:user'
+diff --git a/modules/osu_user_accounts/src/Plugin/migrate/source/UserFilteredDomainAccess.php b/modules/osu_user_accounts/src/Plugin/migrate/source/UserFilteredDomainAccess.php
+new file mode 100644
+index 0000000..89c35a7
+--- /dev/null
++++ b/modules/osu_user_accounts/src/Plugin/migrate/source/UserFilteredDomainAccess.php
+@@ -0,0 +1,70 @@
++<?php
++
++namespace Drupal\osu_user_accounts\Plugin\migrate\source;
++
++use Drupal\migrate\Row;
++use Drupal\osu_user_accounts\Plugin\migrate\source\UserFiltered;
++
++/**
++ * Filtered D7 user source with domain access fields.
++ *
++ * Combines role-based filtering (d7_user_filtered) with domain access
++ * data from the D7 domain_editor table.
++ *
++ * @MigrateSource(
++ *   id = "d7_user_filtered_domain_access",
++ *   source_module = "user"
++ * )
++ */
++class UserFilteredDomainAccess extends UserFiltered {
++
++  /**
++   * {@inheritdoc}
++   */
++  public function fields() {
++    $fields = parent::fields();
++    $fields['domain_access_user'] = $this->t('User Domain Access');
++    return $fields;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function prepareRow(Row $row) {
++    $row->setSourceProperty('domain_access_user', $this->getDomainTargetIds($row->getSourceProperty('uid')));
++    return parent::prepareRow($row);
++  }
++
++  /**
++   * Returns domain machine names as target_id arrays for the given uid.
++   *
++   * @param int $uid
++   *   User ID from the D7 source.
++   *
++   * @return array
++   *   Array of ['target_id' => machine_name] entries.
++   */
++  private function getDomainTargetIds(int $uid): array {
++    $result = [];
++
++    $domain_ids = $this->select('domain_editor', 'de')
++      ->fields('de', ['domain_id'])
++      ->condition('de.uid', $uid)
++      ->execute()
++      ->fetchCol();
++
++    foreach ($domain_ids as $domain_id) {
++      $machine_names = $this->select('domain', 'da')
++        ->fields('da', ['machine_name'])
++        ->condition('da.domain_id', $domain_id)
++        ->execute()
++        ->fetchCol();
++      if (!empty($machine_names)) {
++        $result[] = ['target_id' => $machine_names[0]];
++      }
++    }
++
++    return $result;
++  }
++
++}
+-- 
+2.50.1 (Apple Git-155)
+

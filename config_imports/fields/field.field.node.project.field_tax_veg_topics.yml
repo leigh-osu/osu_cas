@@ -1,0 +1,29 @@
+uuid: 41fa697f-8242-42ce-8b70-3634b79e0c1e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tax_veg_topics
+    - node.type.project
+    - taxonomy.vocabulary.veg
+id: node.project.field_tax_veg_topics
+field_name: field_tax_veg_topics
+entity_type: node
+bundle: project
+label: 'Vegetable Topics'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      veg: veg
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,21 @@
+uuid: fc9fc774-1c02-433a-b2ac-4a568babd2d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pvr_date_of_pvp
+    - node.type.plant_variety_release
+  module:
+    - datetime
+id: node.plant_variety_release.field_pvr_date_of_pvp
+field_name: field_pvr_date_of_pvp
+entity_type: node
+bundle: plant_variety_release
+label: 'Date of PVP'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,6 @@
+domain_early_negotiation.settings:
+  title: Early negotiation
+  route_name: domain_early_negotiation.settings
+  parent: domain.admin
+  description: 'Configure early domain negotiation middleware priority.'
+  weight: 10

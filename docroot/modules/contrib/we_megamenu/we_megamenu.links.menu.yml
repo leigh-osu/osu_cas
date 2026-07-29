@@ -1,0 +1,11 @@
+we_megamenu.admin:
+  title: 'Mega Menu'
+  description: 'List Of Mega Menu Items'
+  parent: system.admin_structure
+  route_name: we_megamenu.admin
+
+we_megamenu.megamenu_listing:
+  class: Drupal\Core\Menu\MenuLinkDefault
+  deriver: Drupal\we_megamenu\Plugin\Derivative\MegamenuListing
+  menu_name: we_megamenu_megamenu_listing
+  parent: we_megamenu.admin

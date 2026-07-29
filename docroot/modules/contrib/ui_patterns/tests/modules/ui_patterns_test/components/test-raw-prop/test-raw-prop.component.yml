@@ -1,0 +1,8 @@
+name: "Test raw prop component"
+description: "Prints its prop with |raw. Test-only: raw output of an untrusted prop is the template author's responsibility."
+props:
+  type: object
+  properties:
+    string:
+      title: "String"
+      type: "string"

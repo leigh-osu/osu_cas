@@ -1,0 +1,22 @@
+uuid: cee69b64-93c0-45e7-97a2-3b944a9a4785
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_fac_education
+    - node.type.osu_profile
+  module:
+    - text
+id: node.osu_profile.field_profile_fac_education
+field_name: field_profile_fac_education
+entity_type: node
+bundle: osu_profile
+label: Education
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

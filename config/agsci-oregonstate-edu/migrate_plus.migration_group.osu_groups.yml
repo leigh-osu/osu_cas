@@ -1,0 +1,10 @@
+uuid: e64fc419-103b-4ae7-901d-3b129a083750
+langcode: en
+status: true
+dependencies: {  }
+id: osu_groups
+label: osu_groups
+description: ''
+source_type: null
+module: null
+shared_configuration: null

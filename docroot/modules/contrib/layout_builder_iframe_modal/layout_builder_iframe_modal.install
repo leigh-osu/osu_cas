@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for Layout Builder iFrame Modal.
+ */
+
+/**
+ * Set default value for new config.
+ */
+function layout_builder_iframe_modal_update_8101(): void {
+  $config = \Drupal::service('config.factory')->getEditable('layout_builder_iframe_modal.settings');
+  $routes = [
+    'layout_builder.configure_section',
+    'layout_builder.remove_section',
+    'layout_builder.remove_block',
+    'layout_builder.add_section',
+    'layout_builder.add_block',
+    'layout_builder.update_block',
+    'layout_builder.move_sections_form',
+    'layout_builder.move_block_form',
+    'layout_builder.translate_block',
+    'layout_builder.translate_inline_block',
+  ];
+  $config->set('layout_builder_iframe_routes', $routes);
+  $config->save();
+}

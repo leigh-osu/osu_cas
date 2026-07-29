@@ -1,0 +1,10 @@
+name: Date iCal
+type: module
+description: 'It provides a plugin for Views to enable exporting your sites calendar as an iCal feed'
+package: Views
+core_version_requirement: ^9 || ^10 || ^11 || ^12
+
+# Information added by Drupal.org packaging script on 2026-05-13
+version: '4.0.15'
+project: 'date_ical'
+datestamp: 1778691118

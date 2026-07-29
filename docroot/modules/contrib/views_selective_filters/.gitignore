@@ -1,0 +1,10 @@
+# ddev-drupal-contrib
+/recipes/
+/vendor/
+/web/
+
+.gitattributes
+.editorconfig
+
+# Composer
+composer.lock

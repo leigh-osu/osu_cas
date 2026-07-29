@@ -1,0 +1,53 @@
+{#
+/**
+ * @file
+ * Theme override for an "osu_card" content block rendered in the "picbox"
+ * view mode (the cards inside an lp_picbox_grid).
+ *
+ * Replicates the Drupal 7 lp_picbox behaviour: the link title is overlaid on
+ * top of the image in a translucent box, and the link target wraps the whole
+ * card (image + overlay). The description (body) renders below the image.
+ *
+ * Suggestion provided by manzanita_theme_suggestions_block_alter():
+ *   block__block_content__view_type__osu_card__picbox
+ *
+ * Additional variables prepared by manzanita_preprocess_block():
+ * - card_url:         The link target for the whole card (string URL).
+ * - card_title:       The link title, shown as the overlay headline.
+ * - card_image:       Render array for field_osu_card_image (800x450).
+ * - card_description: Render array for the body field.
+ *
+ * @see template_preprocess_block()
+ * @see madrone_preprocess_block()
+ * @see manzanita_preprocess_block()
+ * @see manzanita_theme_suggestions_block_alter()
+ */
+#}
+{% set classes = [
+  'block',
+  'block-' ~ configuration.provider|clean_class,
+  'block-' ~ plugin_id|clean_class,
+  'block--type-' ~ bundle|clean_class,
+  'block--view-mode-' ~ view_mode|clean_class,
+  'osu-card',
+  'osu-card--picbox',
+] %}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+  <div class="picbox-container">
+    <div class="picbox-item">
+      {% if card_url %}
+        <a href="{{ card_url }}" class="picbox-link">
+      {% endif %}
+        {% if card_title %}
+          <h3 class="picbox-headline text-uppercase">{{ card_title }}</h3>
+        {% endif %}
+        {{ card_image }}
+      {% if card_url %}
+        </a>
+      {% endif %}
+      {{ card_description }}
+    </div>
+  </div>
+</div>

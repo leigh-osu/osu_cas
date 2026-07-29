@@ -1,0 +1,16 @@
+uuid: 568faddd-a1b7-4604-84df-51241a46afd0
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: squash
+label: squash
+logic: and
+conditions:
+  dfec7494-91cb-4b54-ad54-37c677da3f36:
+    id: request_path
+    negate: false
+    uuid: dfec7494-91cb-4b54-ad54-37c677da3f36
+    pages: /node/112811
+allow_other_conditions: null

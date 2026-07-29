@@ -1,0 +1,45 @@
+Split Group module install from osu_groups install in osu_standard_default_modules().
+
+On Acquia (and intermittently elsewhere), installing osu_groups + osu_groups_basic_group
+in a single module_installer::install() call triggers a Group 2.3.x race condition
+(drupal.org issue #3391452) where:
+
+  GroupRelationshipType::postSave()
+    -> installEnforced()
+      -> GroupMembershipPostInstall::installGroupRolesField()
+        -> FieldConfig::create()  // fails: "no field_name in values"
+
+The root cause: when Group module's enforced relationships install, the
+field.storage.group_relationship.group_roles config has not yet been fully
+imported, so FieldConfig::create() is invoked with empty values.
+
+The fix: install group/gnode/group_support_revisions/group_content_menu in
+their own module_installer::install() call FIRST, completing all their
+post-install hooks (including field storage definition installation) before
+osu_groups and osu_groups_basic_group try to define group types and
+relationship types.
+
+diff --git a/osu_standard.profile b/osu_standard.profile
+--- a/osu_standard.profile
++++ b/osu_standard.profile
+@@ -66,8 +66,19 @@ function osu_standard_default_modules(array &$install_state) {
+     'osu_library_two_column_25_75',
+     'osu_library_two_column_50_50',
+   ], TRUE);
+-  // Adding these after to satisfy dependencies.
++  // Install Group module and its submodules in their own call before
++  // osu_groups_basic_group. This prevents a Group 2.3.x race condition
++  // (drupal.org #3391452) where GroupMembershipPostInstall::installGroupRolesField()
++  // runs before field.storage.group_relationship.group_roles is fully imported,
++  // causing FieldConfig::create() to fail with "no field_name" on Acquia.
+   \Drupal::service('module_installer')->install([
++    'group',
++    'gnode',
++    'group_support_revisions',
++    'group_content_menu',
++  ], TRUE);
++  // Then install OSU group modules and the basic_group type.
++  \Drupal::service('module_installer')->install([
+     'osu_groups',
+     'osu_groups_basic_group',
+   ], TRUE);

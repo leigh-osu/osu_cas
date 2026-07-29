@@ -1,0 +1,216 @@
+node.type.*.third_party.toc_js:
+  type: mapping
+  label: 'Per-content type tocjs node settings'
+  mapping:
+    toc_js_active:
+      type: boolean
+      label: 'Enable Toc.js for content type'
+    title:
+      type: label
+      label: 'Toc title text'
+    title_tag:
+      type: string
+      label: 'Toc title HTML tag'
+    title_classes:
+      type: string
+      label: 'Toc title CSS classes'
+    selectors:
+      type: string
+      label: 'Elements to use as headings'
+    selectors_minimum:
+      type: string
+      label: 'Set a minimum of elements to display the toc'
+    container:
+      type: string
+      label: 'Element to find all selectors in'
+    prefix:
+      type: string
+      label: 'Prefix for anchor tags and ToC elements default class names'
+    list_type:
+      type: string
+      label: 'The HTML list type to use'
+    list_classes:
+      type: string
+      label: 'Custom UL/OL css classes.'
+    li_classes:
+      type: string
+      label: 'Custom LI css classes.'
+    inheritable_classes:
+      type: string
+      label: 'Heading classes to apply to LI tags.'
+    classes:
+      type: string
+      label: 'Custom css classes.'
+    heading_classes:
+      type: string
+      label: 'CSS classes to apply to headings.'
+    skip_invisible_headings:
+      type: integer
+      label: 'Do not add invisible headings to the ToC'
+    use_heading_html:
+      type: integer
+      label: 'Use the heading html content for the table of contents links'
+    heading_cleanup_selector:
+      type: string
+      label: 'Selector for elements to remove from headings'
+    collapsible_items:
+      type: integer
+      label: 'Enable collapsible toc items'
+    collapsible_expanded:
+      type: integer
+      label: 'Expand collapsible items by default'
+    back_to_top:
+      type: integer
+      label: 'Add back to top link on heading'
+    back_to_top_label:
+      type: label
+      label: 'Back to top link label'
+    back_to_top_selector:
+      type: string
+      label: 'Back to top headings filter selector'
+    heading_focus:
+      type: integer
+      label: 'Enable focus on heading'
+    back_to_toc:
+      type: integer
+      label: 'Add back to ToC link on heading'
+    back_to_toc_label:
+      type: label
+      label: 'Back to ToC link label'
+    back_to_toc_classes:
+      type: string
+      label: 'Back to ToC link label CSS classes'
+    smooth_scrolling:
+      type: integer
+      label: 'Enable or disable smooth scrolling on click'
+    scroll_to_offset:
+      type: string
+      label: 'Offset to keep when scrolling to heading'
+    highlight_on_scroll:
+      type: integer
+      label: 'Add class to heading that is currently in focus'
+    highlight_offset:
+      type: string
+      label: 'Offset to trigger the next headline'
+    sticky:
+      type: integer
+      label: 'Stick the toc on window scroll'
+    sticky_offset:
+      type: string
+      label: 'The offset to apply when toc is sticky'
+    toc_container:
+      type: string
+      label: 'Toc container selector to use for visibility and stickiness'
+    ajax_page_updates:
+      type: integer
+      label: 'Handle Ajax page updates'
+    observable_selector:
+      type: string
+      label: 'Selector for Ajax MutationObserver target'
+
+block.settings.toc_js_block:
+  type: block_settings
+  label: 'Toc.js block settings'
+  mapping:
+    title:
+      type: label
+      label: 'Toc title text'
+    title_tag:
+      type: string
+      label: 'Toc title HTML tag'
+    title_classes:
+      type: string
+      label: 'Toc title CSS classes'
+    selectors:
+      type: string
+      label: 'Elements to use as headings'
+    selectors_minimum:
+      type: string
+      label: 'Set a minimum of elements to display the toc'
+    container:
+      type: string
+      label: 'Element to find all selectors in'
+    prefix:
+      type: string
+      label: 'Prefix for anchor tags and ToC elements default class names'
+    list_type:
+      type: string
+      label: 'The HTML list type to use'
+    list_classes:
+      type: string
+      label: 'Custom UL/OL css classes.'
+    li_classes:
+      type: string
+      label: 'Custom LI css classes.'
+    inheritable_classes:
+      type: string
+      label: 'Heading classes to apply to LI tags.'
+    classes:
+      type: string
+      label: 'Custom css classes.'
+    heading_classes:
+      type: string
+      label: 'CSS classes to apply to headings.'
+    skip_invisible_headings:
+      type: integer
+      label: 'Do not add invisible headings to the ToC'
+    use_heading_html:
+      type: integer
+      label: 'Use the heading html content for the table of contents links'
+    heading_cleanup_selector:
+      type: string
+      label: 'Selector for elements to remove from headings'
+    collapsible_items:
+      type: integer
+      label: 'Enable collapsible toc items'
+    collapsible_expanded:
+      type: integer
+      label: 'Expand collapsible items by default'
+    back_to_top:
+      type: integer
+      label: 'Add back to top link on heading'
+    back_to_top_label:
+      type: label
+      label: 'Back to top link label'
+    back_to_top_selector:
+      type: string
+      label: 'Back to top headings filter selector'
+    heading_focus:
+      type: integer
+      label: 'Enable focus on heading'
+    back_to_toc:
+      type: integer
+      label: 'Add back to ToC link on heading'
+    back_to_toc_label:
+      type: label
+      label: 'Back to ToC link label'
+    back_to_toc_classes:
+      type: string
+      label: 'Back to ToC link label CSS classes'
+    smooth_scrolling:
+      type: integer
+      label: 'Enable or disable smooth scrolling on click'
+    scroll_to_offset:
+      type: string
+      label: 'Offset to keep when scrolling to heading'
+    highlight_on_scroll:
+      type: integer
+      label: 'Add class to heading that is currently in focus'
+    highlight_offset:
+      type: string
+      label: 'Offset to trigger the next headline'
+    sticky:
+      type: integer
+      label: 'Stick the toc on window scroll'
+    sticky_offset:
+      type: string
+      label: 'The offset to apply when toc is sticky'
+    toc_container:
+      type: string
+      label: 'Toc container selector to use for visibility and stickiness'
+    ajax_page_updates:
+      type: integer
+      label: 'Handle Ajax page updates'
+    observable_selector:
+      type: string
+      label: 'Selector for Ajax MutationObserver target'

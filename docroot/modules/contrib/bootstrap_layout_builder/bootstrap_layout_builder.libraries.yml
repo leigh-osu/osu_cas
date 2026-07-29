@@ -1,0 +1,13 @@
+# Bootstrap Layout Builder base styles.
+layout_builder_form_style:
+  css:
+    theme:
+      css/layout-tab-styles.css: { }
+  js:
+    js/layout-tab-scripts.js: { }
+
+# items_alignment
+plugin.items_alignment.build:
+  css:
+    theme:
+      css/blb_example_classes/positioning-items-alignment.css: { }

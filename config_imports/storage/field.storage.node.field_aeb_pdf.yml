@@ -1,0 +1,20 @@
+uuid: c129739a-58dc-4752-8d9c-93cb9adb1558
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - node
+id: node.field_aeb_pdf
+field_name: field_aeb_pdf
+entity_type: node
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

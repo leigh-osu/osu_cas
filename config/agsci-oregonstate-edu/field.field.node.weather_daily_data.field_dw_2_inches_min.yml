@@ -1,0 +1,23 @@
+uuid: dc4a46bd-e1fa-459e-aa5b-8091838fa307
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dw_2_inches_min
+    - node.type.weather_daily_data
+id: node.weather_daily_data.field_dw_2_inches_min
+field_name: field_dw_2_inches_min
+entity_type: node
+bundle: weather_daily_data
+label: '2 inches Min'
+description: 'Soil Temperature'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

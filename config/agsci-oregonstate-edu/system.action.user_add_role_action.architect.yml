@@ -1,0 +1,14 @@
+uuid: d8ccf5da-33fa-47aa-8c1f-2f210f271f5b
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.architect
+  module:
+    - user
+id: user_add_role_action.architect
+label: 'Add the Architect role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: architect

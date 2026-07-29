@@ -1,0 +1,19 @@
+uuid: 5ec6e3c6-dba4-4a29-87b7-ae2e9d421e6d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pvr_summary
+    - node.type.plant_variety_release
+id: node.plant_variety_release.field_pvr_summary
+field_name: field_pvr_summary
+entity_type: node
+bundle: plant_variety_release
+label: Summary
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

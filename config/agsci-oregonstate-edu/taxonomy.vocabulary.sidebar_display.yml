@@ -1,0 +1,9 @@
+uuid: 43d652be-daa9-4576-b35f-96bc4661d146
+langcode: en
+status: true
+dependencies: {  }
+name: 'Sidebar Display'
+vid: sidebar_display
+description: 'Do you want custom content in the sidebar of a specific page'
+weight: 0
+new_revision: false

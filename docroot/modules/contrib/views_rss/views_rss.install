@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Update scripts for Views RSS module.
+ */
+
+use Drupal\Core\Config\FileStorage;
+
+/**
+ * Load the RFC822 date format.
+ */
+function views_rss_update_8201() {
+  $module_path = \Drupal::service('extension.list.module')->getPath('views_rss');
+  $config_path = $module_path . '/config/install';
+  $source = new FileStorage($config_path);
+  $name = 'core.date_format.rfc822';
+  $config = $source->read($name);
+  $config_factory = \Drupal::configFactory();
+  $uuid_service = \Drupal::service('uuid');
+  /** @var \Drupal\Core\Config\StorageInterface $active_storage */
+  $active_storage = \Drupal::service('config.storage');
+  $active_storage->write($name, $config);
+  $config_factory->getEditable($name)
+    ->set('uuid', $uuid_service->generate())
+    ->save();
+}

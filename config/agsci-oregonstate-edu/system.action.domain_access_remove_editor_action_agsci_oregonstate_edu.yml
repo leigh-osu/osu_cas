@@ -1,0 +1,15 @@
+uuid: cc9d4af4-2fd6-4415-9967-8d95286490e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.agsci_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_agsci_oregonstate_edu
+label: 'Remove editors from the College of Agricultural Sciences domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - agsci_oregonstate_edu

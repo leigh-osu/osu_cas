@@ -1,0 +1,67 @@
+uuid: 4c2a7b42-1c81-4756-98e2-318a3ea4149b
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 16861
+template: false
+archive: false
+id: webform_262061
+title: 'Scholarship Thank You Letter Form'
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	Scholarship Mid-Year Update Letter Form</p>
+
+      <p>
+      	&nbsp;</p>
+
+      <p>
+      	Please complete this form with an update of your academic and (other?) progress and activities. Your responses will be put on official CSS letter head and sent to the donor of the scholarship(s) you received.</p>
+  full_name:
+    '#type': textfield
+    '#title': 'Full Name'
+    '#required': true
+  scholarships_received:
+    '#type': textfield
+    '#title': 'Scholarship(s) Received'
+    '#required': true
+  question_1:
+    '#type': textarea
+    '#title': 'How has this scholarship helped you pursue your education this year?'
+    '#required': true
+  question_2:
+    '#type': textarea
+    '#title': 'Question 2'
+    '#required': true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }

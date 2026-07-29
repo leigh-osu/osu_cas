@@ -1,0 +1,22 @@
+layout_builder_iframe_modal.settings:
+  type: config_object
+  label: 'Layout Builder Iframe Modal settings'
+  mapping:
+    layout_builder_iframe_routes:
+      type: sequence
+      label: 'Layout Builder Iframe routes'
+      sequence:
+        type: string
+        label: 'Route'
+        constraints:
+          NotBlank: { }
+    custom_routes:
+      type: sequence
+      label: 'Custom Iframe routes'
+      sequence:
+        type: string
+        label: 'Route'
+        constraints:
+          NotBlank: { }
+  constraints:
+    FullyValidatable: ~

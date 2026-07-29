@@ -1,0 +1,13 @@
+uuid: 9468c04b-3024-461a-8c09-6e9b65ee6d0d
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: njP0dRp3AOTwb0pJ-ULnbyrxJR3f2Zx0TP4b-xCBMCs
+id: media.media_card
+label: 'Media Card'
+description: ''
+targetEntityType: media
+cache: true

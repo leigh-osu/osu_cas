@@ -1,0 +1,9 @@
+uuid: 482a9258-c2a8-47b5-807c-6f4a2fcd99a3
+langcode: en
+status: true
+dependencies: {  }
+id: article_sidebar
+label: article_sidebar
+logic: and
+conditions: {  }
+allow_other_conditions: null

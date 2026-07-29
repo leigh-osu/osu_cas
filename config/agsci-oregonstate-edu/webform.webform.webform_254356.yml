@@ -1,0 +1,393 @@
+uuid: 5df4ab7b-bf8d-4549-b23d-d1d5eec6d962
+langcode: en
+status: closed
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 16861
+template: false
+archive: false
+id: webform_254356
+title: 'Timothy Scott Wirth Memorial Scholarship'
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <h3>
+      	Application Deadline: April 1</h3>
+
+      <p>
+      	The Timothy Scott Wirth Memorial Scholarship was established in 1990 by the Byron and Edna Scott family of Linn County, Oregon in memory of their grandson, Tim Wirth. Tim was enrolled in the Crop Science program at Oregon State University. This scholarship is open to students who anticipate studying at Oregon State University within the College of Agricultural Sciences, and who are:&nbsp;</p>
+
+      <p>
+      	•&nbsp;&nbsp; &nbsp;Graduates of Linn County, OR secondary schools<br />
+      	•&nbsp;&nbsp; &nbsp;Graduates of Benton County, OR secondary schools<br />
+      	•&nbsp;&nbsp; &nbsp;Transfer students from colleges or universities based in Oregon’s Willamette Valley<br />
+      	•&nbsp;&nbsp; &nbsp;Continuing undergraduate students in the College of Agricultural Sciences at Oregon State University.</p>
+
+      <p>
+      	Scholarship award selection preference will be given to individuals who come from a rural farm background, who have been involved in FFA or 4-H, who will major in Crop and Soil Sciences, and/or who contribute their own financial resources to their college education. If you do not meet these preferences, your application is still highly encouraged.&nbsp;Recipients of the Timothy Scott Wirth Memorial Scholarship will receive their award as a direct-deposit into their OSU Student Account, which will be disbursed during the upcoming academic year.&nbsp;</p>
+  applicant_information:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <h3>
+      	Applicant Information:</h3>
+  full_name:
+    '#type': textfield
+    '#title': 'Full Name'
+    '#required': true
+  current_mailing_address:
+    '#type': textfield
+    '#title': 'Current Mailing Address'
+    '#required': true
+  telephone_number:
+    '#type': textfield
+    '#title': 'Telephone Number'
+    '#required': true
+  email_address:
+    '#type': email
+    '#size': 20
+    '#title': 'Email Address'
+    '#required': true
+  osu_id__if_available:
+    '#type': textfield
+    '#size': 20
+    '#title': 'OSU ID # (if available)'
+  school_information:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <h3>
+      	School Information:</h3>
+  name_of_high_school_last_attended:
+    '#type': textfield
+    '#title': 'Name of High School last attended'
+    '#required': true
+  high_schools_city_state_zip:
+    '#type': textfield
+    '#title': "High School's City/State/Zip"
+    '#required': true
+  applicants_date_of_high_school_graduation:
+    '#type': textfield
+    '#title': "Applicant's date of High School graduation: "
+    '#required': true
+  applicants_proposed_major_field_at_osu:
+    '#type': textfield
+    '#title': "Applicant's proposed major field at OSU:"
+    '#required': true
+  applicants_class_standing_in_the_coming_fall_term:
+    '#type': select
+    '#options':
+      freshman: Freshman
+      sophmore: Sophmore
+      junior: Junior
+      senior: Senior
+      postbacc.: 'Post Bacc.'
+    '#title': "Applicant's class standing in the coming Fall term:"
+    '#required': true
+  applicants_osu_enrollment_date:
+    '#type': date
+    '#title': "Applicant's OSU enrollment date"
+    '#required': true
+  applicants_expected_osu_graduation_date:
+    '#type': textfield
+    '#title': "Applicant's expected OSU graduation date:"
+    '#required': true
+  essay_questions:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <h3>
+      	Essay Questions:</h3>
+  1_please_tell_us_a_little_about_yourself_and_your_background1:
+    '#type': textarea
+    '#title': '1. Please tell us a little about yourself and your background. Note: maximum of 150 words'
+    '#description': '*Note: Maximum of 150 words'
+    '#required': true
+  2_briefly_describe_your_academic_and_professional_goals_and_interests:
+    '#type': textarea
+    '#title': '2. Briefly describe your academic and professional goals and interests. Note: Maximum 150 words'
+    '#description': 'Note: Maximum 150 words'
+    '#required': true
+  essay_question_3:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	<strong>3. Please discuss an event that you have experienced within the past five years that has contributed significantly to your personal growth. Note: Please submit your answer to this question as a handwritten, scanned document.&nbsp; Maximum 200 words</strong></p>
+  upload_essay_question_3_here:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Upload Essay Question 3 here'
+    '#required': true
+  statement_of_financial_need:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <h3>
+      	Statement of Financial Need:</h3>
+  on_average_what_percentage_of_your_expenses_are_or_will_be_paid_by_you_personally_while_enrolled:
+    '#type': textfield
+    '#size': 20
+    '#max': '100'
+    '#unique': false
+    '#field_suffix': '%'
+    '#title': 'On average, what percentage of your expenses are or will be paid by you (personally) while enrolled at Oregon State University (i.e. what percentage are you self-funded)?'
+    '#required': true
+  additiona_finacial_information:
+    '#type': textarea
+    '#title': 'Please utilize the following space to provide any additional comments regarding your financial need that you would like to share with the Timothy Scott Wirth Memorial Scholarship committee (ex. source of support, special circumstances, etc.):'
+  work_experience:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <h3>
+      	Work Experience:</h3>
+
+      <p>
+      	Please provide a list of your past work experience that is related to your major and goals.</p>
+  employer:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Employer:'
+    '#required': true
+  dates_of_employment:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Dates of Employment:'
+    '#required': true
+  duties:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Duties:'
+    '#required': true
+  employer1:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Employer:'
+  dates_of_employment1:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Dates of Employment:'
+  duties1:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Duties:'
+  employer2:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Employer:'
+  dates_of_employment2:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Dates of Employment:'
+  duties2:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Duties:'
+  activities_honors_and_awards:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <h3>
+      	Activities, Honors, and Awards:</h3>
+
+      <p>
+      	Please provide a list of your professional societies, offices held, committees, awards, honors, accomplishments, volunteer service, and other activities. An additional sheet may be attached to this scholarship application if more space is needed.</p>
+  academic_high_school_and_or_collegiate:
+    '#type': textarea
+    '#title': 'Academic (high school and/or collegiate):'
+    '#required': true
+  community:
+    '#type': textarea
+    '#title': 'Community:'
+    '#required': true
+  other:
+    '#type': textarea
+    '#title': 'Other:'
+    '#required': true
+  letters_of_reference:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <h3>
+      	Letters of Reference:</h3>
+
+      <p>
+      	Applicants are requested to solicit <strong>one&nbsp;</strong>letter of reference from <em>any</em> of the following sources:</p>
+
+      <ul>
+      	<li>
+      		A character reference</li>
+      	<li>
+      		A high school teacher or counselor</li>
+      	<li>
+      		A collegiate teacher, counselor, or advisor</li>
+      	<li>
+      		An employer</li>
+      </ul>
+
+      <p>
+      	The letter either may be attached to this application below or may be sent by the writer directly to the Crop and Soil Science Department. If your letter of recommendation will be sent by the writer directly to&nbsp;Crop and Soil Science Department please have them send it to Rachel Swindon, rachel.swindon@oregonstate.edu. Please provide the name and contact information of the writer who will be sending their letter&nbsp;of recommendation directly to the&nbsp;Crop and Soil Science Department.</p>
+  upload_letters_of_reference:
+    '#type': managed_file
+    '#max_filesize': 10.0
+    '#file_extensions': 'pdf doc docx'
+    '#title': 'Upload Letters of Reference'
+  letter_of_recommendation_writers_name:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Name of reference (if sending letter of reference directly to CSS department)'
+  email_character_reference:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title': 'Email of reference (if sending letter of reference directly to CSS department)'
+  statement_of_applicant:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <h3>
+      	Statement of Applicant:</h3>
+
+      <p>
+      	The Family Educational Rights and Privacy Act (FERPA) of 1974 protects students' privacy and their educational records. The OSU Department of Crop and Soil Science collaborates with the Timothy Scott Wirth Memorial Scholarship selection committee by collecting scholarship applications each year. These applications will then be forwarded to the Timothy Scott Wirth Memorial Scholarship selection committee, who will review the submitted applications and select the scholarship recipient(s).</p>
+
+      <p>
+      	I, the undersigned, certify that all of the above information is complete and accurate. I grant my permission to the Department of Crop and Soil Science to release the information from this application to the Timothy Scott Wirth Memorial Scholarship selection committee. I also grant my permission to the Department of Crop and Soil Science to publish my name and brief biography in their associated newsletters, social media sites, and website.</p>
+
+      <p>
+      	<br />
+      	PLEASE NOTE: Your acceptance of these terms is <em>required</em> for a complete application. Applications without acceptance of these terms will not be considered for this scholarship.</p>
+  applicant_name:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Applicant Signature *Type your name as a digital signature'
+    '#required': true
+  date:
+    '#type': date
+    '#title': Date
+    '#required': true
+  parent_guardian_name_and_signature:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Parent/Guardian Name and Signature *Parent/Guardian must sign if applicant is under 18 years of age at the time of submission'
+    '#description': '*Type your name as a digital signature'
+  date_parent_guardian:
+    '#type': date
+    '#title': Date
+  upload_files:
+    '#type': managed_file
+    '#max_filesize': 10.0
+    '#file_extensions': 'pdf doc docx'
+    '#title': 'Upload any additional files here'
+  questions_or_technical_difficulties:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	If you have any questions about the application or experience any technical difficulties please contact Rachel Swindon, rachel.swindon@oregonstate.edu.</p>
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '1'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: rachel.swindon@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: alyssa.duval@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

@@ -1,0 +1,16 @@
+uuid: a45ad584-2e65-4059-bc60-96397def1530
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: ov_edit_pubs
+label: ov_edit_pubs
+logic: and
+conditions:
+  d2b14c78-3401-4ac7-b15d-17a5dee8f412:
+    id: request_path
+    negate: false
+    uuid: d2b14c78-3401-4ac7-b15d-17a5dee8f412
+    pages: /node/122476
+allow_other_conditions: null

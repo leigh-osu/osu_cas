@@ -1,0 +1,20 @@
+uuid: 69578ea2-fa4c-40be-9ffd-2a422c8f9f55
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_dw_4_inches_min
+field_name: field_dw_4_inches_min
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

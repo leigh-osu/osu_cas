@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * Install, update, and uninstall functions for the views_aggregator module.
+ */
+
+/**
+ * Update views_aggregator settings for all Views that use views_aggregator.
+ */
+function views_aggregator_update_10200() {
+  // Locate all Views that use the views_aggregator_plugin_style_table.
+  // These need to be updated for the changed data types in the schema.
+  $views = \Drupal::configFactory()->listAll('views.view');
+  // Loop over Views (configuration entities).
+  foreach ($views as $config_id) {
+    $modified = FALSE;
+    $view = \Drupal::configFactory()->getEditable($config_id);
+    // Loop over views displays for this view.
+    $displays = $view->get('display');
+    foreach ($displays as $name => $display_array) {
+      if (array_key_exists('style', $display_array['display_options'])
+        && $display_array['display_options']['style']['type'] == 'views_aggregator_plugin_style_table') {
+        // If the display DOES use views_aggregator, then we need to update the
+        // data types of the options we changed in the schema.
+        $key = "display.$name.display_options.style.options";
+
+        // Option group_aggregation_results was changed from string to integer.
+        $old_value = $view->get($key . '.group_aggregation.group_aggregation_results');
+        $view->set($key . '.group_aggregation.group_aggregation_results', (int) $old_value);
+
+        // Option precision was changed from string to integer.
+        $old_value = $view->get($key . '.column_aggregation.precision');
+        $view->set($key . '.column_aggregation.precision', (int) $old_value);
+
+        // Option totals_per_page was changed from string/boolean to integer.
+        $old_value = $view->get($key . '.column_aggregation.totals_per_page');
+        $view->set($key . '.column_aggregation.totals_per_page', $old_value == TRUE ? 1 : 0);
+
+        // Mark this view as modified.
+        $modified = TRUE;
+      }
+      else {
+        // If the display DOESN'T use views_aggregator, skip it.
+      }
+    }
+    // Save the View, but only if it has been modified.
+    if ($modified === TRUE) {
+      $view->save(TRUE);
+    }
+  }
+
+}

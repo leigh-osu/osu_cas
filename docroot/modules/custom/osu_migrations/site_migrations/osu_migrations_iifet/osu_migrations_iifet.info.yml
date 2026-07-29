@@ -1,0 +1,8 @@
+name: OSU Migrations - IIFET
+type: module
+description: Contains migrations Templates for the IIFET site.
+package: OSU Migrations - Sites
+core_version_requirement: ^10 || ^11
+
+dependencies:
+  - osu_migrations:osu_migrations

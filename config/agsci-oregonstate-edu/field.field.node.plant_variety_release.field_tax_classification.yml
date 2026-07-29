@@ -1,0 +1,29 @@
+uuid: 92ed66da-84aa-4193-8748-37e8d789fe77
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tax_classification
+    - node.type.plant_variety_release
+    - taxonomy.vocabulary.plant_variety_classification
+id: node.plant_variety_release.field_tax_classification
+field_name: field_tax_classification
+entity_type: node
+bundle: plant_variety_release
+label: Classification
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      plant_variety_classification: plant_variety_classification
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

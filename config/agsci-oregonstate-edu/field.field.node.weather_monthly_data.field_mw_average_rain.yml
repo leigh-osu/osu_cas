@@ -1,0 +1,23 @@
+uuid: 6e96bd08-06e4-49ee-8347-13f517349581
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mw_average_rain
+    - node.type.weather_monthly_data
+id: node.weather_monthly_data.field_mw_average_rain
+field_name: field_mw_average_rain
+entity_type: node
+bundle: weather_monthly_data
+label: 'Average: Rain'
+description: 'A 20 year monthly average. Rain'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

@@ -1,0 +1,10 @@
+vertical-tabs:
+  css:
+    theme:
+      css/vertical-tabs.css: { }
+  js:
+    js/vertical-tabs.js: { }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/once

@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_smart_date
+    - node.type.date_test
+  module:
+    - smart_date
+id: node.date_test.field_smart_date
+field_name: field_smart_date
+entity_type: node
+bundle: date_test
+label: 'Smart Date'
+description: 'Smart date field for testing'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: smartdate

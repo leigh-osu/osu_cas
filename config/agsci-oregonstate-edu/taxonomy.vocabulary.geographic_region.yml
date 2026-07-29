@@ -1,0 +1,9 @@
+uuid: bf991399-27c4-41ad-8389-bbff45b8f4ce
+langcode: en
+status: true
+dependencies: {  }
+name: 'Geographic Region'
+vid: geographic_region
+description: null
+weight: 0
+new_revision: false

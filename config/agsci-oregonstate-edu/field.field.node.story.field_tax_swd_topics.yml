@@ -1,0 +1,29 @@
+uuid: dff754ce-b7ca-4804-b1e8-387ed674458e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tax_swd_topics
+    - node.type.story
+    - taxonomy.vocabulary.swd
+id: node.story.field_tax_swd_topics
+field_name: field_tax_swd_topics
+entity_type: node
+bundle: story
+label: 'SWD Topics'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      swd: swd
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

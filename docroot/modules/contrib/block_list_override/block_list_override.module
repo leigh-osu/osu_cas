@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * @file
+ * Contains block_list_override.module.
+ */
+
+/**
+ * Implements hook_block_alter().
+ */
+function block_list_override_block_alter(array &$definitions) {
+  $listService = \Drupal::service('block_list_override.list');
+  $settings = \Drupal::config('block_list_override.settings');
+  $options = [
+    'match' => trim($settings->get('system_match') ?? ''),
+    'prefix' => trim($settings->get('system_prefix') ?? ''),
+    'regex' => trim($settings->get('system_regex') ?? ''),
+    'negate' => $settings->get('system_negate'),
+  ];
+  $listService->setUp($options);
+  if (!$listService->hasSettings()) {
+    return;
+  }
+  $callback = [$listService, 'blockIsAllowed'];
+  $definitions = array_filter($definitions, $callback, ARRAY_FILTER_USE_KEY);
+}
+
+/**
+ * Implements hook_plugin_filter_TYPE__CONSUMER_alter().
+ */
+function block_list_override_plugin_filter_block__layout_builder_alter(array &$definitions) {
+  $listService = \Drupal::service('block_list_override.list');
+  $settings = \Drupal::config('block_list_override.settings');
+  $options = [
+    'match' => trim($settings->get('system_match') ?? ''),
+    'prefix' => trim($settings->get('system_prefix') ?? ''),
+    'regex' => trim($settings->get('system_regex') ?? ''),
+    'negate' => $settings->get('layout_negate'),
+  ];
+  $listService->setUp($options);
+  if (!$listService->hasSettings()) {
+    return;
+  }
+  $callback = [$listService, 'blockIsAllowed'];
+  $definitions = array_filter($definitions, $callback, ARRAY_FILTER_USE_KEY);
+}

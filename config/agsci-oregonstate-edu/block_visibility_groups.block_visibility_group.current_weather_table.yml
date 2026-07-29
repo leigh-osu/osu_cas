@@ -1,0 +1,16 @@
+uuid: a285c4ef-8776-479f-a79c-afe6469d261e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: current_weather_table
+label: current_weather_table
+logic: and
+conditions:
+  cb93074c-f4ee-4265-8d72-6fdedfe82a43:
+    id: request_path
+    negate: false
+    uuid: cb93074c-f4ee-4265-8d72-6fdedfe82a43
+    pages: /mes-weather
+allow_other_conditions: null

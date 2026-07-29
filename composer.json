@@ -1,0 +1,655 @@
+{
+    "name": "osu-cas/drupal",
+    "description": "Drupal Distribution for Oregon State College of Agricultural Sciences",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://www.drupal.org/project/drupal",
+    "support": {
+        "docs": "https://www.drupal.org/docs/user_guide/en/index.html",
+        "chat": "https://www.drupal.org/node/314178"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/madrone.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/osu_groups.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/osu_standard.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/osu_media.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/osu_block_types.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/osu_bootstrap_layout_builder"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/osu_ckeditor_plugins.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/osu_seckit.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/osu_roles.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/osu_story.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/osu_profile.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/osu_default_content.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/osu_icon_field.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/osu_google_tag.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/feeds_display.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/osu_migrations.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/osu_simple_popup_blocks.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/admissions_articulations.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/osu_custom_blocks.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/osu_publications.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/osu_simple_tabs.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/osu_paragraphs.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/osu_sitewide_alert.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/osu_tours.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/osu-wams/osu_editorial_workflow.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/leigh-osu/osu_cas_site_sync.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/leigh-osu/osu_digital_measures.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/leigh-osu/manzanita.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/leigh-osu/osu_migrations_cas.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/leigh-osu/osu_cas_multisite.git"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "billboardjs/billboard",
+                "version": "3.10.3",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "billboard"
+                },
+                "dist": {
+                    "url": "https://registry.npmjs.org/billboard.js/-/billboard.js-3.10.3.tgz",
+                    "type": "tar"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "d3/d3",
+                "version": "7.8.5",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "d3"
+                },
+                "dist": {
+                    "url": "https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js",
+                    "type": "file"
+                },
+                "require": {
+                    "composer/installers": "^1.0 || ^2.0"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "google/charts",
+                "version": "45",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "google_charts"
+                },
+                "dist": {
+                    "url": "https://www.gstatic.com/charts/loader.js",
+                    "type": "file"
+                },
+                "require": {
+                    "composer/installers": "^1.0 || ^2.0"
+                }
+            }
+        }
+    ],
+    "require": {
+        "bower-asset/colorbox": "^1.6",
+        "composer/installers": "^2.2",
+        "cweagans/composer-patches": "^1.6",
+        "drupal-ckeditor-libraries-group/codesnippet": "^4.17",
+        "drupal-ckeditor-libraries-group/div": "^4.17",
+        "drupal-ckeditor-libraries-group/liststyle": "^4.22",
+        "drupal/acquia_connector": "^4.0",
+        "drupal/acquia_purge": "^1.0",
+        "drupal/address": "^2.0",
+        "drupal/addtoany": "^2.0",
+        "drupal/admin_toolbar": "^3.0",
+        "drupal/anchor_link": "^3.0",
+        "drupal/antibot": "^2.0",
+        "drupal/asset_injector": "^2.6",
+        "drupal/auto_entitylabel": "^3.0",
+        "drupal/back_to_top": "*",
+        "drupal/background_image_formatter": "^2.0",
+        "drupal/better_exposed_filters": "^7.0",
+        "drupal/block_class": "^4.0",
+        "drupal/block_classes": "^1.0",
+        "drupal/block_list_override": "^1.0",
+        "drupal/block_visibility_groups": "^2.0",
+        "drupal/bootstrap_layout_builder": "^2.2",
+        "drupal/button_link": "^2.0",
+        "drupal/captcha": "^2.0",
+        "drupal/cas": "^2.0@beta",
+        "drupal/cas_attributes": "^2.0@beta",
+        "drupal/charts": "^5.0",
+        "drupal/charts_apexcharts": "^1.0",
+        "drupal/charts_echarts": "^1.0",
+        "drupal/charts_highcharts_drilldown": "^1.0",
+        "drupal/charts_highcharts_maps": "^1.0",
+        "drupal/ckeditor5_plugin_pack": "^1.2",
+        "drupal/ckeditor_bootstrap_table": "^1.3",
+        "drupal/ckeditor_div_manager": "^2.1",
+        "drupal/ckeditor_link_styles": "^1.1",
+        "drupal/ckeditor_liststyle": "^1.4",
+        "drupal/ckeditor_scayt": "^1.5",
+        "drupal/coffee": "^2.0",
+        "drupal/colorbox": "^2.0",
+        "drupal/colorbox_media_video": "^2.0",
+        "drupal/config_filter": "^2.4",
+        "drupal/config_ignore": "^3.0",
+        "drupal/config_split": "^2@rc",
+        "drupal/content_moderation_notifications": "^3.6",
+        "drupal/contextual_range_filter": "^3.0",
+        "drupal/core-composer-scaffold": "^10.1.0",
+        "drupal/core-recommended": "^10.1.0",
+        "drupal/csv_serialization": "^4.0",
+        "drupal/ctools": "^4.1",
+        "drupal/dashboard": "^2.0",
+        "drupal/dashboards": "^2.1",
+        "drupal/date_all_day": "^2.1",
+        "drupal/date_ap_style": "^2.1",
+        "drupal/date_ical": "^4.0",
+        "drupal/date_popup": "^2.0",
+        "drupal/default_content": "^2.0@alpha",
+        "drupal/diff": "^1.0",
+        "drupal/domain": "^3.0@beta",
+        "drupal/domain_extras": "^3.0@beta",
+        "drupal/dynamic_entity_reference": "^3",
+        "drupal/easy_breadcrumb": "^2.0.3",
+        "drupal/eck": "^2.0",
+        "drupal/eck_bundle_permissions": "^1.0",
+        "drupal/editor_advanced_link": "^2.0",
+        "drupal/editor_file": "^1.6",
+        "drupal/editoria11y": "^2.0.2",
+        "drupal/entity_clone": "^2.1@beta",
+        "drupal/entity_usage": "^2@beta",
+        "drupal/entitygroupfield": "^2@alpha",
+        "drupal/entityreference_filter": "^2.0@beta",
+        "drupal/eva": "^3.1",
+        "drupal/exclude_node_title": "^2.0",
+        "drupal/feeds": "^3.0beta2",
+        "drupal/feeds_ex": "^1.0beta",
+        "drupal/feeds_tamper": "^2.0beta2",
+        "drupal/field_group": "^4.0",
+        "drupal/file_delete": "^3.0",
+        "drupal/filter_perms": "^2.0",
+        "drupal/flexible_permissions": "^2.0",
+        "drupal/focal_point": "^2.1",
+        "drupal/fontawesome_menu_icons": "^3.0",
+        "drupal/fpa": "^4.0",
+        "drupal/fullcalendar_view": "^5.1",
+        "drupal/gin": "^4.0",
+        "drupal/gin_toolbar": "^2.0",
+        "drupal/google_analytics": "^4.0",
+        "drupal/google_cse": "^5.0",
+        "drupal/google_tag": "^1.5",
+        "drupal/group": "^2.0",
+        "drupal/group_content_menu": "^2",
+        "drupal/honeypot": "^2.1",
+        "drupal/image_effects": "^4.0",
+        "drupal/image_field_to_media": "^3.0",
+        "drupal/imagemagick": "^4.0",
+        "drupal/jquery_ui_datepicker": "^2.1",
+        "drupal/jquery_ui_slider": "^2.1",
+        "drupal/jquery_ui_touch_punch": "^1.1",
+        "drupal/jsonapi_extras": "^3.21",
+        "drupal/layout_builder_blocks": "^1.0",
+        "drupal/layout_builder_component_attributes": "^2.0",
+        "drupal/layout_builder_iframe_modal": "^1.3",
+        "drupal/layout_builder_modal": "^2.0",
+        "drupal/layout_builder_operation_link": "^2.0",
+        "drupal/layout_builder_reorder": "^2.0",
+        "drupal/layout_builder_restrictions": "^3.0",
+        "drupal/layout_library": "^1@beta",
+        "drupal/libraries": "^4.0",
+        "drupal/linkicon": "^2.0",
+        "drupal/linkit": "6.1.6",
+        "drupal/linkpurpose": "^1.0",
+        "drupal/masquerade": "^2.0",
+        "drupal/media_bulk_upload": "^3.0",
+        "drupal/media_entity_file_replace": "^1.2",
+        "drupal/media_library_edit": "^3.0",
+        "drupal/memcache": "^2.5",
+        "drupal/metatag": "^2",
+        "drupal/migrate_plus": "^6.0",
+        "drupal/migrate_upgrade": "^4.0",
+        "drupal/moderation_sidebar": "^1.7",
+        "drupal/module_filter": "^5.0",
+        "drupal/multiselect": "^2.0@beta",
+        "drupal/node_revision_delete": "^2.0@alpha",
+        "drupal/oembed_providers": "^2.1",
+        "drupal/optional_end_date": "^1.3",
+        "drupal/paragraph_view_mode": "^3.2",
+        "drupal/paragraphs": "^1.12",
+        "drupal/path_redirect_import": "^2.0",
+        "drupal/pathauto": "^1.6",
+        "drupal/preview_link": "^2.2@alpha",
+        "drupal/protected_pages": "^1.7",
+        "drupal/purge_file": "^1.1",
+        "drupal/purge_tokens": "^3.6",
+        "drupal/recaptcha": "^3.1",
+        "drupal/redirect": "^1.6",
+        "drupal/responsive_preview": "^2.0",
+        "drupal/responsive_table_filter": "^2.0",
+        "drupal/rules": "^4.0",
+        "drupal/scheduler": "^2.0",
+        "drupal/scheduler_content_moderation_integration": "^3.0",
+        "drupal/schema_metatag": "^3",
+        "drupal/search404": "^2.1",
+        "drupal/seckit": "^2.0",
+        "drupal/section_library": "^1.2",
+        "drupal/selective_better_exposed_filters": "^3.0",
+        "drupal/shurly": "^1.0@beta",
+        "drupal/simple_oauth": "^6.0",
+        "drupal/simple_popup_blocks": "^3.4",
+        "drupal/simple_styleguide": "^2.0",
+        "drupal/sitewide_alert": "^3.0",
+        "drupal/slick": "^3.0",
+        "drupal/slick_extras": "^2.0",
+        "drupal/slick_views": "^3.0",
+        "drupal/smart_date": "^4.0",
+        "drupal/smart_trim": "^2.0",
+        "drupal/styleguide": "^2.2",
+        "drupal/superfish": "^1.7",
+        "drupal/svg_image": "^3.0",
+        "drupal/tamper": "^1.0alpha2",
+        "drupal/tb_megamenu": "^3@alpha",
+        "drupal/text_field_formatter": "^2.0",
+        "drupal/toc_js": "^3.6",
+        "drupal/token_or": "^2.3",
+        "drupal/token_url_plus": "^1.0",
+        "drupal/tour": "^2.0",
+        "drupal/trash": "^3.0",
+        "drupal/twig_tweak": "^3.1",
+        "drupal/ui_patterns": "^2.0",
+        "drupal/upgrade_status": "^4.0",
+        "drupal/variationcache": "*",
+        "drupal/viewfield": "^3@beta",
+        "drupal/views_aggregator": "^2.0",
+        "drupal/views_ajax_history": "^1.6",
+        "drupal/views_bootstrap": "^5.5@beta",
+        "drupal/views_bulk_edit": "^3.0",
+        "drupal/views_bulk_operations": "^4.1",
+        "drupal/views_conditional": "^1.5",
+        "drupal/views_data_export": "^1.1",
+        "drupal/views_date_format_sql": "^3@alpha",
+        "drupal/views_ical": "^1.0@alpha",
+        "drupal/views_migration": "^1.2",
+        "drupal/views_rss": "^2.2",
+        "drupal/views_selective_filters": "^2@alpha",
+        "drupal/views_taxonomy_term_name_depth": "^7.2",
+        "drupal/views_year_filter": "^2.1",
+        "drupal/we_megamenu": "^1.16",
+        "drupal/webform": "^6.1",
+        "drupal/webform_migrate": "^2.0@alpha",
+        "drupal/workbench": "^1.6",
+        "drupal/xls_serialization": "^2.0",
+        "drupal/xmlsitemap": "^2.0",
+        "drupal/yearonly": "^9.1",
+        "drupal/yoast_seo": "^2.2",
+        "drush/drush": "^13.4",
+        "google/charts": "^45.0",
+        "google/recaptcha": "^1.3",
+        "leigh-osu/manzanita": "^1@beta",
+        "leigh-osu/osu_cas_multisite": "^1.0",
+        "leigh-osu/osu_cas_site_sync": "^1.0",
+        "leigh-osu/osu_digital_measures": "^1.0",
+        "leigh-osu/osu_migrations_cas": "^1.0",
+        "mnsami/composer-custom-directory-installer": "^2.0",
+        "npm-asset/apexcharts": "^4.7",
+        "npm-asset/blazy": "^1.8",
+        "npm-asset/chart.js": "^4.4",
+        "npm-asset/chartjs-adapter-date-fns": "^3.0",
+        "npm-asset/chartjs-plugin-datalabels": "^2.0",
+        "npm-asset/dompurify": "^3.0",
+        "npm-asset/dropzone": "^5.9",
+        "npm-asset/echarts": "^5.5",
+        "npm-asset/fontawesome-iconpicker": "^3.2",
+        "npm-asset/fonticonpicker--fonticonpicker": "^3.1",
+        "npm-asset/highcharts": "^12.3",
+        "npm-asset/jquery-ui-touch-punch": "^0.2.3",
+        "npm-asset/nouislider": "^15.8",
+        "npm-asset/slick-carousel": "1.8.0",
+        "oomphinc/composer-installers-extender": "^2.0",
+        "osu-wams/admissions_articulations": "^1.0",
+        "osu-wams/live_feeds": "^2.0",
+        "osu-wams/madrone": "^1.0",
+        "osu-wams/osu_block_types": "^1.0",
+        "osu-wams/osu_bootstrap_layout_builder": "^1.0",
+        "osu-wams/osu_ckeditor_plugins": "^1.0",
+        "osu-wams/osu_custom_blocks": "^1.0",
+        "osu-wams/osu_default_content": "^1.0",
+        "osu-wams/osu_editorial_workflow": "^1.0",
+        "osu-wams/osu_google_tag": "^1.0",
+        "osu-wams/osu_groups": "^2.1",
+        "osu-wams/osu_icon_field": "^1.0",
+        "osu-wams/osu_media": "^1.0",
+        "osu-wams/osu_migrations": "^1.0",
+        "osu-wams/osu_paragraphs": "^1.0",
+        "osu-wams/osu_profile": "^1.0",
+        "osu-wams/osu_publications": "^1.0",
+        "osu-wams/osu_roles": "^1.0",
+        "osu-wams/osu_seckit": "^2.0",
+        "osu-wams/osu_simple_popup_blocks": "^1.0",
+        "osu-wams/osu_simple_tabs": "^1.0",
+        "osu-wams/osu_sitewide_alert": "^1.0",
+        "osu-wams/osu_standard": "^1.0",
+        "osu-wams/osu_story": "^1.0",
+        "osu-wams/osu_tours": "^1.1.1",
+        "wikimedia/composer-merge-plugin": "^2.1"
+    },
+    "require-dev": {
+        "doctrine/instantiator": "^2.0",
+        "drupal/ckeditor5_dev": "^1.0",
+        "drupal/config_inspector": "^2.1",
+        "drupal/core-dev": "^10.1",
+        "drupal/devel": "^5.0",
+        "drupal/migrate_devel": "^3.0",
+        "drupal/twig_vardumper": "^3.2",
+        "drupal/webprofiler": "^10.1",
+        "kint-php/kint": "^5.0",
+        "lcobucci/clock": "^3.2",
+        "npm-asset/d3": "^3",
+        "npm-asset/highlightjs": "^9.16",
+        "phpspec/prophecy-phpunit": "^2"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "autoload": {
+        "classmap": [
+            "scripts/composer/SiteGenerator.php"
+        ]
+    },
+    "scripts": {
+        "generate-site": "osuwams\\SiteGenerator::generate",
+        "post-drupal-scaffold-cmd": [
+            "cd docroot && patch -p1 <../patches/htaccess-updats.patch"
+        ],
+        "post-install-cmd": [
+            "./scripts/highcharts-post-install.sh"
+        ],
+        "post-update-cmd": [
+            "./scripts/highcharts-post-install.sh"
+        ]
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "preferred-install": "dist",
+        "platform": {
+            "php": "8.3"
+        },
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "drupal/core-composer-scaffold": true,
+            "mnsami/composer-custom-directory-installer": true,
+            "oomphinc/composer-installers-extender": true,
+            "phpstan/extension-installer": true,
+            "wikimedia/composer-merge-plugin": true,
+            "php-http/discovery": true,
+            "tbachert/spi": true
+        },
+        "audit": {
+            "ignore": {
+                "SA-CONTRIB-2025-077": "",
+                "PKSA-dwsq-ppd2-mb1x": "CVE-2026-46644 in symfony/polyfill-intl-idn ~1.37.0 pinned by drupal/core 10.6.9; polyfill is inert because ext-intl is present. Remove once core relaxes the pin to allow 1.38.1+.",
+                "PKSA-93qv-9n9h-6k6p": "CVE-2026-55767 (dot-only cookie domains match all hosts) in guzzlehttp/guzzle, fixed in 7.12.1. drupal/core 10.6.11 pins guzzle ~7.10.0, so the fix is unreachable on D10. Remove once core relaxes the guzzle pin to allow 7.12.1+.",
+                "PKSA-k22t-f949-t9g6": "CVE-2026-55568 (silent HTTPS proxy downgrade to cleartext) in guzzlehttp/guzzle, fixed in 7.12.1. drupal/core 10.6.11 pins guzzle ~7.10.0, so the fix is unreachable on D10. Remove once core relaxes the guzzle pin to allow 7.12.1+.",
+                "PKSA-7qs6-zvnz-h66r": "CVE-2026-55766 (CRLF injection in HTTP start-line serialization) in guzzlehttp/psr7, fixed in 2.12.1. drupal/core 10.6.11 pins psr7 ~2.10.4, so the fix is unreachable on D10. Remove once core relaxes the psr7 pin to allow 2.12.1+."
+            }
+        }
+    },
+    "extra": {
+        "merge-plugin": {
+            "include": [
+                "docroot/modules/contrib/*/composer.libraries.json"
+            ]
+        },
+        "composer-exit-on-patch-failure": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "patches": {
+            "drupal/core": {
+                "3049332-118 Layout Builder getEntityTypeId null": "https://www.drupal.org/files/issues/2024-06-26/3049332_d10.3.0.patch",
+                "3162699-13 Layout Builder Debuging patch": "https://www.drupal.org/files/issues/2020-08-10/3162699-blockbuild-13.patch",
+                "2605218-135 Views Block Display skips preBlockBuild() call on ajax rebuild": "https://www.drupal.org/files/issues/2024-06-13/2605218-135.patch",
+                "3123350-29 Private File Migration path fix": "https://www.drupal.org/files/issues/2022-10-10/patch-29.patch",
+                "3080034 Entity Reference Sort Migrate error": "patches/3080034-migrate-entity-reference-filter-null_local_1.patch",
+                "2708101-130 Allow link fields to set default values": "https://www.drupal.org/files/issues/2024-07-15/default_value_for_link-2708101-130.patch",
+                "2980299-105 Allow reverting all layouts that were overriden for a node type": "https://www.drupal.org/files/issues/2022-12-30/2980299-105.patch",
+                "3311558-3 View mode for Caption Media Embed": "https://www.drupal.org/files/issues/2022-09-29/3311558-caption-view-mode.patch",
+                "3316271-11 Config import fails with non existent theme reporting TypeError array_diff()": "https://www.drupal.org/files/issues/2023-04-10/3316271.patch",
+                "2171389-40 Exposed filters not filtering attached displays": "https://www.drupal.org/files/issues/2021-06-09/2171389-40.patch",
+                "3417012-24 Multisite Recipe": "https://www.drupal.org/files/issues/2025-02-27/drupal-10.4.x-recipe-multisite-3417012-24.patch"
+            },
+            "drupal/bootstrap_layout_builder": {
+                "3203096 Column Alignment": "patches/3203096-column-alignment_local_1.patch"
+            },
+            "drupal/cas_attributes": {
+                "3324867 TypeError: implode()": "https://www.drupal.org/files/issues/2024-05-15/3324867-typeerror-implode-argument-11.patch"
+            },
+            "drupal/ckeditor": {
+                "2876094-39 Adding extra p to ckeditor links": "https://www.drupal.org/files/issues/2023-01-31/2876094-39.patch",
+                "3330723-3 Media alignment": "https://www.drupal.org/files/issues/2023-01-03/3330723-3.patch"
+            },
+            "drupal/ctools": {
+                "2759445-100 Add option to pass contextual filters to views blocks": "https://www.drupal.org/files/issues/2023-01-18/2759445-100.patch"
+            },
+            "drupal/default_content": {
+                "3160146-52 Add Normalizer/Denormalizer for LB support": "https://www.drupal.org/files/issues/2022-05-15/default_content-3160146-52.patch"
+            },
+            "drupal/group": {
+                "2815971-63 more contexts": "patches/2815971-63-mr-group-context.patch",
+                "2774827-93 Node Parent Group Token support": "https://www.drupal.org/files/issues/2023-02-17/group-2774827-93.patch",
+                "3373702-2 Views Contextual Filter for Group ID": "https://www.drupal.org/files/issues/2023-07-10/3373702-2-views-cont-filter-to-get-gid-from-url-or-group-content-2.x.patch",
+                "2853001-24 Node previews do not work when adding group node": "https://www.drupal.org/files/issues/2023-05-16/2853001-2.x-24.patch",
+                "2872645-54 JSON:API Support for group": "https://www.drupal.org/files/issues/2024-10-22/group-add-content-2872645-54.patch"
+            },
+            "drupal/paragraphs": {
+                "3090200-83 Paragraphs Access Check in LB": "https://www.drupal.org/files/issues/2026-06-24/3084934-13_combine_3090200-22-rebase.patch"
+            },
+            "drupal/purge": {
+                "3460094-5 There is no purger supporting 'Array'": "https://www.drupal.org/files/issues/2024-07-25/3460094-5-there-is-no-purger-supporting-array.patch"
+            },
+            "drupal/redirect": {
+                "3094700-2 Don't migrate disabled redirects": "https://www.drupal.org/files/issues/2019-11-18/redirect-migration_constraint_errors-3094700-2-d8.patch",
+                "3046873-1 Support Feeds Source": "https://www.drupal.org/files/issues/2019-04-09/redirect-feeds-target-3046873-1-8.patch"
+            },
+            "drupal/shurly": {
+                "OSU ShURLy updates": "patches/osu-shurly-updates.patch"
+            },
+            "drupal/we_megamenu": {
+                "3225104-5 Check for empty col_config and col_content": "https://www.drupal.org/files/issues/2023-08-22/we_megamenu-3225104-5.patch"
+            },
+            "drupal/xmlsitemap": {
+                "3194370-5 Memory Limit issues": "https://www.drupal.org/files/issues/2022-09-15/memory-limit-3194370-5.patch"
+            },
+            "osu-wams/osu_migrations": {
+                "Map larch inline text classes in accordion bodies via osu_migrations_cas": "patches/osu_migrations-accordion-inline-classes.patch",
+                "OSU Migrations CAS file settings": "patches/0001-osu_migrations_files_cas.patch",
+                "OSU Migrations CAS user settings": "patches/0002-osu_user_accounts_cas.patch",
+                "OSU Migrations CAS biblio settings": "patches/0001-fix-biblio-dates.patch",
+                "background process plugins: handle empty migrate lookup result": "patches/0001-background-process-empty-lookup.patch",
+                "Recover live paragraphs core d7_paragraphs_item silently drops": "patches/0001-osu-paragraphs-item-recover-dropped.patch",
+                "Map larch theme block regions to manzanita": "patches/0001-osu-migrations-larch-block-regions.patch",
+                "Map legacy FontAwesome 3 icon classes on menu bar items": "patches/0001-osu-migrations-menu-item-legacy-icons.patch",
+                "Prevent stub profile nodes from orphaned D7 profile2 rows": "patches/osu_migrations-profile-lookup-no-stub.patch",
+                "Default an empty D7 node language to en": "patches/osu_migrations-empty-langcode-default.patch",
+                "Biblio: drop junk body mapping and skip empty DOI links": "patches/osu_migrations-biblio-body-and-doi.patch"
+            },
+            "osu-wams/osu_standard": {
+                "OSU Standard Profile updates": "patches/0001-cas-remove-distro-info.patch",
+                "Split Group module install to avoid 2.3.x post-install field race": "patches/osu_standard-split-group-install.patch",
+                "Disable xmlsitemap cron regeneration to prevent drush install batch crash": "patches/osu_standard-xmlsitemap-disable-cron-regeneration.patch",
+                "Remove webform_bootstrap from install list": "patches/osu_standard-remove-webform-bootstrap.patch",
+                "Full OSU brand background palette and orange text color in bootstrap_styles": "patches/osu_standard-brand-background-palette.patch",
+                "Add 25px and 50px Layout Builder section minimum-height options": "patches/osu_standard-min-height-25-50.patch"
+            },
+            "osu-wams/osu_story": {
+                "External-story redirect dedupe by source path (langcode-agnostic)": "patches/osu_story-external-redirect-dedupe.patch"
+            }
+        },
+        "drupal-scaffold": {
+            "file-mapping": {
+                "[web-root]/README.md": false,
+                "[web-root]/example.gitignore": false
+            },
+            "locations": {
+                "web-root": "docroot/"
+            }
+        },
+        "installer-types": [
+            "drupal-recipe",
+            "bower-asset",
+            "npm-asset"
+        ],
+        "installer-paths": {
+            "docroot/core": [
+                "type:drupal-core"
+            ],
+            "docroot/libraries/ckeditor/plugins/{$name}": [
+                "drupal-ckeditor-libraries-group/div",
+                "drupal-ckeditor-libraries-group/liststyle",
+                "ckeditor/liststyle"
+            ],
+            "docroot/libraries/slick": [
+                "npm-asset/slick-carousel"
+            ],
+            "docroot/libraries/chart.js": [
+                "npm-asset/chart.js"
+            ],
+            "docroot/libraries/{$name}": [
+                "type:ckeditor-plugin",
+                "type:drupal-library",
+                "type:npm-asset",
+                "type:bower-asset"
+            ],
+            "docroot/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "docroot/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "docroot/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/Commands/contrib/{$name}": [
+                "type:drupal-drush"
+            ],
+            "docroot/profiles/custom/{$name}": [
+                "type:drupal-custom-profile"
+            ],
+            "docroot/modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "docroot/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
+            ],
+            "docroot/recipes/{$name}": [
+                "type:drupal-recipe",
+                "type:drupal-custom-recipe"
+            ]
+        }
+    }
+}

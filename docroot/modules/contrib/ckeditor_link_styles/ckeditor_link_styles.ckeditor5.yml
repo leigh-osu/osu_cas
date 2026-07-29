@@ -1,0 +1,14 @@
+ckeditor_link_styles_linkStyles:
+  ckeditor5:
+    plugins: []
+    config: []
+  drupal:
+    label: Link styles
+    class: Drupal\ckeditor_link_styles\Plugin\CKEditor5Plugin\LinkStyles
+    library: false
+    admin_library: false
+    elements:
+      - <a class>
+    conditions:
+      plugins:
+        - ckeditor5_link

@@ -1,0 +1,30 @@
+uuid: bec97ea1-ff4e-424b-b066-2dda73ed37ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tax_faculty_expertise
+    - node.type.osu_profile
+  module:
+    - taxonomy
+id: node.osu_profile.field_tax_faculty_expertise
+field_name: field_tax_faculty_expertise
+entity_type: node
+bundle: osu_profile
+label: 'Faculty Expertise'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      faculty_expertise: faculty_expertise
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

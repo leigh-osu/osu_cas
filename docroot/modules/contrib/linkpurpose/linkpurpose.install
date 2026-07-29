@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Linkpurpose install and update functions.
+ */
+
+/**
+ * Schema update for Link Purpose.
+ */
+function linkpurpose_update_9001(): void {
+  \Drupal::configFactory()
+    ->getEditable('linkpurpose.settings')
+    ->set('purposeApp', TRUE)
+    ->set('purposeDocument', TRUE)
+    ->set('purposeDownload', TRUE)
+    ->set('purposeExternal', TRUE)
+    ->set('purposeMail', TRUE)
+    ->set('purposeNewWindow', TRUE)
+    ->set('purposeTel', TRUE)
+    ->clear('purposeExternalTarget')
+    ->save();
+}

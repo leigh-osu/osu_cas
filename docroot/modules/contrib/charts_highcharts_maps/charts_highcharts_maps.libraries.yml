@@ -1,0 +1,19 @@
+charts_highcharts_maps:
+  js:
+    js/charts_highcharts_maps.js: {}
+  dependencies:
+    - core/drupalSettings
+    - charts/global
+    - core/once
+
+highmap:
+  remote: https://code.highcharts.com/maps/12.1.1/modules/map.js
+  version: VERSION
+  license:
+    name: Non-commercial
+    url: https://creativecommons.org/licenses/by-nc/3.0/
+    gpl-compatible: false
+  cdn:
+    /libraries/highcharts_maps/map.js: https://code.highcharts.com/maps/12.1.1/modules/map.js
+  js:
+    /libraries/highcharts_maps/map.js: { minified: true }

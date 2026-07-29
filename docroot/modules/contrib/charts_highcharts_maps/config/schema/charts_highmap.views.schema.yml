@@ -1,0 +1,44 @@
+views.style.chart_highmap:
+  type: views_style
+  label: 'Chart'
+  mapping:
+    chart_settings:
+      type: charts_config
+      label: 'Settings'
+    topology:
+      type: string
+      label: 'Topology'
+    subtitle:
+      type: label
+      label: 'Sub title'
+    series_join_by_property_name:
+      type: string
+      label: 'Series join by property name'
+    series_keys_mapping_options:
+      type: sequence
+      label: 'Series keys'
+      sequence:
+        type: string
+        label: Key
+    map_data_source_settings:
+      type: mapping
+      label: 'Map data source settings'
+      mapping:
+        json_file:
+          type: string
+          label: 'Json File'
+        vid:
+          type: string
+          label: 'Taxonomy vocabulary'
+        tid:
+          type: integer
+          label: 'Taxonomy term'
+        json_field_name:
+          type: string
+          label: 'JSON field name'
+    popup:
+      type: boolean
+      label: 'Enable map pop-ups'
+    popup_content:
+      type: string
+      label: 'Pop-up content'

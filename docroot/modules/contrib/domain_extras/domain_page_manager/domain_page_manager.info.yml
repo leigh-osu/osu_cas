@@ -1,0 +1,13 @@
+name: Domain for Page Manager
+description: 'Domain integration for Page Manager.'
+type: module
+package: Domain
+core_version_requirement: ^10.2 || ^11
+dependencies:
+  - page_manager:page_manager
+  - domain:domain
+
+# Information added by Drupal.org packaging script on 2026-05-08
+version: '3.0.3'
+project: 'domain_extras'
+datestamp: 1778274501

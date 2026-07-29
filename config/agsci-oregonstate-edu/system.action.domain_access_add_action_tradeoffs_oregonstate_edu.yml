@@ -1,0 +1,15 @@
+uuid: 001c51de-5021-4080-9132-181bbf0dad0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.tradeoffs_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_tradeoffs_oregonstate_edu
+label: 'Add selected content to the Tradeoff Analysis Project domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - tradeoffs_oregonstate_edu

@@ -1,0 +1,81 @@
+<?php
+
+/**
+ * @file
+ * Contains image_field_to_media.module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\field\FieldConfigInterface;
+use Drupal\Core\Url;
+use Drupal\media\MediaInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_entity_operation().
+ *
+ * Add "Clone to media" entity operation to the Image fields.
+ */
+function image_field_to_media_entity_operation(EntityInterface $entity): array {
+  $current_user = \Drupal::currentUser();
+
+  if (!$current_user->hasPermission('create media fields based on existing image fields')) {
+    return [];
+  }
+
+  if ($entity instanceof FieldConfigInterface && $entity->getType() === 'image') {
+
+    $operations['clone_to_media'] = [
+      'title' => t('Clone to media'),
+      'url' => Url::fromRoute('image_field_to_media.image_media_type_validator', ['field_config' => $entity->id()]),
+      'weight' => 150,
+    ];
+
+    return $operations;
+  }
+  return [];
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_delete() for media entity.
+ *
+ * Delete from the storage the hash of the image file related with the deleted
+ * media entity.
+ */
+function image_field_to_media_media_delete(MediaInterface $media): void {
+  $mid = $media->id();
+  $hashes = \Drupal::state()->get('image_field_to_media.hashes_of_image_files');
+  unset($hashes[$mid]);
+  \Drupal::state()->set('image_field_to_media.hashes_of_image_files', $hashes);
+}
+
+/**
+ * Implements hook_help().
+ */
+function image_field_to_media_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the image_fields_to_media module.
+    case 'help.page.image_field_to_media':
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Enables to convert existing image fields to Media image fields.') . '</p>';
+      $output .= '<h3>' . t('Configuration') . '</h3>';
+      $output .= '<p>' . t('For the module to work, the following conditions must be met:') . '</p>';
+      $output .= '<ol>';
+      $output .= '<li>' . t('The "Image" media type should exist in your system.') . '</li>';
+      $output .= '<li>' . t('The "Image" media type should have the field of the "Image" field type with the machine name "field_media_image".') . '</li>';
+      $output .= '</ol>';
+      $output .= '<p>' . t('So check if they exist, and if not, then create them. You can do it from UI by visiting "@path"', ['@path' => '/admin/structure/media/add']);
+      $output .= '<br>' . t('Also, you can copy missing config files from "@path" to the related folder of your profile.', ['@path' => '/core/profiles/standard/config/optional']) . '</p>';
+      $output .= '<h3>' . t('Uses') . '</h3>';
+      $output .= '<ol>';
+      $output .= '<li>' . t('Visit "Manage fields" tab and choose the Image field you want to migrate to Media.') . '</li>';
+      $output .= '<li>' . t('Click on the "Clone to media" operation.') . '</li>';
+      $output .= '<li>' . t('Select one of the two options: a) Create a new Media Image field; b) Reuse an existing Media field.') . '</li>';
+      $output .= '<li>' . t('Depending on your choice, either enter the name of the Media field to be created or select an existing one from the list.') . '</li>';
+      $output .= '<li>' . t('Click on the "Proceed" button.') . '</li>';
+      $output .= '</ol>';
+      return $output;
+
+    default:
+  }
+}

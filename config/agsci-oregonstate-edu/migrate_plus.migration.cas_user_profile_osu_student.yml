@@ -1,0 +1,68 @@
+uuid: 49603481-0774-4f2f-abe7-2a01a239a861
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: bH1KPJR7QNJkX4tIwM5hLjFwsUQkhldjuwhF2FgJNxs
+id: cas_user_profile_osu_student
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - OSU
+  - CAS
+  - 'CAS Content'
+migration_group: content
+label: 'CAS OSU Student profile - additional fields'
+source:
+  plugin: d7_osu_profile2
+  profile2_type: osu_student
+process:
+  nid:
+    -
+      plugin: migration_lookup
+      migration: upgrade_d7_user_to_profile
+      source: uid
+      no_stub: true
+    -
+      plugin: skip_on_empty
+      method: row
+  field_profile_stu_majors: majors
+  field_profile_stu_ac_interests:
+    plugin: sub_process
+    source: academic_interests
+    process:
+      value:
+        plugin: osu_media_wysiwyg_filter
+        source: value
+      format:
+        plugin: default_value
+        default_value: full_html
+  field_profile_stu_major_prof:
+    plugin: sub_process
+    source: field_major_professor
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: upgrade_d7_user_to_profile
+          source: target_id
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  type:
+    plugin: default_value
+    default_value: osu_profile
+destination:
+  plugin: 'entity:node'
+  default_bundle: osu_profile
+  overwrite_properties:
+    - field_profile_stu_majors
+    - field_profile_stu_ac_interests
+    - field_profile_stu_major_prof
+migration_dependencies:
+  required:
+    - upgrade_d7_user_to_profile

@@ -1,0 +1,19 @@
+uuid: c2653b66-b5cf-4a9b-9edd-84b4cf5c3149
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_vid_show_on_profile
+field_name: field_vid_show_on_profile
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: -1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

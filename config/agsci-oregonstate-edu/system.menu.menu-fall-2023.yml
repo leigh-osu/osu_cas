@@ -1,0 +1,8 @@
+uuid: d1bbf43f-fbcd-4ea9-8a29-23e53a354c84
+langcode: en
+status: true
+dependencies: {  }
+id: menu-fall-2023
+label: 'Fall 2023'
+description: 'Fall 2023 issue of The Source'
+locked: false

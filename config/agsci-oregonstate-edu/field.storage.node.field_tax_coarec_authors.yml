@@ -1,0 +1,20 @@
+uuid: b8a7cbe5-0204-4916-bb3d-ce952c43434f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_tax_coarec_authors
+field_name: field_tax_coarec_authors
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

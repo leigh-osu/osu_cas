@@ -1,0 +1,16 @@
+uuid: 7a161865-f896-4c7c-a5c5-adaad1cc52e3
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: plant_breeding_landing_page_child_unit
+label: plant-breeding_landing-page-child-unit
+logic: and
+conditions:
+  a4255668-17a5-4937-b2b2-ea60775c0a5d:
+    id: request_path
+    negate: false
+    uuid: a4255668-17a5-4937-b2b2-ea60775c0a5d
+    pages: "/plantbreeding\r\n/node/25817"
+allow_other_conditions: null

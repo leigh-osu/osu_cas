@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfsg_pdf_flyer_espanol
+    - node.type.degree_fact_sheet_graduate
+  module:
+    - file
+id: node.degree_fact_sheet_graduate.field_dfsg_pdf_flyer_espanol
+field_name: field_dfsg_pdf_flyer_espanol
+entity_type: node
+bundle: degree_fact_sheet_graduate
+label: 'PDF Flyer Español'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: pdf
+  max_filesize: ''
+  description_field: false
+field_type: file

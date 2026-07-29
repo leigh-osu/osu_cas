@@ -1,0 +1,4 @@
+toolbar_domain_switcher:
+  css:
+    theme:
+      css/toolbar_domain_switcher.css: {}

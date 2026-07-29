@@ -1,0 +1,12 @@
+uuid: ddca9629-ef75-44bb-a468-48fac0a8dbd4
+langcode: en
+status: true
+dependencies: {  }
+id: ruralstudies_oregonstate_edu
+domain_id: 11613411
+hostname: ruralstudies.oregonstate.edu
+name: 'Rural Studies Program'
+scheme: https
+weight: 19
+is_default: false
+path_prefix: ''

@@ -1,0 +1,29 @@
+views.field.shurly_short_url:
+  type: views.field.source
+  label: 'Shurly short url'
+  mapping:
+    text:
+      type: string
+      label: 'Text'
+    longshort:
+      type: string
+      label: 'Longshort'
+    link:
+      type: integer
+      label: 'Link'
+
+views.field.shurly_link_edit:
+  type: views.field.link_edit
+  label: 'Shurly link edit'
+  mapping:
+    text:
+      type: string
+      label: 'Text'
+
+views.field.shurly_link_deactivate:
+  type: views.field.link_deactivate
+  label: 'Shurly link deactivate'
+  mapping:
+    text:
+      type: string
+      label: 'Text'

@@ -1,0 +1,16 @@
+uuid: 89e18b04-f81b-4597-9502-6bb5c32c17cd
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: dept_course_list
+label: dept_course_list
+logic: and
+conditions:
+  efad78d5-35ff-48e8-911f-f4f1e9ae97c0:
+    id: request_path
+    negate: false
+    uuid: efad78d5-35ff-48e8-911f-f4f1e9ae97c0
+    pages: "/node/40726\r\n/node/43626"
+allow_other_conditions: null

@@ -1,0 +1,30 @@
+$items_alignment_icon_path: '../images/plugins/items-alignment/';
+
+.field-items-alignment .fieldset-wrapper > div > div {
+  input {
+    + label {
+      font-size: 0;
+      text-indent: -999em;
+
+      .input-icon {
+        margin-bottom: 0;
+
+        &[class*="start"] {
+          background-image: url($items_alignment_icon_path + 'align-start.svg');
+        }
+        &[class*="end"] {
+          background-image: url($items_alignment_icon_path + 'align-end.svg');
+        }
+        &[class*="baseline"] {
+          background-image: url($items_alignment_icon_path + 'align-baseline.svg');
+        }
+        &[class*="stretch"] {
+          background-image: url($items_alignment_icon_path + 'align-stretch.svg');
+        }
+        &[class*="center"] {
+          background-image: url($items_alignment_icon_path + 'align-center.svg');
+        }
+      }
+    }
+  }
+}

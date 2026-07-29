@@ -1,0 +1,133 @@
+uuid: d38ee7d0-faaa-4062-adfa-6524da867216
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_83716
+title: 'Oregon Bee Atlas-Bee School - Registration'
+description: null
+categories: {  }
+elements: |-
+  introduction:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	<strong>BEE SCHOOL</strong><br />
+      	As part of our efforts to build taxonomic expertise in surveying Oregon's native bee population, the Oregon Bee Project is offering an advanced five-day native bee survey and identification course at Oregon State University in Corvallis this summer (2018). This course is not required for you to participate in the Atlas. Our goal is to train people in basic taxonomy who can then be leaders in their region by teaching others. Prior experience is not needed - we are looking for people committed for the long term who have a passion for teaching others and sharing the knowledge they have gained from the course.&nbsp;<strong>Instructor:</strong>&nbsp;Lincoln Best</p>
+
+      <p>
+      	<strong>Dates: SESSON ONE:&nbsp;Monday, July 9th through Friday, July 13th<br />
+      	Dates: SESSON TWO: Monday, July 16th through Friday, July 20th<br />
+      	Time: All day sessions, tentatively 9 am to 5 pm<br />
+      	Location:</strong> Oregon State University, Corvallis Oregon; classes will be in Cordley Hall, Lab Room 3058<br />
+      	<strong>Bee School Cost: </strong>Please enter the amount that was sent to you in the email from Jen Holt. If you need assistance with this, please email <a href="mailto:jen.holt@oregonstate.edu">jen.holt@oregonstate.edu</a><br />
+      	<strong>Dorm Room Lodging Cost:</strong>&nbsp; $37.50 per night in a double room in West Hall ($29 room fee plus $8.50 linen service). Check-in is on arrival. A phone number will provided for building access and someone will meet you to give you the building key and meal card (if purchased). Guests may check in a day early (July 8th or July 15th) and stay a night later (July 13th or July 21st), but due to another large event on campus, the lodging will be in a different dorm (the International dorm). Please email your preferred roommate to:&nbsp;<a href="mailto:jen.holt@oregonstate.edu.">jen.holt@oregonstate.edu</a>.<br />
+      	<strong>Meal Card Costs:</strong> $16.50 per day (All-you-care-to-eat flat fee includes breakfast and lunch options at Marketplace West Dining Facility next door to the dorm).</p>
+  first_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'First Name'
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Last Name'
+    '#required': true
+  organization:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Organization
+  address:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Address
+    '#required': true
+  city:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': City
+    '#required': true
+  state:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': State
+    '#required': true
+  zip:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Zip
+    '#required': true
+  daytime_phone:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Daytime phone'
+    '#required': true
+  email:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': Email
+    '#required': true
+  to_help_you_calculate_your_registration_fees:
+    '#type': radios
+    '#options':
+      member: 'Member $250.00'
+      non-member: 'Non Atlas Member $500.00'
+    '#title': 'To help you calculate your Registration Fees'
+    '#required': true
+  lodging:
+    '#type': radios
+    '#options':
+      lodging_no: 'I will be making my own lodging arrangements'
+      lodging_yes: 'Yes, I want to stay in the dorm (double occupancy $37.50/night: please email the name of your preferred roommate to jen.holt@oregonstate.edu)'
+    '#title': Lodging
+    '#description': 'Check in: _____ Check Out: _____ = No. of nights: ___ * $37.50/night'
+    '#required': true
+  meals:
+    '#type': radios
+    '#options':
+      meals_no: 'I will be purchasing meals on my own'
+      meals_yes: 'Yes, I want an Arnold Dining Hall meal card'
+    '#title': Meals
+    '#description': |-
+      No. of days:________ * $16.50/day
+      Total Cost: Registration fees + Lodging + Meals = enter this amount on the payment screen
+    '#required': true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<p>\r\n\tThank you for registering for the Oregon Bee Atlas-Bee School - Summer 2018</p>\r\n\r\n<p>\r\n\tPayment is by credit card only:</p>\r\n\r\n<p>\r\n\tTotal Cost: Registration fees + Lodging + Meals = Enter this amount on the payment screen</p>\r\n\r\n<form action=\"https://secure.touchnet.net/C20159_upay/web/index.jsp\" method=\"post\">\r\n\t<p>\r\n\t\t<input name=\"UPAY_SITE_ID\" type=\"hidden\" value=\"50\" /> <input name=\"EXT_TRANS_ID\" type=\"hidden\" value=\"x\" /> <input name=\"AMT\" type=\"hidden\" value=\"y\" /> <input type=\"submit\" value=\"Click Here To Pay Now\" /></p>\r\n</form>\r\n\r\n<p>\r\n\t&nbsp;</p>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }

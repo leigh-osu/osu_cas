@@ -1,0 +1,16 @@
+uuid: dce5df53-6604-4400-96ac-35e5058ddfc0
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: graduate_faculty_hort
+label: graduate_faculty_hort
+logic: and
+conditions:
+  1c7be04e-2302-4a5b-9e56-7d93d97a61fc:
+    id: request_path
+    negate: false
+    uuid: 1c7be04e-2302-4a5b-9e56-7d93d97a61fc
+    pages: "/horticulture/directory/graduate-faculty\r\n/node/60186"
+allow_other_conditions: null

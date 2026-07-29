@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the toc_js_per_node module.
+ */
+
+use Drupal\node\Entity\NodeType;
+
+/**
+ * Convert override and override_default config values to boolean.
+ */
+function toc_js_per_node_update_10001() {
+  foreach (NodeType::loadMultiple() as $node_type) {
+    $override = $node_type->getThirdPartySetting('toc_js_per_node', 'override');
+    if ($override !== NULL) {
+      $node_type->setThirdPartySetting('toc_js_per_node', 'override', (bool) $override);
+    }
+
+    $override_default = $node_type->getThirdPartySetting('toc_js_per_node', 'override_default');
+    if ($override_default !== NULL) {
+      $node_type->setThirdPartySetting('toc_js_per_node', 'override_default', (bool) $override_default);
+    }
+
+    $node_type->save();
+  }
+
+  // Update block configurations.
+  $block_storage = \Drupal::entityTypeManager()->getStorage('block');
+  $blocks = $block_storage->loadByProperties(['plugin' => 'toc_js_per_node_block']);
+  foreach ($blocks as $block) {
+    $settings = $block->get('settings');
+    if (isset($settings['override_nodetype'])) {
+      $settings['override_nodetype'] = (bool) $settings['override_nodetype'];
+      $block->set('settings', $settings);
+      $block->save();
+    }
+  }
+}

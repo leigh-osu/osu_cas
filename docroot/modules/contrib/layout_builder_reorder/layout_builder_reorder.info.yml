@@ -1,0 +1,12 @@
+name: "Layout Builder Reorder"
+type: module
+description: "Makes it possible to reorder sections in Layout Builder."
+core_version_requirement: ^10.1 || ^11 || ^12
+package: "Layout Builder"
+dependencies:
+  - drupal:layout_builder
+
+# Information added by Drupal.org packaging script on 2026-07-17
+version: '2.0.1'
+project: 'layout_builder_reorder'
+datestamp: 1784308778

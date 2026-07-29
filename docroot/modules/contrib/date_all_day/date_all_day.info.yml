@@ -1,0 +1,12 @@
+name: 'Date All Day'
+type: module
+description: 'Extends datetime range fields to provide "All day" functionality'
+core_version_requirement: ^8.7.7 || ^9 || ^10 | ^11
+package: 'Date'
+dependencies:
+  - drupal:datetime_range
+
+# Information added by Drupal.org packaging script on 2024-12-16
+version: '2.1.0'
+project: 'date_all_day'
+datestamp: 1734369837

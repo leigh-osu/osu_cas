@@ -1,0 +1,13 @@
+uuid: b2b346ed-0ddd-489d-afc6-65b24bf15512
+langcode: en
+status: true
+dependencies:
+  module:
+    - domain_access
+_core:
+  default_config_hash: 7j93b7xTUtF_uT4TbFN9poAQ51pf380UhVCK9tVHTzs
+id: domain_access_edit_all_action
+label: 'Assign editors to all affiliates'
+type: user
+plugin: domain_access_edit_all_action
+configuration: {  }

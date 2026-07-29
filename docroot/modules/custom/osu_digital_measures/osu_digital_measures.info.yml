@@ -1,0 +1,8 @@
+name: OSU Digital Measures
+type: module
+description: 'Displays a Digital Measures report for a profile, keyed on the profile owner''s ONID (CAS) account.'
+package: OSU
+core_version_requirement: ^10 || ^11
+version: 1.0.0
+dependencies:
+  - externalauth:externalauth

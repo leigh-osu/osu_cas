@@ -1,0 +1,15 @@
+uuid: ec72a863-6d98-4b50-8f3c-f3c466e36159
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.honeybeelab_oregonstate_edu_
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_honeybeelab_oregonstate_edu_
+label: 'Remove editors from the Honey Bee Lab domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - honeybeelab_oregonstate_edu_

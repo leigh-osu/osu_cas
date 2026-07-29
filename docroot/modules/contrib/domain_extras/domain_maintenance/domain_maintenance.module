@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations for domain_maintenance module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Hook\Attribute\LegacyHook;
+use Drupal\domain_maintenance\Hook\DomainMaintenanceHooks;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+#[LegacyHook]
+function domain_maintenance_form_system_site_maintenance_mode_alter(&$form, FormStateInterface $form_state, $form_id) {
+  \Drupal::service(DomainMaintenanceHooks::class)->formSystemSiteMaintenanceModeAlter($form, $form_state, $form_id);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_delete() for domain entities.
+ */
+#[LegacyHook]
+function domain_maintenance_domain_delete(EntityInterface $domain) {
+  \Drupal::service(DomainMaintenanceHooks::class)->domainDelete($domain);
+}

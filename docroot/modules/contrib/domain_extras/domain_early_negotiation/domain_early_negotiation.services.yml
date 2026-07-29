@@ -1,0 +1,16 @@
+services:
+  _defaults:
+    autowire: true
+
+  http_middleware.domain_negotiation:
+    class: Drupal\domain_early_negotiation\StackMiddleware\DomainNegotiationMiddleware
+    arguments:
+      $moduleHandler: '@module_handler'
+      $requestStack: '@request_stack'
+      $negotiator: '@domain.negotiator'
+    tags:
+      - { name: http_middleware, priority: 220 }
+
+  Drupal\domain_early_negotiation\EventSubscriber\ConfigSubscriber: ~
+
+  Drupal\domain_early_negotiation\Hook\DomainEarlyNegotiationHooks: ~

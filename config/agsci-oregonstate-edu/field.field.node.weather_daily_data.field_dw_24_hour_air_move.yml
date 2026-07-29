@@ -1,0 +1,23 @@
+uuid: 3c1adf6d-978a-4cee-b549-e73880e7d562
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dw_24_hour_air_move
+    - node.type.weather_daily_data
+id: node.weather_daily_data.field_dw_24_hour_air_move
+field_name: field_dw_24_hour_air_move
+entity_type: node
+bundle: weather_daily_data
+label: '24 Hour Air Movement'
+description: 'miles of air movement'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

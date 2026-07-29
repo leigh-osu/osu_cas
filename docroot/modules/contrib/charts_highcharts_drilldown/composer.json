@@ -1,0 +1,23 @@
+{
+  "name": "drupal/charts_highcharts_drilldown",
+  "description": "Creates a Views style plugin that extends the Charts module style plugin to enable the Highcharts drilldown feature.",
+  "type": "drupal-module",
+  "homepage": "http://drupal.org/project/charts_highcharts_drilldown",
+  "authors": [
+    {
+      "name": "Mamadou Diao Diallo",
+      "homepage": "https://www.drupal.org/u/diaodiallo"
+    },
+    {
+      "name": "Daniel Cothran",
+      "homepage": "https://www.drupal.org/u/andileco"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/charts_highcharts_drilldown"
+  },
+  "license": "GPL-2.0-or-later",
+  "require": {
+      "drupal/charts": "^5.1.3"
+  }
+}

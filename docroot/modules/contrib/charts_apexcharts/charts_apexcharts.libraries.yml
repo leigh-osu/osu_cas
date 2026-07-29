@@ -1,0 +1,22 @@
+charts_apexcharts:
+  remote: 'https://cdn.jsdelivr.net/npm/apexcharts/dist/apexcharts.min.js'
+  version: VERSION
+  license:
+    name: 'MIT'
+    url: ''
+    gpl-compatible: false
+  cdn:
+    /libraries/apexcharts/dist/apexcharts.min.js: https://cdn.jsdelivr.net/npm/apexcharts/dist/apexcharts.min.js
+  js:
+    /libraries/apexcharts/dist/apexcharts.min.js: { minified: true }
+  dependencies:
+    - core/drupal
+    - core/once
+
+apexcharts:
+  version: 5.5.x
+  js:
+    js/charts_apexcharts.js: { }
+  dependencies:
+    - charts/global
+    - charts_apexcharts/charts_apexcharts

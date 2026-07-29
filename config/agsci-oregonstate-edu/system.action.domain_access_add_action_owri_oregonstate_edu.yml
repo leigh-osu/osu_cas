@@ -1,0 +1,15 @@
+uuid: 809ecb19-94ec-4ddc-811b-7f51c41bbd4e
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.owri_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_owri_oregonstate_edu
+label: 'Add selected content to the Oregon Wine Research Institute domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - owri_oregonstate_edu

@@ -1,0 +1,88 @@
+@import '../abstracts/cas_variables';
+
+// Fixed-width layout ($cas-fixed-width, set in abstracts/cas_variables).
+
+// Main content + sidebar area: boxed and centred (no background of its own,
+// so a plain max-width is enough).
+.layout-container main[role='main'] {
+  width: 100%;
+  max-width: $cas-fixed-width;
+  margin-inline: auto;
+}
+
+// Breadcrumb renders outside <main>. It carries a full-bleed background bar
+// (see _cas_breadcrumbs.scss), so like the header/menu bars its background
+// runs edge-to-edge while the trail itself is padded into the content column
+// by the media query below.
+
+// Full-bleed bars keep their background edge-to-edge but pad their content in
+// to the same 1320px column once the viewport is wider than the fixed width.
+@media (min-width: #{$cas-fixed-width}) {
+  #madrone-header-container,
+  #madrone-primary-menu-container,
+  #madrone-breadcrumb-container,
+  #madrone-highlighted-container,
+  #madrone-footer-container {
+    padding-inline: calc((100% - #{$cas-fixed-width}) / 2) !important;
+  }
+}
+
+// "Edge to Edge" (.w-100) Layout Builder sections: bleed the section
+// background (colour, image or video) out to the viewport while the section
+// content stays in the fixed column. bootstrap_styles puts colour/image
+// backgrounds on the anonymous wrapper div around the .w-100 container, and
+// video backgrounds on an outer .background-local-video div, so stretch the
+// outermost of those with negative margins and pull the container back in.
+.layout-container main[role='main'] {
+  div:has(> .w-100 > .layout-builder__layout),
+  .background-local-video:has(.w-100 > .layout-builder__layout) {
+    margin-inline: calc(50% - 50vw);
+  }
+
+  // A video wrapper has already bled to the viewport; the container wrapper
+  // nested inside its .video-content must not shift a second time.
+  .background-local-video div:has(> .w-100 > .layout-builder__layout) {
+    margin-inline: 0;
+  }
+
+  // Re-contain the section content in the fixed column.
+  .w-100:has(> .layout-builder__layout) {
+    max-width: $cas-fixed-width;
+    margin-inline: auto;
+  }
+
+  // The bleed selectors above are descendant selectors, so they also match a
+  // Layout Builder layout nested inside a block that is itself built with
+  // Layout Builder -- e.g. an osu_menu_bar_item, whose block content is a
+  // .w-100 > .layout-builder__layout. Such a nested layout must stay inside its
+  // column, not bleed to the viewport and cap at the fixed width (which forced
+  // the menu-bar link out to 1320px). Only the outermost section should bleed,
+  // so undo it for any layout nested inside another .layout-builder__layout.
+  .layout-builder__layout {
+    div:has(> .w-100 > .layout-builder__layout) {
+      margin-inline: 0;
+    }
+
+    .w-100:has(> .layout-builder__layout) {
+      max-width: none;
+      margin-inline: 0;
+    }
+  }
+
+  // The Layout Builder edit UI's preview pane is not centred on the viewport
+  // (off-canvas tray, admin chrome), so the 50vw bleed only causes sideways
+  // scrolling there; keep sections contained while editing.
+  .layout-builder {
+    div:has(> .w-100 > .layout-builder__layout),
+    .background-local-video:has(.w-100 > .layout-builder__layout) {
+      margin-inline: 0;
+    }
+  }
+}
+
+// 100vw includes the scrollbar on platforms with classic (non-overlay)
+// scrollbars, so the bleed can create a ~15px horizontal overflow; clip it.
+// (clip, unlike hidden, does not turn html into a scroll container.)
+html {
+  overflow-x: clip;
+}

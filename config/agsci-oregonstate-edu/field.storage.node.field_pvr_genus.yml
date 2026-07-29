@@ -1,0 +1,21 @@
+uuid: 973cc390-d7a7-41b8-94f9-517c787b1584
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_pvr_genus
+field_name: field_pvr_genus
+entity_type: node
+type: string
+settings:
+  max_length: 60
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

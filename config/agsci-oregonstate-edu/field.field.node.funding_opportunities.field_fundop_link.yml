@@ -1,0 +1,23 @@
+uuid: 42918880-2207-4925-8983-82476a80645d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fundop_link
+    - node.type.funding_opportunities
+  module:
+    - link
+id: node.funding_opportunities.field_fundop_link
+field_name: field_fundop_link
+entity_type: node
+bundle: funding_opportunities
+label: Link
+description: 'Enter the URL for the Funding Opportunity web site.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

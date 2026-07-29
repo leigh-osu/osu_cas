@@ -1,0 +1,27 @@
+uuid: 1012964d-5bca-4be7-908d-50e8fad38ed7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfs_pdf_flyer_espanol
+    - node.type.degree_fact_sheet
+  module:
+    - file
+id: node.degree_fact_sheet.field_dfs_pdf_flyer_espanol
+field_name: field_dfs_pdf_flyer_espanol
+entity_type: node
+bundle: degree_fact_sheet
+label: 'PDF Flyer Español'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: pdf
+  max_filesize: ''
+  description_field: false
+field_type: file

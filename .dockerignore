@@ -1,0 +1,14 @@
+Dockerfile
+docker-compose.yml
+docker-compose.override.yml
+.idea
+.git
+.dockerignore
+vendor
+docroot
+!docroot/modules/custom
+!docroot/profiles/custom
+!docroot/sites/default
+!docroot/themes/custom
+docroot/sites/default/services.yml
+.vim

@@ -1,0 +1,74 @@
+{#
+/**
+ * @file
+ * Theme override for an "osu_profile" node rendered as a full page.
+ *
+ * Replicates the Drupal 7 people profile layout: photo on the left with the
+ * position title / contact details beside it, the research/career interests
+ * text below, and the remaining fields in collapsed accordion sections
+ * ("At OSU", "Biography", "Professional Accomplishments", ...). The accordion
+ * sections are field_group "details" elements configured in the
+ * node.osu_profile.full view display; everything printed explicitly here is
+ * an ungrouped field in that display.
+ *
+ * @see core.entity_view_display.node.osu_profile.full.yml (config_imports/display/)
+ * @see madrone/templates/content/node.html.twig
+ */
+#}
+{% set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+] %}
+<article{{ attributes.addClass(classes) }}>
+
+  {{ title_prefix }}
+  {% if label and not page %}
+    <h2{{ title_attributes }}>
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h2>
+  {% endif %}
+  {{ title_suffix }}
+
+  <div{{ content_attributes.addClass('node__content') }}>
+    <div class="profile-header">
+      {% if content.field_profile_image|render|trim %}
+        <div class="profile-header__photo">
+          {{ content.field_profile_image }}
+        </div>
+      {% endif %}
+      <div class="profile-header__info">
+        {{ content.field_profile_primary_title }}
+        {{ content.field_profile_pronouns }}
+        {{ content.field_profile_email }}
+        {{ content.field_profile_office_phone }}
+        {{ content.field_profile_alt_phone }}
+        {{ content.field_profile_fax }}
+        {{ content.field_profile_address }}
+      </div>
+    </div>
+
+    <div class="profile-summary">
+      {{ content.field_profile_fac_career_int }}
+      {{ content.field_profile_fac_additional }}
+      {{ content.field_profile_stu_ac_interests }}
+    </div>
+
+    <div class="profile-sections">
+      {{ content|without(
+        'field_profile_image',
+        'field_profile_primary_title',
+        'field_profile_pronouns',
+        'field_profile_email',
+        'field_profile_office_phone',
+        'field_profile_alt_phone',
+        'field_profile_fax',
+        'field_profile_address',
+        'field_profile_fac_career_int',
+        'field_profile_fac_additional',
+        'field_profile_stu_ac_interests'
+      ) }}
+    </div>
+  </div>
+</article>

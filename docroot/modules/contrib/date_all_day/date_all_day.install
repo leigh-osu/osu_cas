@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * Implements install and update hooks.
+ */
+
+/**
+ * Move the date_all_day fields to use the core's daterange field type.
+ */
+function date_all_day_update_8001() {
+  /** @var \Drupal\Core\Entity\EntityFieldManager $field_manager */
+  $field_manager = \Drupal::service('entity_field.manager');
+  $date_fields = $field_manager->getFieldMapByFieldType('daterange_all_day');
+  /** @var array $date_field */
+  foreach ($date_fields as $entity_type => $fields_information) {
+    foreach ($fields_information as $field_name => $field_instance) {
+      foreach ($field_instance['bundles'] as $bundle) {
+        $field = [
+          'field.field' => 'field.field.' . $entity_type . '.' . $bundle . '.' . $field_name,
+          'field.storage' => 'field.storage.' . $entity_type . '.' . $field_name,
+        ];
+        foreach ($field as $config_entity_type => $config_entity_name) {
+          $field_config = \Drupal::configFactory()->getEditable($config_entity_name);
+          $dependencies = $field_config->get('dependencies');
+
+          array_walk($dependencies['module'], function (&$module) {
+            $module = ($module == 'date_all_day') ? 'datetime_range' : $module;
+          });
+          $field_config->set('dependencies', $dependencies);
+
+          if ($config_entity_type == 'field.field') {
+            $field_config->set('field_type', 'daterange');
+          }
+          elseif ($config_entity_type == 'field.storage') {
+            $field_config->set('type', 'daterange');
+            $field_config->set('module', 'datetime_range');
+          }
+          $field_config->save();
+        }
+
+      }
+    }
+  }
+
+  $field_manager->clearCachedFieldDefinitions();
+
+}

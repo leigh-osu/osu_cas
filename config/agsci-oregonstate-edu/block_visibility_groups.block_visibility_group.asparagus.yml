@@ -1,0 +1,16 @@
+uuid: 78652c11-c565-4780-80ec-a2d11ed23918
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: asparagus
+label: asparagus
+logic: and
+conditions:
+  31d3dd52-8832-44a6-a6e4-deac949e9752:
+    id: request_path
+    negate: false
+    uuid: 31d3dd52-8832-44a6-a6e4-deac949e9752
+    pages: /mes/crops/asparagus
+allow_other_conditions: null

@@ -1,0 +1,16 @@
+uuid: 6ce5bf4f-5127-40c0-b0f6-b50667d49e72
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: camelina
+label: camelina
+logic: and
+conditions:
+  8ab15965-6c2c-4466-969d-4464e735af46:
+    id: request_path
+    negate: false
+    uuid: 8ab15965-6c2c-4466-969d-4464e735af46
+    pages: /mes/crops/camelina
+allow_other_conditions: null

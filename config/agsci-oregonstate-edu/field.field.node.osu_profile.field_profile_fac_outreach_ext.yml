@@ -1,0 +1,22 @@
+uuid: 11c8e253-6607-4118-a3b3-160a136686c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_fac_outreach_ext
+    - node.type.osu_profile
+  module:
+    - text
+id: node.osu_profile.field_profile_fac_outreach_ext
+field_name: field_profile_fac_outreach_ext
+entity_type: node
+bundle: osu_profile
+label: 'Outreach and Extension'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

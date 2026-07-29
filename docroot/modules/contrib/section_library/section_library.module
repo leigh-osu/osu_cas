@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Section Library module file.
+ */
+
+/**
+ * Implements hook_element_info_alter().
+ */
+function section_library_element_info_alter(array &$types) {
+  // Add a pre-render callback to the layout_builder element type.
+  if (isset($types['layout_builder'])) {
+    $types['layout_builder']['#pre_render'][] = '\Drupal\section_library\SectionLibraryRender::preRender';
+  }
+}

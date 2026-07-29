@@ -1,0 +1,23 @@
+uuid: 66ad0809-cb87-48e5-888a-7deaf11b4d25
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dw_2_inches_max
+    - node.type.weather_daily_data
+id: node.weather_daily_data.field_dw_2_inches_max
+field_name: field_dw_2_inches_max
+entity_type: node
+bundle: weather_daily_data
+label: '2 inches Max'
+description: 'Soil Temperature'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

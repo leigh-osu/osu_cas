@@ -1,0 +1,16 @@
+uuid: d819a3d0-bc6f-44ee-9754-323160a14196
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: teff
+label: teff
+logic: and
+conditions:
+  4cfc1d73-efd4-4438-b01b-782259475ebf:
+    id: request_path
+    negate: false
+    uuid: 4cfc1d73-efd4-4438-b01b-782259475ebf
+    pages: "/malheur-experiment-station/crops/teff\r\n/mes/crops/teff\r\n/node/45311"
+allow_other_conditions: null

@@ -1,0 +1,16 @@
+uuid: 4896ad4c-9b49-49e2-af08-1a93339e38b2
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: honeybee_directory
+label: honeybee_directory
+logic: and
+conditions:
+  30dc6704-669d-4e19-848e-c10b485f5f0b:
+    id: request_path
+    negate: false
+    uuid: 30dc6704-669d-4e19-848e-c10b485f5f0b
+    pages: /node/80201
+allow_other_conditions: null

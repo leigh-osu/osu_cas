@@ -1,0 +1,187 @@
+uuid: 2e7109ef-55e4-4fb0-a2d5-b020db3b7489
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_25359
+title: Alumni
+description: null
+categories: {  }
+elements: |-
+  introduction:
+    '#type': processed_text
+    '#format': full_html
+    '#text': "<p>Update your information so we can keep you informed about the Oregon State University Agriculture &amp; Natural Resource Program at EOU and Alumni events.&nbsp; We also want to hear what's been happening in your world.&nbsp; Please fill out the Alumni update form and let us know what you've been up to.&nbsp; Send us a photo and we'll try to include you in our Alumni profiles!</p>"
+  first_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'First Name'
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Last Name'
+    '#required': true
+  maiden_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Maiden Name'
+    '#description': '(if applicable)'
+  email:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': Email
+    '#required': true
+  check_here_if_you_do_not_want_us_to_publish_your_email_address:
+    '#type': radios
+    '#options':
+      no_email_publish: ' Email NOT Published'
+    '#title': 'Check here if you do NOT want us to publish your email address.'
+  spouse_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Spouse Name'
+  spouses_class:
+    '#type': textfield
+    '#title_display': inline
+    '#title': "Spouse's Class"
+    '#description': '(if applicable)'
+  class_year:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Class year'
+    '#required': true
+  address_information:
+    '#type': processed_text
+    '#format': full_html
+    '#text': '<h5>Address Information</h5>'
+  is_this_a_new_address:
+    '#type': radios
+    '#options':
+      new_address_yes: 'Yes'
+      new_address_no: 'No'
+    '#title_display': inline
+    '#title': ' Is this a new address?'
+  street:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Street
+  city:
+    '#type': textfield
+    '#title_display': inline
+    '#title': City
+  state:
+    '#type': textfield
+    '#title_display': inline
+    '#title': State
+  zip:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Zip
+  country:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Country
+  telephone:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Telephone
+  news:
+    '#type': processed_text
+    '#format': full_html
+    '#text': '<h5>News</h5>'
+  what_are_you_doing_for_work_or_retirement_has_it_changed_recently:
+    '#type': textarea
+    '#title': 'What are you doing for work or retirement? Has it changed recently?'
+  what_else_has_been_happening_in_your_life_or_with_your_family:
+    '#type': textarea
+    '#title': 'What else has been happening in your life or with your family?'
+  where_was_your_favorite_place_to_eat_study_meet_with_friends_or_relax_on_campus:
+    '#type': textarea
+    '#title': 'Where was your favorite place to eat, study, meet with friends, or relax on campus?'
+  is_there_anything_youd_like_to_add_to_your_life_right_now:
+    '#type': textarea
+    '#title': "Is there anything you'd like to add to your life right now?"
+  what_eou_activities_have_you_been_involved_in_since_graduating:
+    '#type': textarea
+    '#title': 'What EOU activities have you been involved in since graduating?'
+  photo:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': Photo
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: EOUAG@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |
+        Submitted on [webform_submission:date:long]
+        Submitted by user: [webform_submission:user]
+        Submitted values are:
+        [webform_submission:values]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

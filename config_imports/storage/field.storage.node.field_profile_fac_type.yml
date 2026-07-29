@@ -1,0 +1,33 @@
+uuid: 7e3c1a44-2b8e-4d51-9a4f-1c7e9b2d6a01
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_profile_fac_type
+field_name: field_profile_fac_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '01'
+      label: Faculty
+    -
+      value: '02'
+      label: GTA
+    -
+      value: '03'
+      label: GRA
+    -
+      value: '04'
+      label: 'Student Worker'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

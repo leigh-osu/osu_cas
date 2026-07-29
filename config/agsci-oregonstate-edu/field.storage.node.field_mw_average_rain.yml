@@ -1,0 +1,20 @@
+uuid: f79b05d0-dd90-4a41-9ab8-ed705b25f152
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_mw_average_rain
+field_name: field_mw_average_rain
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

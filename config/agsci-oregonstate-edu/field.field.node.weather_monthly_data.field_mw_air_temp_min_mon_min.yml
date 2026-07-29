@@ -1,0 +1,23 @@
+uuid: d394ddfe-179b-43aa-b9ae-31c19249022b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mw_air_temp_min_mon_min
+    - node.type.weather_monthly_data
+id: node.weather_monthly_data.field_mw_air_temp_min_mon_min
+field_name: field_mw_air_temp_min_mon_min
+entity_type: node
+bundle: weather_monthly_data
+label: 'Air Temp Min: Monthly Minimum'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

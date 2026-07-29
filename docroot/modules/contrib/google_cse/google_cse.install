@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Contains install and update functions for Google Programmable Search.
+ */
+
+/**
+ * Move legacy settings to data attributes.
+ */
+function google_cse_update_10001() {
+  _google_cse_convert_from_3_to_4();
+}

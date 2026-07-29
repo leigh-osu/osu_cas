@@ -1,0 +1,146 @@
+uuid: 42705b5d-6698-4eda-be81-7d8ffe845b46
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_242946
+title: 'Contact Roots IT'
+description: null
+categories: {  }
+elements: |-
+  name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Name
+  phone_number:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Phone number'
+  email_address:
+    '#type': email
+    '#size': 20
+    '#title_display': inline
+    '#title': 'OSU Email address (if available) '
+  office_lab_number_where_to_find_the_equipment_computer_that_is_broken:
+    '#type': textfield
+    '#title': 'Building and room number, where to find the equipment/computer that is broken'
+  how_can_we_assist_you:
+    '#type': radios
+    '#options':
+      software: Software
+      hardware: Hardware
+      users: Users
+    '#title': 'How can we assist you? '
+  description:
+    '#type': textarea
+    '#title': 'Description '
+    '#description': 'Please describe your request or question in more detail.'
+  attachment:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png pdf doc docx'
+    '#title': Attachment
+    '#description': 'Provide any screenshots, photos, or documents related to this request or question.'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: roots.support@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: tdrootshelpdesk@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

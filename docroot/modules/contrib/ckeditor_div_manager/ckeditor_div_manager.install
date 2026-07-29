@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * @file
+ * Install, update, and uninstall functions for CKEditor Div Manager.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function ckeditor_div_manager_requirements($phase) {
+  $requirements = [];
+
+  if ($phase == 'install' || $phase == 'runtime') {
+    $moduleHandler = \Drupal::service('module_handler');
+    if (!$moduleHandler->moduleExists('ckeditor')) {
+      $requirements['div_enable'] = [
+        'title' => t('CKEditor Div Manager'),
+        'value' => t('CKEditor module not detected'),
+        'severity' => REQUIREMENT_ERROR,
+        'description' => t('You must enable the CKEditor module.', []),
+      ];
+    }
+    $path = '/libraries/ckeditor/plugins/div/';
+    $plugin_detected = file_exists(DRUPAL_ROOT . $path . 'plugin.js');
+
+    if ($plugin_detected) {
+      $requirements['div'] = [
+        'title' => t('CKEditor Div Manager'),
+        'value' => t('Plugin detected'),
+        'severity' => REQUIREMENT_OK,
+      ];
+    }
+    else {
+      $requirements['div'] = [
+        'title' => t('CKEditor Div Manager'),
+        'value' => t('Plugin not detected'),
+        'severity' => REQUIREMENT_ERROR,
+        'description' => t('The CKEditor plugin <b>Div Container Manager</b> is
+          required. Download <a href=":url">here</a> and copy to
+          <code>:path</code>.', [
+            ':url' => 'https://ckeditor.com/cke4/addon/div',
+            ':path' => $path,
+          ]),
+      ];
+    }
+  }
+
+  return $requirements;
+}

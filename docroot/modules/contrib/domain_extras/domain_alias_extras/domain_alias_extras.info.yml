@@ -1,0 +1,13 @@
+name: Domain Alias Extras
+description: 'Various utilities related to the Domain Alias module.'
+type: module
+package: Domain
+core_version_requirement: ^10.2 || ^11
+configure: domain_alias_extras.settings
+dependencies:
+  - domain:domain_alias
+
+# Information added by Drupal.org packaging script on 2026-05-08
+version: '3.0.3'
+project: 'domain_extras'
+datestamp: 1778274501

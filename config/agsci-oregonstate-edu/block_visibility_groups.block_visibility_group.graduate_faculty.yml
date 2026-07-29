@@ -1,0 +1,16 @@
+uuid: de3cc74d-3cf7-498c-ab4a-db4b82882f27
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: graduate_faculty
+label: graduate_faculty
+logic: and
+conditions:
+  86efd295-bb9b-431f-bbe0-84c6de9d1f4f:
+    id: request_path
+    negate: false
+    uuid: 86efd295-bb9b-431f-bbe0-84c6de9d1f4f
+    pages: "/node/44696\r\n/node/57771"
+allow_other_conditions: null

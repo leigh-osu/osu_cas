@@ -1,0 +1,40 @@
+{
+    "name": "drupal/charts_apexcharts",
+    "description": "Charts module integration with ApexCharts.",
+    "type": "drupal-module",
+    "homepage": "https://drupal.org/project/charts_apexcharts",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/charts_apexcharts"
+    },
+    "license": "MIT",
+    "repositories": {
+        "asset-packagist": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    },
+    "require": {
+        "oomphinc/composer-installers-extender": "^2",
+        "npm-asset/apexcharts": "^4",
+        "drupal/core": "^10.3 || ^11 || ^12",
+        "drupal/charts": "^5.2.1"
+    },
+    "extra": {
+        "installer-types": [
+            "npm-asset"
+        ],
+        "installer-paths": {
+            "web/libraries/apexcharts": [
+                "type:drupal-library",
+                "vendor:npm-asset",
+                "vendor:bower-asset"
+            ]
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "oomphinc/composer-installers-extender": true
+        }
+    }
+}

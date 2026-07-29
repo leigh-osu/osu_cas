@@ -1,0 +1,22 @@
+{
+  "name": "drupal/image_field_to_media",
+  "description": "Enables to convert existing image fields to Media image fields.",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "homepage": "https://www.drupal.org/project/image_field_to_media",
+  "authors": [
+    {
+      "name": "Andrey Vitushkin (wombatbuddy)",
+      "homepage": "https://www.drupal.org/u/wombatbuddy",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/image_field_to_media",
+    "source": "https://git.drupalcode.org/project/image_field_to_media"
+  },
+  "require": {
+    "drupal/core": "^10.3 || ^11"
+  }
+}

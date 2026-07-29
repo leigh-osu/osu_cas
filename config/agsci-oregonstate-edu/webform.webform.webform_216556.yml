@@ -1,0 +1,249 @@
+uuid: 57f7331a-d303-483c-a1e6-6c6e7d6f2f59
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 0
+template: false
+archive: false
+id: webform_216556
+title: 'UN International Year of Plant Health Stories'
+description: null
+categories: {  }
+elements: |-
+  instructions_un:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <h3>
+      	Introduction</h3>
+
+      <p>
+      	The UN’s&nbsp;<strong><a href="http://www.fao.org/plant-health-2020/about/en/">International Year&nbsp;of Plant&nbsp;Health&nbsp;(IYPH) 2020</a></strong> is a once in a lifetime opportunity to raise global awareness on how protecting plant&nbsp;health&nbsp;can help end hunger, reduce poverty, protect biodiversity and the environment, and boost economic development. Here in the College of Agricultural Sciences at OSU, we are leading great work in this area and we want to share our stories. Please take a few minutes to fill out the short questionnaire below so that the college Communications and Marketing team can curate our stories to be shared over the rest of the year. If you have questions, contact Ben Davis at <a href="mailto:ben.davis@oregonstate.edu" target="_blank">ben.davis@oregonstate.edu</a>.</p>
+  name_un:
+    '#type': textfield
+    '#title': Name
+    '#required': true
+  title_un:
+    '#type': textfield
+    '#unique': false
+    '#title': Title
+    '#required': true
+  department_un:
+    '#type': textfield
+    '#unique': false
+    '#title': Department
+  title_of_research_area:
+    '#type': textfield
+    '#title': 'Title of Research Area'
+  plant_research_un:
+    '#type': textarea
+    '#title': 'Describe your area of plant research (What do you do?)'
+  why_career_un:
+    '#type': textarea
+    '#title': 'Why did you decide to pursue a career in plant health? (Why do you do it?)'
+  plant_health_un:
+    '#type': textarea
+    '#title': 'What problem will your work help solve?'
+  research_partners__un:
+    '#type': textarea
+    '#title': 'Who else do you work with? (Research partners)'
+  file_pdf_word:
+    '#type': managed_file
+    '#max_filesize': 20.0
+    '#file_extensions': 'gif jpg jpeg png pdf doc docx'
+    '#title': 'File (pdf, word)'
+  image_1_un:
+    '#type': managed_file
+    '#max_filesize': 20.0
+    '#file_extensions': 'gif jpg jpeg png pdf doc docx'
+    '#title': 'Image 1'
+  image_2_un:
+    '#type': managed_file
+    '#max_filesize': 20.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Image 2'
+  image_3_un:
+    '#type': managed_file
+    '#max_filesize': 20.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Image 3'
+  image_4:
+    '#type': managed_file
+    '#max_filesize': 20.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Image 4'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: heidi.happonen@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: ben.davis@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_3:
+    id: email
+    handler_id: email_3
+    label: 'Email 3'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 3
+    settings:
+      states:
+        - completed
+      to_mail: sara.monk@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_4:
+    id: email
+    handler_id: email_4
+    label: 'Email 4'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 4
+    settings:
+      states:
+        - completed
+      to_mail: sankovil@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

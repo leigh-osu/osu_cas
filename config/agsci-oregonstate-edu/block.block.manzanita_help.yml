@@ -1,0 +1,22 @@
+uuid: 770efba8-c1a9-4566-9926-93d5a155e31e
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - manzanita
+_core:
+  default_config_hash: SXDbHDWbP0y3tKTCZqZBiicyvJ0Nn3TRe373Zv-Yggg
+id: manzanita_help
+theme: manzanita
+region: help
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

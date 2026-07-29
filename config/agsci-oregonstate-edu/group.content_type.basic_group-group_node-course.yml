@@ -1,0 +1,17 @@
+uuid: bb8ffe9c-37e9-41e2-b41d-0ee1f8d70cd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.basic_group
+    - node.type.course
+  module:
+    - gnode
+    - node
+id: basic_group-group_node-course
+group_type: basic_group
+content_plugin: 'group_node:course'
+plugin_config:
+  group_cardinality: 1
+  entity_cardinality: -1
+  use_creation_wizard: false

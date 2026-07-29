@@ -1,0 +1,21 @@
+uuid: c1d2b7a1-04ad-4b42-8c36-aa48b6b5f5ce
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_dfs_twitter
+field_name: field_dfs_twitter
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

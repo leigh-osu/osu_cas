@@ -1,0 +1,18 @@
+views.field.views_date_format_sql_field:
+  type: views.field.field
+  label: 'Date Format SQL'
+  mapping:
+    format_date_sql:
+      type: boolean
+      label: 'Use Format Date SQL'
+
+views.argument.views_date_format_sql_argument:
+  type: views.argument.numeric
+  label: 'Date Format SQL'
+  mapping:
+    format_date_sql:
+      type: boolean
+      label: 'Use Format Date SQL'
+    format_string:
+      type: string
+      label: 'Date Format'

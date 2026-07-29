@@ -1,0 +1,28 @@
+// Madrone's palette (manzanita is a sub-theme of madrone); CAS variables
+// below extend it with the colors madrone does not define.
+@import '../../../../madrone/src/scss/abstracts/osu_variables';
+
+// Brand-guide colors with no madrone equivalent. Names and hex values from
+// communications.oregonstate.edu/brand-guide/visual-identity/colors.
+// (Stratosphere is NOT defined here: CAS adopts madrone's ramp anchor
+// $stratosphere-400 (#006082) rather than the brand-guide #006a8e.)
+$candela: #fdd26e;
+$candela-hsl: hsl(41.96 97.28% 71.18%);
+$coastline: #a7aca2;
+$coastline-hsl: hsl(90 5.68% 65.49%);
+$high-desert: #7a6855;
+$high-desert-hsl: hsl(30.81 17.87% 40.59%);
+
+// Translucent overlays used by larch's trans bg classes over row background
+// images (larch-bg-trans-white / larch-bg-trans-black). Alpha values match
+// larch (0.75 / 0.6) for D7 parity; madrone's own dark scrim is the heavier
+// $osu-bg-gradient ($paddletailblack at 0.75).
+$trans-white: rgba($bucktoothwhite, 0.75);
+$trans-white-hsl: hsl(0 0% 100% / 0.75);
+$trans-black: rgba(#000, 0.6);
+$trans-black-hsl: hsl(0 0% 0% / 0.6);
+
+// Fixed-width layout: cap the page content at 1320px (Bootstrap's xxl
+// container width) and centre it, while the header, menu and footer
+// background bars stay full-bleed.
+$cas-fixed-width: 1320px;

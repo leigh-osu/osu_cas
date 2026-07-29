@@ -1,0 +1,16 @@
+uuid: b326f43f-9f98-4792-b2e5-9599b9cd7441
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: weather_monthly_summary
+label: weather_monthly_summary
+logic: and
+conditions:
+  948e8c12-7686-4ed3-9685-7f2c9d701463:
+    id: request_path
+    negate: false
+    uuid: 948e8c12-7686-4ed3-9685-7f2c9d701463
+    pages: /node/167271
+allow_other_conditions: null

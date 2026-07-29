@@ -1,0 +1,398 @@
+uuid: 3b02e9be-e4bd-4fcb-bd15-38ca32d84b56
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.story.body
+    - field.field.node.story.field_domain_access
+    - field.field.node.story.field_domain_all_affiliates
+    - field.field.node.story.field_meta_tags
+    - field.field.node.story.field_osu_organizations
+    - field.field.node.story.field_osu_story_caption
+    - field.field.node.story.field_osu_story_cover_image
+    - field.field.node.story.field_osu_story_external_url
+    - field.field.node.story.field_osu_story_realtime_seo
+    - field.field.node.story.field_story_category
+    - field.field.node.story.field_story_media
+    - field.field.node.story.field_story_osu_employee
+    - field.field.node.story.field_story_osu_story
+    - field.field.node.story.field_story_publish_date
+    - field.field.node.story.field_tags
+    - field.field.node.story.field_tax_cas_section
+    - field.field.node.story.field_tax_cas_themes
+    - field.field.node.story.field_tax_coarec_authors
+    - field.field.node.story.field_tax_coarec_topics
+    - field.field.node.story.field_tax_crop
+    - field.field.node.story.field_tax_department
+    - field.field.node.story.field_tax_malheur_topics
+    - field.field.node.story.field_tax_nursery_topics
+    - field.field.node.story.field_tax_organic_ag_topics
+    - field.field.node.story.field_tax_owri_topics
+    - field.field.node.story.field_tax_publication_type
+    - field.field.node.story.field_tax_publisher
+    - field.field.node.story.field_tax_swd_topics
+    - field.field.node.story.field_tax_tags
+    - field.field.node.story.field_tax_turf_topics
+    - field.field.node.story.field_tax_veg_topics
+    - field.field.node.story.field_tax_work_area
+    - field.field.node.story.field_tax_year
+    - field.field.node.story.layout_builder__layout
+    - node.type.story
+  module:
+    - datetime
+    - entitygroupfield
+    - field_group
+    - link
+    - media_library
+    - metatag
+    - multiselect
+    - path
+    - text
+    - yoast_seo
+third_party_settings:
+  field_group:
+    group_story_assign_topics:
+      children:
+        - field_tax_cas_themes
+        - field_tax_cas_section
+        - field_tax_department
+        - field_tax_year
+        - field_tax_publication_type
+        - field_tax_crop
+        - field_tax_coarec_authors
+        - field_tax_coarec_topics
+        - field_tax_malheur_topics
+        - field_tax_nursery_topics
+        - field_tax_organic_ag_topics
+        - field_tax_owri_topics
+        - field_tax_swd_topics
+        - field_tax_turf_topics
+        - field_tax_veg_topics
+        - field_tax_work_area
+      label: 'Assign Topics'
+      region: content
+      parent_name: ''
+      weight: 25
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        description: ''
+        required_fields: true
+_core:
+  default_config_hash: tE9uDlOEjlH2mWv5S8u7uJyj_I6JG5A64r74fL8-sPE
+id: node.story.default
+targetEntityType: node
+bundle: story
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 4
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  entitygroupfield:
+    type: entitygroupfield_select_widget
+    weight: -50
+    region: content
+    settings:
+      help_text: ''
+      label: 'Group name'
+      multiple: true
+      required: false
+    third_party_settings: {  }
+  field_domain_access:
+    type: options_buttons
+    weight: 22
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_domain_all_affiliates:
+    type: boolean_checkbox
+    weight: 23
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_meta_tags:
+    type: metatag_firehose
+    weight: 21
+    region: content
+    settings:
+      sidebar: true
+      use_details: true
+    third_party_settings: {  }
+  field_osu_organizations:
+    type: entity_reference_autocomplete
+    weight: 18
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_osu_story_cover_image:
+    type: media_library_widget
+    weight: 3
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_osu_story_external_url:
+    type: link_default
+    weight: 8
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_osu_story_realtime_seo:
+    type: yoast_seo_widget
+    weight: 20
+    region: content
+    settings:
+      edit_title: true
+      edit_description: true
+      render_theme: madrone
+      render_view_mode: default
+    third_party_settings: {  }
+  field_story_category:
+    type: options_select
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_story_media:
+    type: media_library_widget
+    weight: 19
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_story_osu_employee:
+    type: entity_reference_autocomplete
+    weight: 9
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_story_osu_story:
+    type: boolean_checkbox
+    weight: 5
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_story_publish_date:
+    type: datetime_default
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tags:
+    type: entity_reference_autocomplete_tags
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_tax_cas_section:
+    type: multiselect
+    weight: 21
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_cas_themes:
+    type: multiselect
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_coarec_authors:
+    type: multiselect
+    weight: 26
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_coarec_topics:
+    type: multiselect
+    weight: 27
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_crop:
+    type: multiselect
+    weight: 25
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_department:
+    type: multiselect
+    weight: 22
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_malheur_topics:
+    type: multiselect
+    weight: 28
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_nursery_topics:
+    type: multiselect
+    weight: 29
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_organic_ag_topics:
+    type: multiselect
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_owri_topics:
+    type: multiselect
+    weight: 31
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_publication_type:
+    type: options_select
+    weight: 24
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_publisher:
+    type: entity_reference_autocomplete
+    weight: 7
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_tax_swd_topics:
+    type: multiselect
+    weight: 32
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_tags:
+    type: entity_reference_autocomplete
+    weight: 24
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_tax_turf_topics:
+    type: multiselect
+    weight: 33
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_veg_topics:
+    type: multiselect
+    weight: 34
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_work_area:
+    type: multiselect
+    weight: 35
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_year:
+    type: entity_reference_autocomplete
+    weight: 23
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 15
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 13
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 17
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 14
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 11
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 16
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_osu_story_caption: true
+  layout_builder__layout: true

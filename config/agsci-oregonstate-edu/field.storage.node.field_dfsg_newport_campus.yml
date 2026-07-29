@@ -1,0 +1,19 @@
+uuid: 9a61d521-8122-4379-a8fb-6ec1c50a9188
+langcode: und
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_dfsg_newport_campus
+field_name: field_dfsg_newport_campus
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

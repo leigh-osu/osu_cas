@@ -1,0 +1,7 @@
+.ckeditor5-toolbar-button-dateIcal {
+  background-image: url(../icons/date-ical.svg);
+}
+
+.ck-date-ical > .ck.ck-labeled-field-view {
+  margin: 10px 0;
+}

@@ -1,0 +1,22 @@
+charts_echarts:
+  remote: 'https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js'
+  version: VERSION
+  license:
+    name: 'Apache 2.0'
+    url: 'https://www.apache.org/licenses/LICENSE-2.0'
+    gpl-compatible: false
+  cdn:
+    /libraries/echarts/echarts.min.js: https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js
+  js:
+    /libraries/echarts/dist/echarts.min.js: { minified: true }
+  dependencies:
+    - core/drupal
+    - core/once
+
+echarts:
+  version: 5.5.x
+  js:
+    js/charts_echarts.js: { weight: -1 }
+  dependencies:
+    - charts/global
+    - charts_echarts/charts_echarts

@@ -1,0 +1,277 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations for the OSU Migrations - CAS module.
+ */
+
+/**
+ * Implements hook_migration_plugins_alter().
+ *
+ * The core `link_uri` process plugin used by `upgrade_d7_menu_links`
+ * route-validates every D7 menu link path and throws "The path ... failed
+ * validation" (failing the whole row) whenever the target route does not
+ * resolve at migration time. On the CAS site this happens for:
+ *   - menu links to D7 nodes whose content type is not migrated, and
+ *   - menu links that point at a D7 URL-alias path (e.g. /research/...,
+ *     /people/..., /degrees/..., /group/.../tag/...).
+ *
+ * Setting `validate_route: false` makes LinkUri return the `internal:/...`
+ * URI instead of throwing. Links to *migrated* nodes are still upgraded to
+ * `entity:node/N` automatically (LinkUri does that when the route resolves),
+ * and alias-path links resolve at render time because the `OSU Alias`
+ * migration runs before `OSU Menus`. This recovers the 69 menu links that
+ * were previously dropped, without modifying the osu_migrations module.
+ */
+function osu_migrations_cas_migration_plugins_alter(array &$migrations) {
+  foreach ($migrations as &$migration) {
+    $id = $migration['id'] ?? NULL;
+
+    // Menu config: do not migrate OG menus as standalone D10 menus -- they are
+    // migrated into per-group menus by cas_og_menu_group_menu. Skipping them
+    // here also makes upgrade_d7_menu_links skip their links (its menu_name
+    // lookup against upgrade_d7_menu returns empty -> skip_on_empty), so the OG
+    // links land only in the group menus and ~184 empty "menu-og-*" menus are
+    // never created. (Book-toc menus are already excluded by OsuMenuFiltered.)
+    if ($id === 'upgrade_d7_menu' && isset($migration['process']['id'])) {
+      $orig = $migration['process']['id'];
+      // The original is a single static_map step keyed on menu_name; turn it
+      // into a pipeline that first skips OG menus, then maps as before. The
+      // skip step provides the source, so drop it from the map step.
+      unset($orig['source']);
+      $migration['process']['id'] = [
+        ['plugin' => 'cas_skip_og_menu', 'source' => 'menu_name'],
+        $orig,
+      ];
+    }
+
+    // Menu links: stop core LinkUri from failing whole rows when a D7 path
+    // does not resolve to a route at migration time.
+    if ($id === 'upgrade_d7_menu_links' && !empty($migration['process']['link/uri'])) {
+      $link_uri = &$migration['process']['link/uri'];
+      // The process definition may be a single plugin mapping or a pipeline
+      // (list of steps); handle both.
+      if (isset($link_uri['plugin'])) {
+        if ($link_uri['plugin'] === 'link_uri') {
+          $link_uri['validate_route'] = FALSE;
+        }
+      }
+      else {
+        foreach ($link_uri as &$step) {
+          if (is_array($step) && ($step['plugin'] ?? NULL) === 'link_uri') {
+            $step['validate_route'] = FALSE;
+          }
+        }
+        unset($step);
+      }
+      unset($link_uri);
+    }
+
+    // Path redirects: skip D7 source rows that collide on redirect.hash
+    // instead of letting the duplicate-key insert fail the row. The dedupe
+    // step runs first on redirect_source/path and passes the value through.
+    if ($id === 'upgrade_d7_path_redirect' && isset($migration['process']['redirect_source/path'])) {
+      $migration['process']['redirect_source/path'] = [
+        [
+          'plugin' => 'cas_redirect_hash_dedupe',
+          'source' => 'source',
+        ],
+      ];
+    }
+
+    // Book-to-group menus: the base migration in osu_migrations/og_to_group
+    // declares required deps on upgrade_d7_book_group_content /
+    // upgrade_d7_page_group_content, which this project never runs (it migrates
+    // book/page group content via the cas_* equivalents). The requirements
+    // gate then blocks the whole migration. The og_book_menu process plugin
+    // does NOT use those migrations' map data — it resolves groups from the D7
+    // source + the migrated group entities — so we repoint the required deps at
+    // the cas_* migrations that actually run. Also disable link_uri route
+    // validation (same reason as upgrade_d7_menu_links).
+    if ($id === 'upgrade_d7_book_menu_group_menu') {
+      if (!empty($migration['migration_dependencies']['required'])) {
+        $req = &$migration['migration_dependencies']['required'];
+        $swap = [
+          'upgrade_d7_book_group_content' => 'cas_book_group_content',
+          'upgrade_d7_page_group_content' => 'cas_page_group_content',
+        ];
+        foreach ($req as &$dep) {
+          if (isset($swap[$dep])) {
+            $dep = $swap[$dep];
+          }
+        }
+        unset($dep);
+        $req = array_values(array_unique($req));
+        unset($req);
+      }
+
+      if (!empty($migration['process']['link/uri'])) {
+        $link_uri = &$migration['process']['link/uri'];
+        if (isset($link_uri['plugin'])) {
+          if ($link_uri['plugin'] === 'link_uri') {
+            $link_uri['validate_route'] = FALSE;
+          }
+        }
+        else {
+          foreach ($link_uri as &$step) {
+            if (is_array($step) && ($step['plugin'] ?? NULL) === 'link_uri') {
+              $step['validate_route'] = FALSE;
+            }
+          }
+          unset($step);
+        }
+        unset($link_uri);
+      }
+    }
+
+    // Webforms: webform_migrate's d7_webform requires d7_user_role, but this
+    // project never runs a role migration -- D10 roles come from the partial
+    // config imports, and the D7Webform source maps webform_roles rows to role
+    // machine names on its own (rid 1/2 hardcoded, others lowercased from the
+    // D7 role name) without touching the d7_user_role map. Drop the dep so the
+    // requirements gate does not block the migration.
+    if ($id === 'd7_webform' && !empty($migration['migration_dependencies']['required'])) {
+      $migration['migration_dependencies']['required'] = array_values(array_diff(
+        $migration['migration_dependencies']['required'],
+        ['d7_user_role']
+      ));
+    }
+
+    // Webform submissions: the D7 webform_submissions table contains orphaned
+    // rows for webform nodes deleted in D7 (e.g. nid 244, 3 submissions), so
+    // d7_webform never creates their webform config entity. The stock process
+    // maps webform_id straight from the source ('webform_<nid>'), and the
+    // webform module fatals in WebformSubmission::preCreate() when that
+    // webform does not exist. Resolve webform_id through the d7_webform map
+    // instead and drop rows with no match.
+    if ($id === 'd7_webform_submission') {
+      $migration['process']['webform_id'] = [
+        [
+          'plugin' => 'migration_lookup',
+          'migration' => 'd7_webform',
+          'source' => 'nid',
+          'no_stub' => TRUE,
+        ],
+        [
+          'plugin' => 'skip_on_empty',
+          'method' => 'row',
+        ],
+      ];
+      // D7Webform lowercases element keys but the stock D7WebformSubmission
+      // keys the submitted data by the raw D7 form_key, so mixed-case
+      // components render blank; file components also store the raw D7 fid.
+      // Swap in the CAS source that lowercases the keys and remaps the fids
+      // (migrate iterates the data array per value, so this must be fixed in
+      // the source, before the keys are read).
+      $migration['source']['plugin'] = 'cas_d7_webform_submission';
+    }
+
+    // Publications: the stock osu_biblio_reference source carries no domain
+    // data, so every migrated publication lost its D7 domain_access rows
+    // (the only content type affected — node migrations use
+    // d7_node_domain_access). Swap in the CAS subclass that adds the domain
+    // source properties and map them like cas_page_to_page does.
+    if ($id === 'upgrade_d7_biblio_publication'
+      && ($migration['source']['plugin'] ?? NULL) === 'osu_biblio_reference') {
+      $migration['source']['plugin'] = 'cas_biblio_reference_domain';
+      $migration['process']['field_domain_access'] = [
+        [
+          'plugin' => 'sub_process',
+          'source' => 'domain_access_node',
+          'process' => ['target_id' => 'target_id'],
+        ],
+      ];
+      $migration['process']['field_domain_all_affiliates'] = [
+        ['plugin' => 'get', 'source' => 'domain_all_affiliates'],
+      ];
+      $migration['process']['field_domain_source'] = [
+        ['plugin' => 'get', 'source' => 'domain_source'],
+      ];
+    }
+
+    // Profiles: migrated from D7 users, which carry no node-style domain
+    // data — swap in the CAS source that reads the user's domain_editor
+    // assignments so the profile lands on that person's domain(s). Group
+    // placement is handled separately by cas_profile_group_content.
+    if ($id === 'upgrade_d7_user_to_profile'
+      && ($migration['source']['plugin'] ?? NULL) === 'd7_user') {
+      $migration['source']['plugin'] = 'cas_d7_user_profile_domain';
+      $migration['process']['field_domain_access'] = [
+        [
+          'plugin' => 'sub_process',
+          'source' => 'domain_access_node',
+          'process' => ['target_id' => 'target_id'],
+        ],
+      ];
+    }
+
+    // Profile ownership: the stock uid pipeline only consults the
+    // role-filtered user migration, so every role-less user's profile falls
+    // back to uid 1. Add cas_d7_active_users to the lookup so the ~352
+    // recently-active role-less accounts own their profiles (self-service
+    // profile editing keys on node ownership).
+    if ($id === 'upgrade_d7_user_to_profile'
+      && ($migration['process']['uid'][0]['plugin'] ?? NULL) === 'migration_lookup') {
+      $migration['process']['uid'][0]['migration'] = [
+        'upgrade_d7_users_with_roles',
+        'cas_d7_active_users',
+      ];
+    }
+
+    // Editor-entered markup needs two repairs: inline larch text-color
+    // classes (.osu-orange, .larch-white) become native osu-text-* names,
+    // and hardcoded /sites/agscid7/files/... URLs are rewritten to the D10
+    // files directory (copying unmanaged files from the D7 filesystem on
+    // demand). Every affected field already runs through
+    // osu_media_wysiwyg_filter, so both steps are inserted right after it
+    // in every pipeline. The CAS plugins that transform rich text
+    // internally (cas_media_wysiwyg_filter, cas_vertical_tabs_item,
+    // cas_accordian_item) call the same helpers themselves.
+    if (!empty($migration['process']) && is_array($migration['process'])) {
+      $migration['process'] = _osu_migrations_cas_map_inline_classes($migration['process']);
+    }
+  }
+  unset($migration);
+}
+
+/**
+ * Recursively inserts cas_larch_inline_classes after osu_media_wysiwyg_filter.
+ *
+ * Walks a migration's process array (including sub_process pipelines) and
+ * appends a cas_larch_inline_classes step directly after every
+ * osu_media_wysiwyg_filter step.
+ */
+function _osu_migrations_cas_map_inline_classes(array $process): array {
+  foreach ($process as $key => $pipeline) {
+    if (is_array($pipeline)) {
+      $process[$key] = _osu_migrations_cas_map_inline_classes_pipeline($pipeline);
+    }
+  }
+  return $process;
+}
+
+/**
+ * Processes one destination-field pipeline for inline class mapping.
+ */
+function _osu_migrations_cas_map_inline_classes_pipeline(array $pipeline) {
+  // Normalize a single-step definition to a list of steps.
+  $single = isset($pipeline['plugin']);
+  $steps = $single ? [$pipeline] : $pipeline;
+  if (!$single && !array_is_list($steps)) {
+    // Keyed structure that is not a plugin definition; leave untouched.
+    return $pipeline;
+  }
+  $result = [];
+  foreach ($steps as $step) {
+    if (is_array($step) && ($step['plugin'] ?? NULL) === 'sub_process' && is_array($step['process'] ?? NULL)) {
+      $step['process'] = _osu_migrations_cas_map_inline_classes($step['process']);
+    }
+    $result[] = $step;
+    if (is_array($step) && ($step['plugin'] ?? NULL) === 'osu_media_wysiwyg_filter') {
+      $result[] = ['plugin' => 'cas_larch_inline_classes'];
+      $result[] = ['plugin' => 'cas_legacy_file_paths'];
+      $result[] = ['plugin' => 'cas_social_icon_images'];
+    }
+  }
+  return count($result) === 1 && $single ? $result[0] : $result;
+}

@@ -1,0 +1,22 @@
+uuid: edc99e6d-1ec9-4d72-8232-c3f7f32fb564
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - madrone
+_core:
+  default_config_hash: 7l3hNiLvxSjdv8PyRy-7v2yGy0TE5o17yFTrxYxyuGU
+id: madrone_content
+theme: madrone
+region: content
+weight: -1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

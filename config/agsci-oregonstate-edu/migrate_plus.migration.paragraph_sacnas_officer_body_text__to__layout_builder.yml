@@ -1,0 +1,59 @@
+uuid: d8b52347-5305-484a-b9c4-c925f3dc8879
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - osu_migrations
+      - paragraphs_to_layout_builder
+_core:
+  default_config_hash: xwyhl0DwJP9GNjp3hBGqFnAfeLhBAgyEZtrujZMuQ4A
+id: paragraph_sacnas_officer_body_text__to__layout_builder
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - 'Layout content'
+  - 'OSU Paragraphs'
+  - OSU
+  - 'CAS Paragraphs'
+  - CAS
+migration_group: paragraphs_to_layout_builder
+label: 'Drupal 7 sacnas_officer_body_text Paragraphs'
+source:
+  plugin: osu_d7_paragraphs_item
+  bundle: sacnas_officer_body_text
+  key: migrate
+process:
+  type:
+    plugin: default_value
+    default_value: paragraph_block
+  temp_paragraph_image:
+    plugin: get
+    source: field_officer_image
+  body/value:
+    -
+      plugin: extract
+      source: field_body_text
+      index:
+        - 0
+        - value
+      default: ''
+    -
+      plugin: osu_media_wysiwyg_filter
+    -
+      plugin: cas_paragraph_image
+  body/format:
+    plugin: default_value
+    default_value: full_html
+destination:
+  plugin: 'entity:block_content'
+migration_dependencies:
+  required:
+    - upgrade_d7_files
+    - upgrade_d7_users_with_roles
+    - upgrade_d7_media_images
+  optional: {  }

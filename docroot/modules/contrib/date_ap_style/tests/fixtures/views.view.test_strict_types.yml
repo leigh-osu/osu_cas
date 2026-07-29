@@ -1,0 +1,89 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - date_ap_style
+    - node
+    - user
+id: test_strict_types
+label: 'Test Strict Types'
+module: views
+description: 'Test view to reproduce strict_types TypeError'
+tag: ''
+base_table: node_field_data
+base_field: nid
+display:
+  default:
+    id: default
+    display_title: Default
+    display_plugin: default
+    position: 0
+    display_options:
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+          label: ''
+          type: string
+          settings:
+            link_to_entity: true
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          entity_type: node
+          entity_field: created
+          plugin_id: field
+          label: 'Created'
+          type: timestamp_ap_style
+          settings:
+            always_display_year: 1
+            use_today: 0
+            cap_today: 1
+            display_day: 0
+            display_time: 1
+            hide_date: 0
+            time_before_date: 0
+            use_all_day: 0
+            month_only: 0
+            display_noon_and_midnight: 1
+            capitalize_noon_and_midnight: 0
+            timezone: ''
+      pager:
+        type: mini
+        options:
+          items_per_page: 10
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          value: '1'
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+      sorts:
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          order: DESC
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+      style:
+        type: default
+      row:
+        type: fields
+  page_1:
+    id: page_1
+    display_title: Page
+    display_plugin: page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: test-strict-types

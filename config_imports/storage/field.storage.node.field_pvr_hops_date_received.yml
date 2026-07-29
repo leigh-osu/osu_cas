@@ -1,0 +1,21 @@
+uuid: 565d674f-317f-44b2-9cb4-931dce1c02ea
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_pvr_hops_date_received
+field_name: field_pvr_hops_date_received
+entity_type: node
+type: string
+settings:
+  max_length: 60
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

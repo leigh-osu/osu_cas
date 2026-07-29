@@ -1,0 +1,14 @@
+name: 'Sitewide Alert Domain (Experimental)'
+type: module
+description: 'Adds Domain support to sitewide alerts using the Domain Entity. (Experimental: report any issues to https://www.drupal.org/project/issues/sitewide_alert)'
+core_version_requirement: ^10.3 || ^11
+package: 'Other'
+dependencies:
+  - sitewide_alert:sitewide_alert
+  - domain:domain
+  - domain_entity:domain_entity
+
+# Information added by Drupal.org packaging script on 2026-05-13
+version: '3.1.2'
+project: 'sitewide_alert'
+datestamp: 1778700017

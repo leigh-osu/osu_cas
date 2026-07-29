@@ -1,0 +1,16 @@
+uuid: 0c13e8e6-d5eb-4182-9ba1-c8f7c9e03193
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: wrfsc_child_pages
+label: wrfsc-child-pages
+logic: and
+conditions:
+  3c79e191-f051-44f2-b52e-886d7d20c0fc:
+    id: request_path
+    negate: false
+    uuid: 3c79e191-f051-44f2-b52e-886d7d20c0fc
+    pages: "/wrfsc/*\r\n/wrcefs/*\r\n/western-regional-food-safety-center/*\r\n/wrcefs"
+allow_other_conditions: null

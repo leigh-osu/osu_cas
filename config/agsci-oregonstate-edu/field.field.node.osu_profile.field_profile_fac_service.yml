@@ -1,0 +1,22 @@
+uuid: 396a60a4-8137-44b0-a961-a286e7fb3a29
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_fac_service
+    - node.type.osu_profile
+  module:
+    - text
+id: node.osu_profile.field_profile_fac_service
+field_name: field_profile_fac_service
+entity_type: node
+bundle: osu_profile
+label: Service
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

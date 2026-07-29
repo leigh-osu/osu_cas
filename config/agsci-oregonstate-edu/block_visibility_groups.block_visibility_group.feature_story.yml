@@ -1,0 +1,16 @@
+uuid: 0c95f1b2-c3d0-4d47-b133-67421b57c736
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: feature_story
+label: feature-story
+logic: and
+conditions:
+  5c0f6197-99bc-470e-ad36-185426ffcb78:
+    id: request_path
+    negate: false
+    uuid: 5c0f6197-99bc-470e-ad36-185426ffcb78
+    pages: '/feature-story/*'
+allow_other_conditions: null

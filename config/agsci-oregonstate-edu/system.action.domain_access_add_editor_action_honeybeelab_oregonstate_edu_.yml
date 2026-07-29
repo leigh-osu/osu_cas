@@ -1,0 +1,15 @@
+uuid: 4e9ab8b0-dca6-4d4f-a3d5-c57017f4e6d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.honeybeelab_oregonstate_edu_
+  module:
+    - domain_access
+id: domain_access_add_editor_action_honeybeelab_oregonstate_edu_
+label: 'Add editors to the Honey Bee Lab domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - honeybeelab_oregonstate_edu_

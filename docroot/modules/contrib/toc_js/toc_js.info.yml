@@ -1,0 +1,12 @@
+name: 'Toc.js'
+type: module
+description: 'The Toc.js module automatically generates tables of contents from headings on client side.'
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:node
+  - drupal:block
+
+# Information added by Drupal.org packaging script on 2026-04-27
+version: '3.6.0'
+project: 'toc_js'
+datestamp: 1777293225

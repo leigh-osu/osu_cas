@@ -1,0 +1,12 @@
+uuid: 87bc5e1a-137c-48bd-9f28-5abdc35e7811
+langcode: en
+status: true
+dependencies: {  }
+id: emt_oregonstate_edu
+domain_id: 11853874
+hostname: emt.oregonstate.edu
+name: 'Environmental & Molecular Toxicology'
+scheme: https
+weight: 10
+is_default: false
+path_prefix: ''

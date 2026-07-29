@@ -1,0 +1,18 @@
+node.type.*.third_party.toc_js_per_node:
+  type: mapping
+  label: 'Per node toc js settings'
+  mapping:
+    override:
+      type: boolean
+      label: 'Enable Toc.js override per node'
+    override_default:
+      type: boolean
+      label: 'Enable / disable the table of content default value'
+
+block.settings.toc_js_per_node_block:
+  type: block.settings.toc_js_block
+  label: 'Toc.js per node block settings'
+  mapping:
+    override_nodetype:
+      type: boolean
+      label: 'Override node type configuration'

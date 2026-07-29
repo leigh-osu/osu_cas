@@ -1,0 +1,15 @@
+uuid: 2187f53e-e07f-4980-8b0f-6845dc084da5
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.smallfarms_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_smallfarms_oregonstate_edu
+label: 'Remove editors from the Small Farms Program domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - smallfarms_oregonstate_edu

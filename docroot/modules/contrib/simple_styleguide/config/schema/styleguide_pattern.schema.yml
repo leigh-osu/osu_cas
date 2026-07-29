@@ -1,0 +1,21 @@
+simple_styleguide.styleguide_pattern.*:
+  type: config_entity
+  label: 'Styleguide pattern config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    description:
+      type: blob
+      label: 'Description'
+    pattern:
+      type: string
+      label: 'Pattern'
+    weight:
+      type: integer
+      label: 'Weight'
+    uuid:
+      type: string

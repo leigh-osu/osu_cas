@@ -1,0 +1,11 @@
+domain_sso_admin_toolbar.switch:
+  path: '/admin/domain-sso-switch/{domain}'
+  defaults:
+    _controller: '\Drupal\domain_sso_admin_toolbar\Controller\DomainSwitchController::switchDomain'
+    _title: 'Switch Domain'
+  requirements:
+    _permission: 'use domain sso admin toolbar'
+    domain: '[a-z0-9_]+'
+  options:
+    no_cache: TRUE
+    _maintenance_access: TRUE

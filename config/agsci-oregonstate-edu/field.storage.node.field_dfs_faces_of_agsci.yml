@@ -1,0 +1,19 @@
+uuid: 09d2f25e-7eb7-4ca7-9c38-7105e99c24dc
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_dfs_faces_of_agsci
+field_name: field_dfs_faces_of_agsci
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

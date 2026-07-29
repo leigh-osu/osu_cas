@@ -1,0 +1,35 @@
+@import '../abstracts/cas_variables';
+
+// OSU brand background utilities for colors that madrone's $osu-bg-colors
+// map does not generate. Class names and the !important pattern match
+// madrone's .osu-bg-* utilities exactly, and values come from madrone's
+// color ramps wherever the brand color exists there. Applied by
+// bootstrap_styles on layout builder section wrappers and blocks; editors
+// pick them from the styling-tray palette (osu_standard
+// bootstrap_styles.settings), and D7 larch-bg-* values are mapped to these
+// names during migration (osu_migrations_cas CasLayoutBase).
+$osu-bg-colors-cas: (
+  'pine-stand': $pine-400,
+  'high-tide': $rogue_wave-400,
+  'luminance': $luminance-400,
+  'stratosphere': $stratosphere-400,
+  'reindeer-moss': $pine-200,
+  'sea-foam': $rogue_wave-200,
+  'rogue-wave': $rogue_wave-600,
+  'solar-flare': $luminance-600,
+  'candela': $candela,
+  'coastline': $coastline,
+  'high-desert': $high-desert,
+  // Currently an alias of osu-bg-page-alt-2 ($paddletailblack); kept as its
+  // own class so CAS can retune "black" independently of the page palette.
+  'black': $paddletailblack,
+  // larch's translucent overlays, used over column background images.
+  'trans-white': $trans-white,
+  'trans-black': $trans-black,
+);
+
+@each $name, $color in $osu-bg-colors-cas {
+  .osu-bg-#{$name} {
+    background-color: $color !important;
+  }
+}

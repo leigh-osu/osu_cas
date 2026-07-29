@@ -1,0 +1,22 @@
+uuid: 77c665ac-aed0-4770-9f0e-7ef3ad51074e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.funding_opportunities
+id: node.funding_opportunities.promote
+field_name: promote
+entity_type: node
+bundle: funding_opportunities
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

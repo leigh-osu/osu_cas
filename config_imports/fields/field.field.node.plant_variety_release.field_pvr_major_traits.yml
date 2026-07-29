@@ -1,0 +1,26 @@
+uuid: 4a6c7ecb-a746-410f-bed3-5143cd2cbf7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pvr_major_traits
+    - filter.format.basic_html
+    - filter.format.full_html
+    - node.type.plant_variety_release
+  module:
+    - text
+id: node.plant_variety_release.field_pvr_major_traits
+field_name: field_pvr_major_traits
+entity_type: node
+bundle: plant_variety_release
+label: 'Major Traits'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+    - basic_html
+field_type: text_long

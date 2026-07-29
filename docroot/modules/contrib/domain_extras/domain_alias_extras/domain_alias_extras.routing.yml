@@ -1,0 +1,7 @@
+domain_alias_extras.settings:
+  path: '/admin/config/domain/domain_alias_extras'
+  defaults:
+    _title: 'Domain Alias Extras settings'
+    _form: '\Drupal\domain_alias_extras\Form\DomainAliasExtrasSettingsForm'
+  requirements:
+    _permission: 'administer domains'

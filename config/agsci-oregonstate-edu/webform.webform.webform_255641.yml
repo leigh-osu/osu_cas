@@ -1,0 +1,67 @@
+uuid: 3989efbd-6c35-49ea-80cf-4ccd0b4ddd1f
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 16861
+template: false
+archive: false
+id: webform_255641
+title: 'CSS Awards and Recognition Event RSVP'
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	Please RSVP for the CSS Awards and Recognition Event to celebrate our department scholarship recipients, donors, graduating students and the accomplishments of our faculty and staff. The event will be held on Wednesday, June 3rd, 2026 at the Memorial Union Horizon Room. Remote (Zoom) option available.</p>
+  name:
+    '#type': textfield
+    '#title': 'First Name'
+    '#required': true
+  lasts_name:
+    '#type': textfield
+    '#title': 'Lasts Name'
+    '#required': true
+  will_you_be_attending:
+    '#type': radios
+    '#options':
+      yes_(in-person): 'Yes (in-person)'
+      remotely_(zoom): 'Remotely (Zoom)'
+      'no': 'No'
+      maybe: Maybe
+    '#title': 'Will you be attending the Award and Recognition Event?'
+    '#required': true
+  guests:
+    '#type': textfield
+    '#size': 20
+    '#unique': false
+    '#title': 'If you will be bringing any guests in person, please indicate below how many (please limit to 5)'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }

@@ -1,0 +1,16 @@
+uuid: 71badaa9-a9aa-4359-a467-69a1c57c728e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: the_source_2024_spring
+label: the_source_2024_spring
+logic: and
+conditions:
+  095cafa3-6733-488e-a58b-395b29b38a82:
+    id: request_path
+    negate: false
+    uuid: 095cafa3-6733-488e-a58b-395b29b38a82
+    pages: "/thesource/spring-2024\r\n/thesource/spring-2024*"
+allow_other_conditions: null

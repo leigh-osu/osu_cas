@@ -1,0 +1,68 @@
+<?php
+
+/**
+ * @file
+ * Contains toc_js_per_node.module.
+ */
+
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Hook\Attribute\LegacyHook;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\node\NodeTypeInterface;
+use Drupal\toc_js_per_node\Hook\TocJsPerNodeHooks;
+
+/**
+ * Implements hook_help().
+ */
+#[LegacyHook]
+function toc_js_per_node_help($route_name, RouteMatchInterface $route_match) {
+  return \Drupal::service(TocJsPerNodeHooks::class)->help($route_name, $route_match);
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+#[LegacyHook]
+function toc_js_per_node_entity_extra_field_info() {
+  return \Drupal::service(TocJsPerNodeHooks::class)->entityExtraFieldInfo();
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+#[LegacyHook]
+function toc_js_per_node_form_node_type_form_alter(&$form, FormStateInterface $form_state) {
+  \Drupal::service(TocJsPerNodeHooks::class)->formNodeTypeFormAlter($form, $form_state);
+}
+
+/**
+ * Entity builder for the node type form with per-node option.
+ */
+function toc_js_per_node_form_node_type_form_builder($entity_type, NodeTypeInterface $type, &$form, FormStateInterface $form_state) {
+  TocJsPerNodeHooks::formNodeTypeFormBuilder($entity_type, $type, $form, $form_state);
+}
+
+/**
+ * Implements hook_entity_bundle_field_info().
+ */
+#[LegacyHook]
+function toc_js_per_node_entity_bundle_field_info(EntityTypeInterface $entity_type, $bundle, array $base_field_definitions) {
+  return \Drupal::service(TocJsPerNodeHooks::class)->entityBundleFieldInfo($entity_type, $bundle, $base_field_definitions);
+}
+
+/**
+ * Implements hook_entity_base_field_info().
+ */
+#[LegacyHook]
+function toc_js_per_node_entity_base_field_info(EntityTypeInterface $entity_type) {
+  return \Drupal::service(TocJsPerNodeHooks::class)->entityBaseFieldInfo($entity_type);
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter() for node_form.
+ */
+#[LegacyHook]
+function toc_js_per_node_form_node_form_alter(&$form, FormStateInterface &$form_state) {
+  \Drupal::service(TocJsPerNodeHooks::class)->formNodeFormAlter($form, $form_state);
+}

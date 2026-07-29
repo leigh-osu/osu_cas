@@ -1,0 +1,5 @@
+osu_tours:
+  version: 1.x
+  css:
+    layout:
+      css/styles.css: {}

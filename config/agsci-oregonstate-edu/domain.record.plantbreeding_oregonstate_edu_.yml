@@ -1,0 +1,12 @@
+uuid: 99da6cfc-538a-4810-85dd-107d8f5351dd
+langcode: en
+status: true
+dependencies: {  }
+id: plantbreeding_oregonstate_edu_
+domain_id: 13543478
+hostname: plantbreeding.oregonstate.edu
+name: 'Plant Breeding and Genetics'
+scheme: https
+weight: 18
+is_default: false
+path_prefix: ''

@@ -1,0 +1,17 @@
+report:
+  remote: https://www.digitalmeasures.com
+  license:
+    name: Proprietary
+    url: https://www.digitalmeasures.com
+    gpl-compatible: false
+  css:
+    theme:
+      https://cfcdn.digitalmeasures.com/dm-web-profiles/v1/css/main.css: { type: external }
+  js:
+    https://cfcdn.digitalmeasures.com/dm-web-profiles/v1/js/main.js: { type: external, minified: true }
+    js/osu_digital_measures.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/once

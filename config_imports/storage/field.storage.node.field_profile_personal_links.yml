@@ -1,0 +1,19 @@
+uuid: 5ee50256-63f2-4f82-ae9c-6fbb0816ec96
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_profile_personal_links
+field_name: field_profile_personal_links
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

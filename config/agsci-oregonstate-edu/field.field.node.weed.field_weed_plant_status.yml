@@ -1,0 +1,21 @@
+uuid: d9867cb3-08b4-4fc7-aac9-b7bb9ff0b08e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weed_plant_status
+    - node.type.weed
+  module:
+    - options
+id: node.weed.field_weed_plant_status
+field_name: field_weed_plant_status
+entity_type: node
+bundle: weed
+label: 'Plant Status'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

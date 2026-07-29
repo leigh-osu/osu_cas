@@ -1,0 +1,317 @@
+uuid: a9dbc9fc-8289-4558-9315-9395b8b56645
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_25570
+title: 'old ALD Electronic Proposal '
+description: null
+categories: {  }
+elements: |-
+  introduction:
+    '#type': processed_text
+    '#format': full_html
+    '#text': '<p>Please complete the following on-line form as your proposal for the Leadership Minor applied experience.</p>'
+  first_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'First Name'
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Last Name'
+    '#required': true
+  proposal_type:
+    '#type': radios
+    '#options':
+      internship: Internship
+      service_learning: 'Service Learning'
+      research: Research
+    '#title': 'Proposal Type'
+    '#required': true
+  osu_email:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#default_value': '[current-user:mail]'
+    '#title': 'OSU Email '
+    '#required': true
+  student_id:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Student ID #'
+    '#required': true
+  home_department:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Home Department'
+    '#required': true
+  campus_state:
+    '#type': radios
+    '#options':
+      corvallis: 'Corvallis Campus'
+      e-campus: 'Extended Campus'
+    '#title': 'Campus State'
+    '#required': true
+  year_in_school:
+    '#type': radios
+    '#options':
+      freshman: Freshman
+      sophomore: Sophomore
+      junior: Junior
+      senior: Senior
+    '#title': 'Year in school'
+    '#required': true
+  site_supervisor:
+    '#type': processed_text
+    '#format': full_html
+    '#text': '<p><em>Please fill in&nbsp;the following information concerning your site supervisor.</em></p>'
+  site_supervisor_for_this_experience:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Site Supervisor for this experience'
+    '#required': true
+  site_supervisors_title:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': "Site Supervisor's Title "
+    '#required': true
+  site_supervisors_e_mail:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': "Site Supervisor's E-mail"
+    '#required': true
+  site_supervisors_phone_number:
+    '#type': textfield
+    '#title_display': inline
+    '#title': "Site Supervisor's Phone Number"
+  essay_questions:
+    '#type': processed_text
+    '#format': full_html
+    '#text': '<p><em>Please answer the following questions in the space provided.</em></p>'
+  summary_of_the_experience_what_will_you_be_doing_during_this_experience:
+    '#type': textarea
+    '#title': 'Summary of the Experience (What will you be doing during this experience?)'
+    '#required': true
+  leadership_learning_outcomes_what_do_you_expect_to_learn_through_this_experience:
+    '#type': textarea
+    '#title': 'Leadership Learning Outcomes (What do you expect to learn through this experience?)'
+    '#required': true
+  personal_development_how_will_this_experience_contribute_to_both_your_leadership_development_goals_and_your_career_goals:
+    '#type': textarea
+    '#title': 'Personal Development (How will this experience contribute to both your leadership development goals and your career goals?)'
+    '#required': true
+  experience_details:
+    '#type': processed_text
+    '#format': full_html
+    '#text': '<p><em>Please fill in the following information on the experience details. <br /></em></p>'
+  start_date:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Start Date'
+    '#required': true
+  end_date:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'End Date'
+    '#required': true
+  approximate_hours_per_week:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Approximate Hours Per Week'
+    '#required': true
+  approximate_number_of_weeks:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Approximate Number of Weeks'
+    '#required': true
+  approximate_total_hours:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Approximate Total Hours'
+    '#required': true
+  credit_hours_if_known:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Credit Hours (if known)'
+  met_with_a_leadership_minor_advisor:
+    '#type': radios
+    '#options':
+      haley.traini@oregonstate.edu: 'Haley Traini'
+      dawn.moyer@oregonstate.edu: 'Dawn Moyer'
+      jonathan.velez@oregonstate.edu: 'Jonathan Velez'
+      leadershipminor@oregonstate.edu: 'I have not met with an advisor about my proposal'
+    '#title': 'If you have met with a Leadership Minor advisor about your proposal prior to submitting this document please indicate that individual below'
+  supervisor_verification_form:
+    '#type': processed_text
+    '#format': full_html
+    '#text': '<p><span>Link to&nbsp;<a href="http://agsci.oregonstate.edu/sites/agsci/files/leadership-minor/supervisor_verification_form.docx">Supervisor Verification Form</a>.</span></p>'
+  completed_supervisor_verification_form:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png pdf doc'
+    '#title_display': inline
+    '#title': 'Completed Supervisor Verification Form'
+  supervisor_verification_form_is_attached:
+    '#type': radios
+    '#options':
+      '01': ' Yes, a completed Supervisor Verification Form is attached'
+      '02': ' No, I was unable to submit Supervisor Verification Form'
+    '#title': 'Supervisor Verification Form is attached '
+    '#required': true
+  why_didnt_you_submit_the_supervisor_verification_form:
+    '#type': textarea
+    '#title': "Why didn't you submit the Supervisor Verification Form?"
+    '#states':
+      visible:
+        - ':input[name="supervisor_verification_form_is_attached"]':
+            value: '02'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '1'
+  draft_auto_save: true
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:met_with_a_leadership_minor_advisor:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: '[webform_submission:values:first_name:raw]'
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_3:
+    id: email
+    handler_id: email_3
+    label: 'Email 3'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 3
+    settings:
+      states:
+        - completed
+      to_mail: leadershipminor@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_4:
+    id: email
+    handler_id: email_4
+    label: 'Email 4'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 4
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:osu_email:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

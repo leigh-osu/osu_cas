@@ -1,0 +1,72 @@
+@import '../abstracts/cas_variables';
+
+// Top navigation menus: white text on black, matching the header bar.
+// Covers the primary (superfish) menu and the group content menu, including
+// their dropdown sub-menus, overriding madrone's neutral-200 backgrounds and
+// Bootstrap nav-pills colors.
+#madrone-primary-menu-container,
+.block-superfish,
+.block-group-content-menu {
+  &,
+  ul,
+  li {
+    background-color: #000 !important;
+  }
+}
+
+// Divider under the menu bar, matching the header's #666 line above it —
+// present on regular pages and over the cas-hero ramp alike.
+#madrone-primary-menu-container {
+  border-bottom: 1px solid #666;
+}
+
+#madrone-primary-menu-container,
+.block-superfish,
+.block-group-content-menu {
+
+  a,
+  span,
+  a.nav-link,
+  span.nav-link {
+    // madrone gives superfish links a white background; clear it so the black
+    // menu/container shows through.
+    background-color: transparent !important;
+    color: #fff !important;
+    // OSU brand display font (registered as @font-face by madrone/fonts).
+    font-family: 'Stratum2Web', serif !important;
+    // Slimmer than madrone's 1rem vertical padding (set as padding: 1rem on
+    // superfish links and via --bs-nav-link-padding-y on the group menu).
+    --bs-nav-link-padding-y: 0.4rem;
+    padding-top: 0.4rem !important;
+    padding-bottom: 0.4rem !important;
+  }
+
+  // Keep hover/active states visible within the black menu.
+  a:hover,
+  span:hover,
+  a.nav-link:hover,
+  span.nav-link:hover,
+  .menuparent:hover > a,
+  .group-menu-hover > a,
+  .group-menu-hover > span,
+  .group-menu-hover > ul {
+    background-color: $neutral-600 !important;
+    color: #fff !important;
+  }
+
+  // Sub-menu chevron glyphs follow the white text.
+  .group-sub-menu > a::after,
+  .group-sub-menu > span::after {
+    color: #fff !important;
+  }
+}
+
+// Topmost menu level only: all caps. Superfish marks the first level with
+// .sf-depth-1; the group menu's top level is the direct children of
+// #group-content-menu. Sub-menus are left in their normal case.
+#madrone-primary-menu-container a.sf-depth-1,
+.block-superfish a.sf-depth-1,
+#group-content-menu > li > a,
+#group-content-menu > li > span {
+  text-transform: uppercase !important;
+}

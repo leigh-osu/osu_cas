@@ -1,0 +1,12 @@
+name: 'Charts Highcharts Drilldown Test'
+type: module
+description: 'Provides functionality for testing the charts_highcharts_drilldown module.'
+package: Testing
+core_version_requirement: ^9 || ^10 || ^11
+dependencies:
+  - charts_highcharts_drilldown:charts_highcharts_drilldown
+
+# Information added by Drupal.org packaging script on 2025-03-18
+version: '1.1.2'
+project: 'charts_highcharts_drilldown'
+datestamp: 1742328956

@@ -1,0 +1,18 @@
+services:
+  node_revision_delete.queue_commands:
+    class: Drupal\node_revision_delete\Commands\QueueContent
+    arguments:
+      - '@entity_type.manager'
+      - '@node_revision_delete.batch'
+    tags:
+      - { name: drush.command }
+
+  node_revision_delete.prior_revisions:
+    class: \Drupal\node_revision_delete\Commands\PriorRevisions
+    arguments:
+      - '@node_revision_delete'
+      - '@node_revision_delete.batch'
+      - '@entity_type.manager'
+      - '@language_manager'
+    tags:
+      - { name: drush.command }

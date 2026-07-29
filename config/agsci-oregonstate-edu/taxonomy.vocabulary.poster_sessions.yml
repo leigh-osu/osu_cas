@@ -1,0 +1,9 @@
+uuid: 1666cbba-b8df-4a1d-a16b-780ec01dc27a
+langcode: en
+status: true
+dependencies: {  }
+name: 'Poster Sessions'
+vid: poster_sessions
+description: null
+weight: 0
+new_revision: false

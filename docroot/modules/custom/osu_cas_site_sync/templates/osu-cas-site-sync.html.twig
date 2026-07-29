@@ -1,0 +1,78 @@
+{#
+/**
+ * @file
+ * Default theme implementation for the prod site sync block.
+ *
+ * Available variables:
+ * - url: The full URL to this page's counterpart on the production site.
+ * - nid: The node ID, when the current page is a node page.
+ * - link_text: The text to display for the link.
+ * - node_types: Node type labels keyed by machine name, for the slideshow.
+ * - paragraph_types: D7 paragraph migration labels keyed by migration id.
+ * - site_domains: Per domain id, a label plus the "url" (this environment)
+ *   and "prod_url" (production) the slideshow steps onto.
+ * - site_groups: Per group id, the same three keys, taken from the group's
+ *   canonical domain, or from the default domain when it has none.
+ * - step_url: The slideshow step route URL.
+ */
+#}
+<div class="osu-cas-site-sync"
+     data-site-sync-url="{{ url }}"
+     data-site-sync-step="{{ step_url }}"
+     data-site-sync-nid="{{ nid }}">
+  {% if nid %}
+    <a href="#" class="osu-cas-site-sync__nid-copy osu-cas-site-sync__feature" title="{{ 'Copy the node ID'|t }}">
+      NID <span class="osu-cas-site-sync__nid">{{ nid }}</span>
+    </a>
+  {% endif %}
+  <a class="osu-cas-site-sync__link osu-cas-site-sync__feature" href="{{ url }}" target="_blank">{{ link_text }}</a>
+  <label class="osu-cas-site-sync__toggle osu-cas-site-sync__feature">
+    <input type="checkbox" class="osu-cas-site-sync__checkbox">
+    {{ 'Sync'|t }}
+  </label>
+  <span class="osu-cas-site-sync__slideshow osu-cas-site-sync__feature">
+    <label class="osu-cas-site-sync__slideshow-label">
+      {{ 'Slideshow'|t }}
+      <select class="osu-cas-site-sync__slideshow-site">
+        <option value="all">{{ 'All Sites'|t }}</option>
+        <option value="affiliates">{{ 'All Affiliates'|t }}</option>
+        {% if site_domains %}
+          <optgroup label="{{ 'Domains'|t }}">
+            {% for id, info in site_domains %}
+              <option value="domain:{{ id }}" data-domain-url="{{ info.url }}" data-prod-url="{{ info.prod_url }}">{{ info.label }}</option>
+            {% endfor %}
+          </optgroup>
+        {% endif %}
+        {% if site_groups %}
+          <optgroup label="{{ 'Groups'|t }}">
+            {% for id, info in site_groups %}
+              <option value="group:{{ id }}" title="{{ info.label }}" data-domain-url="{{ info.url }}" data-prod-url="{{ info.prod_url }}">{{ info.label|length > 20 ? info.label|slice(0, 20)|trim ~ '…' : info.label }}</option>
+            {% endfor %}
+          </optgroup>
+        {% endif %}
+      </select>
+      <select class="osu-cas-site-sync__slideshow-type">
+        <option value="all">{{ 'All Nodes'|t }}</option>
+        {% for id, label in node_types %}
+          <option value="{{ id }}">{{ label }}</option>
+        {% endfor %}
+        {% if paragraph_types %}
+          <optgroup label="{{ 'D7 Paragraphs'|t }}">
+            {% for id, label in paragraph_types %}
+              <option value="d7p:{{ id }}">{{ label }}</option>
+            {% endfor %}
+          </optgroup>
+        {% endif %}
+      </select>
+    </label>
+    <button type="button" class="osu-cas-site-sync__slideshow-prev" title="{{ 'Previous node'|t }}" aria-label="{{ 'Previous node'|t }}">&#9664;</button>
+    <button type="button" class="osu-cas-site-sync__slideshow-next" title="{{ 'Next node'|t }}" aria-label="{{ 'Next node'|t }}">&#9654;</button>
+    <button type="button" class="osu-cas-site-sync__slideshow-random" title="{{ 'Random node'|t }}" aria-label="{{ 'Random node'|t }}">?</button>
+  </span>
+  <span class="osu-cas-site-sync__jump osu-cas-site-sync__feature">
+    <input type="text" inputmode="numeric" class="osu-cas-site-sync__jump-input" placeholder="{{ 'NID ⏎'|t }}" aria-label="{{ 'Jump to node ID'|t }}" />
+  </span>
+  <span class="osu-cas-site-sync__hint" hidden>
+    {{ 'Allow pop-ups for this site so pages can auto-sync.'|t }}
+  </span>
+</div>

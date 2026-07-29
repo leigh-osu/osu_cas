@@ -1,0 +1,5 @@
+// Hide the linkpurpose external-link icon on the header logo (the logo links
+// to the external oregonstate.edu, so linkpurpose appends an icon).
+.block-system-branding-block .link-purpose-external-icon {
+  display: none !important;
+}

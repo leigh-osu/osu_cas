@@ -1,0 +1,33 @@
+# Use the DrupalCI templates.
+include:
+  - project: $_GITLAB_TEMPLATES_REPO
+    ref: $_GITLAB_TEMPLATES_REF
+    file:
+      - '/includes/include.drupalci.main.yml'
+      - '/includes/include.drupalci.variables.yml'
+      - '/includes/include.drupalci.workflows.yml'
+
+# Start custom overrides.
+variables:
+  _CSPELL_WORDS: 'lorem, mytestclass, stylename'
+  # Broaden test coverage.
+  OPT_IN_TEST_PREVIOUS_MAJOR: 1
+  OPT_IN_TEST_PREVIOUS_MINOR: 1
+  OPT_IN_TEST_NEXT_MINOR: 1
+  OPT_IN_TEST_NEXT_MAJOR: 1
+  OPT_IN_TEST_MAX_PHP: 1
+
+cspell:
+  allow_failure: false
+eslint:
+  allow_failure: false
+phpcs:
+  allow_failure: false
+phpstan:
+  allow_failure: false
+stylelint:
+  allow_failure: false
+
+phpunit (max PHP version):
+  # Allow failures for the next major php version.
+  allow_failure: true

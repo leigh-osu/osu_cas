@@ -1,0 +1,121 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations for the Rules module.
+ */
+
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Hook\Attribute\LegacyHook;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\rules\Hook\RulesCronHooks;
+use Drupal\rules\Hook\RulesEntityHooks;
+use Drupal\rules\Hook\RulesHelpHooks;
+use Drupal\rules\Hook\RulesMailHooks;
+use Drupal\rules\Hook\RulesPageHooks;
+use Drupal\rules\Hook\RulesUserHooks;
+
+/**
+ * Implements hook_theme().
+ */
+#[LegacyHook]
+function rules_theme() {
+  return \Drupal::service(RulesPageHooks::class)->theme();
+}
+
+/**
+ * Implements hook_page_top().
+ */
+#[LegacyHook]
+function rules_page_top(array &$page_top) {
+  \Drupal::service(RulesPageHooks::class)->pageTop($page_top);
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+#[LegacyHook]
+function rules_page_attachments(array &$attachments) {
+  \Drupal::service(RulesPageHooks::class)->pageAttachments($attachments);
+}
+
+/**
+ * Implements hook_help().
+ */
+#[LegacyHook]
+function rules_help($route_name, RouteMatchInterface $route_match) {
+  return \Drupal::service(RulesHelpHooks::class)->help($route_name, $route_match);
+}
+
+/**
+ * Implements hook_user_login().
+ */
+#[LegacyHook]
+function rules_user_login($account) {
+  \Drupal::service(RulesUserHooks::class)->userLogin($account);
+}
+
+/**
+ * Implements hook_user_logout().
+ */
+#[LegacyHook]
+function rules_user_logout($account) {
+  \Drupal::service(RulesUserHooks::class)->userLogout($account);
+}
+
+/**
+ * Implements hook_entity_view().
+ */
+#[LegacyHook]
+function rules_entity_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  \Drupal::service(RulesEntityHooks::class)->entityView($build, $entity, $display, $view_mode);
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+#[LegacyHook]
+function rules_entity_presave(EntityInterface $entity) {
+  \Drupal::service(RulesEntityHooks::class)->entityPresave($entity);
+}
+
+/**
+ * Implements hook_entity_delete().
+ */
+#[LegacyHook]
+function rules_entity_delete(EntityInterface $entity) {
+  \Drupal::service(RulesEntityHooks::class)->entityDelete($entity);
+}
+
+/**
+ * Implements hook_entity_insert().
+ */
+#[LegacyHook]
+function rules_entity_insert(EntityInterface $entity) {
+  \Drupal::service(RulesEntityHooks::class)->entityInsert($entity);
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+#[LegacyHook]
+function rules_entity_update(EntityInterface $entity) {
+  \Drupal::service(RulesEntityHooks::class)->entityUpdate($entity);
+}
+
+/**
+ * Implements hook_cron().
+ */
+#[LegacyHook]
+function rules_cron() {
+  \Drupal::service(RulesCronHooks::class)->cron();
+}
+
+/**
+ * Implements hook_mail().
+ */
+#[LegacyHook]
+function rules_mail($key, &$message, $params) {
+  \Drupal::service(RulesMailHooks::class)->mail($key, $message, $params);
+}

@@ -1,0 +1,15 @@
+uuid: 09daea1b-c1c1-4e9d-a3df-1e0c2438d286
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.entomology_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_entomology_oregonstate_edu
+label: 'Add selected content to the Entomology Program domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - entomology_oregonstate_edu

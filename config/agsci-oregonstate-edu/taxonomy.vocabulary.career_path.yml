@@ -1,0 +1,9 @@
+uuid: 2066b816-2d10-472f-872d-38cb73a98046
+langcode: en
+status: true
+dependencies: {  }
+name: 'Career Path'
+vid: career_path
+description: null
+weight: 0
+new_revision: false

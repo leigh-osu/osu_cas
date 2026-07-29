@@ -1,0 +1,67 @@
+// osu_card "picbox" view mode: replicate the D7 lp_picbox card. The link title
+// is overlaid in a translucent box across the top of the image, and the whole
+// card (image + overlay) is a single link target.
+.osu-card--picbox {
+  // 0.75em breathing room on all sides of each picbox tile; the larger bottom
+  // margin keeps D7's generous row separation.
+  margin: 0.75em 0.75em 2.5rem;
+
+  .picbox-container {
+    position: relative;
+  }
+
+  .picbox-item {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  // Whole-card link wraps the image and the overlay headline.
+  .picbox-link {
+    display: block;
+    position: relative;
+    text-decoration: none;
+  }
+
+  // Translucent title bar across the top of the image. D7 rendered it in
+  // Stratum2Web at normal weight, ~25px (180% of the 14px base), on
+  // rgba(0,0,0,.6); Madrone's default h3 (orange Open Sans 500) must not
+  // bleed through.
+  .picbox-headline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    margin: 0;
+    padding: 0.5em;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-family: 'Stratum2Web', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  // D7 showed the description as plain body text below the image. The body
+  // usually arrives as an <h5>, which Madrone would otherwise render large
+  // and orange.
+  .field--name-body {
+    margin-top: 0.5rem;
+
+    h1, h2, h3, h4, h5, h6 {
+      color: inherit;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.4;
+      margin-bottom: 0;
+    }
+  }
+}

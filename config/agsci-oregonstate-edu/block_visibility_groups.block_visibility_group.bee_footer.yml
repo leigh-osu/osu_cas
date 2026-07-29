@@ -1,0 +1,16 @@
+uuid: 84ad2b94-0092-4e90-8b3d-53af7cf0ae5f
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: bee_footer
+label: bee_footer
+logic: and
+conditions:
+  9ffa10a7-dd97-47ad-8cc8-3b2b55049cc2:
+    id: request_path
+    negate: false
+    uuid: 9ffa10a7-dd97-47ad-8cc8-3b2b55049cc2
+    pages: "/bee2\r\n/bee2/*\r\n/bee\r\n/bee/*\r\n/biological-and-ecological-engineering/*"
+allow_other_conditions: null

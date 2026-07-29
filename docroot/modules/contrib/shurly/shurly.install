@@ -1,0 +1,200 @@
+<?php
+
+/**
+ * @file
+ * Shurly install file.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function shurly_schema() {
+  $schema = [];
+  $schema['shurly'] = [
+    'description' => 'URL redirects for the Shurly module.',
+    'fields' => [
+      'rid' => [
+        'description' => 'Unique redirect id.',
+        'type' => 'serial',
+        'not null' => TRUE,
+      ],
+      'uid' => [
+        'description' => 'User id of owner.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'source' => [
+        'description' => 'Source path.',
+        'type' => 'varchar',
+        'length' => '255',
+        'binary' => TRUE,
+        'not null' => TRUE,
+      ],
+      'destination' => [
+        'description' => 'Redirect URL.',
+        'type' => 'text',
+        'not null' => TRUE,
+      ],
+      'hash' => [
+        'description' => 'The hash of the redirect URL.',
+        'type' => 'varchar',
+        'length' => '32',
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'created' => [
+        'description' => 'Datestamp of creation.',
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+      'count' => [
+        'description' => 'Usage count.',
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+      'last_used' => [
+        'description' => 'Datestamp of last use.',
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+      'custom' => [
+        'description' => 'Flag for custom path.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'active' => [
+        'description' => 'Allows links to be deactivated.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 1,
+      ],
+    ],
+    'primary key' => ['rid'],
+    'indexes' => [
+      'source' => ['source'],
+      'hash' => ['hash'],
+    ],
+  ];
+
+  // History table to shurly to allow editing of short urls.
+  $schema['shurly_history'] = [
+    'description' => 'Stores a history of the various shortlinks.  Rows are created when they are edited, so we can see what a row once was.',
+    'fields' => [
+      'hid' => [
+        'description' => 'Unique history ID.',
+        'type' => 'serial',
+        'not null' => TRUE,
+      ],
+      'rid' => [
+        'description' => 'The redirect ID.',
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+      'vid' => [
+        'description' => 'The version for the change made.',
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+      'source' => [
+        'description' => 'Source path.',
+        'type' => 'varchar',
+        'length' => '255',
+        'binary' => TRUE,
+        'not null' => TRUE,
+      ],
+      'destination' => [
+        'description' => 'Redirect URL.',
+        'type' => 'text',
+        'not null' => TRUE,
+      ],
+      'last_date' => [
+        'description' => 'Datestamp that this link was edited from the value in this row.',
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+      'count' => [
+        'description' => 'Usage count.',
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['hid'],
+    'indexes' => [
+      'source' => ['rid', 'vid'],
+    ],
+  ];
+
+  $schema['shurly_flood'] = [
+    'description' => 'Flood controls the threshold of events, such as the number of contact attempts.',
+    'fields' => [
+      'fid' => [
+        'description' => 'Unique flood event ID.',
+        'type' => 'serial',
+        'not null' => TRUE,
+      ],
+      'event' => [
+        'description' => 'Name of event (e.g. contact).',
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'identifier' => [
+        'description' => 'Identifier of the visitor, such as an IP address or hostname.',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'timestamp' => [
+        'description' => 'Timestamp of the event.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'expiration' => [
+        'description' => 'Expiration timestamp. Expired events are purged on cron run.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+    ],
+    'primary key' => ['fid'],
+    'indexes' => [
+      'allow' => ['event', 'identifier', 'timestamp'],
+    ],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function shurly_uninstall() {
+
+  // Remove variables.
+  \Drupal::configFactory()
+    ->getEditable('shurly.settings')
+    ->clear('shurly_throttle')
+    ->save();
+  \Drupal::configFactory()
+    ->getEditable('shurly.settings')
+    ->clear('shurly_length')
+    ->save();
+  \Drupal::configFactory()
+    ->getEditable('shurly.settings')
+    ->clear('shurly_counter')
+    ->save();
+  \Drupal::configFactory()
+    ->getEditable('shurly.settings')
+    ->clear('shurly_index')
+    ->save();
+  \Drupal::configFactory()
+    ->getEditable('shurly.settings')
+    ->clear('shurly_base')
+    ->save();
+  \Drupal::state()->delete('shurly.settings.shurly_counter');
+}

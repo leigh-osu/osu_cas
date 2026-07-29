@@ -1,0 +1,6 @@
+services:
+  Drupal\domain_sso_admin_toolbar\Hook\DomainSsoAdminToolbarHooks:
+    arguments:
+      $currentUser: '@current_user'
+      $entityTypeManager: '@entity_type.manager'
+      $domainNegotiationContext: '@domain.negotiation_context'

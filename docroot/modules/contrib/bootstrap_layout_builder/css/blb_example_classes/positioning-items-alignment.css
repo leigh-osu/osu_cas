@@ -1,0 +1,19 @@
+.blb-items-alignment-start {
+  align-items: flex-start;
+}
+
+.blb-items-alignment-end {
+  align-items: flex-end;
+}
+
+.blb-items-alignment-center {
+  align-items: center;
+}
+
+.blb-items-alignment-baseline {
+  align-items: baseline;
+}
+
+.blb-items-alignment-stretch {
+  align-items: stretch;
+}

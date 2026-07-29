@@ -1,0 +1,15 @@
+uuid: ff6bbe68-fc0b-44cf-917e-9241b5dd55fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.anrs_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_anrs_oregonstate_edu
+label: 'Add selected content to the Animal and Rangeland Sciences domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - anrs_oregonstate_edu

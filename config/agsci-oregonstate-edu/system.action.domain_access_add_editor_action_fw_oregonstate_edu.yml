@@ -1,0 +1,15 @@
+uuid: 10ad289d-f2e9-4cba-81c3-3df230a2e8a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.fw_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_fw_oregonstate_edu
+label: 'Add editors to the Fisheries, Wildlife, and Conservation Sciences domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - fw_oregonstate_edu

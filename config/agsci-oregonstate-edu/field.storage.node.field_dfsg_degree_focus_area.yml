@@ -1,0 +1,21 @@
+uuid: cca6b1c4-c3e9-4c7e-8f74-570e66c48daa
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_dfsg_degree_focus_area
+field_name: field_dfsg_degree_focus_area
+entity_type: node
+type: list_string
+settings:
+  allowed_values: {  }
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

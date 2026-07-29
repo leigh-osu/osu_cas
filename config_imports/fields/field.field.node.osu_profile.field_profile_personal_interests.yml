@@ -1,0 +1,22 @@
+uuid: 18fd3987-a683-4115-99ca-4be534a5ac22
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_personal_interests
+    - node.type.osu_profile
+  module:
+    - text
+id: node.osu_profile.field_profile_personal_interests
+field_name: field_profile_personal_interests
+entity_type: node
+bundle: osu_profile
+label: 'Personal Interests'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

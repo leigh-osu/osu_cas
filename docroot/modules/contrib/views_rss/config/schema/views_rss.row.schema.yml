@@ -1,0 +1,54 @@
+# Schema for the views row.
+
+views.row.views_rss_fields:
+  type: views_row
+  label: 'RSS field options'
+  mapping:
+    item:
+      type: mapping
+      label: Item
+      mapping:
+        core:
+          type: mapping
+          label: 'RSS field options - Core'
+          mapping:
+            views_rss_core:
+              type: mapping
+              mapping:
+                title:
+                  type: string
+                  label: Title
+                link:
+                  type: string
+                  label: Link
+                description:
+                  type: string
+                  label: Description
+                author:
+                  type: string
+                  label: Author
+                category:
+                  type: string
+                  label: Category
+                comments:
+                  type: string
+                  label: Comments
+                enclosure:
+                  type: string
+                  label: Enclosure
+                guid:
+                  type: string
+                  label: Guid
+                pubDate:
+                  type: string
+                  label: pubDate
+        content:
+          type: mapping
+          label: 'RSS field options - Content'
+          mapping:
+            views_rss_core:
+              type: mapping
+              mapping:
+                encoded:
+                  type: string
+                  label: Encoded

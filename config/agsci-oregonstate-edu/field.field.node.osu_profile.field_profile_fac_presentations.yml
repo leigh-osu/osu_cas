@@ -1,0 +1,22 @@
+uuid: bad401df-d11d-4de7-a5e2-4d3315b5ea4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_fac_presentations
+    - node.type.osu_profile
+  module:
+    - text
+id: node.osu_profile.field_profile_fac_presentations
+field_name: field_profile_fac_presentations
+entity_type: node
+bundle: osu_profile
+label: 'Proceedings and Conference Presentations'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

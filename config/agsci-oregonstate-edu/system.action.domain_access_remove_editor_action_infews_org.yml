@@ -1,0 +1,15 @@
+uuid: 42303853-7eaa-4b96-afa0-183bd8576687
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.infews_org
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_infews_org
+label: 'Remove editors from the Infews domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - infews_org

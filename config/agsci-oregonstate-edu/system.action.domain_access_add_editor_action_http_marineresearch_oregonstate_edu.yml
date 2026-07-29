@@ -1,0 +1,15 @@
+uuid: 7354a749-28b2-493c-9133-1ff8ba7d7d5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.http_marineresearch_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_http_marineresearch_oregonstate_edu
+label: 'Add editors to the Coastal Oregon Marine Experiment Station domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - http_marineresearch_oregonstate_edu

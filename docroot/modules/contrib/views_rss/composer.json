@@ -1,0 +1,10 @@
+{
+  "name": "drupal/views_rss",
+  "description": "Extends the possibilites to create RSS with Views",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "require-dev": {
+    "james-heinrich/getid3": "^2.0@beta",
+    "drupal/video_embed_field": "^2.5 || ^3"
+  }
+}

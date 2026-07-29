@@ -1,0 +1,223 @@
+<?php
+
+declare(strict_types=1);
+
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Field\FieldStorageDefinitionInterface;
+use Drupal\Core\Language\LanguageInterface;
+use Drupal\Core\Site\Settings;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\Core\Utility\UpdateException;
+use Drupal\preview_link\Entity\PreviewLink;
+use Drupal\preview_link\PreviewLinkExpiry;
+use Drupal\preview_link\PreviewLinkStorageInterface;
+
+/**
+ * Implements hook_update_last_removed().
+ */
+function preview_link_update_last_removed(): int {
+  return 8101;
+}
+
+/**
+ * Opts out existing site from multi entity support to retain existing behavior.
+ */
+function preview_link_update_8201(): TranslatableMarkup {
+  $config = \Drupal::configFactory()->getEditable('preview_link.settings');
+  $config->set('multiple_entities', FALSE);
+  $config->save(TRUE);
+  return \t("Updated preview link config.");
+}
+
+/**
+ * Updates Preview Link entity definition to remove faulty keys.
+ */
+function preview_link_update_8202(): TranslatableMarkup {
+  $entityTypeId = 'preview_link';
+  $definitionUpdateManager = \Drupal::entityDefinitionUpdateManager();
+  $entityType = $definitionUpdateManager->getEntityType($entityTypeId);
+
+  $keys = $entityType->getKeys();
+  $keys['entity_id'] = 'entity_id';
+  $keys['entity_type_id'] = 'entity_type_id';
+  $keys['token'] = 'token';
+  $entityType->set('entity_keys', $keys);
+  $definitionUpdateManager->updateEntityType($entityType);
+  return \t("Updated Preview Link entity definition.");
+}
+
+/**
+ * Install Dynamic Entity Reference.
+ */
+function preview_link_update_8203(): TranslatableMarkup {
+  $module = 'dynamic_entity_reference';
+  if (\Drupal::moduleHandler()->moduleExists($module)) {
+    return \t('Dynamic Entity Reference is already installed!');
+  }
+  /** @var \Drupal\Core\Extension\ModuleInstallerInterface $moduleInstaller */
+  $moduleInstaller = \Drupal::service('module_installer');
+  $installed = $moduleInstaller->install([$module]);
+  if ($installed) {
+    return \t('Dynamic Entity Reference installed successfully');
+  }
+  else {
+    throw new UpdateException('Dynamic Entity Reference failed to install');
+  }
+}
+
+/**
+ * Add the 'entities' field to 'preview_link' entities.
+ */
+function preview_link_update_8204(): TranslatableMarkup {
+  $storageDefinition = BaseFieldDefinition::create('dynamic_entity_reference')
+    ->setLabel(t('Entities'))
+    ->setDescription(t('The associated entities this preview link unlocks.'))
+    ->setRequired(TRUE)
+    ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
+    ->addConstraint('PreviewLinkEntitiesUniqueConstraint', [])
+    ->setSettings(PreviewLink::entitiesDefaultFieldSettings())
+    ->setDisplayOptions('form', [
+      'type' => 'preview_link_entities_widget',
+      'weight' => 10,
+    ]);
+  \Drupal::entityDefinitionUpdateManager()->installFieldStorageDefinition(
+    'entities',
+    'preview_link',
+    'preview_link',
+    $storageDefinition,
+  );
+  return \t("Add the 'entities' field to 'preview_link' entities.");
+}
+
+/**
+ * Migrates entity relationship data to new field.
+ */
+function preview_link_update_8205(array &$sandbox): TranslatableMarkup {
+  // Bail out early if the entity type is not using the default storage class.
+  $storage = \Drupal::entityTypeManager()->getStorage('preview_link');
+  if (!$storage instanceof PreviewLinkStorageInterface) {
+    return \t('The entity type is not using the default storage class.');
+  }
+  /** @var \Drupal\Core\Entity\Sql\DefaultTableMapping $tableMapping */
+  $tableMapping = $storage->getTableMapping();
+  $step_size = Settings::get('entity_update_batch_size', 50);
+
+  if (!isset($sandbox['current_id'])) {
+    // This must be the first run. Initialize the sandbox.
+    $sandbox['progress'] = 0;
+    $sandbox['current_id'] = 0;
+  }
+
+  $database = \Drupal::database();
+  $previewLinks = $database->select($tableMapping->getBaseTable(), 'pl')
+    ->condition('pl.id', $sandbox['current_id'], '>')
+    ->fields('pl')
+    ->orderBy('id', 'ASC')
+    ->range(0, $step_size)
+    ->execute()
+    ->fetchAll();
+  if (count($previewLinks) > 0) {
+    $insert = $database->insert($tableMapping->getFieldTableName('entities'));
+    $insert->fields([
+      'bundle',
+      'deleted',
+      'entity_id',
+      'revision_id',
+      'langcode',
+      'delta',
+      'entities_target_id',
+      'entities_target_type',
+    ]);
+    foreach ($previewLinks as $previewLink) {
+      $sandbox['current_id'] = $previewLink->id;
+      $values = [
+        'bundle' => 'preview_link',
+        'deleted' => 0,
+        'entity_id' => $previewLink->id,
+        'revision_id' => $previewLink->id,
+        'langcode' => LanguageInterface::LANGCODE_NOT_SPECIFIED,
+        'delta' => 0,
+        'entities_target_type' => $previewLink->entity_type_id,
+        'entities_target_id' => $previewLink->entity_id,
+      ];
+      $insert->values($values);
+    }
+    $insert->execute();
+
+    $sandbox['progress'] += count($previewLinks);
+    // If we're not in maintenance mode, the number of preview link could change
+    // at any time so make sure that we always use the latest record count.
+    $count = $database->select($tableMapping->getBaseTable(), 'pl')
+      ->condition('pl.id', $sandbox['current_id'], '>')
+      ->orderBy('id', 'ASC')
+      ->countQuery()
+      ->execute()
+      ->fetchField();
+    $sandbox['#finished'] = $count ? $sandbox['progress'] / ($sandbox['progress'] + (int) $count) : 1;
+  }
+  else {
+    $sandbox['#finished'] = 1;
+  }
+  if ($sandbox['#finished'] >= 1) {
+    return \t('Migrates entity relationship data to new field for preview link.');
+  }
+  return \t('Finished migrating relationship data to new field.');
+}
+
+/**
+ * Removes the 'entity_id' and 'entity_type_id' fields from 'preview_link'.
+ */
+function preview_link_update_8206(): TranslatableMarkup {
+  $entityDefinitionUpdateManager = \Drupal::entityDefinitionUpdateManager();
+  $entityIdField = $entityDefinitionUpdateManager->getFieldStorageDefinition('entity_id', 'preview_link');
+  $entityDefinitionUpdateManager->uninstallFieldStorageDefinition($entityIdField);
+  $entityTypeIdField = $entityDefinitionUpdateManager->getFieldStorageDefinition('entity_type_id', 'preview_link');
+  $entityDefinitionUpdateManager->uninstallFieldStorageDefinition($entityTypeIdField);
+  return \t("Removes the 'entity_id' and 'entity_type_id' fields from 'preview_link entity'.");
+}
+
+/**
+ * Convert state based expiry to configuration.
+ */
+function preview_link_update_8207() {
+  $state = \Drupal::state();
+  $days = $state->get('preview_link_expiry_days', 7);
+  $seconds = $days * 86400;
+  $config = \Drupal::configFactory()->getEditable('preview_link.settings');
+  $config->set('expiry_seconds', $seconds);
+  $config->save(TRUE);
+  $state->delete('preview_link_expiry_days');
+}
+
+/**
+ * Opts sites into default message behavior.
+ */
+function preview_link_update_8208(): TranslatableMarkup {
+  $config = \Drupal::configFactory()->getEditable('preview_link.settings');
+  $config->set('display_message', 'subsequent');
+  $config->save(TRUE);
+  return \t('Updated Preview Link config.');
+}
+
+/**
+ * Adds the 'expiry' field to 'preview_link' entities.
+ *
+ * @param array{mixed} $sandbox
+ *   Sandbox.
+ */
+function preview_link_update_8209(array $sandbox): TranslatableMarkup {
+  // Compute a default value as a safe fallback. Postupdate will overwrite these
+  // values with generated_timestamp + $lifetime value.
+  $config = \Drupal::configFactory()->get('preview_link.settings');
+  $lifetime = (int) ($config->get('expiry_seconds') ?: PreviewLinkExpiry::DEFAULT_EXPIRY_SECONDS);
+
+  $storageDefinition = BaseFieldDefinition::create('timestamp')
+    ->setLabel(\t('Time this Preview Link expires.'))
+    ->setDescription(\t('The time after which the preview link is no longer valid.'))
+    ->setDefaultValueCallback(PreviewLink::class . '::expiryDefaultValue')
+    ->setRequired(TRUE)
+    ->setInitialValue(\time() + $lifetime);
+  \Drupal::entityDefinitionUpdateManager()
+    ->installFieldStorageDefinition('expiry', 'preview_link', 'preview_link', $storageDefinition);
+  return new TranslatableMarkup('Added `expiry` field to Preview Link entity.');
+}

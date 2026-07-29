@@ -1,0 +1,5 @@
+services:
+  media_bulk_upload_dropzonejs.route_subscriber:
+    class: Drupal\media_bulk_upload_dropzonejs\Routing\MediaBulkUploadDropzoneJsRouteSubscriber
+    tags:
+      - { name: event_subscriber }

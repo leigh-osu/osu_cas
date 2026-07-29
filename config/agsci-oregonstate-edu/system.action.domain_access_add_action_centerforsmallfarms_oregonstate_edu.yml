@@ -1,0 +1,15 @@
+uuid: 8aac1054-a69c-43c6-9149-b898065956c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.centerforsmallfarms_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_centerforsmallfarms_oregonstate_edu
+label: 'Add selected content to the Center for Resilient Agriculture &amp; Food Systems domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - centerforsmallfarms_oregonstate_edu

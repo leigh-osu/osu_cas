@@ -1,0 +1,65 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.ap_style_test
+    - field.field.node.date_test.field_event_dates
+    - field.field.node.date_test.field_published_date
+    - node.type.date_test
+  module:
+    - date_ap_style
+    - user
+id: node.date_test.ap_style_test
+targetEntityType: node
+bundle: date_test
+mode: ap_style_test
+content:
+  field_event_dates:
+    type: daterange_ap_style
+    label: above
+    settings:
+      always_display_year: false
+      use_today: true
+      cap_today: false
+      display_day: true
+      display_time: true
+      hide_date: false
+      time_before_date: false
+      display_noon_and_midnight: true
+      capitalize_noon_and_midnight: false
+      use_all_day: true
+      separator: endash
+      timezone: ''
+      month_only: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_published_date:
+    type: timestamp_ap_style
+    label: above
+    settings:
+      always_display_year: false
+      use_today: true
+      cap_today: true
+      display_day: true
+      display_time: false
+      hide_date: false
+      time_before_date: false
+      display_noon_and_midnight: true
+      capitalize_noon_and_midnight: true
+      use_all_day: false
+      timezone: America/New_York
+      month_only: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  body: true
+  comment: true
+  field_image: true
+  field_tags: true

@@ -1,0 +1,12 @@
+name: 'Advanced Views RSS Feed: Format'
+type: module
+description: 'Provides custom version of format_xml_elements() function allowing to skip special character encoding in selected XML element values.'
+package: Views
+core_version_requirement: ^10.3 || ^11
+dependencies:
+  - views_rss:views_rss
+
+# Information added by Drupal.org packaging script on 2025-04-07
+version: '8.x-2.4'
+project: 'views_rss'
+datestamp: 1744036344

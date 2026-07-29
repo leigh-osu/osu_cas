@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * Nothing to see here. It's all about the Field/FieldFormatter.
+ */
+
+use Drupal\Core\Hook\Attribute\LegacyHook;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\smart_trim\Hook\SmartTrimHooks;
+
+/**
+ * Implements hook_help().
+ */
+#[LegacyHook]
+function smart_trim_help($route_name, RouteMatchInterface $route_match): string {
+  return Drupal::service(SmartTrimHooks::class)->help($route_name, $route_match);
+}
+
+/**
+ * Implements hook_theme().
+ */
+#[LegacyHook]
+function smart_trim_theme(array $existing, string $type, string $theme, string $path): array {
+  return Drupal::service(SmartTrimHooks::class)->theme($existing, $type, $theme, $path);
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+#[LegacyHook]
+function smart_trim_theme_suggestions_smart_trim_alter(array &$suggestions, array $variables) {
+  Drupal::service(SmartTrimHooks::class)->themeSuggestionsSmartTrimAlter($suggestions, $variables);
+}

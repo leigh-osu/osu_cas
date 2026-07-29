@@ -1,0 +1,30 @@
+uuid: 5bb7134a-981e-43ff-b523-05d6702224fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_domain_access
+    - node.type.fun_facts
+  module:
+    - domain_access
+third_party_settings:
+  domain_access:
+    add_current_domain: true
+id: node.fun_facts.field_domain_access
+field_name: field_domain_access
+entity_type: node
+bundle: fun_facts
+label: 'Domain Access'
+description: 'Select the affiliate domain(s) for this content'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:domain'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: weight
+      direction: ASC
+field_type: entity_reference

@@ -1,0 +1,97 @@
+langcode: en
+status: true
+dependencies:
+  - osu_publications
+id: upgrade_d7_biblio_publication
+migration_tags:
+  - Drupal 7
+  - Publication
+  - OSU Content
+  - OSU
+source:
+  plugin: osu_biblio_reference
+  constants:
+    doi_base_url: 'https://dx.doi.org/'
+    pubmed_base_url: 'https://pubmed.ncbi.nlm.nih.gov/'
+process:
+  type:
+    - plugin: default_value
+      default_value: publications
+  nid: nid
+  vid: vid
+  title: title
+  uid:
+    - plugin: migration_lookup
+      migration: upgrade_d7_users_with_roles
+      source: node_uid
+      no_stub: true
+    - plugin: default_value
+      default_value: 1
+  field_pub_type:
+    - plugin: entity_lookup
+      value_key: name
+      entity_type: taxonomy_term
+      bundle_key: vid
+      bundle: publication_type
+      source: biblio_type
+  field_pub_authors:
+    - plugin: sub_process
+      source: author
+      process:
+        value: name
+  # NOTE: {biblio}.biblio_full_text is a flag recording whether full text
+  # exists, not the text itself -- every row holds 0. Mapping it to the body
+  # stamped the string "0" onto every migrated publication. Biblio has no
+  # body-equivalent column, so body is intentionally left unmapped.
+  field_pub_abstract/value: biblio_abst_e
+  field_pub_abstract/format:
+    - plugin: default_value
+      default_value: 'full_html'
+  field_pub_issn: biblio_issn
+  # biblio_doi is dirty: about half the rows are empty or whitespace, ~80
+  # already contain a full https://doi.org/ URL, and a few carry stray
+  # padding. Blindly concatenating the base URL gave a bare
+  # https://dx.doi.org/ on the empty ones and a double-prefixed URL on the
+  # rest. Trim first so whitespace-only counts as empty for skip_on_empty
+  # (which uses empty() and would otherwise pass "   " through), skip the
+  # property when there is no DOI, then normalise: the regex strips any
+  # existing doi.org prefix before applying the canonical one.
+  field_pub_doi/title:
+    - plugin: callback
+      callable: trim
+      source: biblio_doi
+    - plugin: skip_on_empty
+      method: process
+  field_pub_doi/uri:
+    - plugin: callback
+      callable: trim
+      source: biblio_doi
+    - plugin: skip_on_empty
+      method: process
+    - plugin: str_replace
+      regex: true
+      search: '~^(?:https?://(?:dx\.)?doi\.org/)?(.+)$~i'
+      replace: 'https://dx.doi.org/$1'
+  field_pub_year_publication: biblio_year
+  field_pub_date_published/value:
+    - plugin: normalize_biblio_date
+      source: biblio_date
+  field_pub_journal: biblio_secondary_title
+  field_pub_issue: biblio_issue
+  field_pub_volume: biblio_volume
+  field_pub_pages: biblio_pages
+  field_pub_publisher: biblio_publisher
+  status: status
+  created: created
+  changed: changed
+  comment: comment
+  promote: promote
+  sticky: sticky
+  path/pathauto:
+    plugin: default_value
+    default_value: 0
+destination:
+  plugin: 'entity:node'
+migration_dependencies:
+  required:
+    - upgrade_d7_users_with_roles

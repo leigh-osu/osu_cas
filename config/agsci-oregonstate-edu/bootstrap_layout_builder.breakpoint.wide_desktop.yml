@@ -1,0 +1,10 @@
+uuid: 97e27d9b-ac9c-46f3-b2a9-33e65716325d
+langcode: en
+status: 0
+dependencies: {  }
+_core:
+  default_config_hash: 7IG7l9Kv-DdMh0Sy689ZsncOuFd_DItXFWq5YAr-U70
+id: wide_desktop
+label: 'Wide Desktop'
+base_class: col-xl
+weight: '-14'

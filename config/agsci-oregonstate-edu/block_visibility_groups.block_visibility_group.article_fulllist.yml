@@ -1,0 +1,16 @@
+uuid: d871af8c-0850-447d-968e-f0709fae4e66
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: article_fulllist
+label: article_fulllist
+logic: and
+conditions:
+  a939e135-c8ce-45c7-95f9-fd51ae7806ab:
+    id: request_path
+    negate: false
+    uuid: a939e135-c8ce-45c7-95f9-fd51ae7806ab
+    pages: "/*/articles\r\n/emt/emtnews\r\n/bioenergy-education/about/news\r\n/bioenergy-k-12-education/news\r\n/slug-portal/research-and-education/updates-and-announcements\r\n/bee/bee-news\r\n/node/46611\r\n/applied-economics/news\r\n/crop-production/crop-production-news\r\n/node/59111\r\n/wheat-research/more/news\r\n/node/79816\r\n/node/80166\r\n/node/80796\r\n/node/81226\r\n/node/95061\r\n/node/216361\r\n/node/216706"
+allow_other_conditions: null

@@ -1,0 +1,16 @@
+uuid: df1a55f5-14af-45c8-bd8c-951b8ecd9f5a
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: graduate_faculty_css
+label: graduate_faculty_css
+logic: and
+conditions:
+  6f7de216-af53-4df0-be2e-b252eac7e003:
+    id: request_path
+    negate: false
+    uuid: 6f7de216-af53-4df0-be2e-b252eac7e003
+    pages: /node/57771
+allow_other_conditions: null

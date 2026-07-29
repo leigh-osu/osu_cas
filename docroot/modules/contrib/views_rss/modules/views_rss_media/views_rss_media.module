@@ -1,0 +1,64 @@
+<?php
+
+/**
+ * @file
+ * Provides Media RSS namespace and elements for Views RSS module.
+ */
+
+/**
+ * Include file with all preprocess functions.
+ */
+include_once dirname(__FILE__) . '/views_rss_media.inc';
+
+/**
+ * Implements hook_views_rss_namespaces().
+ */
+function views_rss_media_views_rss_namespaces() {
+  $namespaces['media'] = [
+    'prefix' => 'xmlns',
+    'uri' => 'http://search.yahoo.com/mrss/',
+  ];
+  return $namespaces;
+}
+
+/**
+ * Implements hook_views_rss_item_elements().
+ */
+function views_rss_media_views_rss_item_elements() {
+  $elements['media:content'] = [
+    'description' => t('Contains the primary metadata entries needed to index and organize media content.'),
+    'preprocess functions' => ['views_rss_media_preprocess_item_content'],
+    'help' => 'http://www.rssboard.org/media-rss#media-content',
+  ];
+  $elements['media:title'] = [
+    'description' => t('The title of the particular media object.'),
+    'preprocess functions' => [
+      'views_rss_htmlspecialchars',
+      'views_rss_media_preprocess_item_text',
+    ],
+    'help' => 'http://www.rssboard.org/media-rss#media-title',
+  ];
+  $elements['media:description'] = [
+    'description' => t('Short description describing the media object typically a sentence in length.'),
+    'preprocess functions' => [
+      'views_rss_htmlspecialchars',
+      'views_rss_media_preprocess_item_text',
+    ],
+    'help' => 'http://www.rssboard.org/media-rss#media-description',
+  ];
+  $elements['media:keywords'] = [
+    'description' => t('Highly relevant keywords describing the media object with typically a maximum of 10 words. The keywords and phrases should be comma-delimited.'),
+    'help' => 'http://www.rssboard.org/media-rss#media-keywords',
+  ];
+  $elements['media:thumbnail'] = [
+    'description' => t('Allows particular images to be used as representative images for the media object.'),
+    'preprocess functions' => ['views_rss_media_preprocess_item_thumbnail'],
+    'help' => 'http://www.rssboard.org/media-rss#media-thumbnails',
+  ];
+  $elements['media:category'] = [
+    'description' => t('Allows a taxonomy to be set that gives an indication of the type of media content, and its particular contents.'),
+    'preprocess functions' => ['views_rss_media_preprocess_item_category'],
+    'help' => 'http://www.rssboard.org/media-rss#media-category',
+  ];
+  return $elements;
+}

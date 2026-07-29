@@ -1,0 +1,17 @@
+uuid: fd5f33bf-bd86-4fc8-96b6-e6fbc4310674
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.basic_group
+    - node.type.webform
+  module:
+    - gnode
+    - node
+id: basic_group-group_node-webform
+group_type: basic_group
+content_plugin: 'group_node:webform'
+plugin_config:
+  group_cardinality: 1
+  entity_cardinality: -1
+  use_creation_wizard: false

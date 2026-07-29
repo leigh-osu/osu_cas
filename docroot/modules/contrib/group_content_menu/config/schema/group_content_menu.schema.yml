@@ -1,0 +1,30 @@
+group_content_menu_block:
+  type: block_settings
+  label: 'Group content menu'
+  mapping:
+    level:
+      type: integer
+      label: 'Starting level'
+    depth:
+      type: integer
+      label: 'Maximum number of levels'
+    expand_all_items:
+      type: boolean
+      label: 'Expand all items'
+    relative_visibility:
+      type: boolean
+      label: 'Relative visibility'
+    theme_hook_suggestion:
+      type: string
+      label: 'Theme hook suggestion'
+
+block.settings.group_content_menu:*:
+  type: group_content_menu_block
+
+condition.plugin.group_content_menu:
+  type: condition.plugin
+  label: 'Group Content Menu condition'
+  mapping:
+    type:
+      type: string
+      label: Type

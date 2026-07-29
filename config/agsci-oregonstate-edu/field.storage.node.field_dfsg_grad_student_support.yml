@@ -1,0 +1,21 @@
+uuid: 2c55bf2a-f08b-4b17-ba16-1eb54c1d2b4b
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_dfsg_grad_student_support
+field_name: field_dfsg_grad_student_support
+entity_type: node
+type: string
+settings:
+  max_length: 512
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

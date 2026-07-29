@@ -1,0 +1,20 @@
+uuid: bad4892b-2222-4878-8f66-4d929bd1f3d0
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_mw_gdd_monthly_25_year_avg
+field_name: field_mw_gdd_monthly_25_year_avg
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

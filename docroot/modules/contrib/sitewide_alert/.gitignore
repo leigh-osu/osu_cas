@@ -1,0 +1,9 @@
+node_modules
+.idea
+vendor/
+web/
+.ddev/
+recipes/
+.editorconfig
+.gitattributes
+phpcs.xml.dist

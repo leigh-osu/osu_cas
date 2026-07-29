@@ -1,0 +1,88 @@
+uuid: dfece186-9350-4f9d-a86e-cacc403a4add
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.weed.body
+    - field.field.node.weed.field_domain_access
+    - field.field.node.weed.field_domain_all_affiliates
+    - field.field.node.weed.field_tax_life_cycle
+    - field.field.node.weed.field_weed_bittercress_and_aphid
+    - field.field.node.weed.field_weed_brief_description
+    - field.field.node.weed.field_weed_common_name
+    - field.field.node.weed.field_weed_control_description
+    - field.field.node.weed.field_weed_cotyledon_or_seedling
+    - field.field.node.weed.field_weed_dissemination
+    - field.field.node.weed.field_weed_family
+    - field.field.node.weed.field_weed_favorable_env_note
+    - field.field.node.weed.field_weed_favorable_environment
+    - field.field.node.weed.field_weed_flowers
+    - field.field.node.weed.field_weed_foliage
+    - field.field.node.weed.field_weed_habit
+    - field.field.node.weed.field_weed_image
+    - field.field.node.weed.field_weed_latin_name
+    - field.field.node.weed.field_weed_literature_cited
+    - field.field.node.weed.field_weed_look_alikes
+    - field.field.node.weed.field_weed_management_link
+    - field.field.node.weed.field_weed_of_interest
+    - field.field.node.weed.field_weed_physical_description
+    - field.field.node.weed.field_weed_plant_status
+    - field.field.node.weed.field_weed_roots
+    - field.field.node.weed.field_weed_rosette
+    - field.field.node.weed.field_weed_seed_or_seed_pods
+    - field.field.node.weed.field_weed_stem
+    - node.type.weed
+  module:
+    - text
+    - user
+id: node.weed.teaser
+targetEntityType: node
+bundle: weed
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entitygroupfield: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_flowers: true
+  field_stem: true
+  field_tax_life_cycle: true
+  field_weed_bittercress_and_aphid: true
+  field_weed_brief_description: true
+  field_weed_common_name: true
+  field_weed_control_description: true
+  field_weed_cotyledon_or_seedling: true
+  field_weed_dissemination: true
+  field_weed_family: true
+  field_weed_favorable_env_note: true
+  field_weed_favorable_environment: true
+  field_weed_flowers: true
+  field_weed_foliage: true
+  field_weed_habit: true
+  field_weed_image: true
+  field_weed_latin_name: true
+  field_weed_literature_cited: true
+  field_weed_look_alikes: true
+  field_weed_management_link: true
+  field_weed_of_interest: true
+  field_weed_physical_description: true
+  field_weed_plant_status: true
+  field_weed_roots: true
+  field_weed_rosette: true
+  field_weed_seed_or_seed_pods: true
+  field_weed_stem: true
+  langcode: true

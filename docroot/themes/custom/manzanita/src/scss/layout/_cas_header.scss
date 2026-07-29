@@ -1,0 +1,84 @@
+@import '../abstracts/cas_variables';
+
+#madrone-header-container,
+#madrone-header-container .header-search-block-form  {
+  background-color: #000 !important;
+}
+
+// Header divider lines: the border-bottom above the menu and the vertical
+// border-start separators are bootstrap .border-neutral-200 utilities.
+// Recolor them to #666 (scoped to the header so the site-wide utility is
+// left untouched elsewhere).
+#madrone-header-container,
+#madrone-header-container .border-neutral-200 {
+  border-color: #666 !important;
+}
+
+// OSU brand rule across the very top of the page. Declared after the divider
+// recolor above (which sets all border colors to #666 !important on the
+// container), so this later !important wins for the top edge.
+#madrone-header-container {
+  border-top: 6px solid $osuorange !important;
+}
+
+// The search form's container grows to fill the space between the block's
+// left divider and the Apply/MyCAS links, so input + magnifier + links sit
+// as one continuous line with no dead space; the input ends up between its
+// old full width and the half-width experiment.
+.block-search-form-block > .block__content {
+  flex: 1 1 auto;
+}
+
+// The actual search input gets a white background from Bootstrap's
+// .form-control (including on :focus), so override the input itself.
+.header-search-block-form input[type="search"].form-control {
+  &,
+  &:focus {
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+
+  &::placeholder {
+    color: #ccc !important;
+  }
+}
+
+// Utility links beside the search box — the Apply / MyCAS pair D7's larch
+// theme hardcoded in its header (see the search block template override).
+.cas-header-links {
+  white-space: nowrap;
+
+  a {
+    color: #fff;
+    font-family: 'Stratum2Web', serif;
+    text-decoration: none;
+    padding-inline: 1rem;
+    // Text-height divider ahead of each link (search | Apply | MyCAS),
+    // like D7 — not the full-height section border. align-items: center
+    // on the nav keeps the link (and so its border) at line height.
+    border-left: 1px solid $neutral-600;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Search magnifier: smaller than madrone's fs-2, beaver orange, white on
+// hover/focus. The icon's color needs !important to outrank madrone's
+// .osu-text-icon utility (also !important); so does the size against the
+// fs-2 utility.
+.header-search-block-form .form-actions button {
+  font-size: 1.25rem !important;
+
+  .fa-search {
+    color: $osuorange !important;
+    transition: color 200ms ease;
+  }
+
+  &:hover .fa-search,
+  &:focus .fa-search {
+    color: #fff !important;
+  }
+}

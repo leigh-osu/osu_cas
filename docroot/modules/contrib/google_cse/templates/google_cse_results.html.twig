@@ -1,0 +1,16 @@
+{% if results_prefix %}
+  <div class="google-cse-results-prefix">{{ results_prefix }}</div>
+{% endif %}
+
+<div id="google-cse-results">
+  {% if primary_attributes %}
+    <div {{ primary_attributes }}></div>
+  {% endif %}
+  {% if secondary_attributes %}
+    <div {{ secondary_attributes }}></div>
+  {% endif %}
+    <noscript>{{ noscript }}</noscript>
+</div>
+{% if results_suffix %}
+  <div class="google-cse-results-suffix">{{ results_suffix }}</div>
+{% endif %}

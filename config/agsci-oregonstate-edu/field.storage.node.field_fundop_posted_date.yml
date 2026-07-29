@@ -1,0 +1,20 @@
+uuid: 1788bd9a-69c6-41bb-8df4-8d3240e0366c
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - node
+id: node.field_fundop_posted_date
+field_name: field_fundop_posted_date
+entity_type: node
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

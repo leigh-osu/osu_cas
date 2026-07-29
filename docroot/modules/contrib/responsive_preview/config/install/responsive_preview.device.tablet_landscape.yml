@@ -1,0 +1,10 @@
+id: tablet_landscape
+label: 'Tablet Landscape'
+weight: 2
+status: 1
+orientation: landscape
+dimensions:
+  width: 2360
+  height: 1640
+  dppx: !!float 2
+langcode: en

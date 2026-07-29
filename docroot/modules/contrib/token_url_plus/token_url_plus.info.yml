@@ -1,0 +1,12 @@
+name: 'Token Url Plus'
+type: module
+description: 'Adds some current-page:url token variations that are geared for customized canonical urls that contain query parameters.'
+package: Token
+core_version_requirement: ^10 || ^11
+dependencies:
+  - token:token
+
+# Information added by Drupal.org packaging script on 2026-01-14
+version: '1.0.3'
+project: 'token_url_plus'
+datestamp: 1768363233

@@ -1,0 +1,16 @@
+uuid: 6d337eec-bccd-4bfc-a7b4-9ad6a36a967d
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: oaeb_display
+label: oaeb_display
+logic: and
+conditions:
+  07186b4e-0c5e-485d-a845-dbdaa48ef742:
+    id: request_path
+    negate: false
+    uuid: 07186b4e-0c5e-485d-a845-dbdaa48ef742
+    pages: /oregon-agricultural-enterprise-budgets
+allow_other_conditions: null

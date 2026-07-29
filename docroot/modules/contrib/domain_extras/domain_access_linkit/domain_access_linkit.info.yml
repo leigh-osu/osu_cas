@@ -1,0 +1,13 @@
+name: Linkit for Domain Access
+description: 'Linkit plugins for the Domain Access module'
+type: module
+package: Domain
+core_version_requirement: ^10.2 || ^11
+dependencies:
+  - domain_access:domain_access
+  - linkit:linkit
+
+# Information added by Drupal.org packaging script on 2026-05-08
+version: '3.0.3'
+project: 'domain_extras'
+datestamp: 1778274501

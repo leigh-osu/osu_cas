@@ -1,0 +1,255 @@
+uuid: 2ff45a82-b203-4d4e-97f2-d1356839af87
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_252656
+title: 'Building a More Resilient Oregon  '
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="350" src="https://www.youtube.com/embed/T_yfDl7yYh0" title="YouTube video player" width="100%"></iframe></p>
+
+      <p>
+      	The OSU Statewide Public Service Programs (OSU Statewides), including the Ag Experiment Station, Extension Service, Forest Research Lab, are embedded in every county in the state. Together, we aim to serve all Oregonians by integrating research and community-based engagement to address our most pressing needs and realize the fullest potential of our most exciting opportunities. These programs are the foundation of OSU’s land grant mission and the binding fabric of our service to this state.</p>
+
+      <p>
+      	<strong>Funding Declines as Needs Grow&nbsp;&nbsp;</strong></p>
+
+      <p>
+      	In the past two legislative sessions, the OSU Statewides have not received their base budget requests to cover cost increases, which are mainly modest salary, benefits and operational cost increases. At the same time, Oregonians have growing needs to maintain the health of our communities, food systems and critical natural resources. We need to build a resilient Oregon and to do so, stakeholders have recommended we pursue a substantial increase in our budget request, recognizing the value that investment in the OSU Statewides has in their communities and our state’s economy.&nbsp;</p>
+
+      <p>
+      	<strong>Investing in a Resilient Oregon&nbsp;</strong></p>
+
+      <p>
+      	For the 23-25 biennium budget the OSU Statewides and our many stakeholders are requesting $206 million, which is a $50 million increase, to cover continuing service levels and new programing to support a more resilient Oregon.&nbsp;</p>
+
+      <p>
+      	&nbsp;</p>
+
+      <p>
+      	To help us demonstrate the importance of this work, please consider sharing how the OSU Statewides impacts you or your community by answering the questions below. And thank you for sharing your experiences with the OSU Statewides so that we can share our impact from YOUR perspective to our elected officials.</p>
+  how_does_oregon_state_universitys_statewides_ag_experiment_station_extension_forest_research_lab_impact_your_work:
+    '#type': textarea
+    '#title': 'How does the work of the OSU Statewides (Ag Experiment Station, Extension Service, Forest Research Lab) impact your life, work and/or community?'
+  what_would_happen_to_your_organization_or_community_if_those_activities_efforts_were_not_available_or_were_reduced:
+    '#type': textarea
+    '#title': 'What would happen to your organization or community if those activities and efforts were not available or were reduced?'
+  is_there_anything_else_you_would_like_to_share_about_the_value_of_the_osu_statewides:
+    '#type': textarea
+    '#title': 'Is there anything else you would like to share about the value of the OSU Statewides?'
+  name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Name
+    '#required': true
+  organization:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Organization
+  location:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Location
+  use_of_name_and_other_information:
+    '#type': checkbox
+    '#options':
+      permission: 'By submitting this form, I am giving permission for Oregon State University to use my name and other information submitted in informational and promotional material.'
+    '#multiple': true
+    '#title': 'Use of name and other information'
+    '#required': true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: ben.davis@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: love.wise@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_3:
+    id: email
+    handler_id: email_3
+    label: 'Email 3'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 3
+    settings:
+      states:
+        - completed
+      to_mail: kevin.lee@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |+
+        Submitted on [webform_submission:completed_date:long]
+        Submitted by user: [webform_submission:user]
+
+        Submitted values are:
+        [webform_submission:values]
+
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_4:
+    id: email
+    handler_id: email_4
+    label: 'Email 4'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 4
+    settings:
+      states:
+        - completed
+      to_mail: Jennifer.Alexander@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |-
+        Submitted on [webform_submission:completed_date:long]
+        Submitted by user: [webform_submission:user]
+
+        Submitted values are:
+        [webform_submission:values]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

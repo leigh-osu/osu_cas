@@ -1,0 +1,15 @@
+uuid: 2fcb0f18-1db2-4e42-9c3f-6df9ed5511db
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.owri_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_owri_oregonstate_edu
+label: 'Remove editors from the Oregon Wine Research Institute domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - owri_oregonstate_edu

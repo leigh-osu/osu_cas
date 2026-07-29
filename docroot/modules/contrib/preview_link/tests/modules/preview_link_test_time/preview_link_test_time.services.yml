@@ -1,0 +1,6 @@
+services:
+  _defaults:
+    autoconfigure: true
+    autowire: true
+  datetime.time:
+    class: Drupal\preview_link_test_time\TimeMachine

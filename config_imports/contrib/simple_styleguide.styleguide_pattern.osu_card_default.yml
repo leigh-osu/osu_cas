@@ -1,0 +1,11 @@
+uuid: 41128d15-fbcf-4836-a43d-3db8afa68b1e
+langcode: en
+status: true
+dependencies: {  }
+id: osu_card_default
+label: 'OSU Card — default'
+description:
+  value: 'The <code>osu_card</code> content block in its default view mode: a shadowed, rounded, padded card with the image, link and body (rendered as 4 columns in a 12 column grid).'
+  format: full_html
+pattern: '<p><em>No osu_card block available to preview.</em></p>'
+weight: 10

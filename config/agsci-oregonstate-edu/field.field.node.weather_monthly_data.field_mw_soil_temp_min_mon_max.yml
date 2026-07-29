@@ -1,0 +1,23 @@
+uuid: c1d9d078-789f-4201-b725-5b072001771a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mw_soil_temp_min_mon_max
+    - node.type.weather_monthly_data
+id: node.weather_monthly_data.field_mw_soil_temp_min_mon_max
+field_name: field_mw_soil_temp_min_mon_max
+entity_type: node
+bundle: weather_monthly_data
+label: 'Soil Temp Min: Monthly Maximum'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

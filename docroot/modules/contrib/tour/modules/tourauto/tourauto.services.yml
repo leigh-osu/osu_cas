@@ -1,0 +1,4 @@
+services:
+  tourauto.manager:
+    class: Drupal\tourauto\TourautoManager
+    arguments: ['@current_user', '@user.data', '@current_route_match', '@entity_type.manager', '@tour.helper', '@string_translation']

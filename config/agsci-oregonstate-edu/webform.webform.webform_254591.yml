@@ -1,0 +1,133 @@
+uuid: 3caf25c4-a932-4e97-bdcb-3eca39fdcb62
+langcode: en
+status: closed
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 16861
+template: false
+archive: false
+id: webform_254591
+title: 'Hyslop Farm Field Day 2026 Registration'
+description: null
+categories: {  }
+elements: |-
+  sessions:
+    '#type': checkboxes
+    '#options':
+      morning: Morning
+      lunch: Lunch
+    '#multiple': true
+    '#title': Sessions
+    '#description': 'Select all of the sessions you are planning to attend'
+    '#required': true
+  first_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'First Name'
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Last Name'
+    '#required': true
+  company_farm_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Company/Farm Name'
+  i_am_a:
+    '#type': checkboxes
+    '#options':
+      grower/farmer/rancher: Grower/Farmer/Rancher
+      vendor: 'Vendor (Bank, Insurance Agency, Chemical, Seed, Equipment, etc)'
+      osu/usda_employee: 'OSU/USDA Employee'
+      osu_alumni: 'OSU Alumni'
+      osu_student: 'OSU Student'
+      other: Other
+    '#multiple': true
+    '#title': 'I am a'
+    '#description': 'Select all that apply'
+    '#required': true
+  email_address:
+    '#type': email
+    '#size': 20
+    '#title_display': inline
+    '#title': 'Email Address'
+    '#required': true
+  accommodations:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	&nbsp;</p>
+
+      <p>
+      	<em>To request accommodations related to a disability please contact Rachel Swindon at rachel.swindon@oregonstate.edu or 541-737-1286 by May 15th.</em></p>
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email_address:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: 'Department of Crop and Soil Science'
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |-
+        Thank you for registering for Hyslop Farm Field Day. We look forward to seeing you there! 
+        To request accommodations related to a disability please contact Rachel Swindon at rachel.swindon@oregonstate.edu or 541-737-1286 by May 15th.
+
+        Submitted values are:
+
+        [webform_submission:values]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

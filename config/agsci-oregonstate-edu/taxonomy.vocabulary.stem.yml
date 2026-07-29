@@ -1,0 +1,9 @@
+uuid: 0a029b34-1e19-42ca-8977-bbee77a06e17
+langcode: en
+status: true
+dependencies: {  }
+name: stem
+vid: stem
+description: STEM
+weight: 0
+new_revision: false

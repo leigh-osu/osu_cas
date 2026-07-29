@@ -1,0 +1,16 @@
+uuid: 2f1c775f-c0aa-456d-9178-ef2bf98750aa
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: swd_control
+label: swd_control
+logic: and
+conditions:
+  dc847e00-e871-4002-bb89-9a78e7db8283:
+    id: request_path
+    negate: false
+    uuid: dc847e00-e871-4002-bb89-9a78e7db8283
+    pages: /node/80111
+allow_other_conditions: null

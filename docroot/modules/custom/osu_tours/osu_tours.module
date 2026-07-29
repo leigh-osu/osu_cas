@@ -1,0 +1,36 @@
+<?php
+/**
+ * Implements hook_theme().
+ */
+function osu_tours_theme($existing, $type, $theme, $path) {
+  return [
+    'role_based_tours_block' => [
+      'variables' => ['links' => []],
+      'template' => 'role-based-tours-block',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function osu_tours_preprocess_page(array &$variables) {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+
+  // Only inject on the user profile page.
+  if ($route_name === 'entity.user.canonical') {
+    $block_manager = \Drupal::service('plugin.manager.block');
+    $plugin_block = $block_manager->createInstance('role_based_tours_block', []);
+    $block = $plugin_block->build();
+
+    // Inject the block into the page content region.
+    $variables['page']['content']['osu_tours_block'] = $block;
+  }
+}
+
+/**
+ * Implements hook_preprocess_attachments().
+ */
+function osu_tours_page_attachments(&$variables) {
+  $variables['#attached']['library'][] = 'osu_tours/osu_tours';
+}

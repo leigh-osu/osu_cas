@@ -1,0 +1,9 @@
+uuid: 77af67a8-b7f7-4279-897b-5503aa9652c8
+langcode: en
+status: true
+dependencies: {  }
+name: website-function
+vid: website_function
+description: 'What function does this website serve'
+weight: 0
+new_revision: false

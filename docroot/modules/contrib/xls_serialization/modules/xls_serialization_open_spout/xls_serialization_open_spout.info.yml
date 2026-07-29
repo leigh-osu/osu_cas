@@ -1,0 +1,12 @@
+name: 'Serialization (Excel using OpenSpout library)'
+type: module
+description: 'Replace the Excel (xls) as a serialization format with a serializer using the OpenSpout library. This does not support all the features of the serializer provided by Excel Serialization.'
+core_version_requirement: ^10 || ^11
+package: Web services
+dependencies:
+  - xls_serialization:xls_serialization
+
+# Information added by Drupal.org packaging script on 2026-06-24
+version: '2.1.1'
+project: 'xls_serialization'
+datestamp: 1782292935

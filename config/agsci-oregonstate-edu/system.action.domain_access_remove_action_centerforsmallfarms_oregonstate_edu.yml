@@ -1,0 +1,15 @@
+uuid: 1983540f-6f18-4a05-af8f-dc34f1d33abf
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.centerforsmallfarms_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_centerforsmallfarms_oregonstate_edu
+label: 'Remove selected content from the Center for Resilient Agriculture &amp; Food Systems domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - centerforsmallfarms_oregonstate_edu

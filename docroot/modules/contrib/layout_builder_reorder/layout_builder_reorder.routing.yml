@@ -1,0 +1,11 @@
+layout_builder_reorder.move_section:
+  path: '/layout_builder/move/section/{section_storage_type}/{section_storage}/{delta}/{new_delta}'
+  defaults:
+    _title: 'Reorder a section within layout builder'
+    _controller: 'Drupal\layout_builder_reorder\Controller\MoveLayoutBuilderSectionController'
+  requirements:
+    _layout_builder_access: 'view'
+  options:
+    parameters:
+      section_storage:
+        layout_builder_tempstore: TRUE

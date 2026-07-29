@@ -1,0 +1,28 @@
+uuid: de7bb0a1-277b-480a-9598-1ec043017de6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - filter.format.basic_html
+    - filter.format.full_html
+    - node.type.plant_variety_release
+  module:
+    - text
+id: node.plant_variety_release.body
+field_name: body
+entity_type: node
+bundle: plant_variety_release
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats:
+    - full_html
+    - basic_html
+field_type: text_with_summary

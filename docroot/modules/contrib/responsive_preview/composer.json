@@ -1,0 +1,6 @@
+{
+  "name": "drupal/responsive_preview",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "description": "Provides a component that previews a page in various device dimensions."
+}

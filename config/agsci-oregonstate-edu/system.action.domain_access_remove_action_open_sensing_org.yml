@@ -1,0 +1,15 @@
+uuid: 017c5c68-e1d7-49f8-b46d-3b3e2c23b903
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.open_sensing_org
+  module:
+    - domain_access
+id: domain_access_remove_action_open_sensing_org
+label: 'Remove selected content from the Open Sensing Lab domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - open_sensing_org

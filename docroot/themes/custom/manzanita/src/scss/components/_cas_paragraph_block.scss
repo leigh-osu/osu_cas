@@ -1,0 +1,5 @@
+// Migrated D7 paragraphs render as paragraph_block inline blocks in Layout
+// Builder sections; give their body copy breathing room inside the section.
+.block--type-paragraph-block .field--name-body {
+  padding: 1em;
+}

@@ -1,0 +1,2 @@
+services:
+  Drupal\domain_access_linkit\Hook\DomainAccessLinkitHooks: {}

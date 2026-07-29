@@ -1,0 +1,15 @@
+uuid: 90a06df7-a49b-490f-8865-fe105be9858e
+langcode: en
+status: true
+dependencies: {  }
+name: 200high
+label: 250height
+effects:
+  962e831b-55ce-4a51-8779-f2ba4b912d00:
+    uuid: 962e831b-55ce-4a51-8779-f2ba4b912d00
+    id: image_scale
+    weight: 1
+    data:
+      width: null
+      height: 250
+      upscale: true

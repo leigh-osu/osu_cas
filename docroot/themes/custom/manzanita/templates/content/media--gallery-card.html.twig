@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Media in the gallery_card view mode: a fixed 220px square tile.
+ *
+ * Modelled on madrone's media--media-card.html.twig, minus its p-4 padding and
+ * mb-2 margin: the tile is sized as a whole by _cas_image_gallery.scss and the
+ * image fills it edge to edge, with the grid supplying the gutters.
+ *
+ * @see template_preprocess_media()
+ */
+#}
+{% set classes = [
+  'media',
+  'media--type-' ~ media.bundle()|clean_class,
+  not media.isPublished() ? 'media--unpublished',
+  view_mode ? 'media--view-mode-' ~ view_mode|clean_class,
+  'osu-bg-page-default',
+  'osu-shadow',
+] %}
+<article{{ attributes.addClass(classes) }}>
+  {{ title_suffix.contextual_links }}
+  {% if content %}
+    {{ content }}
+  {% endif %}
+</article>

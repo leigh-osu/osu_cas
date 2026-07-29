@@ -1,0 +1,236 @@
+uuid: cd2bcada-ed56-46de-9e20-101bc5cb0eea
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_266931
+title: 'OSU-EOU Graduation & Alumni BBQ'
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	[[{"fid":"486731","view_mode":"default","fields":{"format":"default","alignment":"center","field_file_image_alt_text[und][0][value]":"OSU-EOU Graduation &amp; Alumni BBQ | May 31, 2024 | 5:30-7pm | Badgley Hall","field_file_image_title_text[und][0][value]":"OSU-EOU Graduation &amp; Alumni BBQ | May 31, 2024 | 5:30-7pm | Badgley Hall","external_url":""},"type":"media","field_deltas":{"1":{"format":"default","alignment":"center","field_file_image_alt_text[und][0][value]":"OSU-EOU Graduation &amp; Alumni BBQ | May 31, 2024 | 5:30-7pm | Badgley Hall","field_file_image_title_text[und][0][value]":"OSU-EOU Graduation &amp; Alumni BBQ | May 31, 2024 | 5:30-7pm | Badgley Hall","external_url":""}},"link_text":null,"attributes":{"alt":"OSU-EOU Graduation &amp; Alumni BBQ | May 31, 2024 | 5:30-7pm | Badgley Hall","title":"OSU-EOU Graduation &amp; Alumni BBQ | May 31, 2024 | 5:30-7pm | Badgley Hall","height":1080,"width":1920,"class":"media-element file-default media-wysiwyg-align-center","data-delta":"1"}}]]</p>
+
+      <p>
+      	Join us in celebrating Oregon State University in Eastern Oregon. We are bringing together area OSU Alumni, current and past OSU Ag and NR Program students and faculty to recognize the 2024 graduating class, student achievements, and catch-up with others. A BBQ buffet will be served. Hope to see you there!</p>
+
+      <p>
+      	This is a free event, hosted by the OSU Ag and NR Program, OSU College of Agricultural Sciences, OSU Alumni Association, and our partner Eastern Oregon University.</p>
+
+      <ul>
+      	<li>
+      		<strong>Date</strong>: Friday, May 31<sup>st</sup></li>
+      	<li>
+      		<strong>Time</strong>: 5:30pm – 7pm</li>
+      	<li>
+      		<strong>Location</strong>: <a href="">Badgley Hall patio</a></li>
+      	<li>
+      		<strong>Parking</strong>: Badgley Hall @ intersection of 6<sup>th</sup> &amp; K street</li>
+      	<li>
+      		<strong>Who</strong>: Students, Faculty, and CAS OSU Alumni</li>
+      	<li>
+      		<strong>Food</strong>: BBQ fare</li>
+      	<li>
+      		<strong>Questions?</strong>
+      		<ul>
+      			<li>
+      				Email <a href="mailto:Penelope.Diebel@oregonstate.edu">Penny Diebel</a></li>
+      			<li style="text-size-adjust: 100%;">
+      				541-910-4035 (cell)</li>
+      		</ul>
+      	</li>
+      </ul>
+
+      <p >
+      	Welcome and Student Recognition Presentations by:</p>
+
+      <ul>
+      	<li>
+      		Penny Diebel, Director, OSU Agriculture and Natural Resources Program at EOU</li>
+      	<li>
+      		Ricardo Mata-Gonzalez, Associate Dean of Academic Programs, College of Agricultural Sciences</li>
+      	<li>
+      		Ally Rumpkis, Director of Alumni Relations, College of Agricultural Sciences</li>
+      </ul>
+  first_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'First Name'
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Last Name'
+    '#required': true
+  i_plan_to_bring_a_guest:
+    '#type': radios
+    '#options':
+      guest_yes: 'Yes'
+      guest_no: 'No'
+    '#title_display': inline
+    '#title': 'I plan to bring a guest'
+  guest_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Guest name'
+  i_am_an_osu_alumni:
+    '#type': radios
+    '#options':
+      alumni_yes: 'Yes'
+      alumni_no: 'No'
+    '#title_display': inline
+    '#title': 'I am an OSU Alumni '
+  email_address:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Email address'
+    '#required': true
+  phone_numbers:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Primary phone number'
+    '#required': true
+  fieldset_mailing_address:
+    '#type': fieldset
+    '#open': true
+    '#title': 'Mailing address'
+    street_address_14:
+      '#type': textfield
+      '#unique': false
+      '#title_display': inline
+      '#title': 'Street Address'
+      '#required': true
+    street_address2_14:
+      '#type': textfield
+      '#unique': false
+      '#title_display': inline
+      '#title': 'Street Address 2'
+    city_14:
+      '#type': textfield
+      '#unique': false
+      '#title_display': inline
+      '#title': City
+      '#required': true
+    state_14:
+      '#type': textfield
+      '#unique': false
+      '#title_display': inline
+      '#title': State
+      '#required': true
+    zip_14:
+      '#type': textfield
+      '#unique': false
+      '#title_display': inline
+      '#title': Zip
+      '#required': true
+  do_you_have_any_food_sensitivities:
+    '#type': checkboxes
+    '#options':
+      food_gluten: 'Gluten Free'
+      food_dairy: 'Dairy Free'
+      food_nuts: 'Nut Free'
+      food_vegetarian: Vegetarian
+      food_kosher: Kosher
+      food_other: Other
+    '#multiple': true
+    '#title': 'Do you have any food preferences?'
+  other_food_preferences:
+    '#type': textarea
+    '#title': 'Other food preferences'
+  additional_feedback:
+    '#type': textarea
+    '#title': 'Additional feedback'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email_address:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |-
+        [webform_submission:values:first_name] [webform_submission:values:last_name],
+
+        Thank you for registering to attend OSU-EOU Graduation & Alumni BBQ. This is a free event, hosted by the OSU Ag and NR Program, OSU College of Agricultural Sciences, OSU Alumni Association, and our partner Eastern Oregon University.
+              Date: Friday, May 31st
+              Time: 5:30pm – 7pm
+              Location: Badgley Hall patio
+              Parking: Badgley Hall @ intersection of 6th & K street
+
+        If something comes up and you’re not able to attend the event, please email Penelope.Diebel@oregonstate.edu so she may remove you from our expected attendees list and adjust the headcount for lunch.
+
+        We look forward to seeing you at 5:30pm for the OSU-EOU Graduation & Alumni BBQ.
+      excluded_elements:
+        phone_numbers: phone_numbers
+        mailing_address: mailing_address
+        street_address: street_address
+        street_address2: street_address2
+        city: city
+        state: state
+        zip: zip
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

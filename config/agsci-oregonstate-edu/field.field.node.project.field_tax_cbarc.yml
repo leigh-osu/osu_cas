@@ -1,0 +1,29 @@
+uuid: 5c031700-f9b9-472f-8fe0-13d4fcdc1971
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tax_cbarc
+    - node.type.project
+    - taxonomy.vocabulary.cbarc
+id: node.project.field_tax_cbarc
+field_name: field_tax_cbarc
+entity_type: node
+bundle: project
+label: 'CBARC topics'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      cbarc: cbarc
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

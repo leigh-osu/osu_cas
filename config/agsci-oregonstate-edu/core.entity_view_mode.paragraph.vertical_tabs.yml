@@ -1,0 +1,11 @@
+uuid: 6f3566ec-91d3-41eb-a5d3-cd7dfb86f14d
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.vertical_tabs
+label: 'Vertical Tabs'
+description: ''
+targetEntityType: paragraph
+cache: true
