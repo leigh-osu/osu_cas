@@ -1,12 +1,10 @@
-uuid: c4d64c99-f2f1-4376-95a7-544d145eca91
+uuid: 12fa3246-3d6a-4324-93f2-efa997183532
 langcode: en
 status: true
 dependencies:
   config:
     - group.type.basic_group
     - user.role.authenticated
-_core:
-  default_config_hash: 1h7m3rCyRMjWPwdUjfp3kyh_utrRuhlFsGMC6WZ3HLY
 id: basic_group-outsider
 label: Outsider
 weight: -9

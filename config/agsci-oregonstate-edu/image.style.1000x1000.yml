@@ -1,12 +1,12 @@
-uuid: aad7fcc1-ce93-4776-b7fb-ca078a8d64fc
+uuid: d7980ea1-2f1e-4654-a737-433c5b2c5654
 langcode: en
 status: true
 dependencies: {  }
 name: 1000x1000
 label: 1000wide
 effects:
-  4cc3a7e9-b5d8-4851-bf58-2b46df1d56ab:
-    uuid: 4cc3a7e9-b5d8-4851-bf58-2b46df1d56ab
+  08d42d69-1074-4cf8-9b87-f82b77783634:
+    uuid: 08d42d69-1074-4cf8-9b87-f82b77783634
     id: image_scale
     weight: 1
     data:

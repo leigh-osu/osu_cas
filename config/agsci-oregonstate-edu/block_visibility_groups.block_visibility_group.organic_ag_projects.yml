@@ -1,4 +1,4 @@
-uuid: 0d496a75-fbe0-4453-b561-4297c5d8dfbe
+uuid: daead017-92b4-4030-ac7a-64543d35a38a
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: organic_ag_projects
 label: organic_ag_projects
 logic: and
 conditions:
-  e39157ba-01bf-41c9-8d9d-eb3741209238:
+  7e1d8276-c7b5-46eb-a253-e7eed6712827:
     id: request_path
     negate: false
-    uuid: e39157ba-01bf-41c9-8d9d-eb3741209238
+    uuid: 7e1d8276-c7b5-46eb-a253-e7eed6712827
     pages: /organic-agriculture-program/organic-research-and-extension-projects
 allow_other_conditions: null

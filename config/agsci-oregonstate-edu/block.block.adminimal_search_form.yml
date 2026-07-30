@@ -1,4 +1,4 @@
-uuid: 2a08629f-0d5c-443c-a078-9c83bf8fd9f8
+uuid: cc048d77-ff21-43c4-9ca0-a99a444971ba
 langcode: en
 status: true
 dependencies:
@@ -14,7 +14,7 @@ _core:
 id: adminimal_search_form
 theme: claro
 region: content
-weight: 1
+weight: 5
 provider: null
 plugin: search_form_block
 settings:

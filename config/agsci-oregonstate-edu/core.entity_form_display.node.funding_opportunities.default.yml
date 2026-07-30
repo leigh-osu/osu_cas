@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.funding_opportunities.body
     - field.field.node.funding_opportunities.field_domain_access
     - field.field.node.funding_opportunities.field_domain_all_affiliates
+    - field.field.node.funding_opportunities.field_domain_source
     - field.field.node.funding_opportunities.field_fundop_award_ceiling
     - field.field.node.funding_opportunities.field_fundop_due_date_full
     - field.field.node.funding_opportunities.field_fundop_due_date_loi
@@ -176,3 +177,4 @@ content:
 hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_domain_source: true

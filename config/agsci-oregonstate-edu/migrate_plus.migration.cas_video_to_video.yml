@@ -1,9 +1,9 @@
-uuid: 099beb9f-22de-4daf-bd77-59f4f28d1ee8
+uuid: 2b495c40-73bb-49ec-97c9-cb7d778cbed4
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: _YG0KMo3VIuEsNPENUB5Ftz333we4-IW6TidCTd3Md4
+  default_config_hash: EZhrlrA1O_soRsS1EqsESuPoQFUkk41ChBDqkb7irvo
 id: cas_video_to_video
 class: null
 idMap: {  }
@@ -58,7 +58,7 @@ process:
       target_id:
         -
           plugin: migration_lookup
-          migration: upgrade_d7_users_with_roles
+          migration: upgrade_d7_user_to_profile
           source: target_id
           no_stub: true
         -

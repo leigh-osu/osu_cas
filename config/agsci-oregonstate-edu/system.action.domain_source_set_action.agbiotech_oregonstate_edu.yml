@@ -1,0 +1,14 @@
+uuid: bf121a58-5151-4d6d-b74f-1e72c18f1c0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.agbiotech_oregonstate_edu
+  module:
+    - domain_source
+id: domain_source_set_action.agbiotech_oregonstate_edu
+label: 'Set content domain source value to the Biotechnology in Agriculture domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: agbiotech_oregonstate_edu

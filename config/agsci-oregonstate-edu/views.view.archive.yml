@@ -1,4 +1,4 @@
-uuid: ad7395de-bc1b-4641-b5c0-b38a3bc91205
+uuid: 5f057607-a2cc-4918-ade7-f39104061b00
 langcode: en
 status: false
 dependencies:
@@ -213,7 +213,8 @@ display:
           specify_validation: true
       query:
         type: views_query
-        options: {  }
+        options:
+          distinct: true
       defaults:
         arguments: false
       display_extenders: {  }
@@ -234,7 +235,8 @@ display:
     display_options:
       query:
         type: views_query
-        options: {  }
+        options:
+          distinct: true
       display_extenders: {  }
       path: archive
     cache_metadata:

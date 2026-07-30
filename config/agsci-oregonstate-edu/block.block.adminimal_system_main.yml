@@ -1,4 +1,4 @@
-uuid: 6cb21f83-e1cb-4aa1-8926-001b6627f182
+uuid: dcd0f83c-0958-4a56-a176-a094b8d2748c
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ _core:
 id: adminimal_system_main
 theme: claro
 region: content
-weight: 0
+weight: 6
 provider: null
 plugin: system_main_block
 settings:
@@ -19,8 +19,4 @@ settings:
   label: ''
   label_display: '0'
   provider: system
-visibility:
-  request_path:
-    id: request_path
-    negate: false
-    pages: /admin/dashboard
+visibility: {  }

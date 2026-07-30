@@ -1,11 +1,11 @@
-uuid: adad84cd-0955-4070-a7be-63689a8272d4
+uuid: beb44c9b-0a65-4e6f-94f7-7b84d3032783
 langcode: en
 status: true
 dependencies:
   config:
     - block_visibility_groups.block_visibility_group.social_media_widget
   content:
-    - 'block_content:basic:ffa1bcf9-6ed0-4e3c-846c-bbadce379e1b'
+    - 'block_content:basic:3342c207-d26c-4e2b-ab3c-5b23f1e35bd9'
   module:
     - block_content
     - block_visibility_groups
@@ -16,9 +16,9 @@ theme: madrone
 region: content
 weight: -10
 provider: null
-plugin: 'block_content:ffa1bcf9-6ed0-4e3c-846c-bbadce379e1b'
+plugin: 'block_content:3342c207-d26c-4e2b-ab3c-5b23f1e35bd9'
 settings:
-  id: 'block_content:ffa1bcf9-6ed0-4e3c-846c-bbadce379e1b'
+  id: 'block_content:3342c207-d26c-4e2b-ab3c-5b23f1e35bd9'
   label: ''
   label_display: visible
   provider: block_content

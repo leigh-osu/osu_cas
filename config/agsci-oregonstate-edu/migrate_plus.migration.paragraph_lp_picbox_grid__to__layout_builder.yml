@@ -1,4 +1,4 @@
-uuid: f2df0f71-ae55-4caf-974b-ae54e3f4366f
+uuid: fa30de6a-a6e3-4b36-89d6-3f74375feb50
 langcode: en
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
       - osu_migrations
       - paragraphs_to_layout_builder
 _core:
-  default_config_hash: YivVlWcqztHQDDio7a2BPQclWarF6koikjHTnj7a9ns
+  default_config_hash: EEIeCyDCv1su3RnpAsWI-ptN-kGOb6QTjJzLCMIXsgI
 id: paragraph_lp_picbox_grid__to__layout_builder
 class: null
 idMap: {  }
@@ -31,7 +31,10 @@ process:
   type:
     plugin: default_value
     default_value: paragraph_block
-  info: field_paragraph_label
+  info:
+    source: field_paragraph_label
+    plugin: default_value
+    default_value: 'Migrated d7 lp_picbox_grid section'
   body:
     -
       plugin: sub_process

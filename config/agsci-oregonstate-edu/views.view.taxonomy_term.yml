@@ -1,4 +1,4 @@
-uuid: f67f523c-6c1e-4269-92ff-cab165bf29aa
+uuid: 430f776c-0a06-490a-810d-575e07679bd5
 langcode: en
 status: true
 dependencies:
@@ -283,7 +283,8 @@ display:
           view_mode: default
       query:
         type: views_query
-        options: {  }
+        options:
+          distinct: true
       display_extenders: {  }
       path: taxonomy/term/%/feed
       displays:
@@ -305,7 +306,8 @@ display:
     display_options:
       query:
         type: views_query
-        options: {  }
+        options:
+          distinct: true
       display_extenders: {  }
       path: taxonomy/term/%
     cache_metadata:

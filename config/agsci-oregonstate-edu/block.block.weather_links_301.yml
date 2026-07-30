@@ -1,11 +1,11 @@
-uuid: 7928fb0a-ede8-468f-b1e7-1b9449e4f010
+uuid: ad91e421-fa3f-4ee8-9ca6-1bfa92de8b87
 langcode: en
 status: true
 dependencies:
   config:
     - block_visibility_groups.block_visibility_group.weather_links
   content:
-    - 'block_content:basic:6327ccf1-8196-433a-b37e-514114cafc8b'
+    - 'block_content:basic:634b2020-8816-4b7a-ba21-a6ea703a6024'
   module:
     - block_content
     - block_visibility_groups
@@ -16,9 +16,9 @@ theme: madrone
 region: full_top
 weight: -10
 provider: null
-plugin: 'block_content:6327ccf1-8196-433a-b37e-514114cafc8b'
+plugin: 'block_content:634b2020-8816-4b7a-ba21-a6ea703a6024'
 settings:
-  id: 'block_content:6327ccf1-8196-433a-b37e-514114cafc8b'
+  id: 'block_content:634b2020-8816-4b7a-ba21-a6ea703a6024'
   label: ''
   label_display: visible
   provider: block_content

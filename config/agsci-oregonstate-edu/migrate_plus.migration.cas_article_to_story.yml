@@ -1,9 +1,9 @@
-uuid: 7ee28883-00d4-43ef-b0a0-a9a517206ec5
+uuid: 81fe8463-a55e-4431-9ac3-44efae76e7cc
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: Bdj923Pbjl0P1iTrIoJ5nup8DaHeMTOt51pSB0M1eTk
+  default_config_hash: CWTjy0BWnOzAyZh71kR5tPdxLaXwZrnhi7w7zhphCJ8
 id: cas_article_to_story
 class: null
 idMap: {  }
@@ -85,9 +85,14 @@ process:
     source: field_osu_employee
     process:
       target_id:
-        plugin: migration_lookup
-        migration: upgrade_d7_users_with_roles
-        source: target_id
+        -
+          plugin: migration_lookup
+          migration: upgrade_d7_user_to_profile
+          source: uid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
   field_story_category:
     plugin: get
     source: field_category

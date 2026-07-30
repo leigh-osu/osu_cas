@@ -1,9 +1,9 @@
-uuid: f646ff27-c363-4cac-8d23-175df9ebc173
+uuid: 170daba2-950c-4a20-b38d-c22ee27d5eff
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: vFM02Eojr9QT4iGdEH-lRIEHJT92Dy_nxBcl59gREXQ
+  default_config_hash: N2gLOdyPtTB35oQESnPsw1G4pp_YJrpzvDiCDpGJc0o
 id: cas_node_parent_unit_group
 class: null
 idMap: {  }
@@ -18,7 +18,7 @@ migration_tags:
 migration_group: osu_groups
 label: 'CAS: Create Groups that were Parent Units (with fields)'
 source:
-  plugin: d7_node
+  plugin: d7_node_domain_access
   node_type: parent_unit
 process:
   type:
@@ -60,6 +60,17 @@ process:
   field_group_linkedin: field_group_linkedin
   field_group_youtube: field_group_youtube
   field_group_instagram: field_group_instagram
+  field_domain_access:
+    plugin: sub_process
+    source: domain_access_node
+    process:
+      target_id: target_id
+  field_domain_all_affiliates: domain_all_affiliates
+  field_domain_source:
+    plugin: cas_group_canonical_domain
+    source:
+      - domain_source
+      - domain_access_node
 destination:
   plugin: 'entity:group'
 migration_dependencies: {  }

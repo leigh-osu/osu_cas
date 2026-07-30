@@ -1,4 +1,4 @@
-11uuid: 79a6a45a-fb7a-4612-b0a4-d65a8433c75f
+uuid: 10a160a2-00c9-46d6-920e-a34e9c19d776
 langcode: en
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
       - paragraphs_to_layout_builder
       - osu_migrations
 _core:
-  default_config_hash: daznyuSe1M_2HFf-rxtsLeqVNYmbcVAmbxNj9_wkeqQ
+  default_config_hash: Sfm2kNbsfFDK9-KBsMJounGUEfHqL1j6jpwF3ffTUgw
 id: content
 label: Nodes
 description: 'A container for migrating Node entities'
@@ -19,18 +19,14 @@ shared_configuration:
     vid: vid
     type: type
     langcode:
-      # A handful of D7 nodes carry language = '' rather than und or en.
-      # static_map with bypass passes those through unchanged, leaving the node
-      # with an empty langcode that matches none of its field rows (written as
-      # en), so every field on it silently loads empty. default_value is not
-      # strict, so it treats '' as falsy and substitutes en while leaving real
-      # language codes untouched.
-      - plugin: static_map
+      -
+        plugin: static_map
         bypass: true
         source: language
         map:
           und: en
-      - plugin: default_value
+      -
+        plugin: default_value
         default_value: en
     title: title
     uid: node_uid

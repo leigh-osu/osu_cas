@@ -1,4 +1,4 @@
-uuid: 570809b8-f6cd-495e-9584-ad82e87db284
+uuid: f49a62bb-e2b1-4a88-8edf-30e0ecd20037
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: quinoa
 label: quinoa
 logic: and
 conditions:
-  308628b3-22cf-4d46-9cc1-14bc09b2e41c:
+  244b2c9f-a0f8-42c0-90f3-8066e354547c:
     id: request_path
     negate: false
-    uuid: 308628b3-22cf-4d46-9cc1-14bc09b2e41c
+    uuid: 244b2c9f-a0f8-42c0-90f3-8066e354547c
     pages: /node/112771
 allow_other_conditions: null

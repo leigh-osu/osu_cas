@@ -1,0 +1,22 @@
+uuid: 1f34ed60-44d6-4175-8ef7-0651f968f578
+langcode: en
+status: true
+dependencies:
+  module:
+    - osu_cas_site_sync
+  theme:
+    - manzanita
+id: manzanita_sitesync
+theme: manzanita
+region: pre_footer
+weight: 0
+provider: null
+plugin: osu_cas_site_sync
+settings:
+  id: osu_cas_site_sync
+  label: 'Prod site sync'
+  label_display: '0'
+  provider: osu_cas_site_sync
+  base_url: 'https://agsci.oregonstate.edu'
+  link_text: 'View D7'
+visibility: {  }

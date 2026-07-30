@@ -1,0 +1,14 @@
+uuid: 35fe611c-4129-4921-8f0f-a3e53a9fdfd6
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.campusarb_oregonstate_edu
+  module:
+    - domain_source
+id: domain_source_set_action.campusarb_oregonstate_edu
+label: 'Set content domain source value to the OSU Campus Arboretum domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: campusarb_oregonstate_edu

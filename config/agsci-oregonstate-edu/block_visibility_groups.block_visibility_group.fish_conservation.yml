@@ -1,4 +1,4 @@
-uuid: b24a3fb4-3d8a-490b-95b0-781cdbb311fd
+uuid: 2fea9157-956a-43bd-acaf-e0c1f4b239f3
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: fish_conservation
 label: fish_conservation
 logic: and
 conditions:
-  60d16fb9-f6f5-416a-b770-a5cec78be94d:
+  4c7e16cc-2f65-4095-b634-43f983fc44cf:
     id: request_path
     negate: false
-    uuid: 60d16fb9-f6f5-416a-b770-a5cec78be94d
+    uuid: 4c7e16cc-2f65-4095-b634-43f983fc44cf
     pages: /node/44700
 allow_other_conditions: null

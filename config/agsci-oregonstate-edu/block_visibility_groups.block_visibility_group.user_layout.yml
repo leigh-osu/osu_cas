@@ -1,4 +1,4 @@
-uuid: 68be0afe-9b36-4965-b141-42738aa6441c
+uuid: 163dc326-60f3-4577-8cb5-eee43ca82079
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: user_layout
 label: user-layout
 logic: and
 conditions:
-  ee878b9a-9727-4017-999d-b8877b329b67:
+  42a3d027-9eee-4668-92b2-5a5a34bad292:
     id: request_path
     negate: false
-    uuid: ee878b9a-9727-4017-999d-b8877b329b67
+    uuid: 42a3d027-9eee-4668-92b2-5a5a34bad292
     pages: '/user/*'
 allow_other_conditions: null

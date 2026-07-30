@@ -1,0 +1,14 @@
+uuid: 60c46b3a-426a-4b65-b988-879f84768433
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.ourwillamette_oregonstate_edu
+  module:
+    - domain_source
+id: domain_source_set_action.ourwillamette_oregonstate_edu
+label: 'Set content domain source value to the Our Willamette Waters domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: ourwillamette_oregonstate_edu

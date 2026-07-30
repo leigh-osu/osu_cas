@@ -1,0 +1,30 @@
+uuid: f57d2229-ae13-477c-b666-5c135c20d0ce
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: HBjwS0lsqHNywxG1kL_y7mtIP_KWF_BjzqI0QyUN7VM
+id: cas_media_alt_backfill
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - OSU
+  - CAS
+migration_group: default
+label: 'Backfill media image alt/title from D7 per-delta field text'
+source:
+  plugin: cas_media_alt_backfill
+process:
+  mid: mid
+  field_media_image/target_id: target_id
+  field_media_image/alt: alt
+  field_media_image/title: title
+destination:
+  plugin: 'entity:media'
+  default_bundle: image
+migration_dependencies:
+  required:
+    - upgrade_d7_media_images

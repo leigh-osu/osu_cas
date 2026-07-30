@@ -1,4 +1,4 @@
-uuid: 0abb5fa3-48e4-42db-8e1f-306b22d77e42
+uuid: 7b510e8b-00c8-48b4-8b0d-afd550c724b8
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ dependencies:
     module:
       - webform
 _core:
-  default_config_hash: ndr5pjyhumlySBPBZtyaztiGbMUclmN32B3nTQ-FRqE
+  default_config_hash: uIuCYXi8Y6GTe4pKUxK2t9OjQEcrwvFJZFeitfnQ8Ys
 id: webform_submissions
 label: 'Webform submissions'
 module: views
@@ -553,7 +553,7 @@ display:
           field: uid
           entity_type: webform_submission
           entity_field: uid
-          plugin_id: numeric
+          plugin_id: entity_target_id
         in_draft:
           id: in_draft
           table: webform_submission

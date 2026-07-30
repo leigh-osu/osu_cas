@@ -1,6 +1,6 @@
-uuid: 7b7ccd4f-3bb0-4219-9312-4d57a1d918d8
+uuid: cadace8c-b317-4bff-afb8-5a7e071d63f4
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - block_class

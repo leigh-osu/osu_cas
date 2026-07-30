@@ -1,4 +1,4 @@
-uuid: b2e755e5-d45c-452a-8d99-6d5f90a24079
+uuid: 2e8c7878-9260-4f68-9cd2-5e540fed93b9
 langcode: en
 status: open
 dependencies: {  }
@@ -108,6 +108,7 @@ handlers:
       attachments: false
       twig: false
       theme_name: ''
+      langcode: ''
       parameters: {  }
       debug: false
 variants: {  }

@@ -1,7 +1,14 @@
+uuid: feb092dc-9e0d-439a-9924-37f97b944861
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: VU7royfqDnyzt6QIxbhfCQxQJIQAVxPV0SEvIuFwFDE
 id: cas_feature_page_to_page
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
 migration_tags:
   - 'Drupal 7'
   - Content
@@ -40,7 +47,6 @@ source:
       4_column_col4: paragraph_4_column_col4__to__layout_builder
       paragraph_accordion: paragraph_accordion__to__layout_builder
       alert_message: paragraph_alert_message__to__layout_builder
-      paragraph_divider: paragraph_divider__to__layout_builder
       paragraph_menu: paragraph_menu__to__layout_builder
       sacnas_officer_body_text: paragraph_sacnas_officer_body_text__to__layout_builder
       lp_vertical_tabs: paragraph_lp_vertical_tabs__to__layout_builder

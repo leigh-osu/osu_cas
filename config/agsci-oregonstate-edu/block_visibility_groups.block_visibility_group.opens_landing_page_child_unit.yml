@@ -1,4 +1,4 @@
-uuid: 6147171d-4cb6-4fea-af5d-b8942bb8d608
+uuid: 79c8ae31-905b-4488-a986-e287be3e024d
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: opens_landing_page_child_unit
 label: opens_landing-page-child-unit
 logic: and
 conditions:
-  3d07b6f3-9034-40c8-a699-5b0e58608d8b:
+  6b80fbab-f50e-49a4-8680-ef4076b93cf0:
     id: request_path
     negate: false
-    uuid: 3d07b6f3-9034-40c8-a699-5b0e58608d8b
+    uuid: 6b80fbab-f50e-49a4-8680-ef4076b93cf0
     pages: /open-sensing
 allow_other_conditions: null

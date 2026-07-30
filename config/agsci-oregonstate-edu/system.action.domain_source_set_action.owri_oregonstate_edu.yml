@@ -1,0 +1,14 @@
+uuid: 4a4f6c81-6500-4a15-8125-73323edd1456
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.owri_oregonstate_edu
+  module:
+    - domain_source
+id: domain_source_set_action.owri_oregonstate_edu
+label: 'Set content domain source value to the Oregon Wine Research Institute domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: owri_oregonstate_edu

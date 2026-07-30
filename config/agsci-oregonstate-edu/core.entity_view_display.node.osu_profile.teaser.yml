@@ -1,4 +1,4 @@
-uuid: a273c5d3-858e-4495-9239-408d3c3f51e9
+uuid: 2e338a42-bb7e-40b8-b147-1482b79f3b18
 langcode: en
 status: true
 dependencies:
@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.osu_profile.field_domain_access
     - field.field.node.osu_profile.field_domain_all_affiliates
+    - field.field.node.osu_profile.field_domain_source
     - field.field.node.osu_profile.field_osu_organizations
     - field.field.node.osu_profile.field_profile_address
     - field.field.node.osu_profile.field_profile_alt_phone
@@ -116,6 +117,7 @@ hidden:
   entitygroupfield: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_domain_source: true
   field_osu_organizations: true
   field_profile_address: true
   field_profile_alt_phone: true

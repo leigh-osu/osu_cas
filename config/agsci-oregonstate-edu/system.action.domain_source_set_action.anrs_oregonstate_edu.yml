@@ -1,0 +1,14 @@
+uuid: d804f038-66ee-47eb-bbdb-7083df981c30
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.anrs_oregonstate_edu
+  module:
+    - domain_source
+id: domain_source_set_action.anrs_oregonstate_edu
+label: 'Set content domain source value to the Animal and Rangeland Sciences domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: anrs_oregonstate_edu

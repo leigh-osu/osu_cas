@@ -1,4 +1,4 @@
-uuid: be5d2a2d-e97a-47f4-828d-c536f1c4153f
+uuid: aa6d0d3e-2723-4f5c-a131-37e25868f806
 langcode: en
 status: true
 dependencies:
@@ -11,9 +11,11 @@ dependencies:
     - filter
     - google_cse
     - media
+    - osu_cas_site_sync
     - responsive_preview
     - search
     - shortcut
+    - simple_styleguide
     - sitewide_alert
     - system
     - toolbar
@@ -29,6 +31,7 @@ permissions:
   - 'access content'
   - 'access responsive preview'
   - 'access shortcuts'
+  - 'access style guide'
   - 'access toolbar'
   - 'access tour'
   - 'delete own files'
@@ -38,6 +41,7 @@ permissions:
   - 'update any media'
   - 'update media'
   - 'use admin toolbar search'
+  - 'use osu cas site sync'
   - 'use text format basic_html'
   - 'view media'
   - 'view own unpublished media'

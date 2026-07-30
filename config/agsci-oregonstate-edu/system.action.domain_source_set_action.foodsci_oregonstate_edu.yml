@@ -1,0 +1,14 @@
+uuid: 00939343-dc67-4359-9556-572af6a6e4b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.foodsci_oregonstate_edu
+  module:
+    - domain_source
+id: domain_source_set_action.foodsci_oregonstate_edu
+label: 'Set content domain source value to the Food Science &amp; Technology domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: foodsci_oregonstate_edu

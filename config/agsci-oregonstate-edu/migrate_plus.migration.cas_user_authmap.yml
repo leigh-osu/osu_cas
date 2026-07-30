@@ -1,9 +1,9 @@
-uuid: dc1857a8-98c7-4e0b-acca-f74a7f65d211
+uuid: d6da633e-63b8-492f-8947-d96de8cfec1d
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: cvehmhNtsXU51pmDc-DtXcAYFxTAm0BCFkkkSbnnEG8
+  default_config_hash: BDMlLsFBQNSaV1DCn8nleMOHwoQb9nH781L17JqxA-M
 id: cas_user_authmap
 class: null
 idMap: {  }
@@ -22,7 +22,9 @@ process:
   uid:
     -
       plugin: migration_lookup
-      migration: upgrade_d7_users_with_roles
+      migration:
+        - upgrade_d7_users_with_roles
+        - cas_d7_active_users
       no_stub: true
       source: uid
     -
@@ -39,3 +41,4 @@ destination:
 migration_dependencies:
   required:
     - upgrade_d7_users_with_roles
+    - cas_d7_active_users

@@ -1,4 +1,4 @@
-uuid: 60340686-da73-4835-963e-5fc91ee6f048
+uuid: a51125fa-52b3-49b7-ace3-b53f8806b23f
 langcode: en
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
       - osu_migrations
       - paragraphs_to_layout_builder
 _core:
-  default_config_hash: k4cxfAVVDoVeFs9ooZs6j_2HZhyFCMQZ5bX5R31jx1s
+  default_config_hash: XLt6Sgg0u8-6QY0jqVofSIKPUUB9jbg_Onl-E4VvXyI
 id: paragraph_lp_vertical_tabs__to__layout_builder
 class: null
 idMap: {  }
@@ -36,6 +36,7 @@ process:
     source:
       - field_lp_vertical_tabset
   info:
+    source: field_paragraph_label
     plugin: default_value
     default_value: 'Migrated d7 paragraph lp_vertical_tabs'
   reusable:

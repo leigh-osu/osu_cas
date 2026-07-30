@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.weed.body
     - field.field.node.weed.field_domain_access
     - field.field.node.weed.field_domain_all_affiliates
+    - field.field.node.weed.field_domain_source
     - field.field.node.weed.field_tax_life_cycle
     - field.field.node.weed.field_weed_bittercress_and_aphid
     - field.field.node.weed.field_weed_brief_description
@@ -58,6 +59,7 @@ hidden:
   entitygroupfield: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_domain_source: true
   field_flowers: true
   field_stem: true
   field_tax_life_cycle: true
