@@ -1,4 +1,13 @@
 <?php
+// Fallback hosts. Without these, requests resolve to sites/default (a
+// symlink to agsci.oregonstate.edu, so the same DB and files load) but the
+// site path becomes sites/default -- generated file URLs then point at
+// /sites/default/files, which matches no route, so every image style 404s.
+$sites['osu-cas.ddev.site'] = 'agsci.oregonstate.edu';
+$sites['osucasdev.prod.acquia-sites.com'] = 'agsci.oregonstate.edu';
+$sites['osucasstage.prod.acquia-sites.com'] = 'agsci.oregonstate.edu';
+$sites['osucasprod.prod.acquia-sites.com'] = 'agsci.oregonstate.edu';
+
 // Main URIs
 $sites['agbiotech.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['agsci.oregonstate.edu'] = 'agsci.oregonstate.edu';
