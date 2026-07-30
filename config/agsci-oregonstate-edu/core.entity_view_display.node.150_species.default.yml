@@ -1,4 +1,4 @@
-uuid: 56b1050a-637c-4741-8cba-74d3d6e199a9
+uuid: a0274ef5-19ce-43e6-9c26-86211162e082
 langcode: en
 status: true
 dependencies:
@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.150_species.field_150_species_photo
     - field.field.node.150_species.field_domain_access
     - field.field.node.150_species.field_domain_all_affiliates
+    - field.field.node.150_species.field_domain_source
     - field.field.node.150_species.field_tax_type
     - field.field.node.150_species.og_user_node
     - node.type.150_species
@@ -73,6 +74,6 @@ hidden:
   entitygroupfield: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_domain_source: true
   field_species_type: true
   langcode: true
-

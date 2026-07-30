@@ -1,9 +1,9 @@
-uuid: ca9f9726-31a3-4930-8e1f-10a7af252aa4
+uuid: 5cbff62a-ff3a-4104-8689-1fd9076ee5cd
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: Ud-UsyeEI1NmWccS4aJ-Wkhq9Fv42-u1DbcOYUWQWeM
+  default_config_hash: 5BWUaqD1v5WEbU2tO6gxQTTuO-2nrmoRinSrRX1-_xE
 id: cas_enterprise_budgets_to_enterprise_budgets
 class: null
 idMap: {  }
@@ -100,6 +100,28 @@ process:
           migration: 'upgrade_d7_taxonomy_terms:geographic_region'
           source: tid
           no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  field_aeb_pdf:
+    plugin: sub_process
+    source: field_pdf
+    process:
+      target_id:
+        -
+          plugin: cas_file_url_to_media
+          source: url
+        -
+          plugin: skip_on_empty
+          method: process
+  field_aeb_xls:
+    plugin: sub_process
+    source: field_aeb_xls
+    process:
+      target_id:
+        -
+          plugin: cas_file_url_to_media
+          source: url
         -
           plugin: skip_on_empty
           method: process

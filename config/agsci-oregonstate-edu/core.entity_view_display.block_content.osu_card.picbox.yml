@@ -1,4 +1,4 @@
-uuid: 15c349c1-ea20-4a31-9bef-0d0672546e16
+uuid: 169df3f4-4d71-4a1e-ada7-a9d6b5118271
 langcode: en
 status: true
 dependencies:
@@ -26,8 +26,6 @@ third_party_settings:
       restricted_categories: {  }
     entity_view_mode_restriction_by_region:
       allowed_layouts: {  }
-_core:
-  default_config_hash: 82Q_VXNjZoVH6LHbcyxz0yx3lNcXdyJVUL3O8Fk7eEE
 id: block_content.osu_card.picbox
 targetEntityType: block_content
 bundle: osu_card

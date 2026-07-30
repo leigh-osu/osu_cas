@@ -1,4 +1,4 @@
-uuid: 64d4eabe-e0d9-40c0-805d-b976a0043748
+uuid: 90fdec0e-35d6-4e39-9655-2a68fd993fc9
 langcode: en
 status: false
 dependencies:
@@ -434,7 +434,8 @@ display:
           break_phrase: false
       query:
         type: views_query
-        options: {  }
+        options:
+          distinct: true
       defaults:
         arguments: false
       display_extenders: {  }
@@ -460,7 +461,8 @@ display:
     display_options:
       query:
         type: views_query
-        options: {  }
+        options:
+          distinct: true
       display_extenders: {  }
       path: glossary
       menu:

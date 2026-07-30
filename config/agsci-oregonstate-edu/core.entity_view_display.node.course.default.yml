@@ -1,4 +1,4 @@
-uuid: 7dce6f18-42e7-4727-a185-9d0e0109c277
+uuid: ede9fd72-d022-4241-88c0-4aa888825686
 langcode: en
 status: true
 dependencies:
@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.course.field_course_term
     - field.field.node.course.field_domain_access
     - field.field.node.course.field_domain_all_affiliates
+    - field.field.node.course.field_domain_source
     - field.field.node.course.field_tax_topic
     - node.type.course
   module:
@@ -118,5 +119,6 @@ hidden:
   field_course_course_level: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_domain_source: true
   field_tax_topic: true
   langcode: true

@@ -1,12 +1,12 @@
-uuid: 91e9543c-9924-472a-b293-10faf3b1a576
+uuid: 328579a3-9914-450f-bea1-698538155ce1
 langcode: en
 status: true
 dependencies: {  }
 name: 525x350_scale-crop
 label: '525x350 scale-crop'
 effects:
-  32c0c2cc-7286-403a-a13f-aab5ab46aebc:
-    uuid: 32c0c2cc-7286-403a-a13f-aab5ab46aebc
+  0a869485-6671-4db7-8a3d-4ebefa57baf1:
+    uuid: 0a869485-6671-4db7-8a3d-4ebefa57baf1
     id: image_scale_and_crop
     weight: 1
     data:

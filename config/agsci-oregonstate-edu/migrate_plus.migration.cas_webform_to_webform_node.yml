@@ -1,9 +1,9 @@
-uuid: 4a722f9d-121d-4924-9e9a-aba26de8aeb1
+uuid: 33cb9b36-6112-4d54-861d-ec39ff3a5e78
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: hvnyU8PDTGtgR-3Er6nprhqfYwKDKq_QBcjZqqp2Qxk
+  default_config_hash: HOXsmVeVntWC2ApwtfsiNkNGpWEaaATDHaO1ElvM-iE
 id: cas_webform_to_webform_node
 class: null
 idMap: {  }
@@ -69,6 +69,10 @@ process:
     -
       plugin: get
       source: domain_all_affiliates
+  field_domain_source:
+    -
+      plugin: get
+      source: domain_source
 destination:
   plugin: 'entity:node'
   bundle: webform

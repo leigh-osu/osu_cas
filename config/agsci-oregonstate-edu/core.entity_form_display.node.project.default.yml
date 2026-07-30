@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.project.body
     - field.field.node.project.field_domain_access
     - field.field.node.project.field_domain_all_affiliates
+    - field.field.node.project.field_domain_source
     - field.field.node.project.field_project_end_year
     - field.field.node.project.field_project_funding_source
     - field.field.node.project.field_project_image
@@ -386,3 +387,4 @@ content:
 hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_domain_source: true

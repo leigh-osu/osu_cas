@@ -1,12 +1,12 @@
-uuid: 2e3185a8-bffc-45d6-b591-c2cd8b3dd4a8
+uuid: 5d882b71-e949-4397-ac2a-e03ca462a76a
 langcode: en
 status: true
 dependencies: {  }
 name: 1200x400
 label: 1200x400
 effects:
-  507ef6f5-1eb9-4f4e-abe0-87e579326bc6:
-    uuid: 507ef6f5-1eb9-4f4e-abe0-87e579326bc6
+  e68407b6-7f0e-4f91-9531-1ba206c623b6:
+    uuid: e68407b6-7f0e-4f91-9531-1ba206c623b6
     id: image_scale_and_crop
     weight: 1
     data:

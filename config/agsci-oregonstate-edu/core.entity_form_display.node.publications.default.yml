@@ -1,4 +1,4 @@
-uuid: ef8d0d12-df3c-41f3-9d00-2421bd31877d
+uuid: d98006ef-460c-409e-aeb8-de4e4a7c01b5
 langcode: en
 status: true
 dependencies:
@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.publications.body
     - field.field.node.publications.field_domain_access
     - field.field.node.publications.field_domain_all_affiliates
+    - field.field.node.publications.field_domain_source
     - field.field.node.publications.field_osu_organizations
     - field.field.node.publications.field_pub_abstract
     - field.field.node.publications.field_pub_authors
@@ -27,7 +28,6 @@ dependencies:
     - node.type.publications
   module:
     - datetime
-    - entitygroupfield
     - field_group
     - link
     - path
@@ -109,16 +109,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  entitygroupfield:
-    type: entitygroupfield_select_widget
-    weight: -50
-    region: content
-    settings:
-      help_text: ''
-      label: 'Group name'
-      multiple: true
-      required: false
-    third_party_settings: {  }
   field_domain_access:
     type: options_buttons
     weight: 40
@@ -131,6 +121,12 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_domain_source:
+    type: options_select
+    weight: 42
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_osu_organizations:
     type: entity_reference_autocomplete
@@ -337,6 +333,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  entitygroupfield: true
   publish_on: true
   publish_state: true
   unpublish_on: true

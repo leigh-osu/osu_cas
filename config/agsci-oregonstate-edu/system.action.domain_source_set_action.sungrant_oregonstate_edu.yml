@@ -1,0 +1,14 @@
+uuid: d4af5905-fd59-48f2-bc13-e0c4c94ccff2
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.sungrant_oregonstate_edu
+  module:
+    - domain_source
+id: domain_source_set_action.sungrant_oregonstate_edu
+label: 'Set content domain source value to the Sungrant domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: sungrant_oregonstate_edu

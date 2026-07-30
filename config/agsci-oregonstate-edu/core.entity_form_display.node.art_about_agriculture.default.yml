@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.art_about_agriculture.field_aaa_year
     - field.field.node.art_about_agriculture.field_domain_access
     - field.field.node.art_about_agriculture.field_domain_all_affiliates
+    - field.field.node.art_about_agriculture.field_domain_source
     - field.field.node.art_about_agriculture.field_tax_aaa
     - node.type.art_about_agriculture
   module:
@@ -178,6 +179,7 @@ hidden:
   created: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_domain_source: true
   promote: true
   sticky: true
   uid: true

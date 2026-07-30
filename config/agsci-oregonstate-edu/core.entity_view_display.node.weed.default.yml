@@ -1,4 +1,4 @@
-uuid: 16a4a2b9-c8d9-41cf-8cdd-cb03d2ac59a5
+uuid: 77bf4a52-5538-41e6-81b5-438a7ca086ee
 langcode: en
 status: true
 dependencies:
@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.weed.body
     - field.field.node.weed.field_domain_access
     - field.field.node.weed.field_domain_all_affiliates
+    - field.field.node.weed.field_domain_source
     - field.field.node.weed.field_tax_life_cycle
     - field.field.node.weed.field_weed_bittercress_and_aphid
     - field.field.node.weed.field_weed_brief_description
@@ -234,9 +235,9 @@ hidden:
   entitygroupfield: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_domain_source: true
   field_flowers: true
   field_stem: true
   field_weed_brief_description: true
   field_weed_common_name: true
   langcode: true
-

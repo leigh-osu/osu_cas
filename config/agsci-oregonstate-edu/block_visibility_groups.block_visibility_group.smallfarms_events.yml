@@ -1,4 +1,4 @@
-uuid: f9e85e19-f742-4ebc-bc32-bc1a7b9d9c72
+uuid: 050fbc5a-d716-42c9-9bc1-cfb004c1add1
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: smallfarms_events
 label: smallfarms_events
 logic: and
 conditions:
-  e7a7ffa2-13cc-4ff5-9a7a-9bafdc9d262c:
+  858cea10-52e6-49a9-9c54-d4b7d08fea65:
     id: request_path
     negate: false
-    uuid: e7a7ffa2-13cc-4ff5-9a7a-9bafdc9d262c
+    uuid: 858cea10-52e6-49a9-9c54-d4b7d08fea65
     pages: /node/239106
 allow_other_conditions: null

@@ -1,4 +1,4 @@
-uuid: 72209b0d-bc59-48f5-ac11-ca294de9c829
+uuid: 91fe43cf-6f63-4dd4-9eb1-bb500ede9865
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: turf_people
 label: turf_people
 logic: and
 conditions:
-  4fdc3d67-0df8-4015-bb73-211b4fc83518:
+  5e7ea208-fbee-482f-9ac6-b12936bea926:
     id: request_path
     negate: false
-    uuid: 4fdc3d67-0df8-4015-bb73-211b4fc83518
+    uuid: 5e7ea208-fbee-482f-9ac6-b12936bea926
     pages: /beaver-turf/facultystaff
 allow_other_conditions: null

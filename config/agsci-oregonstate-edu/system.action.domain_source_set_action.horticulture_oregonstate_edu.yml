@@ -1,0 +1,14 @@
+uuid: 65490c14-6717-4a98-9c88-6cc3bc63e397
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.horticulture_oregonstate_edu
+  module:
+    - domain_source
+id: domain_source_set_action.horticulture_oregonstate_edu
+label: 'Set content domain source value to the Horticulture domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: horticulture_oregonstate_edu

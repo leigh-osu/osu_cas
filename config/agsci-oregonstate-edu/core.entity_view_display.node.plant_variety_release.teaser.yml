@@ -1,4 +1,4 @@
-uuid: 961d3250-89c8-4bbb-baf9-63046fb9dc4e
+uuid: dc7812fe-5b35-4846-ac50-27c024b70e20
 langcode: en
 status: true
 dependencies:
@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.plant_variety_release.body
     - field.field.node.plant_variety_release.field_domain_access
     - field.field.node.plant_variety_release.field_domain_all_affiliates
+    - field.field.node.plant_variety_release.field_domain_source
     - field.field.node.plant_variety_release.field_pvr_banner_picture
     - field.field.node.plant_variety_release.field_pvr_benefits
     - field.field.node.plant_variety_release.field_pvr_characteristics
@@ -69,6 +70,7 @@ hidden:
   entitygroupfield: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_domain_source: true
   field_pvr_banner_picture: true
   field_pvr_benefits: true
   field_pvr_characteristics: true

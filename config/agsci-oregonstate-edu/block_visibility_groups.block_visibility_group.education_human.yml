@@ -1,4 +1,4 @@
-uuid: 671670f5-d520-4632-8525-d451b485811e
+uuid: 151521d7-aba2-4e24-aaa5-c2d1a8aea08f
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: education_human
 label: education_human
 logic: and
 conditions:
-  b7c9a012-f1ed-4f78-bf7c-d858c02f5d52:
+  8d87e2d5-4d0a-4ba4-9e52-0fa9f40d311a:
     id: request_path
     negate: false
-    uuid: b7c9a012-f1ed-4f78-bf7c-d858c02f5d52
+    uuid: 8d87e2d5-4d0a-4ba4-9e52-0fa9f40d311a
     pages: /node/44699
 allow_other_conditions: null

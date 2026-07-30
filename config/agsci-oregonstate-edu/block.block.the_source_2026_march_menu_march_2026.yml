@@ -1,0 +1,31 @@
+uuid: bc796618-2201-4ddb-b989-bc0927bf4bb2
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.the_source_2026_march
+    - system.menu.menu-march-2026
+  module:
+    - block_visibility_groups
+    - system
+  theme:
+    - madrone
+id: the_source_2026_march_menu_march_2026
+theme: madrone
+region: sidebar
+weight: 3
+provider: null
+plugin: 'system_menu_block:menu-march-2026'
+settings:
+  id: 'system_menu_block:menu-march-2026'
+  label: 'March 2026'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: the_source_2026_march

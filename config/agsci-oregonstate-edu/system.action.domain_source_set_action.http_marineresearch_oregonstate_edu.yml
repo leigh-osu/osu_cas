@@ -1,0 +1,14 @@
+uuid: a38dc8ec-7350-4f2e-ade3-80c3cd8106eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.http_marineresearch_oregonstate_edu
+  module:
+    - domain_source
+id: domain_source_set_action.http_marineresearch_oregonstate_edu
+label: 'Set content domain source value to the Coastal Oregon Marine Experiment Station domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: http_marineresearch_oregonstate_edu

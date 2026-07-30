@@ -1,4 +1,4 @@
-uuid: 0c95f1b2-c3d0-4d47-b133-67421b57c736
+uuid: c6c61793-a86d-4c79-b284-91df527a21b9
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: feature_story
 label: feature-story
 logic: and
 conditions:
-  5c0f6197-99bc-470e-ad36-185426ffcb78:
+  7045c2bb-72ce-492b-a3ee-785ec06e0985:
     id: request_path
     negate: false
-    uuid: 5c0f6197-99bc-470e-ad36-185426ffcb78
+    uuid: 7045c2bb-72ce-492b-a3ee-785ec06e0985
     pages: '/feature-story/*'
 allow_other_conditions: null

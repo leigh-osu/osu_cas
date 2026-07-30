@@ -1,4 +1,4 @@
-uuid: 568faddd-a1b7-4604-84df-51241a46afd0
+uuid: cc46ddb3-9f39-47d2-8910-51d8dce3f9df
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: squash
 label: squash
 logic: and
 conditions:
-  dfec7494-91cb-4b54-ad54-37c677da3f36:
+  d4056e47-e48e-47f8-bca9-74bd90bed83a:
     id: request_path
     negate: false
-    uuid: dfec7494-91cb-4b54-ad54-37c677da3f36
+    uuid: d4056e47-e48e-47f8-bca9-74bd90bed83a
     pages: /node/112811
 allow_other_conditions: null

@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.enterprise_budgets.field_aeb_xls
     - field.field.node.enterprise_budgets.field_domain_access
     - field.field.node.enterprise_budgets.field_domain_all_affiliates
+    - field.field.node.enterprise_budgets.field_domain_source
     - field.field.node.enterprise_budgets.field_tax_commodity
     - field.field.node.enterprise_budgets.field_tax_county
     - field.field.node.enterprise_budgets.field_tax_region
@@ -182,3 +183,4 @@ content:
 hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_domain_source: true

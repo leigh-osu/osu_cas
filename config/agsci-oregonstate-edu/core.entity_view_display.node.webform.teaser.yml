@@ -1,32 +1,23 @@
-uuid: 3b65a38a-e0cb-4720-b870-fd12d6d16b8e
+uuid: 32a0ba4f-8648-442d-9c58-00b817118466
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.webform.body
     - field.field.node.webform.field_domain_access
     - field.field.node.webform.field_domain_all_affiliates
+    - field.field.node.webform.field_domain_source
     - field.field.node.webform.webform
     - node.type.webform
   module:
-    - text
     - user
 _core:
-  default_config_hash: Ls5l3Xs7-YstJnurxFLKj38Exqr2JMZs1j9YeX1Kh2o
+  default_config_hash: 1Fm_pxiqdI07PvxM8aiSmpsJf0NwkTgsqrNbO4MuID0
 id: node.webform.teaser
 targetEntityType: node
 bundle: webform
 mode: teaser
 content:
-  body:
-    type: text_summary_or_trimmed
-    label: hidden
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
-    weight: 101
-    region: content
   links:
     settings: {  }
     third_party_settings: {  }
@@ -36,5 +27,6 @@ hidden:
   entitygroupfield: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_domain_source: true
   langcode: true
   webform: true

@@ -1,4 +1,4 @@
-uuid: 17f18a92-7239-4458-aa49-4626f028dfb1
+uuid: 3b5c45b0-e5e9-459a-9a4d-52834cf61859
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: bioenergy_education_landing_page_child_unit
 label: bioenergy-education_landing-page-child-unit
 logic: and
 conditions:
-  2eda2e0d-77f5-4ff9-9a2a-af9da13731ea:
+  0bba3f7c-63f7-491e-b367-c91e06d4e889:
     id: request_path
     negate: false
-    uuid: 2eda2e0d-77f5-4ff9-9a2a-af9da13731ea
+    uuid: 0bba3f7c-63f7-491e-b367-c91e06d4e889
     pages: /node/26047
 allow_other_conditions: null

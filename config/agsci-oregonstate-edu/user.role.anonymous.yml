@@ -1,4 +1,4 @@
-uuid: 957e6827-a696-4849-842b-b742e4998ab5
+uuid: a0b1bf85-5087-43c4-ac96-5d854ddc563c
 langcode: en
 status: true
 dependencies:
@@ -8,7 +8,9 @@ dependencies:
     - filter
     - google_cse
     - media
+    - osu_cas_site_sync
     - search
+    - simple_styleguide
     - sitewide_alert
     - system
 _core:
@@ -19,8 +21,10 @@ weight: -10
 is_admin: false
 permissions:
   - 'access content'
+  - 'access style guide'
   - 'search Google CSE'
   - 'search content'
+  - 'use osu cas site sync'
   - 'use text format restricted_html'
   - 'view media'
   - 'view published sitewide alert entities'

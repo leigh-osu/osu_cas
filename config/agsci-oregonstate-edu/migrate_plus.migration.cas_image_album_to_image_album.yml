@@ -1,9 +1,9 @@
-uuid: 26f49baa-757c-4799-87c3-1b35787ec479
+uuid: 803d16d3-1a66-414c-a205-93a61a7ed36c
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: VSvTG_KuRsdDBmGuOvnVNh6KuwCDeFGdnjpHVmzcmXw
+  default_config_hash: 0YCgD1B9S3ClrAwA2Dgk2lEI7puxvGGx4-AgCMD_yoM
 id: cas_image_album_to_image_album
 class: null
 idMap: {  }
@@ -55,7 +55,7 @@ process:
       target_id:
         -
           plugin: migration_lookup
-          migration: upgrade_d7_users_with_roles
+          migration: upgrade_d7_user_to_profile
           source: target_id
           no_stub: true
         -

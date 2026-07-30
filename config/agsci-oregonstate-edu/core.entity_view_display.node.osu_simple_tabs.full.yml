@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.osu_simple_tabs.body
     - field.field.node.osu_simple_tabs.field_domain_access
     - field.field.node.osu_simple_tabs.field_domain_all_affiliates
+    - field.field.node.osu_simple_tabs.field_domain_source
     - field.field.node.osu_simple_tabs.field_simple_tab_column_left
     - field.field.node.osu_simple_tabs.field_simple_tab_column_middle
     - field.field.node.osu_simple_tabs.field_simple_tab_column_right
@@ -158,6 +159,7 @@ hidden:
   entitygroupfield: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_domain_source: true
   field_simple_tab_sort_weight: true
   field_simple_tabs_tags: true
   langcode: true

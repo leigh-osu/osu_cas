@@ -1,0 +1,14 @@
+uuid: f69754b7-106d-4ba1-a7ca-99b3150ac174
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.appliedecon_oregonstate_edu_
+  module:
+    - domain_source
+id: domain_source_set_action.appliedecon_oregonstate_edu_
+label: 'Set content domain source value to the Applied Economics domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: appliedecon_oregonstate_edu_

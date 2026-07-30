@@ -1,0 +1,25 @@
+uuid: 03fb5e1f-05a6-4c8e-844c-fcab71b08e4f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_domain_source
+    - node.type.osu_simple_tabs
+id: node.osu_simple_tabs.field_domain_source
+field_name: field_domain_source
+entity_type: node
+bundle: osu_simple_tabs
+label: 'Domain Source'
+description: 'Select the canonical domain for this content.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:domain'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: weight
+      direction: ASC
+field_type: entity_reference

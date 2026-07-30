@@ -1,4 +1,4 @@
-uuid: 6663be23-1b13-47df-8bbc-4f8b4614a5e7
+uuid: 1d3af85d-6f9d-46ee-af98-688509261407
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: larch_footer_lower
 label: larch_footer_lower
 logic: and
 conditions:
-  969aab94-33ba-4f67-b527-124c854c5389:
+  0d6dcd38-0cb0-4e01-b600-9a7a5a658b73:
     id: request_path
     negate: false
-    uuid: 969aab94-33ba-4f67-b527-124c854c5389
+    uuid: 0d6dcd38-0cb0-4e01-b600-9a7a5a658b73
     pages: "/ag-ed\r\n/ag-ed/*\r\n/agricultural-education-and-agricultural-sciences/*\r\n/agrivoltaics\r\n/agrivoltaics/*\r\n/anrs\r\n/anrs/*\r\n/appliedecon\r\n/appliedecon/*\r\n/appliedecon/new*\r\n/art\r\n/art*\r\n/bds\r\n/bds/*\r\n/beaverturf\r\n/beaverturf/*\r\n/beaver-turf/*\r\n/berryhealth\r\n/berryhealth/*\r\n/bioenergy*\r\n/botany*\r\n/bpp\r\n/bpp/*\r\n/bpp-gsa\r\n/bpp-gsa/*\r\n/brr\r\n/brr/*\r\n/buhloutreachteam\r\n/buhloutreachteam/*\r\n/campusarb\r\n/campusarb/*\r\n/columbia-basin-agricultural-research-center\r\n/cbarc\r\n/cbarc/*\r\n/climate-smart-potato/*\r\n/clubs-orgs\r\n/clubs-orgs/*\r\n/coarec\r\n/coarec/*\r\n/coastal-oregon-marine-experiment-station/*\r\n/comes/*\r\n/node/239581\r\n/corvallis-farm-unit\r\n/corvallis-farm-unit/*\r\n/craigmarcuslab\r\n/craigmarcuslab/*\r\n/curtin-lab\r\n/curtin-lab/*\r\n/dairy-center\r\n/dairy-center/*\r\n/department-of-horticulture/*\r\n/digital-ag\r\n/digital-ag/*\r\n/emt\r\n/emt/*\r\n/endophyte-lab\r\n/endophyte-lab/*\r\n/eoarc\r\n/eoarc/*\r\n/eoarcunion\r\n/eoarcunion/*\r\n/eoarc-union/*\r\n/federal-excess-personal-property-program/*\r\n/fepp\r\n/fepp/*\r\n/fisheries-and-wildlife/*\r\n/foodsci\r\n/foodsci/*\r\n/fw/*\r\n/fwcs\r\n/fwcs/*\r\n/gardenecology\r\n/gardenecology/*\r\n/goyer-laboratory\r\n/goyer-laboratory/*\r\n/greenhouse/*\r\n/greenhouse-operations/*\r\n/harec\r\n/harec/*\r\n/hemp\r\n/hemp/*\r\n/heppelllab\r\n/heppelllab/*\r\n/herbarium\r\n/herbarium/*\r\n/horticulture/*\r\n/hyslop/*\r\n/hyslop-field-lab/*\r\n/hyslop-weather-station/*\r\n/hyslop-field-lab\r\n/jenniferduringerlab\r\n/jenniferduringerlab/*\r\n/jenniferfieldlab\r\n/jenniferfieldlab/*\r\n/kbrec\r\n/kbrec/*\r\n/leadershipacademy/*\r\n/leadershipminor\r\n/leadershipminor/*\r\n/lewis-brown-farm\r\n/lewis-brown-farm/*\r\n/main/art*\r\n/malheur-experiment-station/*\r\n/marcus-annalora-lab\r\n/marcus-annalora-lab/*\r\n/mcarec\r\n/mcarec/*\r\n/mes\r\n/mes/*\r\n/mes-weather\r\n/mes-weather/*\r\n/node/62566\r\n/north-willamette-research-and-extension-center//*\r\n/nursery\r\n/nursery/*\r\n/nurspest\r\n/nurspest/*\r\n/nwrec\r\n/nwrec/*\r\n/oak-creek-center-urban-horticulture\r\n/oak-creek-center-urban-horticulture/*\r\n/oipmc\r\n/oipmc/*\r\n/oipmc-draft\r\n/oipmc-draft/*\r\n/oregon-vegetables\r\n/oregon-vegetables/*\r\n/owri\r\n/owri/*\r\n/perm\r\n/perm/*\r\n/psep\r\n/psep/*\r\n/roots/*\r\n/sacnas/*\r\n/sorec/*\r\n/specialtyfood\r\n/specialtyfood/*\r\n/sungrant\r\n/sungrant/*\r\n/sustainability/*\r\n/sustainabilitydegree/*\r\n/tek\r\n/tek/*\r\n/urban-and-community-horticulture\r\n/urban-and-community-horticulture/*\r\n/vegetable-farm\r\n/vegetable-farm/*\r\n/woodhall-vineyard\r\n/woodhall-vineyard/*\r\n/weather/*"
 allow_other_conditions: null

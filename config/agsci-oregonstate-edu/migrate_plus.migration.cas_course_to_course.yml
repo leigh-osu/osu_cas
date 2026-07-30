@@ -1,9 +1,9 @@
-uuid: 842033fd-71b9-437b-92bb-b09ed7fd8bca
+uuid: 01eb26e6-45c9-4bfd-b878-6682a1c8b142
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: 6cnqPwlPjc1c_K9QnS6omI5JIE6vr0mt4afFSunJyg8
+  default_config_hash: KBLiLz_Ud0acHNDcfBr2DFk4RPwuECv_dfNa5nBJdhg
 id: cas_course_to_course
 class: null
 idMap: {  }

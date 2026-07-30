@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.course.field_course_term
     - field.field.node.course.field_domain_access
     - field.field.node.course.field_domain_all_affiliates
+    - field.field.node.course.field_domain_source
     - field.field.node.course.field_tax_topic
     - node.type.course
   module:
@@ -54,5 +55,6 @@ hidden:
   field_course_term: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_domain_source: true
   field_tax_topic: true
   langcode: true

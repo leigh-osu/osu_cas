@@ -1,0 +1,28 @@
+uuid: 981f6e3a-ffa9-46f9-956f-19155464a4b6
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: gcAqoQV1np4i9fh0gorX4oecnXPKY8FPkUbSGJoU2rc
+id: cas_media_caption_seed
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - OSU
+  - CAS
+migration_group: default
+label: 'Seed media field_media_caption from image alt/title'
+source:
+  plugin: cas_media_caption_seed
+process:
+  mid: mid
+  field_media_caption: caption
+destination:
+  plugin: 'entity:media'
+  default_bundle: image
+migration_dependencies:
+  required:
+    - cas_media_alt_backfill

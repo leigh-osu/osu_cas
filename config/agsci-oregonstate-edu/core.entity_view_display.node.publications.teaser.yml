@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.publications.body
     - field.field.node.publications.field_domain_access
     - field.field.node.publications.field_domain_all_affiliates
+    - field.field.node.publications.field_domain_source
     - field.field.node.publications.field_osu_organizations
     - field.field.node.publications.field_pub_abstract
     - field.field.node.publications.field_pub_authors
@@ -53,6 +54,7 @@ hidden:
   entitygroupfield: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_domain_source: true
   field_osu_organizations: true
   field_pub_abstract: true
   field_pub_authors: true
