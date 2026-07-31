@@ -18811,20 +18811,20 @@
         },
         {
             "name": "leigh-osu/manzanita",
-            "version": "v1.1.6",
-            "version_normalized": "1.1.6.0",
+            "version": "v1.1.7",
+            "version_normalized": "1.1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leigh-osu/manzanita.git",
-                "reference": "2e546c65caaf864443d6d217cbc0d8b83555ca94"
+                "reference": "044340148cc807cc7d04b82f650ea0397bc8ac13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/manzanita/zipball/2e546c65caaf864443d6d217cbc0d8b83555ca94",
-                "reference": "2e546c65caaf864443d6d217cbc0d8b83555ca94",
+                "url": "https://api.github.com/repos/leigh-osu/manzanita/zipball/044340148cc807cc7d04b82f650ea0397bc8ac13",
+                "reference": "044340148cc807cc7d04b82f650ea0397bc8ac13",
                 "shasum": ""
             },
-            "time": "2026-07-31T21:35:04+00:00",
+            "time": "2026-07-31T22:57:28+00:00",
             "type": "drupal-custom-theme",
             "installation-source": "dist",
             "license": [
@@ -18838,7 +18838,7 @@
             ],
             "description": "Drupal Theme for OSU College of Agricultural Sciences",
             "support": {
-                "source": "https://github.com/leigh-osu/manzanita/tree/v1.1.6",
+                "source": "https://github.com/leigh-osu/manzanita/tree/v1.1.7",
                 "issues": "https://github.com/leigh-osu/manzanita/issues"
             },
             "install-path": "../../docroot/themes/custom/manzanita"
@@ -21324,7 +21324,8 @@
                     "Disable xmlsitemap cron regeneration to prevent drush install batch crash": "patches/osu_standard-xmlsitemap-disable-cron-regeneration.patch",
                     "Remove webform_bootstrap from install list": "patches/osu_standard-remove-webform-bootstrap.patch",
                     "Full OSU brand background palette and orange text color in bootstrap_styles": "patches/osu_standard-brand-background-palette.patch",
-                    "Add 25px and 50px Layout Builder section minimum-height options": "patches/osu_standard-min-height-25-50.patch"
+                    "Add 25px and 50px Layout Builder section minimum-height options": "patches/osu_standard-min-height-25-50.patch",
+                    "Remove linkpurpose from profile dependencies (uninstallable per-site)": "patches/osu_standard-remove-linkpurpose.patch"
                 }
             },
             "installation-source": "dist",

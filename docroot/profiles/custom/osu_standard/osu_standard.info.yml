@@ -106,7 +106,6 @@ dependencies:
   - layout_builder_restrictions_by_region
   - libraries
   - linkit
-  - linkpurpose
   - media_bulk_upload
   - media_bulk_upload_dropzonejs
   - memcache

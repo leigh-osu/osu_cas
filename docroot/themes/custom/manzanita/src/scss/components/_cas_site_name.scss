@@ -9,6 +9,8 @@
   color: #fff !important;
   font-family: 'Stratum2Web', serif !important;
   font-weight: 300 !important;
+  // Opens up the uppercase Stratum2 Light (instead of the body's -0.01em).
+  letter-spacing: 0.05em;
   text-transform: uppercase !important;
 }
 

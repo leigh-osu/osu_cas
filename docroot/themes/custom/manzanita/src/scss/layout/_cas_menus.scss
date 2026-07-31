@@ -34,6 +34,11 @@
     color: #fff !important;
     // OSU brand display font (registered as @font-face by madrone/fonts).
     font-family: 'Stratum2Web', serif !important;
+    // Up from Bootstrap's 1rem --bs-nav-link-font-size; covers the top bar
+    // and the dropdowns alike (this rule reaches every link in the menus).
+    font-size: 1.1rem !important;
+    // Open tracking like the site name (instead of the body's -0.01em).
+    letter-spacing: 0.05em;
     // Slimmer than madrone's 1rem vertical padding (set as padding: 1rem on
     // superfish links and via --bs-nav-link-padding-y on the group menu).
     --bs-nav-link-padding-y: 0.4rem;
@@ -72,6 +77,63 @@
   li:hover > a.menuparent::after,
   li:hover > span.menuparent::after {
     color: $osuorange !important;
+  }
+}
+
+// Dropdown/flyout panels: beaver orange on off-white, framed by a 1px
+// orange border on the sides and bottom (the dark menu bar supplies the top
+// edge). Rollover inverts to off-white on orange. The ID selector matters:
+// the dark bar rules above carry #madrone-primary-menu-container, whose ID
+// specificity would otherwise beat any class-only override here.
+#madrone-primary-menu-container ul ul,
+.block-superfish ul ul,
+.block-group-content-menu ul ul {
+  background-color: $neutral-100 !important;
+  border: 1px solid $osuorange;
+  border-top: 0;
+
+  li {
+    background-color: transparent !important;
+  }
+
+  a,
+  span,
+  a.nav-link,
+  span.nav-link {
+    background-color: transparent !important;
+    color: $osuorange !important;
+    text-decoration: none !important;
+  }
+
+  a:hover,
+  span:hover,
+  a.nav-link:hover,
+  span.nav-link:hover,
+  li:hover > a,
+  li:hover > span,
+  li:hover > a.nav-link,
+  li:hover > span.nav-link,
+  .group-menu-hover > a,
+  .group-menu-hover > span {
+    background-color: $osuorange !important;
+    color: $neutral-100 !important;
+    text-decoration: underline !important;
+    text-decoration-color: $neutral-100 !important;
+  }
+
+  // Flyout arrows follow the link text.
+  a::after,
+  span::after {
+    color: $osuorange !important;
+  }
+
+  a:hover::after,
+  span:hover::after,
+  li:hover > a::after,
+  li:hover > span::after,
+  .group-menu-hover > a::after,
+  .group-menu-hover > span::after {
+    color: $neutral-100 !important;
   }
 }
 

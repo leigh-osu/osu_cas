@@ -1,0 +1,14 @@
+Remove linkpurpose from the osu_standard profile dependencies so it can be
+uninstalled per-site (profile dependencies are locked against uninstall).
+
+diff --git a/osu_standard.info.yml b/osu_standard.info.yml
+--- a/osu_standard.info.yml
++++ b/osu_standard.info.yml
+@@ -105,7 +105,6 @@
+   - layout_builder_restrictions_by_region
+   - libraries
+   - linkit
+-  - linkpurpose
+   - media_bulk_upload
+   - media_bulk_upload_dropzonejs
+   - memcache

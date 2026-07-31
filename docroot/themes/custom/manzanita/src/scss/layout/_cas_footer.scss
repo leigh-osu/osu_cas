@@ -3,6 +3,19 @@ footer[role='contentinfo'] {
   font-size: 0.9em;
 }
 
+// Footer links underline on rollover — madrone inverts (underline at rest,
+// none on hover), which stopped making sense once resting underlines went
+// away site-wide. Outranks madrone's .region-footer a:hover rule; the
+// underline draws in the global orange decoration color, matching the
+// Apply/MyCAS treatment.
+footer[role='contentinfo'] .region-footer a {
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    text-decoration-color: $osuorange;
+  }
+}
+
 // Darkened Mt. Hood panorama (3600x518 webp) over the region's solid
 // osu-bg-page-alt-2 ($paddletailblack), which remains as the fallback and
 // matches the image's near-black tone.

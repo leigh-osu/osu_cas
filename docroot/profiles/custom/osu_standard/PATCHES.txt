@@ -25,3 +25,7 @@ Add 25px and 50px Layout Builder section minimum-height options
 Source: patches/osu_standard-min-height-25-50.patch
 
 
+Remove linkpurpose from profile dependencies (uninstallable per-site)
+Source: patches/osu_standard-remove-linkpurpose.patch
+
+

@@ -6,15 +6,25 @@
   --bs-secondary-color-rgb: 33, 37, 41;
   --bs-tertiary-color: rgba(33, 37, 41, 0.5);
   --bs-tertiary-color-rgb: 33, 37, 41;
-  --bs-link-color: #212529;
-  --bs-link-color-rgb: 33, 37, 41;
-  --bs-link-hover-color: #212529;
-  --bs-link-hover-color-rgb: 33, 37, 41;
+  --bs-link-color: #d73f09;
+  --bs-link-color-rgb: 215, 63, 9;
+  --bs-link-hover-color: #d73f09;
+  --bs-link-hover-color-rgb: 215, 63, 9;
   --bs-highlight-color: #212529;
 }
 
 body {
   letter-spacing: -0.01em;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+  text-decoration-color: #d73f09;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -31,7 +41,7 @@ h3 {
 }
 
 #madrone-header-container {
-  background-color: #212529 !important;
+  background-color: #000 !important;
 }
 
 #madrone-header-container,
@@ -164,6 +174,8 @@ h3 {
   background-color: transparent !important;
   color: #fff !important;
   font-family: "Stratum2Web", serif !important;
+  font-size: 1.1rem !important;
+  letter-spacing: 0.05em;
   --bs-nav-link-padding-y: 0.4rem;
   padding-top: 0.4rem !important;
   padding-bottom: 0.4rem !important;
@@ -228,6 +240,98 @@ h3 {
 .block-group-content-menu li:hover > a.menuparent::after,
 .block-group-content-menu li:hover > span.menuparent::after {
   color: #d73f09 !important;
+}
+
+#madrone-primary-menu-container ul ul,
+.block-superfish ul ul,
+.block-group-content-menu ul ul {
+  background-color: #f7f5f5 !important;
+  border: 1px solid #d73f09;
+  border-top: 0;
+}
+#madrone-primary-menu-container ul ul li,
+.block-superfish ul ul li,
+.block-group-content-menu ul ul li {
+  background-color: transparent !important;
+}
+#madrone-primary-menu-container ul ul a,
+#madrone-primary-menu-container ul ul span,
+#madrone-primary-menu-container ul ul a.nav-link,
+#madrone-primary-menu-container ul ul span.nav-link,
+.block-superfish ul ul a,
+.block-superfish ul ul span,
+.block-superfish ul ul a.nav-link,
+.block-superfish ul ul span.nav-link,
+.block-group-content-menu ul ul a,
+.block-group-content-menu ul ul span,
+.block-group-content-menu ul ul a.nav-link,
+.block-group-content-menu ul ul span.nav-link {
+  background-color: transparent !important;
+  color: #d73f09 !important;
+  text-decoration: none !important;
+}
+#madrone-primary-menu-container ul ul a:hover,
+#madrone-primary-menu-container ul ul span:hover,
+#madrone-primary-menu-container ul ul a.nav-link:hover,
+#madrone-primary-menu-container ul ul span.nav-link:hover,
+#madrone-primary-menu-container ul ul li:hover > a,
+#madrone-primary-menu-container ul ul li:hover > span,
+#madrone-primary-menu-container ul ul li:hover > a.nav-link,
+#madrone-primary-menu-container ul ul li:hover > span.nav-link,
+#madrone-primary-menu-container ul ul .group-menu-hover > a,
+#madrone-primary-menu-container ul ul .group-menu-hover > span,
+.block-superfish ul ul a:hover,
+.block-superfish ul ul span:hover,
+.block-superfish ul ul a.nav-link:hover,
+.block-superfish ul ul span.nav-link:hover,
+.block-superfish ul ul li:hover > a,
+.block-superfish ul ul li:hover > span,
+.block-superfish ul ul li:hover > a.nav-link,
+.block-superfish ul ul li:hover > span.nav-link,
+.block-superfish ul ul .group-menu-hover > a,
+.block-superfish ul ul .group-menu-hover > span,
+.block-group-content-menu ul ul a:hover,
+.block-group-content-menu ul ul span:hover,
+.block-group-content-menu ul ul a.nav-link:hover,
+.block-group-content-menu ul ul span.nav-link:hover,
+.block-group-content-menu ul ul li:hover > a,
+.block-group-content-menu ul ul li:hover > span,
+.block-group-content-menu ul ul li:hover > a.nav-link,
+.block-group-content-menu ul ul li:hover > span.nav-link,
+.block-group-content-menu ul ul .group-menu-hover > a,
+.block-group-content-menu ul ul .group-menu-hover > span {
+  background-color: #d73f09 !important;
+  color: #f7f5f5 !important;
+  text-decoration: underline !important;
+  text-decoration-color: #f7f5f5 !important;
+}
+#madrone-primary-menu-container ul ul a::after,
+#madrone-primary-menu-container ul ul span::after,
+.block-superfish ul ul a::after,
+.block-superfish ul ul span::after,
+.block-group-content-menu ul ul a::after,
+.block-group-content-menu ul ul span::after {
+  color: #d73f09 !important;
+}
+#madrone-primary-menu-container ul ul a:hover::after,
+#madrone-primary-menu-container ul ul span:hover::after,
+#madrone-primary-menu-container ul ul li:hover > a::after,
+#madrone-primary-menu-container ul ul li:hover > span::after,
+#madrone-primary-menu-container ul ul .group-menu-hover > a::after,
+#madrone-primary-menu-container ul ul .group-menu-hover > span::after,
+.block-superfish ul ul a:hover::after,
+.block-superfish ul ul span:hover::after,
+.block-superfish ul ul li:hover > a::after,
+.block-superfish ul ul li:hover > span::after,
+.block-superfish ul ul .group-menu-hover > a::after,
+.block-superfish ul ul .group-menu-hover > span::after,
+.block-group-content-menu ul ul a:hover::after,
+.block-group-content-menu ul ul span:hover::after,
+.block-group-content-menu ul ul li:hover > a::after,
+.block-group-content-menu ul ul li:hover > span::after,
+.block-group-content-menu ul ul .group-menu-hover > a::after,
+.block-group-content-menu ul ul .group-menu-hover > span::after {
+  color: #f7f5f5 !important;
 }
 
 .block-superfish li:not(.sf-depth-1) a.menuparent::after,
@@ -332,6 +436,11 @@ html {
 
 footer[role=contentinfo] {
   font-size: 0.9em;
+}
+
+footer[role=contentinfo] .region-footer a:hover, footer[role=contentinfo] .region-footer a:focus {
+  text-decoration: underline;
+  text-decoration-color: #d73f09;
 }
 
 footer[role=contentinfo] .region-footer {
@@ -612,6 +721,7 @@ body.has-cas-hero main .block-local-tasks-block {
   color: #fff !important;
   font-family: "Stratum2Web", serif !important;
   font-weight: 300 !important;
+  letter-spacing: 0.05em;
   text-transform: uppercase !important;
 }
 
@@ -784,15 +894,40 @@ header[role=banner] {
 }
 
 .btn {
-  --bs-btn-border-radius: 0.75rem;
+  --bs-btn-border-radius: 0;
   --bs-btn-padding-x: 0.75rem;
   --bs-btn-padding-y: 0.28rem;
   --bs-btn-bg: #f7f5f5;
+  --bs-btn-font-size: 1rem;
+  --bs-btn-border-width: 2px;
   --bs-btn-border-color: #ffb500;
-  --bs-btn-color: #212529;
+  --bs-btn-color: #d73f09;
+  --bs-btn-hover-bg: #d73f09;
+  --bs-btn-hover-border-color: #ffb500;
+  --bs-btn-hover-color: #fff;
   font-family: "Open Sans", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  margin: 0.5em;
   text-transform: uppercase;
+}
+
+.btn.cas-button-light {
+  --bs-btn-bg: #f7f5f5;
+  --bs-btn-border-color: #ffb500;
+  --bs-btn-color: #d73f09;
+  --bs-btn-hover-bg: #d73f09;
+  --bs-btn-hover-border-color: #ffb500;
+  --bs-btn-hover-color: #fff;
+}
+
+.btn.cas-button-dark {
+  --bs-btn-bg: #d73f09;
+  --bs-btn-border-color: #ffb500;
+  --bs-btn-color: #f7f5f5;
+  --bs-btn-hover-bg: #f7f5f5;
+  --bs-btn-hover-border-color: #ffb500;
+  --bs-btn-hover-color: #d73f09;
 }
 
 .block--type-paragraph-block .field--name-body {

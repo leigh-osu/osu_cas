@@ -1,22 +1,56 @@
-// Buttons: subtle rounded corners (the Bootstrap default radius, matching
-// the menu bar items) instead of madrone's 1.5rem pill ends. madrone bakes
-// $btn-border-radius into its compiled CSS, but Bootstrap 5 buttons resolve
-// their radius through this custom property at runtime, so overriding here
-// needs no madrone patch.
+// Buttons: square corners instead of madrone's 1.5rem pill ends. madrone
+// bakes $btn-border-radius into its compiled CSS, but Bootstrap 5 buttons
+// resolve their radius through this custom property at runtime, so
+// overriding here needs no madrone patch.
 .btn {
-  --bs-btn-border-radius: 0.75rem;
+  --bs-btn-border-radius: 0;
   // madrone pads 1.5rem horizontally (pill proportions); halved padding on
   // both axes now that the corners are square-ish.
   --bs-btn-padding-x: 0.75rem;
   --bs-btn-padding-y: 0.28rem;
-  // CAS resting look for every variant: near-white face, Beaver-gold
-  // hairline, dark uppercase Open Sans label. Loads after madrone, so these
-  // custom properties beat the .btn-primary/-secondary/… resting values;
-  // each variant's hover/active/disabled states are left alone.
+  // CAS resting look for every variant: near-white face, 2px Beaver-gold
+  // border, beaver-orange uppercase Open Sans Medium label. Loads after
+  // madrone, so these custom properties beat the .btn-primary/-secondary/…
+  // resting values; each variant's hover/active/disabled states are left
+  // alone.
+  --bs-btn-bg: #{$neutral-100};
+  --bs-btn-font-size: 1rem;
+  --bs-btn-border-width: 2px;
+  --bs-btn-border-color: #{$luminance-400};
+  --bs-btn-color: #{$osuorange};
+  // Hover: beaver-orange fill; label flips to white for contrast, the gold
+  // border stays. Overrides every variant's own hover scheme.
+  --bs-btn-hover-bg: #{$osuorange};
+  --bs-btn-hover-border-color: #{$luminance-400};
+  --bs-btn-hover-color: #{$bucktoothwhite};
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  // Wide tracking for the uppercase labels (overrides the body's -0.01em).
+  letter-spacing: 0.1em;
+  margin: 0.5em;
+  text-transform: uppercase;
+}
+
+// Named CAS schemes, applied alongside .btn (class="btn cas-button-dark").
+// The .btn default above IS the light scheme; cas-button-light just makes
+// the choice explicit. cas-button-dark inverts it: orange face with a light
+// label, reversing on rollover. Both keep the 2px Beaver-gold border, and
+// the .btn.class specificity outranks madrone's .btn-primary/-secondary
+// variants.
+.btn.cas-button-light {
   --bs-btn-bg: #{$neutral-100};
   --bs-btn-border-color: #{$luminance-400};
-  --bs-btn-color: #{$paddletailblack};
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
-  text-transform: uppercase;
+  --bs-btn-color: #{$osuorange};
+  --bs-btn-hover-bg: #{$osuorange};
+  --bs-btn-hover-border-color: #{$luminance-400};
+  --bs-btn-hover-color: #{$bucktoothwhite};
+}
+
+.btn.cas-button-dark {
+  --bs-btn-bg: #{$osuorange};
+  --bs-btn-border-color: #{$luminance-400};
+  --bs-btn-color: #{$neutral-100};
+  --bs-btn-hover-bg: #{$neutral-100};
+  --bs-btn-hover-border-color: #{$luminance-400};
+  --bs-btn-hover-color: #{$osuorange};
 }
