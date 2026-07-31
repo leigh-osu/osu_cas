@@ -1,9 +1,9 @@
-uuid: 2e4a295c-e042-4889-a9a2-795192cd318e
+uuid: 6fb65835-5197-47f7-b6f6-5cfcc1f2d50a
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: 1hm5Ixm7kallT130llEsVBJnoOCA2wJEi-t_grBji8Q
+  default_config_hash: IQZpMUNn77qjW3O55iMC-_sRPoPSroVfVt0EK8Doe2Y
 id: cas_node_og_group
 class: null
 idMap: {  }
@@ -18,7 +18,7 @@ migration_tags:
 migration_group: osu_groups
 label: 'CAS: Insert OG Group (with fields)'
 source:
-  plugin: d7_node
+  plugin: d7_node_domain_access
   node_type: group
 process:
   type:
@@ -58,7 +58,11 @@ process:
         -
           plugin: skip_on_empty
           method: process
-  field_group_short_name: field_short_name
+  field_group_short_name:
+    plugin: cas_group_short_name
+    source:
+      - field_short_name
+      - title
   field_group_email:
     plugin: sub_process
     source: field_group_email
@@ -103,7 +107,7 @@ process:
       target_id:
         -
           plugin: migration_lookup
-          migration: upgrade_d7_users_with_roles
+          migration: upgrade_d7_user_to_profile
           source: uid
           no_stub: true
         -
@@ -125,6 +129,17 @@ process:
           plugin: skip_on_empty
           method: process
   field_group_newsletter_link: field_group_newsletter_link
+  field_domain_access:
+    plugin: sub_process
+    source: domain_access_node
+    process:
+      target_id: target_id
+  field_domain_all_affiliates: domain_all_affiliates
+  field_domain_source:
+    plugin: cas_group_canonical_domain
+    source:
+      - domain_source
+      - domain_access_node
 destination:
   plugin: 'entity:group'
 migration_dependencies:

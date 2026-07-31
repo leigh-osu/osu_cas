@@ -1,4 +1,4 @@
-uuid: 3b6c616d-e33f-48b3-9fb6-f21f36b3363c
+uuid: 567f5fbf-989f-47b2-9e32-c1a971bbd4a0
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: snic_homepage
 label: snic_homepage
 logic: and
 conditions:
-  bee3eced-0b4d-4883-b80e-fcb5656c0a35:
+  1e5db7eb-ac7c-4574-9ba8-5c24cff847e2:
     id: request_path
     negate: false
-    uuid: bee3eced-0b4d-4883-b80e-fcb5656c0a35
+    uuid: 1e5db7eb-ac7c-4574-9ba8-5c24cff847e2
     pages: /node/82281
 allow_other_conditions: null

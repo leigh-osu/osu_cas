@@ -1,0 +1,14 @@
+uuid: 18ca2ee5-b043-4e5d-9c0c-366b7cb49719
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.seafood_oregonstate_edu
+  module:
+    - domain_source
+id: domain_source_set_action.seafood_oregonstate_edu
+label: 'Set content domain source value to the Seafood Network Information Center domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: seafood_oregonstate_edu

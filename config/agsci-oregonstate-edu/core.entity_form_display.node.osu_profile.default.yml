@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.osu_profile.field_domain_access
     - field.field.node.osu_profile.field_domain_all_affiliates
+    - field.field.node.osu_profile.field_domain_source
     - field.field.node.osu_profile.field_osu_organizations
     - field.field.node.osu_profile.field_profile_address
     - field.field.node.osu_profile.field_profile_alt_phone
@@ -677,4 +678,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_domain_source: true

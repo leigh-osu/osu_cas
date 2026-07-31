@@ -1,5 +1,5 @@
 _core:
-  default_config_hash: eZgcriT-utjDI1pjl-24jYFW2DmCxMXaFSnJd0XoU-0
+  default_config_hash: 7jkcONJCeAj9U78Fi8W2Os2B70oxqWk4Ett0bKYOvKU
 settings:
   default_status: open
   default_categories: {  }
@@ -28,6 +28,7 @@ settings:
   default_form_required_label: 'Indicates required field'
   default_form_details_toggle: true
   default_form_file_limit: ''
+  default_form_file_limit_message: "This form's file upload quota of %quota has been exceeded. Please remove some files."
   form_classes: |
     container-inline clearfix
     form--inline clearfix
@@ -328,7 +329,6 @@ libraries:
     - jquery.chosen
 requirements:
   cdn: true
-  bootstrap: true
   clientside_validation: true
   spam: true
 langcode: en

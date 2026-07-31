@@ -1,0 +1,31 @@
+uuid: ce3ba18b-3869-427c-904a-cf4ec6c64bd2
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.the_source_2024_fall
+    - system.menu.menu-fall-2024
+  module:
+    - block_visibility_groups
+    - system
+  theme:
+    - madrone
+id: the_source_2024_fall_menu_fall_2024
+theme: madrone
+region: sidebar
+weight: 2
+provider: null
+plugin: 'system_menu_block:menu-fall-2024'
+settings:
+  id: 'system_menu_block:menu-fall-2024'
+  label: 'December 2024'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: the_source_2024_fall

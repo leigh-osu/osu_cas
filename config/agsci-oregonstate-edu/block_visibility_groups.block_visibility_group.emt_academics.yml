@@ -1,4 +1,4 @@
-uuid: 1ab8cc90-f788-4955-a531-61e255727b7c
+uuid: 9df37cf1-6b38-44a9-bcff-1f935fefe5ac
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: emt_academics
 label: emt_academics
 logic: and
 conditions:
-  0a9e5962-fe0a-43a7-985f-e703c7af284b:
+  e88a1882-df01-49ff-85ff-3820d9fc1af0:
     id: request_path
     negate: false
-    uuid: 0a9e5962-fe0a-43a7-985f-e703c7af284b
+    uuid: e88a1882-df01-49ff-85ff-3820d9fc1af0
     pages: "/node/217606\r\n/node/217611\r\n/node/217616\r\n/node/217621\r\n/node/217626\r\n/node/217631\r\n/node/217636\r\n/node/217641\r\n/node/217646\r\n/node/217651\r\n/node/217716\r\n/node/217721\r\n/node/217731\r\n/node/217736\r\n/node/217751\r\n/node/217756\r\n/node/217761\r\n/node/217766\r\n/node/217771\r\n/node/217776\r\n/node/217781\r\n/node/217786\r\n/node/217791\r\n/node/217801\r\n/node/217806\r\n/node/217946\r\n/node/217951\r\n/node/218111\r\n/node/219776\r\n/node/219821\r\n/node/212141\r\n/node/225791"
 allow_other_conditions: null

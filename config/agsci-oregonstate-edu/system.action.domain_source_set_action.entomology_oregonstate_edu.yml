@@ -1,0 +1,14 @@
+uuid: 20c72c28-71d6-4fb0-87f3-d00228980db5
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.entomology_oregonstate_edu
+  module:
+    - domain_source
+id: domain_source_set_action.entomology_oregonstate_edu
+label: 'Set content domain source value to the Entomology Program domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: entomology_oregonstate_edu

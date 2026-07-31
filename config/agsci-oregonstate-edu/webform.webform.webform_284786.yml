@@ -1,4 +1,4 @@
-uuid: a9efe11c-9bf5-433c-8e67-f8fcd26a11be
+uuid: 6753c423-4fc5-47f3-a5ab-2180fe882c12
 langcode: en
 status: open
 dependencies: {  }
@@ -320,14 +320,6 @@ elements: |-
       invisible:
         - ':input[name="i_have_read_the_above_statements_and_would_like_to_send_a_thank_you_letter_for_my_scholarship"]':
             value: ty_no
-  name_of_the_scholarship_fellowship:
-    '#type': textfield
-    '#unique': false
-    '#title': 'Name of the scholarship/fellowship'
-    '#states':
-      invisible:
-        - ':input[name="i_have_read_the_above_statements_and_would_like_to_send_a_thank_you_letter_for_my_scholarship"]':
-            value: ty_no
   hometown_state:
     '#type': textfield
     '#unique': false
@@ -375,10 +367,6 @@ elements: |-
     '#title': 'Message to your donor'
     '#description': 'Your message to the donor is a personal thank you to those who provided you with this scholarship. It should be addressed directly to them.'
     '#required': true
-    '#states':
-      visible:
-        - ':input[name="i_have_read_the_above_statements_and_would_like_to_send_a_thank_you_letter_for_my_scholarship"]':
-            value: ty_no
   how_did_you_decide_osu_was_the_right_school_for_you:
     '#type': textarea
     '#title': 'How did you decide OSU was the right school for you?'

@@ -1,0 +1,14 @@
+uuid: 97c20902-91df-4922-95f6-4f28e04769a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.gardenecology_oregonstate_edu
+  module:
+    - domain_source
+id: domain_source_set_action.gardenecology_oregonstate_edu
+label: 'Set content domain source value to the Garden Ecology Lab domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: gardenecology_oregonstate_edu

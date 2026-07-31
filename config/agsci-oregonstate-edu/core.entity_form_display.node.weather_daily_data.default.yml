@@ -1,4 +1,4 @@
-uuid: ae6e4ad0-8abb-404e-ae1d-a298df1e66d3
+uuid: 93d3950d-497d-48cd-a358-6979705017bb
 langcode: en
 status: true
 dependencies:
@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.weather_daily_data.body
     - field.field.node.weather_daily_data.field_domain_access
     - field.field.node.weather_daily_data.field_domain_all_affiliates
+    - field.field.node.weather_daily_data.field_domain_source
     - field.field.node.weather_daily_data.field_dw_20_inches_max
     - field.field.node.weather_daily_data.field_dw_24_hour_air_move
     - field.field.node.weather_daily_data.field_dw_2_inches_max
@@ -290,4 +291,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_domain_source: true

@@ -1,4 +1,4 @@
-uuid: 8136e28f-f54d-4b70-a06c-fd9974890e22
+uuid: 1dafc8f9-c67a-49c8-a882-8ce85d7f431b
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: the_source_2025_june
 label: the_source_2025_june
 logic: and
 conditions:
-  53e63baa-6073-4261-838b-1154061cea20:
+  ca13f0ce-37c1-4717-b52f-4a2100c61a00:
     id: request_path
     negate: false
-    uuid: 53e63baa-6073-4261-838b-1154061cea20
+    uuid: ca13f0ce-37c1-4717-b52f-4a2100c61a00
     pages: "/thesource/june-2025\r\n/thesource/june-2025*"
 allow_other_conditions: null

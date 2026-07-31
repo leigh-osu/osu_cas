@@ -3,7 +3,7 @@
         'name' => 'osu-cas/drupal',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '1661e4cf8fb4b6864643d4225bd15ae7b184ecf4',
+        'reference' => '38ab468ea25843f2df329d50c3f37181b4178b4f',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -3184,7 +3184,7 @@
         'osu-cas/drupal' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '1661e4cf8fb4b6864643d4225bd15ae7b184ecf4',
+            'reference' => '38ab468ea25843f2df329d50c3f37181b4178b4f',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

@@ -1,9 +1,12 @@
-uuid: 117b61e7-d326-4f10-8e55-a3f8e42efcd7
+uuid: e3a97eaf-9da3-4a1c-a2b3-98761ea1c940
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.group.basic_group.body
+    - field.field.group.basic_group.field_domain_access
+    - field.field.group.basic_group.field_domain_all_affiliates
+    - field.field.group.basic_group.field_domain_source
     - field.field.group.basic_group.field_group_access
     - field.field.group.basic_group.field_group_add_info
     - field.field.group.basic_group.field_group_email
@@ -295,6 +298,9 @@ hidden:
   body: true
   changed: true
   created: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
   field_group_access: true
   field_group_add_info: true
   field_group_email: true

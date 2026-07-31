@@ -1,9 +1,9 @@
-uuid: d5c46b0e-ee75-431d-a49f-72513333c688
+uuid: 4f4ae79f-e05a-4e25-814a-a7197a7348dd
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: 0aymXHRAK7c1lurvbA2f5DxyYs-GxC6ELVLBrunX6Yg
+  default_config_hash: MLAnehylVrJ4ryEe9n3ufsfaxHzPeWVsCUVXWqb_euA
 id: cas_dfs_to_dfs
 class: null
 idMap: {  }
@@ -218,7 +218,7 @@ process:
       target_id:
         -
           plugin: migration_lookup
-          migration: upgrade_d7_users_with_roles
+          migration: upgrade_d7_user_to_profile
           source: target_id
           no_stub: true
         -

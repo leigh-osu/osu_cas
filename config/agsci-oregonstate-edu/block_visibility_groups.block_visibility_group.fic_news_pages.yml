@@ -1,4 +1,4 @@
-uuid: 3cae07f6-80da-478d-b467-180e98f005ea
+uuid: 40e9c252-b42d-468f-baa9-d773d31c4483
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: fic_news_pages
 label: fic-news-pages
 logic: and
 conditions:
-  7bbf2600-f59c-4764-aa36-b942b3718f25:
+  e2144a7f-c710-4314-a0bc-259fa3397cce:
     id: request_path
     negate: false
-    uuid: 7bbf2600-f59c-4764-aa36-b942b3718f25
+    uuid: e2144a7f-c710-4314-a0bc-259fa3397cce
     pages: /node/27861
 allow_other_conditions: null

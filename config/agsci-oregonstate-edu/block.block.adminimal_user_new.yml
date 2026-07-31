@@ -1,4 +1,4 @@
-uuid: 977f4d87-ec0e-4aa8-aa67-305b2e664938
+uuid: 01e414dd-8272-4d53-a06e-b27043ca64d1
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ dependencies:
 id: adminimal_user_new
 theme: claro
 region: content
-weight: 2
+weight: 7
 provider: null
 plugin: 'views_block:who_s_new-block_1'
 settings:

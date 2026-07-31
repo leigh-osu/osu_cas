@@ -1,4 +1,4 @@
-uuid: b237c684-7bf2-4429-ad5d-9c3ebdb0f226
+uuid: 70ec16d6-2057-4757-9e5d-0087df8b895a
 langcode: en
 status: open
 dependencies: {  }
@@ -9,7 +9,7 @@ uid: 17
 template: false
 archive: false
 id: webform_273506
-title: 'RSVP for the CAS Communicator Meeting - December 2025'
+title: 'RSVP for the CAS Communicator Meeting'
 description: null
 categories: {  }
 elements: |-
@@ -18,8 +18,8 @@ elements: |-
     '#format': full_html
     '#text': |-
       <p>
-      	The next CAS Communicators Meeting will be on <strong>Thursday, December 11th 10:00-Noon</strong><br />
-      	<em><strong>In-Person:</strong></em> MU 213: Pan-Afrikan Sankofa room (Coffee and snacks will be provided)<br />
+      	The next CAS Communicators Meeting will be on <strong>Tuesday, August 4th 10:00-Noon</strong><br />
+      	<em><strong>In-Person:</strong></em> MU 215: Thought Lab&nbsp;room (Coffee and snacks will be provided)<br />
       	<strong><em>Remote</em>:</strong> Zoom</p>
 
       <p>
@@ -27,11 +27,11 @@ elements: |-
 
       <ul>
       	<li>
-      		Canva</li>
+      		<a href="/cas-communications/training-materials/drupal-10-migration">Drupal 10 Migration timeline</a></li>
       	<li>
-      		Drupal 11 Migration</li>
+      		<a href="/cas-communications/training-materials/drupal-10-tutorials">Drupal 10 tutorial</a></li>
       	<li>
-      		Website Best Practices</li>
+      		Q&amp;A</li>
       </ul>
   first_name:
     '#type': textfield
@@ -75,7 +75,7 @@ settings:
   draft_auto_save: false
   confirmation_type: page
   confirmation_url: ''
-  confirmation_message: "<p>\r\n\tThank you for RSVPing to this event</p>\r\n\r\n<p style=\"text-align: center;\">\r\n\t<a class=\"btn btn-primary\" href=\"/sites/agscid7/files/cas-webteam/cas_communicators_meeting2025-12.ics\">Add this meeting to your Outlook Calendar</a></p>\r\n\r\n<p style=\"text-align: center;\">\r\n\t&nbsp;</p>\r\n\r\n<p>\r\n\t<strong>Zoom Meeting Details</strong></p>\r\n\r\n<ul>\r\n\t<li>\r\n\t\t<p>\r\n\t\t\tJoin Zoom Meeting<span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif\"><br />\r\n\t\t\t<a href=\"https://oregonstate.zoom.us/j/91627371240?pwd=adIjc4Zr7TyiESdE228a4ZnCv8awQx.1\" style=\"color:#467886; text-decoration:underline\">https://oregonstate.zoom.us/j/91627371240?pwd=adIjc4Zr7TyiESdE228a4ZnCv8awQx.1</a><br />\r\n\t\t\t<br />\r\n\t\t\tPassword: 436671<br />\r\n\t\t\t<br />\r\n\t\t\tPhone Dial-In Information<br />\r\n\t\t\t+1 253 215 8782 US (Tacoma)<br />\r\n\t\t\t+1 971 247 1195 US (Portland)<br />\r\n\t\t\t+1 301 715 8592 US (Washington DC)<br />\r\n\t\t\t<br />\r\n\t\t\tMeeting ID: 916 2737 1240<br />\r\n\t\t\t<br />\r\n\t\t\tJoin by Polycom/Cisco/Other Room System<br />\r\n\t\t\t<a href=\"mailto:91627371240@zoomcrc.com\" style=\"color:#467886; text-decoration:underline\">91627371240@zoomcrc.com</a></span></span></p>\r\n\r\n\t\t<p>\r\n\t\t\t<span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"></span></span></p>\r\n\t</li>\r\n</ul>\r\n\r\n<p>\r\n\t<span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"> </span></span></p>\r\n\r\n<p>\r\n\t&nbsp;</p>\r\n\r\n<p>\r\n\t<a href=\"/cas-communications/training-materials/cas-site-coordinators-meeting\"><span class=\"osu fa-arrow-left fas fa-3x\"></span>&nbsp; CAS Site Coordinators Meeting landing page</a></p>\r\n"
+  confirmation_message: "<p>\r\n\tThank you for RSVPing to this event</p>\r\n\r\n<p style=\"text-align: center;\">\r\n\t<a class=\"btn btn-primary\" href=\"/sites/agscid7/files/cas-webteam/cas_communicators_meeting_august_4_2026.ics\">Add this meeting to your Outlook Calendar</a></p>\r\n\r\n<p style=\"text-align: center;\">\r\n\t&nbsp;</p>\r\n\r\n<p>\r\n\t<strong>Zoom Meeting Details</strong></p>\r\n\r\n<ul>\r\n\t<li>\r\n\t\t<p>\r\n\t\t\t<span style=\"font-size:12pt\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif\">Join Zoom Meeting<br />\r\n\t\t\t<a href=\"https://oregonstate.zoom.us/j/95626962377?pwd=vaQsP2XUNpTPadl4szUSE2CWZhwI6d.1\" style=\"color:#467886; text-decoration:underline\">https://oregonstate.zoom.us/j/95626962377?pwd=vaQsP2XUNpTPadl4szUSE2CWZhwI6d.1</a><br />\r\n\t\t\t<br />\r\n\t\t\tPassword: 086973<br />\r\n\t\t\t<br />\r\n\t\t\tPhone Dial-In Information<br />\r\n\t\t\t+1 971 247 1195 US (Portland)<br />\r\n\t\t\t+1 253 215 8782 US (Tacoma)<br />\r\n\t\t\t+1 301 715 8592 US (Washington DC)<br />\r\n\t\t\t<br />\r\n\t\t\tMeeting ID: 956 2696 2377<br />\r\n\t\t\t<br />\r\n\t\t\tJoin by Polycom/Cisco/Other Room System<br />\r\n\t\t\t<a href=\"mailto:95626962377@zoomcrc.com\" style=\"color:#467886; text-decoration:underline\">95626962377@zoomcrc.com</a></span></span></p>\r\n\r\n\t\t<p>\r\n\t\t\t<span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif\"></span></span></p>\r\n\r\n\t\t<p>\r\n\t\t\t<span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"></span></span></p>\r\n\t</li>\r\n</ul>\r\n\r\n<p>\r\n\t<span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"> </span></span></p>\r\n\r\n<p>\r\n\t&nbsp;</p>\r\n\r\n<p>\r\n\t<a href=\"/cas-communications/training-materials/cas-site-coordinators-meeting\"><span class=\"osu fa-arrow-left fas fa-3x\"></span>&nbsp; CAS Site Coordinators Meeting landing page</a></p>\r\n"
   limit_total: null
   limit_user: null
 access:
@@ -111,17 +111,38 @@ handlers:
       sender_mail: ''
       sender_name: ''
       subject: _default
-      body: |-
+      body: |
         Greetings [webform_submission:values:first_name] [webform_submission:values:last_name], 
 
-        We look forward to seeing you on December 11th from 10:00-Noon.
+        We look forward to seeing you on August 4th from 10:00-Noon.
         You have registered to attend [webform_submission:values:how_will_you_attend_the_meeting].
 
         Download the meeting invitation for your Outlook Calendar which includes the zoom link: 
-        https://agsci.oregonstate.edu/sites/agscid7/files/cas-webteam/cas_communicators_meeting2025-12.ics
+        https://agsci.oregonstate.edu/sites/agscid7/files/cas-webteam/cas_communicators_meeting_august_4_2026.ics
 
 
         CAS Marketing & Communications Team
+
+
+        ------------------
+        Memorial Union 215
+
+        or
+
+        Join Zoom Meeting
+        https://oregonstate.zoom.us/j/95626962377?pwd=vaQsP2XUNpTPadl4szUSE2CWZhwI6d.1
+
+        Password: 086973
+
+        Phone Dial-In Information
+        +1 971 247 1195 US (Portland)
+        +1 253 215 8782 US (Tacoma)
+        +1 301 715 8592 US (Washington DC)
+
+        Meeting ID: 956 2696 2377
+
+        Join by Polycom/Cisco/Other Room System
+        95626962377@zoomcrc.com
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
@@ -131,6 +152,7 @@ handlers:
       attachments: false
       twig: false
       theme_name: ''
+      langcode: ''
       parameters: {  }
       debug: false
 variants: {  }

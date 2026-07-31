@@ -1,4 +1,4 @@
-uuid: 24b8c3bb-d955-4b97-a402-0e524b900bc9
+uuid: a42b8ece-ed0c-4ea6-9ea2-e6f7f104b579
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: ca_yerba_santa
 label: ca_yerba_santa
 logic: and
 conditions:
-  7b707830-7a32-41e9-8f3a-699cba00d866:
+  6c92c080-2239-4147-8e41-e054d1ab3260:
     id: request_path
     negate: false
-    uuid: 7b707830-7a32-41e9-8f3a-699cba00d866
+    uuid: 6c92c080-2239-4147-8e41-e054d1ab3260
     pages: /node/115931
 allow_other_conditions: null

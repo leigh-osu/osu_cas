@@ -1,9 +1,9 @@
-uuid: 8dc5d74d-5b73-4e1f-9f14-3667f813b79f
+uuid: c302eff7-6278-42fc-ad39-7635c2cb5da0
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: ejwBNfIFQFOGElQrVdKDquM0VVLcALvmBcXbKbymTWo
+  default_config_hash: P4wjOhyLre3D6N2rH1cJ1pqyDA0vjfh3AbWU__9jS0I
 id: field_collection_field_lp_picbox__to__layout_builder
 class: null
 idMap: {  }
@@ -26,7 +26,10 @@ process:
   type:
     plugin: default_value
     default_value: osu_card
-  info: field_paragraph_label
+  info:
+    source: field_paragraph_label
+    plugin: default_value
+    default_value: 'Migrated d7 field_lp_picbox card'
   body:
     -
       plugin: sub_process

@@ -1,4 +1,4 @@
-uuid: ef763000-f1b5-4235-90be-1b43104b4375
+uuid: 05290b25-3db0-4554-bb50-c4f85c2c5b5a
 langcode: en
 status: true
 dependencies:
@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.video.body
     - field.field.node.video.field_domain_access
     - field.field.node.video.field_domain_all_affiliates
+    - field.field.node.video.field_domain_source
     - field.field.node.video.field_tax_coarec_topics
     - field.field.node.video.field_tax_event
     - field.field.node.video.field_tax_nursery_topics
@@ -79,6 +80,7 @@ hidden:
   entitygroupfield: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_domain_source: true
   field_tax_coarec_topics: true
   field_tax_event: true
   field_tax_nursery_topics: true
@@ -96,4 +98,3 @@ hidden:
   field_vid_veg_topics: true
   field_vid_work_area: true
   langcode: true
-

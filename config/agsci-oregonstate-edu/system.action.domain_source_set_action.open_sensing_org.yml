@@ -1,0 +1,14 @@
+uuid: fe997384-f597-4529-a702-ea8472c66f5c
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.open_sensing_org
+  module:
+    - domain_source
+id: domain_source_set_action.open_sensing_org
+label: 'Set content domain source value to the Open Sensing Lab domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: open_sensing_org

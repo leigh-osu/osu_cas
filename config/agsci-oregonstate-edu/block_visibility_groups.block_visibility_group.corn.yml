@@ -1,4 +1,4 @@
-uuid: b73bbc1d-aec3-4954-9fc5-993c36d5fe79
+uuid: 03460ed6-d070-4774-b649-0f489a0ace6b
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: corn
 label: corn
 logic: and
 conditions:
-  b6115fb2-a777-422c-96d6-fdcd2e3d7e5c:
+  04cd4a0e-686a-4b6f-ba95-877d1bf8b282:
     id: request_path
     negate: false
-    uuid: b6115fb2-a777-422c-96d6-fdcd2e3d7e5c
+    uuid: 04cd4a0e-686a-4b6f-ba95-877d1bf8b282
     pages: "/mes/crops/corn\r\n/node/45291"
 allow_other_conditions: null

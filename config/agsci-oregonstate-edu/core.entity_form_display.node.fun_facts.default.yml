@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.fun_facts.body
     - field.field.node.fun_facts.field_domain_access
     - field.field.node.fun_facts.field_domain_all_affiliates
+    - field.field.node.fun_facts.field_domain_source
     - field.field.node.fun_facts.field_fun_facts_category
     - field.field.node.fun_facts.field_fun_facts_image
     - field.field.node.fun_facts.field_fun_facts_source
@@ -143,3 +144,4 @@ content:
 hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_domain_source: true

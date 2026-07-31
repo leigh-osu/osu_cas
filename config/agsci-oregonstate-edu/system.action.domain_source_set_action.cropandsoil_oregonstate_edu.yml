@@ -1,0 +1,14 @@
+uuid: 119456b0-bf55-4507-8991-af7729bd8caf
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.cropandsoil_oregonstate_edu
+  module:
+    - domain_source
+id: domain_source_set_action.cropandsoil_oregonstate_edu
+label: 'Set content domain source value to the Crop &amp; Soil Science Department domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: cropandsoil_oregonstate_edu

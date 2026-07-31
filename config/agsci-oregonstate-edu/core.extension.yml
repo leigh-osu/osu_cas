@@ -134,6 +134,8 @@ module:
   options: 0
   osu_block_types: 0
   osu_bootstrap_layout_builder: 0
+  osu_cas_multisite: 0
+  osu_cas_site_sync: 0
   osu_ckeditor_plugins: 0
   osu_default_content: 0
   osu_digital_measures: 0
@@ -190,7 +192,6 @@ module:
   sitewide_alert: 0
   smart_date: 0
   sophron: 0
-  styleguide: 0
   superfish: 0
   syslog: 0
   system: 0
@@ -222,12 +223,12 @@ module:
   xmlsitemap_custom: 0
   yoast_seo: 0
   pathauto: 1
-  webform_bootstrap: 1
   xmlsitemap: 1
   externalauth: 10
   views: 10
   paragraphs: 11
   domain_access: 20
+  domain_source: 30
   osu_standard: 1000
 theme:
   claro: 0

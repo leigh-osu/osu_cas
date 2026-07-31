@@ -1,0 +1,14 @@
+uuid: 7b67f9c9-e98e-4c6b-b12a-4957f20440af
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.tradeoffs_oregonstate_edu
+  module:
+    - domain_source
+id: domain_source_set_action.tradeoffs_oregonstate_edu
+label: 'Set content domain source value to the Tradeoff Analysis Project domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: tradeoffs_oregonstate_edu

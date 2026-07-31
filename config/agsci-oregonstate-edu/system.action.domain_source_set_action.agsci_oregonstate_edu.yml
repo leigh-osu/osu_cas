@@ -1,0 +1,14 @@
+uuid: 72222051-db0b-4bbc-9bdc-3fae86cd8b08
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.agsci_oregonstate_edu
+  module:
+    - domain_source
+id: domain_source_set_action.agsci_oregonstate_edu
+label: 'Set content domain source value to the College of Agricultural Sciences domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: agsci_oregonstate_edu

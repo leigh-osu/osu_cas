@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.osu_simple_tabs.body
     - field.field.node.osu_simple_tabs.field_domain_access
     - field.field.node.osu_simple_tabs.field_domain_all_affiliates
+    - field.field.node.osu_simple_tabs.field_domain_source
     - field.field.node.osu_simple_tabs.field_simple_tab_column_left
     - field.field.node.osu_simple_tabs.field_simple_tab_column_middle
     - field.field.node.osu_simple_tabs.field_simple_tab_column_right
@@ -114,6 +115,12 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_domain_source:
+    type: options_select
+    weight: 42
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_simple_tab_column_left:
     type: text_textarea
