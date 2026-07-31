@@ -246,8 +246,7 @@ h3 {
 .block-superfish ul ul,
 .block-group-content-menu ul ul {
   background-color: #f7f5f5 !important;
-  border: 1px solid #d73f09;
-  border-top: 0;
+  border: 1px solid #666;
 }
 #madrone-primary-menu-container ul ul li,
 .block-superfish ul ul li,
@@ -471,7 +470,7 @@ body.has-cas-hero header[role=banner] {
   background-color: transparent !important;
 }
 body.has-cas-hero #madrone-header-container {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.7)) !important;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.48)) !important;
 }
 body.has-cas-hero #madrone-header-container .header-search-block-form {
   background-color: transparent !important;
@@ -483,7 +482,7 @@ body.has-cas-hero .container-fluid:has(> #madrone-primary-menu-container) {
   background-color: transparent !important;
 }
 body.has-cas-hero #madrone-primary-menu-container {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)) !important;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.1)) !important;
 }
 body.has-cas-hero #madrone-primary-menu-container .block-superfish,
 body.has-cas-hero #madrone-primary-menu-container .block-group-content-menu,
@@ -492,13 +491,11 @@ body.has-cas-hero #madrone-primary-menu-container li {
   background-color: transparent !important;
 }
 body.has-cas-hero #madrone-primary-menu-container li ul,
-body.has-cas-hero #madrone-primary-menu-container li ul li,
-body.has-cas-hero #madrone-primary-menu-container ul ul,
-body.has-cas-hero #madrone-primary-menu-container ul ul li {
-  background-color: #000 !important;
+body.has-cas-hero #madrone-primary-menu-container ul ul {
+  background-color: #f7f5f5 !important;
 }
 body.has-cas-hero #madrone-breadcrumb-container {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.45)) !important;
+  display: none !important;
 }
 body.has-cas-hero main .block-page-title-block:not(.cas-hero *) {
   display: none;

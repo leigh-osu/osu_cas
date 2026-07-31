@@ -80,17 +80,16 @@
   }
 }
 
-// Dropdown/flyout panels: beaver orange on off-white, framed by a 1px
-// orange border on the sides and bottom (the dark menu bar supplies the top
-// edge). Rollover inverts to off-white on orange. The ID selector matters:
-// the dark bar rules above carry #madrone-primary-menu-container, whose ID
-// specificity would otherwise beat any class-only override here.
+// Dropdown/flyout panels: beaver orange on off-white, framed on all sides
+// by a 1px border in the header-divider grey (see _cas_header). Rollover
+// inverts to off-white on orange. The ID selector matters: the dark bar
+// rules above carry #madrone-primary-menu-container, whose ID specificity
+// would otherwise beat any class-only override here.
 #madrone-primary-menu-container ul ul,
 .block-superfish ul ul,
 .block-group-content-menu ul ul {
   background-color: $neutral-100 !important;
-  border: 1px solid $osuorange;
-  border-top: 0;
+  border: 1px solid #666;
 
   li {
     background-color: transparent !important;
