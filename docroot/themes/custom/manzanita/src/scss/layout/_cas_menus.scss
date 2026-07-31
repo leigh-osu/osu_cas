@@ -10,7 +10,7 @@
   &,
   ul,
   li {
-    background-color: #000 !important;
+    background-color: $paddletailblack !important;
   }
 }
 
@@ -41,7 +41,7 @@
     padding-bottom: 0.4rem !important;
   }
 
-  // Keep hover/active states visible within the black menu.
+  // Hover states: near-white wash with beaver-orange text.
   a:hover,
   span:hover,
   a.nav-link:hover,
@@ -50,15 +50,51 @@
   .group-menu-hover > a,
   .group-menu-hover > span,
   .group-menu-hover > ul {
-    background-color: $neutral-600 !important;
+    background-color: $neutral-100 !important;
+    color: $osuorange !important;
+  }
+
+  // Sub-menu chevron glyphs follow the white text (madrone colors the
+  // superfish ones $neutral-700, invisible on the dark dropdowns)...
+  .group-sub-menu > a::after,
+  .group-sub-menu > span::after,
+  li a.menuparent::after,
+  li span.menuparent::after {
     color: #fff !important;
   }
 
-  // Sub-menu chevron glyphs follow the white text.
-  .group-sub-menu > a::after,
-  .group-sub-menu > span::after {
-    color: #fff !important;
+  // ...and turn orange with the hovered link (white would vanish on the
+  // light hover wash). Declared after the white rule so it wins.
+  .group-sub-menu > a:hover::after,
+  .group-sub-menu > span:hover::after,
+  .group-menu-hover > a::after,
+  .group-menu-hover > span::after,
+  li:hover > a.menuparent::after,
+  li:hover > span.menuparent::after {
+    color: $osuorange !important;
   }
+}
+
+// Sub-menu parents get solid triangle arrows like D7 larch's superfish
+// sprite (arrows-777777/ffffff.png) — FA's caret-right \f0da is the same
+// shape — replacing madrone's thin \f054 chevrons. Size, right-edge
+// placement, and the white/orange-on-hover colors above are kept.
+.block-superfish li:not(.sf-depth-1) a.menuparent::after,
+.block-superfish li:not(.sf-depth-1) span.menuparent::after,
+.block-group-content-menu .menu--level-2 .group-sub-menu > a::after,
+.block-group-content-menu .menu--level-2 .group-sub-menu > span::after {
+  content: ' \f0da' !important;
+}
+
+// No down arrows on the menu bar's top level. Madrone appends \f078 after
+// superfish .sf-depth-1 parents and the group menu's top-level
+// .group-sub-menu items; drop just those — deeper levels keep their
+// dropdown/flyout chevrons.
+.block-superfish li.sf-depth-1 > a::after,
+.block-superfish li.sf-depth-1 > span::after,
+#group-content-menu > li.group-sub-menu > a::after,
+#group-content-menu > li.group-sub-menu > span::after {
+  content: none !important;
 }
 
 // Topmost menu level only: all caps. Superfish marks the first level with

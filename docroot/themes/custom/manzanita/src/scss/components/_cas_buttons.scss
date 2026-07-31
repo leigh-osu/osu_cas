@@ -9,4 +9,14 @@
   // both axes now that the corners are square-ish.
   --bs-btn-padding-x: 0.75rem;
   --bs-btn-padding-y: 0.28rem;
+  // CAS resting look for every variant: near-white face, Beaver-gold
+  // hairline, dark uppercase Open Sans label. Loads after madrone, so these
+  // custom properties beat the .btn-primary/-secondary/… resting values;
+  // each variant's hover/active/disabled states are left alone.
+  --bs-btn-bg: #{$neutral-100};
+  --bs-btn-border-color: #{$luminance-400};
+  --bs-btn-color: #{$paddletailblack};
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
 }

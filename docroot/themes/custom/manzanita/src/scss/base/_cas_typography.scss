@@ -1,0 +1,48 @@
+@import '../abstracts/cas_variables';
+
+// Body text in Paddletail Black, replacing madrone's $neutral-700 (#423e3c).
+// Bootstrap wires body, forms, tables etc. to these custom properties, so
+// override them rather than restyling elements. Madrone's links and muted
+// (secondary/tertiary) text derive from the same body color, so they follow.
+:root {
+  // Tighter leading than madrone's 1.8.
+  --bs-body-line-height: 1.6;
+  --bs-body-color: #{$paddletailblack};
+  --bs-body-color-rgb: 33, 37, 41;
+  --bs-secondary-color: #{rgba($paddletailblack, 0.75)};
+  --bs-secondary-color-rgb: 33, 37, 41;
+  --bs-tertiary-color: #{rgba($paddletailblack, 0.5)};
+  --bs-tertiary-color-rgb: 33, 37, 41;
+  --bs-link-color: #{$paddletailblack};
+  --bs-link-color-rgb: 33, 37, 41;
+  --bs-link-hover-color: #{$paddletailblack};
+  --bs-link-hover-color-rgb: 33, 37, 41;
+  --bs-highlight-color: #{$paddletailblack};
+}
+
+// Slightly tightened tracking site-wide (headings inherit it too — they
+// set no letter-spacing of their own).
+body {
+  letter-spacing: -0.01em;
+}
+
+// CAS headings are Paddletail Black at every level, replacing madrone's
+// orange h1/h3/h5.
+h1, h2, h3, h4, h5, h6 {
+  color: $paddletailblack;
+}
+
+// h3 in Stratum2 Bold, replacing madrone's Open Sans 500.
+h3 {
+  font-family: 'Stratum2Web', serif;
+  font-weight: 700;
+}
+
+// Madrone's dark-bg utility only whitens h1/h3/h5 (h2/h4/h6 used to inherit
+// the wrapper's white); with an explicit color on every level, the even
+// levels need the same override.
+.osu-text-bucktoothwhite {
+  h2, h4, h6 {
+    color: $bucktoothwhite-hsl;
+  }
+}

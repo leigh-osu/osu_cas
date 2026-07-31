@@ -1,8 +1,7 @@
 @import '../abstracts/cas_variables';
 
-#madrone-header-container,
-#madrone-header-container .header-search-block-form  {
-  background-color: #000 !important;
+#madrone-header-container {
+  background-color: $paddletailblack !important;
 }
 
 // Header divider lines: the border-bottom above the menu and the vertical
@@ -21,56 +20,14 @@
   border-top: 6px solid $osuorange !important;
 }
 
-// The search form's container grows to fill the space between the block's
-// left divider and the Apply/MyCAS links, so input + magnifier + links sit
-// as one continuous line with no dead space; the input ends up between its
-// old full width and the half-width experiment.
-.block-search-form-block > .block__content {
-  flex: 1 1 auto;
-}
-
-// The actual search input gets a white background from Bootstrap's
-// .form-control (including on :focus), so override the input itself.
-.header-search-block-form input[type="search"].form-control {
-  &,
-  &:focus {
-    background-color: #000 !important;
-    color: #fff !important;
-  }
-
-  &::placeholder {
-    color: #ccc !important;
-  }
-}
-
-// Utility links beside the search box — the Apply / MyCAS pair D7's larch
-// theme hardcoded in its header (see the search block template override).
-.cas-header-links {
-  white-space: nowrap;
-
-  a {
-    color: #fff;
-    font-family: 'Stratum2Web', serif;
-    text-decoration: none;
-    padding-inline: 1rem;
-    // Text-height divider ahead of each link (search | Apply | MyCAS),
-    // like D7 — not the full-height section border. align-items: center
-    // on the nav keeps the link (and so its border) at line height.
-    border-left: 1px solid $neutral-600;
-
-    &:hover,
-    &:focus {
-      text-decoration: underline;
-    }
-  }
-}
-
-// Search magnifier: smaller than madrone's fs-2, beaver orange, white on
-// hover/focus. The icon's color needs !important to outrank madrone's
-// .osu-text-icon utility (also !important); so does the size against the
-// fs-2 utility.
-.header-search-block-form .form-actions button {
-  font-size: 1.25rem !important;
+// Magnifier in the header bar that opens the search overlay (the inline
+// textbox is gone — D7 larch showed only this icon). Beaver orange, white
+// on hover/focus; !important outranks madrone's .osu-text-icon utility.
+.cas-search-toggle {
+  background: transparent;
+  border: 0;
+  font-size: 1.25rem;
+  padding: 0;
 
   .fa-search {
     color: $osuorange !important;
@@ -80,5 +37,115 @@
   &:hover .fa-search,
   &:focus .fa-search {
     color: #fff !important;
+  }
+}
+
+// Full-viewport search overlay, after D7 larch's #search-overlay: dark
+// scrim, centered form ~60px from the top, Exit Search button below.
+// Toggled via the hidden attribute by Drupal.behaviors.casSearchOverlay.
+.cas-search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1050; // Above the header and superfish/group menu dropdowns.
+  background: rgba(0, 0, 0, 0.86);
+  text-align: center;
+  padding-top: 60px;
+
+  &:not([hidden]) {
+    animation: cas-search-overlay-in 200ms ease;
+  }
+
+  // The form keeps madrone's d-flex/align-items-center classes; center it.
+  .header-search-block-form {
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  // White input like D7 (Bootstrap's .form-control default), sized up.
+  input[type='search'].form-control {
+    border-radius: 0;
+    flex: 0 1 auto;
+    font-size: 1.5rem;
+    height: 3.45rem;
+    width: min(80vw, 24rem);
+  }
+
+  // Square beaver-orange submit with the white magnifier, flush against
+  // the input (D7's button.form-submit). !importants outrank the button's
+  // bg-transparent / text-neutral-400 / fs-2 utilities from madrone's
+  // input--submit--header-search template.
+  .form-actions button {
+    background-color: $osuorange !important;
+    border: 0;
+    border-radius: 0;
+    font-size: 1.75rem !important;
+    height: 3.45rem; // Match the input.
+    width: 2em;
+
+    .fa-search {
+      color: #fff !important;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: #fff !important;
+
+      .fa-search {
+        color: $osuorange !important;
+      }
+    }
+  }
+
+  &__exit {
+    background: #000;
+    border: 1px solid #fff;
+    border-radius: 0;
+    color: #fff;
+    // D7 rendered this at its 14px base font; without this it inherits the
+    // D10 body's 18px and reads oversized.
+    font-size: 14px;
+    line-height: 1.4286;
+    padding: 10px;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: #fff;
+      color: #000;
+    }
+  }
+}
+
+@keyframes cas-search-overlay-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+// Utility links beside the search toggle — the Apply / MyCAS pair D7's larch
+// theme hardcoded in its header (see the search block template override).
+.cas-header-links {
+  white-space: nowrap;
+
+  a {
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    padding-inline: 1rem;
+    // Text-height divider ahead of each link (search | Apply | MyCAS),
+    // like D7 — not the full-height section border. align-items: center
+    // on the nav keeps the link (and so its border) at line height.
+    border-left: 1px solid $neutral-600;
+
+    &:hover,
+    &:focus {
+      // Beaver-orange underline, like the site-name hover treatment.
+      text-decoration: underline;
+      text-decoration-color: $osuorange;
+    }
   }
 }

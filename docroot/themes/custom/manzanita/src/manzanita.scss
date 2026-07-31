@@ -5,6 +5,8 @@
 // use the base theme's variables like $neutral-*).
 @import 'scss/abstracts/cas_variables';
 
+@import 'scss/base/cas_typography';
+
 @import 'scss/layout/cas_header';
 @import 'scss/layout/cas_menus';
 @import 'scss/layout/cas_fixed_width';

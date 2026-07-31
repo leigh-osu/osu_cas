@@ -1,11 +1,15 @@
 {#
 /**
  * @file
- * Header search block — madrone's template plus the utility links D7's
- * larch theme hardcoded next to the search box (page.tpl.php): Apply and
- * MyCAS. Overrides madrone's block--header--plugin-id--search-form-block
- * (that suggestion comes from madrone_theme_suggestions_block_alter and
- * outranks the plain plugin-id template).
+ * Header search block — search works as a full-screen overlay like D7
+ * larch's #search-overlay (adapted from doug_fir's tophat): the header bar
+ * shows only a magnifier toggle (no inline textbox); clicking it opens the
+ * overlay with the real search form, plus an Exit Search button. Also
+ * carries the Apply / MyCAS utility links larch hardcoded in page.tpl.php.
+ * Overrides madrone's block--header--plugin-id--search-form-block (that
+ * suggestion comes from madrone_theme_suggestions_block_alter and outranks
+ * the plain plugin-id template). Toggle behaviour: js/manzanita.js
+ * (Drupal.behaviors.casSearchOverlay); styles: scss/layout/_cas_header.scss.
  */
 #}
 {% set classes = [
@@ -25,12 +29,18 @@
   {% endif %}
   {{ title_suffix }}
   {% block content %}
-    <div{{ content_attributes.addClass('block__content', 'h-100', 'border-start', 'border-neutral-200', 'd-none', 'd-lg-block') }}>
-      {{ content }}
+    <div class="border-start border-neutral-200 d-flex align-items-center h-100 px-4">
+      <button type="button" class="cas-search-toggle"
+              aria-expanded="false" aria-controls="cas-search-overlay">
+        <span class="visually-hidden">{{ 'Open search'|t }}</span>
+        <i class="fa fa-search osu-text-icon" aria-hidden="true"></i>
+      </button>
     </div>
-    <div class="border-start border-neutral-200 d-flex d-lg-none align-items-center h-100 p-4">
-      <a href="{{ path('search.view') }}"><span class="sr-only">Open Search Page</span><i
-          class="fa fa-2x fa-search osu-text-icon" aria-hidden="true"></i></a>
+    <div id="cas-search-overlay" class="cas-search-overlay" hidden>
+      <div{{ content_attributes.addClass('block__content', 'cas-search-overlay__form') }}>
+        {{ content }}
+      </div>
+      <button type="button" class="cas-search-overlay__exit">{{ 'Exit Search'|t }}</button>
     </div>
   {% endblock %}
   <nav class="cas-header-links d-none d-lg-flex align-items-center"

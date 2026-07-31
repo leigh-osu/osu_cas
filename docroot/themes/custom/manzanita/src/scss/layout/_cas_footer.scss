@@ -2,3 +2,13 @@
 footer[role='contentinfo'] {
   font-size: 0.9em;
 }
+
+// Darkened Mt. Hood panorama (3600x518 webp) over the region's solid
+// osu-bg-page-alt-2 ($paddletailblack), which remains as the fallback and
+// matches the image's near-black tone.
+footer[role='contentinfo'] .region-footer {
+  background-image: url('../assets/cas_footer_background.webp');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

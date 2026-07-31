@@ -56,8 +56,9 @@
   {% block content %}
     <div{{ content_attributes.addClass('block__content', 'd-flex', 'align-items-center') }}>
       {% if site_logo %}
-        <div class="d-none d-lg-flex pe-2 osu-logo--wide">
-          <div class="ms-2 py-2">
+        {# Logo spacing lives in _cas_header_logo.scss (20px), not utilities. #}
+        <div class="d-none d-lg-flex osu-logo--wide">
+          <div class="osu-logo__frame">
             <a id="osu-logo-wide" class="text-decoration-none d-inline-block" href="{{ companion_logo_link }}">
               <img class="" src="{{ base_path }}{{ active_theme_path() }}/logo.svg"
                    alt="{{ companion_logo_alt|t }}"/>
@@ -65,7 +66,7 @@
           </div>
         </div>
         <div class="d-flex d-lg-none osu-logo--crest">
-          <div class="py-2 px-2">
+          <div class="osu-logo__frame">
             <a id="osu-logo-crest" class="text-decoration-none" href="{{ companion_logo_link }}">
               <img class="" src="{{ base_path }}{{ active_theme_path() }}/assets/osu-logo-crest-only.svg"
                    alt="{{ companion_logo_alt|t }}"/>
@@ -77,7 +78,7 @@
         <div class="align-self-stretch border-start border-neutral-200 osu-logo--spacer"></div>
       {% endif %}
       {% if site_name %}
-        <div class="block__content__site-name d-flex flex-column ms-3 py-2-5 lh-sm">
+        <div class="block__content__site-name d-flex flex-column ms-4 py-2-5 lh-sm">
           {% if content.group_name_link %}
             <div class="site-name__site-line d-flex flex-wrap align-items-baseline{% if hide_group_breadcrumb %} site-name__site-line--home{% endif %}">
               <div class="site-name__site-link--wrapper">

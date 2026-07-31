@@ -65,6 +65,57 @@
   };
 
   /**
+   * Header search overlay, after D7 larch's #search-overlay.
+   *
+   * The header shows only a magnifier button (.cas-search-toggle); it opens
+   * the full-viewport #cas-search-overlay holding the real search form,
+   * focusing the input. Exit Search, Escape, or the toggle again close it
+   * and return focus to the toggle. Markup: the search block template
+   * override; styles: scss/layout/_cas_header.scss.
+   */
+  Drupal.behaviors.casSearchOverlay = {
+    attach(context) {
+      once('cas-search-overlay', '.cas-search-toggle', context).forEach(
+        (toggle) => {
+          const overlay = document.getElementById('cas-search-overlay');
+          if (!overlay) {
+            return;
+          }
+          const open = () => {
+            overlay.hidden = false;
+            toggle.setAttribute('aria-expanded', 'true');
+            const input = overlay.querySelector('input[type="search"]');
+            if (input) {
+              input.focus();
+            }
+          };
+          const close = () => {
+            overlay.hidden = true;
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.focus();
+          };
+          toggle.addEventListener('click', () => {
+            if (overlay.hidden) {
+              open();
+            } else {
+              close();
+            }
+          });
+          const exit = overlay.querySelector('.cas-search-overlay__exit');
+          if (exit) {
+            exit.addEventListener('click', close);
+          }
+          overlay.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+              close();
+            }
+          });
+        },
+      );
+    },
+  };
+
+  /**
    * Collapse Layout Builder sections whose blocks are all empty.
    *
    * D7 rendered empty paragraphs as nothing; the migration turns every

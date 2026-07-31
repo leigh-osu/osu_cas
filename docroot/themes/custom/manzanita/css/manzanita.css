@@ -1,6 +1,37 @@
-#madrone-header-container,
-#madrone-header-container .header-search-block-form {
-  background-color: #000 !important;
+:root {
+  --bs-body-line-height: 1.6;
+  --bs-body-color: #212529;
+  --bs-body-color-rgb: 33, 37, 41;
+  --bs-secondary-color: rgba(33, 37, 41, 0.75);
+  --bs-secondary-color-rgb: 33, 37, 41;
+  --bs-tertiary-color: rgba(33, 37, 41, 0.5);
+  --bs-tertiary-color-rgb: 33, 37, 41;
+  --bs-link-color: #212529;
+  --bs-link-color-rgb: 33, 37, 41;
+  --bs-link-hover-color: #212529;
+  --bs-link-hover-color-rgb: 33, 37, 41;
+  --bs-highlight-color: #212529;
+}
+
+body {
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #212529;
+}
+
+h3 {
+  font-family: "Stratum2Web", serif;
+  font-weight: 700;
+}
+
+.osu-text-bucktoothwhite h2, .osu-text-bucktoothwhite h4, .osu-text-bucktoothwhite h6 {
+  color: hsl(0, 0%, 100%);
+}
+
+#madrone-header-container {
+  background-color: #212529 !important;
 }
 
 #madrone-header-container,
@@ -12,41 +43,94 @@
   border-top: 6px solid #d73f09 !important;
 }
 
-.block-search-form-block > .block__content {
-  flex: 1 1 auto;
+.cas-search-toggle {
+  background: transparent;
+  border: 0;
+  font-size: 1.25rem;
+  padding: 0;
 }
-
-.header-search-block-form input[type=search].form-control, .header-search-block-form input[type=search].form-control:focus {
-  background-color: #000 !important;
+.cas-search-toggle .fa-search {
+  color: #d73f09 !important;
+  transition: color 200ms ease;
+}
+.cas-search-toggle:hover .fa-search, .cas-search-toggle:focus .fa-search {
   color: #fff !important;
 }
-.header-search-block-form input[type=search].form-control::placeholder {
-  color: #ccc !important;
+
+.cas-search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  background: rgba(0, 0, 0, 0.86);
+  text-align: center;
+  padding-top: 60px;
+}
+.cas-search-overlay:not([hidden]) {
+  animation: cas-search-overlay-in 200ms ease;
+}
+.cas-search-overlay .header-search-block-form {
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.cas-search-overlay input[type=search].form-control {
+  border-radius: 0;
+  flex: 0 1 auto;
+  font-size: 1.5rem;
+  height: 3.45rem;
+  width: min(80vw, 24rem);
+}
+.cas-search-overlay .form-actions button {
+  background-color: #d73f09 !important;
+  border: 0;
+  border-radius: 0;
+  font-size: 1.75rem !important;
+  height: 3.45rem;
+  width: 2em;
+}
+.cas-search-overlay .form-actions button .fa-search {
+  color: #fff !important;
+}
+.cas-search-overlay .form-actions button:hover, .cas-search-overlay .form-actions button:focus {
+  background-color: #fff !important;
+}
+.cas-search-overlay .form-actions button:hover .fa-search, .cas-search-overlay .form-actions button:focus .fa-search {
+  color: #d73f09 !important;
+}
+.cas-search-overlay__exit {
+  background: #000;
+  border: 1px solid #fff;
+  border-radius: 0;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.4286;
+  padding: 10px;
+}
+.cas-search-overlay__exit:hover, .cas-search-overlay__exit:focus, .cas-search-overlay__exit:active {
+  background: #fff;
+  color: #000;
 }
 
+@keyframes cas-search-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .cas-header-links {
   white-space: nowrap;
 }
 .cas-header-links a {
   color: #fff;
-  font-family: "Stratum2Web", serif;
+  font-family: "Open Sans", sans-serif;
   text-decoration: none;
   padding-inline: 1rem;
   border-left: 1px solid #696361;
 }
 .cas-header-links a:hover, .cas-header-links a:focus {
   text-decoration: underline;
-}
-
-.header-search-block-form .form-actions button {
-  font-size: 1.25rem !important;
-}
-.header-search-block-form .form-actions button .fa-search {
-  color: #d73f09 !important;
-  transition: color 200ms ease;
-}
-.header-search-block-form .form-actions button:hover .fa-search, .header-search-block-form .form-actions button:focus .fa-search {
-  color: #fff !important;
+  text-decoration-color: #d73f09;
 }
 
 #madrone-primary-menu-container,
@@ -58,7 +142,7 @@
 .block-group-content-menu,
 .block-group-content-menu ul,
 .block-group-content-menu li {
-  background-color: #000 !important;
+  background-color: #212529 !important;
 }
 
 #madrone-primary-menu-container {
@@ -108,16 +192,56 @@
 .block-group-content-menu .group-menu-hover > a,
 .block-group-content-menu .group-menu-hover > span,
 .block-group-content-menu .group-menu-hover > ul {
-  background-color: #696361 !important;
-  color: #fff !important;
+  background-color: #f7f5f5 !important;
+  color: #d73f09 !important;
 }
 #madrone-primary-menu-container .group-sub-menu > a::after,
 #madrone-primary-menu-container .group-sub-menu > span::after,
+#madrone-primary-menu-container li a.menuparent::after,
+#madrone-primary-menu-container li span.menuparent::after,
 .block-superfish .group-sub-menu > a::after,
 .block-superfish .group-sub-menu > span::after,
+.block-superfish li a.menuparent::after,
+.block-superfish li span.menuparent::after,
 .block-group-content-menu .group-sub-menu > a::after,
-.block-group-content-menu .group-sub-menu > span::after {
+.block-group-content-menu .group-sub-menu > span::after,
+.block-group-content-menu li a.menuparent::after,
+.block-group-content-menu li span.menuparent::after {
   color: #fff !important;
+}
+#madrone-primary-menu-container .group-sub-menu > a:hover::after,
+#madrone-primary-menu-container .group-sub-menu > span:hover::after,
+#madrone-primary-menu-container .group-menu-hover > a::after,
+#madrone-primary-menu-container .group-menu-hover > span::after,
+#madrone-primary-menu-container li:hover > a.menuparent::after,
+#madrone-primary-menu-container li:hover > span.menuparent::after,
+.block-superfish .group-sub-menu > a:hover::after,
+.block-superfish .group-sub-menu > span:hover::after,
+.block-superfish .group-menu-hover > a::after,
+.block-superfish .group-menu-hover > span::after,
+.block-superfish li:hover > a.menuparent::after,
+.block-superfish li:hover > span.menuparent::after,
+.block-group-content-menu .group-sub-menu > a:hover::after,
+.block-group-content-menu .group-sub-menu > span:hover::after,
+.block-group-content-menu .group-menu-hover > a::after,
+.block-group-content-menu .group-menu-hover > span::after,
+.block-group-content-menu li:hover > a.menuparent::after,
+.block-group-content-menu li:hover > span.menuparent::after {
+  color: #d73f09 !important;
+}
+
+.block-superfish li:not(.sf-depth-1) a.menuparent::after,
+.block-superfish li:not(.sf-depth-1) span.menuparent::after,
+.block-group-content-menu .menu--level-2 .group-sub-menu > a::after,
+.block-group-content-menu .menu--level-2 .group-sub-menu > span::after {
+  content: " \f0da" !important;
+}
+
+.block-superfish li.sf-depth-1 > a::after,
+.block-superfish li.sf-depth-1 > span::after,
+#group-content-menu > li.group-sub-menu > a::after,
+#group-content-menu > li.group-sub-menu > span::after {
+  content: none !important;
 }
 
 #madrone-primary-menu-container a.sf-depth-1,
@@ -170,7 +294,7 @@ html {
 }
 
 #madrone-breadcrumb-container {
-  background-color: #2e2b2a;
+  background-color: #3b3d3f;
 }
 #madrone-breadcrumb-container:not(:has(li)) {
   display: none;
@@ -179,12 +303,15 @@ html {
   margin: 0;
   padding-block: 0.25rem;
   font-size: 0.875rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.015em;
 }
 #madrone-breadcrumb-container .breadcrumb-item {
-  color: #e9e5e4;
+  color: #f7f5f5;
 }
 #madrone-breadcrumb-container .breadcrumb-item a {
-  color: #fff;
+  color: #f7f5f5;
   text-decoration: none;
 }
 #madrone-breadcrumb-container .breadcrumb-item a:hover, #madrone-breadcrumb-container .breadcrumb-item a:focus {
@@ -194,7 +321,7 @@ html {
   color: #b7b1af;
 }
 #madrone-breadcrumb-container .breadcrumb-item.active {
-  color: #e9e5e4;
+  color: #f7f5f5;
 }
 #madrone-breadcrumb-container .breadcrumb-item:last-child::after {
   content: var(--bs-breadcrumb-divider, ">");
@@ -205,6 +332,13 @@ html {
 
 footer[role=contentinfo] {
   font-size: 0.9em;
+}
+
+footer[role=contentinfo] .region-footer {
+  background-image: url("../assets/cas_footer_background.webp");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 main[role=main] .cas-hero:not(.video-content *),
@@ -467,6 +601,10 @@ body.has-cas-hero main .block-local-tasks-block {
   display: none !important;
 }
 
+.osu-logo__frame {
+  padding: 20px;
+}
+
 .block__content__site-name,
 .block__content__site-name a,
 .block__content__site-name span,
@@ -649,6 +787,12 @@ header[role=banner] {
   --bs-btn-border-radius: 0.75rem;
   --bs-btn-padding-x: 0.75rem;
   --bs-btn-padding-y: 0.28rem;
+  --bs-btn-bg: #f7f5f5;
+  --bs-btn-border-color: #ffb500;
+  --bs-btn-color: #212529;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 
 .block--type-paragraph-block .field--name-body {

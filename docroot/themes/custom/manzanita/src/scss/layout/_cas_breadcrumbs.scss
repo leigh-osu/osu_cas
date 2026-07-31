@@ -1,11 +1,11 @@
 @import '../abstracts/cas_variables';
 
-// Breadcrumb trail on a dark-grey full-bleed bar — the $neutral-800 the
-// menus used before they went black, keeping the header (black) → menu
-// (black) → breadcrumb (dark grey) → page stack. Edge-to-edge width comes
+// Breadcrumb trail on a dark-grey full-bleed bar, keeping the header →
+// menu → breadcrumb (dark grey) → page stack. The cool grey is off-palette
+// on purpose (madrone's neutrals are warm). Edge-to-edge width comes
 // from the fixed-width media query in _cas_fixed_width.scss.
 #madrone-breadcrumb-container {
-  background-color: $neutral-800;
+  background-color: #3b3d3f;
 
   // No crumbs, no bar: group landing pages get an empty trail from
   // GroupMenuBreadcrumbBuilder (osu_cas_multisite), and the region would
@@ -21,16 +21,19 @@
     padding-block: 0.25rem;
     // Subordinate to the 16px menu links above it.
     font-size: 0.875rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.015em;
   }
 
   .breadcrumb-item {
     // The current page renders as a plain breadcrumb-item with bare text —
-    // core's template adds no .active class — so the near-white "you are
-    // here" colour goes on the item itself; linked crumbs override to white.
-    color: $neutral-200;
+    // core's template adds no .active class — so the "you are here" colour
+    // goes on the item itself; links share it and signal by underline.
+    color: $neutral-100;
 
     a {
-      color: #fff;
+      color: $neutral-100;
       text-decoration: none;
 
       &:hover,
@@ -47,7 +50,7 @@
     }
 
     &.active {
-      color: $neutral-200;
+      color: $neutral-100;
     }
 
     // Trailing divider after the last crumb — the trail no longer shows the
