@@ -46,17 +46,24 @@
     padding-bottom: 0.4rem !important;
   }
 
-  // Hover states: near-white wash with beaver-orange text.
+  // Rollover: orange fill with an off-white label, never underlined —
+  // matching the dropdown hover inversion.
   a:hover,
   span:hover,
   a.nav-link:hover,
   span.nav-link:hover,
   .menuparent:hover > a,
   .group-menu-hover > a,
-  .group-menu-hover > span,
+  .group-menu-hover > span {
+    background-color: $osuorange !important;
+    color: $neutral-100 !important;
+    text-decoration: none !important;
+  }
+
+  // A hovered parent's open panel keeps the light dropdown background
+  // (split from the link rule above so it doesn't go orange with it).
   .group-menu-hover > ul {
     background-color: $neutral-100 !important;
-    color: $osuorange !important;
   }
 
   // Sub-menu chevron glyphs follow the white text (madrone colors the
@@ -101,6 +108,12 @@
   span.nav-link {
     background-color: transparent !important;
     color: $osuorange !important;
+    // Body face rather than the bar's Stratum2, at 1rem with normal
+    // tracking (the bar's 1.1rem / 0.05em stays top-level only), and no
+    // underline in any state (the hover inversion carries the affordance).
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 1rem !important;
+    letter-spacing: normal;
     text-decoration: none !important;
   }
 
@@ -116,13 +129,18 @@
   .group-menu-hover > span {
     background-color: $osuorange !important;
     color: $neutral-100 !important;
-    text-decoration: underline !important;
-    text-decoration-color: $neutral-100 !important;
+    text-decoration: none !important;
   }
 
-  // Flyout arrows follow the link text.
+  // Flyout arrows follow the link text. The .menuparent/.group-sub-menu
+  // variants matter: the bar section's arrow rules carry those classes, and
+  // plain a::after here would lose to them on specificity.
   a::after,
-  span::after {
+  span::after,
+  a.menuparent::after,
+  span.menuparent::after,
+  .group-sub-menu > a::after,
+  .group-sub-menu > span::after {
     color: $osuorange !important;
   }
 
@@ -130,6 +148,10 @@
   span:hover::after,
   li:hover > a::after,
   li:hover > span::after,
+  li:hover > a.menuparent::after,
+  li:hover > span.menuparent::after,
+  .group-sub-menu > a:hover::after,
+  .group-sub-menu > span:hover::after,
   .group-menu-hover > a::after,
   .group-menu-hover > span::after {
     color: $neutral-100 !important;

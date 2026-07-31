@@ -187,7 +187,6 @@ h3 {
 #madrone-primary-menu-container .menuparent:hover > a,
 #madrone-primary-menu-container .group-menu-hover > a,
 #madrone-primary-menu-container .group-menu-hover > span,
-#madrone-primary-menu-container .group-menu-hover > ul,
 .block-superfish a:hover,
 .block-superfish span:hover,
 .block-superfish a.nav-link:hover,
@@ -195,17 +194,21 @@ h3 {
 .block-superfish .menuparent:hover > a,
 .block-superfish .group-menu-hover > a,
 .block-superfish .group-menu-hover > span,
-.block-superfish .group-menu-hover > ul,
 .block-group-content-menu a:hover,
 .block-group-content-menu span:hover,
 .block-group-content-menu a.nav-link:hover,
 .block-group-content-menu span.nav-link:hover,
 .block-group-content-menu .menuparent:hover > a,
 .block-group-content-menu .group-menu-hover > a,
-.block-group-content-menu .group-menu-hover > span,
+.block-group-content-menu .group-menu-hover > span {
+  background-color: #d73f09 !important;
+  color: #f7f5f5 !important;
+  text-decoration: none !important;
+}
+#madrone-primary-menu-container .group-menu-hover > ul,
+.block-superfish .group-menu-hover > ul,
 .block-group-content-menu .group-menu-hover > ul {
   background-color: #f7f5f5 !important;
-  color: #d73f09 !important;
 }
 #madrone-primary-menu-container .group-sub-menu > a::after,
 #madrone-primary-menu-container .group-sub-menu > span::after,
@@ -267,6 +270,9 @@ h3 {
 .block-group-content-menu ul ul span.nav-link {
   background-color: transparent !important;
   color: #d73f09 !important;
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 1rem !important;
+  letter-spacing: normal;
   text-decoration: none !important;
 }
 #madrone-primary-menu-container ul ul a:hover,
@@ -301,33 +307,56 @@ h3 {
 .block-group-content-menu ul ul .group-menu-hover > span {
   background-color: #d73f09 !important;
   color: #f7f5f5 !important;
-  text-decoration: underline !important;
-  text-decoration-color: #f7f5f5 !important;
+  text-decoration: none !important;
 }
 #madrone-primary-menu-container ul ul a::after,
 #madrone-primary-menu-container ul ul span::after,
+#madrone-primary-menu-container ul ul a.menuparent::after,
+#madrone-primary-menu-container ul ul span.menuparent::after,
+#madrone-primary-menu-container ul ul .group-sub-menu > a::after,
+#madrone-primary-menu-container ul ul .group-sub-menu > span::after,
 .block-superfish ul ul a::after,
 .block-superfish ul ul span::after,
+.block-superfish ul ul a.menuparent::after,
+.block-superfish ul ul span.menuparent::after,
+.block-superfish ul ul .group-sub-menu > a::after,
+.block-superfish ul ul .group-sub-menu > span::after,
 .block-group-content-menu ul ul a::after,
-.block-group-content-menu ul ul span::after {
+.block-group-content-menu ul ul span::after,
+.block-group-content-menu ul ul a.menuparent::after,
+.block-group-content-menu ul ul span.menuparent::after,
+.block-group-content-menu ul ul .group-sub-menu > a::after,
+.block-group-content-menu ul ul .group-sub-menu > span::after {
   color: #d73f09 !important;
 }
 #madrone-primary-menu-container ul ul a:hover::after,
 #madrone-primary-menu-container ul ul span:hover::after,
 #madrone-primary-menu-container ul ul li:hover > a::after,
 #madrone-primary-menu-container ul ul li:hover > span::after,
+#madrone-primary-menu-container ul ul li:hover > a.menuparent::after,
+#madrone-primary-menu-container ul ul li:hover > span.menuparent::after,
+#madrone-primary-menu-container ul ul .group-sub-menu > a:hover::after,
+#madrone-primary-menu-container ul ul .group-sub-menu > span:hover::after,
 #madrone-primary-menu-container ul ul .group-menu-hover > a::after,
 #madrone-primary-menu-container ul ul .group-menu-hover > span::after,
 .block-superfish ul ul a:hover::after,
 .block-superfish ul ul span:hover::after,
 .block-superfish ul ul li:hover > a::after,
 .block-superfish ul ul li:hover > span::after,
+.block-superfish ul ul li:hover > a.menuparent::after,
+.block-superfish ul ul li:hover > span.menuparent::after,
+.block-superfish ul ul .group-sub-menu > a:hover::after,
+.block-superfish ul ul .group-sub-menu > span:hover::after,
 .block-superfish ul ul .group-menu-hover > a::after,
 .block-superfish ul ul .group-menu-hover > span::after,
 .block-group-content-menu ul ul a:hover::after,
 .block-group-content-menu ul ul span:hover::after,
 .block-group-content-menu ul ul li:hover > a::after,
 .block-group-content-menu ul ul li:hover > span::after,
+.block-group-content-menu ul ul li:hover > a.menuparent::after,
+.block-group-content-menu ul ul li:hover > span.menuparent::after,
+.block-group-content-menu ul ul .group-sub-menu > a:hover::after,
+.block-group-content-menu ul ul .group-sub-menu > span:hover::after,
 .block-group-content-menu ul ul .group-menu-hover > a::after,
 .block-group-content-menu ul ul .group-menu-hover > span::after {
   color: #f7f5f5 !important;
@@ -419,6 +448,7 @@ html {
 }
 #madrone-breadcrumb-container .breadcrumb-item a:hover, #madrone-breadcrumb-container .breadcrumb-item a:focus {
   text-decoration: underline;
+  text-decoration-color: #d73f09;
 }
 #madrone-breadcrumb-container .breadcrumb-item::before {
   color: #b7b1af;
@@ -907,6 +937,9 @@ header[role=banner] {
   letter-spacing: 0.1em;
   margin: 0.5em;
   text-transform: uppercase;
+}
+.btn, .btn:hover, .btn:focus, .btn:active {
+  text-decoration: none;
 }
 
 .btn.cas-button-light {

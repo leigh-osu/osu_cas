@@ -38,7 +38,10 @@
 
       &:hover,
       &:focus {
+        // The shorthand resets decoration color to currentColor (near-
+        // white), so the orange is explicit.
         text-decoration: underline;
+        text-decoration-color: $osuorange;
       }
     }
 

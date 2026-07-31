@@ -4,7 +4,7 @@ core_version_requirement: ^10 || ^11
 type: theme
 dependencies:
   - madrone:madrone
-version: '1.1.8'
+version: '1.1.9'
 base theme: madrone
 logo: logo.svg
 screenshot: manzanita.png

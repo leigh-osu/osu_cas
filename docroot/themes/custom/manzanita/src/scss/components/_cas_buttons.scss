@@ -29,6 +29,15 @@
   letter-spacing: 0.1em;
   margin: 0.5em;
   text-transform: uppercase;
+
+  // Never underline a button — the global a:hover underline (see
+  // _cas_typography) would otherwise catch link-styled buttons.
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+  }
 }
 
 // Named CAS schemes, applied alongside .btn (class="btn cas-button-dark").
