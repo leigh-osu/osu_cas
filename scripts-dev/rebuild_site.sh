@@ -628,6 +628,18 @@ section_7() {
       else { print "WARNING: $mail not found; no administrator role granted\n"; }
     }'
 
+  # Carry D7's per-node "hide title" boolean (field_node_hide_title on page
+  # and paragraph_page) into exclude_node_title's state list — no migration
+  # yml can target state, so it's a post-migration step. Idempotent.
+  ddev drush --uri="${SITE_URI}" scr scripts-dev/import_hide_title.php
+
+  # Overlay the stage-authored Home and Education pages (default_content
+  # export in scripts-dev/dc_stage_pages, pulled from @osucas.stage with
+  # dcer). Creates the stage inline blocks/media by UUID and remaps the
+  # nodes' Layout Builder section block ids; idempotent. Needs the site URI:
+  # entity/file paths resolve against the agsci site dir, not sites/default.
+  ddev drush --uri="${SITE_URI}" scr scripts-dev/import_stage_pages.php
+
   ddev drush pqe -y
   ddev drush cr
   # Each site directory compiles its own container; the bare cr above only
