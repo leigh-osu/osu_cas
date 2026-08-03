@@ -31,9 +31,33 @@ h1, h2, h3, h4, h5, h6 {
   color: #212529;
 }
 
+h1 {
+  font-size: clamp(1.525rem, 1.525rem + 3.3vw, 4rem);
+  font-weight: 200;
+}
+
+h2 {
+  font-size: clamp(1.365rem, 1.365rem + 1.38vw, 2.4rem);
+  font-weight: 400;
+}
+
 h3 {
   font-family: "Stratum2Web", serif;
-  font-weight: 700;
+  font-size: clamp(1.295rem, 1.295rem + 0.54vw, 1.7rem);
+  font-weight: 500;
+}
+
+h4,
+h5 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+}
+
+h6 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.1rem;
 }
 
 .osu-text-bucktoothwhite h2, .osu-text-bucktoothwhite h4, .osu-text-bucktoothwhite h6 {
@@ -467,9 +491,35 @@ footer[role=contentinfo] {
   font-size: 0.9em;
 }
 
+@media (min-width: 768px) {
+  footer[role=contentinfo] .footer-site-links .col-xs-4 {
+    flex: 0 0 auto;
+    width: 33.3333%;
+  }
+}
+
+footer[role=contentinfo] a,
+footer[role=contentinfo] a.osu-link-white {
+  color: #d73f09 !important;
+  text-decoration-color: #d73f09 !important;
+}
+
+footer[role=contentinfo] ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
 footer[role=contentinfo] .region-footer a:hover, footer[role=contentinfo] .region-footer a:focus {
   text-decoration: underline;
   text-decoration-color: #d73f09;
+}
+
+@media (min-width: 768px) {
+  footer[role=contentinfo] .footer-address {
+    flex: 0 0 auto;
+    width: 25%;
+  }
 }
 
 footer[role=contentinfo] .region-footer {
@@ -809,7 +859,7 @@ header[role=banner] {
 .env-indicator--dev {
   background-color: #d63d2b;
 }
-.env-indicator--test {
+.env-indicator--stage {
   background-color: #f0ad20;
   color: #1a1a1a;
 }
@@ -934,7 +984,7 @@ header[role=banner] {
   --bs-btn-hover-color: #fff;
   font-family: "Open Sans", sans-serif;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
   margin: 0.5em;
   text-transform: uppercase;
 }
@@ -962,6 +1012,20 @@ header[role=banner] {
 
 .block--type-paragraph-block .field--name-body {
   padding: 1em;
+}
+
+.node--type-publications .field--name-field-pub-keywords .field__items,
+.node--type-publications .field--name-field-pub-keywords .field__item,
+.node--type-publications .field--name-field-pub-authors .field__items,
+.node--type-publications .field--name-field-pub-authors .field__item,
+.node--type-publications .field--name-field-pub-editors .field__items,
+.node--type-publications .field--name-field-pub-editors .field__item {
+  display: inline;
+}
+.node--type-publications .field--name-field-pub-keywords .field__item:not(:last-child)::after,
+.node--type-publications .field--name-field-pub-authors .field__item:not(:last-child)::after,
+.node--type-publications .field--name-field-pub-editors .field__item:not(:last-child)::after {
+  content: "; ";
 }
 
 /*# sourceMappingURL=manzanita.css.map */

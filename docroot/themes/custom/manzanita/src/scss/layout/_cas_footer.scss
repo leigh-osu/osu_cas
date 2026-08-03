@@ -3,6 +3,32 @@ footer[role='contentinfo'] {
   font-size: 0.9em;
 }
 
+// The site-links block's Student/Employee/New Employees groups sit in
+// col-xs-4 divs — a Bootstrap 3 class that BS5 ignores, so they stack at
+// every width. Give them their three columns back on wider views.
+footer[role='contentinfo'] .footer-site-links .col-xs-4 {
+  @media (min-width: 768px) {
+    flex: 0 0 auto;
+    width: 33.3333%;
+  }
+}
+
+// All footer links beaver orange — madrone paints them white, and the
+// copyright row's .osu-link-white utility carries !important.
+footer[role='contentinfo'] a,
+footer[role='contentinfo'] a.osu-link-white {
+  color: $osuorange !important;
+  text-decoration-color: $osuorange !important;
+}
+
+// The footer block's link lists render with default bullets (the site-wide
+// marker styling is scoped to the main content region); strip them.
+footer[role='contentinfo'] ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
 // Footer links underline on rollover — madrone inverts (underline at rest,
 // none on hover), which stopped making sense once resting underlines went
 // away site-wide. Outranks madrone's .region-footer a:hover rule; the
@@ -13,6 +39,16 @@ footer[role='contentinfo'] .region-footer a {
   &:focus {
     text-decoration: underline;
     text-decoration-color: $osuorange;
+  }
+}
+
+// The footer content block's body carries hand-written D7-era Bootstrap 3
+// column markup; widen the first (address) column from its col-md-2
+// (16.7%) to a col-md-3-equivalent 25% without editing the content.
+footer[role='contentinfo'] .footer-address {
+  @media (min-width: 768px) {
+    flex: 0 0 auto;
+    width: 25%;
   }
 }
 

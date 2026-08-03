@@ -1,5 +1,5 @@
 // Build-environment badge injected into the header by
-// manzanita_preprocess_page(): red dev, yellow test, green prod, blue local.
+// manzanita_preprocess_page(): red dev, yellow stage, green prod, blue local.
 header[role='banner'] {
   position: relative;
 }
@@ -28,7 +28,7 @@ header[role='banner'] {
 
   &--local { background-color: #0072c6; }               // blue
   &--dev   { background-color: #d63d2b; }                // red
-  &--test  { background-color: #f0ad20; color: #1a1a1a; } // yellow (dark text)
+  &--stage { background-color: #f0ad20; color: #1a1a1a; } // yellow (dark text)
   &--prod  { background-color: #218739; }                // green
   &--other { background-color: #555; }
 }

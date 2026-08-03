@@ -141,6 +141,19 @@
         if (!blocks.length) {
           return; // Component-less divider section: intentional.
         }
+        // A background image or video IS the content: D7 "entity
+        // background" bands migrate as empty paragraph blocks with the
+        // image painted either on the section wrapper (1-col parallax
+        // strips — an ancestor) or on the per-column block wrappers
+        // (2-col photo columns — descendants). Either way the emptiness
+        // is deliberate.
+        if (
+          layout.closest('.bg-image, .background-local-video') ||
+          layout.closest('[style*="background-image"]') ||
+          layout.querySelector('.bg-image, [style*="background-image"]')
+        ) {
+          return;
+        }
         const hasContent =
           layout.textContent.trim() !== '' ||
           layout.querySelector('img, svg, iframe, video, audio, form, canvas');

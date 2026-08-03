@@ -137,6 +137,8 @@ class OsuMediaEmbed {
       'upgrade_d7_media_audio',
       'upgrade_d7_media_documents',
       'upgrade_d7_media_images',
+      'cas_media_private_images',
+      'cas_media_private_documents',
       'upgrade_d7_media_kaltura',
       'upgrade_d7_media_local_video',
       'upgrade_d7_media_remote_video',

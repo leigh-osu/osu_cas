@@ -10,7 +10,7 @@ id: node.publications.field_pub_type
 field_name: field_pub_type
 entity_type: node
 bundle: publications
-label: Type
+label: 'Publication type'
 description: 'Select the Type of publication.'
 required: false
 translatable: false

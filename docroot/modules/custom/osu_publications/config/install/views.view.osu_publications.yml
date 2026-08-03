@@ -739,7 +739,7 @@ display:
           exposed: true
           expose:
             operator_id: field_pub_type_target_id_op
-            label: Type
+            label: 'Publication type'
             description: ''
             use_operator: false
             operator: field_pub_type_target_id_op

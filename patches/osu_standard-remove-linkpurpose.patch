@@ -1,5 +1,9 @@
 Remove linkpurpose from the osu_standard profile dependencies so it can be
 uninstalled per-site (profile dependencies are locked against uninstall).
+The shipped role configs must drop their linkpurpose dependency and
+permission too, or a fresh site:install fails with "Configuration objects
+provided by osu_standard have unmet dependencies: user.role.architect
+(linkpurpose)".
 
 diff --git a/osu_standard.info.yml b/osu_standard.info.yml
 --- a/osu_standard.info.yml
@@ -12,3 +16,122 @@ diff --git a/osu_standard.info.yml b/osu_standard.info.yml
    - media_bulk_upload
    - media_bulk_upload_dropzonejs
    - memcache
+diff --git a/config/install/user.role.architect.yml b/config/install/user.role.architect.yml
+--- a/config/install/user.role.architect.yml
++++ b/config/install/user.role.architect.yml
+@@ -48,5 +48,4 @@
+     - layout_builder_restrictions
+     - linkit
+-    - linkpurpose
+     - media
+     - media_bulk_upload
+@@ -131,5 +130,4 @@
+   - 'administer layout builder component attributes'
+   - 'administer linkit profiles'
+-  - 'administer linkpurpose'
+   - 'administer media'
+   - 'administer media display'
+diff --git a/config/install/user.role.dx_administrator.yml b/config/install/user.role.dx_administrator.yml
+--- a/config/install/user.role.dx_administrator.yml
++++ b/config/install/user.role.dx_administrator.yml
+@@ -52,5 +52,4 @@
+     - layout_builder_restrictions
+     - linkit
+-    - linkpurpose
+     - media
+     - media_bulk_upload
+@@ -148,5 +147,4 @@
+   - 'administer layout builder component attributes'
+   - 'administer linkit profiles'
+-  - 'administer linkpurpose'
+   - 'administer madrone theme'
+   - 'administer media'
+diff --git a/config/install/user.role.manage_site_configuration.yml b/config/install/user.role.manage_site_configuration.yml
+--- a/config/install/user.role.manage_site_configuration.yml
++++ b/config/install/user.role.manage_site_configuration.yml
+@@ -14,5 +14,4 @@
+     - honeypot
+     - linkit
+-    - linkpurpose
+     - node_revision_delete
+     - path
+@@ -43,5 +42,4 @@
+   - 'administer honeypot'
+   - 'administer linkit profiles'
+-  - 'administer linkpurpose'
+   - 'administer madrone theme'
+   - 'administer menu'
+diff --git a/config/install/linkpurpose.settings.yml b/config/install/linkpurpose.settings.yml
+deleted file mode 100644
+--- a/config/install/linkpurpose.settings.yml
++++ /dev/null
+@@ -1,69 +0,0 @@
+-domain: ''
+-roots: ''
+-shadowComponents: ''
+-ignore: '#toolbar-administration a,#block-madrone-sitebranding a,#madrone-primary-menu-container a,.block-superfish a,.block-menu a,.block-group-content-menu a'
+-hideIcon: ''
+-noRunIfPresent: ''
+-noRunIfAbsent: ''
+-themePreprocess: false
+-noAggregate: false
+-noIconOnImages: false
+-insertIconOutsideHiddenSpan: ''
+-purposeExternal: true
+-purposeExternalNoReferrer: false
+-purposeExternalNewWindow: false
+-purposeExternalSelector: ''
+-purposeExternalMessage: 'Link is external'
+-purposeExternalClass: ''
+-purposeExternalIconWrapperClass: ''
+-purposeExternalIconType: html
+-purposeExternalIconPosition: beforeend
+-purposeExternalIconClasses: ''
+-purposeDocument: true
+-purposeDocumentSelector: "[href^='/document/'], [href$='.pdf'], [href*='.pdf?'], [href$='.tex'], [href*='.tex?'], [href$='.doc'], [href$='.docx'], [href*='.doc?'], [href*='.docx?'], [href$='.ppt'], [href$='.pptx'], [href*='.ppt?'], [href*='.pptx?'], [href$='.odt'], [href*='.odt?'], [href$='.ods'], [href*='.ods?'], [href$='.odp'], [href*='.odp?'], [href^='https://docs.google']"
+-purposeDocumentMessage: 'Link downloads document'
+-purposeDocumentClass: ''
+-purposeDocumentIconWrapperClass: ''
+-purposeDocumentIconType: html
+-purposeDocumentIconPosition: beforeend
+-purposeDocumentIconClasses: ''
+-purposeDownload: true
+-purposeDownloadSelector: ''
+-purposeDownloadMessage: 'Link downloads file'
+-purposeDownloadClass: ''
+-purposeDownloadIconWrapperClass: ''
+-purposeDownloadIconType: html
+-purposeDownloadIconPosition: beforeend
+-purposeDownloadIconClasses: ''
+-purposeApp: true
+-purposeAppSelector: ''
+-purposeAppMessage: 'Link opens app'
+-purposeAppClass: ''
+-purposeAppIconWrapperClass: ''
+-purposeAppIconType: html
+-purposeAppIconPosition: beforeend
+-purposeAppIconClasses: ''
+-purposeMail: true
+-purposeMailSelector: null
+-purposeMailMessage: 'Link sends email'
+-purposeMailClass: ''
+-purposeMailIconWrapperClass: ''
+-purposeMailIconType: html
+-purposeMailIconPosition: beforeend
+-purposeMailIconClasses: ''
+-purposeTel: true
+-purposeTelSelector: null
+-purposeTelMessage: 'Link opens phone app'
+-purposeTelClass: ''
+-purposeTelIconWrapperClass: ''
+-purposeTelIconType: html
+-purposeTelIconPosition: beforeend
+-purposeTelIconClasses: ''
+-purposeNewWindow: true
+-purposeNewWindowSelector: null
+-purposeNewWindowMessage: 'Link opens in new window'
+-purposeNewWindowClass: ''
+-purposeNewWindowIconWrapperClass: ''
+-purposeNewWindowIconType: html
+-purposeNewWindowIconPosition: beforeend
+-purposeNewWindowIconClasses: ''

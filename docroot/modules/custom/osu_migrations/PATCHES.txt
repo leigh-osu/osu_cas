@@ -17,6 +17,10 @@ OSU Migrations CAS biblio settings
 Source: patches/0001-fix-biblio-dates.patch
 
 
+Resolve wysiwyg tokens for private images via cas_media_private_images
+Source: patches/osu_migrations-private-image-media-lookup.patch
+
+
 background process plugins: handle empty migrate lookup result
 Source: patches/0001-background-process-empty-lookup.patch
 

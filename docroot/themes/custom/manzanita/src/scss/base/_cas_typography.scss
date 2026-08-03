@@ -44,10 +44,41 @@ h1, h2, h3, h4, h5, h6 {
   color: $paddletailblack;
 }
 
-// h3 in Stratum2 Bold, replacing madrone's Open Sans 500.
+// CAS heading scale with a light->heavy weight ramp. Sizes are the caps,
+// reached at the 1200px viewport and scaling down proportionally below —
+// the clamp() midline replicates madrone's RFS slope constants
+// (coefficient = (cap − 1.25rem) × 1.2vw; base = cap − coefficient ×
+// 0.75rem-per-vw). Stratum2Web carries the registered 200/400/500 weights
+// (Thin/Regular/Medium); h4-h6 sit below RFS's meaningful range and stay
+// flat.
+h1 {
+  font-size: clamp(1.525rem, 1.525rem + 3.3vw, 4rem);
+  font-weight: 200;
+}
+
+h2 {
+  font-size: clamp(1.365rem, 1.365rem + 1.38vw, 2.4rem);
+  font-weight: 400;
+}
+
+// h3 in Stratum2 (madrone has it in Open Sans).
 h3 {
   font-family: 'Stratum2Web', serif;
-  font-weight: 700;
+  font-size: clamp(1.295rem, 1.295rem + 0.54vw, 1.7rem);
+  font-weight: 500;
+}
+
+h4,
+h5 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+}
+
+h6 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.1rem;
 }
 
 // Madrone's dark-bg utility only whitens h1/h3/h5 (h2/h4/h6 used to inherit

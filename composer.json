@@ -349,6 +349,7 @@
         "drupal/superfish": "^1.7",
         "drupal/svg_image": "^3.0",
         "drupal/tamper": "^1.0alpha2",
+        "drupal/taxonomy_manager": "^2.0",
         "drupal/tb_megamenu": "^3@alpha",
         "drupal/text_field_formatter": "^2.0",
         "drupal/toc_js": "^3.6",
@@ -570,6 +571,7 @@
                 "OSU Migrations CAS file settings": "patches/0001-osu_migrations_files_cas.patch",
                 "OSU Migrations CAS user settings": "patches/0002-osu_user_accounts_cas.patch",
                 "OSU Migrations CAS biblio settings": "patches/0001-fix-biblio-dates.patch",
+                "Resolve wysiwyg tokens for private images via cas_media_private_images": "patches/osu_migrations-private-image-media-lookup.patch",
                 "background process plugins: handle empty migrate lookup result": "patches/0001-background-process-empty-lookup.patch",
                 "Recover live paragraphs core d7_paragraphs_item silently drops": "patches/0001-osu-paragraphs-item-recover-dropped.patch",
                 "Map larch theme block regions to manzanita": "patches/0001-osu-migrations-larch-block-regions.patch",
@@ -577,6 +579,9 @@
                 "Prevent stub profile nodes from orphaned D7 profile2 rows": "patches/osu_migrations-profile-lookup-no-stub.patch",
                 "Default an empty D7 node language to en": "patches/osu_migrations-empty-langcode-default.patch",
                 "Biblio: drop junk body mapping and skip empty DOI links": "patches/osu_migrations-biblio-body-and-doi.patch"
+            },
+            "osu-wams/osu_publications": {
+                "Authors as Publication Authors taxonomy (term pages collect a person's pubs)": "patches/osu_publications-authors-taxonomy.patch"
             },
             "osu-wams/osu_standard": {
                 "OSU Standard Profile updates": "patches/0001-cas-remove-distro-info.patch",

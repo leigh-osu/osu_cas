@@ -13884,6 +13884,98 @@
             "install-path": "../../docroot/modules/contrib/tamper"
         },
         {
+            "name": "drupal/taxonomy_manager",
+            "version": "2.0.23",
+            "version_normalized": "2.0.23.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/taxonomy_manager.git",
+                "reference": "2.0.23"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/taxonomy_manager-2.0.23.zip",
+                "reference": "2.0.23",
+                "shasum": "d70fbab2e28347179d138ede1806b449d35b0685"
+            },
+            "require": {
+                "drupal/core": "^10.3 || ^11.0",
+                "drupal/jquery_ui": "^1.7"
+            },
+            "require-dev": {
+                "drupal/term_merge": "^2.0",
+                "drupal/term_reference_change": "^2.0"
+            },
+            "suggest": {
+                "fancytree/fancytree": "The fancytree library is required to use the drupal/taxonomy_manager module."
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.23",
+                    "datestamp": "1768460629",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "alesbencina",
+                    "homepage": "https://www.drupal.org/user/3558110"
+                },
+                {
+                    "name": "andriy khomych",
+                    "homepage": "https://www.drupal.org/user/3287133"
+                },
+                {
+                    "name": "aurelianzaha",
+                    "homepage": "https://www.drupal.org/user/3575026"
+                },
+                {
+                    "name": "dragan_bp",
+                    "homepage": "https://www.drupal.org/user/3578037"
+                },
+                {
+                    "name": "jacobsanford",
+                    "homepage": "https://www.drupal.org/user/806538"
+                },
+                {
+                    "name": "joaogarin",
+                    "homepage": "https://www.drupal.org/user/612814"
+                },
+                {
+                    "name": "kalinchernev",
+                    "homepage": "https://www.drupal.org/user/231185"
+                },
+                {
+                    "name": "klausi",
+                    "homepage": "https://www.drupal.org/user/262198"
+                },
+                {
+                    "name": "mh86",
+                    "homepage": "https://www.drupal.org/user/59747"
+                },
+                {
+                    "name": "vladimiraus",
+                    "homepage": "https://www.drupal.org/user/673120"
+                }
+            ],
+            "description": "Tool for administrating taxonomy terms",
+            "homepage": "https://www.drupal.org/project/taxonomy_manager",
+            "support": {
+                "source": "https://drupal.org/project/taxonomy_manager",
+                "issues": "https://drupal.org/project/issues/taxonomy_manager"
+            },
+            "install-path": "../../docroot/modules/contrib/taxonomy_manager"
+        },
+        {
             "name": "drupal/tb_megamenu",
             "version": "3.0.0-alpha5",
             "version_normalized": "3.0.0.0-alpha5",
@@ -18811,20 +18903,20 @@
         },
         {
             "name": "leigh-osu/manzanita",
-            "version": "v1.1.9",
-            "version_normalized": "1.1.9.0",
+            "version": "v1.1.11",
+            "version_normalized": "1.1.11.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:leigh-osu/manzanita.git",
-                "reference": "a0f2194df8eceedd1ee0dc417a37182718440e31"
+                "url": "https://github.com/leigh-osu/manzanita.git",
+                "reference": "bee20ddb0ca2fdaac6f2d4e51ae403bdbdd3f11f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/manzanita/zipball/a0f2194df8eceedd1ee0dc417a37182718440e31",
-                "reference": "a0f2194df8eceedd1ee0dc417a37182718440e31",
+                "url": "https://api.github.com/repos/leigh-osu/manzanita/zipball/bee20ddb0ca2fdaac6f2d4e51ae403bdbdd3f11f",
+                "reference": "bee20ddb0ca2fdaac6f2d4e51ae403bdbdd3f11f",
                 "shasum": ""
             },
-            "time": "2026-07-31T23:46:09+00:00",
+            "time": "2026-08-03T18:51:50+00:00",
             "type": "drupal-custom-theme",
             "installation-source": "dist",
             "license": [
@@ -18837,6 +18929,10 @@
                 }
             ],
             "description": "Drupal Theme for OSU College of Agricultural Sciences",
+            "support": {
+                "source": "https://github.com/leigh-osu/manzanita/tree/v1.1.11",
+                "issues": "https://github.com/leigh-osu/manzanita/issues"
+            },
             "install-path": "../../docroot/themes/custom/manzanita"
         },
         {
@@ -18932,23 +19028,23 @@
         },
         {
             "name": "leigh-osu/osu_migrations_cas",
-            "version": "v1.0.37",
-            "version_normalized": "1.0.37.0",
+            "version": "v1.0.39",
+            "version_normalized": "1.0.39.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:leigh-osu/osu_migrations_cas.git",
-                "reference": "be70b37483fdd5772d0c18eb3fb8704abdf2f3ab"
+                "reference": "7877115d2c63b91958af0f74c29f77123ea664c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_migrations_cas/zipball/be70b37483fdd5772d0c18eb3fb8704abdf2f3ab",
-                "reference": "be70b37483fdd5772d0c18eb3fb8704abdf2f3ab",
+                "url": "https://api.github.com/repos/leigh-osu/osu_migrations_cas/zipball/7877115d2c63b91958af0f74c29f77123ea664c9",
+                "reference": "7877115d2c63b91958af0f74c29f77123ea664c9",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.1"
             },
-            "time": "2026-07-29T05:18:48+00:00",
+            "time": "2026-08-03T18:23:47+00:00",
             "type": "drupal-custom-module",
             "extra": {
                 "drush": {
@@ -18960,7 +19056,7 @@
             "installation-source": "dist",
             "description": "Drupal 7 to 10 migration code for OSU CAS",
             "support": {
-                "source": "https://github.com/leigh-osu/osu_migrations_cas/tree/v1.0.37",
+                "source": "https://github.com/leigh-osu/osu_migrations_cas/tree/v1.0.39",
                 "issues": "https://github.com/leigh-osu/osu_migrations_cas/issues"
             },
             "install-path": "../../docroot/modules/custom/osu_migrations_cas"
@@ -20871,6 +20967,7 @@
                     "OSU Migrations CAS file settings": "patches/0001-osu_migrations_files_cas.patch",
                     "OSU Migrations CAS user settings": "patches/0002-osu_user_accounts_cas.patch",
                     "OSU Migrations CAS biblio settings": "patches/0001-fix-biblio-dates.patch",
+                    "Resolve wysiwyg tokens for private images via cas_media_private_images": "patches/osu_migrations-private-image-media-lookup.patch",
                     "background process plugins: handle empty migrate lookup result": "patches/0001-background-process-empty-lookup.patch",
                     "Recover live paragraphs core d7_paragraphs_item silently drops": "patches/0001-osu-paragraphs-item-recover-dropped.patch",
                     "Map larch theme block regions to manzanita": "patches/0001-osu-migrations-larch-block-regions.patch",
@@ -21021,6 +21118,11 @@
             },
             "time": "2025-11-17T23:48:12+00:00",
             "type": "drupal-custom-module",
+            "extra": {
+                "patches_applied": {
+                    "Authors as Publication Authors taxonomy (term pages collect a person's pubs)": "patches/osu_publications-authors-taxonomy.patch"
+                }
+            },
             "installation-source": "dist",
             "license": [
                 "license"

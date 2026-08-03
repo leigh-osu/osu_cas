@@ -220,6 +220,11 @@ section_1() {
   ddev drush migrate:import upgrade_d7_media_kaltura
   ddev drush migrate:import upgrade_d7_media_local_video
   ddev drush migrate:import upgrade_d7_media_remote_video
+  # Private-scheme media (the stock media migrations cover public only);
+  # OsuMediaEmbed resolves wysiwyg tokens against these via the
+  # osu_migrations-private-image-media-lookup patch.
+  ddev drush migrate:import cas_media_private_images
+  ddev drush migrate:import cas_media_private_documents
 
   snapshot_save aftermedia
 }
@@ -329,6 +334,11 @@ section_4() {
   ddev drush migrate:import cas_weather_data_to_weather_daily_data
   ddev drush migrate:import cas_weather_daily_data_to_weather_daily_data
   ddev drush migrate:import cas_weather_monthly_data_to_weather_monthly_data
+  # Dictionaries first: the publication migration's keyword and
+  # author/editor sub_process pipelines look terms up via these maps
+  # (kid and cid respectively).
+  ddev drush migrate:import cas_biblio_keywords
+  ddev drush migrate:import cas_biblio_authors
   ddev drush migrate:import upgrade_d7_biblio_publication
 
   # Maximise D7 image text on media. The media migration already carries
@@ -517,7 +527,7 @@ section_7() {
   # compare window + slideshow) and Simple Styleguide. Enable them here so they
   # are available after every rebuild without a manual install; the site-sync
   # block is then placed in the pre-footer below.
-  ddev drush en osu_cas_site_sync simple_styleguide -y
+  ddev drush en osu_cas_site_sync simple_styleguide taxonomy_manager -y
 
   # Import the contrib dev-tool config (Simple Styleguide colour palette and the
   # osu_card / osu_accordion / osu_menu_bar sample patterns). Runs after the
@@ -627,6 +637,23 @@ section_7() {
       if ($u = reset($users)) { $u->addRole("administrator"); $u->save(); print "administrator role -> " . $u->getAccountName() . " (uid " . $u->id() . ")\n"; }
       else { print "WARNING: $mail not found; no administrator role granted\n"; }
     }'
+
+  # Strip media tokens that were already dead in D7 (no file_managed row):
+  # the wysiwyg filter leaves unresolvable tokens as raw JSON in the text.
+  # Also converts any stragglers now that private media exist. Idempotent.
+  ddev drush --uri="${SITE_URI}" scr scripts-dev/reprocess_media_tokens.php
+
+  # Carry D7's per-node "hide title" boolean (field_node_hide_title on page
+  # and paragraph_page) into exclude_node_title's state list — no migration
+  # yml can target state, so it's a post-migration step. Idempotent.
+  ddev drush --uri="${SITE_URI}" scr scripts-dev/import_hide_title.php
+
+  # Overlay the stage-authored Home and Education pages (default_content
+  # export in scripts-dev/dc_stage_pages, pulled from @osucas.stage with
+  # dcer). Creates the stage inline blocks/media by UUID and remaps the
+  # nodes' Layout Builder section block ids; idempotent. Needs the site URI:
+  # entity/file paths resolve against the agsci site dir, not sites/default.
+  ddev drush --uri="${SITE_URI}" scr scripts-dev/import_stage_pages.php
 
   ddev drush pqe -y
   ddev drush cr

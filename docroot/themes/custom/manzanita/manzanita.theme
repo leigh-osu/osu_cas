@@ -396,7 +396,7 @@ function _manzanita_environment(): ?array {
       return ['prod', 'Prod'];
     }
     if (str_contains($ah, 'test') || str_contains($ah, 'stage')) {
-      return ['test', 'Test'];
+      return ['stage', 'Stage'];
     }
     if (str_contains($ah, 'dev')) {
       return ['dev', 'Dev'];

@@ -122,10 +122,12 @@ content:
       placeholder: ''
     third_party_settings: { }
   field_pub_authors:
-    type: string_textfield
+    type: entity_reference_autocomplete_tags
     weight: 3
     region: content
     settings:
+      match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: { }

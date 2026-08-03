@@ -51,7 +51,6 @@ dependencies:
     - layout_builder_component_attributes
     - layout_builder_restrictions
     - linkit
-    - linkpurpose
     - media
     - media_bulk_upload
     - metatag
@@ -147,7 +146,6 @@ permissions:
   - 'administer image styles'
   - 'administer layout builder component attributes'
   - 'administer linkit profiles'
-  - 'administer linkpurpose'
   - 'administer madrone theme'
   - 'administer media'
   - 'administer media display'

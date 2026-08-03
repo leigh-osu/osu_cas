@@ -48,10 +48,10 @@ content:
     weight: 16
     region: content
   field_pub_authors:
-    type: string
+    type: entity_reference_label
     label: inline
     settings:
-      link_to_entity: false
+      link: true
     third_party_settings: { }
     weight: 3
     region: content
