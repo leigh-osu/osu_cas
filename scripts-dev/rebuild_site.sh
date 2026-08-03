@@ -329,6 +329,11 @@ section_4() {
   ddev drush migrate:import cas_weather_data_to_weather_daily_data
   ddev drush migrate:import cas_weather_daily_data_to_weather_daily_data
   ddev drush migrate:import cas_weather_monthly_data_to_weather_monthly_data
+  # Dictionaries first: the publication migration's keyword and
+  # author/editor sub_process pipelines look terms up via these maps
+  # (kid and cid respectively).
+  ddev drush migrate:import cas_biblio_keywords
+  ddev drush migrate:import cas_biblio_authors
   ddev drush migrate:import upgrade_d7_biblio_publication
 
   # Maximise D7 image text on media. The media migration already carries

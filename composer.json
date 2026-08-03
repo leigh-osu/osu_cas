@@ -578,6 +578,9 @@
                 "Default an empty D7 node language to en": "patches/osu_migrations-empty-langcode-default.patch",
                 "Biblio: drop junk body mapping and skip empty DOI links": "patches/osu_migrations-biblio-body-and-doi.patch"
             },
+            "osu-wams/osu_publications": {
+                "Authors as Publication Authors taxonomy (term pages collect a person's pubs)": "patches/osu_publications-authors-taxonomy.patch"
+            },
             "osu-wams/osu_standard": {
                 "OSU Standard Profile updates": "patches/0001-cas-remove-distro-info.patch",
                 "Split Group module install to avoid 2.3.x post-install field race": "patches/osu_standard-split-group-install.patch",
