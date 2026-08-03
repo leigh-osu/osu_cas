@@ -220,6 +220,11 @@ section_1() {
   ddev drush migrate:import upgrade_d7_media_kaltura
   ddev drush migrate:import upgrade_d7_media_local_video
   ddev drush migrate:import upgrade_d7_media_remote_video
+  # Private-scheme media (the stock media migrations cover public only);
+  # OsuMediaEmbed resolves wysiwyg tokens against these via the
+  # osu_migrations-private-image-media-lookup patch.
+  ddev drush migrate:import cas_media_private_images
+  ddev drush migrate:import cas_media_private_documents
 
   snapshot_save aftermedia
 }
@@ -632,6 +637,11 @@ section_7() {
       if ($u = reset($users)) { $u->addRole("administrator"); $u->save(); print "administrator role -> " . $u->getAccountName() . " (uid " . $u->id() . ")\n"; }
       else { print "WARNING: $mail not found; no administrator role granted\n"; }
     }'
+
+  # Strip media tokens that were already dead in D7 (no file_managed row):
+  # the wysiwyg filter leaves unresolvable tokens as raw JSON in the text.
+  # Also converts any stragglers now that private media exist. Idempotent.
+  ddev drush --uri="${SITE_URI}" scr scripts-dev/reprocess_media_tokens.php
 
   # Carry D7's per-node "hide title" boolean (field_node_hide_title on page
   # and paragraph_page) into exclude_node_title's state list — no migration

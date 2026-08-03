@@ -571,6 +571,7 @@
                 "OSU Migrations CAS file settings": "patches/0001-osu_migrations_files_cas.patch",
                 "OSU Migrations CAS user settings": "patches/0002-osu_user_accounts_cas.patch",
                 "OSU Migrations CAS biblio settings": "patches/0001-fix-biblio-dates.patch",
+                "Resolve wysiwyg tokens for private images via cas_media_private_images": "patches/osu_migrations-private-image-media-lookup.patch",
                 "background process plugins: handle empty migrate lookup result": "patches/0001-background-process-empty-lookup.patch",
                 "Recover live paragraphs core d7_paragraphs_item silently drops": "patches/0001-osu-paragraphs-item-recover-dropped.patch",
                 "Map larch theme block regions to manzanita": "patches/0001-osu-migrations-larch-block-regions.patch",

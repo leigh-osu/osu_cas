@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1bce8811beb125c6fe16b4b4510cef17",
+    "content-hash": "40a7ae0030efde006794cbb545a948de",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -18098,16 +18098,16 @@
         },
         {
             "name": "leigh-osu/osu_migrations_cas",
-            "version": "v1.0.38",
+            "version": "v1.0.39",
             "source": {
                 "type": "git",
                 "url": "git@github.com:leigh-osu/osu_migrations_cas.git",
-                "reference": "d9f370b13ca217294d8586cbd05a30a7fcbf2e0c"
+                "reference": "7877115d2c63b91958af0f74c29f77123ea664c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_migrations_cas/zipball/d9f370b13ca217294d8586cbd05a30a7fcbf2e0c",
-                "reference": "d9f370b13ca217294d8586cbd05a30a7fcbf2e0c",
+                "url": "https://api.github.com/repos/leigh-osu/osu_migrations_cas/zipball/7877115d2c63b91958af0f74c29f77123ea664c9",
+                "reference": "7877115d2c63b91958af0f74c29f77123ea664c9",
                 "shasum": ""
             },
             "require": {
@@ -18123,10 +18123,10 @@
             },
             "description": "Drupal 7 to 10 migration code for OSU CAS",
             "support": {
-                "source": "https://github.com/leigh-osu/osu_migrations_cas/tree/v1.0.38",
+                "source": "https://github.com/leigh-osu/osu_migrations_cas/tree/v1.0.39",
                 "issues": "https://github.com/leigh-osu/osu_migrations_cas/issues"
             },
-            "time": "2026-08-03T17:50:43+00:00"
+            "time": "2026-08-03T18:23:47+00:00"
         },
         {
             "name": "leongersen/nouislider",
