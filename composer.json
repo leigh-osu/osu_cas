@@ -364,6 +364,7 @@
         "drupal/viewfield": "^3@beta",
         "drupal/views_aggregator": "^2.0",
         "drupal/views_ajax_history": "^1.6",
+        "drupal/views_autocomplete_filters": "^2.0",
         "drupal/views_bootstrap": "^5.5@beta",
         "drupal/views_bulk_edit": "^3.0",
         "drupal/views_bulk_operations": "^4.1",

@@ -527,7 +527,7 @@ section_7() {
   # compare window + slideshow) and Simple Styleguide. Enable them here so they
   # are available after every rebuild without a manual install; the site-sync
   # block is then placed in the pre-footer below.
-  ddev drush en osu_cas_site_sync simple_styleguide taxonomy_manager -y
+  ddev drush en osu_cas_site_sync simple_styleguide taxonomy_manager views_autocomplete_filters -y
 
   # Import the contrib dev-tool config (Simple Styleguide colour palette and the
   # osu_card / osu_accordion / osu_menu_bar sample patterns). Runs after the
