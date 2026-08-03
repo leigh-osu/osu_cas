@@ -349,6 +349,7 @@
         "drupal/superfish": "^1.7",
         "drupal/svg_image": "^3.0",
         "drupal/tamper": "^1.0alpha2",
+        "drupal/taxonomy_manager": "^2.0",
         "drupal/tb_megamenu": "^3@alpha",
         "drupal/text_field_formatter": "^2.0",
         "drupal/toc_js": "^3.6",
