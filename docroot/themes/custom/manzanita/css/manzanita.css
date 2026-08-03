@@ -33,7 +33,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: clamp(1.525rem, 1.525rem + 3.3vw, 4rem);
-  font-weight: 200;
+  font-weight: 300;
 }
 
 h2 {
@@ -500,19 +500,21 @@ footer[role=contentinfo] {
 
 footer[role=contentinfo] a,
 footer[role=contentinfo] a.osu-link-white {
-  color: #d73f09 !important;
+  color: #fff !important;
+  text-decoration: underline !important;
   text-decoration-color: #d73f09 !important;
+}
+footer[role=contentinfo] a:hover, footer[role=contentinfo] a:focus,
+footer[role=contentinfo] a.osu-link-white:hover,
+footer[role=contentinfo] a.osu-link-white:focus {
+  color: #d73f09 !important;
+  text-decoration-color: #fff !important;
 }
 
 footer[role=contentinfo] ul {
   list-style: none;
   margin: 0;
   padding-left: 0;
-}
-
-footer[role=contentinfo] .region-footer a:hover, footer[role=contentinfo] .region-footer a:focus {
-  text-decoration: underline;
-  text-decoration-color: #d73f09;
 }
 
 @media (min-width: 768px) {

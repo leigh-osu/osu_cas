@@ -158,9 +158,30 @@
           layout.textContent.trim() !== '' ||
           layout.querySelector('img, svg, iframe, video, audio, form, canvas');
         if (!hasContent) {
-          // Hide the painted wrapper (background sits on the section
-          // wrapper around the layout), falling back to the layout itself.
-          const wrapper = layout.closest('.bg-color') || layout;
+          // Hide the whole section, not just the layout: bootstrap_styles
+          // paints backgrounds AND spacing (e.g. "p-2 mt-1 mb-1") on outer
+          // wrapper divs, which otherwise survive as a blank padded band.
+          // The section renders as a chain of sole-child wrappers
+          // (styles div > .container > .layout); climb to the outermost.
+          let wrapper = layout;
+          while (
+            wrapper.parentElement &&
+            wrapper.parentElement.children.length === 1 &&
+            !wrapper.parentElement.classList.contains('node__content')
+          ) {
+            wrapper = wrapper.parentElement;
+          }
+          // Only hide the climbed wrapper if it is itself empty — no text
+          // or embedded media beyond the empty layout. Anything else means
+          // a template put real content between wrapper and layout; hide
+          // just the layout in that case.
+          if (
+            wrapper !== layout &&
+            (wrapper.textContent.trim() !== '' ||
+              wrapper.querySelector('img, svg, iframe, video, audio, form, canvas'))
+          ) {
+            wrapper = layout;
+          }
           wrapper.style.display = 'none';
         }
       });

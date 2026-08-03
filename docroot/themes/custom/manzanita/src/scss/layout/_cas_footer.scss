@@ -13,12 +13,21 @@ footer[role='contentinfo'] .footer-site-links .col-xs-4 {
   }
 }
 
-// All footer links beaver orange — madrone paints them white, and the
-// copyright row's .osu-link-white utility carries !important.
+// Footer links: white with a standing beaver-orange underline; rollover
+// inverts to orange text under a white underline. The !importants outrank
+// madrone's .region-footer link rules and the copyright row's
+// .osu-link-white utility.
 footer[role='contentinfo'] a,
 footer[role='contentinfo'] a.osu-link-white {
-  color: $osuorange !important;
+  color: #fff !important;
+  text-decoration: underline !important;
   text-decoration-color: $osuorange !important;
+
+  &:hover,
+  &:focus {
+    color: $osuorange !important;
+    text-decoration-color: #fff !important;
+  }
 }
 
 // The footer block's link lists render with default bullets (the site-wide
@@ -27,19 +36,6 @@ footer[role='contentinfo'] ul {
   list-style: none;
   margin: 0;
   padding-left: 0;
-}
-
-// Footer links underline on rollover — madrone inverts (underline at rest,
-// none on hover), which stopped making sense once resting underlines went
-// away site-wide. Outranks madrone's .region-footer a:hover rule; the
-// underline draws in the global orange decoration color, matching the
-// Apply/MyCAS treatment.
-footer[role='contentinfo'] .region-footer a {
-  &:hover,
-  &:focus {
-    text-decoration: underline;
-    text-decoration-color: $osuorange;
-  }
 }
 
 // The footer content block's body carries hand-written D7-era Bootstrap 3
