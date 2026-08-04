@@ -158,12 +158,16 @@ $safe(function () use ($d7, $d10, $record) {
 }, 'users (uid>1, role-filtered)');
 
 // Taxonomy terms (allow modest drift — install profile + recipes may add).
+// D10-only vocabularies are excluded: publication_authors/_keywords are
+// minted from the D7 biblio contributor/keyword tables and osu_organization
+// from department nodes, none of which exist in D7 taxonomy_term_data.
 $safe(function () use ($d7, $d10, $record, $tol) {
   $d7_terms  = (int) $d7->query('SELECT COUNT(*) FROM taxonomy_term_data')->fetchField();
-  $d10_terms = (int) $d10->query('SELECT COUNT(*) FROM taxonomy_term_field_data
-    WHERE default_langcode = 1')->fetchField();
+  $d10_terms = (int) $d10->query("SELECT COUNT(*) FROM taxonomy_term_field_data
+    WHERE default_langcode = 1
+    AND vid NOT IN ('publication_authors', 'publication_keywords', 'osu_organization')")->fetchField();
   $record('taxonomy terms', $tol($d7_terms, $d10_terms, 10, 0.10),
-    "D7={$d7_terms}  D10={$d10_terms}");
+    "D7={$d7_terms}  D10={$d10_terms} (excl. D10-only vocabs)");
 }, 'taxonomy terms');
 
 // URL aliases — D10 legitimately has MORE (pathauto auto-creates aliases on
