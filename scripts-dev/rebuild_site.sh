@@ -242,13 +242,6 @@ section_2() {
 
   ddev drush migrate:import --tag='OSU Custom Blocks' --force
 
-  # Migrated inline blocks arrive with block_content's base-field default
-  # reusable = TRUE; every reusable block becomes an entry in Layout
-  # Builder's "Add block" chooser, which made the dialog build ~17k links
-  # (16.5k bogus plugins). Inline blocks are not reusable — flip them.
-  # Placed 'basic' blocks (larch/footer content) keep their flag.
-  ddev drush sql:query "UPDATE block_content_field_data SET reusable = 0 WHERE type IN ('osu_card','paragraph_block','osu_accordion') AND reusable = 1"
-
   ddev drush pqe -y
 
   snapshot_save afterosublocks
@@ -640,6 +633,16 @@ section_7() {
   # nodes' Layout Builder section block ids; idempotent. Needs the site URI:
   # entity/file paths resolve against the agsci site dir, not sites/default.
   ddev drush --uri="${SITE_URI}" scr scripts-dev/import_stage_pages.php
+
+  # Migrated inline blocks arrive with block_content's base-field default
+  # reusable = TRUE; every reusable block becomes an entry in Layout
+  # Builder's "Add block" chooser, which made the dialog build ~17k links
+  # (16.5k bogus plugins). Inline blocks are not reusable — flip them.
+  # Must run at the END of the pipeline: the paragraph -> Layout Builder
+  # conversions that create these blocks run in sections 3-5, so a
+  # section-2 flip misses all of them. Placed 'basic' blocks (larch/
+  # footer content) keep their flag.
+  ddev drush sql:query "UPDATE block_content_field_data SET reusable = 0 WHERE type IN ('osu_card','paragraph_block','osu_accordion') AND reusable = 1"
 
   ddev drush pqe -y
   ddev drush cr
