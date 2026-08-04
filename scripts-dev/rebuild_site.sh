@@ -242,6 +242,13 @@ section_2() {
 
   ddev drush migrate:import --tag='OSU Custom Blocks' --force
 
+  # Migrated inline blocks arrive with block_content's base-field default
+  # reusable = TRUE; every reusable block becomes an entry in Layout
+  # Builder's "Add block" chooser, which made the dialog build ~17k links
+  # (16.5k bogus plugins). Inline blocks are not reusable — flip them.
+  # Placed 'basic' blocks (larch/footer content) keep their flag.
+  ddev drush sql:query "UPDATE block_content_field_data SET reusable = 0 WHERE type IN ('osu_card','paragraph_block','osu_accordion') AND reusable = 1"
+
   ddev drush pqe -y
 
   snapshot_save afterosublocks
