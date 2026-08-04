@@ -586,7 +586,7 @@ section_7() {
     if (!\Drupal\block\Entity\Block::load("manzanita_masquerade")) {
       \Drupal\block\Entity\Block::create([
         "id" => "manzanita_masquerade", "theme" => "manzanita",
-        "region" => "highlighted", "weight" => 10, "plugin" => "masquerade",
+        "region" => "pre_footer", "weight" => 0, "plugin" => "masquerade",
         "settings" => [
           "id" => "masquerade", "label" => "Masquerade",
           "label_display" => "0", "provider" => "masquerade",
@@ -595,36 +595,10 @@ section_7() {
       ])->save();
     }'
 
-  # Account menu at the top of the highlighted region (above messages and
-  # the masquerade block): manzanita places no account menu block, so
-  # logged-in users had no account UI at all. This also surfaces the
-  # My OSU Profile / My Groups links (osu_cas_multisite routes; each link
-  # hides itself for users without an owned profile / any group membership).
-  # The member group-role permissions that make own-profile view/edit work are
-  # imported with config_imports/group in section 6
-  # (group.role.basic_group-member.yml).
-  ddev drush php:eval '
-    if (!\Drupal\block\Entity\Block::load("manzanita_account_menu")) {
-      \Drupal\block\Entity\Block::create([
-        "id" => "manzanita_account_menu", "theme" => "manzanita",
-        "region" => "highlighted", "weight" => -20,
-        "plugin" => "system_menu_block:account",
-        "settings" => [
-          "id" => "system_menu_block:account", "label" => "User account menu",
-          "label_display" => "0", "provider" => "system",
-          "level" => 1, "depth" => 1, "expand_all_items" => FALSE,
-        ],
-        // Authenticated only: anonymous users get no account menu (and so no
-        // Log in link — it is the same toggling menu link as Log out).
-        "visibility" => [
-          "user_role" => [
-            "id" => "user_role", "negate" => FALSE,
-            "context_mapping" => ["user" => "@user.current_user_context:current_user"],
-            "roles" => ["authenticated" => "authenticated"],
-          ],
-        ],
-      ])->save();
-    }'
+  # No placed account-menu block: the site account links (My OSU Profile,
+  # My Groups, My Content) live in the admin toolbar's user tray instead
+  # (CasToolbarLinkBuilder in osu_cas_multisite replaces core's
+  # View profile / Edit profile links, which expose the raw user entity).
 
   # Give the platform maintainers' migrated accounts the administrator role
   # (is_admin: true, bypasses all permission checks) so the usual dev logins
@@ -642,6 +616,11 @@ section_7() {
   # the wysiwyg filter leaves unresolvable tokens as raw JSON in the text.
   # Also converts any stragglers now that private media exist. Idempotent.
   ddev drush --uri="${SITE_URI}" scr scripts-dev/reprocess_media_tokens.php
+
+  # Capture each group's landing page (the title-match convention) into
+  # field_group_home_page — the header reads only the field now. Idempotent;
+  # editor-set values survive.
+  ddev drush --uri="${SITE_URI}" scr scripts-dev/populate_group_home_pages.php
 
   # Carry D7's per-node "hide title" boolean (field_node_hide_title on page
   # and paragraph_page) into exclude_node_title's state list — no migration

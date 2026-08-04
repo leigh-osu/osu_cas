@@ -12,7 +12,6 @@ scope: outsider
 global_role: anonymous
 group_type: basic_group
 permissions:
-  - 'view group'
   - 'view group_node:150_species entity'
   - 'view group_node:art_about_agriculture entity'
   - 'view group_node:course entity'
