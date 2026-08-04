@@ -10,6 +10,7 @@ dependencies:
     - field.field.group.basic_group.field_group_add_info
     - field.field.group.basic_group.field_group_email
     - field.field.group.basic_group.field_group_facebook
+    - field.field.group.basic_group.field_group_home_page
     - field.field.group.basic_group.field_group_hours
     - field.field.group.basic_group.field_group_info_sheet
     - field.field.group.basic_group.field_group_instagram
@@ -35,6 +36,7 @@ dependencies:
     - group.type.basic_group
   module:
     - bootstrap_layout_builder
+    - group
     - layout_builder
     - layout_builder_restrictions
   enforced:
@@ -314,6 +316,24 @@ third_party_settings:
             weight: 9
             additional:
               weight: 9
+          4c8e9f21-7d3a-4b6e-9c15-2f8a61d0b7e3:
+            uuid: 4c8e9f21-7d3a-4b6e-9c15-2f8a61d0b7e3
+            region: blb_region_col_2
+            configuration:
+              id: 'field_block:group:basic_group:field_group_home_page'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 10
+            additional:
+              weight: 10
         third_party_settings: {  }
       -
         layout_id: 'bootstrap_layout_builder:blb_col_1'
@@ -486,6 +506,19 @@ third_party_settings:
             weight: 7
             additional:
               weight: 7
+          a1f5c2d8-3e9b-47a6-8d24-c6b90e5f13a7:
+            uuid: a1f5c2d8-3e9b-47a6-8d24-c6b90e5f13a7
+            region: blb_region_col_1
+            configuration:
+              id: group_operations
+              label: 'Group operations'
+              label_display: visible
+              provider: group
+              context_mapping:
+                group: layout_builder.entity
+            weight: 8
+            additional:
+              weight: 8
         third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }
@@ -532,6 +565,7 @@ hidden:
   field_group_add_info: true
   field_group_email: true
   field_group_facebook: true
+  field_group_home_page: true
   field_group_hours: true
   field_group_info_sheet: true
   field_group_instagram: true
