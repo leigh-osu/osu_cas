@@ -8,7 +8,7 @@ dependencies:
     - group
     - node
     - user
-    - views_autocomplete_filters
+    - osu_cas_multisite
 id: my_content
 label: 'My Content'
 module: views
@@ -80,20 +80,14 @@ display:
           text: Edit
           output_url_as_text: false
           absolute: false
-        label:
-          id: label
-          table: groups_field_data
-          field: label
-          relationship: gid
-          plugin_id: field
-          entity_type: group
-          entity_field: label
+        cas_node_groups:
+          id: cas_node_groups
+          table: node_field_data
+          field: cas_node_groups
+          relationship: none
+          plugin_id: cas_node_groups
           label: 'Primary group'
           exclude: false
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
         field_domain_access:
           id: field_domain_access
           table: node__field_domain_access
@@ -206,23 +200,48 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: 'You have not created any content yet.'
+            value: 'There is no content that matches the current filter.'
             format: basic_html
           tokenize: false
       sorts: {  }
-      arguments: {  }
-      filters:
-        uid_current:
-          id: uid_current
+      arguments:
+        uid:
+          id: uid
           table: node_field_data
-          field: uid_current
+          field: uid
           relationship: none
-          operator: '='
-          value: '1'
-          group: 1
-          exposed: false
-          plugin_id: user_current
+          group_type: group
+          admin_label: ''
+          plugin_id: entity_target_id
           entity_type: node
+          entity_field: uid
+          default_action: default
+          exception:
+            value: ''
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: current_user
+          default_argument_options: {  }
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
+          not: false
+          target_entity_type_id: user
+      filters:
         type:
           id: type
           table: node_field_data
@@ -251,21 +270,21 @@ display:
           plugin_id: bundle
           entity_type: node
           entity_field: type
-        label:
-          id: label
-          table: groups_field_data
-          field: label
-          relationship: gid
-          operator: contains
-          value: ''
+        gid_select:
+          id: gid_select
+          table: node_field_data
+          field: gid_select
+          relationship: none
+          operator: in
+          value: {  }
           group: 1
           exposed: true
           expose:
-            operator_id: label_op
+            operator_id: gid_select_op
             label: Group
             description: ''
             use_operator: false
-            operator: label_op
+            operator: gid_select_op
             operator_limit_selection: false
             operator_list: {  }
             identifier: group
@@ -274,17 +293,9 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-            autocomplete_filter: 1
-            autocomplete_items: 10
-            autocomplete_min_chars: 1
-            autocomplete_dependent: 0
-            autocomplete_field: label
-            autocomplete_raw_suggestion: 1
-            autocomplete_raw_dropdown: 1
+            reduce: false
           is_grouped: false
-          plugin_id: string
-          entity_type: group
-          entity_field: label
+          plugin_id: cas_group_select
       style:
         type: table
         options:
@@ -296,7 +307,7 @@ display:
             title: title
             type: type
             edit_node: edit_node
-            label: label
+            cas_node_groups: cas_node_groups
             field_domain_source: field_domain_source
             created: created
             changed: changed
@@ -330,8 +341,8 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            label:
-              sortable: true
+            cas_node_groups:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
@@ -375,27 +386,7 @@ display:
       row:
         type: fields
         options: {  }
-      relationships:
-        group_content:
-          id: group_content
-          table: node_field_data
-          field: group_content
-          relationship: none
-          group_type: group
-          admin_label: 'Group relation'
-          entity_type: node
-          plugin_id: group_content_to_entity_reverse
-          required: false
-        gid:
-          id: gid
-          table: group_relationship_field_data
-          field: gid
-          relationship: group_content
-          group_type: group
-          admin_label: 'Parent group'
-          entity_type: group_content
-          plugin_id: standard
-          required: false
+      relationships: {  }
       header: {  }
       footer: {  }
       display_extenders: {  }
