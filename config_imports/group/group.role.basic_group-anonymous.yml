@@ -16,7 +16,6 @@ permissions:
   - 'view group_node:art_about_agriculture entity'
   - 'view group_node:course entity'
   - 'view group_node:degree_fact_sheet entity'
-  - 'view group_node:degree_fact_sheet_graduate entity'
   - 'view group_node:enterprise_budgets entity'
   - 'view group_node:fun_facts entity'
   - 'view group_node:funding_opportunities entity'

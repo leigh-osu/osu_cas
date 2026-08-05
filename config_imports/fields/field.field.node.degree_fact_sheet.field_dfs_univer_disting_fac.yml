@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfs_univer_disting_fac
+    - node.type.degree_fact_sheet
+id: node.degree_fact_sheet.field_dfs_univer_disting_fac
+field_name: field_dfs_univer_disting_fac
+entity_type: node
+bundle: degree_fact_sheet
+label: 'University Distinguished Faculty'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
