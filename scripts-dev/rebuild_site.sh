@@ -633,12 +633,15 @@ section_7() {
   # yml can target state, so it's a post-migration step. Idempotent.
   ddev drush --uri="${SITE_URI}" scr scripts-dev/import_hide_title.php
 
-  # Overlay the stage-authored Home and Education pages (default_content
-  # export in scripts-dev/dc_stage_pages, pulled from @osucas.stage with
-  # dcer). Creates the stage inline blocks/media by UUID and remaps the
-  # nodes' Layout Builder section block ids; idempotent. Needs the site URI:
+  # Recreate the stage-redesigned Home / Education / About pages as NEW
+  # nodes (export in scripts-dev/stage_redesigns, pulled from the stage DB
+  # backup by export_stage_redesigns.php). The D7-migrated originals keep
+  # their content but gain a "D7 version: " title prefix, and the public
+  # aliases (/home/home, /education, /home/about) repoint to the new
+  # nodes. Missing physical assets come from scripts-dev/"D10 assets for
+  # Roger". Idempotent (keyed by stage UUIDs). Needs the site URI:
   # entity/file paths resolve against the agsci site dir, not sites/default.
-  ddev drush --uri="${SITE_URI}" scr scripts-dev/import_stage_pages.php
+  ddev drush --uri="${SITE_URI}" scr scripts-dev/import_stage_redesigns.php
 
   # Migrated inline blocks arrive with block_content's base-field default
   # reusable = TRUE; every reusable block becomes an entry in Layout
