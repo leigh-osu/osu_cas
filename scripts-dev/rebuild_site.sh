@@ -643,6 +643,19 @@ section_7() {
   # entity/file paths resolve against the agsci site dir, not sites/default.
   ddev drush --uri="${SITE_URI}" scr scripts-dev/import_stage_redesigns.php
 
+  # Two degree fact sheets are group-members-only on D7 (OG group_access=1,
+  # anonymous 403): Soil Science graduate 249691 and Crop and Soil Science
+  # B.S. 250541. The Group-module world has no per-node equivalent, so match
+  # D7's effective visibility by unpublishing them (Roger, 2026-08-06).
+  ddev drush --uri="${SITE_URI}" php:eval '
+    foreach ([249691, 250541] as $nid) {
+      if (($n = \Drupal\node\Entity\Node::load($nid)) && $n->isPublished()) {
+        $n->setUnpublished();
+        $n->save();
+        print "unpublished $nid\n";
+      }
+    }'
+
   # Migrated inline blocks arrive with block_content's base-field default
   # reusable = TRUE; every reusable block becomes an entry in Layout
   # Builder's "Add block" chooser, which made the dialog build ~17k links

@@ -9,7 +9,13 @@ field_name: field_dfs_language
 entity_type: node
 type: list_string
 settings:
-  allowed_values: {  }
+  allowed_values:
+    -
+      value: English
+      label: English
+    -
+      value: Español
+      label: Español
   allowed_values_function: ''
 module: options
 locked: false
@@ -18,3 +24,4 @@ translatable: true
 indexes: {  }
 persist_with_no_fields: false
 custom_storage: false
+

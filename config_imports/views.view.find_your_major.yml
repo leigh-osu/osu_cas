@@ -488,7 +488,7 @@ display:
         type: basic
         options:
           submit_button: Apply
-          reset_button: false
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
@@ -501,7 +501,18 @@ display:
       cache:
         type: tag
         options: {  }
-      empty: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: true
+          content: 'No majors match your filters.'
+          tokenize: false
       sorts:
         title:
           id: title
@@ -812,7 +823,7 @@ display:
         options:
           query_comment: ''
           disable_sql_rewrite: false
-          distinct: false
+          distinct: true
           replica: false
           query_tags: {  }
       relationships: {  }
@@ -869,3 +880,4 @@ display:
         - 'config:field.storage.node.field_dfs_overview'
         - 'config:field.storage.node.field_dfs_location'
         - 'config:field.storage.node.field_dfs_preferred_link'
+

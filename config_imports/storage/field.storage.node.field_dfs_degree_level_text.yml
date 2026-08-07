@@ -3,12 +3,12 @@ status: true
 dependencies:
   module:
     - node
-id: node.field_dfs_grad_student_support
-field_name: field_dfs_grad_student_support
+id: node.field_dfs_degree_level_text
+field_name: field_dfs_degree_level_text
 entity_type: node
 type: string
 settings:
-  max_length: 512
+  max_length: 255
   case_sensitive: false
   is_ascii: false
 module: core
