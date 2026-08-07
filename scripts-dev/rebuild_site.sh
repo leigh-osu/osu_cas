@@ -62,6 +62,13 @@ snapshot_save() {
 section_1() {
   echo "=== Section 1: install + accounts + media ==="
 
+  # Refresh the D7 source (database + files) from the latest Acquia
+  # nightly backup (synced locally in the mornings) so the migration
+  # never runs from a stale snapshot — live-D7 edits newer than the
+  # local copy were the cause of stale content and missing files.
+  echo "Refreshing D7 source from the Acquia nightly backup..."
+  bash /Users/leighr/Sites/osu/agscid7/localscripts/load_acquia_backup.sh --site agsci
+
   # Stop and restart DDEV to reset database
   echo "Resetting DDEV environment..."
   ddev stop -O -R
@@ -668,6 +675,11 @@ section_7() {
   # invisible padded boxes; prune them (colored/background/spacer
   # components and divider bands are preserved).
   ddev drush --uri="${SITE_URI}" scr scripts-dev/prune_empty_layout_blocks.php
+
+  # Legacy file refs whose files are gone everywhere (the section-1 backup
+  # refresh recovers anything recoverable first): drop the broken <img>
+  # tags and unwrap dead links.
+  ddev drush --uri="${SITE_URI}" scr scripts-dev/strip_dead_legacy_refs.php
 
   # Two degree fact sheets are group-members-only on D7 (OG group_access=1,
   # anonymous 403): Soil Science graduate 249691 and Crop and Soil Science
