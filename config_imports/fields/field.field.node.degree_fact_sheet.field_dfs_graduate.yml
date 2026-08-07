@@ -8,7 +8,7 @@ id: node.degree_fact_sheet.field_dfs_graduate
 field_name: field_dfs_graduate
 entity_type: node
 bundle: degree_fact_sheet
-label: 'Program level'
+label: 'Graduate Program'
 description: 'Checked for graduate programs, unchecked for undergraduate.'
 required: false
 translatable: true
