@@ -643,6 +643,16 @@ section_7() {
   # entity/file paths resolve against the agsci site dir, not sites/default.
   ddev drush --uri="${SITE_URI}" scr scripts-dev/import_stage_redesigns.php
 
+  # D7 rendered page/book field_picture as a header banner. The page
+  # migrations populate field_page_banner_image; this prepends the banner
+  # section (field block, page_banner view mode) to each node's layout.
+  ddev drush --uri="${SITE_URI}" scr scripts-dev/backfill_page_banner_images.php
+
+  # D7 right sidebars (field_right_sidebar + "Display sidebar content"
+  # flag): convert the body section to a 67/33 layout with the sidebar
+  # HTML in a light-grey inline block on the right.
+  ddev drush --uri="${SITE_URI}" scr scripts-dev/convert_right_sidebars.php
+
   # Two degree fact sheets are group-members-only on D7 (OG group_access=1,
   # anonymous 403): Soil Science graduate 249691 and Crop and Soil Science
   # B.S. 250541. The Group-module world has no per-node equivalent, so match

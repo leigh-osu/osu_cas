@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: banner_1600_x_400
+label: 'Banner (1600×400)'
+effects:
+  b1a2c3d4-0000-4000-8000-000000000001:
+    uuid: b1a2c3d4-0000-4000-8000-000000000001
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1600
+      height: 400
+      anchor: center-center
