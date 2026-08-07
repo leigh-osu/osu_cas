@@ -41,14 +41,14 @@ $settings_for = function (string $bg_class): array {
   ];
 };
 
-// Colour fills the full row height like D7's span backgrounds.
+// Colour fills the full row height like D7's span backgrounds. All three
+// attribute groups must exist: layout_builder_component_attributes'
+// preprocess warns on any missing sibling key.
+$empty_attrs = ['id' => '', 'class' => '', 'style' => '', 'data' => ''];
 $h100_attributes = [
-  'block_attributes' => [
-    'id' => '',
-    'class' => 'h-100',
-    'style' => '',
-    'data' => '',
-  ],
+  'block_attributes' => ['class' => 'h-100'] + $empty_attrs,
+  'block_title_attributes' => $empty_attrs,
+  'block_content_attributes' => $empty_attrs,
 ];
 
 $nids = $db->query("SELECT DISTINCT entity_id FROM node__layout_builder__layout WHERE layout_builder__layout_section LIKE '%inline_block:paragraph_block%'")->fetchCol();
@@ -130,8 +130,13 @@ foreach ($nids as $nid) {
         $changed = TRUE;
       }
       $current_attrs = $component->get('component_attributes') ?? [];
-      if (($current_attrs['block_attributes']['class'] ?? '') !== 'h-100') {
-        $component->set('component_attributes', $h100_attributes + $current_attrs);
+      if (($current_attrs['block_attributes']['class'] ?? '') !== 'h-100'
+        || !isset($current_attrs['block_title_attributes'])
+        || !isset($current_attrs['block_content_attributes'])) {
+        $merged = $current_attrs + $h100_attributes;
+        $merged['block_attributes'] = ($current_attrs['block_attributes'] ?? []) + $h100_attributes['block_attributes'];
+        $merged['block_attributes']['class'] = 'h-100';
+        $component->set('component_attributes', $merged);
         $changed = TRUE;
       }
       if ($current === $block_settings) {

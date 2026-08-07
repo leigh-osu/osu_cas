@@ -8,9 +8,10 @@
  * disabled). The blocks migrated as reusable basic block_content with
  * their D7 bids as ids; this recreates the placements:
  *
- * - full_top and post_content contexts become manzanita block.block
- *   config with request_path / entity_bundle visibility (full_top ->
- *   full_top, post_content -> pre_footer).
+ * - The post_content social widget becomes manzanita block.block config
+ *   with entity_bundle visibility (post_content -> pre_footer). The D7
+ *   full_top contexts (MES onion/wildflower headers) are NOT recreated:
+ *   larch has no full_top region, so D7 never rendered them.
  * - pre_content contexts rendered INSIDE the content column under the
  *   title on D7, so they become Layout Builder insertions at the top of
  *   the body column instead; their D7 path wildcards are resolved to
@@ -50,18 +51,6 @@ $placements = [
     'region' => 'pre_footer',
     'weight' => -10,
     'visibility' => ['entity_bundle:node' => ['bundles' => ['art_about_agriculture' => 'art_about_agriculture', 'project' => 'project', 'story' => 'story']]],
-  ],
-  'cas_ctx_onion_header' => [
-    'block' => 276,
-    'region' => 'full_top',
-    'weight' => -10,
-    'visibility' => ['request_path' => ['pages' => "/mes/sustainable/onion/*\n/mes/sustainable-onion-production/*"]],
-  ],
-  'cas_ctx_wildflower_header' => [
-    'block' => 271,
-    'region' => 'full_top',
-    'weight' => -10,
-    'visibility' => ['request_path' => ['pages' => "/mes/sustainable/wildflowers/*\n/mes/sustainable-wildflower-seed-production/*"]],
   ],
 ];
 
