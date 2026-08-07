@@ -43,7 +43,10 @@ $strip = function (string $html) use ($is_dead_local): string {
   $xpath = new \DOMXPath($dom);
   $changed = FALSE;
   foreach (iterator_to_array($xpath->query('//img[@src]')) as $img) {
-    if ($is_dead_local($img->getAttribute('src'))) {
+    $src = $img->getAttribute('src');
+    // D7 file-type icons (/modules/file/icons/*.png) do not exist in D10;
+    // they were decorative markers before file/video links.
+    if ($is_dead_local($src) || str_starts_with($src, '/modules/file/icons/')) {
       $img->parentNode->removeChild($img);
       $changed = TRUE;
     }
@@ -71,10 +74,11 @@ $targets = [
 $rewritten = $stripped = 0;
 foreach ($targets as [$table, $revision_table, $column]) {
   foreach ([$table, $revision_table] as $t) {
-    $rows = $db->query("SELECT entity_id, revision_id, delta, langcode, $column AS v FROM $t WHERE $column LIKE :p1 OR $column LIKE :p2 OR $column LIKE :p3", [
+    $rows = $db->query("SELECT entity_id, revision_id, delta, langcode, $column AS v FROM $t WHERE $column LIKE :p1 OR $column LIKE :p2 OR $column LIKE :p3 OR $column LIKE :p4", [
       ':p1' => '%/sites/agscid7/files/%',
       ':p2' => '%/sites/agsci/files/%',
       ':p3' => '%/sites/default/files/%',
+      ':p4' => '%/modules/file/icons/%',
     ])->fetchAll();
     foreach ($rows as $row) {
       // Recover anything the refreshed D7 tree can now resolve...
