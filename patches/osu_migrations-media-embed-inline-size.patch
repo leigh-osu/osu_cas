@@ -1,0 +1,34 @@
+--- a/src/OsuMediaEmbed.php
++++ b/src/OsuMediaEmbed.php
+@@ -88,6 +88,22 @@
+           }
+         }
+ 
++        // Carry an inline size onto the embed: D7 editors resized media
++        // tokens with style="width: NNNpx" (or width attributes), and the
++        // core MediaEmbed filter transfers a style attribute onto the
++        // rendered wrapper, where img-fluid scales the image to it. Width
++        // only, so the aspect ratio is preserved.
++        $width = NULL;
++        if (!empty($source_attributes['style']) && preg_match('/(?:^|[^-])width:\s*(\d+)px/', $source_attributes['style'], $style_match)) {
++          $width = (int) $style_match[1];
++        }
++        elseif (!empty($source_attributes['width']) && is_numeric($source_attributes['width'])) {
++          $width = (int) $source_attributes['width'];
++        }
++        if ($width) {
++          $embed_metadata['style'] = "width: {$width}px;";
++        }
++
+         // Get the alignment classes.
+         if (!empty($source_attributes['class']) && is_string($source_attributes['class'])) {
+           $classes_arr = array_unique(explode(' ', preg_replace('/\s{2,}/', ' ', trim($source_attributes['class']))));
+@@ -159,7 +175,7 @@
+     $attributes['data-entity-uuid'] = $mediaEntityUuid;
+     $attributes['data-view-mode'] = 'default';
+     // Alt, title, caption and align should be handled conditionally.
+-    $conditionalAttributes = ['alt', 'title', 'data-caption', 'data-align'];
++    $conditionalAttributes = ['alt', 'title', 'data-caption', 'data-align', 'style'];
+     foreach ($conditionalAttributes as $conditionalAttribute) {
+       if (!empty($embedMetadata[$conditionalAttribute])) {
+         $attributes[$conditionalAttribute] = $embedMetadata[$conditionalAttribute];
