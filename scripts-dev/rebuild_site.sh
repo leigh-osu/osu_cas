@@ -676,6 +676,11 @@ section_7() {
   # components and divider bands are preserved).
   ddev drush --uri="${SITE_URI}" scr scripts-dev/prune_empty_layout_blocks.php
 
+  # D7 spacer.gif hack rows (/home/alumni, mycas CARE page): remove the
+  # spacer-only sections and express the D7 gaps as section padding on
+  # their neighbors instead.
+  ddev drush --uri="${SITE_URI}" scr scripts-dev/remove_spacer_blocks.php
+
   # Legacy file refs whose files are gone everywhere (the section-1 backup
   # refresh recovers anything recoverable first): drop the broken <img>
   # tags and unwrap dead links.
