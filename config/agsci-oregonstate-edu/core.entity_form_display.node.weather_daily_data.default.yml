@@ -1,4 +1,4 @@
-uuid: 93d3950d-497d-48cd-a358-6979705017bb
+uuid: 3cd8dcac-96c4-4160-a0c9-af24656224ee
 langcode: en
 status: true
 dependencies:
@@ -82,6 +82,12 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_domain_source:
+    type: options_select
+    weight: 42
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_dw_20_inches_max:
     type: number
@@ -291,5 +297,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  field_domain_source: true
+hidden: {  }

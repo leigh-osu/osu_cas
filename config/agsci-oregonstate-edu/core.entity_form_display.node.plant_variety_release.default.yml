@@ -1,4 +1,4 @@
-uuid: 6d2ef8eb-852e-4ec4-8c62-6850b98682d6
+uuid: 70c11272-e447-4e02-8800-d6cceb7f543a
 langcode: en
 status: true
 dependencies:
@@ -135,6 +135,25 @@ content:
       label: 'Group name'
       multiple: true
       required: false
+    third_party_settings: {  }
+  field_domain_access:
+    type: options_buttons
+    weight: 40
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_domain_all_affiliates:
+    type: boolean_checkbox
+    weight: 41
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_domain_source:
+    type: options_select
+    weight: 42
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_pvr_banner_picture:
     type: media_library_widget
@@ -475,7 +494,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  field_domain_access: true
-  field_domain_all_affiliates: true
-  field_domain_source: true
+hidden: {  }

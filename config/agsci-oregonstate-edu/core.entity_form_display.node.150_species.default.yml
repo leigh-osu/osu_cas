@@ -1,4 +1,4 @@
-uuid: 61bc5d37-a499-4987-80aa-695a155ce32a
+uuid: 285dbf8f-2e99-4fb0-b140-d4fc3983442a
 langcode: en
 status: true
 dependencies:
@@ -72,6 +72,12 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_domain_source:
+    type: options_select
+    weight: 42
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_species_photo:
     type: image_focal_point
@@ -162,5 +168,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  field_domain_source: true
+hidden: {  }

@@ -6,8 +6,7 @@ dependencies:
     - field.field.node.weed.body
     - field.field.node.weed.field_domain_access
     - field.field.node.weed.field_domain_all_affiliates
-    - field.field.node.weed.field_weed_flowers
-    - field.field.node.weed.field_weed_stem
+    - field.field.node.weed.field_domain_source
     - field.field.node.weed.field_tax_life_cycle
     - field.field.node.weed.field_weed_bittercress_and_aphid
     - field.field.node.weed.field_weed_brief_description
@@ -18,6 +17,7 @@ dependencies:
     - field.field.node.weed.field_weed_family
     - field.field.node.weed.field_weed_favorable_env_note
     - field.field.node.weed.field_weed_favorable_environment
+    - field.field.node.weed.field_weed_flowers
     - field.field.node.weed.field_weed_foliage
     - field.field.node.weed.field_weed_habit
     - field.field.node.weed.field_weed_image
@@ -31,6 +31,7 @@ dependencies:
     - field.field.node.weed.field_weed_roots
     - field.field.node.weed.field_weed_rosette
     - field.field.node.weed.field_weed_seed_or_seed_pods
+    - field.field.node.weed.field_weed_stem
     - node.type.weed
   module:
     - entitygroupfield
@@ -68,6 +69,25 @@ content:
       label: 'Group name'
       multiple: true
       required: false
+    third_party_settings: {  }
+  field_domain_access:
+    type: options_buttons
+    weight: 40
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_domain_all_affiliates:
+    type: boolean_checkbox
+    weight: 41
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_domain_source:
+    type: options_select
+    weight: 42
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_flowers:
     type: text_textarea
@@ -162,6 +182,14 @@ content:
   field_weed_favorable_environment:
     type: text_textarea
     weight: 129
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_weed_flowers:
+    type: text_textarea
+    weight: 125
     region: content
     settings:
       rows: 5
@@ -268,6 +296,21 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  field_weed_stem:
+    type: text_textarea
+    weight: 125
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
   path:
     type: path
     weight: 30
@@ -318,6 +361,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  field_domain_access: true
-  field_domain_all_affiliates: true
+hidden: {  }

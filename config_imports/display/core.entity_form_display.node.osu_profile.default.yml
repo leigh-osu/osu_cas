@@ -1,3 +1,4 @@
+uuid: d258844e-804d-4dd5-8d15-affd0e04f794
 langcode: en
 status: true
 dependencies:
@@ -244,6 +245,12 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_domain_source:
+    type: options_select
+    weight: 42
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_osu_organizations:
     type: entity_reference_autocomplete
@@ -695,5 +702,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  field_domain_source: true
+hidden: {  }

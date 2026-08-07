@@ -1,4 +1,4 @@
-uuid: c1b93da1-4e45-48d4-9bc1-bc98640fa18e
+uuid: 48f49f1d-29b4-4f76-ba83-151f017a723d
 langcode: en
 status: true
 dependencies:
@@ -172,6 +172,12 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_domain_source:
+    type: options_select
+    weight: 42
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_mw_air_temp_max_mon_max:
     type: number
@@ -417,5 +423,4 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_domain_source: true
   title: true

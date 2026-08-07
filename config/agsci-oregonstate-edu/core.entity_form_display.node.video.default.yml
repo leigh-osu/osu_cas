@@ -1,4 +1,4 @@
-uuid: 5a44bf4d-ccfa-4182-b81e-a0307d285559
+uuid: 242156d9-cd92-4dd6-849d-73c4f32a8a1d
 langcode: en
 status: true
 dependencies:
@@ -26,6 +26,7 @@ dependencies:
     - entitygroupfield
     - field_group
     - file
+    - multiselect
     - path
     - text
 third_party_settings:
@@ -81,6 +82,73 @@ content:
       label: 'Group name'
       multiple: true
       required: false
+    third_party_settings: {  }
+  field_domain_access:
+    type: options_buttons
+    weight: 40
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_domain_all_affiliates:
+    type: boolean_checkbox
+    weight: 41
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_domain_source:
+    type: options_select
+    weight: 42
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_coarec_topics:
+    type: multiselect
+    weight: 27
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_event:
+    type: multiselect
+    weight: 34
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_nursery_topics:
+    type: multiselect
+    weight: 29
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_owri_topics:
+    type: multiselect
+    weight: 31
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_swd_topics:
+    type: multiselect
+    weight: 32
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_turf_topics:
+    type: multiselect
+    weight: 33
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_veg_topics:
+    type: multiselect
+    weight: 34
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_work_area:
+    type: multiselect
+    weight: 35
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_vid_affiliation:
     type: string_textfield
@@ -248,15 +316,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  field_domain_access: true
-  field_domain_all_affiliates: true
-  field_domain_source: true
-  field_tax_coarec_topics: true
-  field_tax_event: true
-  field_tax_nursery_topics: true
-  field_tax_owri_topics: true
-  field_tax_swd_topics: true
-  field_tax_turf_topics: true
-  field_tax_veg_topics: true
-  field_tax_work_area: true
+hidden: {  }

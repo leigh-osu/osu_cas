@@ -1,3 +1,4 @@
+uuid: ed456bd5-e9de-42c8-ae79-9cfef52e28cf
 langcode: en
 status: true
 dependencies:
@@ -5,6 +6,7 @@ dependencies:
     - field.field.node.story.body
     - field.field.node.story.field_domain_access
     - field.field.node.story.field_domain_all_affiliates
+    - field.field.node.story.field_domain_source
     - field.field.node.story.field_meta_tags
     - field.field.node.story.field_osu_organizations
     - field.field.node.story.field_osu_story_caption
@@ -80,8 +82,6 @@ third_party_settings:
         label_as_html: false
         description: ''
         required_fields: true
-_core:
-  default_config_hash: tE9uDlOEjlH2mWv5S8u7uJyj_I6JG5A64r74fL8-sPE
 id: node.story.default
 targetEntityType: node
 bundle: story
@@ -125,6 +125,12 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_domain_source:
+    type: options_select
+    weight: 42
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
@@ -334,6 +340,13 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
     third_party_settings: {  }
   path:
     type: path

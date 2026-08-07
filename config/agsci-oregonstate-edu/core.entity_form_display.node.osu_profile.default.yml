@@ -1,4 +1,4 @@
-uuid: f399a301-1258-454c-a10a-dcf1f6118cd5
+uuid: d258844e-804d-4dd5-8d15-affd0e04f794
 langcode: en
 status: true
 dependencies:
@@ -35,7 +35,9 @@ dependencies:
     - field.field.node.osu_profile.field_profile_fac_type
     - field.field.node.osu_profile.field_profile_fax
     - field.field.node.osu_profile.field_profile_first_name
+    - field.field.node.osu_profile.field_profile_functional_group
     - field.field.node.osu_profile.field_profile_google_scholar
+    - field.field.node.osu_profile.field_profile_headquarters
     - field.field.node.osu_profile.field_profile_image
     - field.field.node.osu_profile.field_profile_last_name
     - field.field.node.osu_profile.field_profile_middle_name
@@ -210,8 +212,6 @@ third_party_settings:
         open: false
         description: ''
         required_fields: true
-_core:
-  default_config_hash: ucV4vkyeVapBZUJOCQA3umSEv9wPUwQub05zvIgtJbU
 id: node.osu_profile.default
 targetEntityType: node
 bundle: osu_profile
@@ -245,6 +245,12 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_domain_source:
+    type: options_select
+    weight: 42
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_osu_organizations:
     type: entity_reference_autocomplete
@@ -472,6 +478,16 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_profile_functional_group:
+    type: entity_reference_autocomplete_tags
+    weight: 40
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_profile_google_scholar:
     type: link_default
     weight: 24
@@ -479,6 +495,14 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
+    third_party_settings: {  }
+  field_profile_headquarters:
+    type: string_textfield
+    weight: 40
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_profile_image:
     type: image_focal_point
@@ -678,5 +702,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  field_domain_source: true
+hidden: {  }

@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.enterprise_budgets.field_aeb_xls
     - field.field.node.enterprise_budgets.field_domain_access
     - field.field.node.enterprise_budgets.field_domain_all_affiliates
+    - field.field.node.enterprise_budgets.field_domain_source
     - field.field.node.enterprise_budgets.field_tax_commodity
     - field.field.node.enterprise_budgets.field_tax_county
     - field.field.node.enterprise_budgets.field_tax_region
@@ -104,6 +105,25 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
+  field_domain_access:
+    type: options_buttons
+    weight: 40
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_domain_all_affiliates:
+    type: boolean_checkbox
+    weight: 41
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_domain_source:
+    type: options_select
+    weight: 42
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_tax_commodity:
     type: options_select
     weight: 1
@@ -121,6 +141,13 @@ content:
     weight: 5
     region: content
     settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
     third_party_settings: {  }
   path:
     type: path
@@ -172,6 +199,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  field_domain_access: true
-  field_domain_all_affiliates: true
+hidden: {  }

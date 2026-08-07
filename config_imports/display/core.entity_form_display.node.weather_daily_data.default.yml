@@ -1,3 +1,4 @@
+uuid: 3cd8dcac-96c4-4160-a0c9-af24656224ee
 langcode: en
 status: true
 dependencies:
@@ -5,6 +6,7 @@ dependencies:
     - field.field.node.weather_daily_data.body
     - field.field.node.weather_daily_data.field_domain_access
     - field.field.node.weather_daily_data.field_domain_all_affiliates
+    - field.field.node.weather_daily_data.field_domain_source
     - field.field.node.weather_daily_data.field_dw_20_inches_max
     - field.field.node.weather_daily_data.field_dw_24_hour_air_move
     - field.field.node.weather_daily_data.field_dw_2_inches_max
@@ -80,6 +82,12 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_domain_source:
+    type: options_select
+    weight: 42
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_dw_20_inches_max:
     type: number
@@ -231,6 +239,13 @@ content:
     region: content
     settings:
       placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
     third_party_settings: {  }
   path:
     type: path
