@@ -2,7 +2,8 @@
 
 /**
  * @file
- * One-off: rewrite /sites/agsci/files/ legacy URLs in migrated rich text.
+ * One-off: rewrite /sites/agsci/files/ and D6-era imagecache legacy URLs
+ * in migrated rich text.
  *
  * CasLegacyFilePaths originally only handled /sites/agscid7/files/ and
  * /sites/default/files/; D7 editors also hardcoded /sites/agsci/files/.
@@ -28,7 +29,7 @@ $targets = [
 $updated = 0;
 foreach ($targets as [$table, $revision_table, $column]) {
   foreach ([$table, $revision_table] as $t) {
-    $rows = $db->query("SELECT entity_id, revision_id, delta, langcode, $column AS v FROM $t WHERE $column LIKE :p", [':p' => '%/sites/agsci/files/%'])->fetchAll();
+    $rows = $db->query("SELECT entity_id, revision_id, delta, langcode, $column AS v FROM $t WHERE $column LIKE :p OR $column LIKE :ic", [':p' => '%/sites/agsci/files/%', ':ic' => '%/files/%imagecache/%'])->fetchAll();
     foreach ($rows as $row) {
       $new = CasLegacyFilePaths::rewriteText($row->v);
       if ($new !== $row->v) {

@@ -26,6 +26,8 @@ use Drupal\node\Entity\Node;
 use Drupal\osu_migrations_cas\Plugin\migrate\process\CasLarchInlineClasses;
 use Drupal\osu_migrations_cas\Plugin\migrate\process\CasLegacyFilePaths;
 
+$media_embed = \Drupal::service('osu_migrations.osu_media_embed');
+
 $d7 = Database::getConnection('default', 'migrate');
 $d10 = Database::getConnection();
 $uuid = \Drupal::service('uuid');
@@ -92,6 +94,23 @@ foreach ($rows as $d7_nid => $html) {
     }
   }
   if ($already) {
+    // Converge sidebar blocks created before the media-token transform:
+    // recompute the body from D7 when raw tokens remain.
+    foreach ($layout->getSections() as $section) {
+      foreach ($section->getComponents() as $component) {
+        $cfg = $component->get('configuration');
+        if (($cfg['label'] ?? '') !== 'Right sidebar' || empty($cfg['block_revision_id'])) {
+          continue;
+        }
+        $sidebar_block = \Drupal::entityTypeManager()->getStorage('block_content')->loadRevision($cfg['block_revision_id']);
+        if ($sidebar_block && str_contains($sidebar_block->get('body')->value ?? '', '[[{')) {
+          $clean = CasLegacyFilePaths::rewriteText(CasLarchInlineClasses::mapText($media_embed->transformEmbedCode($html)));
+          $sidebar_block->set('body', ['value' => $clean, 'format' => 'full_html']);
+          $sidebar_block->save();
+          print "TOKENS $d7_nid -> {$node->id()} ({$node->label()}): sidebar body retransformed\n";
+        }
+      }
+    }
     // Converge earlier conversions that left the body as a field block:
     // swap it for an inline paragraph_block so it is editable in Layout
     // Builder.
@@ -152,7 +171,10 @@ foreach ($rows as $d7_nid => $html) {
     continue;
   }
 
-  $clean = CasLegacyFilePaths::rewriteText(CasLarchInlineClasses::mapText($html));
+  // Same treatment chain the migrations use: media tokens to drupal-media
+  // embeds (D7's media filter rendered them at view time), larch class
+  // mapping, then legacy file path rewriting.
+  $clean = CasLegacyFilePaths::rewriteText(CasLarchInlineClasses::mapText($media_embed->transformEmbedCode($html)));
   $block = BlockContent::create([
     'type' => 'paragraph_block',
     'info' => 'Right sidebar: ' . mb_substr($node->label(), 0, 100),

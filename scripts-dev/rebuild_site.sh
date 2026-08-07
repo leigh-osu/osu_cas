@@ -653,6 +653,22 @@ section_7() {
   # HTML in a light-grey inline block on the right.
   ddev drush --uri="${SITE_URI}" scr scripts-dev/convert_right_sidebars.php
 
+  # Duplicate path aliases (mostly term pages shadowing real nodes, e.g.
+  # /source/students): disable the rows that do not match what live D7
+  # serves.
+  ddev drush --uri="${SITE_URI}" scr scripts-dev/fix_duplicate_aliases.php
+
+  # D7 Context-module custom block placements: theme block config for
+  # path/type-scoped contexts (The Source header, social widgets, MES
+  # headers, weather links) and Layout Builder insertions for the
+  # explicit node lists (BMSB News, EMT AP Contacts, NW Plant Eval menu).
+  ddev drush --uri="${SITE_URI}" scr scripts-dev/place_context_blocks.php
+
+  # Empty D7 paragraphs migrate into empty inline blocks that render as
+  # invisible padded boxes; prune them (colored/background/spacer
+  # components and divider bands are preserved).
+  ddev drush --uri="${SITE_URI}" scr scripts-dev/prune_empty_layout_blocks.php
+
   # Two degree fact sheets are group-members-only on D7 (OG group_access=1,
   # anonymous 403): Soil Science graduate 249691 and Crop and Soil Science
   # B.S. 250541. The Group-module world has no per-node equivalent, so match
