@@ -144,6 +144,10 @@ section_1() {
 
   ddev drush config:set system.theme default manzanita -y
 
+  # Show all errors/warnings with backtraces while migration testing is
+  # active (local only; remove when testing winds down).
+  ddev drush config:set -y system.logging error_level verbose
+
   ddev drush config:set -y system.performance css.preprocess 0
   ddev drush config:set -y system.performance js.preprocess 0
   ddev drush config:set -y system.performance cache.page.max_age 0
