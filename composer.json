@@ -197,7 +197,7 @@
         "drupal-ckeditor-libraries-group/div": "^4.17",
         "drupal-ckeditor-libraries-group/liststyle": "^4.22",
         "drupal/acquia_connector": "^4.0",
-        "drupal/acquia_purge": "^1.0",
+        "drupal/acquia_purge": "^1.5",
         "drupal/address": "^2.0",
         "drupal/addtoany": "^2.0",
         "drupal/admin_toolbar": "^3.0",
@@ -219,7 +219,6 @@
         "drupal/cas_attributes": "^2.0@beta",
         "drupal/charts": "^5.0",
         "drupal/charts_apexcharts": "^1.0",
-        "drupal/charts_echarts": "^1.0",
         "drupal/charts_highcharts_drilldown": "^1.0",
         "drupal/charts_highcharts_maps": "^1.0",
         "drupal/ckeditor5_plugin_pack": "^1.2",
@@ -228,6 +227,7 @@
         "drupal/ckeditor_link_styles": "^1.1",
         "drupal/ckeditor_liststyle": "^1.4",
         "drupal/ckeditor_scayt": "^1.5",
+        "drupal/clamav": "^2.1",
         "drupal/coffee": "^2.0",
         "drupal/colorbox": "^2.0",
         "drupal/colorbox_media_video": "^2.0",
@@ -241,7 +241,6 @@
         "drupal/csv_serialization": "^4.0",
         "drupal/ctools": "^4.1",
         "drupal/dashboard": "^2.0",
-        "drupal/dashboards": "^2.1",
         "drupal/date_all_day": "^2.1",
         "drupal/date_ap_style": "^2.1",
         "drupal/date_ical": "^4.0",
@@ -250,12 +249,10 @@
         "drupal/diff": "^1.0",
         "drupal/domain": "^3.0@beta",
         "drupal/domain_extras": "^3.0@beta",
-        "drupal/dynamic_entity_reference": "^3",
         "drupal/easy_breadcrumb": "^2.0.3",
         "drupal/eck": "^2.0",
         "drupal/eck_bundle_permissions": "^1.0",
         "drupal/editor_advanced_link": "^2.0",
-        "drupal/editor_file": "^1.6",
         "drupal/editoria11y": "^2.0.2",
         "drupal/entity_clone": "^2.1@beta",
         "drupal/entity_usage": "^2@beta",
@@ -302,6 +299,7 @@
         "drupal/linkit": "6.1.6",
         "drupal/linkpurpose": "^1.0",
         "drupal/masquerade": "^2.0",
+        "drupal/mathjax": "^4.1",
         "drupal/media_bulk_upload": "^3.0",
         "drupal/media_entity_file_replace": "^1.2",
         "drupal/media_library_edit": "^3.0",
@@ -319,7 +317,6 @@
         "drupal/paragraphs": "^1.12",
         "drupal/path_redirect_import": "^2.0",
         "drupal/pathauto": "^1.6",
-        "drupal/preview_link": "^2.2@alpha",
         "drupal/protected_pages": "^1.7",
         "drupal/purge_file": "^1.1",
         "drupal/purge_tokens": "^3.6",
@@ -332,6 +329,7 @@
         "drupal/scheduler_content_moderation_integration": "^3.0",
         "drupal/schema_metatag": "^3",
         "drupal/search404": "^2.1",
+        "drupal/search_api": "^1.41",
         "drupal/seckit": "^2.0",
         "drupal/section_library": "^1.2",
         "drupal/selective_better_exposed_filters": "^3.0",
@@ -379,6 +377,7 @@
         "drupal/we_megamenu": "^1.16",
         "drupal/webform": "^6.1",
         "drupal/webform_migrate": "^2.0@alpha",
+        "drupal/webform_views": "^5.6",
         "drupal/workbench": "^1.6",
         "drupal/xls_serialization": "^2.0",
         "drupal/xmlsitemap": "^2.0",
@@ -400,11 +399,11 @@
         "npm-asset/chartjs-plugin-datalabels": "^2.0",
         "npm-asset/dompurify": "^3.0",
         "npm-asset/dropzone": "^5.9",
-        "npm-asset/echarts": "^5.5",
         "npm-asset/fontawesome-iconpicker": "^3.2",
         "npm-asset/fonticonpicker--fonticonpicker": "^3.1",
         "npm-asset/highcharts": "^12.3",
         "npm-asset/jquery-ui-touch-punch": "^0.2.3",
+        "npm-asset/mathjax": "^2.7.9",
         "npm-asset/nouislider": "^15.8",
         "npm-asset/slick-carousel": "1.8.0",
         "oomphinc/composer-installers-extender": "^2.0",
@@ -511,6 +510,19 @@
             "drupal/core": "-p2"
         },
         "patches": {
+            "drupal/acquia_purge": {
+                "3527018 Hostname error for purge paths": "patches/3527018-acquia_purge-hostname-ip-conflict.patch"
+            },
+            "drupal/bootstrap_layout_builder": {
+                "3203096 Column Alignment": "patches/3203096-column-alignment_local_1.patch"
+            },
+            "drupal/cas_attributes": {
+                "3324867 TypeError: implode()": "https://www.drupal.org/files/issues/2024-05-15/3324867-typeerror-implode-argument-11.patch"
+            },
+            "drupal/ckeditor": {
+                "2876094-39 Adding extra p to ckeditor links": "https://www.drupal.org/files/issues/2023-01-31/2876094-39.patch",
+                "3330723-3 Media alignment": "https://www.drupal.org/files/issues/2023-01-03/3330723-3.patch"
+            },
             "drupal/core": {
                 "3049332-118 Layout Builder getEntityTypeId null": "https://www.drupal.org/files/issues/2024-06-26/3049332_d10.3.0.patch",
                 "3162699-13 Layout Builder Debuging patch": "https://www.drupal.org/files/issues/2020-08-10/3162699-blockbuild-13.patch",
@@ -523,16 +535,6 @@
                 "3316271-11 Config import fails with non existent theme reporting TypeError array_diff()": "https://www.drupal.org/files/issues/2023-04-10/3316271.patch",
                 "2171389-40 Exposed filters not filtering attached displays": "https://www.drupal.org/files/issues/2021-06-09/2171389-40.patch",
                 "3417012-24 Multisite Recipe": "https://www.drupal.org/files/issues/2025-02-27/drupal-10.4.x-recipe-multisite-3417012-24.patch"
-            },
-            "drupal/bootstrap_layout_builder": {
-                "3203096 Column Alignment": "patches/3203096-column-alignment_local_1.patch"
-            },
-            "drupal/cas_attributes": {
-                "3324867 TypeError: implode()": "https://www.drupal.org/files/issues/2024-05-15/3324867-typeerror-implode-argument-11.patch"
-            },
-            "drupal/ckeditor": {
-                "2876094-39 Adding extra p to ckeditor links": "https://www.drupal.org/files/issues/2023-01-31/2876094-39.patch",
-                "3330723-3 Media alignment": "https://www.drupal.org/files/issues/2023-01-03/3330723-3.patch"
             },
             "drupal/ctools": {
                 "2759445-100 Add option to pass contextual filters to views blocks": "https://www.drupal.org/files/issues/2023-01-18/2759445-100.patch"
@@ -566,6 +568,9 @@
             "drupal/xmlsitemap": {
                 "3194370-5 Memory Limit issues": "https://www.drupal.org/files/issues/2022-09-15/memory-limit-3194370-5.patch"
             },
+            "osu-wams/osu_groups": {
+                "Show the page title on group canonical pages": "patches/osu_groups-show-group-page-title.patch"
+            },
             "osu-wams/osu_migrations": {
                 "Map larch inline text classes in accordion bodies via osu_migrations_cas": "patches/osu_migrations-accordion-inline-classes.patch",
                 "OSU Migrations CAS file settings": "patches/0001-osu_migrations_files_cas.patch",
@@ -580,9 +585,6 @@
                 "Prevent stub profile nodes from orphaned D7 profile2 rows": "patches/osu_migrations-profile-lookup-no-stub.patch",
                 "Default an empty D7 node language to en": "patches/osu_migrations-empty-langcode-default.patch",
                 "Biblio: drop junk body mapping and skip empty DOI links": "patches/osu_migrations-biblio-body-and-doi.patch"
-            },
-            "osu-wams/osu_groups": {
-                "Show the page title on group canonical pages": "patches/osu_groups-show-group-page-title.patch"
             },
             "osu-wams/osu_publications": {
                 "Authors as Publication Authors taxonomy (term pages collect a person's pubs)": "patches/osu_publications-authors-taxonomy.patch"
