@@ -132,10 +132,10 @@ section_1() {
   # display config is applied.
   ddev drush en osu_digital_measures -y
 
-  # osu_cas_multisite: degree-fact-sheet node template + the colorbox caption
-  # preprocess (uses field_media_caption as the gallery lightbox caption instead
-  # of the media filename).
-  ddev drush en osu_cas_multisite -y
+  # osu_cas_multisite: shared multisite helpers (group breadcrumbs, colorbox
+  # caption preprocess, Layout Builder UX); its degrees submodule carries the
+  # degree-fact-sheet node template.
+  ddev drush en osu_cas_multisite osu_cas_multisite_degrees -y
 
 
   ddev drush cr -y
