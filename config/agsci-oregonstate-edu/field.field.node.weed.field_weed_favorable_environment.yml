@@ -1,14 +1,12 @@
-uuid: ec54a2ed-6178-4eb2-bee1-252610c23ce5
+uuid: 9269a603-05ec-4fff-b058-e54802ba8815
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_weed_favorable_environment
-    - filter.format.basic_html
-    - filter.format.full_html
     - node.type.weed
   module:
-    - text
+    - options
 id: node.weed.field_weed_favorable_environment
 field_name: field_weed_favorable_environment
 entity_type: node
@@ -16,11 +14,8 @@ bundle: weed
 label: 'Favorable Environments'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
-settings:
-  allowed_formats:
-    - full_html
-    - basic_html
-field_type: text_long
+settings: {  }
+field_type: list_string

@@ -1,4 +1,4 @@
-uuid: 77bf4a52-5538-41e6-81b5-438a7ca086ee
+uuid: f27a6db7-e26d-4b9a-ba28-356a681278f1
 langcode: en
 status: true
 dependencies:
@@ -105,8 +105,8 @@ content:
     weight: 8
     region: content
   field_weed_favorable_environment:
-    type: text_default
-    label: inline
+    type: list_default
+    label: above
     settings: {  }
     third_party_settings: {  }
     weight: 7

@@ -180,12 +180,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_weed_favorable_environment:
-    type: text_textarea
+    type: options_buttons
     weight: 129
     region: content
-    settings:
-      rows: 5
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_weed_flowers:
     type: text_textarea
