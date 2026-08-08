@@ -606,12 +606,6 @@ section_7() {
       ])->save();
     }'
 
-  # The header search form block is redundant — search lives in the
-  # manzanita overlay (Apply/MyCAS bar) instead.
-  ddev drush php:eval '
-    $b = \Drupal\block\Entity\Block::load("manzanita_search");
-    if ($b && $b->status()) { $b->disable()->save(); }'
-
   # No placed account-menu block: the site account links (My OSU Profile,
   # My Groups, My Content) live in the admin toolbar's user tray instead
   # (CasToolbarLinkBuilder in osu_cas_multisite replaces core's
