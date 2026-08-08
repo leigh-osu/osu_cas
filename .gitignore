@@ -48,8 +48,11 @@
 /docroot/profiles/custom
 /databackup
 /files/agsci/private-files
-/.claude
+/.claude/*
 /legacy-d7
 
 # Acquia CLI local state (app/environment binding), written by acli commands.
 /.acquia-cli.yml
+
+# Shared Claude Code project settings (the rest of .claude stays local)
+!/.claude/settings.json
