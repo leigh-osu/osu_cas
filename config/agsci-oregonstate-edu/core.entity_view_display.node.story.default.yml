@@ -1,4 +1,4 @@
-uuid: ba54a835-82b1-451d-9f70-7f9b6b279c4c
+uuid: d5b916f4-7bc4-4e9a-9eba-49d2d9ad39ae
 langcode: en
 status: true
 dependencies:
@@ -688,41 +688,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 11
             additional: {  }
-          b7b85c66-804f-4832-a017-d533e7f88f32:
-            uuid: b7b85c66-804f-4832-a017-d533e7f88f32
-            region: blb_region_col_1
-            configuration:
-              id: 'field_block:node:story:field_story_osu_story'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: boolean
-                label: above
-                settings:
-                  format: default
-                  format_custom_false: ''
-                  format_custom_true: ''
-                third_party_settings: {  }
-            weight: 12
-            additional: {  }
-          94e1ce76-c501-494c-844d-78c527629756:
-            uuid: 94e1ce76-c501-494c-844d-78c527629756
-            region: blb_region_col_1
-            configuration:
-              id: 'field_block:node:story:field_story_publish_date'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: datetime_default
-                label: above
-                settings:
-                  timezone_override: ''
-                  format_type: medium
-                third_party_settings: {  }
-            weight: 13
-            additional: {  }
           4aa40315-1328-4f33-a67c-80bb161e807b:
             uuid: 4aa40315-1328-4f33-a67c-80bb161e807b
             region: blb_region_col_1
@@ -772,18 +737,24 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 16
             additional: {  }
-          1a3d96f8-069a-4c5b-9e87-610834e33f88:
-            uuid: 1a3d96f8-069a-4c5b-9e87-610834e33f88
+          4bf621c9-e4ed-470e-9098-0bb7dbccc040:
+            uuid: 4bf621c9-e4ed-470e-9098-0bb7dbccc040
             region: blb_region_col_1
             configuration:
-              id: 'field_block:node:story:field_story_category'
+              id: 'field_block:node:story:field_osu_story_external_url'
               label_display: '0'
               context_mapping:
                 entity: layout_builder.entity
+                view_mode: view_mode
               formatter:
-                type: list_default
-                label: above
-                settings: {  }
+                type: link
+                label: hidden
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: ''
+                  target: ''
                 third_party_settings: {  }
             weight: 17
             additional: {  }
