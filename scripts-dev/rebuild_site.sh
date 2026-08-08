@@ -685,6 +685,11 @@ section_7() {
   # their neighbors instead.
   ddev drush --uri="${SITE_URI}" scr scripts-dev/remove_spacer_blocks.php
 
+  # Video cleanup: trim YouTube playlist junk the oEmbed endpoint rejects
+  # (also handled in-migration by cas_clean_youtube_url) and unpublish the
+  # 20 videos whose remote targets are provider-deleted or private.
+  ddev drush --uri="${SITE_URI}" scr scripts-dev/fix_dead_videos.php
+
   # Legacy file refs whose files are gone everywhere (the section-1 backup
   # refresh recovers anything recoverable first): drop the broken <img>
   # tags and unwrap dead links.
