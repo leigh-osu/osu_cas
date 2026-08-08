@@ -684,6 +684,12 @@ section_7() {
   # 20 videos whose remote targets are provider-deleted or private.
   ddev drush --uri="${SITE_URI}" scr scripts-dev/fix_dead_videos.php
 
+  # External stories: create the redirects the osu_story hook misses during
+  # migration (~400) and resolve the ~870 targets that point at the D7
+  # hostname (self-loops cleared, D7 file URLs rewritten to local files,
+  # dead targets cleared, leftovers to files/external_stories_unresolved.csv).
+  ddev drush --uri="${SITE_URI}" scr scripts-dev/fix_external_stories.php
+
   # Legacy file refs whose files are gone everywhere (the section-1 backup
   # refresh recovers anything recoverable first): drop the broken <img>
   # tags and unwrap dead links.
