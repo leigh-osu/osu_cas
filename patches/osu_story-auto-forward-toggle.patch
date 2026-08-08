@@ -1,0 +1,249 @@
+diff -urN --exclude=.git a/config/install/osu_story.settings.yml ./config/install/osu_story.settings.yml
+--- a/config/install/osu_story.settings.yml
++++ b/config/install/osu_story.settings.yml
+@@ -0,0 +1 @@
++auto_forward_external: true
+diff -urN --exclude=.git a/config/schema/osu_story.schema.yml ./config/schema/osu_story.schema.yml
+--- a/config/schema/osu_story.schema.yml
++++ b/config/schema/osu_story.schema.yml
+@@ -0,0 +1,7 @@
++osu_story.settings:
++  type: config_object
++  label: 'OSU Story settings'
++  mapping:
++    auto_forward_external:
++      type: boolean
++      label: 'Automatically forward external stories to their target'
+diff -urN --exclude=.git a/osu_story.links.menu.yml ./osu_story.links.menu.yml
+--- a/osu_story.links.menu.yml
++++ b/osu_story.links.menu.yml
+@@ -0,0 +1,5 @@
++osu_story.settings:
++  title: 'OSU Story'
++  description: 'Configure external-story auto forwarding.'
++  route_name: osu_story.settings
++  parent: system.admin_config_content
+diff -urN --exclude=.git a/osu_story.module ./osu_story.module
+--- a/osu_story.module
++++ b/osu_story.module
+@@ -14,7 +14,8 @@
+  * After a new node is saved, we need to regenerate the XML Sitemap.
+  */
+ function osu_story_node_insert(NodeInterface $node) {
+-  if ($node->bundle() == 'story'
++  if (_osu_story_auto_forward_enabled()
++    && $node->bundle() == 'story'
+     && $node->hasField('field_meta_tags')
+     && !$node->get('field_osu_story_external_url')->isEmpty()) {
+     $url_item = $node->get('field_osu_story_external_url')->first();
+@@ -62,12 +63,50 @@
+ }
+ 
+ /**
++ * Whether the external-story auto-forward feature is enabled.
++ *
++ * Configurable at /admin/config/content/osu-story; defaults to enabled
++ * when the settings object has never been saved.
++ */
++function _osu_story_auto_forward_enabled(): bool {
++  return \Drupal::config('osu_story.settings')->get('auto_forward_external') ?? TRUE;
++}
++
++/**
++ * Applies the external treatment to stories that are missing it.
++ *
++ * Stories created or edited while auto forwarding was disabled have no
++ * redirect entity; called when the feature is (re-)enabled so they start
++ * forwarding too. Idempotent — stories that already have a redirect are
++ * untouched. Returns the number of stories repaired.
++ */
++function _osu_story_auto_forward_catch_up(): int {
++  $redirect_repository = \Drupal::service('redirect.repository');
++  $nids = \Drupal::database()->query(
++    "SELECT u.entity_id FROM {node__field_osu_story_external_url} u WHERE u.bundle = 'story'"
++  )->fetchCol();
++  $repaired = 0;
++  foreach ($nids as $nid) {
++    if (!empty($redirect_repository->findBySourcePath("node/$nid"))) {
++      continue;
++    }
++    $node = \Drupal\node\Entity\Node::load($nid);
++    if ($node) {
++      $node->save();
++      $repaired++;
++    }
++  }
++  return $repaired;
++}
++
++/**
+  * Implements hook_ENTITY_TYPE_update().
+  *
+  * On update, we need to regenerate the XML Sitemap.
+  */
+ function osu_story_node_update(NodeInterface $node) {
+-  if ($node->bundle() == 'story'
++  if (_osu_story_auto_forward_enabled()
++    && $node->bundle() == 'story'
+     && !$node->get('field_osu_story_external_url')->isEmpty()) {
+     $url_item = $node->get('field_osu_story_external_url')->first();
+     $external_url = $url_item ? $url_item->getUrl()->toString() : '';
+diff -urN --exclude=.git a/osu_story.routing.yml ./osu_story.routing.yml
+--- a/osu_story.routing.yml
++++ b/osu_story.routing.yml
+@@ -0,0 +1,7 @@
++osu_story.settings:
++  path: '/admin/config/content/osu-story'
++  defaults:
++    _form: 'Drupal\osu_story\Form\OsuStorySettingsForm'
++    _title: 'OSU Story'
++  requirements:
++    _permission: 'administer site configuration'
+diff -urN --exclude=.git a/src/Form/OsuStorySettingsForm.php ./src/Form/OsuStorySettingsForm.php
+--- a/src/Form/OsuStorySettingsForm.php
++++ b/src/Form/OsuStorySettingsForm.php
+@@ -0,0 +1,69 @@
++<?php
++
++namespace Drupal\osu_story\Form;
++
++use Drupal\Core\Cache\Cache;
++use Drupal\Core\Form\ConfigFormBase;
++use Drupal\Core\Form\FormStateInterface;
++
++/**
++ * Settings for the OSU Story module.
++ */
++class OsuStorySettingsForm extends ConfigFormBase {
++
++  /**
++   * {@inheritdoc}
++   */
++  public function getFormId() {
++    return 'osu_story_settings';
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  protected function getEditableConfigNames() {
++    return ['osu_story.settings'];
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function buildForm(array $form, FormStateInterface $form_state) {
++    $config = $this->config('osu_story.settings');
++    $form['auto_forward_external'] = [
++      '#type' => 'checkbox',
++      '#title' => $this->t('Automatically forward external stories to their target'),
++      '#description' => $this->t('When enabled, saving a story with an external URL creates a redirect, points its canonical/OG meta tags at the target, and excludes it from the XML sitemap — visitors who open the story are forwarded to the target. When disabled, external stories render as normal local pages: existing redirects are suppressed (not deleted) and no new ones are created; re-enabling restores the forwarding immediately.'),
++      '#default_value' => $config->get('auto_forward_external') ?? TRUE,
++    ];
++    return parent::buildForm($form, $form_state);
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function submitForm(array &$form, FormStateInterface $form_state) {
++    $enabled = (bool) $form_state->getValue('auto_forward_external');
++    $this->config('osu_story.settings')
++      ->set('auto_forward_external', $enabled)
++      ->save();
++    if ($enabled) {
++      // Stories created or edited while the feature was off have no
++      // redirect; give them the full external treatment now.
++      $repaired = _osu_story_auto_forward_catch_up();
++      if ($repaired) {
++        $this->messenger()->addStatus($this->formatPlural($repaired,
++          '1 external story saved while forwarding was off now forwards too.',
++          '@count external stories saved while forwarding was off now forward too.'));
++      }
++    }
++    // The toggle must take effect immediately in both directions: cached
++    // redirect responses carry only their redirect entity's cache tag, so
++    // clear the page caches outright alongside the render cache.
++    Cache::invalidateTags(['rendered']);
++    \Drupal::cache('page')->deleteAll();
++    \Drupal::cache('dynamic_page_cache')->deleteAll();
++    parent::submitForm($form, $form_state);
++  }
++
++}
+diff -urN --exclude=.git a/src/OsuStoryRedirectRepository.php ./src/OsuStoryRedirectRepository.php
+--- a/src/OsuStoryRedirectRepository.php
++++ b/src/OsuStoryRedirectRepository.php
+@@ -0,0 +1,40 @@
++<?php
++
++namespace Drupal\osu_story;
++
++use Drupal\Core\Cache\CacheableMetadata;
++use Drupal\Core\Language\Language;
++use Drupal\redirect\RedirectRepository;
++
++/**
++ * Redirect repository that honors the external-story auto-forward toggle.
++ *
++ * With auto forwarding disabled (/admin/config/content/osu-story), a
++ * matched redirect whose source is a story node carrying an external URL
++ * is suppressed — the story renders as an ordinary local page — without
++ * deleting the redirect entity, so re-enabling restores the forwarding.
++ */
++class OsuStoryRedirectRepository extends RedirectRepository {
++
++  /**
++   * {@inheritdoc}
++   */
++  public function findMatchingRedirect($source_path, array $query = [], $language = Language::LANGCODE_NOT_SPECIFIED, ?CacheableMetadata $cacheable_metadata = NULL) {
++    $redirect = parent::findMatchingRedirect($source_path, $query, $language, $cacheable_metadata);
++    if (!$redirect || _osu_story_auto_forward_enabled()) {
++      return $redirect;
++    }
++    if (preg_match('~^/?node/(\d+)$~', $redirect->getSourcePathWithQuery(), $m)) {
++      $node = \Drupal::entityTypeManager()->getStorage('node')->load($m[1]);
++      if ($node && $node->bundle() === 'story'
++        && $node->hasField('field_osu_story_external_url')
++        && !$node->get('field_osu_story_external_url')->isEmpty()) {
++        // The outcome depends on the toggle: cache accordingly.
++        $cacheable_metadata?->addCacheTags(['config:osu_story.settings']);
++        return NULL;
++      }
++    }
++    return $redirect;
++  }
++
++}
+diff -urN --exclude=.git a/src/OsuStoryServiceProvider.php ./src/OsuStoryServiceProvider.php
+--- a/src/OsuStoryServiceProvider.php
++++ b/src/OsuStoryServiceProvider.php
+@@ -0,0 +1,27 @@
++<?php
++
++namespace Drupal\osu_story;
++
++use Drupal\Core\DependencyInjection\ContainerBuilder;
++use Drupal\Core\DependencyInjection\ServiceProviderBase;
++
++/**
++ * Swaps the redirect repository for the auto-forward-aware subclass.
++ *
++ * RedirectRepository has no interface (consumers type-hint the class), so
++ * gating external-story redirects behind the osu_story.settings toggle is
++ * done by subclassing rather than decorating.
++ */
++class OsuStoryServiceProvider extends ServiceProviderBase {
++
++  /**
++   * {@inheritdoc}
++   */
++  public function alter(ContainerBuilder $container) {
++    if ($container->hasDefinition('redirect.repository')) {
++      $container->getDefinition('redirect.repository')
++        ->setClass(OsuStoryRedirectRepository::class);
++    }
++  }
++
++}
