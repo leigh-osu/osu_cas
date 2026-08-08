@@ -1,4 +1,4 @@
-uuid: 3193408b-86ea-4592-8e70-93419728c6f1
+uuid: d676a229-3c1e-4854-affc-fd1e6fe32791
 langcode: en
 status: true
 dependencies:
@@ -60,30 +60,39 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
+  field_pvr_banner_picture:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: hero_background
+      link: false
+    third_party_settings: {  }
+    weight: -6
+    region: content
   field_pvr_benefits:
     type: text_default
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     weight: 5
     region: content
   field_pvr_characteristics:
     type: text_default
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     weight: 3
     region: content
   field_pvr_contact_for_breeder:
     type: text_default
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     weight: 12
     region: content
   field_pvr_date_of_pvp:
     type: datetime_default
-    label: above
+    label: inline
     settings:
       timezone_override: ''
       format_type: medium
@@ -92,7 +101,7 @@ content:
     region: content
   field_pvr_disease_resistance:
     type: entity_reference_entity_view
-    label: above
+    label: inline
     settings:
       view_mode: default
       link: false
@@ -101,7 +110,7 @@ content:
     region: content
   field_pvr_genus:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -109,7 +118,7 @@ content:
     region: content
   field_pvr_hops_alpha_acids:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -117,7 +126,7 @@ content:
     region: content
   field_pvr_hops_availability:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -125,7 +134,7 @@ content:
     region: content
   field_pvr_hops_beta_acids:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -133,7 +142,7 @@ content:
     region: content
   field_pvr_hops_cohumulone:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -141,7 +150,7 @@ content:
     region: content
   field_pvr_hops_date_received:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -149,7 +158,7 @@ content:
     region: content
   field_pvr_hops_leaf_color:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -157,7 +166,7 @@ content:
     region: content
   field_pvr_hops_maturity:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -165,7 +174,7 @@ content:
     region: content
   field_pvr_hops_method_received:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -173,7 +182,7 @@ content:
     region: content
   field_pvr_hops_oil:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -181,7 +190,7 @@ content:
     region: content
   field_pvr_hops_origin:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -189,7 +198,7 @@ content:
     region: content
   field_pvr_hops_primary_site:
     type: text_default
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     weight: 14
@@ -203,14 +212,14 @@ content:
     region: content
   field_pvr_hops_selection:
     type: text_default
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     weight: 15
     region: content
   field_pvr_hops_sex:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -218,7 +227,7 @@ content:
     region: content
   field_pvr_hops_sidearm_length:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -226,7 +235,7 @@ content:
     region: content
   field_pvr_hops_storage_stability:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -234,7 +243,7 @@ content:
     region: content
   field_pvr_hops_usda_acc:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -242,7 +251,7 @@ content:
     region: content
   field_pvr_hops_vigor:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -259,7 +268,7 @@ content:
     region: content
   field_pvr_major_traits:
     type: text_default
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     weight: 31
@@ -273,7 +282,7 @@ content:
     region: content
   field_pvr_pedigree:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -281,14 +290,14 @@ content:
     region: content
   field_pvr_quality:
     type: text_default
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     weight: 4
     region: content
   field_pvr_region:
     type: entity_reference_entity_view
-    label: above
+    label: inline
     settings:
       view_mode: default
       link: false
@@ -297,7 +306,7 @@ content:
     region: content
   field_pvr_species:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -305,7 +314,7 @@ content:
     region: content
   field_pvr_yield:
     type: text_default
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     weight: 6
@@ -328,7 +337,6 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
-  field_pvr_banner_picture: true
   field_pvr_date_of_release: true
   field_pvr_summary: true
   langcode: true
