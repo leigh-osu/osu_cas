@@ -308,7 +308,7 @@ third_party_settings:
                 entity: layout_builder.entity
               formatter:
                 type: datetime_custom
-                label: above
+                label: inline
                 settings:
                   timezone_override: ''
                   date_format: 'F j, Y'
