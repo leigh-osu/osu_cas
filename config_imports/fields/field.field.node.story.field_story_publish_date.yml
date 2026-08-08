@@ -1,3 +1,4 @@
+uuid: 92d9fff7-165f-4786-8acc-784ac0b4b9fe
 langcode: en
 status: true
 dependencies:
@@ -10,7 +11,7 @@ id: node.story.field_story_publish_date
 field_name: field_story_publish_date
 entity_type: node
 bundle: story
-label: 'Publish Date'
+label: 'Published Date'
 description: ''
 required: false
 translatable: false

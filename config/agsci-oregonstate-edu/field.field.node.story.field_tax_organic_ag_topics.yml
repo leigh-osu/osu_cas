@@ -1,4 +1,4 @@
-uuid: 17ced617-1a06-4376-905a-e777e1bb6957
+uuid: 371a50b5-f689-442d-8b64-054d278a9fbd
 langcode: en
 status: true
 dependencies:
@@ -10,14 +10,14 @@ id: node.story.field_tax_organic_ag_topics
 field_name: field_tax_organic_ag_topics
 entity_type: node
 bundle: story
-label: 'Organic Ag Topics'
+label: 'Organic Ag topics'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:taxonomy_term'
+  handler: 'default:filter_existing_terms'
   handler_settings:
     target_bundles:
       organic_ag: organic_ag

@@ -1,4 +1,3 @@
-uuid: ed456bd5-e9de-42c8-ae79-9cfef52e28cf
 langcode: en
 status: true
 dependencies:
@@ -18,7 +17,6 @@ dependencies:
     - field.field.node.story.field_story_osu_employee
     - field.field.node.story.field_story_osu_story
     - field.field.node.story.field_story_publish_date
-    - field.field.node.story.field_tags
     - field.field.node.story.field_tax_cas_section
     - field.field.node.story.field_tax_cas_themes
     - field.field.node.story.field_tax_coarec_authors
@@ -31,8 +29,8 @@ dependencies:
     - field.field.node.story.field_tax_owri_topics
     - field.field.node.story.field_tax_publication_type
     - field.field.node.story.field_tax_publisher
+    - field.field.node.story.field_tax_story_tags
     - field.field.node.story.field_tax_swd_topics
-    - field.field.node.story.field_tax_tags
     - field.field.node.story.field_tax_turf_topics
     - field.field.node.story.field_tax_veg_topics
     - field.field.node.story.field_tax_work_area
@@ -211,16 +209,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_tags:
-    type: entity_reference_autocomplete_tags
-    weight: 2
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_tax_cas_section:
     type: multiselect
     weight: 21
@@ -297,21 +285,21 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_tax_swd_topics:
-    type: multiselect
-    weight: 32
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_tax_tags:
-    type: entity_reference_autocomplete
-    weight: 24
+  field_tax_story_tags:
+    type: entity_reference_autocomplete_tags
+    weight: 2
     region: content
     settings:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_tax_swd_topics:
+    type: multiselect
+    weight: 32
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_tax_turf_topics:
     type: multiselect

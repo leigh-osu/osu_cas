@@ -1,4 +1,4 @@
-uuid: 6f80dcd7-7bf9-47b5-8c62-621686169910
+uuid: fd31e148-90c3-4b89-ba87-bad6664b13a7
 langcode: en
 status: true
 dependencies:
@@ -10,14 +10,14 @@ id: node.story.field_tax_nursery_topics
 field_name: field_tax_nursery_topics
 entity_type: node
 bundle: story
-label: 'Nursery Topics'
+label: 'Nursery topics'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:taxonomy_term'
+  handler: 'default:filter_existing_terms'
   handler_settings:
     target_bundles:
       nursery: nursery

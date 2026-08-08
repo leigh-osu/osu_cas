@@ -1,4 +1,4 @@
-uuid: 51210923-f672-4235-afeb-e7d9ac3cfc86
+uuid: d50379dd-fd5c-445f-97ec-fc2ad8b302f5
 langcode: en
 status: true
 dependencies:
@@ -10,14 +10,14 @@ id: node.story.field_tax_owri_topics
 field_name: field_tax_owri_topics
 entity_type: node
 bundle: story
-label: 'OWRI Topics'
+label: Topics
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:taxonomy_term'
+  handler: 'default:filter_existing_terms'
   handler_settings:
     target_bundles:
       owri: owri

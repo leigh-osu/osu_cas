@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.story.body
     - field.field.node.story.field_domain_access
     - field.field.node.story.field_domain_all_affiliates
+    - field.field.node.story.field_domain_source
     - field.field.node.story.field_meta_tags
     - field.field.node.story.field_osu_organizations
     - field.field.node.story.field_osu_story_caption
@@ -17,7 +18,6 @@ dependencies:
     - field.field.node.story.field_story_osu_employee
     - field.field.node.story.field_story_osu_story
     - field.field.node.story.field_story_publish_date
-    - field.field.node.story.field_tags
     - field.field.node.story.field_tax_cas_section
     - field.field.node.story.field_tax_cas_themes
     - field.field.node.story.field_tax_coarec_authors
@@ -30,8 +30,8 @@ dependencies:
     - field.field.node.story.field_tax_owri_topics
     - field.field.node.story.field_tax_publication_type
     - field.field.node.story.field_tax_publisher
+    - field.field.node.story.field_tax_story_tags
     - field.field.node.story.field_tax_swd_topics
-    - field.field.node.story.field_tax_tags
     - field.field.node.story.field_tax_turf_topics
     - field.field.node.story.field_tax_veg_topics
     - field.field.node.story.field_tax_work_area
@@ -77,8 +77,6 @@ third_party_settings:
         - 'bootstrap_layout_builder:blb_col_4'
         - 'bootstrap_layout_builder:blb_col_5'
         - 'bootstrap_layout_builder:blb_col_6'
-_core:
-  default_config_hash: gEPMSJrfCVsW9IDVBfYJDAIcOtxn9InutS0SnYsdLB4
 id: node.story.teaser
 targetEntityType: node
 bundle: story
@@ -101,6 +99,7 @@ hidden:
   entitygroupfield: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_domain_source: true
   field_meta_tags: true
   field_osu_organizations: true
   field_osu_story_caption: true
@@ -112,7 +111,6 @@ hidden:
   field_story_osu_employee: true
   field_story_osu_story: true
   field_story_publish_date: true
-  field_tags: true
   field_tax_cas_section: true
   field_tax_cas_themes: true
   field_tax_coarec_authors: true
@@ -125,11 +123,12 @@ hidden:
   field_tax_owri_topics: true
   field_tax_publication_type: true
   field_tax_publisher: true
+  field_tax_story_tags: true
   field_tax_swd_topics: true
-  field_tax_tags: true
   field_tax_turf_topics: true
   field_tax_veg_topics: true
   field_tax_work_area: true
   field_tax_year: true
+  langcode: true
   layout_builder__layout: true
   toc_js: true

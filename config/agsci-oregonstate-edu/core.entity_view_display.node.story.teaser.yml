@@ -1,4 +1,4 @@
-uuid: f68f6152-8966-4cf5-b8d0-103411ae20df
+uuid: 81815914-e5a3-4e82-8968-71c3f2acf4df
 langcode: en
 status: true
 dependencies:
@@ -19,7 +19,6 @@ dependencies:
     - field.field.node.story.field_story_osu_employee
     - field.field.node.story.field_story_osu_story
     - field.field.node.story.field_story_publish_date
-    - field.field.node.story.field_tags
     - field.field.node.story.field_tax_cas_section
     - field.field.node.story.field_tax_cas_themes
     - field.field.node.story.field_tax_coarec_authors
@@ -32,8 +31,8 @@ dependencies:
     - field.field.node.story.field_tax_owri_topics
     - field.field.node.story.field_tax_publication_type
     - field.field.node.story.field_tax_publisher
+    - field.field.node.story.field_tax_story_tags
     - field.field.node.story.field_tax_swd_topics
-    - field.field.node.story.field_tax_tags
     - field.field.node.story.field_tax_turf_topics
     - field.field.node.story.field_tax_veg_topics
     - field.field.node.story.field_tax_work_area
@@ -115,7 +114,6 @@ hidden:
   field_story_osu_employee: true
   field_story_osu_story: true
   field_story_publish_date: true
-  field_tags: true
   field_tax_cas_section: true
   field_tax_cas_themes: true
   field_tax_coarec_authors: true
@@ -128,8 +126,8 @@ hidden:
   field_tax_owri_topics: true
   field_tax_publication_type: true
   field_tax_publisher: true
+  field_tax_story_tags: true
   field_tax_swd_topics: true
-  field_tax_tags: true
   field_tax_turf_topics: true
   field_tax_veg_topics: true
   field_tax_work_area: true

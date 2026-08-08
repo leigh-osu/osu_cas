@@ -1,4 +1,4 @@
-uuid: f8444a9b-7130-445d-a5a1-7fc3843ca36e
+uuid: 01fd68e2-9126-414d-8f3c-657bcdd23e36
 langcode: en
 status: true
 dependencies:
@@ -10,14 +10,14 @@ id: node.story.field_tax_coarec_authors
 field_name: field_tax_coarec_authors
 entity_type: node
 bundle: story
-label: 'COAREC Authors'
+label: Authors
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:taxonomy_term'
+  handler: 'default:filter_existing_terms'
   handler_settings:
     target_bundles:
       coarec_authors: coarec_authors

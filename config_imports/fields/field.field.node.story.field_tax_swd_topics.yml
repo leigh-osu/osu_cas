@@ -9,14 +9,14 @@ id: node.story.field_tax_swd_topics
 field_name: field_tax_swd_topics
 entity_type: node
 bundle: story
-label: 'SWD Topics'
+label: 'SWD topics'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:taxonomy_term'
+  handler: 'default:filter_existing_terms'
   handler_settings:
     target_bundles:
       swd: swd

@@ -1,4 +1,4 @@
-uuid: 0bb88088-8202-49a7-966b-d11652a44188
+uuid: c2102a68-e7c4-4967-9d10-15e172dbffca
 langcode: en
 status: true
 dependencies:
@@ -10,14 +10,14 @@ id: node.story.field_tax_malheur_topics
 field_name: field_tax_malheur_topics
 entity_type: node
 bundle: story
-label: 'Malheur Topics'
+label: 'Malheur topics'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:taxonomy_term'
+  handler: 'default:filter_existing_terms'
   handler_settings:
     target_bundles:
       malheur_topics: malheur_topics
