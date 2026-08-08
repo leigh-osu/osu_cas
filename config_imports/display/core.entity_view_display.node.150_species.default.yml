@@ -1,11 +1,14 @@
+uuid: a033583f-5266-4389-87a9-cbd9b1919380
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.node.150_species.body
     - field.field.node.150_species.field_150_species_photo
+    - field.field.node.150_species.field_150_species_type
     - field.field.node.150_species.field_domain_access
     - field.field.node.150_species.field_domain_all_affiliates
+    - field.field.node.150_species.field_domain_source
     - field.field.node.150_species.field_tax_type
     - field.field.node.150_species.og_user_node
     - node.type.150_species
@@ -35,6 +38,14 @@ content:
         attribute: lazy
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_150_species_type:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
     region: content
   field_species_photo:
     type: image
@@ -72,6 +83,6 @@ hidden:
   entitygroupfield: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_domain_source: true
   field_species_type: true
   langcode: true
-

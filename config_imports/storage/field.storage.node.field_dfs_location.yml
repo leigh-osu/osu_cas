@@ -1,3 +1,4 @@
+uuid: 8d2400a9-1f0b-41c2-ae50-268f96518c90
 langcode: und
 status: true
 dependencies:
@@ -28,9 +29,8 @@ settings:
   allowed_values_function: ''
 module: options
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
 custom_storage: false
-

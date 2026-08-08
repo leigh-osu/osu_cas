@@ -1,4 +1,4 @@
-uuid: 87942312-57f6-4883-bed9-503b8807d81d
+uuid: 4d6afe55-f776-4e6b-9d82-0c1529d3ae29
 langcode: und
 status: true
 dependencies:
@@ -10,11 +10,29 @@ field_name: field_dfs_degree_focus_area
 entity_type: node
 type: list_string
 settings:
-  allowed_values: {  }
+  allowed_values:
+    -
+      value: dcluster_applied_sci
+      label: 'Applied Social Sciences'
+    -
+      value: dcluster_animals
+      label: 'Animals (Wild and Domestic) Conservation & Ecology'
+    -
+      value: dcluster_plant_sci
+      label: 'Plant Sciences'
+    -
+      value: dcluster_physical_sci
+      label: 'Physical Science & Engineering'
+    -
+      value: dcluster_research
+      label: 'Customized & Research-based'
+    -
+      value: dcluster_double_deg
+      label: 'Double Degree Program'
   allowed_values_function: ''
 module: options
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
