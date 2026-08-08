@@ -279,6 +279,20 @@ section_3() {
   echo 'installing other configs'
   ddev drush config:import --partial --source=../config_imports -y
 
+  # Story tags rename: the working field is field_tax_story_tags targeting
+  # the story_tags vocabulary (created in section 2 by the vocabulary
+  # migration via the CAS machine-name remap). Prune the profile-installed
+  # leftovers: osu_story's field_tags/field_tax_tags and the stock "tags"
+  # vocabulary. Runs before node migrations, so the fields are still empty.
+  ddev drush php:eval '
+    foreach (["field_tags", "field_tax_tags"] as $name) {
+      \Drupal\field\Entity\FieldConfig::loadByName("node", "story", $name)?->delete();
+      \Drupal\field\Entity\FieldStorageConfig::loadByName("node", $name)?->delete();
+    }
+    \Drupal\taxonomy\Entity\Vocabulary::load("tags")?->delete();
+    field_purge_batch(100);
+    print "legacy tags fields + vocabulary pruned\n";'
+
   # ddev drush config:delete taxonomy.vocabulary.publication_type -y
 
   ddev drush cr -y
@@ -718,7 +732,14 @@ section_7() {
   # footer content) keep their flag.
   ddev drush sql:query "UPDATE block_content_field_data SET reusable = 0 WHERE type IN ('osu_card','paragraph_block','osu_accordion') AND reusable = 1"
 
-  ddev drush pqe -y
+  # Keep external stories viewable as local pages while migration testing
+  # is active (local only; toggle at /admin/config/content/osu-story).
+  # Must run AFTER migration and fix_external_stories.php: the osu_story
+  # save hooks are gated by this flag, so switching it off earlier would
+  # leave every external story without its redirect/metatag treatment.
+  # The redirect entities are all created above; this only suppresses them
+  # at request time — re-enabling forwards instantly, no catch-up needed.
+  ddev drush --uri="${SITE_URI}" config:set -y osu_story.settings auto_forward_external 0
   ddev drush cr
   # Each site directory compiles its own container; the bare cr above only
   # rebuilds the default one. Without this, the agsci container (used by the

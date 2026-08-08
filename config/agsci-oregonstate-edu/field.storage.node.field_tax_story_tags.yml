@@ -1,19 +1,19 @@
-uuid: 3672a7d4-6ef9-4c2a-afc3-51568480a623
+uuid: 563369ed-dc81-4c99-8365-7ce872840bf0
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - taxonomy
-id: node.field_tax_tags
-field_name: field_tax_tags
+id: node.field_tax_story_tags
+field_name: field_tax_story_tags
 entity_type: node
 type: entity_reference
 settings:
   target_type: taxonomy_term
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
