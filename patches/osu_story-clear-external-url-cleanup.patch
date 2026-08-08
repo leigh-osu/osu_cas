@@ -1,0 +1,47 @@
+--- a/osu_story.module	2026-08-08 12:47:59
++++ b/osu_story.module	2026-08-08 12:48:57
+@@ -24,6 +24,44 @@
+ }
+ 
+ /**
++ * Implements hook_ENTITY_TYPE_presave().
++ *
++ * The external-URL treatment is save-time entity creation, so clearing
++ * field_osu_story_external_url used to leave the redirect, metatag
++ * overrides and sitemap exclusion behind -- the node stayed unreachable.
++ * When the field goes from set to empty, undo all three. Runs in presave
++ * so the metatag and sitemap changes ride the same save.
++ */
++function osu_story_node_presave(NodeInterface $node) {
++  if ($node->bundle() != 'story'
++    || $node->isNew()
++    || !$node->get('field_osu_story_external_url')->isEmpty()
++    || !isset($node->original)
++    || $node->original->get('field_osu_story_external_url')->isEmpty()) {
++    return;
++  }
++  // Delete the redirect(s) that made the node bounce to its target.
++  /** @var Drupal\redirect\RedirectRepository $redirect_repository */
++  $redirect_repository = \Drupal::service('redirect.repository');
++  foreach ($redirect_repository->findBySourcePath($node->toUrl()->getInternalPath()) as $redirect) {
++    $redirect->delete();
++  }
++  // Restore the external-URL metatag overrides; anything an editor set
++  // manually stays.
++  if ($node->hasField('field_meta_tags') && !empty($node->get('field_meta_tags')->value)) {
++    $meta_tags = unserialize($node->get('field_meta_tags')->value);
++    unset($meta_tags['canonical_url'], $meta_tags['robots'], $meta_tags['og_url']);
++    $node->set('field_meta_tags', $meta_tags ? serialize($meta_tags) : NULL);
++  }
++  // Let the sitemap advertise the node again (bundle default applies).
++  $xmlsitemap_settings = $node->xmlsitemap ?? [];
++  $xmlsitemap_settings['status'] = TRUE;
++  $xmlsitemap_settings['status_override'] = 0;
++  $node->xmlsitemap = $xmlsitemap_settings;
++  \Drupal::messenger()->addStatus(t('This story is no longer external: its redirect was removed, meta tags restored, and it is back in the XML Sitemap.'));
++}
++
++/**
+  * Implements hook_ENTITY_TYPE_update().
+  *
+  * On update, we need to regenerate the XML Sitemap.

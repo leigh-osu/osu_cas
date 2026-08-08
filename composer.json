@@ -599,7 +599,8 @@
                 "Remove linkpurpose from profile dependencies (uninstallable per-site)": "patches/osu_standard-remove-linkpurpose.patch"
             },
             "osu-wams/osu_story": {
-                "External-story redirect dedupe by source path (langcode-agnostic)": "patches/osu_story-external-redirect-dedupe.patch"
+                "External-story redirect dedupe by source path (langcode-agnostic)": "patches/osu_story-external-redirect-dedupe.patch",
+                "Clean up redirect/metatags/sitemap when the external URL is cleared": "patches/osu_story-clear-external-url-cleanup.patch"
             }
         },
         "drupal-scaffold": {
