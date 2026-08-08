@@ -1,12 +1,12 @@
-uuid: 97a82b27-5b7b-457d-856c-454930461150
+uuid: 75399595-8d21-4222-a6ec-c4d7114f73ea
 langcode: en
 status: true
 dependencies:
+  module:
+    - image_effects
   enforced:
     module:
       - media_library
-_core:
-  default_config_hash: FxMdscEA4aDH0KPM73HIZtVn3zIAgC1kQ3CkBw26HYs
 name: media_library
 label: 'Media Library thumbnail (220×220)'
 effects:
@@ -24,3 +24,9 @@ effects:
     weight: 2
     data:
       extension: webp
+  3216535f-be1b-4eeb-9980-4dee4b49ce68:
+    uuid: 3216535f-be1b-4eeb-9980-4dee4b49ce68
+    id: image_effects_auto_orient
+    weight: -100
+    data:
+      scan_exif: true

@@ -1,9 +1,9 @@
-uuid: f80e0103-9884-4099-af9e-f6c7f65f668a
+uuid: fa9802b4-75c8-448e-acb9-e07fb9a1f2ab
 langcode: en
 status: true
-dependencies: {  }
-_core:
-  default_config_hash: F2CRtl-B-5utTOfmgzeaIxTLiJPRDfZTaYEcRSB9sLo
+dependencies:
+  module:
+    - image_effects
 name: 1400x900
 label: 1400x900
 effects:
@@ -15,3 +15,9 @@ effects:
       width: 1400
       height: 898
       anchor: center-center
+  10bce469-a4e9-45c1-9852-8bab44b3f269:
+    uuid: 10bce469-a4e9-45c1-9852-8bab44b3f269
+    id: image_effects_auto_orient
+    weight: -100
+    data:
+      scan_exif: true

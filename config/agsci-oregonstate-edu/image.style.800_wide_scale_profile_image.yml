@@ -1,15 +1,23 @@
-uuid: 1a96433d-1b94-40b8-a5d1-9b06537d509d
+uuid: 5c170797-01cf-42eb-9c52-80573d76f154
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - image_effects
 name: 800_wide_scale_profile_image
 label: '800 Wide Scale Profile Image'
 effects:
-  8b39f746-5538-49b6-bf08-e4cfa4c7d875:
-    uuid: 8b39f746-5538-49b6-bf08-e4cfa4c7d875
+  110c7c54-1b70-4baa-b037-fb92cc993253:
+    uuid: 110c7c54-1b70-4baa-b037-fb92cc993253
     id: image_scale
     weight: 1
     data:
       width: 800
       height: null
       upscale: false
+  24b980be-c7a7-48ff-804b-b43953fbc7c7:
+    uuid: 24b980be-c7a7-48ff-804b-b43953fbc7c7
+    id: image_effects_auto_orient
+    weight: -100
+    data:
+      scan_exif: true

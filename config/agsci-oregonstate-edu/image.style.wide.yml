@@ -1,9 +1,9 @@
-uuid: 92464188-fde6-47c1-8568-eb0feec1c2d4
+uuid: b61b360c-a1d8-4fbc-b58c-3cd812051d38
 langcode: en
 status: true
-dependencies: {  }
-_core:
-  default_config_hash: XHh3ATMH7z4ljwmzdndM47qNMkgLnoYsP98rGxVgCOw
+dependencies:
+  module:
+    - image_effects
 name: wide
 label: 'Wide (1090)'
 effects:
@@ -21,3 +21,9 @@ effects:
     weight: 2
     data:
       extension: webp
+  4bf2958e-cb1c-4a3a-9801-65f74f5188c6:
+    uuid: 4bf2958e-cb1c-4a3a-9801-65f74f5188c6
+    id: image_effects_auto_orient
+    weight: -100
+    data:
+      scan_exif: true

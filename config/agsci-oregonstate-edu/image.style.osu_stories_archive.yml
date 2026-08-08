@@ -1,11 +1,10 @@
-uuid: dd4079f4-f7c5-42c7-81ae-4d2bd3b6e3ec
+uuid: 61a845f2-01c2-4822-b4b3-4418d66378e0
 langcode: en
 status: true
 dependencies:
   module:
     - focal_point
-_core:
-  default_config_hash: F_ooX534jo8eCXYFkmxP9bW_05z1GRey3q65zHsPgU0
+    - image_effects
 name: osu_stories_archive
 label: 'Stories Archive'
 effects:
@@ -23,3 +22,9 @@ effects:
       width: 600
       height: 400
       crop_type: focal_point
+  82842169-279b-402a-a987-ff9952618238:
+    uuid: 82842169-279b-402a-a987-ff9952618238
+    id: image_effects_auto_orient
+    weight: -100
+    data:
+      scan_exif: true

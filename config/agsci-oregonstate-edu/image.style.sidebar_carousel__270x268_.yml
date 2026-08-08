@@ -1,15 +1,23 @@
-uuid: 4946c75f-20d3-45c1-b783-e298e9f214f5
+uuid: 37f0aed0-0c06-4ebf-b0f1-3ac563a34c20
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - image_effects
 name: sidebar_carousel__270x268_
 label: 'Sidebar Carousel (270x268)'
 effects:
-  7d132506-658e-4e2c-ac2b-42bd9add7a0e:
-    uuid: 7d132506-658e-4e2c-ac2b-42bd9add7a0e
+  9a0265ba-3afc-49c9-a4d8-851b536b6925:
+    uuid: 9a0265ba-3afc-49c9-a4d8-851b536b6925
     id: image_scale_and_crop
     weight: 1
     data:
       width: 270
       height: 268
       anchor: center-center
+  089f33c2-a4d6-43ee-8083-a36ae5c69fcc:
+    uuid: 089f33c2-a4d6-43ee-8083-a36ae5c69fcc
+    id: image_effects_auto_orient
+    weight: -100
+    data:
+      scan_exif: true

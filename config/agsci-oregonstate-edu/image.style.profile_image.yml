@@ -1,11 +1,10 @@
-uuid: 85a86573-d160-4e56-8c68-c1ffd90a266f
+uuid: a87aea3c-3dfb-46fc-a81a-7edff314ba9c
 langcode: en
 status: true
 dependencies:
   module:
     - focal_point
-_core:
-  default_config_hash: pbNXtSEU37TkLhSzSD7Y1andk-dyFrMsPortATGs9Xs
+    - image_effects
 name: profile_image
 label: 'Profile Image'
 effects:
@@ -23,3 +22,9 @@ effects:
     weight: -9
     data:
       extension: webp
+  063fe889-eec6-4900-aeb5-311855fd4b0d:
+    uuid: 063fe889-eec6-4900-aeb5-311855fd4b0d
+    id: image_effects_auto_orient
+    weight: -100
+    data:
+      scan_exif: true

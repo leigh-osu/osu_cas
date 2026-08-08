@@ -1,15 +1,23 @@
-uuid: 5d60c9f1-8286-4127-95f1-a659432a0823
+uuid: 4bc58b0d-1b47-477c-b422-a2cbd3a6b949
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - image_effects
 name: 600x435
 label: '600x432 (larch box)'
 effects:
-  ae724101-f2e6-4854-870a-242bcac26ede:
-    uuid: ae724101-f2e6-4854-870a-242bcac26ede
+  22a4973f-86c3-489a-8161-d1a3bf843f77:
+    uuid: 22a4973f-86c3-489a-8161-d1a3bf843f77
     id: image_scale_and_crop
     weight: 1
     data:
       width: 600
       height: 432
       anchor: center-center
+  bce6b4c2-60c1-4126-8037-02e7c9c133f1:
+    uuid: bce6b4c2-60c1-4126-8037-02e7c9c133f1
+    id: image_effects_auto_orient
+    weight: -100
+    data:
+      scan_exif: true

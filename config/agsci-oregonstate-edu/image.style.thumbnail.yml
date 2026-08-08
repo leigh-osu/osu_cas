@@ -1,9 +1,9 @@
-uuid: 3b3edd68-ed7e-4d33-b1c4-2c2273a80ce8
+uuid: 617c1524-1da8-4ac5-8945-9baf12829ad6
 langcode: en
 status: true
-dependencies: {  }
-_core:
-  default_config_hash: BgeBV-xOFINMsz-y2thm45EGesj6bRM6DTLZ6ce3V9I
+dependencies:
+  module:
+    - image_effects
 name: thumbnail
 label: 'Thumbnail (100×100)'
 effects:
@@ -21,3 +21,9 @@ effects:
     weight: 2
     data:
       extension: webp
+  1e130463-6fb0-4626-9791-f65585fa6de2:
+    uuid: 1e130463-6fb0-4626-9791-f65585fa6de2
+    id: image_effects_auto_orient
+    weight: -100
+    data:
+      scan_exif: true

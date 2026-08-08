@@ -1,15 +1,23 @@
-uuid: 189a2e5b-3677-42a1-aa9c-c65ca734cae2
+uuid: 61890966-113a-486d-9120-68db79dea006
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - image_effects
 name: 640_scale_crop_2
 label: '640x360 Scale Crop'
 effects:
-  74e45a51-b25a-4f70-952e-fda7d88400df:
-    uuid: 74e45a51-b25a-4f70-952e-fda7d88400df
+  5f7e718d-a4aa-485f-8acc-5ce1135f034d:
+    uuid: 5f7e718d-a4aa-485f-8acc-5ce1135f034d
     id: image_scale_and_crop
     weight: 1
     data:
       width: 640
       height: 360
       anchor: center-center
+  1e7ac044-76c3-4e7b-8bba-9434c4cad61f:
+    uuid: 1e7ac044-76c3-4e7b-8bba-9434c4cad61f
+    id: image_effects_auto_orient
+    weight: -100
+    data:
+      scan_exif: true

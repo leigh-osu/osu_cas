@@ -1,9 +1,9 @@
-uuid: daf2297c-7226-4388-870e-c422afdbb92c
+uuid: 7bb1f179-d5b2-40c7-9bae-e8e807408acc
 langcode: en
 status: true
-dependencies: {  }
-_core:
-  default_config_hash: cf11xbe-eyJo9loI737Vg75DOK0USb-UvxW1vQtd2B8
+dependencies:
+  module:
+    - image_effects
 name: hero_background_style
 label: 'Hero Background Style'
 effects:
@@ -15,3 +15,9 @@ effects:
       width: 1920
       height: 700
       anchor: center-center
+  ea266ae3-e03f-4a48-af4d-55c4494e9848:
+    uuid: ea266ae3-e03f-4a48-af4d-55c4494e9848
+    id: image_effects_auto_orient
+    weight: -100
+    data:
+      scan_exif: true
