@@ -1,0 +1,22 @@
+uuid: 929d9b32-8d8e-4c01-b03d-7b2db35d125f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfs_degree_description
+    - node.type.degree_fact_sheet
+  module:
+    - text
+id: node.degree_fact_sheet.field_dfs_degree_description
+field_name: field_dfs_degree_description
+entity_type: node
+bundle: degree_fact_sheet
+label: 'Degree description'
+description: 'Rich-text description for the matching degree title; leave a single space to keep an empty slot aligned.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

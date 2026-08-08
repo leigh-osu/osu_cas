@@ -1,0 +1,19 @@
+uuid: 2831ea88-4762-4834-ab5a-c6e8367cbd68
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfs_degree_title
+    - node.type.degree_fact_sheet
+id: node.degree_fact_sheet.field_dfs_degree_title
+field_name: field_dfs_degree_title
+entity_type: node
+bundle: degree_fact_sheet
+label: 'Degree title'
+description: 'Graduate degrees-offered list: program name (one item per degree, kept in the same order as level and description).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

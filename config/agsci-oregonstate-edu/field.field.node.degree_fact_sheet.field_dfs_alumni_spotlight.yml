@@ -1,0 +1,22 @@
+uuid: 88d9d94b-dd98-44e4-9281-e2b7043ee66a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfs_alumni_spotlight
+    - node.type.degree_fact_sheet
+  module:
+    - text
+id: node.degree_fact_sheet.field_dfs_alumni_spotlight
+field_name: field_dfs_alumni_spotlight
+entity_type: node
+bundle: degree_fact_sheet
+label: 'Alumni Spotlight'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

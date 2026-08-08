@@ -1,0 +1,20 @@
+uuid: 9974b8da-9f4d-4641-afa1-030caa49529f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_pub_editors
+field_name: field_pub_editors
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

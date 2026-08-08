@@ -1,0 +1,19 @@
+uuid: 6887e330-7ba9-4eec-aa14-6b8986e85e7a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pub_isbn
+    - node.type.publications
+id: node.publications.field_pub_isbn
+field_name: field_pub_isbn
+entity_type: node
+bundle: publications
+label: ISBN
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
