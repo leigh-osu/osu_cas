@@ -1,0 +1,26 @@
+Subject: [PATCH] Repair hardcoded D7 file URLs on migrated menu bar items
+
+D7 editors pasted /sites/agscid7/files/<rel> straight into the menu
+paragraph's link box. Those URLs migrated verbatim into
+field_osu_menu_bar_item_link and 404 on D10, where the public files
+directory is /sites/agsci.oregonstate.edu/files. Delegate the repair to
+the CAS helper (which also copies unmanaged files off the D7 filesystem
+on demand) when osu_migrations_cas is available.
+---
+--- a/modules/paragraphs_to_layout_builder/src/Plugin/migrate/process/MenuItem.php
++++ b/modules/paragraphs_to_layout_builder/src/Plugin/migrate/process/MenuItem.php
+@@ -166,6 +166,14 @@
+         // Clean out invalid URLs.
+         $url = '';
+       }
++      // CAS: D7 editors pasted hardcoded /sites/agscid7/files/... URLs into
++      // the menu link box. Those point at a directory that does not exist on
++      // D10, so rewrite them (copying unmanaged files from the D7 filesystem
++      // on demand) when the CAS migration module is present — the resolution
++      // lives there as the single source of truth.
++      if ($url !== '' && class_exists(\Drupal\osu_migrations_cas\Plugin\migrate\process\CasLegacyFilePaths::class)) {
++        $url = \Drupal\osu_migrations_cas\Plugin\migrate\process\CasLegacyFilePaths::rewriteUrl($url);
++      }
+       $block = BlockContent::create([
+         'info' => 'Migrated d7 paragraph paragraph_menu',
+         'type' => 'osu_menu_bar_item',

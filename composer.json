@@ -584,7 +584,8 @@
                 "Map legacy FontAwesome 3 icon classes on menu bar items": "patches/0001-osu-migrations-menu-item-legacy-icons.patch",
                 "Prevent stub profile nodes from orphaned D7 profile2 rows": "patches/osu_migrations-profile-lookup-no-stub.patch",
                 "Default an empty D7 node language to en": "patches/osu_migrations-empty-langcode-default.patch",
-                "Biblio: drop junk body mapping and skip empty DOI links": "patches/osu_migrations-biblio-body-and-doi.patch"
+                "Biblio: drop junk body mapping and skip empty DOI links": "patches/osu_migrations-biblio-body-and-doi.patch",
+                "Repair hardcoded D7 file URLs on migrated menu bar items": "patches/osu_migrations-menu-item-legacy-file-urls.patch"
             },
             "osu-wams/osu_publications": {
                 "Authors as Publication Authors taxonomy (term pages collect a person's pubs)": "patches/osu_publications-authors-taxonomy.patch"
