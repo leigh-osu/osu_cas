@@ -693,6 +693,12 @@ section_7() {
   # their neighbors instead.
   ddev drush --uri="${SITE_URI}" scr scripts-dev/remove_spacer_blocks.php
 
+  # Adjustable-columns and menu paragraphs migrate into a carrier block that
+  # the layout replaces with its children, leaving the carrier unreachable
+  # (4,986 blocks, half of all orphaned block_content). Delete them now that
+  # every layout has been built and read them.
+  ddev drush --uri="${SITE_URI}" scr scripts-dev/prune_intermediate_blocks.php
+
   # Video cleanup: trim YouTube playlist junk the oEmbed endpoint rejects
   # (also handled in-migration by cas_clean_youtube_url) and unpublish the
   # 20 videos whose remote targets are provider-deleted or private.
