@@ -60,6 +60,25 @@ foreach ($data['files'] as $stage_fid => $f) {
     $fid_map[$stage_fid] = (int) reset($same_uri)->id();
     continue;
   }
+  // The export was taken before root-level files moved into year
+  // subdirectories, so public://<name> no longer matches what is registered.
+  // Match on the basename instead. Only an unambiguous match is accepted --
+  // several files can share a name, and picking one arbitrarily is how the
+  // home page ended up showing an unrelated photo.
+  $base = basename($f['uri']);
+  $by_name = \Drupal::database()->query(
+    'SELECT fid, uri FROM {file_managed} WHERE uri = :exact OR uri LIKE :suffix',
+    [':exact' => 'public://' . $base, ':suffix' => '%/' . $base]
+  )->fetchAll();
+  if (count($by_name) === 1) {
+    $fid_map[$stage_fid] = (int) $by_name[0]->fid;
+    print "  = matched {$f['uri']} -> {$by_name[0]->uri}\n";
+    continue;
+  }
+  if (count($by_name) > 1) {
+    print "  !! ambiguous basename for {$f['uri']} (" . count($by_name) . " candidates) — left unmapped\n";
+    continue;
+  }
   $real = $fs->realpath($f['uri']);
   if (!$real || !file_exists($real)) {
     // Pull from the assets folder; stage names use underscores where the
@@ -126,7 +145,15 @@ foreach ($data['media'] as $stage_mid => $m) {
   $values = ['uuid' => $m['uuid'], 'bundle' => $m['bundle'], 'name' => $m['name'], 'status' => 1, 'uid' => 1];
   foreach ($m['fields'] as $field => $items) {
     foreach ($items as $item) {
-      if (isset($item['target_id']) && isset($fid_map[$item['target_id']])) {
+      if (isset($item['target_id'])) {
+        if (!isset($fid_map[$item['target_id']])) {
+          // Leaving the stage fid in place silently attaches whichever local
+          // file happens to hold that number -- that is how media c88ae258
+          // came to point at prayusha_bhattarai.png instead of
+          // ag_research_2025.png. Skip the media rather than invent a link.
+          print "  !! media {$m['name']}: file {$item['target_id']} unmapped — skipped\n";
+          continue 3;
+        }
         $item['target_id'] = $fid_map[$item['target_id']];
       }
       $values[$field][] = $item;
@@ -140,8 +167,16 @@ foreach ($data['media'] as $stage_mid => $m) {
 
 $remap_fields = function (array $fields) use ($media_fields, $mid_map): array {
   foreach ($fields as $field => &$items) {
-    foreach ($items as &$item) {
-      if (isset($media_fields[$field]) && isset($item['target_id']) && isset($mid_map[$item['target_id']])) {
+    foreach ($items as $delta => &$item) {
+      if (isset($media_fields[$field]) && isset($item['target_id'])) {
+        if (!isset($mid_map[$item['target_id']])) {
+          // Same trap as the file level: an unmapped stage mid left in place
+          // resolves to whichever local media holds that number, so the field
+          // silently shows someone else's image. Drop the reference instead.
+          print "  !! {$field}: media {$item['target_id']} unmapped — reference dropped\n";
+          unset($items[$delta]);
+          continue;
+        }
         $item['target_id'] = $mid_map[$item['target_id']];
       }
       // Raw DB columns come through as-is; serialized ones (link options,
