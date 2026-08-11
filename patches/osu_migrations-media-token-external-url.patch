@@ -1,0 +1,43 @@
+Subject: [PATCH] Keep the link on D7 media tokens carrying an external_url
+
+D7 media tokens could carry an external_url, which rendered the media as
+a link -- typically an image thumbnail linking to the PDF it illustrates
+(fact sheets, reports, flyers). The token-to-drupal-media conversion
+never read that key, so the image migrated and the link it wrapped was
+dropped silently: the page still looks right while the download is gone.
+2,702 tokens across 1,075 text rows are affected.
+
+Wrap the generated embed in an anchor when the token has one. The href
+keeps its D7 value deliberately -- cas_legacy_file_paths runs after this
+step and rewrites quoted hrefs to the D10 files path.
+---
+--- a/src/OsuMediaEmbed.php
++++ b/src/OsuMediaEmbed.php
+@@ -118,7 +118,26 @@
+             }
+           }
+         }
+-        return $this->getEmbedCode($embed_metadata) ?? $matches[0];
++        $embed_code = $this->getEmbedCode($embed_metadata);
++        if ($embed_code === NULL) {
++          return $matches[0];
++        }
++
++        // CAS: a D7 media token could carry an external_url, which rendered
++        // the media as a link -- typically an image thumbnail linking to the
++        // PDF it illustrates. 2,702 tokens across 1,075 text rows use it.
++        // Without this the image survives and the link it wrapped is dropped
++        // silently, so the page still looks right while the download is
++        // gone. The href keeps its D7 value on purpose: cas_legacy_file_paths
++        // runs after this step and rewrites quoted hrefs to the D10 files
++        // path. Other token fields are booleans when unset, hence the string
++        // check.
++        $external_url = $tag_info['fields']['external_url'] ?? NULL;
++        if (is_string($external_url) && trim($external_url) !== '') {
++          return '<a href="' . htmlspecialchars(trim($external_url), ENT_QUOTES, 'UTF-8') . '">'
++            . $embed_code . '</a>';
++        }
++        return $embed_code;
+       }
+       catch (NotEncodableValueException $e) {
+         return $matches[0];
