@@ -791,6 +791,14 @@ section_7() {
   # access_check.masquerade.unmasquerade".
   ddev drush --uri="${SITE_URI}" cr
 
+  # The banner that stops anyone mistaking this site for one where their
+  # edits survive. sitewide_alert is a content entity, so config:import
+  # cannot carry it and the rebuild has to recreate it; its settings ride
+  # along in config_imports/sitewide_alert.settings.yml (show_on_admin is on,
+  # since the admin UI is where that mistake gets made). Idempotent, keyed by
+  # UUID.
+  ddev drush --uri="${SITE_URI}" scr scripts-dev/create_sitewide_alert.php
+
   echo ""
   echo "=== Site rebuild complete! ==="
   ddev drush uli
