@@ -1,9 +1,9 @@
-uuid: ba3c5ecc-26e9-46c9-9c36-6304b1f9fa00
+uuid: 604943a3-905f-40f5-9398-b28ca33adc04
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: vJf3jV-8W1_6fTLafQ7SYNeKxTOjQf7xtRnLHd2GcH8
+  default_config_hash: nVO5W_99JeY5AoZqEcwOxb2n6p8jeVdGAqobagsgNrI
 id: cas_paragraph_page_to_page
 class: null
 idMap: {  }
@@ -50,12 +50,6 @@ source:
       1_column_background_video: paragraph_1_column_background_video__to__layout_builder
       lp_adjustable_columns: paragraph_lp_adjustable_columns__to__layout_builder
 process:
-  _skip_oversize_layout:
-    plugin: skip_on_value
-    source: nid
-    method: row
-    value:
-      - 233101
   body:
     -
       plugin: sub_process

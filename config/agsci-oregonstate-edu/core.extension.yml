@@ -40,6 +40,7 @@ module:
   datetime: 0
   datetime_range: 0
   default_content: 0
+  devel: 0
   domain: 0
   domain_access_migrate: 0
   domain_alias: 0
@@ -119,6 +120,7 @@ module:
   metatag_verification: 0
   metatag_views: 0
   migrate: 0
+  migrate_devel: 0
   migrate_drupal: 0
   migrate_plus: 0
   module_filter: 0
@@ -195,6 +197,7 @@ module:
   system: 0
   tamper: 0
   taxonomy: 0
+  taxonomy_manager: 0
   telephone: 0
   text: 0
   text_field_formatter: 0

@@ -1,4 +1,4 @@
-uuid: f4e053f9-f71a-492b-b3ae-3246010a07aa
+uuid: 9857a442-a75b-4851-b4b6-7d4d2603d8ce
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: bmsb_landing_page
 label: bmsb-landing-page
 logic: and
 conditions:
-  3e176e4c-26cd-45b2-afe2-ee82b8cb4889:
+  d833479f-c9a0-4d42-a46e-ccd52c98d7d9:
     id: request_path
     negate: false
-    uuid: 3e176e4c-26cd-45b2-afe2-ee82b8cb4889
+    uuid: d833479f-c9a0-4d42-a46e-ccd52c98d7d9
     pages: /node/36676
 allow_other_conditions: null

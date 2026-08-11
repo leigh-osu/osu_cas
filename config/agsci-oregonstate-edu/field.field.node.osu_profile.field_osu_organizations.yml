@@ -1,4 +1,4 @@
-uuid: fa4b6693-5dbc-4965-8b1d-220c15459417
+uuid: d232d6e2-2123-4e88-b549-dd58dea3ff9c
 langcode: en
 status: true
 dependencies:
@@ -6,20 +6,18 @@ dependencies:
     - field.storage.node.field_osu_organizations
     - node.type.osu_profile
     - taxonomy.vocabulary.osu_organization
-_core:
-  default_config_hash: nNJlUltoIMhqrxZ9l8IGU0ToFd1pIPaJbCU86ywwNOk
 id: node.osu_profile.field_osu_organizations
 field_name: field_osu_organizations
 entity_type: node
 bundle: osu_profile
-label: Organizations
+label: 'OSU Organizations'
 description: ''
 required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:taxonomy_term'
+  handler: 'default:filter_existing_terms'
   handler_settings:
     target_bundles:
       osu_organization: osu_organization

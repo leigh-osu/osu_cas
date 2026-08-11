@@ -1,23 +1,15 @@
-uuid: 0cf9f257-9876-407f-bb86-f90960e0223c
+uuid: 866febc2-95e9-4d02-bd15-13b70844211d
 langcode: en
 status: true
-dependencies:
-  module:
-    - image_effects
+dependencies: {  }
 name: 1000x1000
 label: 1000wide
 effects:
-  502bd5bd-3789-4fdd-99f7-4177389862c9:
-    uuid: 502bd5bd-3789-4fdd-99f7-4177389862c9
+  6e8b290c-16a9-479e-b750-79965e364c4a:
+    uuid: 6e8b290c-16a9-479e-b750-79965e364c4a
     id: image_scale
     weight: 1
     data:
       width: 1000
       height: null
       upscale: true
-  63d22cbc-7ba7-4239-9f67-1981d6ad72f2:
-    uuid: 63d22cbc-7ba7-4239-9f67-1981d6ad72f2
-    id: image_effects_auto_orient
-    weight: -100
-    data:
-      scan_exif: true

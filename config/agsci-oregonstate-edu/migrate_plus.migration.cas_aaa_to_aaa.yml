@@ -1,9 +1,9 @@
-uuid: e6233f8b-e54a-4504-a2ed-342e244496c2
+uuid: b5c06eec-a400-40ae-b435-c979e94e33bf
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: VwWyn9H8ALqb3HzhlCpYtxqPbH5PG2BMDrYWYyw6yMQ
+  default_config_hash: zzd22OVp5cI-ZmaTb5IJDA4vz0jq1AoqTrV8iqwUxL4
 id: cas_aaa_to_aaa
 class: null
 idMap: {  }
@@ -70,7 +70,9 @@ process:
       target_id:
         -
           plugin: migration_lookup
-          migration: upgrade_d7_media_images
+          migration:
+            - upgrade_d7_media_images
+            - cas_media_private_images
           source: fid
           no_stub: true
         -
@@ -83,7 +85,9 @@ process:
       target_id:
         -
           plugin: migration_lookup
-          migration: upgrade_d7_media_images
+          migration:
+            - upgrade_d7_media_images
+            - cas_media_private_images
           source: fid
           no_stub: true
         -

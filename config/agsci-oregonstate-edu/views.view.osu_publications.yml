@@ -17,7 +17,7 @@ dependencies:
     - taxonomy
     - user
 _core:
-  default_config_hash: kyCv_fNyyZxqDaZ3Sc3t839xk50XXTExxHMfwTsdCvg
+  default_config_hash: 62_Ku8MvmmR7F8wiqD_FXkAAB1BW4Nmqn0zKwrCCJcM
 id: osu_publications
 label: Publications
 module: views
@@ -742,7 +742,7 @@ display:
           exposed: true
           expose:
             operator_id: field_pub_type_target_id_op
-            label: Type
+            label: 'Publication type'
             description: ''
             use_operator: false
             operator: field_pub_type_target_id_op

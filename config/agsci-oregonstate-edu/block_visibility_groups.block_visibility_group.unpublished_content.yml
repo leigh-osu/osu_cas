@@ -1,4 +1,4 @@
-uuid: 84ac894e-77b6-4a7e-bc11-1746141db22a
+uuid: 60dd39d4-5c0b-45a1-87f9-fdb78ffee206
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: unpublished_content
 label: unpublished_content
 logic: and
 conditions:
-  648f5c2f-fc34-4369-943d-a11499a7bb95:
+  f153d669-e0df-44d4-95ae-2b6ecade197b:
     id: request_path
     negate: false
-    uuid: 648f5c2f-fc34-4369-943d-a11499a7bb95
+    uuid: f153d669-e0df-44d4-95ae-2b6ecade197b
     pages: '/*/unpublished-content'
 allow_other_conditions: null

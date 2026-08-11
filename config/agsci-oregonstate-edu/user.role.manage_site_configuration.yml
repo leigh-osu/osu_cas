@@ -26,7 +26,7 @@ dependencies:
     - system
     - toc_js
 _core:
-  default_config_hash: dxdKA1fvgWJcrDWXA9ADNyOfg7-mMLy_-jwuJ83BDYw
+  default_config_hash: Gev2LhSi8-FKVMyTV4MBcJG7N_snCrqE7eAZ87wHHpU
 id: manage_site_configuration
 label: 'Manage Site Configuration'
 weight: 7

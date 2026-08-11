@@ -1,23 +1,15 @@
-uuid: da8e9773-d6b8-4425-8153-e009eec91819
+uuid: f41cf5bc-fd7a-4823-aede-2c97e3f7179e
 langcode: en
 status: true
-dependencies:
-  module:
-    - image_effects
+dependencies: {  }
 name: 525x350_scale-crop
 label: '525x350 scale-crop'
 effects:
-  3dcd0b87-a7c7-4b8d-8e0a-f5552cf21f6f:
-    uuid: 3dcd0b87-a7c7-4b8d-8e0a-f5552cf21f6f
+  4231669c-dd75-4ef1-9036-d2659bdb0c23:
+    uuid: 4231669c-dd75-4ef1-9036-d2659bdb0c23
     id: image_scale_and_crop
     weight: 1
     data:
       width: 525
       height: 350
       anchor: center-center
-  96c7dffa-86f2-4f12-a92d-4f2898f35ada:
-    uuid: 96c7dffa-86f2-4f12-a92d-4f2898f35ada
-    id: image_effects_auto_orient
-    weight: -100
-    data:
-      scan_exif: true

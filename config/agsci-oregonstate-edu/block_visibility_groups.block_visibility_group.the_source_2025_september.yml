@@ -1,4 +1,4 @@
-uuid: ef4a61aa-610e-4339-a6ea-60aff8e04a92
+uuid: bfb23bb2-e61e-4237-a55a-612388dc7b1a
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: the_source_2025_september
 label: the_source_2025_september
 logic: and
 conditions:
-  9138385b-c326-4eed-bf7c-e678885798b2:
+  03ff4979-e9f4-4ea4-afb6-86d34ba09424:
     id: request_path
     negate: false
-    uuid: 9138385b-c326-4eed-bf7c-e678885798b2
+    uuid: 03ff4979-e9f4-4ea4-afb6-86d34ba09424
     pages: "/thesource/sept-2025\r\n/thesource/sept-2025*\r\n/thesource/september-2025*\r\n/thesource/september-2025"
 allow_other_conditions: null

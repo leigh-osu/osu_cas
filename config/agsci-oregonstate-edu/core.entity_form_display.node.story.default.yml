@@ -1,4 +1,4 @@
-uuid: ed456bd5-e9de-42c8-ae79-9cfef52e28cf
+uuid: 2a3e1ce8-37ad-42ea-b20b-12735b9845d5
 langcode: en
 status: true
 dependencies:
@@ -389,4 +389,5 @@ content:
     third_party_settings: {  }
 hidden:
   field_osu_story_caption: true
+  field_tags: true
   layout_builder__layout: true

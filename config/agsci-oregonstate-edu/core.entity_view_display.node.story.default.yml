@@ -750,6 +750,7 @@ hidden:
   field_domain_source: true
   field_osu_organizations: true
   field_osu_story_caption: true
+  field_tags: true
   field_tax_story_tags: true
   langcode: true
   layout_builder__layout: true

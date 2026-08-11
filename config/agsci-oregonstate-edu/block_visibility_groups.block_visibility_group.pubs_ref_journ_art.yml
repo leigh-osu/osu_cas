@@ -1,4 +1,4 @@
-uuid: 250b4aab-fb9a-4709-96ca-1a2f2633ee00
+uuid: b577deab-e1b0-4510-9466-8f462a7ff3d6
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: pubs_ref_journ_art
 label: pubs_ref_journ_art
 logic: and
 conditions:
-  c77ae7c4-39df-4a6e-bb95-9425c0883e20:
+  a086976f-c829-4c2d-926d-468925e09213:
     id: request_path
     negate: false
-    uuid: c77ae7c4-39df-4a6e-bb95-9425c0883e20
+    uuid: a086976f-c829-4c2d-926d-468925e09213
     pages: /node/249791
 allow_other_conditions: null

@@ -14,9 +14,12 @@ dependencies:
     - field.field.node.publications.field_pub_book_title
     - field.field.node.publications.field_pub_date_published
     - field.field.node.publications.field_pub_doi
+    - field.field.node.publications.field_pub_editors
+    - field.field.node.publications.field_pub_isbn
     - field.field.node.publications.field_pub_issn
     - field.field.node.publications.field_pub_issue
     - field.field.node.publications.field_pub_journal
+    - field.field.node.publications.field_pub_keywords
     - field.field.node.publications.field_pub_osu_profile
     - field.field.node.publications.field_pub_pages
     - field.field.node.publications.field_pub_publisher
@@ -24,6 +27,7 @@ dependencies:
     - field.field.node.publications.field_pub_pubmed_id
     - field.field.node.publications.field_pub_series_title
     - field.field.node.publications.field_pub_type
+    - field.field.node.publications.field_pub_url
     - field.field.node.publications.field_pub_volume
     - field.field.node.publications.field_pub_year_publication
     - node.type.publications
@@ -61,9 +65,12 @@ hidden:
   field_pub_book_title: true
   field_pub_date_published: true
   field_pub_doi: true
+  field_pub_editors: true
+  field_pub_isbn: true
   field_pub_issn: true
   field_pub_issue: true
   field_pub_journal: true
+  field_pub_keywords: true
   field_pub_osu_profile: true
   field_pub_pages: true
   field_pub_publisher: true
@@ -71,6 +78,7 @@ hidden:
   field_pub_pubmed_id: true
   field_pub_series_title: true
   field_pub_type: true
+  field_pub_url: true
   field_pub_volume: true
   field_pub_year_publication: true
   langcode: true

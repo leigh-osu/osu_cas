@@ -35,7 +35,9 @@ dependencies:
     - field.field.node.osu_profile.field_profile_fac_type
     - field.field.node.osu_profile.field_profile_fax
     - field.field.node.osu_profile.field_profile_first_name
+    - field.field.node.osu_profile.field_profile_functional_group
     - field.field.node.osu_profile.field_profile_google_scholar
+    - field.field.node.osu_profile.field_profile_headquarters
     - field.field.node.osu_profile.field_profile_image
     - field.field.node.osu_profile.field_profile_last_name
     - field.field.node.osu_profile.field_profile_middle_name
@@ -1097,6 +1099,38 @@ third_party_settings:
                     class: null
                   min_height:
                     class: 0
+          36454022-9808-4372-a7cf-dca5b55021ba:
+            uuid: 36454022-9808-4372-a7cf-dca5b55021ba
+            region: blb_region_col_1
+            configuration:
+              id: 'field_block:node:osu_profile:field_profile_functional_group'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          dae2df5d-65e8-446b-83aa-ed6543fe0f80:
+            uuid: dae2df5d-65e8-446b-83aa-ed6543fe0f80
+            region: blb_region_col_1
+            configuration:
+              id: 'field_block:node:osu_profile:field_profile_headquarters'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: string
+                label: inline
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
         third_party_settings: {  }
       -
         layout_id: 'bootstrap_layout_builder:blb_col_1'
@@ -1341,8 +1375,6 @@ third_party_settings:
         - 'bootstrap_layout_builder:blb_col_4'
         - 'bootstrap_layout_builder:blb_col_5'
         - 'bootstrap_layout_builder:blb_col_6'
-_core:
-  default_config_hash: xIMXSAYDkAOqvqPHt0USYy_eeQKhZmGUwrwRAT61XJw
 id: node.osu_profile.default
 targetEntityType: node
 bundle: osu_profile
@@ -1567,6 +1599,14 @@ content:
     third_party_settings: {  }
     weight: 102
     region: content
+  field_profile_functional_group:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 30
+    region: blb_region_col_1
   field_profile_google_scholar:
     type: link
     label: above
@@ -1579,6 +1619,14 @@ content:
     third_party_settings: {  }
     weight: 124
     region: content
+  field_profile_headquarters:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 31
+    region: blb_region_col_1
   field_profile_image:
     type: image
     label: above

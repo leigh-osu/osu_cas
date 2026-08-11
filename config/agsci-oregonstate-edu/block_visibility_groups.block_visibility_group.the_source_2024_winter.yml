@@ -1,4 +1,4 @@
-uuid: 4166ff95-1b3a-4d52-a8f8-bd9a24565142
+uuid: d517edcf-f3f6-48f8-9404-a0dda64094ae
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: the_source_2024_winter
 label: the_source_2024_winter
 logic: and
 conditions:
-  854db062-0cb9-4f02-87aa-e4d1bd709144:
+  8ff0f926-6072-47a4-ad7d-dc11d767c737:
     id: request_path
     negate: false
-    uuid: 854db062-0cb9-4f02-87aa-e4d1bd709144
+    uuid: 8ff0f926-6072-47a4-ad7d-dc11d767c737
     pages: "/thesource/winter-2024\r\n/thesource/winter-2024*"
 allow_other_conditions: null

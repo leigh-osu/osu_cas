@@ -1,10 +1,9 @@
-uuid: c38ed150-2c04-4867-b2cd-9a7f7b6372a8
+uuid: 752cf810-6cb4-431d-98dd-baf853d76c70
 langcode: en
 status: true
 dependencies:
   module:
     - focal_point
-    - image_effects
 name: picbox_800x580
 label: 'Picbox (800x580, focal point)'
 effects:
@@ -22,9 +21,3 @@ effects:
       width: 800
       height: 580
       crop_type: focal_point
-  70d4bc98-c2af-4170-880a-cc3785cb878a:
-    uuid: 70d4bc98-c2af-4170-880a-cc3785cb878a
-    id: image_effects_auto_orient
-    weight: -100
-    data:
-      scan_exif: true

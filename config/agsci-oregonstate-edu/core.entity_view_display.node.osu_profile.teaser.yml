@@ -1,4 +1,4 @@
-uuid: 2e338a42-bb7e-40b8-b147-1482b79f3b18
+uuid: 54b67774-4b48-4b9c-aa17-8656024df2ab
 langcode: en
 status: true
 dependencies:
@@ -36,7 +36,9 @@ dependencies:
     - field.field.node.osu_profile.field_profile_fac_type
     - field.field.node.osu_profile.field_profile_fax
     - field.field.node.osu_profile.field_profile_first_name
+    - field.field.node.osu_profile.field_profile_functional_group
     - field.field.node.osu_profile.field_profile_google_scholar
+    - field.field.node.osu_profile.field_profile_headquarters
     - field.field.node.osu_profile.field_profile_image
     - field.field.node.osu_profile.field_profile_last_name
     - field.field.node.osu_profile.field_profile_middle_name
@@ -146,7 +148,9 @@ hidden:
   field_profile_fac_type: true
   field_profile_fax: true
   field_profile_first_name: true
+  field_profile_functional_group: true
   field_profile_google_scholar: true
+  field_profile_headquarters: true
   field_profile_image: true
   field_profile_last_name: true
   field_profile_middle_name: true

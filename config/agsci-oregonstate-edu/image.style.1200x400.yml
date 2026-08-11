@@ -1,23 +1,15 @@
-uuid: 101e646b-2035-4e09-8131-b316d692cb6a
+uuid: 8e8d2985-6eda-4d9b-ab47-ad170838c4d4
 langcode: en
 status: true
-dependencies:
-  module:
-    - image_effects
+dependencies: {  }
 name: 1200x400
 label: 1200x400
 effects:
-  21ceb20d-9dbd-4a99-b4d2-2057f90c63bd:
-    uuid: 21ceb20d-9dbd-4a99-b4d2-2057f90c63bd
+  71de5f2a-9812-4f3a-a967-d0bf494f794b:
+    uuid: 71de5f2a-9812-4f3a-a967-d0bf494f794b
     id: image_scale_and_crop
     weight: 1
     data:
       width: 1200
       height: 400
       anchor: center-center
-  ca6f3ecc-acca-49be-8744-0651e506cdf2:
-    uuid: ca6f3ecc-acca-49be-8744-0651e506cdf2
-    id: image_effects_auto_orient
-    weight: -100
-    data:
-      scan_exif: true

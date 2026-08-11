@@ -13,9 +13,12 @@ dependencies:
     - field.field.node.publications.field_pub_book_title
     - field.field.node.publications.field_pub_date_published
     - field.field.node.publications.field_pub_doi
+    - field.field.node.publications.field_pub_editors
+    - field.field.node.publications.field_pub_isbn
     - field.field.node.publications.field_pub_issn
     - field.field.node.publications.field_pub_issue
     - field.field.node.publications.field_pub_journal
+    - field.field.node.publications.field_pub_keywords
     - field.field.node.publications.field_pub_osu_profile
     - field.field.node.publications.field_pub_pages
     - field.field.node.publications.field_pub_publisher
@@ -23,6 +26,7 @@ dependencies:
     - field.field.node.publications.field_pub_pubmed_id
     - field.field.node.publications.field_pub_series_title
     - field.field.node.publications.field_pub_type
+    - field.field.node.publications.field_pub_url
     - field.field.node.publications.field_pub_volume
     - field.field.node.publications.field_pub_year_publication
     - node.type.publications
@@ -31,8 +35,6 @@ dependencies:
     - link
     - text
     - user
-_core:
-  default_config_hash: AJgIIe-codFuvCh5aV9d_SiuMP9-5qJYVmMdK5S6AdM
 id: node.publications.default
 targetEntityType: node
 bundle: publications
@@ -53,10 +55,10 @@ content:
     weight: 16
     region: content
   field_pub_authors:
-    type: string
+    type: entity_reference_label
     label: inline
     settings:
-      link_to_entity: false
+      link: true
     third_party_settings: {  }
     weight: 3
     region: content
@@ -99,6 +101,22 @@ content:
     third_party_settings: {  }
     weight: 13
     region: content
+  field_pub_editors:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_pub_isbn:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 20
+    region: content
   field_pub_issn:
     type: string
     label: inline
@@ -122,6 +140,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 4
+    region: content
+  field_pub_keywords:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 22
     region: content
   field_pub_pages:
     type: string
@@ -174,6 +200,18 @@ content:
       link: false
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_pub_url:
+    type: link
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: nofollow
+      target: _blank
+    third_party_settings: {  }
+    weight: 21
     region: content
   field_pub_volume:
     type: string

@@ -1,4 +1,4 @@
-uuid: dfef55a5-0207-4d2c-b204-405cec615c81
+uuid: 388583ec-5b6e-448d-8db8-b1c58d930548
 langcode: en
 status: true
 dependencies:
@@ -12,7 +12,7 @@ third_party_settings:
       - main
     parent: 'main:'
   toc_js:
-    toc_js_active: 0
+    toc_js_active: false
     title: 'On This Page'
     selectors: 'h2, h3'
     selectors_minimum: '4'
@@ -31,14 +31,12 @@ third_party_settings:
     sticky_stop: ''
     sticky_stop_padding: '0'
   toc_js_per_node:
-    override: 1
-    override_default: 1
-_core:
-  default_config_hash: jRyhtr0lyP6Zrz-gWpxytR1W106G1jfBPuW8pkpAzuU
+    override: true
+    override_default: true
 name: Story
 type: story
 description: "Use <em>Stories</em> for your news articles, press releases or stories. <br />\r\nHas tags used to relate stories and people together."
 help: null
 new_revision: true
 preview_mode: 1
-display_submitted: true
+display_submitted: false

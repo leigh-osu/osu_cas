@@ -1,4 +1,4 @@
-uuid: 81815914-e5a3-4e82-8968-71c3f2acf4df
+uuid: 8ec07e98-0aff-4462-b9c3-7e76cb2be558
 langcode: en
 status: true
 dependencies:
@@ -78,8 +78,6 @@ third_party_settings:
         - 'bootstrap_layout_builder:blb_col_4'
         - 'bootstrap_layout_builder:blb_col_5'
         - 'bootstrap_layout_builder:blb_col_6'
-_core:
-  default_config_hash: gEPMSJrfCVsW9IDVBfYJDAIcOtxn9InutS0SnYsdLB4
 id: node.story.teaser
 targetEntityType: node
 bundle: story
@@ -114,6 +112,7 @@ hidden:
   field_story_osu_employee: true
   field_story_osu_story: true
   field_story_publish_date: true
+  field_tags: true
   field_tax_cas_section: true
   field_tax_cas_themes: true
   field_tax_coarec_authors: true

@@ -1,4 +1,4 @@
-uuid: aef2e5a3-3c70-4abe-9eb8-a98e42b82f86
+uuid: bc13aa08-3ed4-4417-b6a3-6fae68b2a65a
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: coarec_annual_reports2008
 label: coarec_annual_reports2008
 logic: and
 conditions:
-  4446946b-97bb-41c1-af81-d795f7aa355d:
+  d2066260-4f82-446d-9c9a-8a360795380f:
     id: request_path
     negate: false
-    uuid: 4446946b-97bb-41c1-af81-d795f7aa355d
+    uuid: d2066260-4f82-446d-9c9a-8a360795380f
     pages: /node/166636
 allow_other_conditions: null

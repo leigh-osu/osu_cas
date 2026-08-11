@@ -1,4 +1,4 @@
-uuid: 349a98cc-94ae-4064-a6a0-3303141b2ae7
+uuid: 4e8d14ea-498a-4cdb-88b7-4a6621abdfe0
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: the_source_2023_summer
 label: the_source_2023_summer
 logic: and
 conditions:
-  9d292d2e-0885-4e7f-874a-8d835f57b314:
+  f530b6d9-41d5-43a3-883c-7a396abda2d3:
     id: request_path
     negate: false
-    uuid: 9d292d2e-0885-4e7f-874a-8d835f57b314
+    uuid: f530b6d9-41d5-43a3-883c-7a396abda2d3
     pages: "/thesource/summer-2023*\r\n/thesource/summer-2023"
 allow_other_conditions: null

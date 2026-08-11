@@ -1,9 +1,9 @@
-uuid: b90fee3c-487f-4d71-b5d6-c6d949a53035
+uuid: 31f5ea1a-e559-4bda-8c12-eb27619f8954
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: KjXBLDDwOk7BMcLf9iRfHGumgc7Bskp8N0PsdhzNL0M
+  default_config_hash: aPavr5GCLqCdn9nZaE33JDrX0X2rwP2Wx8XyBmuB1xA
 id: cas_weather_monthly_data_to_weather_monthly_data
 class: null
 idMap: {  }
@@ -98,7 +98,7 @@ process:
     source: domain_source
 destination:
   plugin: 'entity:node'
-  default_bundle: weather_daily_data
+  default_bundle: weather_monthly_data
 migration_dependencies:
   required:
     - upgrade_d7_files

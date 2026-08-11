@@ -1,4 +1,4 @@
-uuid: 900c9acd-f246-45e5-b3fd-921d41248f2a
+uuid: 40e719a5-6e53-499a-ae0b-cabdd40e5bd9
 langcode: en
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
       - paragraphs_to_layout_builder
       - osu_migrations
 _core:
-  default_config_hash: Q-amxDIpz39xK69mKCGt2GtQvJWkC813HstLHEmntXc
+  default_config_hash: Lfk80QCn4ZEbuB83TjNpvWyW5tha6OdT95xWZm-CNOY
 id: cas_book_to_page
 class: null
 idMap: {  }
@@ -82,6 +82,21 @@ process:
     source:
       - '@default_temp'
       - '@paragraphs_temp'
+  field_page_banner_image:
+    plugin: sub_process
+    source: field_picture
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration:
+            - upgrade_d7_media_images
+            - cas_media_private_images
+          source: fid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
   type:
     plugin: default_value
     default_value: page

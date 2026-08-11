@@ -1,4 +1,4 @@
-uuid: e3a97eaf-9da3-4a1c-a2b3-98761ea1c940
+uuid: ef69f3a0-cc07-44a8-ada2-73810baf41f8
 langcode: en
 status: true
 dependencies:
@@ -11,6 +11,7 @@ dependencies:
     - field.field.group.basic_group.field_group_add_info
     - field.field.group.basic_group.field_group_email
     - field.field.group.basic_group.field_group_facebook
+    - field.field.group.basic_group.field_group_home_page
     - field.field.group.basic_group.field_group_hours
     - field.field.group.basic_group.field_group_info_sheet
     - field.field.group.basic_group.field_group_instagram
@@ -38,6 +39,7 @@ dependencies:
     - bootstrap_layout_builder
     - layout_builder
     - layout_builder_restrictions
+    - osu_cas_multisite
   enforced:
     module:
       - osu_groups_basic_group
@@ -47,123 +49,453 @@ third_party_settings:
     allow_custom: true
     sections:
       -
-        layout_id: 'bootstrap_layout_builder:blb_col_1'
+        layout_id: 'bootstrap_layout_builder:blb_col_2'
         layout_settings:
           label: ''
           container_wrapper_classes: ''
-          container_wrapper_attributes: null
+          container_wrapper_attributes: {  }
           container_wrapper:
             bootstrap_styles:
-              background:
-                background_type: color
-              background_color:
-                class: null
-              background_media:
-                image:
-                  media_id: null
-                video:
-                  media_id: null
-                background_options:
-                  background_position: center
-                  background_repeat: no-repeat
-                  background_attachment: not_fixed
-                  background_size: cover
-              text_color:
-                class: null
               padding:
-                class: p-1
-              padding_left:
-                class: _none
-              padding_top:
-                class: _none
-              padding_right:
-                class: _none
-              padding_bottom:
-                class: _none
-              margin:
-                class: _none
-              margin_left:
-                class: _none
-              margin_top:
-                class: mt-1
-              margin_right:
-                class: _none
-              margin_bottom:
-                class: mb-1
-              border:
-                border_style:
-                  class: null
-                border_width:
-                  class: _none
-                border_color:
-                  class: null
-                rounded_corners:
-                  class: _none
-                border_left_style:
-                  class: null
-                border_left_width:
-                  class: _none
-                border_left_color:
-                  class: null
-                border_top_style:
-                  class: null
-                border_top_width:
-                  class: _none
-                border_top_color:
-                  class: null
-                border_right_style:
-                  class: null
-                border_right_width:
-                  class: _none
-                border_right_color:
-                  class: null
-                border_bottom_style:
-                  class: null
-                border_bottom_width:
-                  class: _none
-                border_bottom_color:
-                  class: null
-                rounded_corner_top_left:
-                  class: _none
-                rounded_corner_top_right:
-                  class: _none
-                rounded_corner_bottom_left:
-                  class: _none
-                rounded_corner_bottom_right:
-                  class: _none
-              scroll_effects:
-                class: null
-              text_alignment:
-                class: null
+                class: p-4-5
           container_wrapper_bg_color_class: ''
           container_wrapper_bg_media: null
           container: container
           section_classes: ''
-          section_attributes: null
+          section_attributes: {  }
+          regions_classes:
+            blb_region_col_1: ''
+            blb_region_col_2: ''
+          regions_attributes:
+            blb_region_col_1: {  }
+            blb_region_col_2: {  }
+          breakpoints:
+            extra_wide_desktop: blb_col_2_two_equal_columns
+            desktop: blb_col_2_two_equal_columns
+            tablet: blb_col_2_two_equal_columns
+            mobile: blb_col_1_full_width
+          layout_regions_classes:
+            blb_region_col_1:
+              - col-xxl-6
+              - col-lg-6
+              - col-md-6
+              - col-12
+            blb_region_col_2:
+              - col-xxl-6
+              - col-lg-6
+              - col-md-6
+              - col-12
+        components:
+          b42f4594-fdb8-401b-9af1-5f79bc24b309:
+            uuid: b42f4594-fdb8-401b-9af1-5f79bc24b309
+            region: blb_region_col_1
+            configuration:
+              id: 'field_block:group:basic_group:body'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional:
+              weight: 0
+          9d2aba31-f3f5-4169-be30-9883ea58e037:
+            uuid: 9d2aba31-f3f5-4169-be30-9883ea58e037
+            region: blb_region_col_1
+            configuration:
+              id: 'field_block:group:basic_group:field_group_add_info'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 1
+            additional:
+              weight: 1
+          64fdf049-65c7-4efc-9d29-0161cca91a62:
+            uuid: 64fdf049-65c7-4efc-9d29-0161cca91a62
+            region: blb_region_col_1
+            configuration:
+              id: 'field_block:group:basic_group:field_group_info_sheet'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: above
+                settings:
+                  view_mode: default
+                  link: false
+                third_party_settings: {  }
+            weight: 2
+            additional:
+              weight: 2
+          82d389ff-dfbc-40a9-b8e9-3b77e245654f:
+            uuid: 82d389ff-dfbc-40a9-b8e9-3b77e245654f
+            region: blb_region_col_2
+            configuration:
+              id: 'field_block:group:basic_group:field_group_location_name'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 0
+            additional:
+              weight: 0
+          ff14291a-6581-4ace-b610-00f1304c075e:
+            uuid: ff14291a-6581-4ace-b610-00f1304c075e
+            region: blb_region_col_2
+            configuration:
+              id: 'field_block:group:basic_group:field_group_location_address'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 1
+            additional:
+              weight: 1
+          98d63131-eebb-4159-aac8-e65c9af0141b:
+            uuid: 98d63131-eebb-4159-aac8-e65c9af0141b
+            region: blb_region_col_2
+            configuration:
+              id: 'field_block:group:basic_group:field_group_location_address2'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 2
+            additional:
+              weight: 2
+          5af3f09c-f244-4c22-bd88-1226f1ada557:
+            uuid: 5af3f09c-f244-4c22-bd88-1226f1ada557
+            region: blb_region_col_2
+            configuration:
+              id: 'field_block:group:basic_group:field_group_location_city'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 3
+            additional:
+              weight: 3
+          7b68c43a-2f8a-412a-9d34-6c33385797fc:
+            uuid: 7b68c43a-2f8a-412a-9d34-6c33385797fc
+            region: blb_region_col_2
+            configuration:
+              id: 'field_block:group:basic_group:field_group_location_state'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 4
+            additional:
+              weight: 4
+          3b3eac2d-77f1-4597-9cd9-fbc40a642cb0:
+            uuid: 3b3eac2d-77f1-4597-9cd9-fbc40a642cb0
+            region: blb_region_col_2
+            configuration:
+              id: 'field_block:group:basic_group:field_group_location_zip'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 5
+            additional:
+              weight: 5
+          8a1a5666-1b84-4c2a-b260-6bc902dbad55:
+            uuid: 8a1a5666-1b84-4c2a-b260-6bc902dbad55
+            region: blb_region_col_2
+            configuration:
+              id: 'field_block:group:basic_group:field_group_phone'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: inline
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 6
+            additional:
+              weight: 6
+          9cd396c1-f7e8-4250-979a-008f12b84a55:
+            uuid: 9cd396c1-f7e8-4250-979a-008f12b84a55
+            region: blb_region_col_2
+            configuration:
+              id: 'field_block:group:basic_group:field_group_email'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: email_mailto
+                label: inline
+                settings: {  }
+                third_party_settings: {  }
+            weight: 7
+            additional:
+              weight: 7
+          5a3daa5f-49ae-48dc-9362-83f1d764df68:
+            uuid: 5a3daa5f-49ae-48dc-9362-83f1d764df68
+            region: blb_region_col_2
+            configuration:
+              id: 'field_block:group:basic_group:field_group_hours'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 8
+            additional:
+              weight: 8
+          6ea7cfa6-e7c7-41db-a1fb-ee88c107a235:
+            uuid: 6ea7cfa6-e7c7-41db-a1fb-ee88c107a235
+            region: blb_region_col_2
+            configuration:
+              id: 'field_block:group:basic_group:field_group_parent_unit'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 9
+            additional:
+              weight: 9
+          4c8e9f21-7d3a-4b6e-9c15-2f8a61d0b7e3:
+            uuid: 4c8e9f21-7d3a-4b6e-9c15-2f8a61d0b7e3
+            region: blb_region_col_2
+            configuration:
+              id: 'field_block:group:basic_group:field_group_home_page'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 10
+            additional:
+              weight: 10
+        third_party_settings: {  }
+      -
+        layout_id: 'bootstrap_layout_builder:blb_col_1'
+        layout_settings:
+          label: ''
+          container_wrapper_classes: ''
+          container_wrapper_attributes: {  }
+          container_wrapper:
+            bootstrap_styles:
+              padding:
+                class: p-4-5
+          container_wrapper_bg_color_class: ''
+          container_wrapper_bg_media: null
+          container: container
+          section_classes: ''
+          section_attributes: {  }
           regions_classes:
             blb_region_col_1: ''
           regions_attributes:
-            blb_region_col_1: null
+            blb_region_col_1: {  }
           breakpoints:
-            desktop: blb_col_12
-            tablet: blb_col_12
-            mobile: blb_col_12
+            extra_wide_desktop: blb_col_1_full_width
+            desktop: blb_col_1_full_width
+            tablet: blb_col_1_full_width
+            mobile: blb_col_1_full_width
           layout_regions_classes:
             blb_region_col_1:
-              - col-lg-12
-              - col-md-12
               - col-12
-          remove_gutters: '0'
-          context_mapping: {  }
         components:
-          a830869f-068b-44e0-beb5-89129ae2e7f0:
-            uuid: a830869f-068b-44e0-beb5-89129ae2e7f0
+          2582c6b6-ab5e-40aa-b928-1a74870bc399:
+            uuid: 2582c6b6-ab5e-40aa-b928-1a74870bc399
+            region: blb_region_col_1
+            configuration:
+              id: 'field_block:group:basic_group:field_site_coordinators'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 0
+            additional:
+              weight: 0
+          f884b0f1-802f-40eb-9fe8-61c3a9816e9b:
+            uuid: f884b0f1-802f-40eb-9fe8-61c3a9816e9b
+            region: blb_region_col_1
+            configuration:
+              id: 'field_block:group:basic_group:field_group_newsletter_link'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: inline
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 1
+            additional:
+              weight: 1
+          775be8c5-818a-45e4-879c-d23eb3b4d97e:
+            uuid: 775be8c5-818a-45e4-879c-d23eb3b4d97e
+            region: blb_region_col_1
+            configuration:
+              id: 'field_block:group:basic_group:field_group_facebook'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: inline
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 2
+            additional:
+              weight: 2
+          0fe03285-976c-4714-9a48-5c5a124bb5b6:
+            uuid: 0fe03285-976c-4714-9a48-5c5a124bb5b6
+            region: blb_region_col_1
+            configuration:
+              id: 'field_block:group:basic_group:field_group_twitter'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: inline
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 3
+            additional:
+              weight: 3
+          5ffd9918-512b-4840-8f61-7d9857bff85b:
+            uuid: 5ffd9918-512b-4840-8f61-7d9857bff85b
+            region: blb_region_col_1
+            configuration:
+              id: 'field_block:group:basic_group:field_group_instagram'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: inline
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 4
+            additional:
+              weight: 4
+          86a2638e-af1d-406e-baf9-8681eaa6404e:
+            uuid: 86a2638e-af1d-406e-baf9-8681eaa6404e
+            region: blb_region_col_1
+            configuration:
+              id: 'field_block:group:basic_group:field_group_linkedin'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: inline
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 5
+            additional:
+              weight: 5
+          ca2d743c-aaee-4a1a-8cd7-7cdfdf5e8f0e:
+            uuid: ca2d743c-aaee-4a1a-8cd7-7cdfdf5e8f0e
+            region: blb_region_col_1
+            configuration:
+              id: 'field_block:group:basic_group:field_group_youtube'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: inline
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 6
+            additional:
+              weight: 6
+          69d2c270-3c68-4985-a500-e25472924b50:
+            uuid: 69d2c270-3c68-4985-a500-e25472924b50
             region: blb_region_col_1
             configuration:
               id: 'field_block:group:basic_group:field_meta_tags'
-              label: 'Meta Tags'
               label_display: '0'
-              provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
                 view_mode: view_mode
@@ -172,91 +504,22 @@ third_party_settings:
                 label: hidden
                 settings: {  }
                 third_party_settings: {  }
-            weight: 1
+            weight: 7
             additional:
-              bootstrap_styles:
-                block_style:
-                  background:
-                    background_type: color
-                  background_color:
-                    class: null
-                  background_media:
-                    image:
-                      media_id: null
-                    video:
-                      media_id: null
-                    background_options:
-                      background_position: center
-                      background_repeat: no-repeat
-                      background_attachment: not_fixed
-                      background_size: cover
-                  text_color:
-                    class: null
-                  text_alignment:
-                    class: null
-                  padding:
-                    class: p-1
-                  padding_left:
-                    class: _none
-                  padding_top:
-                    class: _none
-                  padding_right:
-                    class: _none
-                  padding_bottom:
-                    class: _none
-                  margin:
-                    class: m-1
-                  margin_left:
-                    class: _none
-                  margin_top:
-                    class: _none
-                  margin_right:
-                    class: _none
-                  margin_bottom:
-                    class: _none
-                  border:
-                    border_style:
-                      class: null
-                    border_width:
-                      class: _none
-                    border_color:
-                      class: null
-                    rounded_corners:
-                      class: _none
-                    border_left_style:
-                      class: null
-                    border_left_width:
-                      class: _none
-                    border_left_color:
-                      class: null
-                    border_top_style:
-                      class: null
-                    border_top_width:
-                      class: _none
-                    border_top_color:
-                      class: null
-                    border_right_style:
-                      class: null
-                    border_right_width:
-                      class: _none
-                    border_right_color:
-                      class: null
-                    border_bottom_style:
-                      class: null
-                    border_bottom_width:
-                      class: _none
-                    border_bottom_color:
-                      class: null
-                    rounded_corner_top_left:
-                      class: _none
-                    rounded_corner_top_right:
-                      class: _none
-                    rounded_corner_bottom_left:
-                      class: _none
-                    rounded_corner_bottom_right:
-                      class: _none
-                  scroll_effects:
-                    class: null
+              weight: 7
+          a1f5c2d8-3e9b-47a6-8d24-c6b90e5f13a7:
+            uuid: a1f5c2d8-3e9b-47a6-8d24-c6b90e5f13a7
+            region: blb_region_col_1
+            configuration:
+              id: cas_group_add_content
+              label: 'Create content'
+              label_display: visible
+              provider: osu_cas_multisite
+              context_mapping:
+                group: layout_builder.entity
+            weight: 8
+            additional:
+              weight: 8
         third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }
@@ -279,8 +542,6 @@ third_party_settings:
         - 'bootstrap_layout_builder:blb_col_4'
         - 'bootstrap_layout_builder:blb_col_5'
         - 'bootstrap_layout_builder:blb_col_6'
-_core:
-  default_config_hash: LjiwohUp9jMGU5GbbTLJutOdSBsmjPSn2dTc3cT7MFc
 id: group.basic_group.default
 targetEntityType: group
 bundle: basic_group
@@ -305,6 +566,7 @@ hidden:
   field_group_add_info: true
   field_group_email: true
   field_group_facebook: true
+  field_group_home_page: true
   field_group_hours: true
   field_group_info_sheet: true
   field_group_instagram: true

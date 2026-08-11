@@ -1,4 +1,4 @@
-uuid: d98006ef-460c-409e-aeb8-de4e4a7c01b5
+uuid: b06ad1f6-d4e6-4615-9204-783c7f486365
 langcode: en
 status: true
 dependencies:
@@ -13,9 +13,12 @@ dependencies:
     - field.field.node.publications.field_pub_book_title
     - field.field.node.publications.field_pub_date_published
     - field.field.node.publications.field_pub_doi
+    - field.field.node.publications.field_pub_editors
+    - field.field.node.publications.field_pub_isbn
     - field.field.node.publications.field_pub_issn
     - field.field.node.publications.field_pub_issue
     - field.field.node.publications.field_pub_journal
+    - field.field.node.publications.field_pub_keywords
     - field.field.node.publications.field_pub_osu_profile
     - field.field.node.publications.field_pub_pages
     - field.field.node.publications.field_pub_publisher
@@ -23,6 +26,7 @@ dependencies:
     - field.field.node.publications.field_pub_pubmed_id
     - field.field.node.publications.field_pub_series_title
     - field.field.node.publications.field_pub_type
+    - field.field.node.publications.field_pub_url
     - field.field.node.publications.field_pub_volume
     - field.field.node.publications.field_pub_year_publication
     - node.type.publications
@@ -86,8 +90,6 @@ third_party_settings:
         required_fields: true
         open: false
         weight: 0
-_core:
-  default_config_hash: m1CePgm-NeQvLZW0Jz7AH3-tGqYiEhJR5SBHwOfzcVM
 id: node.publications.default
 targetEntityType: node
 bundle: publications
@@ -95,7 +97,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 5
+    weight: 6
     region: content
     settings:
       rows: 9
@@ -140,17 +142,19 @@ content:
     third_party_settings: {  }
   field_pub_abstract:
     type: text_textarea
-    weight: 4
+    weight: 5
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_pub_authors:
-    type: string_textfield
+    type: entity_reference_autocomplete_tags
     weight: 3
     region: content
     settings:
+      match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
@@ -164,7 +168,7 @@ content:
     third_party_settings: {  }
   field_pub_date_published:
     type: datetime_default
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -175,6 +179,24 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
+    third_party_settings: {  }
+  field_pub_editors:
+    type: entity_reference_autocomplete_tags
+    weight: 4
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pub_isbn:
+    type: string_textfield
+    weight: 30
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_pub_issn:
     type: string_textfield
@@ -197,6 +219,16 @@ content:
     weight: 20
     region: content
     settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pub_keywords:
+    type: entity_reference_autocomplete_tags
+    weight: 30
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
@@ -260,6 +292,14 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_pub_url:
+    type: link_default
+    weight: 30
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
   field_pub_volume:
     type: string_textfield
     weight: 21
@@ -270,7 +310,7 @@ content:
     third_party_settings: {  }
   field_pub_year_publication:
     type: number
-    weight: 7
+    weight: 8
     region: content
     settings:
       placeholder: ''

@@ -1,9 +1,9 @@
-uuid: 365fcc88-ae78-4568-8f5d-ddf364087442
+uuid: a50b4c1b-3f06-45db-bf62-b6e85d89c570
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: taYX20CLwbm32xvj8bTbsQzJNN2dFdDIr85aApO2GXQ
+  default_config_hash: kTQUTK4Kf971JtDW-MqjyiDk6rV0FjExTR0Lk8RJZEQ
 id: cas_weed_to_weed
 class: null
 idMap: {  }
@@ -172,12 +172,7 @@ process:
     plugin: sub_process
     source: field_favorable_environments
     process:
-      value:
-        plugin: osu_media_wysiwyg_filter
-        source: value
-      format:
-        plugin: default_value
-        default_value: full_html
+      value: value
   field_weed_favorable_env_note:
     plugin: sub_process
     source: field_favorable_environment_note
@@ -241,7 +236,9 @@ process:
       target_id:
         -
           plugin: migration_lookup
-          migration: upgrade_d7_media_images
+          migration:
+            - upgrade_d7_media_images
+            - cas_media_private_images
           source: fid
           no_stub: true
         -

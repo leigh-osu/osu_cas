@@ -4,8 +4,11 @@ type: remove
 content_types:
   page: user
   osu_simple_tabs: all
+  degree_fact_sheet: all
 content_type_modes:
   page:
+    - full
+  degree_fact_sheet:
     - full
   osu_simple_tabs:
     - simple_tab_content

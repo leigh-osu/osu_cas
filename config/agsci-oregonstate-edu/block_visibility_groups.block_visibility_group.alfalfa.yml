@@ -1,4 +1,4 @@
-uuid: 761a4e7a-7ad7-4656-aaa5-b87e520328de
+uuid: 796e8d55-9fbe-4c5f-8708-95b8b7255b8b
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: alfalfa
 label: alfalfa
 logic: and
 conditions:
-  45c0947b-fbe1-4c8c-aef6-0c506af0a5e2:
+  6ae92721-896e-48c0-b8d0-d15876ab4328:
     id: request_path
     negate: false
-    uuid: 45c0947b-fbe1-4c8c-aef6-0c506af0a5e2
+    uuid: 6ae92721-896e-48c0-b8d0-d15876ab4328
     pages: /mes/crops/alfalfa
 allow_other_conditions: null

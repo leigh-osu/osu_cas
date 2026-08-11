@@ -1,4 +1,4 @@
-uuid: bf6ace59-1080-4296-96fd-7f7b66d63784
+uuid: d860a627-f3f3-4edf-8df2-0c3fc8eb121e
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: bee_footer
 label: bee_footer
 logic: and
 conditions:
-  36c96be7-e0b7-4c62-8e9e-4269ae46d808:
+  d2dbf262-bc0a-418a-9c99-ccab88c362bc:
     id: request_path
     negate: false
-    uuid: 36c96be7-e0b7-4c62-8e9e-4269ae46d808
+    uuid: d2dbf262-bc0a-418a-9c99-ccab88c362bc
     pages: "/bee2\r\n/bee2/*\r\n/bee\r\n/bee/*\r\n/biological-and-ecological-engineering/*"
 allow_other_conditions: null

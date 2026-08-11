@@ -1,4 +1,4 @@
-uuid: 12fa3246-3d6a-4324-93f2-efa997183532
+uuid: 866dca7f-66c2-4da9-9a63-af63d863949a
 langcode: en
 status: true
 dependencies:
@@ -19,7 +19,6 @@ permissions:
   - 'view group_node:art_about_agriculture entity'
   - 'view group_node:course entity'
   - 'view group_node:degree_fact_sheet entity'
-  - 'view group_node:degree_fact_sheet_graduate entity'
   - 'view group_node:enterprise_budgets entity'
   - 'view group_node:fun_facts entity'
   - 'view group_node:funding_opportunities entity'

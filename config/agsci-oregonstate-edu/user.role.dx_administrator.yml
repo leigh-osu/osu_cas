@@ -16,7 +16,6 @@ dependencies:
     - media.type.kaltura
     - media.type.local_video
     - media.type.remote_video
-    - taxonomy.vocabulary.tags
   module:
     - acquia_connector
     - auto_entitylabel
@@ -87,7 +86,7 @@ dependencies:
     - webform_node
     - xmlsitemap
 _core:
-  default_config_hash: hEy1vo0iC4CgTdMjmBGDMA_ExtB9gpb21IaQVa27pmo
+  default_config_hash: Ax_z2F3HjZ5esyXcYVDsGL_3I4Vrhj42S2IAJweuz6U
 id: dx_administrator
 label: 'DX Administrator'
 weight: 9
@@ -238,7 +237,6 @@ permissions:
   - 'create local_video media'
   - 'create media'
   - 'create remote_video media'
-  - 'create terms in tags'
   - 'create url aliases'
   - 'create webform'
   - 'customize shortcut links'
@@ -268,7 +266,6 @@ permissions:
   - 'delete own webform submission'
   - 'delete section library templates'
   - 'delete sitewide alert entities'
-  - 'delete terms in tags'
   - 'delete webform submissions any node'
   - 'delete webform submissions own node'
   - 'dropzone upload files'
@@ -291,7 +288,6 @@ permissions:
   - 'edit own webform submission'
   - 'edit section library templates'
   - 'edit sitewide alert entities'
-  - 'edit terms in tags'
   - 'edit webform assets'
   - 'edit webform source'
   - 'edit webform submissions any node'

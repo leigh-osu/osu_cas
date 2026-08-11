@@ -1,9 +1,9 @@
-uuid: 4f4ae79f-e05a-4e25-814a-a7197a7348dd
+uuid: 08d791ce-6052-4963-8b4c-0b309dd45588
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: MLAnehylVrJ4ryEe9n3ufsfaxHzPeWVsCUVXWqb_euA
+  default_config_hash: VqA-OzemZDD1cCKObQYbuWjva_AwfchPKXnghDoprBI
 id: cas_dfs_to_dfs
 class: null
 idMap: {  }
@@ -36,7 +36,7 @@ process:
       format:
         plugin: default_value
         default_value: full_html
-  field_dfs_introduction:
+  field_dfs_overview:
     plugin: get
     source: field_dfs_introduction
   field_dfs_introduction_header:
@@ -57,17 +57,16 @@ process:
     plugin: get
     source: field_dfs_potential_career_paths
   field_dfs_advising_email:
-    plugin: get
+    plugin: sub_process
     source: field_dfs_advising_email
+    process:
+      value: email
   field_dfs_number_of_students:
     plugin: get
     source: field_dfs_number_of_students
   field_dfs_degree_focus_area:
     plugin: get
     source: field_degree_focus_area
-  field_dfs_degree_level:
-    plugin: get
-    source: field_degree_level
   field_dfs_language:
     plugin: get
     source: field_language
@@ -224,7 +223,7 @@ process:
         -
           plugin: skip_on_empty
           method: process
-  field_dfs_cas_themes:
+  field_tax_cas_themes:
     plugin: sub_process
     source: field_cas_themes
     process:
@@ -241,6 +240,9 @@ process:
     plugin: d7_metatag_entities
     source: pseudo_metatag_entities
   path/pathauto:
+    plugin: default_value
+    default_value: 0
+  field_dfs_graduate:
     plugin: default_value
     default_value: 0
   type:

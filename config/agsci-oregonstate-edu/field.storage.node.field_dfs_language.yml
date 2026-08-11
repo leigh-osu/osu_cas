@@ -1,4 +1,4 @@
-uuid: 3ff1fddb-88d8-4730-a4f0-b7ef62398e69
+uuid: be7bdafc-50cc-4a53-a834-a263c65494e7
 langcode: und
 status: true
 dependencies:
@@ -10,7 +10,13 @@ field_name: field_dfs_language
 entity_type: node
 type: list_string
 settings:
-  allowed_values: {  }
+  allowed_values:
+    -
+      value: English
+      label: English
+    -
+      value: Español
+      label: Español
   allowed_values_function: ''
 module: options
 locked: false

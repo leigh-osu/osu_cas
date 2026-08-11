@@ -1,9 +1,9 @@
-uuid: 01eb26e6-45c9-4bfd-b878-6682a1c8b142
+uuid: 29cdef1a-9f05-404f-9ee4-4207adf6e0ae
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: KBLiLz_Ud0acHNDcfBr2DFk4RPwuECv_dfNa5nBJdhg
+  default_config_hash: FxbvELglkLi2HPOpNZshSy827cc2g_4v9bbZYS4a3zI
 id: cas_course_to_course
 class: null
 idMap: {  }
@@ -93,7 +93,9 @@ process:
       target_id:
         -
           plugin: migration_lookup
-          migration: upgrade_d7_media_documents
+          migration:
+            - upgrade_d7_media_documents
+            - cas_media_private_documents
           source: fid
           no_stub: true
         -

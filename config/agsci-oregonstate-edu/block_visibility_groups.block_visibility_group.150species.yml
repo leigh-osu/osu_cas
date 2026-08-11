@@ -1,4 +1,4 @@
-uuid: 2a7397fc-b567-43e9-992d-4b9f5d68f11d
+uuid: 0f8fd7d5-21f8-4761-8468-db311fdb0a49
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: 150species
 label: 150species
 logic: and
 conditions:
-  152e802d-b5a5-4629-83b5-33ffb689c9c4:
+  ed4941ce-73d7-42fe-9ced-abf5a1200369:
     id: request_path
     negate: false
-    uuid: 152e802d-b5a5-4629-83b5-33ffb689c9c4
+    uuid: ed4941ce-73d7-42fe-9ced-abf5a1200369
     pages: "/node/59381\r\n/150-species/*"
 allow_other_conditions: null

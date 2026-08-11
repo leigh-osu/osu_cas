@@ -1,4 +1,4 @@
-uuid: 2bbd8e0e-ca33-433b-ae23-d84d9caed4d1
+uuid: ac5274f7-1fcb-44be-be9f-01244005e936
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: graduate_faculty_hort
 label: graduate_faculty_hort
 logic: and
 conditions:
-  aca73545-7f04-4b7c-8a24-cf0f845208a2:
+  1a52519a-626e-4a38-9e0f-300c1f2889de:
     id: request_path
     negate: false
-    uuid: aca73545-7f04-4b7c-8a24-cf0f845208a2
+    uuid: 1a52519a-626e-4a38-9e0f-300c1f2889de
     pages: "/horticulture/directory/graduate-faculty\r\n/node/60186"
 allow_other_conditions: null

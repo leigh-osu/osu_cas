@@ -1,4 +1,4 @@
-uuid: 91d76292-3741-4328-b944-b08585f34c46
+uuid: bfd2fe2d-0158-4c78-83d5-675d54a469e3
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: yew_tree
 label: yew_tree
 logic: and
 conditions:
-  f98591a8-2835-425f-8e43-f3e7da4250cb:
+  2f9ec55e-b12d-4365-a9ab-34eb3225e433:
     id: request_path
     negate: false
-    uuid: f98591a8-2835-425f-8e43-f3e7da4250cb
+    uuid: 2f9ec55e-b12d-4365-a9ab-34eb3225e433
     pages: /node/112846
 allow_other_conditions: null

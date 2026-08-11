@@ -1,4 +1,4 @@
-uuid: 93478cdf-0485-4770-af2e-d699997ea990
+uuid: 67a67db6-363b-495c-893a-b68631587ca9
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: ngc_weed_id
 label: ngc_weed_id
 logic: and
 conditions:
-  ae6a81a3-4a53-40ab-aee2-4a6a55d1570b:
+  8d26280c-7ecc-40fb-bcf8-107bbd609435:
     id: request_path
     negate: false
-    uuid: ae6a81a3-4a53-40ab-aee2-4a6a55d1570b
+    uuid: 8d26280c-7ecc-40fb-bcf8-107bbd609435
     pages: /node/63571
 allow_other_conditions: null

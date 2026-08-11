@@ -1,9 +1,9 @@
-uuid: ef68795b-82bf-4db8-a487-b937556aeb24
+uuid: a79b9fc0-b640-41bd-bbb9-9284ea0d41ea
 langcode: en
 status: true
-dependencies:
-  module:
-    - image_effects
+dependencies: {  }
+_core:
+  default_config_hash: rDR2BOewa2UFH9yG4tVvrGxEVv8U7LQo-RLkJhFpERs
 name: large
 label: 'Large (480×480)'
 effects:
@@ -21,9 +21,3 @@ effects:
     weight: 2
     data:
       extension: webp
-  ffeea673-9e83-49bb-9152-5e3b8b5069c0:
-    uuid: ffeea673-9e83-49bb-9152-5e3b8b5069c0
-    id: image_effects_auto_orient
-    weight: -100
-    data:
-      scan_exif: true

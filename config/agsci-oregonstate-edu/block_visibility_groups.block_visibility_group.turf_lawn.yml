@@ -1,4 +1,4 @@
-uuid: 56de3dd2-d6d5-4f3d-8068-528b9283b969
+uuid: fce86e20-672a-4330-a2e9-f415e83088cc
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: turf_lawn
 label: turf_lawn
 logic: and
 conditions:
-  99655d24-6964-4121-b153-e1423ac0ae96:
+  62589f1e-b6eb-4019-a9e0-4a2514bfee49:
     id: request_path
     negate: false
-    uuid: 99655d24-6964-4121-b153-e1423ac0ae96
+    uuid: 62589f1e-b6eb-4019-a9e0-4a2514bfee49
     pages: /node/77601
 allow_other_conditions: null

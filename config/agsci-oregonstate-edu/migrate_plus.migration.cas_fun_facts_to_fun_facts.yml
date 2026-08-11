@@ -1,9 +1,9 @@
-uuid: 7b310ba6-02a1-4568-87dd-65eee0c1c7b8
+uuid: a5e01564-cd57-4a54-8505-9243ede53170
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: erGHriapv4EVzIF7aaUap27CzYlr8fkXLtox9z4FXok
+  default_config_hash: moX7VMdya_SDK00uMEBNzWTBb2BGx29jtRh5dUTFSks
 id: cas_fun_facts_to_fun_facts
 class: null
 idMap: {  }
@@ -49,7 +49,9 @@ process:
       target_id:
         -
           plugin: migration_lookup
-          migration: upgrade_d7_media_images
+          migration:
+            - upgrade_d7_media_images
+            - cas_media_private_images
           source: fid
           no_stub: true
         -

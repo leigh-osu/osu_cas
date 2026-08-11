@@ -1,0 +1,11 @@
+uuid: 04a73f6e-8ef8-4d58-9f8a-7ff7e4e22f42
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: YVS4Rth3PYkPIr30QVw8D3f7594z9You59cX4uSeD0w
+name: 'Publication Authors'
+vid: publication_authors
+description: 'People credited on publications (authors and editors); migrated from D7 biblio contributors.'
+weight: 0
+new_revision: false

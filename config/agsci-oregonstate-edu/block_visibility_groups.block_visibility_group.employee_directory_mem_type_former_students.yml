@@ -1,4 +1,4 @@
-uuid: cc74c5f5-17d1-4335-910a-cb13f1258fd0
+uuid: ee76459a-ff54-473c-bdcd-5b70a70ce7d2
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: employee_directory_mem_type_former_students
 label: employee_directory_mem_type_former_students
 logic: and
 conditions:
-  8c711c78-79ab-4148-90ad-9c55d81b8f76:
+  f8bd2596-c54e-4ee0-aaf8-649ceb6bd9ee:
     id: request_path
     negate: false
-    uuid: 8c711c78-79ab-4148-90ad-9c55d81b8f76
+    uuid: f8bd2596-c54e-4ee0-aaf8-649ceb6bd9ee
     pages: /node/86366
 allow_other_conditions: null

@@ -1,9 +1,9 @@
-uuid: 7cf1914c-93f2-4042-a485-64c8acc0ae44
+uuid: d262153d-d78b-4513-b452-6e1b7648a635
 langcode: en
 status: true
-dependencies:
-  module:
-    - image_effects
+dependencies: {  }
+_core:
+  default_config_hash: Ie_xkWazHh-aEt-UzwXkbJyycpYff2A7B2CWBBoVLDk
 name: 400x375
 label: 400x375
 effects:
@@ -15,9 +15,3 @@ effects:
       width: 400
       height: 372
       anchor: center-center
-  b83c3e53-845d-457e-be43-26b5b7e82112:
-    uuid: b83c3e53-845d-457e-be43-26b5b7e82112
-    id: image_effects_auto_orient
-    weight: -100
-    data:
-      scan_exif: true

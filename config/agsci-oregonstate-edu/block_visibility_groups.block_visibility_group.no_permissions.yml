@@ -1,4 +1,4 @@
-uuid: 94b96343-b849-4334-8403-51a04d030a5a
+uuid: c9076c47-657c-4793-a711-ad0b50be7ed5
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: no_permissions
 label: no_permissions
 logic: and
 conditions:
-  42e8d243-20cf-4a09-bd84-0d57a82bfb9f:
+  998798a5-ea86-4a7a-84b2-5a68fec064d7:
     id: request_path
     negate: false
-    uuid: 42e8d243-20cf-4a09-bd84-0d57a82bfb9f
+    uuid: 998798a5-ea86-4a7a-84b2-5a68fec064d7
     pages: /art-about-agriculture/quick-edit/no-permissions-granted
 allow_other_conditions: null

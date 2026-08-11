@@ -4,16 +4,15 @@ status: true
 dependencies:
   module:
     - node
+    - taxonomy
 _core:
-  default_config_hash: hQ5LvTUoMD40HFbzHM460POOABM6k9k64bBs5wUVSlw
+  default_config_hash: f9-i4MXIguBP_9QG3BPgfTZl8wOnqccPJ1HU3qTKJXs
 id: node.field_pub_authors
 field_name: field_pub_authors
 entity_type: node
-type: string
+type: entity_reference
 settings:
-  max_length: 255
-  case_sensitive: false
-  is_ascii: false
+  target_type: taxonomy_term
 module: core
 locked: false
 cardinality: -1

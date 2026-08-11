@@ -1,4 +1,4 @@
-uuid: 05353383-8348-4260-98b9-ec15d898ce68
+uuid: 26312393-6d98-413f-974e-35c34ffc795d
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: avian_conservation
 label: avian_conservation
 logic: and
 conditions:
-  4a26df10-5485-4737-8b50-a74e219db315:
+  15f09881-0215-4c55-8a92-c505d5925b17:
     id: request_path
     negate: false
-    uuid: 4a26df10-5485-4737-8b50-a74e219db315
+    uuid: 15f09881-0215-4c55-8a92-c505d5925b17
     pages: /node/44698
 allow_other_conditions: null

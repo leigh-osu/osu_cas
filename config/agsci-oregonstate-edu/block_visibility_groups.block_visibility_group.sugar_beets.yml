@@ -1,4 +1,4 @@
-uuid: 4463fb19-becf-45df-92db-e7a09cb6cbc5
+uuid: 223a944e-5788-4c3b-a8b2-789070259e78
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: sugar_beets
 label: sugar_beets
 logic: and
 conditions:
-  568a3ead-3e17-46cd-9dc0-2634d3109fe8:
+  b4b2bbd0-842b-432b-9d0d-7cd630e0e657:
     id: request_path
     negate: false
-    uuid: 568a3ead-3e17-46cd-9dc0-2634d3109fe8
+    uuid: b4b2bbd0-842b-432b-9d0d-7cd630e0e657
     pages: "/malheur-experiment-station/crops/sugar-beets\r\n/mes/crops/sugar-beets\r\n/node/45286"
 allow_other_conditions: null

@@ -1,4 +1,4 @@
-uuid: 6c2f79c5-0beb-4e7f-8bfc-d12d17cc8a96
+uuid: bb4c4b62-3afc-4806-83c6-d080e6586f20
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: camelina
 label: camelina
 logic: and
 conditions:
-  c796abf3-b8e0-412e-969c-e93343738b04:
+  d5675705-ec80-4c72-ab76-3e1a002db886:
     id: request_path
     negate: false
-    uuid: c796abf3-b8e0-412e-969c-e93343738b04
+    uuid: d5675705-ec80-4c72-ab76-3e1a002db886
     pages: /mes/crops/camelina
 allow_other_conditions: null

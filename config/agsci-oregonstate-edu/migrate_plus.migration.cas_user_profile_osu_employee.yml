@@ -1,9 +1,9 @@
-uuid: cfc6b1fa-4cc7-4632-90f7-ecdee91c9529
+uuid: fee98851-487e-4429-a2a0-916883f44d82
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: W2BblBe1oOcEk3j3YWwbuFCbVH15BznCREssb-IEk2o
+  default_config_hash: NcVXdi4TJKd7DZ955yi-ZnCZjxsTFWCwIPdgtp6w8fw
 id: cas_user_profile_osu_employee
 class: null
 idMap: {  }
@@ -37,6 +37,49 @@ process:
   field_profile_address/postal_code: profile_address/postal_code
   field_profile_address/address_line1: profile_address/address_line1
   field_profile_address/address_line2: profile_address/address_line2
+  field_osu_organizations:
+    plugin: sub_process
+    source: affiliation_names
+    process:
+      target_id:
+        -
+          plugin: entity_generate
+          entity_type: taxonomy_term
+          bundle_key: vid
+          bundle: osu_organization
+          value_key: name
+          ignore_case: true
+          source: name
+        -
+          plugin: skip_on_empty
+          method: row
+  field_profile_functional_group:
+    plugin: sub_process
+    source: functional_group
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: 'upgrade_d7_taxonomy_terms:functional_groups'
+          source: tid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: row
+  field_profile_headquarters:
+    -
+      plugin: static_map
+      source: headquarters/0/value
+      map:
+        '01': 'OSU Main Campus'
+        '02': 'Cascades Campus'
+        '03': 'Hatfield Marine Science Center'
+        '04': 'Experiment Station'
+        '05': Other
+      default_value: null
+    -
+      plugin: skip_on_empty
+      method: process
   type:
     plugin: default_value
     default_value: osu_profile
@@ -47,6 +90,9 @@ destination:
     - field_profile_alt_phone
     - field_profile_fax
     - field_profile_address
+    - field_osu_organizations
+    - field_profile_functional_group
+    - field_profile_headquarters
 migration_dependencies:
   required:
     - upgrade_d7_user_to_profile

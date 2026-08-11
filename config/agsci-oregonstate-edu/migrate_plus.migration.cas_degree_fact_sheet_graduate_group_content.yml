@@ -1,9 +1,9 @@
-uuid: 1e173573-2ccd-45ca-8666-af660ed2d674
+uuid: c0b6f2b8-26ed-4d94-b23e-97085d3b883e
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: Yx741G14hPU3alSVx2Y64_l7gPGZ9-Ly2TvkNTNzzfo
+  default_config_hash: SpMXgJeZ3K8hpprs0m7C73OIiaOsZRDp1Et2mhbzh70
 id: cas_degree_fact_sheet_graduate_group_content
 class: null
 idMap: {  }
@@ -26,7 +26,7 @@ process:
   label: etid
   type:
     plugin: default_value
-    default_value: group_content_type_e4723941aecab
+    default_value: group_content_type_8d5cca53aed97
   gid:
     -
       plugin: migration_lookup

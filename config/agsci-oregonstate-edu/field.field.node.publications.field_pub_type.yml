@@ -7,12 +7,12 @@ dependencies:
     - node.type.publications
     - taxonomy.vocabulary.publication_type
 _core:
-  default_config_hash: 3oG0iFm8T4gjLi4JxGS_AfEP0ARFul5NhGhKWw4A4qQ
+  default_config_hash: SGQdEhi3g187KFKCfmp8icPqBnMPJJDk_Ls5PrRPnCs
 id: node.publications.field_pub_type
 field_name: field_pub_type
 entity_type: node
 bundle: publications
-label: Type
+label: 'Publication type'
 description: 'Select the Type of publication.'
 required: false
 translatable: false

@@ -1,0 +1,35 @@
+uuid: bbaec4b5-7eed-4823-9654-2d423f64ba61
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:bc904f4d-38b8-496b-92f3-5791c3de2d45'
+  module:
+    - block_content
+    - node
+  theme:
+    - manzanita
+id: cas_ctx_social_media_widget
+theme: manzanita
+region: pre_footer
+weight: -10
+provider: null
+plugin: 'block_content:bc904f4d-38b8-496b-92f3-5791c3de2d45'
+settings:
+  id: 'block_content:bc904f4d-38b8-496b-92f3-5791c3de2d45'
+  label: 'Social Media Widget'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      art_about_agriculture: art_about_agriculture
+      project: project
+      story: story

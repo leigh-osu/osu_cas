@@ -1,4 +1,4 @@
-uuid: 3748f1bc-9c98-44e0-b745-36f569530519
+uuid: 17a034ba-9e8d-4454-bf26-3224fc9a02f4
 langcode: und
 status: true
 dependencies:
@@ -10,11 +10,44 @@ field_name: field_dfs_level
 entity_type: node
 type: list_string
 settings:
-  allowed_values: {  }
+  allowed_values:
+    -
+      value: degreelevel_bs
+      label: 'Bachelor of Science (B.S.)'
+    -
+      value: degreelevel_um
+      label: 'Undergraduate Minor'
+    -
+      value: degreelevel_ucert
+      label: 'Undergraduate Certificate'
+    -
+      value: degreelevel_microcred
+      label: Microcredential
+    -
+      value: degreelevel_ms
+      label: 'Master of Science (M.S.)'
+    -
+      value: degreelevel_mais
+      label: 'Master of Arts in Interdisciplinary Studies (M.A.I.S.)'
+    -
+      value: degreelevel_meng
+      label: 'Master of Engineering (MENG)'
+    -
+      value: degreelevel_psm
+      label: 'Professional Science Master (PSM)'
+    -
+      value: degreelevel_mpp
+      label: 'Master of Public Policy (MPP)'
+    -
+      value: degreelevel_phd
+      label: 'Doctor of Philosophy (Ph.D.)'
+    -
+      value: degreelevel_cert
+      label: 'Graduate Certificate'
   allowed_values_function: ''
 module: options
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

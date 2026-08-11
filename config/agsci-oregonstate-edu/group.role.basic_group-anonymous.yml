@@ -1,4 +1,4 @@
-uuid: d30f056a-e74b-496f-bb10-3823e336823b
+uuid: 4d41e095-7bfd-4a38-a74c-6d5d5d3f2ddb
 langcode: en
 status: true
 dependencies:
@@ -13,12 +13,10 @@ scope: outsider
 global_role: anonymous
 group_type: basic_group
 permissions:
-  - 'view group'
   - 'view group_node:150_species entity'
   - 'view group_node:art_about_agriculture entity'
   - 'view group_node:course entity'
   - 'view group_node:degree_fact_sheet entity'
-  - 'view group_node:degree_fact_sheet_graduate entity'
   - 'view group_node:enterprise_budgets entity'
   - 'view group_node:fun_facts entity'
   - 'view group_node:funding_opportunities entity'

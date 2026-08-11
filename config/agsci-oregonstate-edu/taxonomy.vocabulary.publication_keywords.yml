@@ -1,0 +1,9 @@
+uuid: 5fa601db-36a6-408f-9f71-6e0a4a698400
+langcode: en
+status: true
+dependencies: {  }
+name: 'Publication Keywords'
+vid: publication_keywords
+description: 'Keywords migrated from D7 biblio entries.'
+weight: 0
+new_revision: false

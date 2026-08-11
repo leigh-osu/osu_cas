@@ -1,9 +1,9 @@
-uuid: 1f4e3b8e-ebfd-452a-a319-ed5008d66f91
+uuid: c72e3f30-78c1-406d-9eba-b7f80e6f3e91
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: X_Bc-SOA8uWX4s3hQqQiZdknHlZLPkdZgj_zb2U2kzI
+  default_config_hash: wozl7ETthEtZ0r8MRkN9hAwxZov86MoqUWWMQL8oGFg
 id: cas_pvr_to_pvr
 class: null
 idMap: {  }
@@ -113,6 +113,16 @@ process:
       format:
         plugin: default_value
         default_value: full_html
+  field_pvr_quality:
+    plugin: sub_process
+    source: field_plant_patent
+    process:
+      value:
+        plugin: osu_media_wysiwyg_filter
+        source: value
+      format:
+        plugin: default_value
+        default_value: full_html
   field_pvr_other_information:
     plugin: sub_process
     source: field_other_information
@@ -208,7 +218,9 @@ process:
       target_id:
         -
           plugin: migration_lookup
-          migration: upgrade_d7_media_images
+          migration:
+            - upgrade_d7_media_images
+            - cas_media_private_images
           source: fid
           no_stub: true
         -
@@ -221,7 +233,9 @@ process:
       target_id:
         -
           plugin: migration_lookup
-          migration: upgrade_d7_media_images
+          migration:
+            - upgrade_d7_media_images
+            - cas_media_private_images
           source: fid
           no_stub: true
         -
@@ -234,7 +248,9 @@ process:
       target_id:
         -
           plugin: migration_lookup
-          migration: upgrade_d7_media_images
+          migration:
+            - upgrade_d7_media_images
+            - cas_media_private_images
           source: fid
           no_stub: true
         -
@@ -247,7 +263,9 @@ process:
       target_id:
         -
           plugin: migration_lookup
-          migration: upgrade_d7_media_images
+          migration:
+            - upgrade_d7_media_images
+            - cas_media_private_images
           source: fid
           no_stub: true
         -

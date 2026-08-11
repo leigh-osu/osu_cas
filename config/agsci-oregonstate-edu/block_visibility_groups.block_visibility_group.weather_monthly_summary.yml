@@ -1,4 +1,4 @@
-uuid: d89b7c8f-9a39-4d4f-a3c1-7d2a9cc1d8ee
+uuid: 26623385-42f7-4246-81b4-ed011c1c2074
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: weather_monthly_summary
 label: weather_monthly_summary
 logic: and
 conditions:
-  a596f00a-42e1-4943-843a-f691cd6062fa:
+  3f432615-25a1-48ca-8e98-281a8495c20c:
     id: request_path
     negate: false
-    uuid: a596f00a-42e1-4943-843a-f691cd6062fa
+    uuid: 3f432615-25a1-48ca-8e98-281a8495c20c
     pages: /node/167271
 allow_other_conditions: null

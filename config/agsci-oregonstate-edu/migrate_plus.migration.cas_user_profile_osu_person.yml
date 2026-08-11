@@ -1,9 +1,9 @@
-uuid: 76e9dc14-d8b6-4e7f-8903-15e568d2f4f9
+uuid: 3b3f71e5-57cb-4eed-84de-04a6a11ab05d
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: SWEuLGa04PZlKTbOj8fHtBl43UCXlSZksU91zwN3RfM
+  default_config_hash: DE7QDIf1HvvqDyDumtL1__ZeQu9mmUvLa3Qq_jfaHws
 id: cas_user_profile_osu_person
 class: null
 idMap: {  }
@@ -29,6 +29,14 @@ process:
     -
       plugin: skip_on_empty
       method: row
+  field_profile_email:
+    -
+      plugin: callback
+      callable: trim
+      source: email/0/email
+    -
+      plugin: skip_on_empty
+      method: process
   field_profile_preferred_name: preferred_name
   field_profile_pronouns: field_person_pronouns
   field_profile_name_suffix:
@@ -92,6 +100,7 @@ destination:
   plugin: 'entity:node'
   default_bundle: osu_profile
   overwrite_properties:
+    - field_profile_email
     - field_profile_preferred_name
     - field_profile_pronouns
     - field_profile_name_suffix

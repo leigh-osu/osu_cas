@@ -1,4 +1,4 @@
-uuid: 51371fa6-8908-458f-a0e0-ac5bd8cf215d
+uuid: 8a54a972-b02e-42cf-a5d7-0895bcd5324d
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: harec_landing_page
 label: harec_landing_page
 logic: and
 conditions:
-  8eec2104-2030-4744-afc6-0d54a9e0ecc7:
+  15b5ba41-10d7-4ae9-9ca8-c337b70a08bd:
     id: request_path
     negate: false
-    uuid: 8eec2104-2030-4744-afc6-0d54a9e0ecc7
+    uuid: 15b5ba41-10d7-4ae9-9ca8-c337b70a08bd
     pages: "/harec\r\n/node/109791"
 allow_other_conditions: null

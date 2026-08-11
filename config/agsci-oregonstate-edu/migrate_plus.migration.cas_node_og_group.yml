@@ -1,9 +1,9 @@
-uuid: 6fb65835-5197-47f7-b6f6-5cfcc1f2d50a
+uuid: f3724d85-21d9-42db-a433-ed9eb70db4c1
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: IQZpMUNn77qjW3O55iMC-_sRPoPSroVfVt0EK8Doe2Y
+  default_config_hash: utewNBIaKFPMV12XO8Oqo9fVSu21XhAVUWYazt5Fr_8
 id: cas_node_og_group
 class: null
 idMap: {  }
@@ -123,7 +123,9 @@ process:
           source: value
         -
           plugin: migration_lookup
-          migration: upgrade_d7_media_documents
+          migration:
+            - upgrade_d7_media_documents
+            - cas_media_private_documents
           no_stub: true
         -
           plugin: skip_on_empty

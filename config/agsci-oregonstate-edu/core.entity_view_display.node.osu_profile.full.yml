@@ -36,7 +36,9 @@ dependencies:
     - field.field.node.osu_profile.field_profile_fac_type
     - field.field.node.osu_profile.field_profile_fax
     - field.field.node.osu_profile.field_profile_first_name
+    - field.field.node.osu_profile.field_profile_functional_group
     - field.field.node.osu_profile.field_profile_google_scholar
+    - field.field.node.osu_profile.field_profile_headquarters
     - field.field.node.osu_profile.field_profile_image
     - field.field.node.osu_profile.field_profile_last_name
     - field.field.node.osu_profile.field_profile_middle_name
@@ -535,6 +537,8 @@ hidden:
   field_profile_fac_specialty: true
   field_profile_fac_type: true
   field_profile_first_name: true
+  field_profile_functional_group: true
+  field_profile_headquarters: true
   field_profile_last_name: true
   field_profile_middle_name: true
   field_profile_name_suffix: true

@@ -1,9 +1,9 @@
-uuid: c302eff7-6278-42fc-ad39-7635c2cb5da0
+uuid: 4775d6f3-2f2f-4881-82b8-d07c41096072
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: P4wjOhyLre3D6N2rH1cJ1pqyDA0vjfh3AbWU__9jS0I
+  default_config_hash: 7YCKgJhIyMmRgcU0-oijkvdy2h_X8ZX_Rsx7Nm2SV2g
 id: field_collection_field_lp_picbox__to__layout_builder
 class: null
 idMap: {  }
@@ -52,7 +52,9 @@ process:
       target_id:
         -
           plugin: migration_lookup
-          migration: upgrade_d7_media_images
+          migration:
+            - upgrade_d7_media_images
+            - cas_media_private_images
           source: fid
           no_stub: true
         -

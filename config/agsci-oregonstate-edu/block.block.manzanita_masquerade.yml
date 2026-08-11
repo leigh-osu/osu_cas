@@ -1,4 +1,4 @@
-uuid: 0bfe3ed4-fc14-46b6-9aa6-8b3501169923
+uuid: 0aa6793e-61ad-48d3-aa15-0a024ff28ff5
 langcode: en
 status: true
 dependencies:
@@ -8,8 +8,8 @@ dependencies:
     - manzanita
 id: manzanita_masquerade
 theme: manzanita
-region: highlighted
-weight: 10
+region: pre_footer
+weight: 0
 provider: null
 plugin: masquerade
 settings:
