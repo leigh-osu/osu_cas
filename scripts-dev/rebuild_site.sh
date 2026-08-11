@@ -72,6 +72,42 @@ section_1() {
   # Stop and restart DDEV to reset database
   echo "Resetting DDEV environment..."
   ddev stop -O -R
+
+  # Reset the files directories along with the database. upgrade_d7_files
+  # copies with file_copy's default `replace`, so every rebuild re-copies all
+  # ~50k public files regardless -- wiping first costs deletion time, not copy
+  # time. Without it the tree only grows: files deleted in D7 linger forever,
+  # and any change of destination path (the year subdirectories) strands the
+  # previous run's copies. Local files had drifted to 113G against a 92G D7
+  # source, ~21G of it orphaned. Starting empty is also the only way a file
+  # the migration failed to produce, or a URL it failed to rewrite, fails
+  # locally the way it would in production instead of resolving off a stale
+  # copy. Section 7 re-seeds its own assets (import_stage_redesigns.php).
+  echo "Purging local files directories..."
+  # Anchor the paths before deleting anything: an unset PROJECT_ROOT would
+  # otherwise aim this at /files, and an unset SITE_URI at docroot/sites//files.
+  # composer.json proves PROJECT_ROOT really is the project checkout.
+  if [ -z "${PROJECT_ROOT}" ] || [ -z "${SITE_URI}" ] || [ ! -f "${PROJECT_ROOT}/composer.json" ]; then
+    echo "  refusing to purge: PROJECT_ROOT/SITE_URI not sane (${PROJECT_ROOT} / ${SITE_URI})" >&2
+  else
+    for dir in "${PROJECT_ROOT}/docroot/sites/${SITE_URI}/files" \
+               "${PROJECT_ROOT}/files/agsci/private-files"; do
+      # Belt and braces: only ever a *files* directory inside the project.
+      case "${dir}" in
+        "${PROJECT_ROOT}"/*/files|"${PROJECT_ROOT}"/*/private-files) ;;
+        *)
+          echo "  refusing to purge unexpected path: ${dir}" >&2
+          continue
+          ;;
+      esac
+      if [ -d "${dir}" ]; then
+        echo "  purging ${dir} ($(du -sh "${dir}" 2>/dev/null | cut -f1))"
+        rm -rf "${dir}"
+      fi
+      mkdir -p "${dir}"
+    done
+  fi
+
   ddev start
 
   # Install Drupal
