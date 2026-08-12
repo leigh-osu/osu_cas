@@ -13,7 +13,6 @@ scope: outsider
 global_role: authenticated
 group_type: basic_group
 permissions:
-  - 'join group'
   - 'view group'
   - 'view group_node:150_species entity'
   - 'view group_node:art_about_agriculture entity'
