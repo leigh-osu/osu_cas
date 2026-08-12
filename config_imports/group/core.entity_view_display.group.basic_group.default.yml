@@ -38,7 +38,7 @@ dependencies:
     - bootstrap_layout_builder
     - layout_builder
     - layout_builder_restrictions
-    - osu_cas_multisite
+    - osu_cas_multisite_groups
   enforced:
     module:
       - osu_groups_basic_group
@@ -513,7 +513,7 @@ third_party_settings:
               id: cas_group_add_content
               label: 'Create content'
               label_display: visible
-              provider: osu_cas_multisite
+              provider: osu_cas_multisite_groups
               context_mapping:
                 group: layout_builder.entity
             weight: 8

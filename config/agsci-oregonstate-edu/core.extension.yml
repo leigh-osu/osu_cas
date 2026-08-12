@@ -135,6 +135,7 @@ module:
   osu_bootstrap_layout_builder: 0
   osu_cas_multisite: 0
   osu_cas_multisite_degrees: 0
+  osu_cas_multisite_groups: 0
   osu_cas_site_sync: 0
   osu_ckeditor_plugins: 0
   osu_default_content: 0

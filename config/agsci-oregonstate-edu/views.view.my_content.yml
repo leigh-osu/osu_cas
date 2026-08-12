@@ -9,7 +9,7 @@ dependencies:
     - group
     - node
     - user
-    - osu_cas_multisite
+    - osu_cas_multisite_groups
 id: my_content
 label: 'My Content'
 module: views

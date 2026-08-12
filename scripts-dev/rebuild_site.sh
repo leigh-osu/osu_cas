@@ -168,10 +168,11 @@ section_1() {
   # display config is applied.
   ddev drush en osu_digital_measures -y
 
-  # osu_cas_multisite: shared multisite helpers (group breadcrumbs, colorbox
-  # caption preprocess, Layout Builder UX); its degrees submodule carries the
-  # degree-fact-sheet node template.
-  ddev drush en osu_cas_multisite osu_cas_multisite_degrees -y
+  # osu_cas_multisite: shared multisite helpers (colorbox caption preprocess,
+  # Layout Builder UX, account links); the groups submodule carries the group
+  # breadcrumbs, group create-content block and views group handlers; the
+  # degrees submodule carries the degree-fact-sheet node template.
+  ddev drush en osu_cas_multisite osu_cas_multisite_degrees osu_cas_multisite_groups -y
 
 
   ddev drush cr -y
