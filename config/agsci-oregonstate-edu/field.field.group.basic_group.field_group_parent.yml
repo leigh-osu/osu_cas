@@ -1,16 +1,15 @@
-uuid: dd11d312-747d-491a-8797-51155f2671fe
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.group.field_group_parent_unit
+    - field.storage.group.field_group_parent
     - group.type.basic_group
-id: group.basic_group.field_group_parent_unit
-field_name: field_group_parent_unit
+id: group.basic_group.field_group_parent
+field_name: field_group_parent
 entity_type: group
 bundle: basic_group
-label: 'Parent Unit'
-description: ''
+label: 'Group Parent'
+description: 'The group this group sits under; the header links its name to that group''s landing page.'
 required: false
 translatable: false
 default_value: {  }

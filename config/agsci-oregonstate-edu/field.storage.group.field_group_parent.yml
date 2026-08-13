@@ -1,11 +1,10 @@
-uuid: d5018583-f8c8-4db2-b91f-54ff4a77cdca
 langcode: en
 status: true
 dependencies:
   module:
     - group
-id: group.field_group_parent_unit
-field_name: field_group_parent_unit
+id: group.field_group_parent
+field_name: field_group_parent
 entity_type: group
 type: entity_reference
 settings:

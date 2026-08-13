@@ -22,7 +22,7 @@ dependencies:
     - field.field.group.basic_group.field_group_location_state
     - field.field.group.basic_group.field_group_location_zip
     - field.field.group.basic_group.field_group_newsletter_link
-    - field.field.group.basic_group.field_group_parent_unit
+    - field.field.group.basic_group.field_group_parent
     - field.field.group.basic_group.field_group_phone
     - field.field.group.basic_group.field_group_short_name
     - field.field.group.basic_group.field_group_twitter
@@ -302,7 +302,7 @@ third_party_settings:
             uuid: 6ea7cfa6-e7c7-41db-a1fb-ee88c107a235
             region: blb_region_col_2
             configuration:
-              id: 'field_block:group:basic_group:field_group_parent_unit'
+              id: 'field_block:group:basic_group:field_group_parent'
               label_display: '0'
               context_mapping:
                 entity: layout_builder.entity
@@ -577,7 +577,7 @@ hidden:
   field_group_location_state: true
   field_group_location_zip: true
   field_group_newsletter_link: true
-  field_group_parent_unit: true
+  field_group_parent: true
   field_group_phone: true
   field_group_short_name: true
   field_group_twitter: true

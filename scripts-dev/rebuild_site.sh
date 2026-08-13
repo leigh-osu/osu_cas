@@ -360,6 +360,10 @@ section_3() {
   ddev drush migrate:import paragraph_2_column_4_8_right__to__layout_builder
   ddev drush migrate:import paragraph_2_column_8_4_left__to__layout_builder
   ddev drush migrate:import paragraph_2_column_8_4_right__to__layout_builder
+  # 2_column_views: the text columns migrate (the embedded views stay
+  # excluded) — see cas_paragraphs_layout / twoColumnViewsHasText().
+  ddev drush migrate:import paragraph_2_column_views_left__to__layout_builder
+  ddev drush migrate:import paragraph_2_column_views_right__to__layout_builder
   ddev drush migrate:import paragraph_sacnas_officer_body_text__to__layout_builder
   ddev drush migrate:import paragraph_lp_picbox_grid__to__layout_builder
   ddev drush migrate:import paragraph_lp_vertical_tabs__to__layout_builder
@@ -477,17 +481,25 @@ section_6() {
 
   ddev drush cr -y
 
-  # Base OG / Parent Unit group creation. These create the group entities
-  # (keyed by nid) and satisfy the shared membership / menu / organization
-  # migrations, which look up groups by these base migration IDs.
+  # Base OG group creation. Creates the group entities (keyed by nid) and
+  # satisfies the shared membership / menu / organization migrations, which
+  # look up groups by this base migration ID. Parent units are NOT migrated
+  # (osu_migrations_cas_migration_plugins_alter retires
+  # upgrade_d7_node_parent_unit_group): each group's field_group_parent
+  # records the parent unit's default content group instead.
   ddev drush migrate:import upgrade_d7_node_og_group
-  ddev drush migrate:import upgrade_d7_node_parent_unit_group
 
-  # CAS field-mapping group migrations. They update the same group entities with
-  # the CAS field data (body, contact, location, social, parent unit reference,
-  # site coordinators, info-sheet media document, etc.). cas_node_parent_unit_group
-  # must run before cas_node_og_group so field_group_parent_unit can resolve.
-  ddev drush migrate:import cas_node_parent_unit_group
+  # The two parent units without a default group (Agricultural Experiment
+  # Station, Corvallis Farm Unit) become real groups, each with its D7
+  # landing page (/aes, /farmunit) as the group's default page. Must run
+  # before cas_node_og_group so field_group_parent can resolve them.
+  ddev drush migrate:import cas_parent_unit_default_group
+  ddev drush migrate:import cas_parent_unit_landing_page --force
+  ddev drush migrate:import cas_parent_unit_landing_group_content
+
+  # CAS field-mapping group migration. Updates the same group entities with
+  # the CAS field data (body, contact, location, social, Group Parent,
+  # site coordinators, info-sheet media document, etc.).
   ddev drush migrate:import cas_node_og_group
   ddev drush pqe -y
 

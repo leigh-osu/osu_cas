@@ -3,8 +3,8 @@ status: true
 dependencies:
   module:
     - group
-id: group.field_group_parent_unit
-field_name: field_group_parent_unit
+id: group.field_group_parent
+field_name: field_group_parent
 entity_type: group
 type: entity_reference
 settings:
