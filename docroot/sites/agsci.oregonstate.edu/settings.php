@@ -910,7 +910,14 @@ if (file_exists('/var/www/site-php')) {
   global $conf;
   // Do not autoconnect to database.
   $conf['acquia_hosting_settings_autoconnect'] = FALSE;
-  require "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/agsci_oregonstate_edu-settings.inc";
+  // agsci is the default site of the platform, so it runs on the
+  // application's default database (osucas) rather than a per-site one.
+  // Rolled out dev-first: stage and prod stay on agsci_oregonstate_edu
+  // until their data moves, then join the list.
+  $osu_cas_db = in_array($_ENV['AH_SITE_ENVIRONMENT'] ?? '', ['dev'], TRUE)
+    ? 'osucas'
+    : 'agsci_oregonstate_edu';
+  require "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/{$osu_cas_db}-settings.inc";
   // Set the MySQL variable values.
   $databases['default']['default']['init_commands'] = [
     'transaction_isolation' => 'SET SESSION transaction_isolation="READ-COMMITTED"'
