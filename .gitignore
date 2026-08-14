@@ -41,7 +41,10 @@
 /.env
 # Ignoring sass build cache
 .sass-cache/
-/.ddev
+# .ddev is tracked on develop (its own .ddev/.gitignore excludes snapshots,
+# image builds and provider credentials); promotion to main strips it -- see
+# scripts-dev/promote_main.sh.
+/.ddev/homeadditions/.ssh/
 /docroot/sites/agsci.oregonstate.edu/settings.ddev.php
 /docroot/modules/custom
 /docroot/themes/custom
