@@ -911,10 +911,12 @@ if (file_exists('/var/www/site-php')) {
   // Do not autoconnect to database.
   $conf['acquia_hosting_settings_autoconnect'] = FALSE;
   // agsci is the default site of the platform, so it runs on the
-  // application's default database (osucas) rather than a per-site one.
-  // Rolled out dev-first: stage and prod stay on agsci_oregonstate_edu
-  // until their data moves, then join the list.
-  $osu_cas_db = in_array($_ENV['AH_SITE_ENVIRONMENT'] ?? '', ['dev'], TRUE)
+  // application's default database (osucas) rather than a per-site one on
+  // every environment (rolled out dev-first on 2026-08-14, stage and prod
+  // the same day once their osucas databases were populated). The old
+  // agsci_oregonstate_edu databases remain as rollback: drop an environment
+  // from this list to fall back.
+  $osu_cas_db = in_array($_ENV['AH_SITE_ENVIRONMENT'] ?? '', ['dev', 'stage', 'prod'], TRUE)
     ? 'osucas'
     : 'agsci_oregonstate_edu';
   require "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/{$osu_cas_db}-settings.inc";
