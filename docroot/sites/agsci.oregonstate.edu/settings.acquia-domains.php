@@ -17,7 +17,12 @@
  */
 
 $ah_env = $_ENV['AH_SITE_ENVIRONMENT'] ?? '';
-if (in_array($ah_env, ['dev', 'stage'], TRUE)) {
+// LAUNCH: 'prod' is in this list only until cutover. While the real hostnames
+// point elsewhere, the prod environment is reached via x.prod.oregonstate.edu
+// / prod.x.org and Domain negotiation must match those. When the real
+// hostnames move to Acquia prod, remove 'prod' here so the records keep
+// their production hostnames.
+if (in_array($ah_env, ['dev', 'stage', 'prod'], TRUE)) {
   $osu_cas_domain_records = [
   'agbiotech_oregonstate_edu' => 'agbiotech.oregonstate.edu',
   'agsci_oregonstate_edu' => 'agsci.oregonstate.edu',
