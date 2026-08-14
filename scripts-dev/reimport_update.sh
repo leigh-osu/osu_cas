@@ -66,6 +66,8 @@ for m in \
   paragraph_2_column_4_8_right__to__layout_builder \
   paragraph_2_column_8_4_left__to__layout_builder \
   paragraph_2_column_8_4_right__to__layout_builder \
+  paragraph_2_column_views_left__to__layout_builder \
+  paragraph_2_column_views_right__to__layout_builder \
   paragraph_sacnas_officer_body_text__to__layout_builder \
   paragraph_lp_picbox_grid__to__layout_builder \
   paragraph_lp_vertical_tabs__to__layout_builder \
@@ -107,8 +109,13 @@ for m in \
 # --- Section 6: groups ---
 run "upgrade_d7_view_modes"           upgrade_d7_view_modes
 run "upgrade_d7_node_og_group"        upgrade_d7_node_og_group
-run "upgrade_d7_node_parent_unit_group" upgrade_d7_node_parent_unit_group
-run "cas_node_parent_unit_group"      cas_node_parent_unit_group
+# Parent units are not migrated (retired by osu_migrations_cas's
+# plugins_alter); the two without a default group become real groups with
+# their /aes and /farmunit landing pages, and cas_node_og_group resolves
+# each group's field_group_parent through them -- so they run first.
+run "cas_parent_unit_default_group"   cas_parent_unit_default_group
+run "cas_parent_unit_landing_page"    cas_parent_unit_landing_page --force
+run "cas_parent_unit_landing_group_content" cas_parent_unit_landing_group_content
 run "cas_node_og_group"               cas_node_og_group
 run "upgrade_d7_user_og_memberships"  upgrade_d7_user_og_memberships
 run "upgrade_d7_node_og_organization" upgrade_d7_node_og_organization
