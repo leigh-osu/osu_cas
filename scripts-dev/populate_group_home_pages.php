@@ -47,6 +47,22 @@ foreach (Group::loadMultiple() as $group) {
   }
 }
 
+// Every group home page renders without its node title -- the header's
+// group-size site name IS the page's title there. Merge ALL current home
+// pages (field values, however they were set) into exclude_node_title's
+// per-node state list, the same list import_hide_title.php feeds; the
+// module only honours it for the 'page' bundle, which is every home page
+// today. Idempotent set-merge, so editor additions survive.
+$home_nids = $db->query(
+  'SELECT DISTINCT field_group_home_page_target_id
+   FROM {group__field_group_home_page} WHERE deleted = 0'
+)->fetchCol();
+$state = \Drupal::state();
+$list = $state->get('exclude_node_title_nid_list') ?: [];
+$merged = array_values(array_unique(array_merge($list, array_map('intval', $home_nids))));
+$state->set('exclude_node_title_nid_list', $merged);
+printf("hide-title: %d home pages merged; exclude list now %d nids\n", count($home_nids), count($merged));
+
 printf("home pages set: %d; groups with no matching node: %d\n", $set, count($missing));
 if ($missing) {
   print "  " . implode("\n  ", array_slice($missing, 0, 20)) . "\n";
