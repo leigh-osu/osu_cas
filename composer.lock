@@ -17923,16 +17923,16 @@
         },
         {
             "name": "leigh-osu/manzanita",
-            "version": "v1.1.28",
+            "version": "v1.1.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leigh-osu/manzanita.git",
-                "reference": "a668dd93ab3eff97275d2deb5fa97d0783192c05"
+                "reference": "bd6ec3329d8b5b47e4b482cfb98dfe903d1aa5d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/manzanita/zipball/a668dd93ab3eff97275d2deb5fa97d0783192c05",
-                "reference": "a668dd93ab3eff97275d2deb5fa97d0783192c05",
+                "url": "https://api.github.com/repos/leigh-osu/manzanita/zipball/bd6ec3329d8b5b47e4b482cfb98dfe903d1aa5d6",
+                "reference": "bd6ec3329d8b5b47e4b482cfb98dfe903d1aa5d6",
                 "shasum": ""
             },
             "type": "drupal-custom-theme",
@@ -17947,23 +17947,23 @@
             ],
             "description": "Drupal Theme for OSU College of Agricultural Sciences",
             "support": {
-                "source": "https://github.com/leigh-osu/manzanita/tree/v1.1.28",
+                "source": "https://github.com/leigh-osu/manzanita/tree/v1.1.29",
                 "issues": "https://github.com/leigh-osu/manzanita/issues"
             },
-            "time": "2026-08-15T02:43:33+00:00"
+            "time": "2026-08-15T21:38:15+00:00"
         },
         {
             "name": "leigh-osu/osu_cas_multisite",
-            "version": "v1.7.0",
+            "version": "v1.8.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:leigh-osu/osu_cas_multisite.git",
-                "reference": "68faf340b8a49c767f5a4bf3e49f5c61ebf49302"
+                "reference": "9c7572563d1b46849c75f0b95991dcf8dfc9ed92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_cas_multisite/zipball/68faf340b8a49c767f5a4bf3e49f5c61ebf49302",
-                "reference": "68faf340b8a49c767f5a4bf3e49f5c61ebf49302",
+                "url": "https://api.github.com/repos/leigh-osu/osu_cas_multisite/zipball/9c7572563d1b46849c75f0b95991dcf8dfc9ed92",
+                "reference": "9c7572563d1b46849c75f0b95991dcf8dfc9ed92",
                 "shasum": ""
             },
             "require": {
@@ -17972,10 +17972,10 @@
             "type": "drupal-custom-module",
             "description": "Shared helpers and theming for the OSU CAS multisite platform; the osu_cas_multisite_degrees submodule carries the degree fact sheet rendering.",
             "support": {
-                "source": "https://github.com/leigh-osu/osu_cas_multisite/tree/v1.7.0",
+                "source": "https://github.com/leigh-osu/osu_cas_multisite/tree/v1.8.0",
                 "issues": "https://github.com/leigh-osu/osu_cas_multisite/issues"
             },
-            "time": "2026-08-12T05:10:55+00:00"
+            "time": "2026-08-15T21:40:19+00:00"
         },
         {
             "name": "leigh-osu/osu_cas_site_sync",
@@ -18036,16 +18036,16 @@
         },
         {
             "name": "leigh-osu/osu_migrations_cas",
-            "version": "v1.9.0",
+            "version": "v1.10.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:leigh-osu/osu_migrations_cas.git",
-                "reference": "1e7bbac0da9188517abd25a2e5690f598e9fa12c"
+                "reference": "2cffb025fe4e2b83a137b61f7eac65daba2698d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_migrations_cas/zipball/1e7bbac0da9188517abd25a2e5690f598e9fa12c",
-                "reference": "1e7bbac0da9188517abd25a2e5690f598e9fa12c",
+                "url": "https://api.github.com/repos/leigh-osu/osu_migrations_cas/zipball/2cffb025fe4e2b83a137b61f7eac65daba2698d3",
+                "reference": "2cffb025fe4e2b83a137b61f7eac65daba2698d3",
                 "shasum": ""
             },
             "require": {
@@ -18061,10 +18061,10 @@
             },
             "description": "Drupal 7 to 10 migration code for OSU CAS",
             "support": {
-                "source": "https://github.com/leigh-osu/osu_migrations_cas/tree/v1.9.0",
+                "source": "https://github.com/leigh-osu/osu_migrations_cas/tree/v1.10.0",
                 "issues": "https://github.com/leigh-osu/osu_migrations_cas/issues"
             },
-            "time": "2026-08-15T02:43:54+00:00"
+            "time": "2026-08-15T21:43:17+00:00"
         },
         {
             "name": "leongersen/nouislider",
