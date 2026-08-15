@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.publications.field_domain_access
     - field.field.node.publications.field_domain_all_affiliates
     - field.field.node.publications.field_domain_source
+    - field.field.node.publications.field_group_private
     - field.field.node.publications.field_osu_organizations
     - field.field.node.publications.field_pub_abstract
     - field.field.node.publications.field_pub_authors
@@ -128,6 +129,13 @@ content:
     weight: 42
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_group_private:
+    type: boolean_checkbox
+    weight: 26
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_osu_organizations:
     type: entity_reference_autocomplete

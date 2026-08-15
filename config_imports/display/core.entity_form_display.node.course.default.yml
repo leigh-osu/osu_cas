@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.course.field_domain_access
     - field.field.node.course.field_domain_all_affiliates
     - field.field.node.course.field_domain_source
+    - field.field.node.course.field_group_private
     - field.field.node.course.field_tax_topic
     - node.type.course
   module:
@@ -147,6 +148,13 @@ content:
     weight: 42
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_group_private:
+    type: boolean_checkbox
+    weight: 26
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_tax_topic:
     type: entity_reference_autocomplete
