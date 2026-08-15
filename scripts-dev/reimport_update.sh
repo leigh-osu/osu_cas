@@ -104,6 +104,7 @@ for m in \
   cas_feature_story_to_story \
   cas_story_to_story \
   cas_article_to_story \
+  cas_feed_to_feed \
 ; do run "$m" "$m"; done
 
 # --- Section 6: groups ---
