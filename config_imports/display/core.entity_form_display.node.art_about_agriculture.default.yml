@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.art_about_agriculture.field_domain_access
     - field.field.node.art_about_agriculture.field_domain_all_affiliates
     - field.field.node.art_about_agriculture.field_domain_source
+    - field.field.node.art_about_agriculture.field_group_private
     - field.field.node.art_about_agriculture.field_tax_aaa
     - node.type.art_about_agriculture
   module:
@@ -154,6 +155,13 @@ content:
     weight: 42
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_group_private:
+    type: boolean_checkbox
+    weight: 26
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_tax_aaa:
     type: multiselect

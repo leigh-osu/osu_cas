@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.funding_opportunities.field_fundop_open_ended
     - field.field.node.funding_opportunities.field_fundop_posted_date
     - field.field.node.funding_opportunities.field_fundop_sponsor
+    - field.field.node.funding_opportunities.field_group_private
     - field.field.node.funding_opportunities.field_tax_cas_section
     - node.type.funding_opportunities
   module:
@@ -129,6 +130,13 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_group_private:
+    type: boolean_checkbox
+    weight: 26
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_tax_cas_section:
     type: multiselect
