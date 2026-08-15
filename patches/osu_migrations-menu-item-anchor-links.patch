@@ -1,0 +1,25 @@
+Subject: [PATCH] Keep same-page anchor menu links fragment-only
+
+D7 menu paragraphs stored bare '#fragment' urls for in-page jumps; the
+'internal:/' prefix re-rooted them to the front page. Store them as
+'internal:#fragment' instead, the same uri core's LinkWidget produces
+for a typed '#anchor'.
+---
+--- a/modules/paragraphs_to_layout_builder/src/Plugin/migrate/process/MenuItem.php
++++ b/modules/paragraphs_to_layout_builder/src/Plugin/migrate/process/MenuItem.php
+@@ -152,7 +152,14 @@
+     foreach ($results as $result) {
+       // Check for valid urls. Make changes as necessary.
+       $url = $result->field_p_menu_link_url;
+-      if (UrlHelper::isValid($url)) {
++      // CAS: same-page anchors. D7 stored bare '#fragment' urls that jump
++      // within the page; prefixing them 'internal:/' would re-root them to
++      // the front page, so keep them fragment-only ('internal:#fragment',
++      // the same uri core's LinkWidget stores for a typed '#anchor').
++      if (str_starts_with($url, '#')) {
++        $url = 'internal:' . $url;
++      }
++      elseif (UrlHelper::isValid($url)) {
+         if (!(str_starts_with($url, 'http') || str_starts_with($url, 'mailto'))) {
+           if (str_starts_with($url, '/')) {
+             $url = 'internal:' . $url;
