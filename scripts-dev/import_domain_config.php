@@ -63,6 +63,32 @@ foreach (new \DirectoryIterator($dir) as $entry) {
   foreach ($files as $file) {
     $name = basename($file, '.yml');
     $data = Yaml::decode(file_get_contents($file));
+
+    // Front-page guard. The agsci file carries the D7 front (the old Home
+    // node); during a rebuild that is correct input, because
+    // import_stage_redesigns.php runs later and repoints it at the
+    // redesigned Home (whose nid is fresh each rebuild, so no file can
+    // carry it). But an AD-HOC rerun of this script must not regress a
+    // live front to an unpublished/missing node — that is how every
+    // environment's front page 403'd on 2026-08-14. Keep the existing
+    // front whenever it is healthier than the incoming one.
+    if ($name === 'system.site' && !empty($data['page']['front'])) {
+      $existing = $collection->read($name);
+      $existing_front = $existing['page']['front'] ?? NULL;
+      $resolve = function (?string $front): ?bool {
+        // TRUE = published node, FALSE = unpublished/missing, NULL = not a node path.
+        if (!$front || !preg_match('~^/node/(\d+)$~', $front, $m)) {
+          return NULL;
+        }
+        $node = \Drupal\node\Entity\Node::load($m[1]);
+        return $node ? $node->isPublished() : FALSE;
+      };
+      if ($resolve($data['page']['front']) === FALSE && $resolve($existing_front) === TRUE) {
+        echo "domain.{$domain_id}: {$name} — keeping live front {$existing_front} (file's {$data['page']['front']} is unpublished/missing)\n";
+        $data['page']['front'] = $existing_front;
+      }
+    }
+
     $collection->write($name, $data);
     $objects++;
     echo "domain.{$domain_id}: {$name}\n";

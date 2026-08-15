@@ -20,6 +20,26 @@ use Drupal\group\Entity\Group;
 $db = \Drupal::database();
 $set = 0;
 $missing = [];
+
+// Groups whose landing the title-match heuristic cannot find: the landing
+// node's title differs from the group label (WVBS root is "Admissions
+// Status", Buhl's is "Home", the Schmidt lab drops "& Biogeoscience", ...),
+// or no landing node ever existed (Main and News and Accolades fronted D7
+// views) — those two point at the site front until an editor gives them a
+// real page. Applied only where the field is still empty, like the
+// heuristic, so editorial choices always win.
+$overrides = [
+  8 => 302219,       // Main -> site front (no D7 landing; fronted a view)
+  85166 => 85171,    // INFEWS
+  89321 => 89326,    // Value-Added Food Product Development (/foodweb)
+  109891 => 302219,  // News and Accolades -> site front (newsroom was a view)
+  218401 => 219271,  // Buhl Outreach Team -> its "Home" page
+  232571 => 232576,  // EMT Guide -> /emt-gs-guide root
+  248306 => 248311,  // Machine Learning in Physical Geography (/schmidt-lab)
+  261631 => 261636,  // Willamette Valley Bird Symposium (/wvbs)
+  270951 => 270956,  // Willamette Valley Field Crops
+];
+
 foreach (Group::loadMultiple() as $group) {
   if (!$group->hasField('field_group_home_page') || !$group->get('field_group_home_page')->isEmpty()) {
     continue;
@@ -39,6 +59,11 @@ foreach (Group::loadMultiple() as $group) {
   )->fetchField();
   if ($nid) {
     $group->set('field_group_home_page', $nid);
+    $group->save();
+    $set++;
+  }
+  elseif (isset($overrides[(int) $group->id()])) {
+    $group->set('field_group_home_page', $overrides[(int) $group->id()]);
     $group->save();
     $set++;
   }
