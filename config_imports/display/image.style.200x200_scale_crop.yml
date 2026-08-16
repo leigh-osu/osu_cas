@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 200x200_scale_crop
+label: '200x200 scale crop'
+effects:
+  541cab32-c2d4-4072-9d10-5a2e5d17f509:
+    uuid: 541cab32-c2d4-4072-9d10-5a2e5d17f509
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 200
+      height: 200
+      anchor: center-center
+  4b36fb7f-d9f7-4aa0-987a-dc10e98a97e4:
+    uuid: 4b36fb7f-d9f7-4aa0-987a-dc10e98a97e4
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

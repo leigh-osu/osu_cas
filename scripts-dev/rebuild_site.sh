@@ -173,6 +173,10 @@ section_1() {
   # breadcrumbs, group create-content block and views group handlers; the
   # degrees submodule carries the degree-fact-sheet node template.
   ddev drush en osu_cas_multisite osu_cas_multisite_degrees osu_cas_multisite_groups -y
+  # Live feeds: the Feed node type + per-feed block (D7 live_feeds). Must be
+  # enabled before the paragraph migrations run -- their layouts emit
+  # osu_live_feed:<nid> components for columns that referenced feed blocks.
+  ddev drush en osu_live_feeds -y
 
 
   ddev drush cr -y
@@ -437,6 +441,9 @@ section_5() {
   ddev drush migrate:import cas_feature_story_to_story
   ddev drush migrate:import cas_story_to_story
   ddev drush migrate:import cas_article_to_story
+  # Feed nodes (osu_live_feeds); group placement runs with the 'CAS Groups'
+  # tag in section 6 (cas_feed_group_content).
+  ddev drush migrate:import cas_feed_to_feed
 
   # Webforms. d7_webform (webform_migrate) builds one webform config entity per
   # D7 webform node -- elements, email handlers, conditionals->#states -- keyed
@@ -526,6 +533,35 @@ section_6() {
   # osu_migrations_cas_migration_plugins_alter), and the og_book_menu plugin
   # needs each group's content menu to already exist.
   ddev drush migrate:import upgrade_d7_book_menu_group_menu
+
+  # Live-feed layout slots CasLayoutBase could not emit (D7 sections whose
+  # only content was the feed block migrate with no section). Idempotent.
+  ddev drush scr ../scripts-dev/place_live_feed_blocks.php
+
+  # Per-group membership types (Faculty, Grad Student, ...) onto profile
+  # group placements from D7 og_membership -- feeds profiles_group_membership
+  # (the D7 profiles_membership_larch rebuild). Idempotent.
+  ddev drush scr ../scripts-dev/populate_profile_membership_types.php
+
+  # People-listing blocks into the layout slots where D7 embedded
+  # profiles_membership_larch (207 placements). Idempotent.
+  ddev drush scr ../scripts-dev/place_profiles_group_membership.php
+
+  # Headings above those listings become real h3s (D7 pages mixed h3/h4/h5).
+  ddev drush scr ../scripts-dev/fix_listing_heading_levels.php
+
+  # Group-news blocks into the layout slots where D7 embedded the
+  # news_items views (95 placements). Idempotent.
+  ddev drush scr ../scripts-dev/place_news_blocks.php
+
+  # Publish dates for date-less articles (created date, as D7 sorted them):
+  # news_items_by_group treats the publish date as the news marker.
+  ddev drush scr ../scripts-dev/backfill_article_publish_dates.php
+
+  # CAS Section terms onto consolidated feature pages, then Faces of AgSci
+  # card blocks into their D7 slots (21 placements). Idempotent.
+  ddev drush scr ../scripts-dev/backfill_page_cas_section.php
+  ddev drush scr ../scripts-dev/place_faces_blocks.php
 
   ddev drush pqe -y
 
