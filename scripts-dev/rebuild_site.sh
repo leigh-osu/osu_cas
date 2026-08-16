@@ -558,6 +558,11 @@ section_6() {
   # news_items_by_group treats the publish date as the news marker.
   ddev drush scr ../scripts-dev/backfill_article_publish_dates.php
 
+  # CAS Section terms onto consolidated feature pages, then Faces of AgSci
+  # card blocks into their D7 slots (21 placements). Idempotent.
+  ddev drush scr ../scripts-dev/backfill_page_cas_section.php
+  ddev drush scr ../scripts-dev/place_faces_blocks.php
+
   ddev drush pqe -y
 
   snapshot_save aftergroups
