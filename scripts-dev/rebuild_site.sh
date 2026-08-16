@@ -538,6 +538,18 @@ section_6() {
   # only content was the feed block migrate with no section). Idempotent.
   ddev drush scr ../scripts-dev/place_live_feed_blocks.php
 
+  # Per-group membership types (Faculty, Grad Student, ...) onto profile
+  # group placements from D7 og_membership -- feeds profiles_group_membership
+  # (the D7 profiles_membership_larch rebuild). Idempotent.
+  ddev drush scr ../scripts-dev/populate_profile_membership_types.php
+
+  # People-listing blocks into the layout slots where D7 embedded
+  # profiles_membership_larch (207 placements). Idempotent.
+  ddev drush scr ../scripts-dev/place_profiles_group_membership.php
+
+  # Headings above those listings become real h3s (D7 pages mixed h3/h4/h5).
+  ddev drush scr ../scripts-dev/fix_listing_heading_levels.php
+
   ddev drush pqe -y
 
   snapshot_save aftergroups

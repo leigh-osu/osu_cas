@@ -39,7 +39,7 @@ foreach ($placements as $nid => $sections) {
     if (!isset($all[$index])) {
       // Pages whose D7 section held nothing but the feed block migrated with
       // no section at all -- append a fresh one-column section for the feed.
-      $section = new Section('bootstrap_layout_builder:blb_col_1', ['label' => 'feed', 'label_display' => 0]);
+      $section = new Section('bootstrap_layout_builder:blb_col_1', ['label' => 'feed', 'label_display' => 0, 'container' => 'container', 'container_wrapper_classes' => '', 'container_wrapper' => ['bootstrap_styles' => []], 'container_wrapper_bg_color_class' => '', 'container_wrapper_bg_media' => NULL, 'section_classes' => '', 'regions_classes' => ['blb_region_col_1' => 'd-flex flex-wrap'], 'regions_attributes' => ['blb_region_col_1' => []], 'breakpoints' => [], 'layout_regions_classes' => [], 'remove_gutters' => '0']);
       $list->appendSection($section);
       $all = $list->getSections();
       $index = count($all) - 1;
