@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.osu_profile.field_domain_access
     - field.field.node.osu_profile.field_domain_all_affiliates
     - field.field.node.osu_profile.field_domain_source
+    - field.field.node.osu_profile.field_group_private
     - field.field.node.osu_profile.field_osu_organizations
     - field.field.node.osu_profile.field_profile_address
     - field.field.node.osu_profile.field_profile_alt_phone
@@ -55,6 +56,7 @@ dependencies:
     - field.field.node.osu_profile.field_profile_stu_ac_interests
     - field.field.node.osu_profile.field_profile_stu_major_prof
     - field.field.node.osu_profile.field_profile_stu_majors
+    - field.field.node.osu_profile.field_profile_user
     - field.field.node.osu_profile.field_tax_faculty_expertise
     - image.style.profile_image
     - node.type.osu_profile
@@ -533,6 +535,7 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
+  field_group_private: true
   field_profile_ext_pubs: true
   field_profile_fac_specialty: true
   field_profile_fac_type: true
@@ -543,5 +546,6 @@ hidden:
   field_profile_middle_name: true
   field_profile_name_suffix: true
   field_profile_preferred_name: true
+  field_profile_user: true
   langcode: true
   links: true

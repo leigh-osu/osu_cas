@@ -1,0 +1,25 @@
+uuid: f6ef8863-842a-4a27-9aa5-963bcb377dea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_feed_type
+    - node.type.feed
+  module:
+    - options
+_core:
+  default_config_hash: KxDLJeKtHZbtlNKPxM1XzXuzq2euhi1gbIoolTkxvIQ
+id: node.feed.field_feed_type
+field_name: field_feed_type
+entity_type: node
+bundle: feed
+label: 'Feed type'
+description: 'The D7 parser this feed used. Rendering is generic in D10; kept for fidelity.'
+required: false
+translatable: false
+default_value:
+  -
+    value: generic_parser
+default_value_callback: ''
+settings: {  }
+field_type: list_string

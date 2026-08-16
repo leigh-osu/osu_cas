@@ -1,4 +1,4 @@
-uuid: 8ec07e98-0aff-4462-b9c3-7e76cb2be558
+uuid: 164b37a3-372b-4c25-828f-dd2f3b57cc7e
 langcode: en
 status: true
 dependencies:
@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.story.field_domain_access
     - field.field.node.story.field_domain_all_affiliates
     - field.field.node.story.field_domain_source
+    - field.field.node.story.field_group_private
     - field.field.node.story.field_meta_tags
     - field.field.node.story.field_osu_organizations
     - field.field.node.story.field_osu_story_caption
@@ -101,6 +102,7 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
+  field_group_private: true
   field_meta_tags: true
   field_osu_organizations: true
   field_osu_story_caption: true

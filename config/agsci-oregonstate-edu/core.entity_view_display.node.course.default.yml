@@ -1,4 +1,4 @@
-uuid: f13b5739-7ec0-4d51-8a31-a5a5dd2955c5
+uuid: 4e2648ee-8b22-4bbd-8ebd-8420f24d7a82
 langcode: en
 status: true
 dependencies:
@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.course.field_domain_access
     - field.field.node.course.field_domain_all_affiliates
     - field.field.node.course.field_domain_source
+    - field.field.node.course.field_group_private
     - field.field.node.course.field_tax_topic
     - node.type.course
   module:
@@ -120,5 +121,6 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
+  field_group_private: true
   field_tax_topic: true
   langcode: true

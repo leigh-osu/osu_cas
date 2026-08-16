@@ -1,4 +1,4 @@
-uuid: 3c83ad3b-b377-4c38-829f-54e84ade9084
+uuid: 77cb9bfe-9672-45b5-b3ca-bb57dabe91dd
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: stevia
 label: stevia
 logic: and
 conditions:
-  fa52c427-ff3d-412e-8aa9-7c424c447397:
+  fa56b389-3a5f-4cc5-882f-646c0950babb:
     id: request_path
     negate: false
-    uuid: fa52c427-ff3d-412e-8aa9-7c424c447397
+    uuid: fa56b389-3a5f-4cc5-882f-646c0950babb
     pages: /node/112786
 allow_other_conditions: null

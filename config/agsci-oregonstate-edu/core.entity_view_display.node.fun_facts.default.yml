@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.fun_facts.field_fun_facts_category
     - field.field.node.fun_facts.field_fun_facts_image
     - field.field.node.fun_facts.field_fun_facts_source
+    - field.field.node.fun_facts.field_group_private
     - field.field.node.fun_facts.field_tax_big_fish_species
     - field.field.node.fun_facts.field_tax_big_fish_topic
     - node.type.fun_facts
@@ -79,4 +80,5 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
+  field_group_private: true
   langcode: true

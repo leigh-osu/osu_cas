@@ -1,4 +1,4 @@
-uuid: 4790ab0c-2ed5-459e-ad8e-a07d33b134ed
+uuid: c3bca9e8-2ae5-4544-91d1-8b80e4e1ce42
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: dry_beans
 label: dry_beans
 logic: and
 conditions:
-  fec253c3-b6b4-4261-90b5-401e3e1542a0:
+  fddc23a6-b958-4541-ac6b-f7f960a67353:
     id: request_path
     negate: false
-    uuid: fec253c3-b6b4-4261-90b5-401e3e1542a0
+    uuid: fddc23a6-b958-4541-ac6b-f7f960a67353
     pages: "/malheur-experiment-station/crops/dry-beans\r\n/mes/crops/dry-beans\r\n/node/45306"
 allow_other_conditions: null

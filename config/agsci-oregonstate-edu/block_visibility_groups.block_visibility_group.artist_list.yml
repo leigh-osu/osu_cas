@@ -1,4 +1,4 @@
-uuid: 367ce12a-d1d1-4a3f-b82f-1116975e1c84
+uuid: 587cfe45-6eec-4c89-8af3-a88fb590d39f
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: artist_list
 label: artist_list
 logic: and
 conditions:
-  31e137fa-420f-4542-81ae-69bcd3dc96f5:
+  5b25c4c7-42e9-4dcc-9c5b-08d762bc5844:
     id: request_path
     negate: false
-    uuid: 31e137fa-420f-4542-81ae-69bcd3dc96f5
+    uuid: 5b25c4c7-42e9-4dcc-9c5b-08d762bc5844
     pages: /art-about-agriculture/about-program/artists-represented
 allow_other_conditions: null

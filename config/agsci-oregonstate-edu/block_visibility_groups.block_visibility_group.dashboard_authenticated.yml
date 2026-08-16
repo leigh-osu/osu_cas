@@ -1,4 +1,4 @@
-uuid: 4a757e7b-3d45-4a8a-ad44-1782df2fc65e
+uuid: 8f287a77-9717-455a-910b-3abaf123cd3e
 langcode: en
 status: true
 dependencies:
@@ -9,15 +9,15 @@ id: dashboard_authenticated
 label: dashboard-authenticated
 logic: and
 conditions:
-  5888019c-ca06-42df-abfe-b103cd3e4191:
+  5f9b4466-79e7-49e9-b8f5-b14603190b9b:
     id: request_path
     negate: false
-    uuid: 5888019c-ca06-42df-abfe-b103cd3e4191
+    uuid: 5f9b4466-79e7-49e9-b8f5-b14603190b9b
     pages: /admin/dashboard
-  925bcecb-2ecd-42ba-a5fd-23d62bd65e21:
+  26e1fbdf-08d9-44cf-941e-bc90ec522a9b:
     id: user_role
     negate: false
-    uuid: 925bcecb-2ecd-42ba-a5fd-23d62bd65e21
+    uuid: 26e1fbdf-08d9-44cf-941e-bc90ec522a9b
     context_mapping:
       user: '@user.current_user_context:current_user'
     roles:

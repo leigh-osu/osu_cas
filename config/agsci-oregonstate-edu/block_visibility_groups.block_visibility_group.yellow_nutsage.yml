@@ -1,4 +1,4 @@
-uuid: 00db5d6e-7153-4497-996e-c524c5fc3236
+uuid: 6d5f4399-2b35-49a4-9356-01055a2b1e13
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: yellow_nutsage
 label: yellow_nutsage
 logic: and
 conditions:
-  8389a385-c4e2-49b5-b639-480a286e1b75:
+  c9a30da3-25fa-4ea8-8424-9a2bd8e34ccd:
     id: request_path
     negate: false
-    uuid: 8389a385-c4e2-49b5-b639-480a286e1b75
+    uuid: c9a30da3-25fa-4ea8-8424-9a2bd8e34ccd
     pages: /node/112841
 allow_other_conditions: null

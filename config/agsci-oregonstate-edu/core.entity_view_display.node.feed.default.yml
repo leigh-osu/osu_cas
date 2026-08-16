@@ -1,0 +1,31 @@
+uuid: 30779c20-406f-4042-a83e-6f5d6022578e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.feed.field_domain_access
+    - field.field.node.feed.field_domain_all_affiliates
+    - field.field.node.feed.field_domain_source
+    - field.field.node.feed.field_feed_items
+    - field.field.node.feed.field_feed_type
+    - field.field.node.feed.field_feed_url
+    - node.type.feed
+  module:
+    - user
+_core:
+  default_config_hash: lO59UvDlLY6Et6UpuguRko2q-B44b4gPtRYCgU8xC7w
+id: node.feed.default
+targetEntityType: node
+bundle: feed
+mode: default
+content: {  }
+hidden:
+  entitygroupfield: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_feed_items: true
+  field_feed_type: true
+  field_feed_url: true
+  langcode: true
+  links: true

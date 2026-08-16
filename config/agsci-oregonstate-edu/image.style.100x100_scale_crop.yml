@@ -1,0 +1,21 @@
+uuid: b9f7dbd8-50ab-437b-835f-2d07ebcd2884
+langcode: en
+status: true
+dependencies: {  }
+name: 100x100_scale_crop
+label: '100x100 scale crop'
+effects:
+  b4ce3dad-21c3-44db-aadc-76bd60bd6cff:
+    uuid: b4ce3dad-21c3-44db-aadc-76bd60bd6cff
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 100
+      height: 100
+      anchor: center-center
+  909a9a58-ff98-4a58-aba9-a011626dd217:
+    uuid: 909a9a58-ff98-4a58-aba9-a011626dd217
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

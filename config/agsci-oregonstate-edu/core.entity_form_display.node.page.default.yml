@@ -1,4 +1,4 @@
-uuid: c661f291-e494-434b-b14b-daf9ef5a01ae
+uuid: 90888d90-cc40-491e-b706-022a150135fd
 langcode: en
 status: true
 dependencies:
@@ -7,9 +7,11 @@ dependencies:
     - field.field.node.page.field_domain_access
     - field.field.node.page.field_domain_all_affiliates
     - field.field.node.page.field_domain_source
+    - field.field.node.page.field_group_private
     - field.field.node.page.field_meta_tags
     - field.field.node.page.field_osu_meta_image
     - field.field.node.page.field_page_banner_image
+    - field.field.node.page.field_tax_cas_section
     - field.field.node.page.layout_builder__layout
     - node.type.page
   module:
@@ -68,6 +70,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_group_private:
+    type: boolean_checkbox
+    weight: 26
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
     weight: 121
@@ -89,6 +98,16 @@ content:
     region: content
     settings:
       media_types: {  }
+    third_party_settings: {  }
+  field_tax_cas_section:
+    type: entity_reference_autocomplete
+    weight: 27
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   langcode:
     type: language_select

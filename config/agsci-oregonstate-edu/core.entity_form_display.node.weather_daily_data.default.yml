@@ -29,6 +29,7 @@ dependencies:
     - field.field.node.weather_daily_data.field_dw_sky
     - field.field.node.weather_daily_data.field_dw_snow
     - field.field.node.weather_daily_data.field_dw_snow_depth
+    - field.field.node.weather_daily_data.field_group_private
     - node.type.weather_daily_data
   module:
     - datetime
@@ -239,6 +240,13 @@ content:
     region: content
     settings:
       placeholder: ''
+    third_party_settings: {  }
+  field_group_private:
+    type: boolean_checkbox
+    weight: 26
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   langcode:
     type: language_select

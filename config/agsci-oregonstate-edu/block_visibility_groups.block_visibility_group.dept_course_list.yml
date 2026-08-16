@@ -1,4 +1,4 @@
-uuid: 28590ebd-5061-4e3a-82de-62ddc2cb624e
+uuid: 1e579517-c244-47e8-bb00-79e1029efe23
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: dept_course_list
 label: dept_course_list
 logic: and
 conditions:
-  0c97ffbb-f8c3-47de-b24c-5d49c99ec482:
+  da1674a8-51a6-49c1-a542-1ef6dfe893be:
     id: request_path
     negate: false
-    uuid: 0c97ffbb-f8c3-47de-b24c-5d49c99ec482
+    uuid: da1674a8-51a6-49c1-a542-1ef6dfe893be
     pages: "/node/40726\r\n/node/43626"
 allow_other_conditions: null

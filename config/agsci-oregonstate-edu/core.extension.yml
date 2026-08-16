@@ -149,6 +149,7 @@ module:
   osu_library_three_column_equal: 0
   osu_library_two_column_25_75: 0
   osu_library_two_column_50_50: 0
+  osu_live_feeds: 0
   osu_media: 0
   osu_migrate_content: 0
   osu_migrations: 0

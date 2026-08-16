@@ -1,4 +1,4 @@
-uuid: 40e719a5-6e53-499a-ae0b-cabdd40e5bd9
+uuid: c1e9e28a-3ecc-43b8-959c-0695b9372f6c
 langcode: en
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
       - paragraphs_to_layout_builder
       - osu_migrations
 _core:
-  default_config_hash: Lfk80QCn4ZEbuB83TjNpvWyW5tha6OdT95xWZm-CNOY
+  default_config_hash: VCfIo5hWtgvmMWKReQpH4dhN3ELUAtFnwEC_isd1Nh0
 id: cas_book_to_page
 class: null
 idMap: {  }
@@ -34,6 +34,8 @@ source:
       2_column_4_8_right: paragraph_2_column_4_8_right__to__layout_builder
       paragraph_2_column_8_4_left: paragraph_2_column_8_4_left__to__layout_builder
       paragraph_2_column_8_4_right: paragraph_2_column_8_4_right__to__layout_builder
+      2_column_views_left: paragraph_2_column_views_left__to__layout_builder
+      2_column_views_right: paragraph_2_column_views_right__to__layout_builder
       accordian: paragraph_accordian__to__layout_builder
       paragraph_1_col_clean: paragraph_1_col_clean__to__layout_builder
       paragraph_1_col: paragraph_1_col__to__layout_builder

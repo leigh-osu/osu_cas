@@ -1,25 +1,26 @@
-uuid: f3724d85-21d9-42db-a433-ed9eb70db4c1
-_core:
-  default_config_hash: utewNBIaKFPMV12XO8Oqo9fVSu21XhAVUWYazt5Fr_8
+uuid: f4c820fc-4413-4567-84ce-e764a06f340c
 langcode: en
 status: true
-id: cas_node_og_group
-label: 'CAS: Insert OG Group (with fields)'
-migration_group: osu_groups
 dependencies: {  }
+_core:
+  default_config_hash: U8dF8hA36NmBQlLfRHHyoArsOSLt569tVgG_K-SlFFI
+id: cas_node_og_group
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
 migration_tags:
-  - Drupal 7 OG
-  - OSU Groups Structure
-  - OSU Groups
+  - 'Drupal 7 OG'
+  - 'OSU Groups Structure'
+  - 'OSU Groups'
   - OSU
   - CAS
+migration_group: osu_groups
+label: 'CAS: Insert OG Group (with fields)'
 source:
-  # Domain-aware node source: adds domain_access_node, domain_all_affiliates
-  # and domain_source (D7 machine names = D10 domain ids).
   plugin: d7_node_domain_access
   node_type: group
 process:
-  # Leave id as the source nid - it is used for group menu/content lookups.
   type:
     plugin: default_value
     default_value: basic_group
@@ -32,8 +33,6 @@ process:
     plugin: default_value
     default_value: 0
   path/alias: alias
-
-  # Body
   body:
     plugin: sub_process
     source: body
@@ -45,82 +44,60 @@ process:
       format:
         plugin: default_value
         default_value: full_html
-
-  # Group visibility (D7 group_access list_boolean -> D10 boolean)
   field_group_access: group_access
-
-  # Group Parent (D7 field_parent_unit resolved to the parent unit's DEFAULT
-  # content group). Parent units are not migrated: they were a hierarchy tier
-  # that never held content, and in D7 the header's parent link effectively
-  # landed in a real group. The static map records that resolution -- derived
-  # from same-named groups, alias prefixes (group short names) and
-  # domain_source; see the 2026-08 audit. 26734 (Agricultural Experiment
-  # Station) and 43 (Corvallis Farm Unit) had no default group, so they map to
-  # the replacement groups cas_parent_unit_default_group creates from them.
   field_group_parent:
     plugin: sub_process
     source: field_parent_unit
     process:
       target_id:
-        - plugin: static_map
+        -
+          plugin: static_map
           source: target_id
           map:
-            25228: 16031    # Applied Economics -> Applied Economics
-            42846: 25345    # Biological & Ecological Eng. -> Department of B&EE
-            108616: 184     # Botany and Plant Pathology -> Department of BPP
-            96631: 211056   # COMES -> COMES group
-            16090: 180      # Crop and Soil Science -> Crop and Soil Science
-            45846: 11895    # FWCS -> Department of FWCS
-            63586: 67781    # Horticulture -> Department of Horticulture
-            46646: 16025    # EMT -> EMT group
-            95471: 16023    # Food Science -> Department of FST
-            106121: 67286   # OSU Seafood Lab -> Seafood Research & Education Center
-            26734: 26734    # AES -> replacement group
-            43: 43          # Corvallis Farm Unit -> replacement group
+            25228: 16031
+            42846: 25345
+            108616: 184
+            96631: 211056
+            16090: 180
+            45846: 11895
+            63586: 67781
+            46646: 16025
+            95471: 16023
+            106121: 67286
+            26734: 26734
+            43: 43
           default_value: 0
-        - plugin: migration_lookup
+        -
+          plugin: migration_lookup
           migration:
             - cas_parent_unit_default_group
             - upgrade_d7_node_og_group
           no_stub: true
-        - plugin: skip_on_empty
+        -
+          plugin: skip_on_empty
           method: process
-
-  # Short name
-  # D7 short names are lowercase machine slugs ("cbarc", "cropandsoil");
-  # the header/breadcrumb lead with this field, so derive a display form
-  # (see CasGroupShortName: overrides + title segmentation + acronyms).
   field_group_short_name:
     plugin: cas_group_short_name
     source:
       - field_short_name
       - title
-
-  # Contact (D7 email field stores its value in the `email` property, not
-  # `value`, so it must be remapped explicitly).
   field_group_email:
     plugin: sub_process
     source: field_group_email
     process:
       value: email
   field_group_phone: field_group_phone
-
-  # Location
   field_group_location_name: field_group_location_name
   field_group_location_address: field_group_location_address
   field_group_location_address2: field_group_location_address2
   field_group_location_city: field_group_location_city
   field_group_location_state: field_group_location_state
   field_group_location_zip: field_group_location_zip
-
-  # Social
   field_group_facebook: field_group_facebook
   field_group_twitter: field_group_twitter
   field_group_linkedin: field_group_linkedin
   field_group_youtube: field_group_youtube
   field_group_instagram: field_group_instagram
-
-  # Hours of operation (text_long)
   field_group_hours:
     plugin: sub_process
     source: field_group_hours
@@ -131,8 +108,6 @@ process:
       format:
         plugin: default_value
         default_value: full_html
-
-  # Additional information (D7 field_additional_information -> field_group_add_info)
   field_group_add_info:
     plugin: sub_process
     source: field_additional_information
@@ -143,44 +118,37 @@ process:
       format:
         plugin: default_value
         default_value: full_html
-
-  # Site coordinators (D7 user_reference -> D10 entity_reference:user)
   field_site_coordinators:
     plugin: sub_process
     source: field_site_coordinator_s_
     process:
       target_id:
-        - plugin: migration_lookup
+        -
+          plugin: migration_lookup
           migration: upgrade_d7_user_to_profile
           source: uid
           no_stub: true
-        - plugin: skip_on_empty
+        -
+          plugin: skip_on_empty
           method: process
-
-  # Information sheet (D7 text URL -> D10 media:document reference).
-  # The D7 value is an absolute URL to a public PDF; resolve URL -> source fid
-  # -> migrated media document.
   field_group_info_sheet:
     plugin: sub_process
     source: field_information_sheet
     process:
       target_id:
-        - plugin: cas_file_url_to_fid
+        -
+          plugin: cas_file_url_to_fid
           source: value
-        - plugin: migration_lookup
+        -
+          plugin: migration_lookup
           migration:
             - upgrade_d7_media_documents
             - cas_media_private_documents
           no_stub: true
-        - plugin: skip_on_empty
+        -
+          plugin: skip_on_empty
           method: process
-
-  # Newsletter link
   field_group_newsletter_link: field_group_newsletter_link
-
-  # Domains: same assignment the D7 node had, plus a canonical (home) domain --
-  # the D7-pinned domain_source when set, otherwise derived from the
-  # assignments (single domain, else single non-default, else first).
   field_domain_access:
     plugin: sub_process
     source: domain_access_node

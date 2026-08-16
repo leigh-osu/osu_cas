@@ -1,0 +1,23 @@
+uuid: 31f9b23c-637d-475c-bef7-04356f2b8b9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_group_private
+    - node.type.art_about_agriculture
+id: node.art_about_agriculture.field_group_private
+field_name: field_group_private
+entity_type: node
+bundle: art_about_agriculture
+label: 'Group members only'
+description: 'Hide this content from everyone except members of its groups. Mirrors the Drupal 7 group content visibility setting.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Group members only'
+  off_label: Public
+field_type: boolean

@@ -1,9 +1,9 @@
-uuid: c10c4c87-1528-4a2d-b1c4-8244906ec71c
+uuid: 568a3059-ca8d-41ab-8bc8-5c3edcdbc6c5
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: rwAw3tqtSjb89GXy0nH89gm3KpMPAZzhSd6V1Ro5DQI
+  default_config_hash: 7ISkZcd8YA0Lf_kuACSImsOCBMxxv7gb3oaDe04Mh4M
 id: cas_page_to_page
 class: null
 idMap: {  }
@@ -30,6 +30,8 @@ source:
       2_column_4_8_right: paragraph_2_column_4_8_right__to__layout_builder
       paragraph_2_column_8_4_left: paragraph_2_column_8_4_left__to__layout_builder
       paragraph_2_column_8_4_right: paragraph_2_column_8_4_right__to__layout_builder
+      2_column_views_left: paragraph_2_column_views_left__to__layout_builder
+      2_column_views_right: paragraph_2_column_views_right__to__layout_builder
       accordian: paragraph_accordian__to__layout_builder
       paragraph_1_col_clean: paragraph_1_col_clean__to__layout_builder
       paragraph_1_col: paragraph_1_col__to__layout_builder

@@ -1,4 +1,4 @@
-uuid: 615cd9dd-fe83-4113-beb6-17f3dc77e42b
+uuid: 1c4c0fa3-bc57-4109-8018-876ae12bef45
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: pubs_ext_brochures
 label: pubs_ext_brochures
 logic: and
 conditions:
-  c9201831-7298-418c-a992-a1a14351e652:
+  6316f4ef-4cb2-4892-a255-2a7609431942:
     id: request_path
     negate: false
-    uuid: c9201831-7298-418c-a992-a1a14351e652
+    uuid: 6316f4ef-4cb2-4892-a255-2a7609431942
     pages: /node/45391
 allow_other_conditions: null

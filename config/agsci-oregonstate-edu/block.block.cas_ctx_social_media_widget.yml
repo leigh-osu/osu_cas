@@ -1,9 +1,9 @@
-uuid: bbaec4b5-7eed-4823-9654-2d423f64ba61
+uuid: 91f0d823-7b37-4d49-aadc-686540e0ec53
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:bc904f4d-38b8-496b-92f3-5791c3de2d45'
+    - 'block_content:basic:bdf2ffde-449b-4b67-845f-e3d936be6440'
   module:
     - block_content
     - node
@@ -14,9 +14,9 @@ theme: manzanita
 region: pre_footer
 weight: -10
 provider: null
-plugin: 'block_content:bc904f4d-38b8-496b-92f3-5791c3de2d45'
+plugin: 'block_content:bdf2ffde-449b-4b67-845f-e3d936be6440'
 settings:
-  id: 'block_content:bc904f4d-38b8-496b-92f3-5791c3de2d45'
+  id: 'block_content:bdf2ffde-449b-4b67-845f-e3d936be6440'
   label: 'Social Media Widget'
   label_display: '0'
   provider: block_content

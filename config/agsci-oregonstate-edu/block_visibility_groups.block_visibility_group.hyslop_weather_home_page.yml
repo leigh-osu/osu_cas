@@ -1,4 +1,4 @@
-uuid: a474d981-57d6-4a44-90ae-f2096b52dc1f
+uuid: 16e3271f-809d-427f-94a7-bbfaab7ad6f3
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: hyslop_weather_home_page
 label: hyslop-weather-home-page
 logic: and
 conditions:
-  eab78849-7ea0-4097-9d99-c9a9dbc0e487:
+  87c575ae-3e74-494e-8ed6-20e894d41c01:
     id: request_path
     negate: false
-    uuid: eab78849-7ea0-4097-9d99-c9a9dbc0e487
+    uuid: 87c575ae-3e74-494e-8ed6-20e894d41c01
     pages: /node/3988
 allow_other_conditions: null

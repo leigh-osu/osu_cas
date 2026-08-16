@@ -1,4 +1,4 @@
-uuid: 3fb97c1e-08bf-45ca-82b9-c296ed676fab
+uuid: 0e08d885-a072-4fcc-ba74-ffe50a879245
 langcode: en
 status: true
 dependencies:
@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.weather_monthly_data.field_domain_access
     - field.field.node.weather_monthly_data.field_domain_all_affiliates
     - field.field.node.weather_monthly_data.field_domain_source
+    - field.field.node.weather_monthly_data.field_group_private
     - field.field.node.weather_monthly_data.field_mw_air_temp_max_mon_max
     - field.field.node.weather_monthly_data.field_mw_air_temp_max_mon_min
     - field.field.node.weather_monthly_data.field_mw_air_temp_min_mon_max
@@ -438,4 +439,5 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
+  field_group_private: true
   langcode: true

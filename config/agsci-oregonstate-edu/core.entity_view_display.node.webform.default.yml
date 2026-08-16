@@ -1,4 +1,4 @@
-uuid: f6bfc2a4-2187-46d4-abc0-ce352d24a732
+uuid: 051b617b-018a-4a4f-921a-e5f1577fa751
 langcode: en
 status: true
 dependencies:
@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.webform.field_domain_access
     - field.field.node.webform.field_domain_all_affiliates
     - field.field.node.webform.field_domain_source
+    - field.field.node.webform.field_group_private
     - field.field.node.webform.webform
     - node.type.webform
   module:
@@ -35,4 +36,5 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
+  field_group_private: true
   langcode: true

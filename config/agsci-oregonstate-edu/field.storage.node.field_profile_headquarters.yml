@@ -1,18 +1,33 @@
-uuid: d1381a71-7bd8-4a9f-8f49-781a629a31ca
+uuid: 92203139-5635-4d84-a3a0-91c2d0fa3c87
 langcode: en
 status: true
 dependencies:
   module:
     - node
+    - options
 id: node.field_profile_headquarters
 field_name: field_profile_headquarters
 entity_type: node
-type: string
+type: list_string
 settings:
-  max_length: 255
-  case_sensitive: false
-  is_ascii: false
-module: core
+  allowed_values:
+    -
+      value: '01'
+      label: 'OSU Main Campus'
+    -
+      value: '02'
+      label: 'Cascades Campus'
+    -
+      value: '03'
+      label: 'Hatfield Marine Science Center'
+    -
+      value: '04'
+      label: 'Experiment Station'
+    -
+      value: '05'
+      label: Other
+  allowed_values_function: ''
+module: options
 locked: false
 cardinality: 1
 translatable: true

@@ -1,4 +1,4 @@
-uuid: 350a5a1f-e194-443c-8bbd-2cc607437df9
+uuid: 25dae315-67f6-4295-854e-5d839f395d46
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: sitewide
 label: sitewide
 logic: and
 conditions:
-  9d34d084-ddb6-4139-b789-eb00080b488f:
+  29dd9e2d-de3a-4123-a3df-1d8c18248af9:
     id: request_path
     negate: false
-    uuid: 9d34d084-ddb6-4139-b789-eb00080b488f
+    uuid: 29dd9e2d-de3a-4123-a3df-1d8c18248af9
     pages: '*'
 allow_other_conditions: null

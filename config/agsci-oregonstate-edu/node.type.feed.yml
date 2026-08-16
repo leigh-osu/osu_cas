@@ -1,0 +1,13 @@
+uuid: 2deddfd5-405a-4fe6-8e5f-735874b742bc
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: eoODUJHam9MkCjHYAVhtsLZrVKSIVNigl374nEpwVA0
+name: 'Live Feed'
+type: feed
+description: 'An external RSS or Atom feed rendered live on pages and in blocks. Nothing is imported; items are fetched and cached at view time.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false
