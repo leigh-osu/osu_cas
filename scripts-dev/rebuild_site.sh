@@ -550,6 +550,14 @@ section_6() {
   # Headings above those listings become real h3s (D7 pages mixed h3/h4/h5).
   ddev drush scr ../scripts-dev/fix_listing_heading_levels.php
 
+  # Group-news blocks into the layout slots where D7 embedded the
+  # news_items views (95 placements). Idempotent.
+  ddev drush scr ../scripts-dev/place_news_blocks.php
+
+  # Publish dates for date-less articles (created date, as D7 sorted them):
+  # news_items_by_group treats the publish date as the news marker.
+  ddev drush scr ../scripts-dev/backfill_article_publish_dates.php
+
   ddev drush pqe -y
 
   snapshot_save aftergroups

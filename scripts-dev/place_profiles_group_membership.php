@@ -307,6 +307,41 @@ $placements = [
 $db = \Drupal::database();
 $all_tids = array_map('intval', $db->query("SELECT tid FROM {taxonomy_term_field_data} WHERE vid='membership_types'")->fetchCol());
 $col_map = $db->query('SELECT destid1, sourceid1 FROM {migrate_map_field_collection_field_lp_adj_column__to__layout_bu} WHERE destid1 IS NOT NULL')->fetchAllKeyed();
+
+// D7 paragraph structure of nodes with paragraph-hosted embeds: nid =>
+// [[delta, item id], ...] (column items listed at their parent's delta).
+$para_structure = [
+  215 => [[0, 92236], [1, 2806], [2, 2816], [3, 117861], [4, 117376], [5, 117386], [6, 117391], [7, 119676], [8, 117416], [9, 35946], [10, 74201]],
+  16132 => [[0, 46066]],
+  16845 => [[0, 2171], [1, 2181], [2, 110036], [3, 25076], [4, 25086], [5, 25091], [6, 74456], [7, 68271], [8, 25106]],
+  24266 => [[0, 74141], [1, 74151], [2, 74156], [3, 74171]],
+  38526 => [[0, 132646], [1, 132631], [2, 132651], [3, 132636], [4, 132656], [5, 132641]],
+  46176 => [[0, 13091], [1, 13096], [2, 13101], [3, 73856]],
+  87331 => [[0, 8286], [1, 116736], [2, 8296], [3, 130331], [4, 132746], [5, 130686], [6, 132756], [7, 138191], [8, 138196], [9, 25646], [10, 132751], [11, 116721], [12, 117521], [13, 74806], [14, 116726]],
+  109801 => [[0, 40421]],
+  109811 => [[0, 100516], [0, 106341], [1, 34941], [2, 24226], [3, 34841], [4, 53481]],
+  113066 => [[0, 92566], [0, 100856], [1, 100861], [2, 60981], [3, 14096], [4, 25956], [5, 52486], [6, 13736], [7, 13396], [8, 13646], [9, 13651], [10, 37341], [11, 22261]],
+  167221 => [[0, 19121], [1, 19126], [2, 19131], [3, 19136], [4, 29626], [5, 28886], [6, 19141]],
+  213586 => [[0, 26476], [1, 129706], [2, 129701]],
+  230226 => [[0, 47846]],
+  230796 => [[0, 18676], [0, 48691], [1, 48696]],
+  242761 => [[0, 65281]],
+  242866 => [[0, 65321], [1, 65326], [2, 65331], [3, 65336], [4, 65341]],
+  264696 => [[0, 98326]],
+  265681 => [[0, 99526], [1, 99606], [2, 99586], [3, 99611]],
+  283166 => [[0, 127726], [1, 127731], [2, 127736], [3, 127741], [4, 127746], [5, 127751], [6, 127756], [7, 127761], [8, 127766], [9, 127771], [10, 127776], [11, 127781], [12, 127786], [13, 127796]],
+];
+
+// Any migrated inline block -> its D7 source item, across every paragraph
+// migration (the viewfield/2_column_views bundles were skipped, which is
+// exactly why delta arithmetic cannot find their sections).
+$para_map = [];
+$map_tables = $db->query("SELECT TABLE_NAME FROM information_schema.tables WHERE table_schema = DATABASE() AND TABLE_NAME LIKE 'migrate\_map\_paragraph\_%'")->fetchCol();
+foreach ($map_tables as $table) {
+  foreach ($db->query("SELECT destid1, sourceid1 FROM {" . $table . "} WHERE destid1 IS NOT NULL") as $row) {
+    $para_map[$row->destid1] = (int) $row->sourceid1;
+  }
+}
 $storage = \Drupal::entityTypeManager()->getStorage('node');
 $uuid = \Drupal::service('uuid');
 
@@ -351,6 +386,9 @@ foreach ($by_node as $nid => $items) {
         if ($bid && isset($col_map[$bid])) {
           $item_section[(int) $col_map[$bid]] = $si;
         }
+        if ($bid && isset($para_map[$bid])) {
+          $item_section[$para_map[$bid]] = $si;
+        }
       }
     }
   }
@@ -374,8 +412,34 @@ foreach ($by_node as $nid => $items) {
     $sections = $list->getSections();
     $index = $col_item && isset($item_section[$col_item]) ? $item_section[$col_item] : NULL;
     if ($index === NULL && $col < 0) {
-      // Non-column embed: D7 delta + 1 (section 0 is the default section).
-      $index = isset($sections[$delta + 1]) ? $delta + 1 : NULL;
+      // Paragraph-hosted embed. When the embed's own paragraph became a
+      // section (1-column / 2-column bundles: the view sat beside the
+      // paragraph's text), the listing goes into that section, after the
+      // text. Only section-less bundles (viewfield, 2_column_views) need a
+      // fresh section after the nearest earlier paragraph's.
+      foreach ($para_structure[$nid] ?? [] as [$pdelta, $pitem]) {
+        if ($pdelta === $delta && isset($item_section[$pitem])) {
+          $index = $item_section[$pitem];
+          break;
+        }
+      }
+    }
+    if ($index === NULL && $col < 0) {
+      $after = 0;
+      foreach ($para_structure[$nid] ?? [] as [$pdelta, $pitem]) {
+        if ($pdelta < $delta && isset($item_section[$pitem])) {
+          $after = max($after, $item_section[$pitem]);
+        }
+      }
+      $section = new Section('bootstrap_layout_builder:blb_col_1', ['label' => 'people', 'label_display' => 0, 'container' => 'container', 'container_wrapper_classes' => '', 'container_wrapper' => ['bootstrap_styles' => []], 'container_wrapper_bg_color_class' => '', 'container_wrapper_bg_media' => NULL, 'section_classes' => '', 'regions_classes' => ['blb_region_col_1' => 'd-flex flex-wrap'], 'regions_attributes' => ['blb_region_col_1' => []], 'breakpoints' => [], 'layout_regions_classes' => [], 'remove_gutters' => '0']);
+      $list->insertSection($after + 1, $section);
+      $inserted_sections++;
+      foreach ($item_section as $k => $si) {
+        if ($si > $after) {
+          $item_section[$k] = $si + 1;
+        }
+      }
+      $index = $after + 1;
     }
     if ($index === NULL) {
       // The D7 column held only the view, so it produced no D10 section.
