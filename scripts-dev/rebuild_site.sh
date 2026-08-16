@@ -538,10 +538,6 @@ section_6() {
   # only content was the feed block migrate with no section). Idempotent.
   ddev drush scr ../scripts-dev/place_live_feed_blocks.php
 
-  # Per-group membership types (Faculty, Grad Student, ...) onto profile
-  # group placements from D7 og_membership -- feeds profiles_group_membership
-  # (the D7 profiles_membership_larch rebuild). Idempotent.
-  ddev drush scr ../scripts-dev/populate_profile_membership_types.php
 
   # People-listing blocks into the layout slots where D7 embedded
   # profiles_membership_larch (207 placements). Idempotent.
@@ -607,6 +603,11 @@ section_7() {
   # Deliberately NOT tagged 'CAS Groups' (section 6): it must run after the
   # profile nodes above exist, or every row skips on the profile lookup.
   ddev drush migrate:import cas_profile_group_content --force
+
+  # Per-group membership types (Faculty, Grad Student, ...) onto the profile
+  # placements just created -- feeds profiles_group_membership. Must run
+  # AFTER cas_profile_group_content (in section 6 it found nothing to set).
+  ddev drush scr ../scripts-dev/populate_profile_membership_types.php
 
   ddev drush migrate:import --tag='OSU Menus'
   ddev drush migrate:import --tag='OSU Blocks'
