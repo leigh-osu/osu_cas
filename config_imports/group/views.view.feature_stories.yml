@@ -1322,3 +1322,35 @@ display:
         - url.query_args
         - user.permissions
       tags: [  ]
+  page:
+    id: page
+    display_title: All stories
+    display_plugin: page
+    position: 4
+    display_options:
+      display_extenders: {  }
+      title: All Stories
+      display_description: 'D7 page: feature-story (latest ten, all groups)'
+      path: feature-story
+      defaults:
+        title: false
+        pager: false
+        arguments: false
+        relationships: false
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 10
+      arguments: {  }
+      relationships: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - route
+        - url
+        - url.query_args
+        - user.permissions
+      tags: [  ]

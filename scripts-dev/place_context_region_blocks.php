@@ -49,7 +49,34 @@ foreach ($social_nids as $path) {
   $social_paths[] = ltrim($path, '/');
 }
 $specs['social_media_buttons'] = ['block_content', 206, 'content', -10, $social_paths];
+// The button bar links the D7 social_media_list pages. Groups no longer
+// carry TikTok / Flickr / blog / podcast fields (dropped at migration), so
+// those four buttons would 404; strip them, keep the rest (group_social_media
+// view pages + the newsletters page). Idempotent.
+if ($social = BlockContent::load(206)) {
+  $body = $social->get('body')->value;
+  $trimmed = preg_replace('~\s*<a class="btn cas-button-dark" href="[^"]*/social-media/(tiktok-list|flickr|blog|podcast-list)">[^<]*</a>~', '', $body);
+  if ($trimmed !== $body) {
+    $social->set('body', ['value' => $trimmed, 'format' => $social->get('body')->format]);
+    $social->save();
+    print "social buttons: dropped tiktok/flickr/blog/podcast\n";
+  }
+}
 $specs['bmsb_news'] = ['block_content', 96, 'content', -1, ['node/36676']];
+
+// D7's `post_content` region was migrated to manzanita's `page_bottom`, which
+// madrone's page.html.twig never prints -- anything placed there is invisible.
+// Only one block landed that way: the Faces of AgSci audience button bar,
+// whose pages (faces-agsci/*) are now views pages again. Move it to `content`.
+foreach (['larch_block_366' => 5] as $bid => $weight) {
+  $block = \Drupal\block\Entity\Block::load($bid);
+  if ($block && in_array($block->getRegion(), ['page_bottom', 'page_top'], TRUE)) {
+    $block->setRegion('content');
+    $block->setWeight($weight);
+    $block->save();
+    print "moved $bid out of an unprinted region -> content\n";
+  }
+}
 
 $region_map = [
   'sidebar_first' => ['sidebar', 0],

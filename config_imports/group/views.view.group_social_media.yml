@@ -1,22 +1,17 @@
-uuid: e9555556-adf1-53ee-8436-a16f5ffe4b32
+uuid: 847749c0-6a02-5af9-af74-471673a1420b
 langcode: en
 status: true
 dependencies:
   module:
     - group
-    - image
-    - media
-    - node
-    - slick
-    - slick_views
     - user
-id: videos
-label: Videos
+id: group_social_media
+label: Group social media lists
 module: views
-description: 'Group video listings (D7 video_view): thumbnails linked to each video, grid.'
+description: 'D7 social_media_list pages: every group with a Facebook / Twitter / YouTube / Instagram / LinkedIn account, linked.'
 tag: OSU CAS
-base_table: node_field_data
-base_field: nid
+base_table: groups_field_data
+base_field: id
 display:
   default:
     id: default
@@ -24,12 +19,12 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Videos
+      title: Group social media lists
       fields:
-        title:
-          id: title
-          table: node_field_data
-          field: title
+        label:
+          id: label
+          table: groups_field_data
+          field: label
           relationship: none
           group_type: group
           admin_label: ''
@@ -86,131 +81,11 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: title
+          entity_type: group
+          entity_field: label
           type: string
           settings:
             link_to_entity: false
-        view_node:
-          id: view_node
-          table: node
-          field: view_node
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: entity_link
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          text: view
-          output_url_as_text: true
-          absolute: false
-        thumbnail__target_id:
-          id: thumbnail__target_id
-          table: media_field_data
-          field: thumbnail__target_id
-          relationship: field_vid_video
-          group_type: group
-          admin_label: ''
-          entity_type: media
-          entity_field: thumbnail
-          plugin_id: field
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: image
-          settings:
-            image_link: ''
-            image_style: 400x290
-            image_loading:
-              attribute: lazy
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
         nothing:
           id: nothing
           table: views
@@ -223,7 +98,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a class="cas-video-card" href="{{ view_node }}"><span class="cas-video-card__thumb">{{ thumbnail__target_id }}<span class="cas-video-card__play" aria-hidden="true"></span></span>{% if title %}<span class="cas-video-card__title">{{ title }}</span>{% endif %}</a>'
+            text: '{{ label }}'
             make_link: false
             path: ''
             absolute: false
@@ -291,172 +166,39 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: No items match the current filter.
+          content: No groups list an account here yet.
           tokenize: false
       sorts:
-        sticky:
-          id: sticky
-          table: node_field_data
-          field: sticky
+        label:
+          id: label
+          table: groups_field_data
+          field: label
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: group
+          entity_field: label
           plugin_id: standard
-          order: DESC
-          expose:
-            label: ''
-            field_identifier: ''
-          exposed: false
-          entity_type: node
-          entity_field: sticky
-        changed:
-          id: changed
-          table: node_field_data
-          field: changed
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: date
           order: ASC
           expose:
             label: ''
             field_identifier: ''
           exposed: false
-          entity_type: node
-          entity_field: changed
-          granularity: second
-      arguments:
-        gid:
-          id: gid
-          table: group_relationship_field_data
-          field: gid
-          relationship: group_content
-          group_type: group
-          admin_label: ''
-          entity_type: group_content
-          entity_field: gid
-          plugin_id: numeric
-          default_action: default
-          exception:
-            value: all
-            title_enable: false
-            title: All
-          title_enable: false
-          title: ''
-          default_argument_type: cas_current_group
-          default_argument_options: {  }
-          summary_options:
-            base_path: ''
-            count: true
-            override: false
-            items_per_page: 25
-          summary:
-            sort_order: asc
-            number_of_records: 0
-            format: default_summary
-          specify_validation: false
-          validate:
-            type: none
-            fail: not found
-          validate_options: {  }
-          break_phrase: false
-          not: false
-      filters:
-        status:
-          id: status
-          table: node_field_data
-          field: status
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: boolean
-          operator: '='
-          value: '1'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: status
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: bundle
-          operator: in
-          value:
-            video: video
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: type
+      arguments: {  }
+      filters: {  }
       filter_groups:
         operator: AND
         groups:
           1: AND
       style:
-        type: grid_responsive
+        type: html_list
         options:
           grouping: [  ]
-          row_class: cas-video-cell
+          row_class: ''
           default_row_class: true
-          columns: 3
-          cell_min_width: 100
-          grid_gutter: 10
-          alignment: horizontal
+          type: ul
+          wrapper_class: item-list
+          class: cas-social-list
       row:
         type: fields
         options:
@@ -468,35 +210,16 @@ display:
         type: views_query
         options:
           query_comment: ''
-          disable_sql_rewrite: false
+          disable_sql_rewrite: true
           distinct: true
           replica: false
           query_tags: [  ]
-      relationships:
-        group_content:
-          id: group_content
-          table: node_field_data
-          field: group_content
-          relationship: none
-          group_type: group
-          admin_label: Group placement
-          plugin_id: group_content_to_entity_reverse
-          required: true
-          group_content_plugins: {  }
-        field_vid_video:
-          id: field_vid_video
-          table: node__field_vid_video
-          field: field_vid_video
-          relationship: none
-          group_type: group
-          admin_label: Video media
-          plugin_id: standard
-          required: false
+      relationships: {  }
       header: {  }
       footer: {  }
       display_extenders: {  }
       use_ajax: false
-      css_class: cas-videos
+      css_class: cas-group-social
     cache_metadata:
       max-age: -1
       contexts:
@@ -507,24 +230,25 @@ display:
         - url.query_args
         - user.permissions
       tags: [  ]
-  reel:
-    id: reel
-    display_title: Video reel (titles)
-    display_plugin: block
+  facebook:
+    id: facebook
+    display_title: Facebook
+    display_plugin: page
     position: 1
     display_options:
       display_extenders: {  }
-      title: Video reel (titles)
+      title: Facebook
+      display_description: 'D7 social_media_list: groups with a Facebook account'
       defaults:
         title: false
         fields: false
-        style: false
-        pager: false
+        filters: false
+        filter_groups: false
       fields:
-        title:
-          id: title
-          table: node_field_data
-          field: title
+        label:
+          id: label
+          table: groups_field_data
+          field: label
           relationship: none
           group_type: group
           admin_label: ''
@@ -581,72 +305,18 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: title
+          entity_type: group
+          entity_field: label
           type: string
           settings:
             link_to_entity: false
-        view_node:
-          id: view_node
-          table: node
-          field: view_node
+        field_group_facebook:
+          id: field_group_facebook
+          table: group__field_group_facebook
+          field: field_group_facebook
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: entity_link
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          text: view
-          output_url_as_text: true
-          absolute: false
-        thumbnail__target_id:
-          id: thumbnail__target_id
-          table: media_field_data
-          field: thumbnail__target_id
-          relationship: field_vid_video
-          group_type: group
-          admin_label: ''
-          entity_type: media
-          entity_field: thumbnail
           plugin_id: field
           label: ''
           exclude: true
@@ -689,14 +359,8 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: image
-          settings:
-            image_link: ''
-            image_style: 400x290
-            image_loading:
-              attribute: lazy
-          group_column: ''
+          click_sort_column: value
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -706,6 +370,9 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          type: string
+          settings:
+            link_to_entity: false
         nothing:
           id: nothing
           table: views
@@ -718,7 +385,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a class="cas-video-card" href="{{ view_node }}"><span class="cas-video-card__thumb">{{ thumbnail__target_id }}<span class="cas-video-card__play" aria-hidden="true"></span></span>{% if title %}<span class="cas-video-card__title">{{ title }}</span>{% endif %}</a>'
+            text: '<a href="{{ field_group_facebook }}">{{ label }}</a>'
             make_link: false
             path: ''
             absolute: false
@@ -755,66 +422,50 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-      style:
-        type: slick
-        options:
-          grouping: [  ]
-          row_class: ''
-          default_row_class: true
-          uses_fields: true
-          optionset: cas_video_reel
-          override: false
-          overridables: [  ]
-          skin: default
-          skin_arrows: ''
-          skin_dots: ''
-          use_theme_field: false
-          preserve_keys: false
-          visible_items: 0
-          optionset_thumbnail: ''
-          skin_thumbnail: ''
-          thumbnail_caption: ''
-          thumbnail_effect: ''
-          thumbnail_position: ''
-          thumbnail: ''
-          breakpoints: [  ]
-          sizes: ''
-          grid_header: ''
-          grid: 0
-          grid_medium: 0
-          grid_small: 0
-          style: ''
-          layout: ''
-          caption: [  ]
-          image: ''
-          link: ''
-          overlay: ''
-          title: ''
-          class: ''
-          id: ''
-          vanilla: true
-          background: false
-          cache: 0
-          lazy: ''
-          loading: lazy
-          media_switch: ''
-          ratio: ''
-          view_mode: ''
-          responsive_image_style: ''
-          box_style: ''
-          box_media_style: ''
-          box_caption: ''
-          box_caption_custom: ''
-          thumbnail_style: ''
-          image_style: ''
-          by_delta: -1
-          placeholder: ''
-      pager:
-        type: none
-        options:
-          offset: 0
-      block_description: 'Videos: Video reel (titles)'
-      block_category: OSU CAS
+      filters:
+        field_group_facebook_value:
+          id: field_group_facebook_value
+          table: group__field_group_facebook
+          field: field_group_facebook_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: string
+          operator: not empty
+          value: ''
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      path: social-media/facebook-list
     cache_metadata:
       max-age: -1
       contexts:
@@ -825,24 +476,25 @@ display:
         - url.query_args
         - user.permissions
       tags: [  ]
-  reel_untitled:
-    id: reel_untitled
-    display_title: Video reel (no titles)
-    display_plugin: block
+  twitter:
+    id: twitter
+    display_title: Twitter
+    display_plugin: page
     position: 2
     display_options:
       display_extenders: {  }
-      title: Video reel (no titles)
+      title: Twitter
+      display_description: 'D7 social_media_list: groups with a Twitter account'
       defaults:
         title: false
         fields: false
-        style: false
-        pager: false
+        filters: false
+        filter_groups: false
       fields:
-        title:
-          id: title
-          table: node_field_data
-          field: title
+        label:
+          id: label
+          table: groups_field_data
+          field: label
           relationship: none
           group_type: group
           admin_label: ''
@@ -899,72 +551,18 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: title
+          entity_type: group
+          entity_field: label
           type: string
           settings:
             link_to_entity: false
-        view_node:
-          id: view_node
-          table: node
-          field: view_node
+        field_group_twitter:
+          id: field_group_twitter
+          table: group__field_group_twitter
+          field: field_group_twitter
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: entity_link
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          text: view
-          output_url_as_text: true
-          absolute: false
-        thumbnail__target_id:
-          id: thumbnail__target_id
-          table: media_field_data
-          field: thumbnail__target_id
-          relationship: field_vid_video
-          group_type: group
-          admin_label: ''
-          entity_type: media
-          entity_field: thumbnail
           plugin_id: field
           label: ''
           exclude: true
@@ -1007,14 +605,8 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: image
-          settings:
-            image_link: ''
-            image_style: 400x290
-            image_loading:
-              attribute: lazy
-          group_column: ''
+          click_sort_column: value
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -1024,6 +616,9 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          type: string
+          settings:
+            link_to_entity: false
         nothing:
           id: nothing
           table: views
@@ -1036,7 +631,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a class="cas-video-card cas-video-card--untitled" href="{{ view_node }}"><span class="cas-video-card__thumb">{{ thumbnail__target_id }}<span class="cas-video-card__play" aria-hidden="true"></span></span><span class="visually-hidden">{{ title }}</span></a>'
+            text: '<a href="{{ field_group_twitter }}">{{ label }}</a>'
             make_link: false
             path: ''
             absolute: false
@@ -1073,66 +668,50 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-      style:
-        type: slick
-        options:
-          grouping: [  ]
-          row_class: ''
-          default_row_class: true
-          uses_fields: true
-          optionset: cas_video_reel
-          override: false
-          overridables: [  ]
-          skin: default
-          skin_arrows: ''
-          skin_dots: ''
-          use_theme_field: false
-          preserve_keys: false
-          visible_items: 0
-          optionset_thumbnail: ''
-          skin_thumbnail: ''
-          thumbnail_caption: ''
-          thumbnail_effect: ''
-          thumbnail_position: ''
-          thumbnail: ''
-          breakpoints: [  ]
-          sizes: ''
-          grid_header: ''
-          grid: 0
-          grid_medium: 0
-          grid_small: 0
-          style: ''
-          layout: ''
-          caption: [  ]
-          image: ''
-          link: ''
-          overlay: ''
-          title: ''
-          class: ''
-          id: ''
-          vanilla: true
-          background: false
-          cache: 0
-          lazy: ''
-          loading: lazy
-          media_switch: ''
-          ratio: ''
-          view_mode: ''
-          responsive_image_style: ''
-          box_style: ''
-          box_media_style: ''
-          box_caption: ''
-          box_caption_custom: ''
-          thumbnail_style: ''
-          image_style: ''
-          by_delta: -1
-          placeholder: ''
-      pager:
-        type: none
-        options:
-          offset: 0
-      block_description: 'Videos: Video reel (no titles)'
-      block_category: OSU CAS
+      filters:
+        field_group_twitter_value:
+          id: field_group_twitter_value
+          table: group__field_group_twitter
+          field: field_group_twitter_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: string
+          operator: not empty
+          value: ''
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      path: social-media/twitter-list
     cache_metadata:
       max-age: -1
       contexts:
@@ -1143,24 +722,25 @@ display:
         - url.query_args
         - user.permissions
       tags: [  ]
-  grid:
-    id: grid
-    display_title: Video grid
-    display_plugin: block
+  youtube:
+    id: youtube
+    display_title: YouTube
+    display_plugin: page
     position: 3
     display_options:
       display_extenders: {  }
-      title: Video grid
+      title: YouTube
+      display_description: 'D7 social_media_list: groups with a YouTube account'
       defaults:
         title: false
         fields: false
-        style: false
-        pager: false
+        filters: false
+        filter_groups: false
       fields:
-        title:
-          id: title
-          table: node_field_data
-          field: title
+        label:
+          id: label
+          table: groups_field_data
+          field: label
           relationship: none
           group_type: group
           admin_label: ''
@@ -1217,72 +797,18 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: title
+          entity_type: group
+          entity_field: label
           type: string
           settings:
             link_to_entity: false
-        view_node:
-          id: view_node
-          table: node
-          field: view_node
+        field_group_youtube:
+          id: field_group_youtube
+          table: group__field_group_youtube
+          field: field_group_youtube
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: entity_link
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          text: view
-          output_url_as_text: true
-          absolute: false
-        thumbnail__target_id:
-          id: thumbnail__target_id
-          table: media_field_data
-          field: thumbnail__target_id
-          relationship: field_vid_video
-          group_type: group
-          admin_label: ''
-          entity_type: media
-          entity_field: thumbnail
           plugin_id: field
           label: ''
           exclude: true
@@ -1325,14 +851,8 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: image
-          settings:
-            image_link: ''
-            image_style: 400x290
-            image_loading:
-              attribute: lazy
-          group_column: ''
+          click_sort_column: value
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -1342,6 +862,9 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          type: string
+          settings:
+            link_to_entity: false
         nothing:
           id: nothing
           table: views
@@ -1354,7 +877,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a class="cas-video-card" href="{{ view_node }}"><span class="cas-video-card__thumb">{{ thumbnail__target_id }}<span class="cas-video-card__play" aria-hidden="true"></span></span>{% if title %}<span class="cas-video-card__title">{{ title }}</span>{% endif %}</a>'
+            text: '<a href="{{ field_group_youtube }}">{{ label }}</a>'
             make_link: false
             path: ''
             absolute: false
@@ -1391,22 +914,50 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-      style:
-        type: grid_responsive
-        options:
-          grouping: [  ]
-          row_class: cas-video-cell
-          default_row_class: true
-          columns: 4
-          cell_min_width: 100
-          grid_gutter: 10
-          alignment: horizontal
-      pager:
-        type: none
-        options:
-          offset: 0
-      block_description: 'Videos: Video grid'
-      block_category: OSU CAS
+      filters:
+        field_group_youtube_value:
+          id: field_group_youtube_value
+          table: group__field_group_youtube
+          field: field_group_youtube_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: string
+          operator: not empty
+          value: ''
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      path: social-media/youtube
     cache_metadata:
       max-age: -1
       contexts:
@@ -1417,27 +968,25 @@ display:
         - url.query_args
         - user.permissions
       tags: [  ]
-  page:
-    id: page
-    display_title: All videos
+  instagram:
+    id: instagram
+    display_title: Instagram
     display_plugin: page
     position: 4
     display_options:
       display_extenders: {  }
-      title: Videos
-      display_description: 'D7 page: video (all videos)'
+      title: Instagram
+      display_description: 'D7 social_media_list: groups with a Instagram account'
       defaults:
         title: false
         fields: false
-        style: false
-        pager: false
-        arguments: false
-        relationships: false
+        filters: false
+        filter_groups: false
       fields:
-        title:
-          id: title
-          table: node_field_data
-          field: title
+        label:
+          id: label
+          table: groups_field_data
+          field: label
           relationship: none
           group_type: group
           admin_label: ''
@@ -1494,72 +1043,18 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: title
+          entity_type: group
+          entity_field: label
           type: string
           settings:
             link_to_entity: false
-        view_node:
-          id: view_node
-          table: node
-          field: view_node
+        field_group_instagram:
+          id: field_group_instagram
+          table: group__field_group_instagram
+          field: field_group_instagram
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: entity_link
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          text: view
-          output_url_as_text: true
-          absolute: false
-        thumbnail__target_id:
-          id: thumbnail__target_id
-          table: media_field_data
-          field: thumbnail__target_id
-          relationship: field_vid_video
-          group_type: group
-          admin_label: ''
-          entity_type: media
-          entity_field: thumbnail
           plugin_id: field
           label: ''
           exclude: true
@@ -1602,14 +1097,8 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: image
-          settings:
-            image_link: ''
-            image_style: 400x290
-            image_loading:
-              attribute: lazy
-          group_column: ''
+          click_sort_column: value
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -1619,6 +1108,9 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          type: string
+          settings:
+            link_to_entity: false
         nothing:
           id: nothing
           table: views
@@ -1631,7 +1123,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a class="cas-video-card" href="{{ view_node }}"><span class="cas-video-card__thumb">{{ thumbnail__target_id }}<span class="cas-video-card__play" aria-hidden="true"></span></span>{% if title %}<span class="cas-video-card__title">{{ title }}</span>{% endif %}</a>'
+            text: '<a href="{{ field_group_instagram }}">{{ label }}</a>'
             make_link: false
             path: ''
             absolute: false
@@ -1668,49 +1160,296 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-      style:
-        type: grid_responsive
-        options:
-          grouping: [  ]
-          row_class: cas-video-cell
-          default_row_class: true
-          columns: 4
-          cell_min_width: 100
-          grid_gutter: 10
-          alignment: horizontal
-      pager:
-        type: full
-        options:
-          offset: 0
-          items_per_page: 48
-          total_pages: null
-          id: 0
-          tags:
-            next: Next ›
-            previous: ‹ Previous
-            first: « First
-            last: Last »
-          expose:
-            items_per_page: false
-            items_per_page_label: Items per page
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          quantity: 9
-      arguments: {  }
-      relationships:
-        field_vid_video:
-          id: field_vid_video
-          table: node__field_vid_video
-          field: field_vid_video
+      filters:
+        field_group_instagram_value:
+          id: field_group_instagram_value
+          table: group__field_group_instagram
+          field: field_group_instagram_value
           relationship: none
           group_type: group
-          admin_label: Video media
-          plugin_id: standard
-          required: false
-      path: video
+          admin_label: ''
+          plugin_id: string
+          operator: not empty
+          value: ''
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      path: social-media/instagram
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - route
+        - url
+        - url.query_args
+        - user.permissions
+      tags: [  ]
+  linkedin:
+    id: linkedin
+    display_title: LinkedIn
+    display_plugin: page
+    position: 5
+    display_options:
+      display_extenders: {  }
+      title: LinkedIn
+      display_description: 'D7 social_media_list: groups with a LinkedIn account'
+      defaults:
+        title: false
+        fields: false
+        filters: false
+        filter_groups: false
+      fields:
+        label:
+          id: label
+          table: groups_field_data
+          field: label
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: group
+          entity_field: label
+          type: string
+          settings:
+            link_to_entity: false
+        field_group_linkedin:
+          id: field_group_linkedin
+          table: group__field_group_linkedin
+          field: field_group_linkedin
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          type: string
+          settings:
+            link_to_entity: false
+        nothing:
+          id: nothing
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: custom
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '<a href="{{ field_group_linkedin }}">{{ label }}</a>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+      filters:
+        field_group_linkedin_value:
+          id: field_group_linkedin_value
+          table: group__field_group_linkedin
+          field: field_group_linkedin_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: string
+          operator: not empty
+          value: ''
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      path: social-media/linkedin
     cache_metadata:
       max-age: -1
       contexts:

@@ -752,6 +752,7 @@ section_7() {
   # videos, feature stories (feature stories first get their category /
   # promote markers), fun facts, people embeds. Idempotent.
   ddev drush scr ../scripts-dev/backfill_feature_stories.php
+  ddev drush scr ../scripts-dev/backfill_page_department.php
   ddev drush scr ../scripts-dev/place_dfs_blocks.php
   ddev drush scr ../scripts-dev/place_context_views_blocks.php
   ddev drush scr ../scripts-dev/place_embed_blocks.php
