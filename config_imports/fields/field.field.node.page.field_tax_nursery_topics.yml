@@ -3,12 +3,12 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_tax_nursery_topics
-    - node.type.video
+    - node.type.page
     - taxonomy.vocabulary.nursery
-id: node.video.field_tax_nursery_topics
+id: node.page.field_tax_nursery_topics
 field_name: field_tax_nursery_topics
 entity_type: node
-bundle: video
+bundle: page
 label: 'Nursery topics'
 description: ''
 required: false

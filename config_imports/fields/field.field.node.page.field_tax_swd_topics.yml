@@ -2,14 +2,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_tax_nursery_topics
-    - node.type.video
-    - taxonomy.vocabulary.nursery
-id: node.video.field_tax_nursery_topics
-field_name: field_tax_nursery_topics
+    - field.storage.node.field_tax_swd_topics
+    - node.type.page
+    - taxonomy.vocabulary.swd
+id: node.page.field_tax_swd_topics
+field_name: field_tax_swd_topics
 entity_type: node
-bundle: video
-label: 'Nursery topics'
+bundle: page
+label: 'SWD topics'
 description: ''
 required: false
 translatable: false
@@ -19,7 +19,7 @@ settings:
   handler: 'default:filter_existing_terms'
   handler_settings:
     target_bundles:
-      nursery: nursery
+      swd: swd
     sort:
       field: name
       direction: asc

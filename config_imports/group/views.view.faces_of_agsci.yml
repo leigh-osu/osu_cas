@@ -149,6 +149,35 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        view_node:
+          id: view_node
+          table: node
+          field: view_node
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: entity_link
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '<a class="btn cas-button-dark" href="{{ view_node }}">Learn more</a>'
+          element_type: ''
+          element_class: faces-card__more
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: 'Learn more'
+          output_url_as_text: true
+          absolute: false
       pager:
         type: some
         options:
@@ -171,7 +200,18 @@ display:
       cache:
         type: none
         options: {  }
-      empty: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: true
+          content: 'No items match the current filter.'
+          tokenize: false
       sorts:
         created:
           id: created

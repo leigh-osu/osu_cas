@@ -9,7 +9,7 @@ id: node.video.field_tax_turf_topics
 field_name: field_tax_turf_topics
 entity_type: node
 bundle: video
-label: 'Turf topics'
+label: 'Turf Topics'
 description: ''
 required: false
 translatable: false
@@ -24,4 +24,5 @@ settings:
       field: name
       direction: asc
     auto_create: false
+    auto_create_bundle: sorting_topics
 field_type: entity_reference

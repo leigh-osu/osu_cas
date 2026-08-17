@@ -609,6 +609,28 @@ section_7() {
   # AFTER cas_profile_group_content (in section 6 it found nothing to set).
   ddev drush scr ../scripts-dev/populate_profile_membership_types.php
 
+  # Subgroup/division terms (D7 field_division, agricultural_sciences
+  # profile) onto profiles -- FW's division-filtered listings key on these.
+  ddev drush scr ../scripts-dev/backfill_profile_subgroups.php
+
+  # People listings the D7 context module placed by path (fw_profiles,
+  # sara_profiles, BEE signage, grad-faculty pages, ...). Idempotent.
+  ddev drush scr ../scripts-dev/place_context_profiles_blocks.php
+
+  # News listings and live feeds the context module placed by path
+  # (group article archives, landing-page teasers, events feeds). Idempotent.
+  ddev drush scr ../scripts-dev/place_context_news_blocks.php
+
+  # Files whose D7 names bake in URL-escapes (%20, %2F) 500 the image-style
+  # pipeline; decode and rename them. Idempotent.
+  ddev drush scr ../scripts-dev/fix_percent_filenames.php
+
+  # Topic tags onto consolidated pages (veg/turf/SWD/nursery/COAREC/year/
+  # publication-type), then the topic resource listings the context module
+  # placed (articles_by_subject / articles_coarec). Idempotent.
+  ddev drush scr ../scripts-dev/backfill_topic_tags.php
+  ddev drush scr ../scripts-dev/place_context_term_blocks.php
+
   ddev drush migrate:import --tag='OSU Menus'
   ddev drush migrate:import --tag='OSU Blocks'
 

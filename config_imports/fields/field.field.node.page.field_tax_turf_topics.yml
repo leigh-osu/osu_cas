@@ -2,27 +2,27 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_tax_nursery_topics
-    - node.type.video
-    - taxonomy.vocabulary.nursery
-id: node.video.field_tax_nursery_topics
-field_name: field_tax_nursery_topics
+    - field.storage.node.field_tax_turf_topics
+    - node.type.page
+    - taxonomy.vocabulary.turf
+id: node.page.field_tax_turf_topics
+field_name: field_tax_turf_topics
 entity_type: node
-bundle: video
-label: 'Nursery topics'
+bundle: page
+label: 'Turf Topics'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:filter_existing_terms'
+  handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      nursery: nursery
+      turf: turf
     sort:
       field: name
       direction: asc
     auto_create: false
-    auto_create_bundle: ''
+    auto_create_bundle: sorting_topics
 field_type: entity_reference

@@ -55,6 +55,7 @@ dependencies:
     - field.field.node.osu_profile.field_profile_stu_ac_interests
     - field.field.node.osu_profile.field_profile_stu_major_prof
     - field.field.node.osu_profile.field_profile_stu_majors
+    - field.field.node.osu_profile.field_profile_subgroups
     - field.field.node.osu_profile.field_tax_faculty_expertise
     - image.style.x_large
     - node.type.osu_profile
@@ -639,6 +640,16 @@ content:
     weight: 51
     region: content
     settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_profile_subgroups:
+    type: entity_reference_autocomplete
+    weight: 28
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
