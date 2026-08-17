@@ -1,12 +1,12 @@
-uuid: 84007cd8-e6dd-4246-aedd-a3f04860a9f0
+uuid: 571feae6-4f3f-479f-8114-be984b6ba082
 langcode: en
 status: true
 dependencies: {  }
 name: scale-crop300x180
 label: '300x170 scale-crop'
 effects:
-  2820696b-bd47-454a-b9c5-6f3b4f1dc3e8:
-    uuid: 2820696b-bd47-454a-b9c5-6f3b4f1dc3e8
+  a22a8b72-e19d-4b8e-84c4-7cd8c87af548:
+    uuid: a22a8b72-e19d-4b8e-84c4-7cd8c87af548
     id: image_scale_and_crop
     weight: 1
     data:

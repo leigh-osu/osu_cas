@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.funding_opportunities.field_fundop_open_ended
     - field.field.node.funding_opportunities.field_fundop_posted_date
     - field.field.node.funding_opportunities.field_fundop_sponsor
+    - field.field.node.funding_opportunities.field_group_private
     - field.field.node.funding_opportunities.field_tax_cas_section
     - node.type.funding_opportunities
   module:
@@ -52,5 +53,6 @@ hidden:
   field_fundop_open_ended: true
   field_fundop_posted_date: true
   field_fundop_sponsor: true
+  field_group_private: true
   field_tax_cas_section: true
   langcode: true

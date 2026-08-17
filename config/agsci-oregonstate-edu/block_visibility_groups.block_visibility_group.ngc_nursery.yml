@@ -1,4 +1,4 @@
-uuid: 285cc09d-5335-4947-af62-e28299febf93
+uuid: 97bd7906-2116-4a23-8d61-9bfb7198caab
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: ngc_nursery
 label: ngc_nursery
 logic: and
 conditions:
-  69c1e374-86a6-43d9-82d1-2478a2c031ff:
+  5390a584-fb29-441f-84fb-0a6088e73c51:
     id: request_path
     negate: false
-    uuid: 69c1e374-86a6-43d9-82d1-2478a2c031ff
+    uuid: 5390a584-fb29-441f-84fb-0a6088e73c51
     pages: "/node/79961\r\n/node/63566"
 allow_other_conditions: null

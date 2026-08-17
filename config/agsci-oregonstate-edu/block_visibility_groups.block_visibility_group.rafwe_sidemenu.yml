@@ -1,4 +1,4 @@
-uuid: a2e5ba59-05f9-4b85-a5f4-c234e688c58b
+uuid: 8e7b4aaa-f97c-498a-9b83-a3b0b93e0d4c
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: rafwe_sidemenu
 label: rafwe-sidemenu
 logic: and
 conditions:
-  5a962277-4511-4617-b921-8d97e01fe557:
+  af65d234-85fd-4629-871b-d2f713c8b614:
     id: request_path
     negate: false
-    uuid: 5a962277-4511-4617-b921-8d97e01fe557
+    uuid: af65d234-85fd-4629-871b-d2f713c8b614
     pages: "/fwcs/rafwe*\r\n/node/44661\r\n/node/217061\r\n/node/217671\r\n/node/248716\r\n/node/230036\r\n/node/253331\r\n/node/217691\r\n/node/217681\r\n/node/217441\r\n/node/253466\r\n/node/253471\r\n/node/253476\r\n/node/253481"
 allow_other_conditions: null

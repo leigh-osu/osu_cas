@@ -1,9 +1,9 @@
-uuid: 124ffee7-deb5-40ae-ab07-420b529094b8
+uuid: 40fca9c0-3282-4bfb-bebd-fa6c3776b9b1
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: Ug3sZIi-ck677o5oVcnkJ7osf2cDxR9Uqr-6_TrY5SQ
+  default_config_hash: YDghOpZrQMIS0H_3WgkTGy9-gVqX8pHE8y2LbSifc9E
 id: cas_feature_page_to_page
 class: null
 idMap: {  }
@@ -30,6 +30,8 @@ source:
       2_column_4_8_right: paragraph_2_column_4_8_right__to__layout_builder
       paragraph_2_column_8_4_left: paragraph_2_column_8_4_left__to__layout_builder
       paragraph_2_column_8_4_right: paragraph_2_column_8_4_right__to__layout_builder
+      2_column_views_left: paragraph_2_column_views_left__to__layout_builder
+      2_column_views_right: paragraph_2_column_views_right__to__layout_builder
       accordian: paragraph_accordian__to__layout_builder
       paragraph_1_col_clean: paragraph_1_col_clean__to__layout_builder
       paragraph_1_col: paragraph_1_col__to__layout_builder
@@ -64,6 +66,14 @@ process:
       format:
         plugin: default_value
         default_value: full_html
+  field_tax_cas_section:
+    plugin: sub_process
+    source: field_cas_section
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration: 'upgrade_d7_taxonomy_terms:type'
+        source: tid
   field_osu_meta_image:
     plugin: sub_process
     source: field_cover_photo

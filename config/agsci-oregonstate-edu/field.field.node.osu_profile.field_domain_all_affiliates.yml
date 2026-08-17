@@ -1,4 +1,4 @@
-uuid: aa82f4ef-4a62-42da-8a1b-961e4b1fb624
+uuid: 66f0b364-b4eb-4052-9fa5-4cce13be7669
 langcode: en
 status: true
 dependencies:
@@ -13,7 +13,9 @@ label: 'Send to all affiliates'
 description: 'Make this content available on all domains.'
 required: false
 translatable: true
-default_value: {  }
+default_value:
+  -
+    value: 1
 default_value_callback: ''
 settings:
   on_label: 'On'

@@ -1,80 +1,71 @@
+uuid: a1854a89-ffe7-48f0-a545-8f875b38ba07
 langcode: en
 status: true
-id: cas_parent_unit_default_group
-label: 'CAS: Groups replacing the two parent units that had no default group'
-migration_group: osu_groups
 dependencies: {  }
+_core:
+  default_config_hash: 9WKK0fJbtEA_1jqMK-ZNmy1ua1ZIMOL7rxSrcM633zc
+id: cas_parent_unit_default_group
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
 migration_tags:
-  - Drupal 7 OG
-  - OSU Groups Structure
-  - OSU Groups
+  - 'Drupal 7 OG'
+  - 'OSU Groups Structure'
+  - 'OSU Groups'
   - OSU
   - CAS
-# Parent units are not migrated: in D7 they were a hierarchy tier above the
-# groups, never held content, and their header link resolved to a "default"
-# content group (the department's real group). That default is recorded on
-# each child group's field_group_parent instead (see cas_node_og_group).
-# Agricultural Experiment Station (26734) and Corvallis Farm Unit (43) were
-# the two parent units WITHOUT a default group -- their /aes and /farmunit
-# landing pages were the destination -- so they alone become groups, with the
-# landing page migrated as the group's default page by
-# cas_parent_unit_landing_page.
+migration_group: osu_groups
+label: 'CAS: Groups replacing the two parent units that had no default group'
 source:
   plugin: d7_node_domain_access
   node_type: parent_unit
 process:
-  # Only the two parent units without a default group become groups.
   only_replacements:
-    - plugin: static_map
+    -
+      plugin: static_map
       source: nid
       map:
         26734: 26734
         43: 43
       default_value: 0
-    - plugin: skip_on_empty
+    -
+      plugin: skip_on_empty
       method: row
       message: 'parent unit superseded by its default group'
   type:
     plugin: default_value
     default_value: basic_group
-  # Keep the source nid as the group id, matching every other migrated group.
   id: nid
   uid:
     plugin: default_value
     default_value: 1
   label:
-    - plugin: get
+    -
+      plugin: get
       source: title
-    - plugin: callback
+    -
+      plugin: callback
       callable: trim
   path/pathauto:
     plugin: default_value
     default_value: 0
-
-  # Contact (the parent_unit bundle shared the group contact fields). The D7
-  # email field stores its value in the `email` property, not `value`.
   field_group_email:
     plugin: sub_process
     source: field_group_email
     process:
       value: email
   field_group_phone: field_group_phone
-
-  # Location
   field_group_location_name: field_group_location_name
   field_group_location_address: field_group_location_address
   field_group_location_city: field_group_location_city
   field_group_location_state: field_group_location_state
   field_group_location_zip: field_group_location_zip
-
-  # Social
   field_group_facebook: field_group_facebook
   field_group_twitter: field_group_twitter
   field_group_linkedin: field_group_linkedin
   field_group_youtube: field_group_youtube
   field_group_instagram: field_group_instagram
-
-  # Domains: same assignment the D7 node had, plus a canonical (home) domain.
   field_domain_access:
     plugin: sub_process
     source: domain_access_node

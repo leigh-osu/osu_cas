@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.150_species.field_domain_access
     - field.field.node.150_species.field_domain_all_affiliates
     - field.field.node.150_species.field_domain_source
+    - field.field.node.150_species.field_group_private
     - field.field.node.150_species.field_tax_type
     - field.field.node.150_species.og_user_node
     - image.style.thumbnail
@@ -85,6 +86,13 @@ content:
     weight: 42
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_group_private:
+    type: boolean_checkbox
+    weight: 26
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_species_photo:
     type: image_focal_point

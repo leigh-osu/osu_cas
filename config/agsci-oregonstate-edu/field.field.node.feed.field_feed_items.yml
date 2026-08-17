@@ -1,0 +1,27 @@
+uuid: 2d16ade5-c201-47d9-9c0d-30e3275189df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_feed_items
+    - node.type.feed
+_core:
+  default_config_hash: uPEC1k1e0Blz13zFi867_Mbz_eIgEJ47ODEXsdJ2vh4
+id: node.feed.field_feed_items
+field_name: field_feed_items
+entity_type: node
+bundle: feed
+label: 'Number of items'
+description: 'How many feed items to show.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 5
+default_value_callback: ''
+settings:
+  min: 1
+  max: 50
+  prefix: ''
+  suffix: ''
+field_type: integer

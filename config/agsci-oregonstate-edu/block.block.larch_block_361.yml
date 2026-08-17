@@ -1,9 +1,9 @@
-uuid: cbae26e8-5f00-4545-81dc-e96cf795da00
+uuid: 367f8ca2-ba75-4233-832e-d99edad6abc2
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:a14044a1-e014-43ac-9ff3-6d5362ea8de5'
+    - 'block_content:basic:0c67f709-790e-4f76-a54e-cd4cc059adc5'
   module:
     - block_content
     - system
@@ -14,9 +14,9 @@ theme: manzanita
 region: content
 weight: 8
 provider: null
-plugin: 'block_content:a14044a1-e014-43ac-9ff3-6d5362ea8de5'
+plugin: 'block_content:0c67f709-790e-4f76-a54e-cd4cc059adc5'
 settings:
-  id: 'block_content:a14044a1-e014-43ac-9ff3-6d5362ea8de5'
+  id: 'block_content:0c67f709-790e-4f76-a54e-cd4cc059adc5'
   label: '<none>'
   label_display: '0'
   provider: block_content

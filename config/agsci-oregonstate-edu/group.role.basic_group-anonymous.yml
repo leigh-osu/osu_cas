@@ -1,4 +1,4 @@
-uuid: 4d41e095-7bfd-4a38-a74c-6d5d5d3f2ddb
+uuid: a1858d67-c238-4b70-ad80-7b811925028a
 langcode: en
 status: true
 dependencies:
@@ -18,6 +18,7 @@ permissions:
   - 'view group_node:course entity'
   - 'view group_node:degree_fact_sheet entity'
   - 'view group_node:enterprise_budgets entity'
+  - 'view group_node:feed entity'
   - 'view group_node:fun_facts entity'
   - 'view group_node:funding_opportunities entity'
   - 'view group_node:image_album entity'

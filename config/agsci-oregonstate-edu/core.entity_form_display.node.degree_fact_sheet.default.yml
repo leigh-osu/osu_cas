@@ -1,4 +1,4 @@
-uuid: 56783710-49da-4696-a3f2-a43a923ee220
+uuid: f1262aa3-6f3d-4da2-8912-3e22b646c0cb
 langcode: en
 status: true
 dependencies:
@@ -51,6 +51,7 @@ dependencies:
     - field.field.node.degree_fact_sheet.field_domain_access
     - field.field.node.degree_fact_sheet.field_domain_all_affiliates
     - field.field.node.degree_fact_sheet.field_domain_source
+    - field.field.node.degree_fact_sheet.field_group_private
     - field.field.node.degree_fact_sheet.field_tax_cas_themes
     - image.style.thumbnail
     - node.type.degree_fact_sheet
@@ -540,6 +541,13 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_group_private:
+    type: boolean_checkbox
+    weight: 26
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_tax_cas_themes:
     type: entity_reference_autocomplete

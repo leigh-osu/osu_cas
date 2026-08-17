@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.project.field_domain_access
     - field.field.node.project.field_domain_all_affiliates
     - field.field.node.project.field_domain_source
+    - field.field.node.project.field_group_private
     - field.field.node.project.field_project_end_year
     - field.field.node.project.field_project_funding_source
     - field.field.node.project.field_project_image
@@ -183,6 +184,7 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
+  field_group_private: true
   field_project_thumbnail: true
   field_tax_cbarc: true
   field_tax_focus_area: true

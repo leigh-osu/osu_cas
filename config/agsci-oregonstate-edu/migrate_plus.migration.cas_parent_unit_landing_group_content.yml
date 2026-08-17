@@ -1,56 +1,67 @@
+uuid: 7f3f5052-0f6a-4fa6-8712-39c0a5b92ade
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: 9m64cbTvKNIW_iFVMj4OsqAT4fJsennxpFwzD4HghDI
 id: cas_parent_unit_landing_group_content
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
 migration_tags:
-  - Drupal 7 OG
-  - OSU Groups Content
-  - OSU Groups
+  - 'Drupal 7 OG'
+  - 'OSU Groups Content'
+  - 'OSU Groups'
   - OSU
   - CAS
-  - CAS Groups
+  - 'CAS Groups'
 migration_group: osu_groups
 label: 'Place the parent-unit replacement landing pages in their groups'
-# One row per replacement group: the landing page created by
-# cas_parent_unit_landing_page becomes group content of the group created by
-# cas_parent_unit_default_group. Both migrations key on the D7 parent-unit
-# nid, so the same source drives all three.
 source:
   plugin: d7_node_domain_access
   node_type: parent_unit
 process:
   only_replacements:
-    - plugin: static_map
+    -
+      plugin: static_map
       source: nid
       map:
         26734: 26734
         43: 43
       default_value: 0
-    - plugin: skip_on_empty
+    -
+      plugin: skip_on_empty
       method: row
       message: 'parent unit superseded by its default group'
   label:
-    - plugin: get
+    -
+      plugin: get
       source: title
-    - plugin: callback
+    -
+      plugin: callback
       callable: trim
   type:
     plugin: default_value
     default_value: basic_group-group_node-page
   gid:
-    - plugin: migration_lookup
+    -
+      plugin: migration_lookup
       migration: cas_parent_unit_default_group
       no_stub: true
       source: nid
-    - plugin: skip_on_empty
+    -
+      plugin: skip_on_empty
       method: row
       message: 'replacement group missing'
   entity_id:
-    - plugin: migration_lookup
+    -
+      plugin: migration_lookup
       migration: cas_parent_unit_landing_page
       no_stub: true
       source: nid
-    - plugin: skip_on_empty
+    -
+      plugin: skip_on_empty
       method: row
       message: 'landing page missing'
 destination:

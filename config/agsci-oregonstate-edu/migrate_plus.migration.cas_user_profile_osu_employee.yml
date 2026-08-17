@@ -1,9 +1,9 @@
-uuid: fee98851-487e-4429-a2a0-916883f44d82
+uuid: 99ab0111-0040-4bb9-883c-43bd28bb0eb2
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: NcVXdi4TJKd7DZ955yi-ZnCZjxsTFWCwIPdgtp6w8fw
+  default_config_hash: f4CGlW7UFOqEM3kCcV7MIh-BULRmHb_REip6ql-Xf20
 id: cas_user_profile_osu_employee
 class: null
 idMap: {  }
@@ -68,15 +68,8 @@ process:
           method: row
   field_profile_headquarters:
     -
-      plugin: static_map
+      plugin: get
       source: headquarters/0/value
-      map:
-        '01': 'OSU Main Campus'
-        '02': 'Cascades Campus'
-        '03': 'Hatfield Marine Science Center'
-        '04': 'Experiment Station'
-        '05': Other
-      default_value: null
     -
       plugin: skip_on_empty
       method: process

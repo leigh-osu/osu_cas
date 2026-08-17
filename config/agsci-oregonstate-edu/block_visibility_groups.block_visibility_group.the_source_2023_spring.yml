@@ -1,4 +1,4 @@
-uuid: ca53c9b0-a14b-420a-8bf6-e7d33ccf584c
+uuid: 4f3a6d49-9575-4f9c-9a6c-86ad296aec27
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: the_source_2023_spring
 label: the_source_2023_spring
 logic: and
 conditions:
-  f8b3ae90-0431-4607-9f80-ec394d386ec7:
+  89e7de1d-8453-43be-b7e4-0b5bc8d74639:
     id: request_path
     negate: false
-    uuid: f8b3ae90-0431-4607-9f80-ec394d386ec7
+    uuid: 89e7de1d-8453-43be-b7e4-0b5bc8d74639
     pages: '/thesource/spring-2023*'
 allow_other_conditions: null

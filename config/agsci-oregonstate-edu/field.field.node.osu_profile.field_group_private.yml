@@ -1,0 +1,23 @@
+uuid: fe23b5bb-7229-4b01-9656-2580417dfb3c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_group_private
+    - node.type.osu_profile
+id: node.osu_profile.field_group_private
+field_name: field_group_private
+entity_type: node
+bundle: osu_profile
+label: 'Group members only'
+description: 'Hide this content from everyone except members of its groups. Mirrors the Drupal 7 group content visibility setting.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Group members only'
+  off_label: Public
+field_type: boolean

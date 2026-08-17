@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.osu_profile.field_domain_access
     - field.field.node.osu_profile.field_domain_all_affiliates
     - field.field.node.osu_profile.field_domain_source
+    - field.field.node.osu_profile.field_group_private
     - field.field.node.osu_profile.field_osu_organizations
     - field.field.node.osu_profile.field_profile_address
     - field.field.node.osu_profile.field_profile_alt_phone
@@ -54,6 +55,7 @@ dependencies:
     - field.field.node.osu_profile.field_profile_stu_ac_interests
     - field.field.node.osu_profile.field_profile_stu_major_prof
     - field.field.node.osu_profile.field_profile_stu_majors
+    - field.field.node.osu_profile.field_profile_user
     - field.field.node.osu_profile.field_tax_faculty_expertise
     - image.style.x_large
     - node.type.osu_profile
@@ -151,6 +153,7 @@ third_party_settings:
       children:
         - field_profile_alt_phone
         - field_profile_fax
+        - field_profile_headquarters
       label: 'OSU Employee'
       region: content
       parent_name: ''
@@ -251,6 +254,13 @@ content:
     weight: 42
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_group_private:
+    type: boolean_checkbox
+    weight: 26
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_osu_organizations:
     type: entity_reference_autocomplete
@@ -497,12 +507,10 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
   field_profile_headquarters:
-    type: string_textfield
-    weight: 40
+    type: options_select
+    weight: 33
     region: content
-    settings:
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_profile_image:
     type: image_focal_point
@@ -702,4 +710,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_profile_user: true

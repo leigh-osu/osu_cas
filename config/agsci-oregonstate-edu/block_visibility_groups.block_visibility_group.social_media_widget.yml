@@ -1,4 +1,4 @@
-uuid: b570d527-2f39-47d8-9136-b419db7547e5
+uuid: fd0ccc9d-5120-405c-90e9-b0397570792a
 langcode: en
 status: true
 dependencies:
@@ -8,10 +8,10 @@ id: social_media_widget
 label: social_media_widget
 logic: and
 conditions:
-  1e981dac-b88e-48c0-8468-36cff5dbc038:
+  486e534b-a781-4491-aa09-bc5050d8fca6:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 1e981dac-b88e-48c0-8468-36cff5dbc038
+    uuid: 486e534b-a781-4491-aa09-bc5050d8fca6
     context_mapping:
       node: '@node.node_route_context:node'
     bundles:

@@ -1,0 +1,21 @@
+uuid: e86857a4-51dd-4735-a500-76fb2e9255d5
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - node
+_core:
+  default_config_hash: GJZ5cLJrF3LwZNJFr91jqzUCqz49kOFs0vemO2_5TSM
+id: node.field_feed_url
+field_name: field_feed_url
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

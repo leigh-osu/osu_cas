@@ -1,4 +1,4 @@
-uuid: 17300e40-5631-405b-bb5a-0771f8b7ba8e
+uuid: 77ed01e4-5ad3-487f-adef-6189147ba636
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: mcarec_landing_page_child_unit
 label: mcarec_landing-page-child-unit
 logic: and
 conditions:
-  0c0da52e-bff9-4dac-986c-c3a4309ef28a:
+  8c9f47f1-6038-458f-b771-c7eabfc9c099:
     id: request_path
     negate: false
-    uuid: 0c0da52e-bff9-4dac-986c-c3a4309ef28a
+    uuid: 8c9f47f1-6038-458f-b771-c7eabfc9c099
     pages: /node/109811
 allow_other_conditions: null

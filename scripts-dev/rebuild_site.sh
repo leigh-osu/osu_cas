@@ -172,7 +172,7 @@ section_1() {
   # Layout Builder UX, account links); the groups submodule carries the group
   # breadcrumbs, group create-content block and views group handlers; the
   # degrees submodule carries the degree-fact-sheet node template.
-  ddev drush en osu_cas_multisite osu_cas_multisite_degrees osu_cas_multisite_groups -y
+  ddev drush en osu_cas_multisite osu_cas_multisite_degrees osu_cas_multisite_groups osu_cas_weather slick slick_views -y
   # Live feeds: the Feed node type + per-feed block (D7 live_feeds). Must be
   # enabled before the paragraph migrations run -- their layouts emit
   # osu_live_feed:<nid> components for columns that referenced feed blocks.
@@ -538,10 +538,6 @@ section_6() {
   # only content was the feed block migrate with no section). Idempotent.
   ddev drush scr ../scripts-dev/place_live_feed_blocks.php
 
-  # Per-group membership types (Faculty, Grad Student, ...) onto profile
-  # group placements from D7 og_membership -- feeds profiles_group_membership
-  # (the D7 profiles_membership_larch rebuild). Idempotent.
-  ddev drush scr ../scripts-dev/populate_profile_membership_types.php
 
   # People-listing blocks into the layout slots where D7 embedded
   # profiles_membership_larch (207 placements). Idempotent.
@@ -607,6 +603,42 @@ section_7() {
   # Deliberately NOT tagged 'CAS Groups' (section 6): it must run after the
   # profile nodes above exist, or every row skips on the profile lookup.
   ddev drush migrate:import cas_profile_group_content --force
+
+  # Per-group membership types (Faculty, Grad Student, ...) onto the profile
+  # placements just created -- feeds profiles_group_membership. Must run
+  # AFTER cas_profile_group_content (in section 6 it found nothing to set).
+  ddev drush scr ../scripts-dev/populate_profile_membership_types.php
+
+  # Subgroup/division terms (D7 field_division, agricultural_sciences
+  # profile) onto profiles -- FW's division-filtered listings key on these.
+  ddev drush scr ../scripts-dev/backfill_profile_subgroups.php
+
+  # People listings the D7 context module placed by path (fw_profiles,
+  # sara_profiles, BEE signage, grad-faculty pages, ...). Idempotent.
+  ddev drush scr ../scripts-dev/place_context_profiles_blocks.php
+
+  # News listings and live feeds the context module placed by path
+  # (group article archives, landing-page teasers, events feeds). Idempotent.
+  ddev drush scr ../scripts-dev/place_context_news_blocks.php
+
+  # Files whose D7 names bake in URL-escapes (%20, %2F) 500 the image-style
+  # pipeline; decode and rename them. Idempotent.
+  ddev drush scr ../scripts-dev/fix_percent_filenames.php
+
+  # The Source masthead pair: knock out the white background (alpha PNGs;
+  # the GIF becomes a PNG), so the shared header block sits on the page
+  # ground on all ~330 Source pages. Idempotent.
+  ddev drush scr ../scripts-dev/fix_source_header_images.php
+
+  # Remote-video media arrive with the generic icon; fetch their oEmbed
+  # thumbnails (queued at migration) so video listings show real stills.
+  ddev drush queue:run media_entity_thumbnail --time-limit=900 || true
+
+  # Topic tags onto consolidated pages (veg/turf/SWD/nursery/COAREC/year/
+  # publication-type), then the topic resource listings the context module
+  # placed (articles_by_subject / articles_coarec). Idempotent.
+  ddev drush scr ../scripts-dev/backfill_topic_tags.php
+  ddev drush scr ../scripts-dev/place_context_term_blocks.php
 
   ddev drush migrate:import --tag='OSU Menus'
   ddev drush migrate:import --tag='OSU Blocks'
@@ -681,6 +713,49 @@ section_7() {
         "visibility" => [],
       ])->save();
     }'
+
+  # Group footer: the current group's contact card (map, address, e-mail,
+  # phone, hours, social, info links, 4th column) atop the site footer --
+  # the D10 fold of the 20 D7 contexts that placed group_information footer
+  # blocks by path. Renders nothing outside a group or on the main College
+  # group (its card is the site footer).
+  ddev drush php:eval '
+    if (!\Drupal\block\Entity\Block::load("manzanita_cas_group_footer")) {
+      \Drupal\block\Entity\Block::create([
+        "id" => "manzanita_cas_group_footer", "theme" => "manzanita",
+        "region" => "footer", "weight" => -10, "plugin" => "cas_group_footer",
+        "settings" => [
+          "id" => "cas_group_footer", "label" => "Group footer",
+          "label_display" => 0, "provider" => "osu_cas_multisite_groups",
+          "exclude_groups" => [228631],
+        ],
+        "visibility" => [],
+      ])->save();
+    }'
+
+  # Custom blocks and menus the D7 context module placed in theme regions
+  # (The Source issue menus in the sidebar, MES headers, EMT contacts, ...):
+  # manzanita_ctx_* blocks with request-path visibility. Idempotent.
+  ddev drush scr ../scripts-dev/place_context_region_blocks.php
+
+  # The Source issue menus as white-on-orange bars inside each issue page's
+  # layout (D7 placed them as sidebars). Idempotent.
+  ddev drush scr ../scripts-dev/place_source_issue_menus.php
+
+  # Weather station tables (weather_daily / weather_monthly views) where D7
+  # embedded them: Malheur home month-to-date table, Hyslop GDD headline and
+  # year table. Idempotent.
+  ddev drush scr ../scripts-dev/place_weather_blocks.php
+
+  # The remaining D7 view families: degree fact sheet cards, projects,
+  # publications, image galleries, artists, plant varieties, weeds, courses,
+  # videos, feature stories (feature stories first get their category /
+  # promote markers), fun facts, people embeds. Idempotent.
+  ddev drush scr ../scripts-dev/backfill_feature_stories.php
+  ddev drush scr ../scripts-dev/backfill_page_department.php
+  ddev drush scr ../scripts-dev/place_dfs_blocks.php
+  ddev drush scr ../scripts-dev/place_context_views_blocks.php
+  ddev drush scr ../scripts-dev/place_embed_blocks.php
 
   # Disable the Group module "Group operations" admin block (the big
   # Add-content / Leave-group block) on the front-facing themes.

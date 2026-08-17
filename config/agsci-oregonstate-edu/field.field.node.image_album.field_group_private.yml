@@ -1,0 +1,23 @@
+uuid: 24c9850a-e1d6-4350-b756-3c43a4735993
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_group_private
+    - node.type.image_album
+id: node.image_album.field_group_private
+field_name: field_group_private
+entity_type: node
+bundle: image_album
+label: 'Group members only'
+description: 'Hide this content from everyone except members of its groups. Mirrors the Drupal 7 group content visibility setting.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Group members only'
+  off_label: Public
+field_type: boolean

@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_subgroups
+    - node.type.osu_profile
+    - taxonomy.vocabulary.profile_subgroups
+id: node.osu_profile.field_profile_subgroups
+field_name: field_profile_subgroups
+entity_type: node
+bundle: osu_profile
+label: 'Subgroups / divisions'
+description: 'Department subgroup or division terms (D7 field_division) — FW divisions, Crop and Soil areas, and the like; drives division-filtered people listings.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      profile_subgroups: profile_subgroups
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

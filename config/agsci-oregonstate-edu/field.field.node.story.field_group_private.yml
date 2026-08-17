@@ -1,0 +1,23 @@
+uuid: b49bfa17-85e8-4667-bfe8-73838aba80cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_group_private
+    - node.type.story
+id: node.story.field_group_private
+field_name: field_group_private
+entity_type: node
+bundle: story
+label: 'Group members only'
+description: 'Hide this content from everyone except members of its groups. Mirrors the Drupal 7 group content visibility setting.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Group members only'
+  off_label: Public
+field_type: boolean

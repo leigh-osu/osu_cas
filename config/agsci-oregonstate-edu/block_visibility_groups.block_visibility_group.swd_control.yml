@@ -1,4 +1,4 @@
-uuid: 305d2d94-7f93-41da-9c9d-9222bd8641e3
+uuid: e67ec7da-0b64-403d-bec6-ed4da08ce317
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: swd_control
 label: swd_control
 logic: and
 conditions:
-  2d53efd3-050f-4a55-a1f1-264fb74d12f7:
+  221d6de4-41f4-489a-b3bc-814fad3db257:
     id: request_path
     negate: false
-    uuid: 2d53efd3-050f-4a55-a1f1-264fb74d12f7
+    uuid: 221d6de4-41f4-489a-b3bc-814fad3db257
     pages: /node/80111
 allow_other_conditions: null

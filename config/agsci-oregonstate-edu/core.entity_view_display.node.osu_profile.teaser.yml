@@ -1,4 +1,4 @@
-uuid: 54b67774-4b48-4b9c-aa17-8656024df2ab
+uuid: 650f4ce6-860b-4fc7-8969-dc672cdc0168
 langcode: en
 status: true
 dependencies:
@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.osu_profile.field_domain_access
     - field.field.node.osu_profile.field_domain_all_affiliates
     - field.field.node.osu_profile.field_domain_source
+    - field.field.node.osu_profile.field_group_private
     - field.field.node.osu_profile.field_osu_organizations
     - field.field.node.osu_profile.field_profile_address
     - field.field.node.osu_profile.field_profile_alt_phone
@@ -55,6 +56,7 @@ dependencies:
     - field.field.node.osu_profile.field_profile_stu_ac_interests
     - field.field.node.osu_profile.field_profile_stu_major_prof
     - field.field.node.osu_profile.field_profile_stu_majors
+    - field.field.node.osu_profile.field_profile_user
     - field.field.node.osu_profile.field_tax_faculty_expertise
     - node.type.osu_profile
   module:
@@ -120,6 +122,7 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
+  field_group_private: true
   field_osu_organizations: true
   field_profile_address: true
   field_profile_alt_phone: true
@@ -167,5 +170,6 @@ hidden:
   field_profile_stu_ac_interests: true
   field_profile_stu_major_prof: true
   field_profile_stu_majors: true
+  field_profile_user: true
   field_tax_faculty_expertise: true
   langcode: true

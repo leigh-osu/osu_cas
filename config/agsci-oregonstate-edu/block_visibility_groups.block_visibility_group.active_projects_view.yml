@@ -1,4 +1,4 @@
-uuid: 2ea04396-b064-404a-b822-62afbbdc2b6f
+uuid: 4067c275-0611-4942-a979-9e20dd86d089
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: active_projects_view
 label: active_projects_view
 logic: and
 conditions:
-  fdb43851-c50e-4421-aae3-c5024ae56482:
+  f51f6270-98bf-4c32-ab2c-9a5ff902815f:
     id: request_path
     negate: false
-    uuid: fdb43851-c50e-4421-aae3-c5024ae56482
+    uuid: f51f6270-98bf-4c32-ab2c-9a5ff902815f
     pages: "/weed-science-hort/research\r\n/node/257141"
 allow_other_conditions: null

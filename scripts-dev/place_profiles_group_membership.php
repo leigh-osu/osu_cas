@@ -364,7 +364,9 @@ foreach ($by_node as $nid => $items) {
   // now-empty section this script created on a previous run (label 'people').
   foreach ($list->getSections() as $section) {
     foreach ($section->getComponents() as $c) {
-      if (($c->get('configuration')['id'] ?? '') === 'cas_group_profiles') {
+      $cfg_existing = $c->get('configuration');
+      if (($cfg_existing['id'] ?? '') === 'cas_group_profiles'
+        && ($cfg_existing['placement'] ?? '') !== 'context') {
         $section->removeComponent($c->getUuid());
       }
     }

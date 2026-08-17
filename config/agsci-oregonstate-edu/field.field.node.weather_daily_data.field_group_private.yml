@@ -1,0 +1,23 @@
+uuid: 6888fac3-06e7-4095-9df8-04d2e1e96b7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_group_private
+    - node.type.weather_daily_data
+id: node.weather_daily_data.field_group_private
+field_name: field_group_private
+entity_type: node
+bundle: weather_daily_data
+label: 'Group members only'
+description: 'Hide this content from everyone except members of its groups. Mirrors the Drupal 7 group content visibility setting.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Group members only'
+  off_label: Public
+field_type: boolean
