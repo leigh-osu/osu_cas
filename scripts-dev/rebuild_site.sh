@@ -705,6 +705,25 @@ section_7() {
       ])->save();
     }'
 
+  # Group footer: the current group's contact card (map, address, e-mail,
+  # phone, hours, social, info links, 4th column) atop the site footer --
+  # the D10 fold of the 20 D7 contexts that placed group_information footer
+  # blocks by path. Renders nothing outside a group or on the main College
+  # group (its card is the site footer).
+  ddev drush php:eval '
+    if (!\Drupal\block\Entity\Block::load("manzanita_cas_group_footer")) {
+      \Drupal\block\Entity\Block::create([
+        "id" => "manzanita_cas_group_footer", "theme" => "manzanita",
+        "region" => "footer", "weight" => -10, "plugin" => "cas_group_footer",
+        "settings" => [
+          "id" => "cas_group_footer", "label" => "Group footer",
+          "label_display" => 0, "provider" => "osu_cas_multisite_groups",
+          "exclude_groups" => [228631],
+        ],
+        "visibility" => [],
+      ])->save();
+    }'
+
   # Disable the Group module "Group operations" admin block (the big
   # Add-content / Leave-group block) on the front-facing themes.
   ddev drush php:eval 'foreach (["manzanita_groupoperations", "madrone_groupoperations"] as $id) { if ($b = \Drupal\block\Entity\Block::load($id)) { $b->disable()->save(); } }'

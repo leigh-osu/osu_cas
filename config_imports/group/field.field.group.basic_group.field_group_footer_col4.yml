@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_group_footer_col4
+    - group.type.basic_group
+  module:
+    - text
+id: group.basic_group.field_group_footer_col4
+field_name: field_group_footer_col4
+entity_type: group
+bundle: basic_group
+label: 'Footer fourth column'
+description: 'Extra HTML for the last column of the group footer (affiliations, a second map, ...).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

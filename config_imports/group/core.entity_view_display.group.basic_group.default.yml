@@ -10,6 +10,7 @@ dependencies:
     - field.field.group.basic_group.field_group_add_info
     - field.field.group.basic_group.field_group_email
     - field.field.group.basic_group.field_group_facebook
+    - field.field.group.basic_group.field_group_footer_col4
     - field.field.group.basic_group.field_group_home_page
     - field.field.group.basic_group.field_group_hours
     - field.field.group.basic_group.field_group_info_sheet
@@ -21,6 +22,7 @@ dependencies:
     - field.field.group.basic_group.field_group_location_name
     - field.field.group.basic_group.field_group_location_state
     - field.field.group.basic_group.field_group_location_zip
+    - field.field.group.basic_group.field_group_map
     - field.field.group.basic_group.field_group_newsletter_link
     - field.field.group.basic_group.field_group_parent
     - field.field.group.basic_group.field_group_phone
@@ -566,7 +568,9 @@ hidden:
   field_group_email: true
   field_group_facebook: true
   field_group_home_page: true
+  field_group_footer_col4: true
   field_group_hours: true
+  field_group_map: true
   field_group_info_sheet: true
   field_group_instagram: true
   field_group_linkedin: true
