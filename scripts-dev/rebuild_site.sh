@@ -753,6 +753,7 @@ section_7() {
   # promote markers), fun facts, people embeds. Idempotent.
   ddev drush scr ../scripts-dev/backfill_feature_stories.php
   ddev drush scr ../scripts-dev/backfill_page_department.php
+  ddev drush scr ../scripts-dev/backfill_aeb_attachments.php
   ddev drush scr ../scripts-dev/place_dfs_blocks.php
   ddev drush scr ../scripts-dev/place_context_views_blocks.php
   ddev drush scr ../scripts-dev/place_embed_blocks.php
