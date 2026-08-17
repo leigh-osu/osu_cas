@@ -1,8 +1,13 @@
 version: 1.3.0
 
+# Acquia Pipelines expects `services` as a SEQUENCE of single-key maps. As a
+# plain mapping the php entry is ignored and the build runs the image's default
+# PHP, which is < 8.0 -- and Composer now refuses to extract tar/tgz archives on
+# PHP < 8.0, which is every asset-packagist dependency (25 of them: slick,
+# blazy, chart.js, highcharts, dropzone, ...).
 services:
-  php:
-    version: 8.3
+  - php:
+      version: 8.3
 
 variables:
   global:
