@@ -172,7 +172,7 @@ section_1() {
   # Layout Builder UX, account links); the groups submodule carries the group
   # breadcrumbs, group create-content block and views group handlers; the
   # degrees submodule carries the degree-fact-sheet node template.
-  ddev drush en osu_cas_multisite osu_cas_multisite_degrees osu_cas_multisite_groups -y
+  ddev drush en osu_cas_multisite osu_cas_multisite_degrees osu_cas_multisite_groups osu_cas_weather -y
   # Live feeds: the Feed node type + per-feed block (D7 live_feeds). Must be
   # enabled before the paragraph migrations run -- their layouts emit
   # osu_live_feed:<nid> components for columns that referenced feed blocks.
@@ -737,6 +737,11 @@ section_7() {
   # The Source issue menus as white-on-orange bars inside each issue page's
   # layout (D7 placed them as sidebars). Idempotent.
   ddev drush scr ../scripts-dev/place_source_issue_menus.php
+
+  # Weather station tables (weather_daily / weather_monthly views) where D7
+  # embedded them: Malheur home month-to-date table, Hyslop GDD headline and
+  # year table. Idempotent.
+  ddev drush scr ../scripts-dev/place_weather_blocks.php
 
   # Disable the Group module "Group operations" admin block (the big
   # Add-content / Leave-group block) on the front-facing themes.
