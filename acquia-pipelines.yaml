@@ -16,7 +16,31 @@ events:
           script:
             - echo "{\"github-oauth\":{\"github.com\":\"${GITHUB_TOKEN}\"}}" > auth.json
 
+      # TEMPORARY diagnostic step -- remove once the build failure is understood.
+      # Prints environment facts and connectivity checks only. The token itself
+      # is never echoed; only whether it is set and how long it is.
+      - diagnose:
+          script:
+            - 'echo "=== versions"'
+            - 'php -v | head -1'
+            - 'composer --version'
+            - 'echo "=== github token"'
+            - 'if [ -z "${GITHUB_TOKEN:-}" ]; then echo "GITHUB_TOKEN: EMPTY OR UNSET"; else case "$GITHUB_TOKEN" in ghp_*) k="classic ghp_";; github_pat_*) k="fine-grained";; gho_*|ghs_*) k="app/oauth";; *) k="unrecognised prefix";; esac; echo "GITHUB_TOKEN: set, ${#GITHUB_TOKEN} chars, $k"; fi'
+            - 'echo "=== auth.json shape"'
+            - 'php -r "\$j=json_decode(file_get_contents(\"auth.json\"),true); \$t=\$j[\"github-oauth\"][\"github.com\"] ?? \"\"; echo \"auth.json token length: \".strlen(\$t).PHP_EOL;"'
+            - 'echo "=== github api (authenticated)"'
+            - 'curl -s -o /dev/null -w "api.github.com/user: %{http_code}\n" -H "Authorization: Bearer ${GITHUB_TOKEN:-none}" https://api.github.com/user || true'
+            - 'curl -s -w "rate limit remaining: %{http_code} " -o /tmp/rl.json -H "Authorization: Bearer ${GITHUB_TOKEN:-none}" https://api.github.com/rate_limit || true'
+            - 'php -r "\$d=json_decode(@file_get_contents(\"/tmp/rl.json\"),true); echo (\$d[\"resources\"][\"core\"][\"remaining\"] ?? \"?\").\"/\".(\$d[\"resources\"][\"core\"][\"limit\"] ?? \"?\").PHP_EOL;" || true'
+            - 'echo "=== anonymous reach to the four packages"'
+            - 'for r in manzanita osu_cas_multisite osu_migrations_cas osu_cas_site_sync; do curl -s -o /dev/null -w "$r: %{http_code}\n" "https://api.github.com/repos/leigh-osu/$r"; done || true'
+            - 'echo "=== packagist reachable"'
+            - 'curl -s -o /dev/null -w "packagist: %{http_code}\n" https://repo.packagist.org/packages.json || true'
+            - 'echo "=== disk"'
+            - 'df -h . | tail -1'
+
       - composer:
           script:
             - composer validate --no-check-all --ansi
-            - composer install --no-progress --optimize-autoloader --no-dev
+            - composer install --no-progress --optimize-autoloader --no-dev -vvv > /tmp/composer-install.log 2>&1 || { echo "=== composer install FAILED, last 150 lines:"; tail -150 /tmp/composer-install.log; exit 1; }
+            - tail -5 /tmp/composer-install.log
