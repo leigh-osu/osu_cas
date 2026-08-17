@@ -7,6 +7,8 @@ dependencies:
     - link
     - node
     - options
+    - slick
+    - slick_views
     - text
     - user
 id: feature_stories
@@ -348,7 +350,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<div class="cas-feature-story">{% set url = field_osu_story_external_url ?: view_node %}<a class="cas-feature-story__image" href="{{ url }}">{{ field_osu_story_cover_image }}</a><h3 class="fs-title"><a href="{{ url }}">{{ title }}</a></h3>{% if field_osu_story_caption %}<p class="fs-caption">{{ field_osu_story_caption }}</p>{% endif %}</div>'
+            text: '<div class="cas-feature-story">{% set url = field_osu_story_external_url ?: view_node %}<a class="cas-feature-story__image" href="{{ url }}">{{ field_osu_story_cover_image }}</a><div class="cas-feature-story__caption"><h3 class="fs-title"><a href="{{ url }}">{{ title }}</a></h3>{% if field_osu_story_caption %}<p class="fs-caption">{{ field_osu_story_caption }}</p>{% endif %}</div></div>'
             make_link: false
             path: ''
             absolute: false
@@ -697,12 +699,67 @@ display:
       defaults:
         title: false
         pager: false
+        style: false
       pager:
         type: some
         options:
           offset: 0
           items_per_page: 5
-      block_description: 'Feature stories: latest five'
+      style:
+        type: slick
+        options:
+          grouping: [  ]
+          row_class: ''
+          default_row_class: true
+          uses_fields: true
+          optionset: cas_feature_banner
+          override: false
+          overridables: [  ]
+          skin: default
+          skin_arrows: ''
+          skin_dots: ''
+          use_theme_field: false
+          preserve_keys: false
+          visible_items: 0
+          optionset_thumbnail: ''
+          skin_thumbnail: ''
+          thumbnail_caption: ''
+          thumbnail_effect: ''
+          thumbnail_position: ''
+          thumbnail: ''
+          breakpoints: [  ]
+          sizes: ''
+          grid_header: ''
+          grid: 0
+          grid_medium: 0
+          grid_small: 0
+          style: ''
+          layout: ''
+          caption: [  ]
+          image: ''
+          link: ''
+          overlay: ''
+          title: ''
+          class: ''
+          id: ''
+          vanilla: true
+          background: false
+          cache: 0
+          lazy: ''
+          loading: lazy
+          media_switch: ''
+          ratio: ''
+          view_mode: ''
+          responsive_image_style: ''
+          box_style: ''
+          box_media_style: ''
+          box_caption: ''
+          box_caption_custom: ''
+          thumbnail_style: ''
+          image_style: ''
+          by_delta: -1
+          placeholder: ''
+      block_description: 'Feature stories: rotating banner, latest five'
       block_category: OSU CAS
     cache_metadata:
       max-age: -1
@@ -725,12 +782,67 @@ display:
       defaults:
         title: false
         pager: false
+        style: false
       pager:
         type: some
         options:
           offset: 0
           items_per_page: 10
-      block_description: 'Feature stories: latest ten'
+      style:
+        type: slick
+        options:
+          grouping: [  ]
+          row_class: ''
+          default_row_class: true
+          uses_fields: true
+          optionset: cas_feature_banner
+          override: false
+          overridables: [  ]
+          skin: default
+          skin_arrows: ''
+          skin_dots: ''
+          use_theme_field: false
+          preserve_keys: false
+          visible_items: 0
+          optionset_thumbnail: ''
+          skin_thumbnail: ''
+          thumbnail_caption: ''
+          thumbnail_effect: ''
+          thumbnail_position: ''
+          thumbnail: ''
+          breakpoints: [  ]
+          sizes: ''
+          grid_header: ''
+          grid: 0
+          grid_medium: 0
+          grid_small: 0
+          style: ''
+          layout: ''
+          caption: [  ]
+          image: ''
+          link: ''
+          overlay: ''
+          title: ''
+          class: ''
+          id: ''
+          vanilla: true
+          background: false
+          cache: 0
+          lazy: ''
+          loading: lazy
+          media_switch: ''
+          ratio: ''
+          view_mode: ''
+          responsive_image_style: ''
+          box_style: ''
+          box_media_style: ''
+          box_caption: ''
+          box_caption_custom: ''
+          thumbnail_style: ''
+          image_style: ''
+          by_delta: -1
+          placeholder: ''
+      block_description: 'Feature stories: rotating banner, latest ten'
       block_category: OSU CAS
     cache_metadata:
       max-age: -1
