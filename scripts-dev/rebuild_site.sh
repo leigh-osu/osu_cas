@@ -754,6 +754,11 @@ section_7() {
   ddev drush scr ../scripts-dev/backfill_feature_stories.php
   ddev drush scr ../scripts-dev/backfill_page_department.php
   ddev drush scr ../scripts-dev/backfill_aeb_attachments.php
+  # D7's ~24k unmanaged public files (IMCE/FTP uploads with no file_managed
+  # row) are copied and registered as file entities; the 8k referenced from
+  # content also become media. Nothing else in the migration touches them.
+  bash ../scripts-dev/stage_unmanaged_files.sh
+  ddev drush scr ../scripts-dev/register_unmanaged_files.php
   ddev drush scr ../scripts-dev/place_dfs_blocks.php
   ddev drush scr ../scripts-dev/place_context_views_blocks.php
   ddev drush scr ../scripts-dev/place_embed_blocks.php
