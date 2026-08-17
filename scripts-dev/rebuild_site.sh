@@ -485,6 +485,11 @@ section_6() {
   # imported before the CAS group migrations, which populate those fields.
   echo 'installing group settings'
   ddev drush config:import --partial --source=../config_imports/group -y
+  # Profiles and feeds get URLs from their own patterns, not from group
+  # placement: the group_content pattern put every group-placed profile at
+  # /group/<gid>/<name>. Drop it so /directory/people/<name> (and /feed/<title>)
+  # win, then build the aliases.
+  ddev drush php:eval 'if ($p = \Drupal::entityTypeManager()->getStorage("pathauto_pattern")->load("group_content")) { $p->delete(); print "deleted group_content pathauto pattern\n"; }'
 
   ddev drush cr -y
 
@@ -753,6 +758,8 @@ section_7() {
   # promote markers), fun facts, people embeds. Idempotent.
   ddev drush scr ../scripts-dev/backfill_feature_stories.php
   ddev drush scr ../scripts-dev/backfill_page_department.php
+  ddev drush scr ../scripts-dev/repath_profiles.php
+  ddev drush scr ../scripts-dev/repath_feed_aliases.php
   ddev drush scr ../scripts-dev/backfill_aeb_attachments.php
   # D7's ~24k unmanaged public files (IMCE/FTP uploads with no file_managed
   # row) are copied and registered as file entities; the 8k referenced from
