@@ -5,6 +5,11 @@
  * Place cas_content_by_term blocks where D7 contexts placed the
  * articles_by_subject / articles_coarec topic listings.
  *
+ * Also carries the Malheur Experiment Station crop/topic publication lists
+ * (malhuer_publications, 31 contexts) as titles-only listings; the stray
+ * exposed "Has taxonomy term" autocomplete on two of those displays is
+ * treated as the fixed term it defaulted to.
+ *
  * Approximations, deliberate: broad "is tagged for this site" guard lists
  * are dropped where a selective term set exists (SWD/turf/NGC primaries);
  * the OV all-content lists use the four OV section tags as an any-of set;
@@ -21,23 +26,23 @@ use Drupal\layout_builder\SectionComponent;
 // nid => list of cas_content_by_term settings.
 $placements = [
   // Nursery, Greenhouse & Christmas Trees.
-  79961 => [['exposed' => 'list_nursery', 'bundles' => ['story', 'page'], 'all' => [2616]]],
-  63566 => [['exposed' => 'list_nursery', 'bundles' => ['story', 'page'], 'all' => [2616]]],
-  79936 => [['exposed' => 'archive_nursery', 'bundles' => ['story'], 'any' => [2591, 2596, 2601, 2606, 2611, 2616, 2621, 2626]]],
+  79961 => [['title' => 'Publications', 'exposed' => 'list_nursery', 'bundles' => ['story', 'page'], 'all' => [2616]]],
+  63566 => [['title' => 'Publications', 'exposed' => 'list_nursery', 'bundles' => ['story', 'page'], 'all' => [2616]]],
+  79936 => [['title' => 'Publications', 'exposed' => 'archive_nursery', 'bundles' => ['story'], 'any' => [2591, 2596, 2601, 2606, 2611, 2616, 2621, 2626]]],
   // Spotted Wing Drosophila.
-  80111 => [['exposed' => 'list_swd', 'all' => [2866]]],
-  80101 => [['exposed' => 'list_swd', 'all' => [2861]]],
-  80106 => [['exposed' => 'list_swd', 'all' => [2871]]],
+  80111 => [['title' => 'Resources', 'exposed' => 'list_swd', 'all' => [2866]]],
+  80101 => [['title' => 'Resources', 'exposed' => 'list_swd', 'all' => [2861]]],
+  80106 => [['title' => 'Resources', 'exposed' => 'list_swd', 'all' => [2871]]],
   // Beaver Turf.
-  77606 => [['exposed' => 'list_turf', 'bundles' => ['story', 'page'], 'all' => [2996]]],
-  77596 => [['exposed' => 'list_turf', 'bundles' => ['story', 'page'], 'all' => [3001]]],
-  77601 => [['exposed' => 'list_turf', 'bundles' => ['story', 'page'], 'all' => [3006]]],
+  77606 => [['title' => 'Publications', 'exposed' => 'list_turf', 'bundles' => ['story', 'page'], 'all' => [2996]]],
+  77596 => [['title' => 'Publications', 'exposed' => 'list_turf', 'bundles' => ['story', 'page'], 'all' => [3001]]],
+  77601 => [['title' => 'Publications', 'exposed' => 'list_turf', 'bundles' => ['story', 'page'], 'all' => [3006]]],
   // Oregon Vegetables.
-  80271 => [['exposed' => 'archive_veg_video', 'bundles' => ['video'], 'any' => [3211, 3216, 3221, 3226]]],
-  83621 => [['bundles' => ['video'], 'all' => [3211]]],
-  77586 => [['exposed' => 'list_veg', 'bundles' => ['story'], 'any' => [3211, 3216, 3221, 3226]]],
-  83116 => [['bundles' => ['video'], 'all' => [3221]]],
-  83656 => [['bundles' => ['video'], 'all' => [3226]]],
+  80271 => [['title' => 'Videos', 'exposed' => 'archive_veg_video', 'bundles' => ['video'], 'any' => [3211, 3216, 3221, 3226]]],
+  83621 => [['title' => 'Videos', 'bundles' => ['video'], 'all' => [3211]]],
+  77586 => [['title' => 'Publications', 'exposed' => 'list_veg', 'bundles' => ['story'], 'any' => [3211, 3216, 3221, 3226]]],
+  83116 => [['title' => 'Videos', 'bundles' => ['video'], 'all' => [3221]]],
+  83656 => [['title' => 'Videos', 'bundles' => ['video'], 'all' => [3226]]],
   // COAREC annual reports (year AND publication-type 5891) and topics.
   166661 => [['bundles' => ['story'], 'all' => [5966, 5891]]],
   166656 => [['bundles' => ['story'], 'all' => [5971, 5891]]],
@@ -46,9 +51,42 @@ $placements = [
   166646 => [['bundles' => ['story'], 'all' => [5986, 5891]]],
   166641 => [['bundles' => ['story'], 'all' => [5991, 5891]]],
   166636 => [['bundles' => ['story'], 'all' => [5996, 5891]]],
-  118361 => [['bundles' => ['story'], 'all' => [5891, 12511], 'any' => [12141, 14796]]],
+  118361 => [['title' => 'Disease Control in Carrot Seeds', 'bundles' => ['story'], 'all' => [5891, 12511], 'any' => [12141, 14796]]],
   // COAREC article archive (articles_coarec block_5: exposed year/author/topic).
-  118256 => [['exposed' => 'archive_coarec', 'bundles' => ['story']]],
+  118256 => [['title' => 'Annual Reports', 'exposed' => 'archive_coarec', 'bundles' => ['story']]],
+  // Malheur Experiment Station crop/topic publication lists (D7
+  // malhuer_publications block_N per context): titles only, stories tagged
+  // with the crop / Malheur-topic / publication-type term.
+  45271 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6061]]], // Alfalfa
+  45276 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6101]]], // Onion
+  45281 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6106]]], // Potatoes
+  45286 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6146]]], // Sugar Beets
+  45291 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6081]]], // Corn
+  45296 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6171]]], // Wheat
+  45301 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6091]]], // Mint
+  45306 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6086]]], // Dry Beans
+  45311 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6156]]], // Teff
+  45316 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6116]]], // Poplar Trees
+  45321 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6096]]], // Wildflowers
+  45326 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6131]]], // Soybeans
+  45331 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6111]]], // Pumpkin
+  45336 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6151]]], // Sweet Potatoes
+  45341 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6066]]], // Asparagus
+  45346 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6076]]], // Camelina
+  45391 => [['style' => 'titles', 'bundles' => ['story'], 'all' => [5771], 'title' => 'Cooperative Extension Brochures']], // Extension Brochures
+  112771 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6121]]], // Quinoa
+  112776 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6126]]], // Rangeland
+  112786 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6141]]], // Stevia
+  112811 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6136]]], // Squash and Gourds
+  112816 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6161]]], // Tomato
+  112821 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6166]]], // Veratrum
+  112826 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [5601]]], // Irrigation and Water Management
+  112831 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [5631]], ['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [5831]]], // Weed Control / Pest Control
+  112841 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6176]]], // Yellow Nutsedge
+  112846 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6181]]], // Yew Trees
+  112896 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [5606]]], // Weather
+  115931 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [6071]]], // California Yerba Santa
+  249791 => [['style' => 'titles', 'heading' => TRUE, 'title' => 'Malheur Publications', 'bundles' => ['story'], 'all' => [20361]]], // Refereed Journals
 ];
 
 $storage = \Drupal::entityTypeManager()->getStorage('node');
@@ -84,12 +122,14 @@ foreach ($placements as $nid => $items) {
       'region' => 'blb_region_col_1',
       'configuration' => [
         'id' => 'cas_content_by_term',
-        'label' => 'Topic listing',
+        'label' => $spec['title'] ?? 'Topic listing',
         'provider' => 'osu_cas_multisite_groups',
-        'label_display' => '0',
+        'label_display' => isset($spec['title']) ? 'visible' : '0',
         'context_mapping' => [],
         'placement' => 'context',
         'items' => 0,
+        'style' => $spec['style'] ?? 'full',
+        'term_heading' => !empty($spec['heading']),
         'bundles' => $spec['bundles'] ?? [],
         'terms_all' => $spec['all'] ?? [],
         'terms_any' => $spec['any'] ?? [],

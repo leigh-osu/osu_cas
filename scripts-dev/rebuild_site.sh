@@ -625,6 +625,11 @@ section_7() {
   # pipeline; decode and rename them. Idempotent.
   ddev drush scr ../scripts-dev/fix_percent_filenames.php
 
+  # The Source masthead pair: knock out the white background (alpha PNGs;
+  # the GIF becomes a PNG), so the shared header block sits on the page
+  # ground on all ~330 Source pages. Idempotent.
+  ddev drush scr ../scripts-dev/fix_source_header_images.php
+
   # Topic tags onto consolidated pages (veg/turf/SWD/nursery/COAREC/year/
   # publication-type), then the topic resource listings the context module
   # placed (articles_by_subject / articles_coarec). Idempotent.
@@ -723,6 +728,15 @@ section_7() {
         "visibility" => [],
       ])->save();
     }'
+
+  # Custom blocks and menus the D7 context module placed in theme regions
+  # (The Source issue menus in the sidebar, MES headers, EMT contacts, ...):
+  # manzanita_ctx_* blocks with request-path visibility. Idempotent.
+  ddev drush scr ../scripts-dev/place_context_region_blocks.php
+
+  # The Source issue menus as white-on-orange bars inside each issue page's
+  # layout (D7 placed them as sidebars). Idempotent.
+  ddev drush scr ../scripts-dev/place_source_issue_menus.php
 
   # Disable the Group module "Group operations" admin block (the big
   # Add-content / Leave-group block) on the front-facing themes.

@@ -38,11 +38,11 @@ $placements = [
   44702 => [['term' => 796]],
   44703 => [['term' => 801]],
   // FW courtesy directory (block_13) and faculty directory (block_9).
-  114391 => [['exposed' => 'directory_division_courtesy', 'types' => [374, 284]]],
-  42111 => [['exposed' => 'directory_division', 'types' => [826, 281, 282, 283, 289, 288, 293, 290]]],
+  114391 => [['title' => 'Faculty Directory', 'exposed' => 'directory_division_courtesy', 'types' => [374, 284]]],
+  42111 => [['title' => 'Faculty Directory', 'exposed' => 'directory_division', 'types' => [826, 281, 282, 283, 289, 288, 293, 290]]],
   // SOREC/SARA membership-type directories.
-  86346 => [['types' => [4346]]],
-  86366 => [['types' => [4336]]],
+  86346 => [['title' => 'Directory of Former Faculty', 'types' => [4346]]],
+  86366 => [['title' => 'Directory of Former Students', 'types' => [4336]]],
   86566 => [['types' => [296]]],
   107576 => [['types' => [296]]],
   // Food Science faculty directory: four lists in context weight order.
@@ -72,7 +72,7 @@ $placements = [
   166801 => [['not_types' => [4366, 295, 296, 471, 3851, 466, 4346, 4336, 4351, 4341], 'group' => 25345]],
   263201 => [['not_types' => [4366, 295, 296, 471, 3851, 466, 4346, 4336, 4351, 4341], 'group' => 25345]],
   // All CAS People (people block_12): the full directory.
-  227111 => [['exposed' => 'directory_names', 'all_groups' => TRUE]],
+  227111 => [['title' => 'Directory', 'exposed' => 'directory_names', 'all_groups' => TRUE]],
 ];
 
 $db = \Drupal::database();
@@ -119,9 +119,9 @@ foreach ($placements as $nid => $items) {
       'region' => 'blb_region_col_1',
       'configuration' => [
         'id' => 'cas_group_profiles',
-        'label' => 'People listing',
+        'label' => $spec['title'] ?? 'People listing',
         'provider' => 'osu_cas_multisite_groups',
-        'label_display' => '0',
+        'label_display' => isset($spec['title']) ? 'visible' : '0',
         'context_mapping' => [],
         'placement' => 'context',
         'display' => 'list',
