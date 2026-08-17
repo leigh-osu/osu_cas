@@ -630,6 +630,10 @@ section_7() {
   # ground on all ~330 Source pages. Idempotent.
   ddev drush scr ../scripts-dev/fix_source_header_images.php
 
+  # Remote-video media arrive with the generic icon; fetch their oEmbed
+  # thumbnails (queued at migration) so video listings show real stills.
+  ddev drush queue:run media_entity_thumbnail --time-limit=900 || true
+
   # Topic tags onto consolidated pages (veg/turf/SWD/nursery/COAREC/year/
   # publication-type), then the topic resource listings the context module
   # placed (articles_by_subject / articles_coarec). Idempotent.
@@ -742,6 +746,15 @@ section_7() {
   # embedded them: Malheur home month-to-date table, Hyslop GDD headline and
   # year table. Idempotent.
   ddev drush scr ../scripts-dev/place_weather_blocks.php
+
+  # The remaining D7 view families: degree fact sheet cards, projects,
+  # publications, image galleries, artists, plant varieties, weeds, courses,
+  # videos, feature stories (feature stories first get their category /
+  # promote markers), fun facts, people embeds. Idempotent.
+  ddev drush scr ../scripts-dev/backfill_feature_stories.php
+  ddev drush scr ../scripts-dev/place_dfs_blocks.php
+  ddev drush scr ../scripts-dev/place_context_views_blocks.php
+  ddev drush scr ../scripts-dev/place_embed_blocks.php
 
   # Disable the Group module "Group operations" admin block (the big
   # Add-content / Leave-group block) on the front-facing themes.

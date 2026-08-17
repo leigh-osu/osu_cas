@@ -23,6 +23,9 @@ settings:
       value: story_internal
       label: 'Internal story'
     -
+      value: feature_story
+      label: 'Feature story'
+    -
       value: story_osu
       label: 'OSU Story'
   allowed_values_function: ''

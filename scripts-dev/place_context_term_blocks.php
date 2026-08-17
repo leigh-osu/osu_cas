@@ -54,6 +54,11 @@ $placements = [
   118361 => [['title' => 'Disease Control in Carrot Seeds', 'bundles' => ['story'], 'all' => [5891, 12511], 'any' => [12141, 14796]]],
   // COAREC article archive (articles_coarec block_5: exposed year/author/topic).
   118256 => [['title' => 'Annual Reports', 'exposed' => 'archive_coarec', 'bundles' => ['story']]],
+  // OWRI topic articles (owri_tags block), organic-ag news by vegetable topic
+  // (articles_by_topic block_3), OV editorial article table (articles block_4).
+  38026 => [['exposed' => 'list_owri', 'bundles' => ['story']]],
+  80306 => [['exposed' => 'list_vegtags', 'bundles' => ['story'], 'title' => 'News Articles']],
+  122476 => [['bundles' => ['story'], 'title' => 'News Articles']],
   // Malheur Experiment Station crop/topic publication lists (D7
   // malhuer_publications block_N per context): titles only, stories tagged
   // with the crop / Malheur-topic / publication-type term.
