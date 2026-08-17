@@ -760,6 +760,7 @@ section_7() {
   ddev drush scr ../scripts-dev/backfill_page_department.php
   ddev drush scr ../scripts-dev/repath_profiles.php
   ddev drush scr ../scripts-dev/repath_feed_aliases.php
+  ddev drush scr ../scripts-dev/link_profiles_to_accounts.php
   ddev drush scr ../scripts-dev/backfill_aeb_attachments.php
   # D7's ~24k unmanaged public files (IMCE/FTP uploads with no file_managed
   # row) are copied and registered as file entities; the 8k referenced from

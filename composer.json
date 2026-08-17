@@ -569,7 +569,8 @@
                 "3194370-5 Memory Limit issues": "https://www.drupal.org/files/issues/2022-09-15/memory-limit-3194370-5.patch"
             },
             "osu-wams/osu_groups": {
-                "Show the page title on group canonical pages": "patches/osu_groups-show-group-page-title.patch"
+                "Show the page title on group canonical pages": "patches/osu_groups-show-group-page-title.patch",
+                "Profiles and feeds keep their own paths instead of a group-scoped one": "patches/osu_groups-profile-paths-not-group-scoped.patch"
             },
             "osu-wams/osu_migrations": {
                 "Map larch inline text classes in accordion bodies via osu_migrations_cas": "patches/osu_migrations-accordion-inline-classes.patch",

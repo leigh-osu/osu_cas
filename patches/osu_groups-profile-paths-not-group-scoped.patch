@@ -1,0 +1,32 @@
+Give profiles (and feeds) their own URL pattern instead of a group-scoped one.
+
+osu_groups_basic_group_pathauto_pattern_alter() overrides whatever pattern
+matched with "/[node:group:url:path]/[node:title]" for any group-placed node
+without a menu link. That is right for pages, which belong to a unit's
+section of the site, but wrong for people and feeds: a person is not owned by
+one group, and their URL should not move if their group membership changes.
+It also meant a plain node save silently rewrote the alias, so any bulk edit
+undid a deliberate path.
+
+Profiles are addressed at /directory/people/<name> and feeds at /feed/<title>
+via their own pathauto patterns; exclude both bundles here so those patterns
+are left alone.
+
+--- a/modules/osu_groups_basic_group/osu_groups_basic_group.module
++++ b/modules/osu_groups_basic_group/osu_groups_basic_group.module
+@@ -65,6 +65,15 @@
+ function osu_groups_basic_group_pathauto_pattern_alter(PathautoPatternInterface $pattern, array $context) {
+   if ($context['module'] === 'node' && $context['op'] == 'update') {
+     $node = $context['data']['node'];
++    // Bundles that carry their own site-wide pattern. A person or a feed is
++    // not owned by the group it happens to be placed in, and forcing a
++    // group-scoped path here would also rewrite the alias on every save.
++    $site_wide_bundles = ['osu_profile', 'feed'];
++    \Drupal::moduleHandler()->alter('osu_groups_site_wide_path_bundles', $site_wide_bundles);
++    if (in_array($node->bundle(), $site_wide_bundles, TRUE)) {
++      return;
++    }
++
+     /** @var \Drupal\osu_groups\OsuGroupsHandler $group_handler */
+     $group_handler = Drupal::service('osu_groups.group_handler');
+     $group_content = $group_handler->getGroupContentFromNode($node);
