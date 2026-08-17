@@ -62,3 +62,7 @@
 scripts-dev/unmanaged/all.txt
 scripts-dev/unmanaged/managed_uris.txt
 scripts-dev/unmanaged/disk_files.txt
+scripts-dev/unmanaged/d10_disk_files.txt
+scripts-dev/unmanaged/referenced_unmanaged*.txt
+scripts-dev/unmanaged/case_mismatch_links.tsv
+scripts-dev/missing_file_links.csv
