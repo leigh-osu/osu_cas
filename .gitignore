@@ -59,3 +59,6 @@
 
 # Shared Claude Code project settings (the rest of .claude stays local)
 !/.claude/settings.json
+scripts-dev/unmanaged/all.txt
+scripts-dev/unmanaged/managed_uris.txt
+scripts-dev/unmanaged/disk_files.txt
