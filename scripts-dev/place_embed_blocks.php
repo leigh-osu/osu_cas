@@ -24,11 +24,11 @@ use Drupal\layout_builder\SectionComponent;
 $placements = [
   // fun facts (D7 fun_facts view).
   [235426, 'fc:26491', 7, 'cas_fun_facts', ['variant' => 'random3', 'items' => 3], NULL],
-  [240061, 'fc:75791', 4, 'cas_fun_facts', ['variant' => 'illustrated', 'items' => 3], 'Did you know...'],
-  [254826, 'fc:75796', 6, 'cas_fun_facts', ['variant' => 'illustrated', 'items' => 3], 'Did you know...'],
-  [257961, 'fc:74981', 8, 'cas_fun_facts', ['variant' => 'illustrated', 'items' => 3, 'group_override' => 211281], 'Did you know...'],
-  [258076, 'para:86011', 0, 'cas_fun_facts', ['variant' => 'all'], 'Did you know...'],
-  [258991, 'para:87176', 0, 'cas_fun_facts', ['variant' => 'all'], 'Did you know...'],
+  [240061, 'fc:75791', 4, 'cas_fun_facts', ['variant' => 'illustrated', 'items' => 3], NULL],
+  [254826, 'fc:75796', 6, 'cas_fun_facts', ['variant' => 'illustrated', 'items' => 3], NULL],
+  [257961, 'fc:74981', 8, 'cas_fun_facts', ['variant' => 'illustrated', 'items' => 3, 'group_override' => 211281], NULL],
+  [258076, 'para:86011', 0, 'cas_fun_facts', ['variant' => 'all'], NULL],
+  [258991, 'para:87176', 0, 'cas_fun_facts', ['variant' => 'all'], NULL],
   // videos (D7 video_view): reels; 257961 draws from the Sulikowski group.
   [257961, 'fc:76021', 6, 'views_block:videos-reel', ['items_per_page' => 'none'], NULL],
   [254826, 'fc:76076', 7, 'views_block:videos-reel', ['items_per_page' => 'none'], NULL],

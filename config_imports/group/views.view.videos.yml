@@ -7,6 +7,8 @@ dependencies:
     - image
     - media
     - node
+    - slick
+    - slick_views
     - user
 id: videos
 label: Videos
@@ -754,15 +756,59 @@ display:
           empty_zero: false
           hide_alter_empty: true
       style:
-        type: grid_responsive
+        type: slick
         options:
           grouping: [  ]
-          row_class: cas-video-cell
+          row_class: ''
           default_row_class: true
-          columns: 3
-          cell_min_width: 100
-          grid_gutter: 10
-          alignment: horizontal
+          uses_fields: true
+          optionset: cas_video_reel
+          override: false
+          overridables: [  ]
+          skin: default
+          skin_arrows: ''
+          skin_dots: ''
+          use_theme_field: false
+          preserve_keys: false
+          visible_items: 0
+          optionset_thumbnail: ''
+          skin_thumbnail: ''
+          thumbnail_caption: ''
+          thumbnail_effect: ''
+          thumbnail_position: ''
+          thumbnail: ''
+          breakpoints: [  ]
+          sizes: ''
+          grid_header: ''
+          grid: 0
+          grid_medium: 0
+          grid_small: 0
+          style: ''
+          layout: ''
+          caption: [  ]
+          image: ''
+          link: ''
+          overlay: ''
+          title: ''
+          class: ''
+          id: ''
+          vanilla: true
+          background: false
+          cache: 0
+          lazy: ''
+          loading: lazy
+          media_switch: ''
+          ratio: ''
+          view_mode: ''
+          responsive_image_style: ''
+          box_style: ''
+          box_media_style: ''
+          box_caption: ''
+          box_caption_custom: ''
+          thumbnail_style: ''
+          image_style: ''
+          by_delta: -1
+          placeholder: ''
       pager:
         type: none
         options:
@@ -1028,15 +1074,59 @@ display:
           empty_zero: false
           hide_alter_empty: true
       style:
-        type: grid_responsive
+        type: slick
         options:
           grouping: [  ]
-          row_class: cas-video-cell
+          row_class: ''
           default_row_class: true
-          columns: 3
-          cell_min_width: 100
-          grid_gutter: 10
-          alignment: horizontal
+          uses_fields: true
+          optionset: cas_video_reel
+          override: false
+          overridables: [  ]
+          skin: default
+          skin_arrows: ''
+          skin_dots: ''
+          use_theme_field: false
+          preserve_keys: false
+          visible_items: 0
+          optionset_thumbnail: ''
+          skin_thumbnail: ''
+          thumbnail_caption: ''
+          thumbnail_effect: ''
+          thumbnail_position: ''
+          thumbnail: ''
+          breakpoints: [  ]
+          sizes: ''
+          grid_header: ''
+          grid: 0
+          grid_medium: 0
+          grid_small: 0
+          style: ''
+          layout: ''
+          caption: [  ]
+          image: ''
+          link: ''
+          overlay: ''
+          title: ''
+          class: ''
+          id: ''
+          vanilla: true
+          background: false
+          cache: 0
+          lazy: ''
+          loading: lazy
+          media_switch: ''
+          ratio: ''
+          view_mode: ''
+          responsive_image_style: ''
+          box_style: ''
+          box_media_style: ''
+          box_caption: ''
+          box_caption_custom: ''
+          thumbnail_style: ''
+          image_style: ''
+          by_delta: -1
+          placeholder: ''
       pager:
         type: none
         options:

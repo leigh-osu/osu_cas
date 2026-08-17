@@ -172,7 +172,7 @@ section_1() {
   # Layout Builder UX, account links); the groups submodule carries the group
   # breadcrumbs, group create-content block and views group handlers; the
   # degrees submodule carries the degree-fact-sheet node template.
-  ddev drush en osu_cas_multisite osu_cas_multisite_degrees osu_cas_multisite_groups osu_cas_weather -y
+  ddev drush en osu_cas_multisite osu_cas_multisite_degrees osu_cas_multisite_groups osu_cas_weather slick slick_views -y
   # Live feeds: the Feed node type + per-feed block (D7 live_feeds). Must be
   # enabled before the paragraph migrations run -- their layouts emit
   # osu_live_feed:<nid> components for columns that referenced feed blocks.

@@ -849,7 +849,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<div class="cas-fun-fact row"><div class="col-12 col-sm-3 cas-fun-fact__image">{{ field_fun_facts_image }}</div><div class="col-12 col-sm-9 cas-fun-fact__text">{{ body }}{% if field_fun_facts_source %}<br><span class="cas-fun-fact__source">{{ field_fun_facts_source }}</span>{% endif %}</div></div>'
+            text: '<div class="cas-fun-fact row">{% if field_fun_facts_image %}<div class="col-12 col-sm-3 cas-fun-fact__image">{{ field_fun_facts_image }}</div><div class="col-12 col-sm-9 cas-fun-fact__text">{% else %}<div class="col-12 cas-fun-fact__text">{% endif %}{{ body }}{% if field_fun_facts_source %}<br><span class="cas-fun-fact__source">{{ field_fun_facts_source }}</span>{% endif %}</div></div>'
             make_link: false
             path: ''
             absolute: false
@@ -1132,7 +1132,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<div class="cas-fun-fact row"><div class="col-12 col-sm-3 cas-fun-fact__image">{{ field_fun_facts_image }}</div><div class="col-12 col-sm-9 cas-fun-fact__text">{{ body }}{% if field_fun_facts_source %}<br><span class="cas-fun-fact__source">{{ field_fun_facts_source }}</span>{% endif %}</div></div>'
+            text: '<div class="cas-fun-fact row">{% if field_fun_facts_image %}<div class="col-12 col-sm-3 cas-fun-fact__image">{{ field_fun_facts_image }}</div><div class="col-12 col-sm-9 cas-fun-fact__text">{% else %}<div class="col-12 cas-fun-fact__text">{% endif %}{{ body }}{% if field_fun_facts_source %}<br><span class="cas-fun-fact__source">{{ field_fun_facts_source }}</span>{% endif %}</div></div>'
             make_link: false
             path: ''
             absolute: false
