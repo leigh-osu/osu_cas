@@ -112,10 +112,10 @@ print "refilled $filled values from D7\n";
 
 // Rewrite the tracked config copies.
 $exports = [
-  "field.storage.node.$field_name" => ['config/agsci-oregonstate-edu', 'config_imports/storage'],
-  "field.field.node.weed.$field_name" => ['config/agsci-oregonstate-edu', 'config_imports/fields'],
-  'core.entity_form_display.node.weed.default' => ['config/agsci-oregonstate-edu', 'config_imports/display'],
-  'core.entity_view_display.node.weed.default' => ['config/agsci-oregonstate-edu', 'config_imports/display'],
+  "field.storage.node.$field_name" => ['config/agsci.oregonstate.edu', 'config_imports/storage'],
+  "field.field.node.weed.$field_name" => ['config/agsci.oregonstate.edu', 'config_imports/fields'],
+  'core.entity_form_display.node.weed.default' => ['config/agsci.oregonstate.edu', 'config_imports/display'],
+  'core.entity_view_display.node.weed.default' => ['config/agsci.oregonstate.edu', 'config_imports/display'],
 ];
 foreach ($exports as $name => $dirs) {
   $raw = \Drupal::config($name)->getRawData();

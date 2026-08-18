@@ -23,11 +23,11 @@
  * runtime.
  *
  * KEEP IN SYNC: config_imports/domain/ is a hand-maintained copy of the
- * canonical export config/agsci-oregonstate-edu/domain/ (same convention as the
+ * canonical export config/agsci.oregonstate.edu/domain/ (same convention as the
  * other config_imports/ subdirectories). Whenever the canonical domain
  * overrides change (e.g. after `drush cex`), re-copy them:
  *   rm -rf config_imports/domain
- *   cp -R config/agsci-oregonstate-edu/domain config_imports/domain
+ *   cp -R config/agsci.oregonstate.edu/domain config_imports/domain
  *
  * Usage:
  *   ddev drush scr scripts-dev/import_domain_config.php

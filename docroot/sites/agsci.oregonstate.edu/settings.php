@@ -889,7 +889,7 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
  * Keep this code block at the end of this file to take full effect.
  */
 
-$settings['config_sync_directory'] = '../config/agsci-oregonstate-edu';
+$settings['config_sync_directory'] = '../config/agsci.oregonstate.edu';
 
 // Environment-aware Domain hostnames on Acquia dev/stage (no-op elsewhere).
 if (file_exists($app_root . '/' . $site_path . '/settings.acquia-domains.php')) {
@@ -1000,4 +1000,4 @@ $config['reroute_email.settings']['enable'] = ($osu_cas_ah_env !== 'prod');
  *
  * Keep this at the end of the file. Moving it back up top restores the bug.
  */
-$settings['config_sync_directory'] = '../config/agsci-oregonstate-edu';
+$settings['config_sync_directory'] = '../config/agsci.oregonstate.edu';

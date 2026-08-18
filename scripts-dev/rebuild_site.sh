@@ -37,7 +37,7 @@ ADMIN_PASS="ok"
 ADMIN_EMAIL="noreply@mail.drupal.oregonstate.edu"
 PROFILE="osu_standard"
 SITE_URI="agsci.oregonstate.edu"  # For multisite (sites/ directory uses dots)
-CONFIG_DIR="agsci-oregonstate-edu"  # Config directory uses dashes
+CONFIG_DIR="agsci.oregonstate.edu"  # Config directory now mirrors sites/ exactly
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 

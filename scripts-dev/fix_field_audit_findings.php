@@ -49,7 +49,7 @@ foreach ($widen as $d10_field => [$d7_field, $d7_bundles, $d10_bundle]) {
     $storage->save();
     print "$d10_field: cardinality -> unlimited\n";
   }
-  $exports["field.storage.node.$d10_field"] = ['config/agsci-oregonstate-edu', 'config_imports/storage'];
+  $exports["field.storage.node.$d10_field"] = ['config/agsci.oregonstate.edu', 'config_imports/storage'];
 
   // Refill missing deltas from D7 (delta 0 is already there).
   $placeholders = "'" . implode("','", $d7_bundles) . "'";
@@ -128,10 +128,10 @@ if ($evd && !$evd->getComponent('field_150_species_type')) {
   ]);
   $evd->save();
 }
-$exports['field.storage.node.field_150_species_type'] = ['config/agsci-oregonstate-edu', 'config_imports/storage'];
-$exports['field.field.node.150_species.field_150_species_type'] = ['config/agsci-oregonstate-edu', 'config_imports/fields'];
-$exports['core.entity_form_display.node.150_species.default'] = ['config/agsci-oregonstate-edu', 'config_imports/display'];
-$exports['core.entity_view_display.node.150_species.default'] = ['config/agsci-oregonstate-edu', 'config_imports/display'];
+$exports['field.storage.node.field_150_species_type'] = ['config/agsci.oregonstate.edu', 'config_imports/storage'];
+$exports['field.field.node.150_species.field_150_species_type'] = ['config/agsci.oregonstate.edu', 'config_imports/fields'];
+$exports['core.entity_form_display.node.150_species.default'] = ['config/agsci.oregonstate.edu', 'config_imports/display'];
+$exports['core.entity_view_display.node.150_species.default'] = ['config/agsci.oregonstate.edu', 'config_imports/display'];
 
 // Backfill from D7 (tids preserved; skip terms that did not migrate).
 $rows = $mig->query(
