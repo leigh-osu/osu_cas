@@ -5,7 +5,6 @@ dependencies:
   config:
     - group_content_menu.group_content_menu_type.group
   module:
-    - block_visibility_groups
     - group_content_menu
   theme:
     - manzanita
@@ -23,14 +22,10 @@ settings:
   label_display: '0'
   provider: group_content_menu
   context_mapping:
-    group: '@group.group_route_context:group'
+    group: '@osu_cas_multisite_groups.group_display_context:group'
   level: 1
   depth: 0
   expand_all_items: true
   relative_visibility: false
   theme_hook_suggestion: ''
-visibility:
-  condition_group:
-    id: condition_group
-    negate: false
-    block_visibility_group: ''
+visibility: {  }
