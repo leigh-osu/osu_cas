@@ -953,3 +953,25 @@ $ddev_settings = __DIR__ . '/settings.ddev.php';
 if (getenv('IS_DDEV_PROJECT') == 'true' && is_readable($ddev_settings)) {
   require $ddev_settings;
 }
+
+/**
+ * Only production sends real mail.
+ *
+ * 98 webforms carry 148 active email handlers, so any environment holding a
+ * copy of this database will mail real OSU staff the moment someone submits a
+ * form -- and there are 33,000 migrated submissions sitting alongside them.
+ * reroute_email catches every outbound message and sends it to the single
+ * address in reroute_email.settings instead.
+ *
+ * This is deliberately expressed as "reroute unless prod" rather than
+ * "reroute on dev and stage". Both failure modes then land on the safe side:
+ * a new environment nobody thought about reroutes by default, and a database
+ * copied from production to stage starts rerouting again the moment it is
+ * served from a non-production environment, without anyone remembering to
+ * change a setting.
+ *
+ * Because this is a settings override it also cannot be switched off from the
+ * admin UI by accident, and it survives every database push.
+ */
+$osu_cas_ah_env = $_ENV['AH_SITE_ENVIRONMENT'] ?? '';
+$config['reroute_email.settings']['enable'] = ($osu_cas_ah_env !== 'prod');

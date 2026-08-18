@@ -322,6 +322,7 @@
         "drupal/purge_tokens": "^3.6",
         "drupal/recaptcha": "^3.1",
         "drupal/redirect": "^1.6",
+        "drupal/reroute_email": "^2.2",
         "drupal/responsive_preview": "^2.0",
         "drupal/responsive_table_filter": "^2.0",
         "drupal/rules": "^4.0",
