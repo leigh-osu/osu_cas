@@ -1,4 +1,4 @@
-uuid: 63a9872b-dfff-42de-81bb-2af9bd26869a
+uuid: 1eefa2e4-c090-42af-9f1f-c4e8e6136de7
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: seafood_lab_sub_page
 label: seafood_lab_sub_page
 logic: and
 conditions:
-  0e49e720-745e-4f1c-84ab-22d8dd7dc5fe:
+  40900319-8ed1-470b-a5bc-a8e7e609622f:
     id: request_path
     negate: false
-    uuid: 0e49e720-745e-4f1c-84ab-22d8dd7dc5fe
+    uuid: 40900319-8ed1-470b-a5bc-a8e7e609622f
     pages: "/seafood-research-education-center/*\r\n/osuseafoodlab/*\r\n/node/239501"
 allow_other_conditions: null

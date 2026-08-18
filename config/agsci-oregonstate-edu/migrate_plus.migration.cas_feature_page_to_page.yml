@@ -1,9 +1,9 @@
-uuid: 40fca9c0-3282-4bfb-bebd-fa6c3776b9b1
+uuid: 73209da8-b600-46ba-8fc9-f62b061c5b83
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: YDghOpZrQMIS0H_3WgkTGy9-gVqX8pHE8y2LbSifc9E
+  default_config_hash: CT_jPMBIi97lIoAdofHJB5YGGZ3sraJ9yyi1BGbUTdU
 id: cas_feature_page_to_page
 class: null
 idMap: {  }
@@ -73,6 +73,14 @@ process:
       target_id:
         plugin: migration_lookup
         migration: 'upgrade_d7_taxonomy_terms:type'
+        source: tid
+  field_tax_department:
+    plugin: sub_process
+    source: field_department
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration: 'upgrade_d7_taxonomy_terms:unit'
         source: tid
   field_osu_meta_image:
     plugin: sub_process

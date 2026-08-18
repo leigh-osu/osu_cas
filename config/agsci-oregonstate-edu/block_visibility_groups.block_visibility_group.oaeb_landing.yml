@@ -1,4 +1,4 @@
-uuid: 24b19f6b-55b5-497c-a4f6-d0ba09cd2719
+uuid: 241beea1-ab96-4f55-b7bd-0b851f728a66
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: oaeb_landing
 label: oaeb_landing
 logic: and
 conditions:
-  db6ac8f2-5d2b-4188-bbe5-6cfb094e9b0e:
+  22af3b2f-18d2-4eee-9111-ea01339b157a:
     id: request_path
     negate: false
-    uuid: db6ac8f2-5d2b-4188-bbe5-6cfb094e9b0e
+    uuid: 22af3b2f-18d2-4eee-9111-ea01339b157a
     pages: /node/54536
 allow_other_conditions: null

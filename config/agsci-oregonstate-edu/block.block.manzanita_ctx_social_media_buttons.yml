@@ -1,0 +1,34 @@
+uuid: 656d1258-e966-4fbf-9d01-95a6658f48fc
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:3f992297-562d-4cc8-9f48-c6b213653c8f'
+  module:
+    - block_content
+    - system
+  theme:
+    - manzanita
+id: manzanita_ctx_social_media_buttons
+theme: manzanita
+region: content
+weight: -5
+provider: null
+plugin: 'block_content:3f992297-562d-4cc8-9f48-c6b213653c8f'
+settings:
+  id: 'block_content:3f992297-562d-4cc8-9f48-c6b213653c8f'
+  label: Social_media
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: |-
+      /social-media/*
+      /main/social-media-and-multimedia
+      /main/newsletters
+      /node/5328

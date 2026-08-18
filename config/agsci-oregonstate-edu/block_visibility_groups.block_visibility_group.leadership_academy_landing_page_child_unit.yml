@@ -1,4 +1,4 @@
-uuid: d9054094-cee9-4a26-b03d-6d5c71eb3e38
+uuid: b2f277af-ab72-455f-aca7-4ce04974eddf
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: leadership_academy_landing_page_child_unit
 label: leadership_academy_landing-page-child-unit
 logic: and
 conditions:
-  4423821c-85cf-466d-afbb-1fd10653f328:
+  7a3b94cd-aa90-4722-9a0d-08fd5426abc6:
     id: request_path
     negate: false
-    uuid: 4423821c-85cf-466d-afbb-1fd10653f328
+    uuid: 7a3b94cd-aa90-4722-9a0d-08fd5426abc6
     pages: "/leadershipacademy\r\n/node/215"
 allow_other_conditions: null

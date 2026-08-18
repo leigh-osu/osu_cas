@@ -1,4 +1,4 @@
-uuid: 8dc67ea8-3319-4847-acf7-6347e7dd00ad
+uuid: 0adb5153-f289-4172-934b-805734ab1c68
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: foodsci_faculty_directory
 label: foodsci_faculty_directory
 logic: and
 conditions:
-  e02d8fcf-6b31-4261-96d1-8ae9bbdc0774:
+  86e90004-6d59-498c-8872-9833876ce7f7:
     id: request_path
     negate: false
-    uuid: e02d8fcf-6b31-4261-96d1-8ae9bbdc0774
+    uuid: 86e90004-6d59-498c-8872-9833876ce7f7
     pages: /node/94911
 allow_other_conditions: null

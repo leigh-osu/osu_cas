@@ -1,4 +1,4 @@
-uuid: 6625e3c9-d5aa-47e3-a1a2-712e151b9c15
+uuid: 3ed5b83d-b506-4012-9d07-6ff1b4c4bb33
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: bee_digital_signage
 label: bee_digital_signage
 logic: and
 conditions:
-  712e30ba-303f-44a0-8149-4e996f2f9352:
+  53fd241c-6052-46d4-9d43-1a6396a200da:
     id: request_path
     negate: false
-    uuid: 712e30ba-303f-44a0-8149-4e996f2f9352
+    uuid: 53fd241c-6052-46d4-9d43-1a6396a200da
     pages: "/node/166801\r\n/node/263201"
 allow_other_conditions: null

@@ -1,4 +1,4 @@
-uuid: 2280b06f-61bd-4ada-9962-f6202fde58aa
+uuid: 89b90bb7-6307-4096-8081-2dc5604a7780
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: employee_directory_mem_type_former_faculty
 label: employee_directory_mem_type_former_faculty
 logic: and
 conditions:
-  4f3a90aa-daf7-43c2-bb89-4a9fe1b5e365:
+  088dcf6b-b740-4771-ad49-50a668882641:
     id: request_path
     negate: false
-    uuid: 4f3a90aa-daf7-43c2-bb89-4a9fe1b5e365
+    uuid: 088dcf6b-b740-4771-ad49-50a668882641
     pages: /node/86346
 allow_other_conditions: null

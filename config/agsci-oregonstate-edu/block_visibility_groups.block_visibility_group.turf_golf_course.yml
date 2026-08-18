@@ -1,4 +1,4 @@
-uuid: 1f55faf0-8e16-4745-ac6a-e0141a37c1c8
+uuid: d0891dc0-d988-4620-8a13-b7cffbaffe84
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: turf_golf_course
 label: turf_golf_course
 logic: and
 conditions:
-  a08dfab7-f708-432a-98e4-cf1e8437cc12:
+  2c196ac5-0bc9-4d01-b2cb-aa4167c98184:
     id: request_path
     negate: false
-    uuid: a08dfab7-f708-432a-98e4-cf1e8437cc12
+    uuid: 2c196ac5-0bc9-4d01-b2cb-aa4167c98184
     pages: /node/77596
 allow_other_conditions: null

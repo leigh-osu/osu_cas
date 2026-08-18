@@ -1,4 +1,4 @@
-uuid: fbde70eb-b77b-4a10-a3d1-a39c59da4b6e
+uuid: 51bea559-80a4-4835-b728-76ee98a65b14
 langcode: en
 status: true
 dependencies:
@@ -258,7 +258,18 @@ display:
       cache:
         type: tag
         options: {  }
-      empty: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: true
+          content: 'No items match the current filter.'
+          tokenize: false
       sorts:
         sticky:
           id: sticky
@@ -632,6 +643,91 @@ display:
         - url
         - user.permissions
       tags: {  }
+  profile:
+    id: profile
+    display_title: 'My News'
+    display_plugin: block
+    position: 3
+    display_options:
+      pager:
+        type: full
+        options:
+          offset: 0
+          pagination_heading_level: h4
+          items_per_page: 10
+          total_pages: null
+          id: 0
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: true
+          content: 'I currently have no news articles.'
+          tokenize: false
+      arguments:
+        field_story_osu_employee_target_id:
+          id: field_story_osu_employee_target_id
+          table: node__field_story_osu_employee
+          field: field_story_osu_employee_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: entity_target_id
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: 'My News'
+          default_argument_type: node
+          default_argument_options: {  }
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
+          not: false
+          target_entity_type_id: node
+      defaults:
+        empty: false
+        pager: false
+        relationships: false
+        arguments: false
+      relationships: {  }
+      display_description: ''
+      display_extenders: {  }
+      block_description: 'News: stories that name this profile'
+      block_category: 'OSU CAS'
   teasers:
     id: teasers
     display_title: 'News teasers'

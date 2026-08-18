@@ -1,4 +1,4 @@
-uuid: 650f4ce6-860b-4fc7-8969-dc672cdc0168
+uuid: ca14ce3e-dd4b-4981-b904-0fb80f009d35
 langcode: en
 status: true
 dependencies:
@@ -56,6 +56,7 @@ dependencies:
     - field.field.node.osu_profile.field_profile_stu_ac_interests
     - field.field.node.osu_profile.field_profile_stu_major_prof
     - field.field.node.osu_profile.field_profile_stu_majors
+    - field.field.node.osu_profile.field_profile_subgroups
     - field.field.node.osu_profile.field_profile_user
     - field.field.node.osu_profile.field_tax_faculty_expertise
     - node.type.osu_profile
@@ -170,6 +171,11 @@ hidden:
   field_profile_stu_ac_interests: true
   field_profile_stu_major_prof: true
   field_profile_stu_majors: true
+  field_profile_subgroups: true
   field_profile_user: true
   field_tax_faculty_expertise: true
   langcode: true
+  listing_images: true
+  listing_news: true
+  listing_publications: true
+  listing_videos: true

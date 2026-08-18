@@ -1,12 +1,12 @@
-uuid: dc7249d2-582e-41e6-b033-9ce664d68f1f
+uuid: 1ff6d2cb-0265-4c69-a7a7-f9adb3aefe4b
 langcode: en
 status: true
 dependencies: {  }
 name: 640_scale_crop_2
 label: '640x360 Scale Crop'
 effects:
-  06d15387-d856-40d0-827b-91529f378577:
-    uuid: 06d15387-d856-40d0-827b-91529f378577
+  bca39987-8f22-407f-846b-3de7dfa6b806:
+    uuid: bca39987-8f22-407f-846b-3de7dfa6b806
     id: image_scale_and_crop
     weight: 1
     data:

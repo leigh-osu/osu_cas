@@ -1,4 +1,4 @@
-uuid: fdd9a546-2c5f-4b50-b793-bdaa145579ef
+uuid: f6105576-d9e9-4e22-883c-971bb1c01050
 langcode: en
 status: true
 dependencies:
@@ -23,6 +23,9 @@ settings:
     -
       value: story_internal
       label: 'Internal story'
+    -
+      value: feature_story
+      label: 'Feature story'
     -
       value: story_osu
       label: 'OSU Story'

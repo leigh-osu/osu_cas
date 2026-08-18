@@ -1,0 +1,32 @@
+uuid: f3017121-b2e1-422a-bcf5-d12e6517c17d
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:9908c36c-cc40-47cd-b37c-ee546a2d54e1'
+  module:
+    - block_content
+    - system
+  theme:
+    - manzanita
+id: manzanita_ctx_malheur_weather_links
+theme: manzanita
+region: content
+weight: -10
+provider: null
+plugin: 'block_content:9908c36c-cc40-47cd-b37c-ee546a2d54e1'
+settings:
+  id: 'block_content:9908c36c-cc40-47cd-b37c-ee546a2d54e1'
+  label: 'Malheur Weather home link'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: |-
+      /malheur/weather/yearly/*
+      /malheur/weather/yearly-summary/*

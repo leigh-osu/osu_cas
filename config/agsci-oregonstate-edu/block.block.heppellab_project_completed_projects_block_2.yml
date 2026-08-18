@@ -1,0 +1,26 @@
+uuid: a466942f-e077-45b7-8387-34e311939c96
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.heppellab_project_completed
+  module:
+    - block_visibility_groups
+  theme:
+    - madrone
+id: heppellab_project_completed_projects_block_2
+theme: madrone
+region: content
+weight: -10
+provider: null
+plugin: 'views_block:projects-block_2'
+settings:
+  id: broken
+  label: ''
+  label_display: visible
+  provider: core
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: heppellab_project_completed

@@ -1,4 +1,4 @@
-uuid: 8d08abcf-94f5-41ce-ba81-7a8c27d2bc90
+uuid: 5925fefd-bf4a-400f-8bb8-1d75746dccb1
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: domain_affiliation
 label: domain_affiliation
 logic: and
 conditions:
-  e0b15e20-e897-4772-8324-ced51f50c074:
+  813e26ce-fc24-47d7-b655-3b3001064b7a:
     id: request_path
     negate: false
-    uuid: e0b15e20-e897-4772-8324-ced51f50c074
+    uuid: 813e26ce-fc24-47d7-b655-3b3001064b7a
     pages: '/*/domain-affiliation'
 allow_other_conditions: null

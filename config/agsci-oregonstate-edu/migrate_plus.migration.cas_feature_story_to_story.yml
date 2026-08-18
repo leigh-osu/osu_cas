@@ -1,9 +1,9 @@
-uuid: 1e8b9439-1ba0-434c-a9ea-a688a321660b
+uuid: 8bd3a029-3f39-4f50-9977-a9e22183e79a
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: c-9DIcSKBp24spomnFJxiRxbRO-wfWVdQ8gFq954dNA
+  default_config_hash: WTj2oznFkkM7pvsH--Wv6w8SjUvDm97QIw6UPRI_bnQ
 id: cas_feature_story_to_story
 class: null
 idMap: {  }
@@ -60,6 +60,18 @@ process:
     process:
       uri: url
       title: title
+  field_story_category:
+    plugin: default_value
+    default_value:
+      -
+        value: feature_story
+  promote:
+    plugin: extract
+    source: field_feature_story_front
+    index:
+      - 0
+      - value
+    default: 0
   field_tax_story_tags:
     plugin: sub_process
     source: field_tags
@@ -96,7 +108,6 @@ process:
   status: status
   created: created
   changed: changed
-  promote: promote
   sticky: sticky
 destination:
   plugin: 'entity:node'

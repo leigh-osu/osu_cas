@@ -1133,7 +1133,7 @@ display:
         metatag_display_extender:
           metatags: {  }
           tokenize: false
-      path: publications
+      path: all-publications
     cache_metadata:
       max-age: -1
       contexts:

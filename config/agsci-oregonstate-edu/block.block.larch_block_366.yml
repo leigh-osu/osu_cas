@@ -1,9 +1,9 @@
-uuid: 2ea8f0b2-cbda-44b0-8049-b1ce6270fd59
+uuid: 1cc96a9d-e1d0-455c-92ec-6f7a5253fc1a
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:6c3697b8-4498-4dea-916b-0823f44d1594'
+    - 'block_content:basic:24b7eeb0-339a-408e-a2a3-30e8fa971046'
   module:
     - block_content
     - system
@@ -11,12 +11,12 @@ dependencies:
     - manzanita
 id: larch_block_366
 theme: manzanita
-region: page_bottom
-weight: 0
+region: content
+weight: 5
 provider: null
-plugin: 'block_content:6c3697b8-4498-4dea-916b-0823f44d1594'
+plugin: 'block_content:24b7eeb0-339a-408e-a2a3-30e8fa971046'
 settings:
-  id: 'block_content:6c3697b8-4498-4dea-916b-0823f44d1594'
+  id: 'block_content:24b7eeb0-339a-408e-a2a3-30e8fa971046'
   label: ''
   label_display: '0'
   provider: block_content

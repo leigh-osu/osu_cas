@@ -1,4 +1,4 @@
-uuid: 02bc05e4-a26c-49bb-81f8-3cfe2b053185
+uuid: 31b2a6f9-1fdc-4567-9c34-5a64cbb4efa0
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: the_source
 label: the_source
 logic: and
 conditions:
-  f4b5e763-361a-4ca3-b810-385739e7ad64:
+  509ff729-c30c-4ae1-b59e-35b543f557c3:
     id: request_path
     negate: false
-    uuid: f4b5e763-361a-4ca3-b810-385739e7ad64
+    uuid: 509ff729-c30c-4ae1-b59e-35b543f557c3
     pages: "/main/source/*\r\n/newsletter/*\r\n/main/newsletter/*\r\n/source/*\r\n/thesource/*\r\n/newsroom/source*"
 allow_other_conditions: null

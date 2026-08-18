@@ -1,0 +1,26 @@
+uuid: 04847536-aca5-4f8a-b295-65cfe16b690f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.active_projects_view
+  module:
+    - block_visibility_groups
+  theme:
+    - madrone
+id: active_projects_view_projects_block
+theme: madrone
+region: content
+weight: -10
+provider: null
+plugin: 'views_block:projects-block'
+settings:
+  id: broken
+  label: ''
+  label_display: visible
+  provider: core
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: active_projects_view

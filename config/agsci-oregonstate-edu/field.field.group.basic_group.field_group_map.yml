@@ -1,0 +1,22 @@
+uuid: caa79162-4468-441b-a13c-10ca0a9e20af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_group_map
+    - group.type.basic_group
+  module:
+    - text
+id: group.basic_group.field_group_map
+field_name: field_group_map
+entity_type: group
+bundle: basic_group
+label: 'Embedded map'
+description: 'Map embed (iframe) shown in the group footer on every page of the group.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

@@ -1,4 +1,4 @@
-uuid: 2ba00318-6f89-47f4-abd8-e96d05ef86d4
+uuid: 93262a55-8f03-402c-97f3-cce3d9625cb6
 langcode: en
 status: true
 dependencies:
@@ -17,7 +17,7 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:taxonomy_term'
+  handler: 'default:filter_existing_terms'
   handler_settings:
     target_bundles:
       nursery: nursery
@@ -25,4 +25,5 @@ settings:
       field: name
       direction: asc
     auto_create: false
+    auto_create_bundle: ''
 field_type: entity_reference

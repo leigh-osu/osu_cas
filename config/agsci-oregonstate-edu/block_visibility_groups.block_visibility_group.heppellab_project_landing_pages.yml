@@ -1,4 +1,4 @@
-uuid: b1f83f63-c090-4680-bb5d-abcd00ef490c
+uuid: 162bd157-a1a5-4f90-90d9-b37e21c822de
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: heppellab_project_landing_pages
 label: heppellab_project_landing_pages
 logic: and
 conditions:
-  ff4a8eaf-3dea-41f2-8222-90819c503fc7:
+  faaf06f4-a0aa-4ac1-81d1-446485c3f35a:
     id: request_path
     negate: false
-    uuid: ff4a8eaf-3dea-41f2-8222-90819c503fc7
+    uuid: faaf06f4-a0aa-4ac1-81d1-446485c3f35a
     pages: /node/256861
 allow_other_conditions: null

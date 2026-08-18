@@ -1,4 +1,4 @@
-uuid: 87908c6f-4b6b-4fdf-a8e7-ae5afa844af0
+uuid: 0d16d0dc-9a8d-43c4-abdd-1ad91021e41c
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: weather
 label: weather
 logic: and
 conditions:
-  b670ea85-862b-46db-a215-f5a750f7f9ef:
+  1f65e3d4-a4c6-4059-897d-61dae7561ca6:
     id: request_path
     negate: false
-    uuid: b670ea85-862b-46db-a215-f5a750f7f9ef
+    uuid: 1f65e3d4-a4c6-4059-897d-61dae7561ca6
     pages: /node/112896
 allow_other_conditions: null

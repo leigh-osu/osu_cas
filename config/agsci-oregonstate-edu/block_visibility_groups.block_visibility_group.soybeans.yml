@@ -1,4 +1,4 @@
-uuid: 4b25e844-bdf5-4faf-a6eb-129975ea3cbb
+uuid: 9f7b1b98-bf91-4471-81b0-badfccf8688f
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: soybeans
 label: soybeans
 logic: and
 conditions:
-  44110e7f-4e54-4994-b7ff-05143df2eaa8:
+  ba35c2be-2a99-42d1-b345-5c33b677fa5f:
     id: request_path
     negate: false
-    uuid: 44110e7f-4e54-4994-b7ff-05143df2eaa8
+    uuid: ba35c2be-2a99-42d1-b345-5c33b677fa5f
     pages: "/malheur-experiment-station/crops/soybeans\r\n/mes/crops/soybeans\r\n/node/45326"
 allow_other_conditions: null

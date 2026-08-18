@@ -1,0 +1,26 @@
+uuid: 0f422234-a77a-4766-83fa-4b84ecd75e67
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.artist_list
+  module:
+    - block_visibility_groups
+  theme:
+    - madrone
+id: artist_list_art_galleries_block_1
+theme: madrone
+region: content
+weight: -10
+provider: null
+plugin: 'views_block:art_galleries-block_1'
+settings:
+  id: broken
+  label: ''
+  label_display: visible
+  provider: core
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: artist_list

@@ -1,4 +1,4 @@
-uuid: a436b559-3675-4176-8130-130f97a9f0ec
+uuid: 13668890-bfb6-4d23-82e6-c09113541c16
 langcode: en
 status: true
 dependencies:
@@ -17,7 +17,7 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:taxonomy_term'
+  handler: 'default:filter_existing_terms'
   handler_settings:
     target_bundles:
       swd: swd
@@ -25,4 +25,5 @@ settings:
       field: name
       direction: asc
     auto_create: false
+    auto_create_bundle: ''
 field_type: entity_reference

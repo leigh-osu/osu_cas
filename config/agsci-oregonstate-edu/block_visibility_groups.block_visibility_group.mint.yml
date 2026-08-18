@@ -1,4 +1,4 @@
-uuid: 0993c29d-2fd3-481f-a972-e71fc77d1fda
+uuid: 73a926c8-95f8-44f3-9aaf-ef3b6826d742
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: mint
 label: mint
 logic: and
 conditions:
-  bf296497-0abd-4b40-b2bb-7947ccf280f7:
+  b5cb5892-5f67-4bad-9d8e-f57dace8f821:
     id: request_path
     negate: false
-    uuid: bf296497-0abd-4b40-b2bb-7947ccf280f7
+    uuid: b5cb5892-5f67-4bad-9d8e-f57dace8f821
     pages: "/malheur-experiment-station/crops/mint\r\n/mes/crops/mint\r\n/node/45301"
 allow_other_conditions: null
