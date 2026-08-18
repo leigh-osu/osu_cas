@@ -10,7 +10,7 @@ logic: and
 conditions:
   7b620911-a8b8-4851-b446-99f4d95bffec:
     id: request_path
-    negate: false
     uuid: 7b620911-a8b8-4851-b446-99f4d95bffec
     pages: '/*our-media*'
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

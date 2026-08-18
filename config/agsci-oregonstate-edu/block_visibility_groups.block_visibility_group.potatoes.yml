@@ -10,7 +10,7 @@ logic: and
 conditions:
   ca2cab34-af8b-4047-8242-713833c19374:
     id: request_path
-    negate: false
     uuid: ca2cab34-af8b-4047-8242-713833c19374
     pages: "/malheur-experiment-station/crops/potatoes\r\n/mes/crops/potatoes\r\n/node/45281"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

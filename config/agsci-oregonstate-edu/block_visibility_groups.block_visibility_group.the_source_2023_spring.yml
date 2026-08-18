@@ -10,7 +10,7 @@ logic: and
 conditions:
   baca2523-a151-473c-a139-f76a34281fcb:
     id: request_path
-    negate: false
     uuid: baca2523-a151-473c-a139-f76a34281fcb
     pages: '/thesource/spring-2023*'
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

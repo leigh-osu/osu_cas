@@ -10,7 +10,7 @@ logic: and
 conditions:
   9763dd6a-a7b2-46f8-afe8-15a2e838a61e:
     id: request_path
-    negate: false
     uuid: 9763dd6a-a7b2-46f8-afe8-15a2e838a61e
     pages: /applied-economics/people/faculty
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

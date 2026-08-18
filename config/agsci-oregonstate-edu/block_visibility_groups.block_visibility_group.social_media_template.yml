@@ -10,7 +10,7 @@ logic: and
 conditions:
   57c59088-b42b-41a2-ae21-a04bbd70c12d:
     id: request_path
-    negate: false
     uuid: 57c59088-b42b-41a2-ae21-a04bbd70c12d
     pages: "/social-media/*\r\n/main/social-media-and-multimedia\r\n/main/newsletters"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

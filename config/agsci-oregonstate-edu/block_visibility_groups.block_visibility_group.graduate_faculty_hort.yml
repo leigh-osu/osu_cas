@@ -10,7 +10,7 @@ logic: and
 conditions:
   26c90756-e59f-451d-8b9a-61b566a77a93:
     id: request_path
-    negate: false
     uuid: 26c90756-e59f-451d-8b9a-61b566a77a93
     pages: "/horticulture/directory/graduate-faculty\r\n/node/60186"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

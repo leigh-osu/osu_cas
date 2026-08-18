@@ -10,7 +10,7 @@ logic: and
 conditions:
   fc2d280c-783f-4050-ae94-ee6cd4cd7b33:
     id: request_path
-    negate: false
     uuid: fc2d280c-783f-4050-ae94-ee6cd4cd7b33
     pages: "/thesource/june-2025\r\n/thesource/june-2025*"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

@@ -10,7 +10,7 @@ logic: and
 conditions:
   7422b91c-df83-4059-8c63-76c551c2c9ad:
     id: request_path
-    negate: false
     uuid: 7422b91c-df83-4059-8c63-76c551c2c9ad
     pages: /art-about-agriculture/quick-edit/no-permissions-granted
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

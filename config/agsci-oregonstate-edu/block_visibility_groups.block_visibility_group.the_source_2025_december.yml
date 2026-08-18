@@ -10,7 +10,7 @@ logic: and
 conditions:
   ea541f56-4ea1-40bb-b079-324494d9802e:
     id: request_path
-    negate: false
     uuid: ea541f56-4ea1-40bb-b079-324494d9802e
     pages: "/thesource/dec-2025\r\n/thesource/dec-2025*\r\n/thesource/december-2025\r\n/thesource/december-2025*"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

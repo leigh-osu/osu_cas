@@ -10,7 +10,7 @@ logic: and
 conditions:
   93eb5a7e-6de9-4b77-8347-5f4843ef174d:
     id: request_path
-    negate: false
     uuid: 93eb5a7e-6de9-4b77-8347-5f4843ef174d
     pages: "/plantbreeding\r\n/node/25817"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

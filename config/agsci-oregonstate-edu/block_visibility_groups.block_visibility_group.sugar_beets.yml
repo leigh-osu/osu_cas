@@ -10,7 +10,7 @@ logic: and
 conditions:
   a86c2c80-8792-4d44-8650-e384b554a6c0:
     id: request_path
-    negate: false
     uuid: a86c2c80-8792-4d44-8650-e384b554a6c0
     pages: "/malheur-experiment-station/crops/sugar-beets\r\n/mes/crops/sugar-beets\r\n/node/45286"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

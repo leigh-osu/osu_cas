@@ -10,7 +10,7 @@ logic: and
 conditions:
   1957c607-bcad-4322-ac41-cbf6340add6a:
     id: request_path
-    negate: false
     uuid: 1957c607-bcad-4322-ac41-cbf6340add6a
     pages: /node/82281
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

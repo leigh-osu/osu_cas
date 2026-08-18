@@ -10,7 +10,7 @@ logic: and
 conditions:
   7a3b94cd-aa90-4722-9a0d-08fd5426abc6:
     id: request_path
-    negate: false
     uuid: 7a3b94cd-aa90-4722-9a0d-08fd5426abc6
     pages: "/leadershipacademy\r\n/node/215"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

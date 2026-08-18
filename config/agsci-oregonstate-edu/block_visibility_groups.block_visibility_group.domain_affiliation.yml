@@ -10,7 +10,7 @@ logic: and
 conditions:
   813e26ce-fc24-47d7-b655-3b3001064b7a:
     id: request_path
-    negate: false
     uuid: 813e26ce-fc24-47d7-b655-3b3001064b7a
     pages: '/*/domain-affiliation'
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

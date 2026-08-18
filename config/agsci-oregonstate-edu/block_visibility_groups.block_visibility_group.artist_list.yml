@@ -10,7 +10,7 @@ logic: and
 conditions:
   8029232d-a1fa-4027-92c8-bf095625a732:
     id: request_path
-    negate: false
     uuid: 8029232d-a1fa-4027-92c8-bf095625a732
     pages: /art-about-agriculture/about-program/artists-represented
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

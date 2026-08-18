@@ -10,7 +10,7 @@ logic: and
 conditions:
   b5cb5892-5f67-4bad-9d8e-f57dace8f821:
     id: request_path
-    negate: false
     uuid: b5cb5892-5f67-4bad-9d8e-f57dace8f821
     pages: "/malheur-experiment-station/crops/mint\r\n/mes/crops/mint\r\n/node/45301"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

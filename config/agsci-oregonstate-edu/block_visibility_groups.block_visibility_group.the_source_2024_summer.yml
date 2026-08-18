@@ -10,7 +10,7 @@ logic: and
 conditions:
   f5a6aee0-5b79-4877-8a82-6aa0296d0a06:
     id: request_path
-    negate: false
     uuid: f5a6aee0-5b79-4877-8a82-6aa0296d0a06
     pages: "/thesource/summer-2024\r\n/thesource/summer-2024*"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

@@ -10,7 +10,7 @@ logic: and
 conditions:
   d5c57c19-2d1a-4680-8ea0-6095f269e91b:
     id: request_path
-    negate: false
     uuid: d5c57c19-2d1a-4680-8ea0-6095f269e91b
     pages: "/fwcs/rafwe*\r\n/node/44661\r\n/node/217061\r\n/node/217671\r\n/node/248716\r\n/node/230036\r\n/node/253331\r\n/node/217691\r\n/node/217681\r\n/node/217441\r\n/node/253466\r\n/node/253471\r\n/node/253476\r\n/node/253481"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

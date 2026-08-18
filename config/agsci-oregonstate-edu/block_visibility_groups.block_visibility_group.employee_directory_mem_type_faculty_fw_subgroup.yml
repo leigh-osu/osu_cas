@@ -10,7 +10,7 @@ logic: and
 conditions:
   4e1a66e5-2e20-47aa-96e9-7786cc4dce51:
     id: request_path
-    negate: false
     uuid: 4e1a66e5-2e20-47aa-96e9-7786cc4dce51
     pages: /fisheries-and-wildlife/directory/faculty
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

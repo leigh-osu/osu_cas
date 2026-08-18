@@ -10,7 +10,7 @@ logic: and
 conditions:
   08e7ac2e-ad9d-4f70-b275-05e700436aaf:
     id: request_path
-    negate: false
     uuid: 08e7ac2e-ad9d-4f70-b275-05e700436aaf
     pages: "/*/publications-library\r\n/publications-library\r\n/osu-seafood-lab/publications\r\n/node/67446\r\n/node/84566"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

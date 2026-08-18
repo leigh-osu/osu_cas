@@ -6,4 +6,4 @@ id: entomology_landing_page_child_unit
 label: entomology_landing-page-child-unit
 logic: and
 conditions: {  }
-allow_other_conditions: null
+allow_other_conditions: false

@@ -10,7 +10,7 @@ logic: and
 conditions:
   e60688a4-5821-4505-9f44-56540c961d7f:
     id: request_path
-    negate: false
     uuid: e60688a4-5821-4505-9f44-56540c961d7f
     pages: "/weed-science-hort/research/completed-projects\r\n/node/257241"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

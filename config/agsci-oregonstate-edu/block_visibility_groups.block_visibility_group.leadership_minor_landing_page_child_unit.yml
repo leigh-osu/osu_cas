@@ -10,7 +10,7 @@ logic: and
 conditions:
   ed02d865-4721-4f90-833b-2c6a4bd1cffd:
     id: request_path
-    negate: false
     uuid: ed02d865-4721-4f90-833b-2c6a4bd1cffd
     pages: /leadership_minor
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

@@ -10,7 +10,7 @@ logic: and
 conditions:
   8a629d7d-1c0d-4f4b-907b-866b35dfede7:
     id: request_path
-    negate: false
     uuid: 8a629d7d-1c0d-4f4b-907b-866b35dfede7
     pages: /art-about-agriculture/quick-edit
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

@@ -10,7 +10,7 @@ logic: and
 conditions:
   0aaf4da3-c682-49d5-8be7-8d44a9ffccb6:
     id: request_path
-    negate: false
     uuid: 0aaf4da3-c682-49d5-8be7-8d44a9ffccb6
     pages: /ruralstudies
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

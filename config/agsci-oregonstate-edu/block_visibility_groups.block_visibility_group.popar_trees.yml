@@ -10,7 +10,7 @@ logic: and
 conditions:
   eb0134ff-6fc6-4c00-b1c0-097e5672f3b2:
     id: request_path
-    negate: false
     uuid: eb0134ff-6fc6-4c00-b1c0-097e5672f3b2
     pages: "/mes/crops/poplar-trees\r\n/node/45316"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

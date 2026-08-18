@@ -10,7 +10,7 @@ logic: and
 conditions:
   cd50affc-e50c-4e8d-937f-4403fde8ec2d:
     id: request_path
-    negate: false
     uuid: cd50affc-e50c-4e8d-937f-4403fde8ec2d
     pages: /open-sensing
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

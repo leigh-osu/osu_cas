@@ -10,7 +10,7 @@ logic: and
 conditions:
   8ea8b928-81b4-4b28-9627-d2cf83b12ad7:
     id: request_path
-    negate: false
     uuid: 8ea8b928-81b4-4b28-9627-d2cf83b12ad7
     pages: "/malheur-experiment-station/crops/pumpkin-seed\r\n/mes/crops/pumpkin-seed\r\n/node/45331"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

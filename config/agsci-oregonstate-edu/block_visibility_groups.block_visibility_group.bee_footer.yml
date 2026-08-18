@@ -10,7 +10,7 @@ logic: and
 conditions:
   489cd03e-b3db-4cb2-9d31-25f97e899b6c:
     id: request_path
-    negate: false
     uuid: 489cd03e-b3db-4cb2-9d31-25f97e899b6c
     pages: "/bee2\r\n/bee2/*\r\n/bee\r\n/bee/*\r\n/biological-and-ecological-engineering/*"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

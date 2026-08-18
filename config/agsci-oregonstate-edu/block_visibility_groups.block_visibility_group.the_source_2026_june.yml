@@ -10,7 +10,7 @@ logic: and
 conditions:
   493baed0-c709-4b76-80c5-4778aa220cec:
     id: request_path
-    negate: false
     uuid: 493baed0-c709-4b76-80c5-4778aa220cec
     pages: "/thesource/june-2026\r\n/thesource/june-2026*"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

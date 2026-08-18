@@ -10,7 +10,7 @@ logic: and
 conditions:
   40900319-8ed1-470b-a5bc-a8e7e609622f:
     id: request_path
-    negate: false
     uuid: 40900319-8ed1-470b-a5bc-a8e7e609622f
     pages: "/seafood-research-education-center/*\r\n/osuseafoodlab/*\r\n/node/239501"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

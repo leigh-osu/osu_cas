@@ -10,7 +10,7 @@ logic: and
 conditions:
   3f30af8c-9521-4ddb-a6ea-5021bb0be4b8:
     id: request_path
-    negate: false
     uuid: 3f30af8c-9521-4ddb-a6ea-5021bb0be4b8
     pages: "/node/49351\r\n/node/49671\r\n/node/49711\r\n/node/49736\r\n/node/49741\r\n/node/49761sid"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

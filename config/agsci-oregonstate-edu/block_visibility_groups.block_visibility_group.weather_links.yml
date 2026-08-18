@@ -10,7 +10,7 @@ logic: and
 conditions:
   0fcd0ee3-3f08-4bdb-9321-57eafa592950:
     id: request_path
-    negate: false
     uuid: 0fcd0ee3-3f08-4bdb-9321-57eafa592950
     pages: "/malheur/weather/yearly/*\r\n/malheur/weather/yearly-summary/*"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

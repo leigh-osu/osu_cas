@@ -10,7 +10,7 @@ logic: and
 conditions:
   2034f73f-1bf4-44fd-9ba4-1c92c5cd2883:
     id: request_path
-    negate: false
     uuid: 2034f73f-1bf4-44fd-9ba4-1c92c5cd2883
     pages: '/*/unpublished-content'
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

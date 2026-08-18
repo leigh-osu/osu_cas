@@ -10,7 +10,7 @@ logic: and
 conditions:
   0e0fbd80-2c28-4bfe-9d69-3ecadf4ad279:
     id: request_path
-    negate: false
     uuid: 0e0fbd80-2c28-4bfe-9d69-3ecadf4ad279
     pages: "/weed-science-hort/research\r\n/node/257141"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

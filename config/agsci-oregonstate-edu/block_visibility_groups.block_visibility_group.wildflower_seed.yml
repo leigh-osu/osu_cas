@@ -10,7 +10,7 @@ logic: and
 conditions:
   7bacc5a3-5a42-4fc7-9c98-3ba255c91b1b:
     id: request_path
-    negate: false
     uuid: 7bacc5a3-5a42-4fc7-9c98-3ba255c91b1b
     pages: "/malheur-experiment-station/crops/wildflower-seed-production\r\n/mes/crops/wildflower-seed-production\r\n/node/45321"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

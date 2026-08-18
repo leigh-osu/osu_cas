@@ -10,7 +10,7 @@ logic: and
 conditions:
   0e1ac5d5-22b7-4294-9615-0efe350fb9a4:
     id: request_path
-    negate: false
     uuid: 0e1ac5d5-22b7-4294-9615-0efe350fb9a4
     pages: /hop-breeding/hop-cultivars
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

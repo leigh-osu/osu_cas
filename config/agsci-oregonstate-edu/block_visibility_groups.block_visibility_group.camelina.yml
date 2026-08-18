@@ -10,7 +10,7 @@ logic: and
 conditions:
   501310ad-6a6c-413f-88d2-96d5a8b904bc:
     id: request_path
-    negate: false
     uuid: 501310ad-6a6c-413f-88d2-96d5a8b904bc
     pages: /mes/crops/camelina
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

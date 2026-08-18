@@ -10,7 +10,7 @@ logic: and
 conditions:
   ff189628-a101-4969-9f4a-ccc988fc5dfd:
     id: request_path
-    negate: false
     uuid: ff189628-a101-4969-9f4a-ccc988fc5dfd
     pages: /beaver-turf/facultystaff
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

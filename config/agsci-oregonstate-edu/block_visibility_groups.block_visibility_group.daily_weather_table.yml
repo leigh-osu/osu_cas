@@ -10,7 +10,7 @@ logic: and
 conditions:
   669465f5-16ea-4712-99da-4b8ca28515f6:
     id: request_path
-    negate: false
     uuid: 669465f5-16ea-4712-99da-4b8ca28515f6
     pages: '/weather/monthly/*'
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

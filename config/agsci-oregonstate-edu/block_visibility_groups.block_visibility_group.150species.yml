@@ -10,7 +10,7 @@ logic: and
 conditions:
   5886c27e-bd0f-4069-b233-1618c92e857e:
     id: request_path
-    negate: false
     uuid: 5886c27e-bd0f-4069-b233-1618c92e857e
     pages: "/node/59381\r\n/150-species/*"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

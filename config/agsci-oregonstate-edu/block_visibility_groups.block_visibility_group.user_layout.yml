@@ -10,7 +10,7 @@ logic: and
 conditions:
   c52daf0e-bfea-42fa-80c2-9410cafd3acf:
     id: request_path
-    negate: false
     uuid: c52daf0e-bfea-42fa-80c2-9410cafd3acf
     pages: '/user/*'
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

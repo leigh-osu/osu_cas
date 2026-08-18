@@ -10,7 +10,7 @@ logic: and
 conditions:
   ba35c2be-2a99-42d1-b345-5c33b677fa5f:
     id: request_path
-    negate: false
     uuid: ba35c2be-2a99-42d1-b345-5c33b677fa5f
     pages: "/malheur-experiment-station/crops/soybeans\r\n/mes/crops/soybeans\r\n/node/45326"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

@@ -10,7 +10,7 @@ logic: and
 conditions:
   0eeb8c0b-acd6-44cd-9154-a1dff6f55b41:
     id: request_path
-    negate: false
     uuid: 0eeb8c0b-acd6-44cd-9154-a1dff6f55b41
     pages: "/academics/*\r\n/main/academics/*\r\n/academic-programs/*\r\n/education/*\r\n/education"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

@@ -10,7 +10,7 @@ logic: and
 conditions:
   e5da93fc-64aa-476f-88d8-0dbf220b975f:
     id: request_path
-    negate: false
     uuid: e5da93fc-64aa-476f-88d8-0dbf220b975f
     pages: "/malheur-experiment-station/crops/teff\r\n/mes/crops/teff\r\n/node/45311"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

@@ -10,7 +10,7 @@ logic: and
 conditions:
   5356760d-4a90-4fdf-9f77-ef02680b5c31:
     id: request_path
-    negate: false
     uuid: 5356760d-4a90-4fdf-9f77-ef02680b5c31
     pages: "/malheur-experiment-station/crops/dry-beans\r\n/mes/crops/dry-beans\r\n/node/45306"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

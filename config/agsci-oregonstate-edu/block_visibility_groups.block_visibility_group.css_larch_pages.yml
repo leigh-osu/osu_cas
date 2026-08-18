@@ -6,4 +6,4 @@ id: css_larch_pages
 label: css_larch-pages
 logic: and
 conditions: {  }
-allow_other_conditions: null
+allow_other_conditions: false

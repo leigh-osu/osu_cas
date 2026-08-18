@@ -11,15 +11,15 @@ logic: and
 conditions:
   49ea01b1-a9b7-4321-ba1b-b355ef25184b:
     id: request_path
-    negate: false
     uuid: 49ea01b1-a9b7-4321-ba1b-b355ef25184b
     pages: /admin/dashboard
+    negate: false
   d67b7fd9-db0a-4f77-9908-807228c9e109:
     id: user_role
-    negate: false
     uuid: d67b7fd9-db0a-4f77-9908-807228c9e109
-    context_mapping:
-      user: '@user.current_user_context:current_user'
     roles:
       authenticated: authenticated
-allow_other_conditions: null
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+allow_other_conditions: false

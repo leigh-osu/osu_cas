@@ -10,7 +10,7 @@ logic: and
 conditions:
   9f535a41-f34b-42d5-be1f-dbc0b263acf9:
     id: request_path
-    negate: false
     uuid: 9f535a41-f34b-42d5-be1f-dbc0b263acf9
     pages: "/oregon-vegetables/news\r\n/node/77586"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

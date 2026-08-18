@@ -10,7 +10,7 @@ logic: and
 conditions:
   0c09b583-c0b3-4c52-8b21-d5a321a8e3e0:
     id: request_path
-    negate: false
     uuid: 0c09b583-c0b3-4c52-8b21-d5a321a8e3e0
     pages: "/harec\r\n/node/109791"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

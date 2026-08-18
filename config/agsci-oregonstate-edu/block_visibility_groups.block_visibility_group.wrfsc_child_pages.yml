@@ -10,7 +10,7 @@ logic: and
 conditions:
   5b20aac1-b87b-4a8c-ad6d-8227e94c4d18:
     id: request_path
-    negate: false
     uuid: 5b20aac1-b87b-4a8c-ad6d-8227e94c4d18
     pages: "/wrfsc/*\r\n/wrcefs/*\r\n/western-regional-food-safety-center/*\r\n/wrcefs"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

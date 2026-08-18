@@ -10,10 +10,10 @@ logic: and
 conditions:
   f04d641d-495b-4bdb-8f5a-87f8b3954aad:
     id: 'entity_bundle:node'
-    negate: false
     uuid: f04d641d-495b-4bdb-8f5a-87f8b3954aad
-    context_mapping:
-      node: '@node.node_route_context:node'
+    negate: false
     bundles:
       degree_fact_sheet: degree_fact_sheet
-allow_other_conditions: null
+    context_mapping:
+      node: '@node.node_route_context:node'
+allow_other_conditions: false

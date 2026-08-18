@@ -10,7 +10,7 @@ logic: and
 conditions:
   439c5214-271b-4a0c-8cd6-1e3f0f43675d:
     id: request_path
-    negate: false
     uuid: 439c5214-271b-4a0c-8cd6-1e3f0f43675d
     pages: "/mes/crops/corn\r\n/node/45291"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

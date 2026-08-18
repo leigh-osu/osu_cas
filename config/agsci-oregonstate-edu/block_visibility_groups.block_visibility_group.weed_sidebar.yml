@@ -10,10 +10,10 @@ logic: and
 conditions:
   67477f8e-3875-4b4b-9af1-c78ffa86e491:
     id: 'entity_bundle:node'
-    negate: false
     uuid: 67477f8e-3875-4b4b-9af1-c78ffa86e491
-    context_mapping:
-      node: '@node.node_route_context:node'
+    negate: false
     bundles:
       weed: weed
-allow_other_conditions: null
+    context_mapping:
+      node: '@node.node_route_context:node'
+allow_other_conditions: false

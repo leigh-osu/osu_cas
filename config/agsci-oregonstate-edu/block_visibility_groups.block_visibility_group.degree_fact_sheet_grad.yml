@@ -6,4 +6,4 @@ id: degree_fact_sheet_grad
 label: degree_fact_sheet_grad
 logic: and
 conditions: {  }
-allow_other_conditions: null
+allow_other_conditions: false

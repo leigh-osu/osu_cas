@@ -10,7 +10,7 @@ logic: and
 conditions:
   6d099bcb-453f-4226-a42e-ba9d0388f1b4:
     id: request_path
-    negate: false
     uuid: 6d099bcb-453f-4226-a42e-ba9d0388f1b4
     pages: /organic-agriculture-program/organic-research-and-extension-projects
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

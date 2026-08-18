@@ -10,7 +10,7 @@ logic: and
 conditions:
   7cc75b0a-2500-44a3-a90c-866154d90e16:
     id: request_path
-    negate: false
     uuid: 7cc75b0a-2500-44a3-a90c-866154d90e16
     pages: /node/80201
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

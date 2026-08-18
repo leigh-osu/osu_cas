@@ -10,7 +10,7 @@ logic: and
 conditions:
   b93c0ab1-113c-4e8d-bbb7-d3c88af07e53:
     id: request_path
-    negate: false
     uuid: b93c0ab1-113c-4e8d-bbb7-d3c88af07e53
     pages: /mes/crops/asparagus
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

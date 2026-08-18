@@ -10,7 +10,7 @@ logic: and
 conditions:
   3a0652ce-3d01-4a82-aeed-81ac4c9aa6e6:
     id: request_path
-    negate: false
     uuid: 3a0652ce-3d01-4a82-aeed-81ac4c9aa6e6
     pages: "/agprogrameou/*\r\n/osu-agriculture-and-natural-resource-program-eou/*\r\n/agprogrameou\r\n/node/16845"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

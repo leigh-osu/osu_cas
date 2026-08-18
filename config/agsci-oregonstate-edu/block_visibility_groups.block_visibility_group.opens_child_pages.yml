@@ -6,4 +6,4 @@ id: opens_child_pages
 label: opens_child-pages
 logic: and
 conditions: {  }
-allow_other_conditions: null
+allow_other_conditions: false

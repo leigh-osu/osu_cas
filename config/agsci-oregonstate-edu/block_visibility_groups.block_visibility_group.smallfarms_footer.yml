@@ -6,4 +6,4 @@ id: smallfarms_footer
 label: smallfarms_footer
 logic: and
 conditions: {  }
-allow_other_conditions: null
+allow_other_conditions: false

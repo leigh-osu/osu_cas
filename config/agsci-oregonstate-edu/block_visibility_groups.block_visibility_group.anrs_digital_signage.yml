@@ -10,7 +10,7 @@ logic: and
 conditions:
   4c3e3bbe-29c1-4593-8505-da83251f66fb:
     id: request_path
-    negate: false
     uuid: 4c3e3bbe-29c1-4593-8505-da83251f66fb
     pages: /node/213721
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

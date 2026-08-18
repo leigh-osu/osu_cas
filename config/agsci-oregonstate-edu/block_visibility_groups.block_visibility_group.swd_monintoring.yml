@@ -10,7 +10,7 @@ logic: and
 conditions:
   deb2f129-733a-4bc6-9d9c-c1e464de3d1b:
     id: request_path
-    negate: false
     uuid: deb2f129-733a-4bc6-9d9c-c1e464de3d1b
     pages: /node/80106
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

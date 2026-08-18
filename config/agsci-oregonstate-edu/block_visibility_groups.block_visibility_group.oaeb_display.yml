@@ -10,7 +10,7 @@ logic: and
 conditions:
   86fc2667-7115-451e-8678-372e48d182b9:
     id: request_path
-    negate: false
     uuid: 86fc2667-7115-451e-8678-372e48d182b9
     pages: /oregon-agricultural-enterprise-budgets
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

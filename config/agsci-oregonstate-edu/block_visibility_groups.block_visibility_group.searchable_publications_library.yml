@@ -10,12 +10,12 @@ logic: and
 conditions:
   5e486d0b-a8b6-4a97-a8e4-ab35dd25170e:
     id: request_path
-    negate: false
     uuid: 5e486d0b-a8b6-4a97-a8e4-ab35dd25170e
     pages: '/*/publications-database'
+    negate: false
   1a3e5b85-60ff-44c6-afcf-2ec31d8f01fb:
     id: request_path
-    negate: true
     uuid: 1a3e5b85-60ff-44c6-afcf-2ec31d8f01fb
     pages: /node/99021
-allow_other_conditions: null
+    negate: true
+allow_other_conditions: false

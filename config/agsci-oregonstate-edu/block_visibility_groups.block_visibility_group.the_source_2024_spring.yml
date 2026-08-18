@@ -10,7 +10,7 @@ logic: and
 conditions:
   73576548-9520-4005-b08e-8b6780ec95f4:
     id: request_path
-    negate: false
     uuid: 73576548-9520-4005-b08e-8b6780ec95f4
     pages: "/thesource/spring-2024\r\n/thesource/spring-2024*"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

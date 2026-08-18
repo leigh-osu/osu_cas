@@ -6,4 +6,4 @@ id: sidebar_block_of_text
 label: sidebar_block_of_text
 logic: and
 conditions: {  }
-allow_other_conditions: null
+allow_other_conditions: false

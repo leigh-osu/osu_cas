@@ -6,4 +6,4 @@ id: group
 label: group
 logic: and
 conditions: {  }
-allow_other_conditions: null
+allow_other_conditions: false

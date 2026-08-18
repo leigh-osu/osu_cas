@@ -10,7 +10,7 @@ logic: and
 conditions:
   97484695-0813-4fc8-a08a-5bc855153dae:
     id: request_path
-    negate: false
     uuid: 97484695-0813-4fc8-a08a-5bc855153dae
     pages: /mes/crops/alfalfa
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

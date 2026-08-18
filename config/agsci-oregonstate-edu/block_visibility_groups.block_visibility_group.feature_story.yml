@@ -10,7 +10,7 @@ logic: and
 conditions:
   cf7fe311-4e35-4cf8-aee1-be426b177951:
     id: request_path
-    negate: false
     uuid: cf7fe311-4e35-4cf8-aee1-be426b177951
     pages: '/feature-story/*'
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false

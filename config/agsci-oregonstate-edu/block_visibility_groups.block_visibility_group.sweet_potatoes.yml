@@ -10,7 +10,7 @@ logic: and
 conditions:
   5b2c4373-7aa3-45b8-bcbd-a8735a5417df:
     id: request_path
-    negate: false
     uuid: 5b2c4373-7aa3-45b8-bcbd-a8735a5417df
     pages: "/malheur-experiment-station/crops/swet_potatoes\r\n/mes/crops/sweet_potatoes\r\n/node/45336"
-allow_other_conditions: null
+    negate: false
+allow_other_conditions: false
