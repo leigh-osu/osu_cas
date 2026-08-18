@@ -158,7 +158,7 @@ section_1() {
   ddev drush en domain domain_access domain_alias domain_content domain_source multiselect layout_builder_modal layout_builder_reorder -y
   ddev drush en migrate migrate_drupal phpass migrate_plus -y
   ddev drush en osu_migrations osu_user_accounts osu_migrations_files osu_migrations_media osu_migrations_taxonomy \
-      osu_migrate_content og_to_group paragraphs_to_layout_builder osu_user_to_profiles devel migrate_devel \
+      osu_migrate_content og_to_group paragraphs_to_layout_builder osu_user_to_profiles \
       domain_migrate domain_access_migrate webform_migrate -y
 
   # osu_digital_measures provides the osu_digital_measures_report field formatter
@@ -775,8 +775,22 @@ section_7() {
   # D7's ~24k unmanaged public files (IMCE/FTP uploads with no file_managed
   # row) are copied and registered as file entities; the 8k referenced from
   # content also become media. Nothing else in the migration touches them.
-  bash ../scripts-dev/stage_unmanaged_files.sh
+  bash scripts-dev/stage_unmanaged_files.sh
   ddev drush scr ../scripts-dev/register_unmanaged_files.php
+
+  # Two link repairs that have to run after the files are on disk, because both
+  # decide what to do by looking at what actually exists.
+  #
+  # Case first: D7 content links a dozen files in a different case to the name
+  # on disk. They resolve on a Mac and 404 on Acquia, so nothing local catches
+  # them -- the fix rewrites the link, never the file.
+  ddev drush scr ../scripts-dev/fix_file_link_case.php
+  # Then the missing-file report, which strip_dead_private_links.php reads to
+  # decide which links have no possible target: the D6-era /system/files/u<uid>/
+  # and imagecache/ paths, which exist nowhere in either site.
+  ddev drush scr ../scripts-dev/report_missing_file_links.php
+  ddev drush scr ../scripts-dev/strip_dead_private_links.php
+
   ddev drush scr ../scripts-dev/place_dfs_blocks.php
   ddev drush scr ../scripts-dev/place_context_views_blocks.php
   ddev drush scr ../scripts-dev/place_embed_blocks.php

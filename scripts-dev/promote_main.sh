@@ -32,6 +32,11 @@ trap 'rm -f "$TMP_INDEX"' EXIT
 export GIT_INDEX_FILE="$TMP_INDEX"
 git read-tree "${DEV_LOCAL}^{tree}"
 git rm -r --cached --quiet .ddev 2>/dev/null || true
+# scripts-dev is local tooling: migration/backfill scripts, reports, spreadsheets
+# and archives that the deployed site never reads. Keeping it off main saves
+# ~29 MB per Pipelines clone and keeps dev-only SQL and data files out of the
+# stage and production codebase.
+git rm -r --cached --quiet scripts-dev 2>/dev/null || true
 NEW_TREE=$(git write-tree)
 unset GIT_INDEX_FILE
 
