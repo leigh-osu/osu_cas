@@ -92,6 +92,27 @@ This is what the 27,018 redirects are for: stale results land correctly instead
 of 404ing. Do not prune redirects to tidy up — including the retired `/users/`
 and `/people/` namespaces.
 
+### CAS login only works on registered hostnames
+
+`cas.settings` sets `forced_login.enabled = true` for `/user/login`, `/login`
+and `/admin`, so every login path redirects to `login.oregonstate.edu`. OSU's
+CAS server rejects a `service` URL it does not know, answering **500** — so on
+any hostname not registered with OSU IAM, nobody can log in through the UI at
+all. Confirmed 18 Aug 2026 on both `osucasstage.prod.acquia-sites.com` and
+`osu-cas.ddev.site`; the 500 comes from OSU's server, not from Drupal, and
+there is nothing to fix in this codebase.
+
+Production is expected to be fine: `agsci.oregonstate.edu` is already a
+registered service because D7 uses CAS on that same hostname. Verify it anyway
+on the first day the D10 site answers there, before announcing it.
+
+Consequence for **stage**: editors cannot log in via the acquia-sites.com URL.
+Either have OSU IAM register the stage hostname, or hand out one-time links:
+
+```
+drush @osucas.stage -l osucasstage.prod.acquia-sites.com uli --uid=1
+```
+
 ### robots.txt
 
 The file that deploys is the standard permissive Drupal one. `Disallow: /` only
