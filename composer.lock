@@ -18026,16 +18026,16 @@
         },
         {
             "name": "leigh-osu/osu_cas_multisite",
-            "version": "v1.16.0",
+            "version": "v1.17.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:leigh-osu/osu_cas_multisite.git",
-                "reference": "42441ed1c992f0700a8a937da13775fec905d769"
+                "url": "https://github.com/leigh-osu/osu_cas_multisite.git",
+                "reference": "b7f93f4ea7908b9b6026c05eaf3f4387b75f0367"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_cas_multisite/zipball/42441ed1c992f0700a8a937da13775fec905d769",
-                "reference": "42441ed1c992f0700a8a937da13775fec905d769",
+                "url": "https://api.github.com/repos/leigh-osu/osu_cas_multisite/zipball/b7f93f4ea7908b9b6026c05eaf3f4387b75f0367",
+                "reference": "b7f93f4ea7908b9b6026c05eaf3f4387b75f0367",
                 "shasum": ""
             },
             "require": {
@@ -18043,7 +18043,11 @@
             },
             "type": "drupal-custom-module",
             "description": "Shared helpers and theming for the OSU CAS multisite platform; the osu_cas_multisite_degrees submodule carries the degree fact sheet rendering.",
-            "time": "2026-08-18T06:32:04+00:00"
+            "support": {
+                "source": "https://github.com/leigh-osu/osu_cas_multisite/tree/v1.17.0",
+                "issues": "https://github.com/leigh-osu/osu_cas_multisite/issues"
+            },
+            "time": "2026-08-18T07:18:10+00:00"
         },
         {
             "name": "leigh-osu/osu_cas_site_sync",
