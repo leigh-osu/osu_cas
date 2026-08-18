@@ -765,6 +765,12 @@ section_7() {
   # (images, news, videos) run off fields the migration already fills; this one
   # lived in D7's biblio_contributor_data and has to be rebuilt from it.
   ddev drush scr ../scripts-dev/backfill_publication_profiles.php
+  # D7 feature_page field_sections (a field collection nothing maps): the seven
+  # pages that lose real text get one layout section per D7 item.
+  ddev drush scr ../scripts-dev/restore_feature_page_sections.php
+  # D7 field_file_attachment on page/book: the 48 files D7 actually displayed
+  # (of 132 attached) become a download list at the end of the body.
+  ddev drush scr ../scripts-dev/restore_page_attachments.php
   ddev drush scr ../scripts-dev/backfill_aeb_attachments.php
   # D7's ~24k unmanaged public files (IMCE/FTP uploads with no file_managed
   # row) are copied and registered as file entities; the 8k referenced from
