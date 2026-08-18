@@ -98,6 +98,18 @@ The file that deploys is the standard permissive Drupal one. `Disallow: /` only
 appears locally, injected by DDEV for `.ddev.site` hosts. Nothing to do; noted
 so nobody "fixes" it in a panic.
 
+### Error display is already correct
+
+`system.logging` ships `error_level: hide`, so production shows visitors nothing
+when PHP errors — no messages, no stack traces. Confirmed as the wanted value.
+
+Local development is unaffected: `settings.ddev.php` pins `verbose` regardless,
+so DDEV still shows full errors. Nothing to do at go-live; noted so the
+difference between the stored value and what you see locally does not look like
+a bug.
+
+`dblog` is enabled, so errors are recorded at `/admin/reports/dblog` either way.
+
 ### Error pages
 
 D7 had a custom 404 at `node/26860`, which was not migrated. D10 falls back to
