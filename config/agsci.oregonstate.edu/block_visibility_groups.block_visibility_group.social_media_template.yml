@@ -1,0 +1,16 @@
+uuid: faeeece5-5108-4203-b4f8-c16bab870011
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: social_media_template
+label: social_media_template
+logic: and
+conditions:
+  57c59088-b42b-41a2-ae21-a04bbd70c12d:
+    id: request_path
+    uuid: 57c59088-b42b-41a2-ae21-a04bbd70c12d
+    pages: "/social-media/*\r\n/main/social-media-and-multimedia\r\n/main/newsletters"
+    negate: false
+allow_other_conditions: false

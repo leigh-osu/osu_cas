@@ -1,0 +1,16 @@
+uuid: 7271fb30-fd12-401e-a95f-088d390b47d0
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: education_human
+label: education_human
+logic: and
+conditions:
+  a33b0a3b-e125-4b3d-abdc-7ec36b185661:
+    id: request_path
+    uuid: a33b0a3b-e125-4b3d-abdc-7ec36b185661
+    pages: /node/44699
+    negate: false
+allow_other_conditions: false

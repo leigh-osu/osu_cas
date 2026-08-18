@@ -1,9 +1,0 @@
-uuid: ebe2db3c-196d-47ec-ba29-5be77a077968
-langcode: en
-status: true
-dependencies: {  }
-id: opens_child_pages
-label: opens_child-pages
-logic: and
-conditions: {  }
-allow_other_conditions: null

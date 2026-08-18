@@ -1,0 +1,9 @@
+uuid: ed8f24fc-3f43-454d-a923-543e2e576229
+langcode: en
+status: true
+dependencies: {  }
+id: degree_fact_sheet_grad
+label: degree_fact_sheet_grad
+logic: and
+conditions: {  }
+allow_other_conditions: false

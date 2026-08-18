@@ -1,9 +1,0 @@
-uuid: e2bd05d2-cb79-4c1c-aad3-b8c10b3ddf96
-langcode: en
-status: true
-dependencies: {  }
-id: article_sidebar
-label: article_sidebar
-logic: and
-conditions: {  }
-allow_other_conditions: null

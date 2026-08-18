@@ -110,7 +110,7 @@ The codebase hosts multiple OSU department sites from a single Drupal installati
 - `docroot/sites/agsci.oregonstate.edu/` — main site (College of Ag Sciences)
 - `docroot/sites/landscapeplants.oregonstate.edu/` — secondary site
 - `docroot/sites/sites.php` — maps hostnames to site directories
-- `config/agsci-oregonstate-edu/` — config export for the main site (1400+ YAML files)
+- `config/agsci.oregonstate.edu/` — config export for the main site (1400+ YAML files)
 
 ### Configuration Management
 

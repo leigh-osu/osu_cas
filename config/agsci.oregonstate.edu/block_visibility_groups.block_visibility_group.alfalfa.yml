@@ -1,0 +1,16 @@
+uuid: bf7cb223-2ed0-4bef-b177-02e8e4b296cb
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: alfalfa
+label: alfalfa
+logic: and
+conditions:
+  97484695-0813-4fc8-a08a-5bc855153dae:
+    id: request_path
+    uuid: 97484695-0813-4fc8-a08a-5bc855153dae
+    pages: /mes/crops/alfalfa
+    negate: false
+allow_other_conditions: false

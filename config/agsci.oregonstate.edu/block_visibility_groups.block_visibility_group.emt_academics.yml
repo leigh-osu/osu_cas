@@ -1,0 +1,16 @@
+uuid: 16ddc269-a34c-492a-99bc-edb3c316a86a
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: emt_academics
+label: emt_academics
+logic: and
+conditions:
+  0ba73b7d-e436-4497-99ff-68ecd878afa1:
+    id: request_path
+    uuid: 0ba73b7d-e436-4497-99ff-68ecd878afa1
+    pages: "/node/217606\r\n/node/217611\r\n/node/217616\r\n/node/217621\r\n/node/217626\r\n/node/217631\r\n/node/217636\r\n/node/217641\r\n/node/217646\r\n/node/217651\r\n/node/217716\r\n/node/217721\r\n/node/217731\r\n/node/217736\r\n/node/217751\r\n/node/217756\r\n/node/217761\r\n/node/217766\r\n/node/217771\r\n/node/217776\r\n/node/217781\r\n/node/217786\r\n/node/217791\r\n/node/217801\r\n/node/217806\r\n/node/217946\r\n/node/217951\r\n/node/218111\r\n/node/219776\r\n/node/219821\r\n/node/212141\r\n/node/225791"
+    negate: false
+allow_other_conditions: false

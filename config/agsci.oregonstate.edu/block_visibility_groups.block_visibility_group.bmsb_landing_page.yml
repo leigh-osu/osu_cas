@@ -1,0 +1,16 @@
+uuid: ae084e2f-23da-4298-b37d-9da3a45ad2c7
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: bmsb_landing_page
+label: bmsb-landing-page
+logic: and
+conditions:
+  7b1c99de-47f2-4f85-bedd-2e5ec498bb02:
+    id: request_path
+    uuid: 7b1c99de-47f2-4f85-bedd-2e5ec498bb02
+    pages: /node/36676
+    negate: false
+allow_other_conditions: false

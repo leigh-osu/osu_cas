@@ -1,0 +1,16 @@
+uuid: 7c68c96a-2759-4666-969f-5268570cb8a0
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: bioenergy_k12_landing_page_child_unit
+label: bioenergy-k12_landing-page-child-unit
+logic: and
+conditions:
+  98a94338-e63c-417a-81ab-fab457723f9c:
+    id: request_path
+    uuid: 98a94338-e63c-417a-81ab-fab457723f9c
+    pages: /node/26240
+    negate: false
+allow_other_conditions: false

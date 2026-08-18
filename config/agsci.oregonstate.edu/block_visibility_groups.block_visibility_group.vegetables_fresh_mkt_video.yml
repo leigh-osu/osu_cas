@@ -1,0 +1,16 @@
+uuid: 6f48fb11-4109-4ea2-aec0-5407c2a11303
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: vegetables_fresh_mkt_video
+label: vegetables_fresh_mkt_video
+logic: and
+conditions:
+  6422efc4-7c7f-4ec5-ae4c-282db07bc8d8:
+    id: request_path
+    uuid: 6422efc4-7c7f-4ec5-ae4c-282db07bc8d8
+    pages: /node/83621
+    negate: false
+allow_other_conditions: false

@@ -11,7 +11,7 @@
  *   X.oregonstate.edu -> X.<env>.oregonstate.edu
  *   Y.org             -> <env>.Y.org
  * Production needs no rewrite. Regenerate the map with:
- *   for f in config/agsci-oregonstate-edu/domain.record.*.yml; do \
+ *   for f in config/agsci.oregonstate.edu/domain.record.*.yml; do \
  *     printf "  '%s' => '%s',\n" "$(grep '^id:' "$f" | awk '{print $2}')" \
  *       "$(grep '^hostname:' "$f" | awk '{print $2}')"; done | sort
  */

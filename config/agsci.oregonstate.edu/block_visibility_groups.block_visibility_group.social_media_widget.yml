@@ -1,0 +1,21 @@
+uuid: 28fd3121-b678-43a3-87a3-9d11f4948b9b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: social_media_widget
+label: social_media_widget
+logic: and
+conditions:
+  106ebd02-f816-4fa3-8718-8c071aae9481:
+    id: 'entity_bundle:node'
+    uuid: 106ebd02-f816-4fa3-8718-8c071aae9481
+    negate: false
+    bundles:
+      art_about_agriculture: art_about_agriculture
+      project: project
+      story: story
+    context_mapping:
+      node: '@node.node_route_context:node'
+allow_other_conditions: false

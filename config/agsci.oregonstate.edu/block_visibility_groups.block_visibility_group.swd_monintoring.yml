@@ -1,0 +1,16 @@
+uuid: 3c506bad-358e-470b-8fe4-a9328a0106d8
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: swd_monintoring
+label: swd_monintoring
+logic: and
+conditions:
+  deb2f129-733a-4bc6-9d9c-c1e464de3d1b:
+    id: request_path
+    uuid: deb2f129-733a-4bc6-9d9c-c1e464de3d1b
+    pages: /node/80106
+    negate: false
+allow_other_conditions: false

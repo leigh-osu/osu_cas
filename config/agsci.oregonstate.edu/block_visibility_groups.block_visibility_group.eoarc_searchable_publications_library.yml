@@ -1,0 +1,16 @@
+uuid: fe7d5d0b-c990-4b28-bff8-fb0c8c685c88
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: eoarc_searchable_publications_library
+label: eoarc_searchable_publications-library
+logic: and
+conditions:
+  7a73beee-98eb-44b2-ac8c-0b9eae0d662a:
+    id: request_path
+    uuid: 7a73beee-98eb-44b2-ac8c-0b9eae0d662a
+    pages: /node/99021
+    negate: false
+allow_other_conditions: false

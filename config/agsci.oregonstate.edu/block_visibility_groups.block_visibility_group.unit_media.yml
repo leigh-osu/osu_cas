@@ -1,0 +1,16 @@
+uuid: 6c852ef2-edff-4edc-8d63-86945b6d7a45
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: unit_media
+label: unit-media
+logic: and
+conditions:
+  7b620911-a8b8-4851-b446-99f4d95bffec:
+    id: request_path
+    uuid: 7b620911-a8b8-4851-b446-99f4d95bffec
+    pages: '/*our-media*'
+    negate: false
+allow_other_conditions: false

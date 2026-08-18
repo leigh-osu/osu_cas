@@ -1,9 +1,0 @@
-uuid: 6459c9f8-8c08-487e-8b1d-3d67bf377cd3
-langcode: en
-status: true
-dependencies: {  }
-id: global_context
-label: global_context
-logic: and
-conditions: {  }
-allow_other_conditions: null

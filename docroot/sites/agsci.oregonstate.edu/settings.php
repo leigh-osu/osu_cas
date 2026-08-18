@@ -889,7 +889,7 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
  * Keep this code block at the end of this file to take full effect.
  */
 
-$settings['config_sync_directory'] = '../config/agsci-oregonstate-edu';
+$settings['config_sync_directory'] = '../config/agsci.oregonstate.edu';
 
 // Environment-aware Domain hostnames on Acquia dev/stage (no-op elsewhere).
 if (file_exists($app_root . '/' . $site_path . '/settings.acquia-domains.php')) {
@@ -975,3 +975,29 @@ if (getenv('IS_DDEV_PROJECT') == 'true' && is_readable($ddev_settings)) {
  */
 $osu_cas_ah_env = $_ENV['AH_SITE_ENVIRONMENT'] ?? '';
 $config['reroute_email.settings']['enable'] = ($osu_cas_ah_env !== 'prod');
+
+/**
+ * Re-assert the config sync directory, after Acquia has had its say.
+ *
+ * The `-settings.inc` required above pulls in Acquia's platform-level
+ * /var/acquia/drupal/settings/settings.inc.php, which unconditionally does:
+ *
+ *   $settings['config_sync_directory'] = "$app_root/../config/$AH_DRUPAL_SITE_NAME";
+ *
+ * agsci is the platform's default site, so $AH_DRUPAL_SITE_NAME is "default"
+ * and every hosted environment silently pointed config sync at
+ * ../config/default, discarding the value set earlier in this file. That
+ * directory is not in the repository and is not writable in a deployed
+ * artifact, so Drupal logged "Security warning: Couldn't write .htaccess
+ * file" on every cron run -- once every 15 minutes -- and, more seriously,
+ * `drush cex` and `drush cim` on dev, stage and prod were aimed at the wrong
+ * directory entirely.
+ *
+ * Assigning it here is what fixes it: this is the last word in the file, so
+ * it runs after the Acquia include rather than before it. ../config/agsci-
+ * oregonstate-edu is tracked in git and ships with its own .htaccess, so
+ * there is nothing for Drupal to write and nothing to warn about.
+ *
+ * Keep this at the end of the file. Moving it back up top restores the bug.
+ */
+$settings['config_sync_directory'] = '../config/agsci.oregonstate.edu';
