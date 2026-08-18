@@ -676,6 +676,13 @@ section_7() {
   # block is then placed in the pre-footer below.
   ddev drush en osu_cas_site_sync simple_styleguide taxonomy_manager -y
 
+  # reroute_email catches every outbound message and sends it to one mailbox.
+  # 98 webforms carry 148 active email handlers, so without this a rebuilt or
+  # copied database mails real OSU staff the moment anyone submits a form.
+  # Enabled here so the safe state is the default one; production is the only
+  # environment that should ever turn it off, deliberately and at go-live.
+  ddev drush en reroute_email -y
+
   # Import the contrib dev-tool config (Simple Styleguide colour palette and the
   # osu_card / osu_accordion / osu_menu_bar sample patterns). Runs after the
   # module enable above so the styleguide_pattern entity type exists.
