@@ -683,6 +683,10 @@ section_7() {
   # environment that should ever turn it off, deliberately and at go-live.
   ddev drush en reroute_email -y
 
+  # dblog: the site had no error log at all, only syslog. Editors reporting a
+  # problem need something someone can actually look at.
+  ddev drush en dblog -y
+
   # Import the contrib dev-tool config (Simple Styleguide colour palette and the
   # osu_card / osu_accordion / osu_menu_bar sample patterns). Runs after the
   # module enable above so the styleguide_pattern entity type exists.
