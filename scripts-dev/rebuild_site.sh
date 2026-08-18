@@ -687,6 +687,11 @@ section_7() {
   # problem need something someone can actually look at.
   ddev drush en dblog -y
 
+  # CAS button picker: replaces the upstream osu_buttons dialog with the two
+  # schemes the site actually uses and no size choice, and makes an existing
+  # button editable instead of only insertable.
+  ddev drush en osu_cas_multisite_editor -y
+
   # Import the contrib dev-tool config (Simple Styleguide colour palette and the
   # osu_card / osu_accordion / osu_menu_bar sample patterns). Runs after the
   # module enable above so the styleguide_pattern entity type exists.
