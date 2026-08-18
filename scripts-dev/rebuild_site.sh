@@ -806,6 +806,11 @@ section_7() {
   # Add-content / Leave-group block) on the front-facing themes.
   ddev drush php:eval 'foreach (["manzanita_groupoperations", "madrone_groupoperations"] as $id) { if ($b = \Drupal\block\Entity\Block::load($id)) { $b->disable()->save(); } }'
 
+  # Header navigation: point the group menu at the domain-aware context and
+  # retire the five-link site-wide main menu. See the script for why Group's
+  # own context is not used.
+  ddev drush scr ../scripts-dev/configure_group_menus.php
+
   # Masquerade: Administrator-only (is_admin covers every permission, so no
   # role grants are needed -- and deliberately none are made: dx_administrator
   # and architect must NOT be able to masquerade). The block renders in the
