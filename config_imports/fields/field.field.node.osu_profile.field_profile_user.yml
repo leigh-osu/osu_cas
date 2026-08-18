@@ -4,14 +4,12 @@ dependencies:
   config:
     - field.storage.node.field_profile_user
     - node.type.osu_profile
-  module:
-    - user
 id: node.osu_profile.field_profile_user
 field_name: field_profile_user
 entity_type: node
 bundle: osu_profile
-label: 'Account'
-description: 'The user account this profile describes. Distinct from the node author, which only says who may edit it: a profile created by an editor on behalf of someone else has the editor as author but that person here. Empty when no account exists, which is the case for the 1,381 profiles whose D7 user never migrated.'
+label: 'User Account'
+description: "The user account associated with this profile. This profile can be edited by the User linked here, the 'author' of the profile, or an admin."
 required: false
 translatable: true
 default_value: {  }
@@ -19,11 +17,12 @@ default_value_callback: ''
 settings:
   handler: 'default:user'
   handler_settings:
-    include_anonymous: false
-    filter:
-      type: _none
     target_bundles: null
     sort:
       field: _none
     auto_create: false
+    filter:
+      type: _none
+    include_anonymous: false
 field_type: entity_reference
+
