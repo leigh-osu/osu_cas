@@ -8,10 +8,10 @@ dependencies:
     - node
     - user
 id: image_galleries
-label: Image galleries
+label: 'Image galleries'
 module: views
 description: 'Group image albums (D7 image_gallery): every album image as a thumbnail, linked to its album.'
-tag: OSU CAS
+tag: 'OSU CAS'
 base_table: node_field_data
 base_field: nid
 display:
@@ -21,7 +21,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Image galleries
+      title: 'Image galleries'
       fields:
         title:
           id: title
@@ -30,6 +30,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: title
           plugin_id: field
           label: ''
           exclude: true
@@ -73,6 +75,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -83,11 +88,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: title
-          type: string
-          settings:
-            link_to_entity: false
         view_node:
           id: view_node
           table: node
@@ -190,6 +190,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
+          type: entity_reference_entity_view
+          settings:
+            view_mode: gallery_card
+            link: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -198,12 +202,8 @@ display:
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ''
           field_api_classes: false
-          type: entity_reference_entity_view
-          settings:
-            view_mode: gallery_card
-            link: false
         nothing:
           id: nothing
           table: views
@@ -257,17 +257,18 @@ display:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 20
           total_pages: null
           id: 0
           tags:
-            next: Next ›
-            previous: ‹ Previous
-            first: « First
-            last: Last »
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
-            items_per_page_label: Items per page
+            items_per_page_label: 'Items per page'
             items_per_page_options: '5, 10, 25, 50'
             items_per_page_options_all: false
             items_per_page_options_all_label: '- All -'
@@ -280,14 +281,14 @@ display:
           submit_button: Apply
           reset_button: true
           reset_button_label: Reset
-          exposed_sorts_label: Sort by
+          exposed_sorts_label: 'Sort by'
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
       access:
         type: perm
         options:
-          perm: access content
+          perm: 'access content'
       cache:
         type: none
         options: {  }
@@ -301,7 +302,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: I currently have no images uploaded.
+          content: 'I currently have no images uploaded.'
           tokenize: false
       sorts:
         changed:
@@ -311,14 +312,14 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: changed
           plugin_id: date
           order: DESC
           expose:
             label: ''
             field_identifier: ''
           exposed: false
-          entity_type: node
-          entity_field: changed
           granularity: second
       arguments:
         gid:
@@ -352,7 +353,7 @@ display:
           specify_validation: false
           validate:
             type: none
-            fail: not found
+            fail: 'not found'
           validate_options: {  }
           break_phrase: false
           not: false
@@ -364,6 +365,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: status
           plugin_id: boolean
           operator: '='
           value: '1'
@@ -395,8 +398,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: node
-          entity_field: status
         type:
           id: type
           table: node_field_data
@@ -404,6 +405,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: type
           plugin_id: bundle
           operator: in
           value:
@@ -436,8 +439,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: node
-          entity_field: type
       filter_groups:
         operator: AND
         groups:
@@ -445,7 +446,7 @@ display:
       style:
         type: default
         options:
-          grouping: [  ]
+          grouping: {  }
           row_class: ''
           default_row_class: true
           uses_fields: false
@@ -463,7 +464,7 @@ display:
           disable_sql_rewrite: false
           distinct: true
           replica: false
-          query_tags: [  ]
+          query_tags: {  }
       relationships:
         group_content:
           id: group_content
@@ -471,10 +472,12 @@ display:
           field: group_content
           relationship: none
           group_type: group
-          admin_label: Group placement
+          admin_label: 'Group placement'
           plugin_id: group_content_to_entity_reverse
           required: true
           group_content_plugins: {  }
+      css_class: cas-image-galleries
+      use_ajax: false
       header:
         area:
           id: area
@@ -491,8 +494,6 @@ display:
           tokenize: false
       footer: {  }
       display_extenders: {  }
-      use_ajax: false
-      css_class: cas-image-galleries
     cache_metadata:
       max-age: -1
       contexts:
@@ -502,16 +503,16 @@ display:
         - url
         - url.query_args
         - user.permissions
-      tags: [  ]
+      tags: {  }
   group_images:
     id: group_images
-    display_title: Our Images (group albums)
+    display_title: 'Our Images (group albums)'
     display_plugin: block
     position: 1
     display_options:
       display_extenders: {  }
-      block_description: 'Image galleries: the group''s albums'
-      block_category: OSU CAS
+      block_description: "Image galleries: the group's albums"
+      block_category: 'OSU CAS'
     cache_metadata:
       max-age: -1
       contexts:
@@ -521,4 +522,75 @@ display:
         - url
         - url.query_args
         - user.permissions
-      tags: [  ]
+      tags: {  }
+  profile:
+    id: profile
+    display_title: 'My Images'
+    display_plugin: block
+    position: 2
+    display_options:
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 12
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: true
+          content: 'I currently have no images uploaded.'
+          tokenize: false
+      arguments:
+        field_image_album_show_profile_target_id:
+          id: field_image_album_show_profile_target_id
+          table: node__field_image_album_show_profile
+          field: field_image_album_show_profile_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: entity_target_id
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: 'My Images'
+          default_argument_type: node
+          default_argument_options: {  }
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
+          not: false
+          target_entity_type_id: node
+      defaults:
+        empty: false
+        pager: false
+        relationships: false
+        arguments: false
+        header: false
+      relationships: {  }
+      display_description: ''
+      header: {  }
+      display_extenders: {  }
+      block_description: 'Image galleries: this profile’s albums'
+      block_category: 'OSU CAS'
+

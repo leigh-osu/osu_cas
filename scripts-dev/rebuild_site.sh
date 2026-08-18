@@ -761,6 +761,10 @@ section_7() {
   ddev drush scr ../scripts-dev/repath_profiles.php
   ddev drush scr ../scripts-dev/repath_feed_aliases.php
   ddev drush scr ../scripts-dev/link_profiles_to_accounts.php
+  # The profile's "My Publications" listing. The other three profile listings
+  # (images, news, videos) run off fields the migration already fills; this one
+  # lived in D7's biblio_contributor_data and has to be rebuilt from it.
+  ddev drush scr ../scripts-dev/backfill_publication_profiles.php
   ddev drush scr ../scripts-dev/backfill_aeb_attachments.php
   # D7's ~24k unmanaged public files (IMCE/FTP uploads with no file_managed
   # row) are copied and registered as file entities; the 8k referenced from

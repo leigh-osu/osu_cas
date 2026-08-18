@@ -6,6 +6,8 @@ dependencies:
     - core.entity_view_mode.node.full
     - field.field.node.osu_profile.field_domain_access
     - field.field.node.osu_profile.field_domain_all_affiliates
+    - field.field.node.osu_profile.field_domain_source
+    - field.field.node.osu_profile.field_group_private
     - field.field.node.osu_profile.field_osu_organizations
     - field.field.node.osu_profile.field_profile_address
     - field.field.node.osu_profile.field_profile_alt_phone
@@ -35,7 +37,9 @@ dependencies:
     - field.field.node.osu_profile.field_profile_fac_type
     - field.field.node.osu_profile.field_profile_fax
     - field.field.node.osu_profile.field_profile_first_name
+    - field.field.node.osu_profile.field_profile_functional_group
     - field.field.node.osu_profile.field_profile_google_scholar
+    - field.field.node.osu_profile.field_profile_headquarters
     - field.field.node.osu_profile.field_profile_image
     - field.field.node.osu_profile.field_profile_last_name
     - field.field.node.osu_profile.field_profile_middle_name
@@ -52,6 +56,8 @@ dependencies:
     - field.field.node.osu_profile.field_profile_stu_ac_interests
     - field.field.node.osu_profile.field_profile_stu_major_prof
     - field.field.node.osu_profile.field_profile_stu_majors
+    - field.field.node.osu_profile.field_profile_subgroups
+    - field.field.node.osu_profile.field_profile_user
     - field.field.node.osu_profile.field_tax_faculty_expertise
     - image.style.profile_image
     - node.type.osu_profile
@@ -166,6 +172,7 @@ third_party_settings:
         - field_profile_pubs_website
         - field_profile_fac_presentations
         - field_profile_dm_pubs
+        - listing_publications
       label: 'My Publications'
       parent_name: ''
       region: content
@@ -185,6 +192,23 @@ third_party_settings:
       parent_name: ''
       region: content
       weight: 26
+      format_type: details
+      format_settings:
+        classes: profile-accordion-section
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+    group_my_media:
+      children:
+        - listing_images
+        - listing_news
+        - listing_videos
+      label: 'My Media'
+      parent_name: ''
+      region: content
+      weight: 27
       format_type: details
       format_settings:
         classes: profile-accordion-section
@@ -525,16 +549,44 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
+  listing_images:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  listing_news:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  listing_publications:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  listing_videos:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
 hidden:
   entitygroupfield: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_domain_source: true
+  field_group_private: true
   field_profile_ext_pubs: true
   field_profile_fac_specialty: true
   field_profile_fac_type: true
   field_profile_first_name: true
+  field_profile_functional_group: true
+  field_profile_headquarters: true
   field_profile_last_name: true
   field_profile_middle_name: true
   field_profile_name_suffix: true
   field_profile_preferred_name: true
+  field_profile_subgroups: true
+  field_profile_user: true
+  langcode: true
   links: true
+
