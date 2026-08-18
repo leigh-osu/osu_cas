@@ -795,6 +795,13 @@ section_7() {
   # Case first: D7 content links a dozen files in a different case to the name
   # on disk. They resolve on a Mac and 404 on Acquia, so nothing local catches
   # them -- the fix rewrites the link, never the file.
+  # CAS uses one button size. The migration transform maps D7's
+  # btn-large/small/mini onto btn-lg/btn-sm, so a rebuild recreates ~750 sized
+  # buttons; this drops the size class again and leaves the cas-button-*
+  # scheme alone. Also covers block_content_revision, which is what Layout
+  # Builder actually renders for inline blocks.
+  ddev drush scr ../scripts-dev/strip_button_sizes.php
+
   ddev drush scr ../scripts-dev/fix_file_link_case.php
   # Then the missing-file report, which strip_dead_private_links.php reads to
   # decide which links have no possible target: the D6-era /system/files/u<uid>/
