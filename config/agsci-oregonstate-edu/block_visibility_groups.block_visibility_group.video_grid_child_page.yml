@@ -1,4 +1,4 @@
-uuid: 5aa13e86-b7a9-4580-ad5b-251aac88f9d3
+uuid: 7ee7cd84-9ec7-4a9f-890d-9990e563e35c
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: video_grid_child_page
 label: video-grid-child-page
 logic: and
 conditions:
-  80aaaf0f-7d32-4643-8078-159ad7e2a8af:
+  16a861b7-adae-4a2e-88ab-7d69ff96a3b8:
     id: request_path
     negate: false
-    uuid: 80aaaf0f-7d32-4643-8078-159ad7e2a8af
+    uuid: 16a861b7-adae-4a2e-88ab-7d69ff96a3b8
     pages: /node/80176
 allow_other_conditions: null

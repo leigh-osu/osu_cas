@@ -1,4 +1,4 @@
-uuid: 037bf516-0d3c-4ac7-aee5-8eeeb9a9aed0
+uuid: fe62a352-3122-4b7f-98b2-aecc138defaf
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: vegetables_specialty_seed_video
 label: vegetables_specialty_seed_video
 logic: and
 conditions:
-  71215580-59de-4d13-9940-98dcf6cba395:
+  509fb8cd-256f-4d48-9fb9-718255476aaa:
     id: request_path
     negate: false
-    uuid: 71215580-59de-4d13-9940-98dcf6cba395
+    uuid: 509fb8cd-256f-4d48-9fb9-718255476aaa
     pages: /node/83656
 allow_other_conditions: null

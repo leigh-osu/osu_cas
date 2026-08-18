@@ -12,6 +12,13 @@ dependencies:
     - field.field.node.page.field_osu_meta_image
     - field.field.node.page.field_page_banner_image
     - field.field.node.page.field_tax_cas_section
+    - field.field.node.page.field_tax_department
+    - field.field.node.page.field_tax_nursery_topics
+    - field.field.node.page.field_tax_publication_type
+    - field.field.node.page.field_tax_swd_topics
+    - field.field.node.page.field_tax_turf_topics
+    - field.field.node.page.field_tax_veg_topics
+    - field.field.node.page.field_tax_year
     - field.field.node.page.layout_builder__layout
     - node.type.page
   module:
@@ -238,6 +245,13 @@ hidden:
   field_osu_meta_image: true
   field_page_banner_image: true
   field_tax_cas_section: true
+  field_tax_department: true
+  field_tax_nursery_topics: true
+  field_tax_publication_type: true
+  field_tax_swd_topics: true
+  field_tax_turf_topics: true
+  field_tax_veg_topics: true
+  field_tax_year: true
   langcode: true
   layout_builder__layout: true
   toc_js: true

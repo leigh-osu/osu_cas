@@ -55,6 +55,7 @@ dependencies:
     - field.field.node.osu_profile.field_profile_stu_ac_interests
     - field.field.node.osu_profile.field_profile_stu_major_prof
     - field.field.node.osu_profile.field_profile_stu_majors
+    - field.field.node.osu_profile.field_profile_subgroups
     - field.field.node.osu_profile.field_profile_user
     - field.field.node.osu_profile.field_tax_faculty_expertise
     - node.type.osu_profile
@@ -1794,5 +1795,10 @@ hidden:
   field_group_private: true
   field_profile_credentials: true
   field_profile_curriculum_vitae: true
+  field_profile_subgroups: true
   field_profile_user: true
   langcode: true
+  listing_images: true
+  listing_news: true
+  listing_publications: true
+  listing_videos: true

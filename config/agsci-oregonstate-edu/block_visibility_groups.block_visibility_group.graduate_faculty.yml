@@ -1,4 +1,4 @@
-uuid: 9bf04304-408f-454f-9a11-7dee7bfdaffd
+uuid: 6c71456d-da40-4370-aab1-a0c393156c39
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: graduate_faculty
 label: graduate_faculty
 logic: and
 conditions:
-  96814ce6-7d64-4cc3-855f-c99a7fad1725:
+  e373677d-28da-4401-bb03-4e80e0c127cf:
     id: request_path
     negate: false
-    uuid: 96814ce6-7d64-4cc3-855f-c99a7fad1725
+    uuid: e373677d-28da-4401-bb03-4e80e0c127cf
     pages: "/node/44696\r\n/node/57771"
 allow_other_conditions: null

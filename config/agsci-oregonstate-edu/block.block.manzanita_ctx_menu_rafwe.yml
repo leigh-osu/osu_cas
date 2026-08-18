@@ -1,0 +1,43 @@
+uuid: 3b80c55c-1632-470e-8e5a-ff99083fd00b
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.menu-rafwe
+  module:
+    - system
+  theme:
+    - manzanita
+id: manzanita_ctx_menu_rafwe
+theme: manzanita
+region: sidebar
+weight: -10
+provider: null
+plugin: 'system_menu_block:menu-rafwe'
+settings:
+  id: 'system_menu_block:menu-rafwe'
+  label: Confluence
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: |-
+      /fwcs/rafwe*
+      /node/44661
+      /node/217061
+      /node/217671
+      /node/248716
+      /node/230036
+      /node/253331
+      /node/217691
+      /node/217681
+      /node/217441
+      /node/253466
+      /node/253471
+      /node/253476
+      /node/253481

@@ -10,6 +10,7 @@ module:
   admin_toolbar_tools: 0
   better_exposed_filters: 0
   big_pipe: 0
+  blazy: 0
   block: 0
   block_class: 0
   block_content: 0
@@ -40,7 +41,6 @@ module:
   datetime: 0
   datetime_range: 0
   default_content: 0
-  devel: 0
   domain: 0
   domain_access_migrate: 0
   domain_alias: 0
@@ -120,7 +120,6 @@ module:
   metatag_verification: 0
   metatag_views: 0
   migrate: 0
-  migrate_devel: 0
   migrate_drupal: 0
   migrate_plus: 0
   module_filter: 0
@@ -137,6 +136,7 @@ module:
   osu_cas_multisite_degrees: 0
   osu_cas_multisite_groups: 0
   osu_cas_site_sync: 0
+  osu_cas_weather: 0
   osu_ckeditor_plugins: 0
   osu_default_content: 0
   osu_digital_measures: 0
@@ -192,6 +192,8 @@ module:
   simple_popup_blocks: 0
   simple_styleguide: 0
   sitewide_alert: 0
+  slick: 0
+  slick_views: 0
   smart_date: 0
   sophron: 0
   superfish: 0

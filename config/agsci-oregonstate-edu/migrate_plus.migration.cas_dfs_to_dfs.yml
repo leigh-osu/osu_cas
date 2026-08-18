@@ -1,9 +1,9 @@
-uuid: d7c66ce9-1ca1-42cd-9b4c-3f7f6d5d4f86
+uuid: 22222cf5-b4ff-4a80-89b5-3f7debd85059
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: VqA-OzemZDD1cCKObQYbuWjva_AwfchPKXnghDoprBI
+  default_config_hash: PHA5meB5PIYTYJ76dftGTnBPrDCAhB8JxatMb9M_LuQ
 id: cas_dfs_to_dfs
 class: null
 idMap: {  }
@@ -37,8 +37,13 @@ process:
         plugin: default_value
         default_value: full_html
   field_dfs_overview:
-    plugin: get
+    plugin: sub_process
     source: field_dfs_introduction
+    process:
+      value: value
+      format:
+        plugin: default_value
+        default_value: full_html
   field_dfs_introduction_header:
     plugin: get
     source: field_dfs_introduction_header

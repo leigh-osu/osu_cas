@@ -1,4 +1,4 @@
-uuid: 713ebe83-906a-454e-8870-5dc29cc9ee72
+uuid: 32248266-9445-4d10-85fb-367de35f8c5c
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ id: eou_child_pages
 label: eou_child-pages
 logic: and
 conditions:
-  98ab7974-03bb-4a71-9097-24f28e117662:
+  3a0652ce-3d01-4a82-aeed-81ac4c9aa6e6:
     id: request_path
     negate: false
-    uuid: 98ab7974-03bb-4a71-9097-24f28e117662
+    uuid: 3a0652ce-3d01-4a82-aeed-81ac4c9aa6e6
     pages: "/agprogrameou/*\r\n/osu-agriculture-and-natural-resource-program-eou/*\r\n/agprogrameou\r\n/node/16845"
 allow_other_conditions: null

@@ -1,4 +1,4 @@
-uuid: cab243f5-5f5e-4e68-8ace-c5ec9e61bbef
+uuid: 16f9a3ca-5628-4940-b64c-a9f6c4a18554
 langcode: en
 status: true
 dependencies:
@@ -10,7 +10,7 @@ id: node.video.field_tax_turf_topics
 field_name: field_tax_turf_topics
 entity_type: node
 bundle: video
-label: 'Turf topics'
+label: 'Turf Topics'
 description: ''
 required: false
 translatable: false
@@ -25,4 +25,5 @@ settings:
       field: name
       direction: asc
     auto_create: false
+    auto_create_bundle: sorting_topics
 field_type: entity_reference

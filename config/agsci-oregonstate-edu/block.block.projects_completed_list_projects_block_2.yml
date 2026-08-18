@@ -1,0 +1,26 @@
+uuid: a7d44430-14c2-4594-862b-0ee3b9a27258
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.projects_completed_list
+  module:
+    - block_visibility_groups
+  theme:
+    - madrone
+id: projects_completed_list_projects_block_2
+theme: madrone
+region: content
+weight: -8
+provider: null
+plugin: 'views_block:projects-block_2'
+settings:
+  id: broken
+  label: ''
+  label_display: visible
+  provider: core
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: projects_completed_list

@@ -1,0 +1,61 @@
+uuid: 37f9d7ae-9d81-46b6-b891-983f95299814
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.menu-academics
+  module:
+    - system
+  theme:
+    - manzanita
+id: manzanita_ctx_menu_academics
+theme: manzanita
+region: sidebar
+weight: -10
+provider: null
+plugin: 'system_menu_block:menu-academics'
+settings:
+  id: 'system_menu_block:menu-academics'
+  label: Academics
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: |-
+      /node/217606
+      /node/217611
+      /node/217616
+      /node/217621
+      /node/217626
+      /node/217631
+      /node/217636
+      /node/217641
+      /node/217646
+      /node/217651
+      /node/217716
+      /node/217721
+      /node/217731
+      /node/217736
+      /node/217751
+      /node/217756
+      /node/217761
+      /node/217766
+      /node/217771
+      /node/217776
+      /node/217781
+      /node/217786
+      /node/217791
+      /node/217801
+      /node/217806
+      /node/217946
+      /node/217951
+      /node/218111
+      /node/219776
+      /node/219821
+      /node/212141
+      /node/225791

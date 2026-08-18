@@ -1,12 +1,12 @@
-uuid: 0985b0e1-b508-4cd8-9a66-115b25e78345
+uuid: 375b2cdf-c725-42d5-8d4b-3ac967aea8d5
 langcode: en
 status: true
 dependencies: {  }
 name: 400x290
 label: '400x288 (larch box)'
 effects:
-  05c40f15-4d52-45af-803f-bea6e638daaa:
-    uuid: 05c40f15-4d52-45af-803f-bea6e638daaa
+  b9c9ac8e-fad0-4aec-a6e2-a6ed8d5bb62f:
+    uuid: b9c9ac8e-fad0-4aec-a6e2-a6ed8d5bb62f
     id: image_scale_and_crop
     weight: 1
     data:
