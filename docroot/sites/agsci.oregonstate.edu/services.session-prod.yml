@@ -1,0 +1,25 @@
+parameters:
+  # Session options for production, where the department domains are <dept>.oregonstate.edu.
+  #
+  # Loaded by settings.php only when AH_SITE_ENVIRONMENT is "prod" AND the
+  # request's host is inside .oregonstate.edu.
+  #
+  # The cookie domain MUST differ per environment. Drupal derives the session
+  # cookie NAME from it (SessionConfiguration::getUnprefixedName), so two
+  # environments sharing a cookie_domain issue a cookie of the same name on the
+  # same domain -- and a browser stores exactly one. Local, stage and prod all
+  # used '.oregonstate.edu' on 19 August and silently overwrote each other's
+  # session: signing in to one logged you out of the others, and the next
+  # request arrived anonymous and was refused. Narrowing each environment to
+  # its own namespace keeps the names distinct.
+  #
+  # Repeat session.storage.options in full: Drupal merges container_yamls one
+  # parameter at a time, not key by key, so listing cookie_domain alone would
+  # drop the lifetimes and samesite set in services.yml. Keep these in step.
+  session.storage.options:
+    gc_probability: 1
+    gc_divisor: 100
+    gc_maxlifetime: 200000
+    cookie_lifetime: 2000000
+    cookie_domain: '.oregonstate.edu'
+    cookie_samesite: Lax

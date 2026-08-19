@@ -716,32 +716,65 @@ $settings['update_free_access'] = FALSE;
 $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
 
 /**
- * Share the session cookie, but only where the hostname can carry it.
+ * Share the session cookie across department domains, per environment.
  *
- * services.oregonstate.yml sets cookie_domain to '.oregonstate.edu' so a CAS
- * login follows the user between the department domains this install serves.
- * A browser will only accept a Set-Cookie whose domain the current host is a
- * member of, so on any other hostname that cookie is silently discarded, no
- * session is ever established, and every page renders anonymous -- which
- * presents as a total permissions failure rather than a cookie problem. Local
- * DDEV (osu-cas.ddev.site) and the bare Acquia hostnames
- * (osucasdev/stage/prod.prod.acquia-sites.com) are both in that position.
+ * A CAS login should follow the user between the department domains this one
+ * install serves, which needs a cookie_domain covering them all. Two rules
+ * govern which value is safe, and breaking either one presents as a
+ * permissions failure rather than a cookie problem, which is what makes this
+ * worth spelling out.
  *
- * Hence the guard: the shared cookie is added for oregonstate.edu hosts and
- * omitted everywhere else, where sessions then fall back to host-scoped
- * cookies and simply work.
+ * 1. The host must be inside the cookie domain. A browser silently discards a
+ *    Set-Cookie whose domain the current host is not a member of, so no session
+ *    is ever established and every page renders anonymous. The bare Acquia
+ *    hostnames (osucasdev/stage/prod.prod.acquia-sites.com), the three .org
+ *    domains and local DDEV are all outside oregonstate.edu and must not be
+ *    given it.
+ *
+ * 2. Environments must not share a cookie domain. Drupal derives the session
+ *    cookie NAME from it -- SessionConfiguration::getUnprefixedName() hashes
+ *    cookie_domain when one is set -- so two environments using the same value
+ *    issue a cookie with the same name on the same domain, and a browser stores
+ *    exactly one. On 19 August local, stage and prod all used
+ *    '.oregonstate.edu': signing in to any one overwrote the others' session id,
+ *    and their next request arrived as uid 0 and was refused. Intermittent,
+ *    self-inflicted, and indistinguishable from a broken permission.
+ *
+ * Each hosted environment therefore gets its own namespace, which happens to be
+ * exactly how the domain records are already laid out:
+ *
+ *   prod    <dept>.oregonstate.edu        -> .oregonstate.edu
+ *   stage   <dept>.stage.oregonstate.edu  -> .stage.oregonstate.edu
+ *   dev     <dept>.dev.oregonstate.edu    -> .dev.oregonstate.edu
+ *
+ * Local DDEV gets nothing. Its hostnames are ddev.<dept>.oregonstate.edu, which
+ * share no suffix narrower than .oregonstate.edu -- the prod value, and the
+ * collision above. So local uses host-scoped cookies and signs in per domain.
+ * Giving local its own shared cookie would mean renaming those hostnames to
+ * <dept>.ddev.oregonstate.edu, which is not worth doing before launch.
+ *
+ * Both the environment and the host must match: AH_SITE_ENVIRONMENT alone would
+ * hand the stage cookie to osucasstage.prod.acquia-sites.com, which is rule 1
+ * again.
  *
  * Varying container_yamls by host is safe: DrupalKernel::getContainerCacheKey()
  * serializes container_yamls into the key, so each variant compiles and caches
  * its own container instead of one host inheriting the other's parameters.
  *
- * The port is stripped because HTTP_HOST carries one on non-standard ports.
- * CLI (drush) has no HTTP_HOST unless --uri supplies one; it falls through to
- * the host-scoped default, which is correct, as CLI sets no cookies.
+ * The port is stripped because HTTP_HOST carries one on non-standard ports. CLI
+ * (drush) has no HTTP_HOST unless --uri supplies one and falls through to the
+ * host-scoped default, which is correct: CLI sets no cookies.
  */
 $osu_cas_http_host = strtok($_SERVER['HTTP_HOST'] ?? '', ':');
-if (preg_match('/(^|\.)oregonstate\.edu$/i', $osu_cas_http_host)) {
-  $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.oregonstate.yml';
+$osu_cas_session_domains = [
+  'prod' => '.oregonstate.edu',
+  'stage' => '.stage.oregonstate.edu',
+  'dev' => '.dev.oregonstate.edu',
+];
+$osu_cas_session_env = $_ENV['AH_SITE_ENVIRONMENT'] ?? '';
+if (isset($osu_cas_session_domains[$osu_cas_session_env]) && $osu_cas_http_host !== FALSE
+  && str_ends_with('.' . strtolower($osu_cas_http_host), $osu_cas_session_domains[$osu_cas_session_env])) {
+  $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.session-' . $osu_cas_session_env . '.yml';
 }
 
 /**
