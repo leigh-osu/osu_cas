@@ -4,7 +4,6 @@ status: true
 dependencies:
   module:
     - captcha
-    - config
     - contextual
     - crop
     - date_ap_style
@@ -62,10 +61,7 @@ permissions:
   - 'bypass honeypot protection'
   - 'create url aliases'
   - 'customize shortcut links'
-  - 'export configuration'
-  - 'import configuration'
   - 'skip CAPTCHA'
   - 'switch shortcut sets'
-  - 'synchronize configuration'
   - 'use advanced search'
   - 'view the administration theme'
