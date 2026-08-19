@@ -7,6 +7,6 @@ _core:
 id: global
 label: Global
 tags:
-  canonical_url: '[current-page:url]'
+  canonical_url: '[current-page:url-with-query:with-some-parameters:page]'
   title: '[current-page:title] | [site:name]'
   og_type: webpage
