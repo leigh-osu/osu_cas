@@ -1,12 +1,20 @@
 parameters:
   # Share the session cookie across all *.oregonstate.edu hostnames so users
   # stay logged in when moving between department domains served by this single
-  # Drupal install. Does NOT cover the non-oregonstate.edu domains (.org/.net),
-  # which browsers cannot share cookies across.
+  # Drupal install. Without it the cookie is scoped to the exact host that set
+  # it, so a CAS login on one department domain does not carry to the next.
+  #
+  # Two things it cannot do. It does NOT cover the non-oregonstate.edu domains
+  # (infews.org, open-sensing.org, spottedwing.org), because browsers refuse to
+  # share cookies across registrable domains — those need CAS gateway mode
+  # instead. And it means no session cookie is set at all on the Acquia
+  # hostnames (osucasdev/stage/prod.prod.acquia-sites.com), so signing in there
+  # will appear to do nothing: use the *.oregonstate.edu hostnames, which
+  # sites.php already maps for dev, stage and production alike.
   session.storage.options:
     gc_probability: 1
     gc_divisor: 100
     gc_maxlifetime: 200000
     cookie_lifetime: 2000000
-#    cookie_domain: '.oregonstate.edu'
+    cookie_domain: '.oregonstate.edu'
     cookie_samesite: Lax
