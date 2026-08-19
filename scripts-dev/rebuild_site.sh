@@ -62,12 +62,14 @@ snapshot_save() {
 section_1() {
   echo "=== Section 1: install + accounts + media ==="
 
-  # Refresh the D7 source (database + files) from the latest Acquia
-  # nightly backup (synced locally in the mornings) so the migration
-  # never runs from a stale snapshot — live-D7 edits newer than the
-  # local copy were the cause of stale content and missing files.
-  echo "Refreshing D7 source from the Acquia nightly backup..."
-  bash /Users/leighr/Sites/osu/agscid7/localscripts/load_acquia_backup.sh --site agsci
+  # The D7 source is NOT refreshed here any more (2026-08-19). The agscid7
+  # database is the one the final migration ran from, and it is kept as the
+  # reference for what D10 was built out of; reloading it from an Acquia
+  # nightly would overwrite that with a later D7 state and silently change the
+  # answer to "what did the source say?". Refresh it deliberately, outside this
+  # script, if that is ever actually wanted:
+  #
+  #   bash /Users/leighr/Sites/osu/agscid7/localscripts/load_acquia_backup.sh --site agsci
 
   # Stop and restart DDEV to reset database
   echo "Resetting DDEV environment..."
