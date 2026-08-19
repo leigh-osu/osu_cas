@@ -9,7 +9,9 @@ server:
   verify: 0
   cert: ''
 gateway:
-  check_frequency: -2
+  enabled: false
+  recheck_time: 720
+  method: client_side
   paths:
     id: request_path
     pages: ''
