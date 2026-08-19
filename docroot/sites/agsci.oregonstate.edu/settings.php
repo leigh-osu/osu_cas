@@ -716,6 +716,35 @@ $settings['update_free_access'] = FALSE;
 $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
 
 /**
+ * Share the session cookie, but only where the hostname can carry it.
+ *
+ * services.oregonstate.yml sets cookie_domain to '.oregonstate.edu' so a CAS
+ * login follows the user between the department domains this install serves.
+ * A browser will only accept a Set-Cookie whose domain the current host is a
+ * member of, so on any other hostname that cookie is silently discarded, no
+ * session is ever established, and every page renders anonymous -- which
+ * presents as a total permissions failure rather than a cookie problem. Local
+ * DDEV (osu-cas.ddev.site) and the bare Acquia hostnames
+ * (osucasdev/stage/prod.prod.acquia-sites.com) are both in that position.
+ *
+ * Hence the guard: the shared cookie is added for oregonstate.edu hosts and
+ * omitted everywhere else, where sessions then fall back to host-scoped
+ * cookies and simply work.
+ *
+ * Varying container_yamls by host is safe: DrupalKernel::getContainerCacheKey()
+ * serializes container_yamls into the key, so each variant compiles and caches
+ * its own container instead of one host inheriting the other's parameters.
+ *
+ * The port is stripped because HTTP_HOST carries one on non-standard ports.
+ * CLI (drush) has no HTTP_HOST unless --uri supplies one; it falls through to
+ * the host-scoped default, which is correct, as CLI sets no cookies.
+ */
+$osu_cas_http_host = strtok($_SERVER['HTTP_HOST'] ?? '', ':');
+if (preg_match('/(^|\.)oregonstate\.edu$/i', $osu_cas_http_host)) {
+  $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.oregonstate.yml';
+}
+
+/**
  * Override the default service container class.
  *
  * This is useful for example to trace the service container for performance

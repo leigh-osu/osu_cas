@@ -1,20 +1,25 @@
 parameters:
-  # Share the session cookie across all *.oregonstate.edu hostnames so users
-  # stay logged in when moving between department domains served by this single
-  # Drupal install. Without it the cookie is scoped to the exact host that set
-  # it, so a CAS login on one department domain does not carry to the next.
+  # Session defaults for every hostname this install answers to.
   #
-  # Two things it cannot do. It does NOT cover the non-oregonstate.edu domains
-  # (infews.org, open-sensing.org, spottedwing.org), because browsers refuse to
-  # share cookies across registrable domains — those need CAS gateway mode
-  # instead. And it means no session cookie is set at all on the Acquia
-  # hostnames (osucasdev/stage/prod.prod.acquia-sites.com), so signing in there
-  # will appear to do nothing: use the *.oregonstate.edu hostnames, which
-  # sites.php already maps for dev, stage and production alike.
+  # Deliberately NO cookie_domain here. Sharing the session across
+  # *.oregonstate.edu is done in services.oregonstate.yml, which settings.php
+  # loads only when the request's hostname is actually under oregonstate.edu.
+  #
+  # The split exists because a cookie_domain a host cannot satisfy does not
+  # degrade — it breaks login outright. A browser silently discards a
+  # Set-Cookie whose domain it is not a member of, so no session is ever
+  # established, every page renders anonymous, and the site looks like a
+  # permissions failure rather than a cookie one. That is what an unconditional
+  # cookie_domain did to local DDEV (osu-cas.ddev.site) and to the bare Acquia
+  # hostnames (osucasdev/stage/prod.prod.acquia-sites.com).
+  #
+  # So the safe value is the default and the shared cookie is the exception.
+  # Get the guard wrong in the direction of omission and cross-domain SSO stops
+  # spanning domains, which is a nuisance; get it wrong the other way and
+  # nobody can sign in at all.
   session.storage.options:
     gc_probability: 1
     gc_divisor: 100
     gc_maxlifetime: 200000
     cookie_lifetime: 2000000
-    cookie_domain: '.oregonstate.edu'
     cookie_samesite: Lax

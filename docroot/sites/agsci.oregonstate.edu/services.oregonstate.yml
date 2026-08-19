@@ -1,0 +1,25 @@
+parameters:
+  # Session options for hostnames under oregonstate.edu, loaded by settings.php
+  # only when the request's host actually ends in oregonstate.edu.
+  #
+  # cookie_domain shares the session across all *.oregonstate.edu hostnames, so
+  # users stay logged in when moving between the department domains this single
+  # Drupal install serves. Without it the cookie is scoped to the exact host
+  # that set it and a CAS login on one department domain does not carry to the
+  # next.
+  #
+  # It still cannot cover the three non-oregonstate.edu domains (infews.org,
+  # open-sensing.org, spottedwing.org): browsers refuse to share cookies across
+  # registrable domains, so those need CAS gateway mode instead.
+  #
+  # Drupal merges container_yamls parameter by parameter, not key by key, so
+  # this block must repeat session.storage.options in full — listing only
+  # cookie_domain here would drop the lifetimes and samesite set in
+  # services.yml. Keep the two blocks in step.
+  session.storage.options:
+    gc_probability: 1
+    gc_divisor: 100
+    gc_maxlifetime: 200000
+    cookie_lifetime: 2000000
+    cookie_domain: '.oregonstate.edu'
+    cookie_samesite: Lax
