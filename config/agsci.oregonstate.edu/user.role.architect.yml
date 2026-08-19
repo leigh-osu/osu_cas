@@ -54,6 +54,7 @@ dependencies:
     - metatag
     - node
     - node_revision_delete
+    - osu_cas_multisite_groups
     - path
     - pathauto
     - recaptcha
@@ -110,6 +111,7 @@ permissions:
   - 'add sitewide alert entities'
   - 'administer CAPTCHA settings'
   - 'administer account settings'
+  - 'administer all cas groups'
   - 'administer ap style settings'
   - 'administer block classes'
   - 'administer block content'
