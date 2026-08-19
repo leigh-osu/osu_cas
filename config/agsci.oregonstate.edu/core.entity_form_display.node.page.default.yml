@@ -50,7 +50,7 @@ content:
     third_party_settings: {  }
   entitygroupfield:
     type: entitygroupfield_select_widget
-    weight: 30
+    weight: -50
     region: content
     settings:
       help_text: 'Select a Group for this content.'
@@ -79,7 +79,7 @@ content:
     third_party_settings: {  }
   field_group_private:
     type: boolean_checkbox
-    weight: 26
+    weight: -49
     region: content
     settings:
       display_label: true
