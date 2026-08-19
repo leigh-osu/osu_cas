@@ -8,7 +8,6 @@ dependencies:
     - filter
     - google_cse
     - media
-    - osu_cas_site_sync
     - search
     - simple_styleguide
     - sitewide_alert
@@ -24,7 +23,6 @@ permissions:
   - 'access style guide'
   - 'search Google CSE'
   - 'search content'
-  - 'use osu cas site sync'
   - 'use text format restricted_html'
   - 'view media'
   - 'view published sitewide alert entities'
