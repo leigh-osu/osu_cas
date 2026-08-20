@@ -34,6 +34,7 @@ dependencies:
   module:
     - date_ap_style
     - link
+    - osu_cas_multisite
     - text
     - user
 id: node.publications.default
@@ -223,7 +224,7 @@ content:
     weight: 5
     region: content
   field_pub_year_publication:
-    type: number_integer
+    type: cas_publication_year
     label: inline
     settings:
       thousand_separator: ''

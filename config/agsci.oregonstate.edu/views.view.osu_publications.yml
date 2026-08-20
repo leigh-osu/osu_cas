@@ -14,6 +14,7 @@ dependencies:
   module:
     - datetime
     - node
+    - osu_cas_multisite
     - taxonomy
     - user
 _core:
@@ -45,8 +46,8 @@ display:
           label: ''
           exclude: true
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<span class="d-block mt-3">{{ field_pub_year_publication_1 }}</span>'
             make_link: false
             path: ''
             absolute: false
@@ -84,7 +85,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: number_integer
+          type: cas_publication_year
           settings:
             thousand_separator: ''
             prefix_suffix: false
@@ -274,7 +275,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: number_integer
+          type: cas_publication_year
           settings:
             thousand_separator: ''
             prefix_suffix: true
@@ -659,6 +660,19 @@ display:
             format: full_html
           tokenize: false
       sorts:
+        field_pub_year_publication_value:
+          id: field_pub_year_publication_value
+          table: node__field_pub_year_publication
+          field: field_pub_year_publication_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
         field_pub_date_published_value:
           id: field_pub_date_published_value
           table: node__field_pub_date_published
@@ -673,6 +687,21 @@ display:
             field_identifier: ''
           exposed: false
           granularity: second
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: nid
+          plugin_id: standard
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
       arguments: {  }
       filters:
         status:
@@ -847,60 +876,64 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        field_pub_authors_value:
-          id: field_pub_authors_value
-          table: node__field_pub_authors
-          field: field_pub_authors_value
+        title:
+          id: title
+          table: node_field_data
+          field: title
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: title
           plugin_id: string
-          operator: word
+          operator: contains
           value: ''
           group: 1
           exposed: true
           expose:
-            operator_id: field_pub_authors_value_op
-            label: Author(s)
-            description: ''
+            operator_id: title_op
+            label: Title
+            description: 'Any part of the publication title.'
             use_operator: false
-            operator: field_pub_authors_value_op
+            operator: title_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: authors
+            identifier: title
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              content_authors: '0'
-              group_content_author: '0'
-              manage_content: '0'
-              manage_asset_injector: '0'
-              manage_blocks: '0'
-              manage_layout_templates: '0'
-              manage_menus: '0'
-              manage_taxonomy: '0'
-              manage_users: '0'
-              manage_webforms: '0'
-              manage_site_configuration: '0'
-              architect: '0'
-              dx_administrator: '0'
-              administrator: '0'
             placeholder: ''
           is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
+        cas_publication_author:
+          id: cas_publication_author
+          table: node_field_data
+          field: cas_publication_author
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: cas_publication_author
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: cas_publication_author_op
+            label: Author
+            description: 'Any part of an author name.'
+            use_operator: false
+            operator: cas_publication_author_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: author
+            required: false
             remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+          is_grouped: false
       style:
         type: default
         options:
@@ -1133,7 +1166,7 @@ display:
         metatag_display_extender:
           metatags: {  }
           tokenize: false
-      path: all-publications
+      path: publications
     cache_metadata:
       max-age: -1
       contexts:

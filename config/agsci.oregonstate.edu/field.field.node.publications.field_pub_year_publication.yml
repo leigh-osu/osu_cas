@@ -12,7 +12,7 @@ field_name: field_pub_year_publication
 entity_type: node
 bundle: publications
 label: 'Year of Publication'
-description: ''
+description: 'Four-digit year of publication. For work not yet published, use 9999 for In Press or 9998 for Submitted — both display as that wording and sort above published work, which is how the listings order them.'
 required: false
 translatable: false
 default_value: {  }
