@@ -1,0 +1,14 @@
+uuid: 7ae31735-1389-46af-b9e4-5ca2df478c11
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.basic_group
+id: basic_group-content_editor
+label: 'Content Editor'
+weight: 5
+admin: false
+scope: individual
+global_role: null
+group_type: basic_group
+permissions: {  }
