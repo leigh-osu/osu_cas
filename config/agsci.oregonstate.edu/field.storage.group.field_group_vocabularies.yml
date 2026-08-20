@@ -1,0 +1,20 @@
+uuid: 43a7088b-468f-4e63-91e1-f3ae9f7c104d
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+    - taxonomy
+id: group.field_group_vocabularies
+field_name: field_group_vocabularies
+entity_type: group
+type: entity_reference
+settings:
+  target_type: taxonomy_vocabulary
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

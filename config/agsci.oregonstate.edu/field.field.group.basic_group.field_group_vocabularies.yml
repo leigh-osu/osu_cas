@@ -1,0 +1,21 @@
+uuid: 98c9abdb-38c4-4ae4-bcf3-83b1d94615c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_group_vocabularies
+    - group.type.basic_group
+id: group.basic_group.field_group_vocabularies
+field_name: field_group_vocabularies
+entity_type: group
+bundle: basic_group
+label: 'Taxonomies for this group'
+description: 'Which taxonomies appear when content is created here. Leave every box clear to show all of them, which is what happens now.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_vocabulary'
+  handler_settings: {  }
+field_type: entity_reference

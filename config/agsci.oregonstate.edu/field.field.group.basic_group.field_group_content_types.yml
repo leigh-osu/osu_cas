@@ -1,0 +1,21 @@
+uuid: 3bb0f7db-a424-4426-ae94-2a7c86a052ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_group_content_types
+    - group.type.basic_group
+id: group.basic_group.field_group_content_types
+field_name: field_group_content_types
+entity_type: group
+bundle: basic_group
+label: 'Content types for this group'
+description: 'Which kinds of content may be created here. Leave every box clear to offer all of them — that is the default, and what every group did before this setting existed.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node_type'
+  handler_settings: {  }
+field_type: entity_reference

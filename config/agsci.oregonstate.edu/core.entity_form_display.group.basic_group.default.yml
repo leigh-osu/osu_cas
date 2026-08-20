@@ -9,6 +9,7 @@ dependencies:
     - field.field.group.basic_group.field_domain_source
     - field.field.group.basic_group.field_group_access
     - field.field.group.basic_group.field_group_add_info
+    - field.field.group.basic_group.field_group_content_types
     - field.field.group.basic_group.field_group_email
     - field.field.group.basic_group.field_group_facebook
     - field.field.group.basic_group.field_group_footer_col4
@@ -29,6 +30,7 @@ dependencies:
     - field.field.group.basic_group.field_group_phone
     - field.field.group.basic_group.field_group_short_name
     - field.field.group.basic_group.field_group_twitter
+    - field.field.group.basic_group.field_group_vocabularies
     - field.field.group.basic_group.field_group_youtube
     - field.field.group.basic_group.field_hide_global_navigation
     - field.field.group.basic_group.field_meta_tags
@@ -314,5 +316,7 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
+  field_group_content_types: true
+  field_group_vocabularies: true
   layout_builder__layout: true
   uid: true
