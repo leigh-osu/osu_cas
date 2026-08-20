@@ -3,9 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
-    - system.action.node_delete_action
+    - node.type.osu_profile
+    - node.type.publications
+    - user.role.administrator
+    - user.role.architect
   module:
     - node
+    - osu_cas_multisite_groups
     - user
   enforced:
     module:
@@ -164,13 +168,7 @@ display:
           plugin_id: text_custom
           empty: true
           content: 'No items match the current filter.'
-      sorts:
-        cas_node_alias:
-          id: cas_node_alias
-          table: node_field_data
-          field: cas_node_alias
-          plugin_id: cas_node_alias
-          order: ASC
+      sorts: {  }
       filters:
         cas_ungrouped_nodes:
           id: cas_ungrouped_nodes
@@ -336,9 +334,9 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - 'user.node_grants:view'
         - user.roles
-      tags:
-        - node_list
+      tags: {  }
   page_1:
     id: page_1
     display_title: Page
@@ -361,6 +359,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - 'user.node_grants:view'
         - user.roles
-      tags:
-        - node_list
+      tags: {  }
