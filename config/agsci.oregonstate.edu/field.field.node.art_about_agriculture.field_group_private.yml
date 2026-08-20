@@ -10,7 +10,7 @@ field_name: field_group_private
 entity_type: node
 bundle: art_about_agriculture
 label: 'Group members only'
-description: 'Hide this content from everyone except members of its groups. Mirrors the Drupal 7 group content visibility setting.'
+description: 'Hide this content from the public, show ONLY to group members.<br />DO NOT USE THIS FOR SENSITIVE INFORMATION - NOT HIGH SECURITY STORAGE.'
 required: false
 translatable: false
 default_value:

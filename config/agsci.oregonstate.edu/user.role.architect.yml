@@ -107,6 +107,7 @@ permissions:
   - 'access webform help'
   - 'access webform overview'
   - 'access webform submission user'
+  - 'add content to multiple groups'
   - 'add section library templates'
   - 'add sitewide alert entities'
   - 'administer CAPTCHA settings'

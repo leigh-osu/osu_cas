@@ -55,7 +55,7 @@ content:
     settings:
       help_text: 'Select a Group for this content.'
       label: 'Group name'
-      multiple: false
+      multiple: true
       required: false
     third_party_settings: {  }
   field_domain_access:
