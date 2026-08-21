@@ -1,0 +1,23 @@
+uuid: 42f44dd6-2578-4989-aedb-3b05150aad5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_claviceps
+    - paragraphs.paragraphs_type.sample_test_pellet
+id: paragraph.sample_test_pellet.field_test_claviceps
+field_name: field_test_claviceps
+entity_type: paragraph
+bundle: sample_test_pellet
+label: 'Additional ergot alkaloids suggestive of infection with Claviceps spp. are suspected'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

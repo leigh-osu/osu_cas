@@ -1,0 +1,74 @@
+uuid: 1b585591-7306-4d9f-9e69-754576cb2ae4
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.sample
+  module:
+    - field_permissions
+    - file
+    - node
+    - paragraphs_type_permissions
+    - quick_node_clone
+id: client
+label: Client
+weight: -8
+is_admin: null
+permissions:
+  - 'clone sample content'
+  - 'create field_client_fax'
+  - 'create field_client_phone_1'
+  - 'create field_client_phone_2'
+  - 'create field_client_primary_email'
+  - 'create field_sample_notes_client'
+  - 'create field_sample_test_ergot'
+  - 'create field_sample_variety_other'
+  - 'create field_test_rush'
+  - 'create paragraph content sample_test_ergot'
+  - 'create paragraph content sample_test_ergovaline'
+  - 'create paragraph content sample_test_lolitrem_b'
+  - 'create paragraph content sample_test_pellet'
+  - 'create sample content'
+  - 'delete own files'
+  - 'delete paragraph content sample_test_ergot'
+  - 'delete paragraph content sample_test_ergovaline'
+  - 'delete paragraph content sample_test_lolitrem_b'
+  - 'delete paragraph content sample_test_pellet'
+  - 'edit field_client_fax'
+  - 'edit field_client_phone_1'
+  - 'edit field_client_phone_2'
+  - 'edit field_client_primary_email'
+  - 'edit own field_sample_test_ergot'
+  - 'edit own field_sample_variety_other'
+  - 'edit own field_test_rush'
+  - 'update paragraph content sample_test_ergot'
+  - 'update paragraph content sample_test_ergovaline'
+  - 'update paragraph content sample_test_lolitrem_b'
+  - 'update paragraph content sample_test_pellet'
+  - 'view field_client_fax'
+  - 'view field_client_phone_1'
+  - 'view field_client_phone_2'
+  - 'view field_client_primary_email'
+  - 'view field_sample_date_completed'
+  - 'view field_sample_date_requested'
+  - 'view field_sample_extra_processing'
+  - 'view field_sample_notes_client'
+  - 'view field_sample_received'
+  - 'view field_sample_received_date'
+  - 'view field_sample_status'
+  - 'view field_sample_test_ergot'
+  - 'view field_sample_variety_other'
+  - 'view field_test_claviceps'
+  - 'view field_test_egotamine_calculation'
+  - 'view field_test_ergot_estimate'
+  - 'view field_test_final_ok_date'
+  - 'view field_test_final_value_calc'
+  - 'view field_test_pdf'
+  - 'view field_test_rush'
+  - 'view field_test_rush_value_ev'
+  - 'view field_test_rush_value_lb'
+  - 'view field_test_status'
+  - 'view paragraph content sample_test_ergot'
+  - 'view paragraph content sample_test_ergovaline'
+  - 'view paragraph content sample_test_lolitrem_b'
+  - 'view paragraph content sample_test_pellet'

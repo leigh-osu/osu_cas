@@ -1,0 +1,55 @@
+uuid: f2f26287-dae3-4bce-b277-954862c6d998
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - file
+    - paragraphs_type_permissions
+id: accounting
+label: Accounting
+weight: -7
+is_admin: null
+permissions:
+  - 'create field_client_notes_osu'
+  - 'delete own files'
+  - 'edit field_client_notes_osu'
+  - 'view field_client_notes_osu'
+  - 'view field_client_phone_1'
+  - 'view field_client_phone_2'
+  - 'view field_client_primary_email'
+  - 'view field_sample_accession'
+  - 'view field_sample_date_completed'
+  - 'view field_sample_date_requested'
+  - 'view field_sample_extra_processing'
+  - 'view field_sample_notes_client'
+  - 'view field_sample_notes_osu'
+  - 'view field_sample_received'
+  - 'view field_sample_received_date'
+  - 'view field_sample_received_user'
+  - 'view field_sample_status'
+  - 'view field_sample_test_ergot'
+  - 'view field_sample_variety_other'
+  - 'view field_test_claviceps'
+  - 'view field_test_egotamine_calculation'
+  - 'view field_test_ergot_estimate'
+  - 'view field_test_final_date'
+  - 'view field_test_final_ok'
+  - 'view field_test_final_ok_date'
+  - 'view field_test_final_ok_user'
+  - 'view field_test_final_user'
+  - 'view field_test_final_value_calc'
+  - 'view field_test_pdf'
+  - 'view field_test_rush'
+  - 'view field_test_rush_ok'
+  - 'view field_test_rush_ok_date'
+  - 'view field_test_rush_ok_user'
+  - 'view field_test_rush_value_date'
+  - 'view field_test_rush_value_ev'
+  - 'view field_test_rush_value_lb'
+  - 'view field_test_rush_value_user'
+  - 'view field_test_status'
+  - 'view paragraph content sample_test_ergot'
+  - 'view paragraph content sample_test_ergovaline'
+  - 'view paragraph content sample_test_lolitrem_b'
+  - 'view paragraph content sample_test_pellet'

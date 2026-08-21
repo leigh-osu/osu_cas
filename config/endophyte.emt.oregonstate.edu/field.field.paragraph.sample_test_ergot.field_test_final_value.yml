@@ -1,0 +1,23 @@
+uuid: ee7ba6b0-7fd1-4876-82e8-782328c815bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_final_value
+    - paragraphs.paragraphs_type.sample_test_ergot
+id: paragraph.sample_test_ergot.field_test_final_value
+field_name: field_test_final_value
+entity_type: paragraph
+bundle: sample_test_ergot
+label: 'Ergot lab value'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ' ppb'
+field_type: integer

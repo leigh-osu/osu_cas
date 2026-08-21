@@ -1,0 +1,21 @@
+uuid: cd0652d4-b7c7-4382-af79-a6dd9b87bad5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sample_received_date
+    - node.type.sample
+  module:
+    - datetime
+id: node.sample.field_sample_received_date
+field_name: field_sample_received_date
+entity_type: node
+bundle: sample
+label: 'Sample received'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

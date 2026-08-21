@@ -1,0 +1,19 @@
+uuid: 9168c879-8923-45b5-baf2-3a671e8a40d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sample_legacy_sample_id
+    - node.type.sample
+id: node.sample.field_sample_legacy_sample_id
+field_name: field_sample_legacy_sample_id
+entity_type: node
+bundle: sample
+label: 'Legacy sample id'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

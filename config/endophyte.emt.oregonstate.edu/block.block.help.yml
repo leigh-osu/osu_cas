@@ -1,0 +1,20 @@
+uuid: b7645b58-ee8e-47eb-bff2-68423375afed
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - cas_larch
+id: help
+theme: cas_larch
+region: content
+weight: -6
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: visible
+  provider: help
+visibility: {  }

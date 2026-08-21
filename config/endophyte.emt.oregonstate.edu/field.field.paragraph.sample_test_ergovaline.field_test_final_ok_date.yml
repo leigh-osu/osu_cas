@@ -1,0 +1,21 @@
+uuid: c9fd0bf7-3fa7-4dfd-8628-f603c11fb808
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_final_ok_date
+    - paragraphs.paragraphs_type.sample_test_ergovaline
+  module:
+    - datetime
+id: paragraph.sample_test_ergovaline.field_test_final_ok_date
+field_name: field_test_final_ok_date
+entity_type: paragraph
+bundle: sample_test_ergovaline
+label: 'Certification approval date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

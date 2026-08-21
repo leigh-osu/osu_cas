@@ -1,0 +1,23 @@
+uuid: cee33e5f-5aa6-431c-985d-9bf4d4a5244e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_rush_ok
+    - paragraphs.paragraphs_type.sample_test_lolitrem_b
+id: paragraph.sample_test_lolitrem_b.field_test_rush_ok
+field_name: field_test_rush_ok
+entity_type: paragraph
+bundle: sample_test_lolitrem_b
+label: 'Rush test approved'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

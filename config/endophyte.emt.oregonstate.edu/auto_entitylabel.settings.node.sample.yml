@@ -1,0 +1,10 @@
+status: 1
+pattern: 'sample[node:created:custom:ymd]0[node:nid]'
+escape: false
+preserve_titles: false
+save: false
+chunk: 50
+dependencies:
+  config:
+    - node.type.sample
+new_content_behavior: 1

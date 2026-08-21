@@ -1,0 +1,14 @@
+uuid: 9ea3048b-7483-4cd4-ba5e-dcf29491324e
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.lab_tech
+  module:
+    - user
+id: user_remove_role_action.lab_tech
+label: 'Remove the Lab technician role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: lab_tech

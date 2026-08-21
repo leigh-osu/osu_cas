@@ -138,6 +138,30 @@
             "url": "https://github.com/leigh-osu/osu_cas_multisite.git"
         },
         {
+            "type": "vcs",
+            "url": "https://github.com/leigh-osu/osu_endophyte.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/leigh-osu/cas_larch.git"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "drupal_git/pdf_using_mpdf",
+                "version": "2.2",
+                "type": "drupal-module",
+                "source": {
+                    "url": "https://git.drupalcode.org/project/pdf_using_mpdf.git",
+                    "type": "git",
+                    "reference": "e185465739f66cf94b6dc89b387c39432e907c31"
+                },
+                "require": {
+                    "mpdf/mpdf": "^8.0.4"
+                }
+            }
+        },
+        {
             "type": "package",
             "package": {
                 "name": "billboardjs/billboard",
@@ -205,13 +229,16 @@
         "drupal/antibot": "^2.0",
         "drupal/asset_injector": "^2.6",
         "drupal/auto_entitylabel": "^3.0",
+        "drupal/autologout": "^2.0",
         "drupal/back_to_top": "*",
         "drupal/background_image_formatter": "^2.0",
+        "drupal/barcodes": "^2.1",
         "drupal/better_exposed_filters": "^7.0",
         "drupal/block_class": "^4.0",
         "drupal/block_classes": "^1.0",
         "drupal/block_list_override": "^1.0",
         "drupal/block_visibility_groups": "^2.0",
+        "drupal/bootstrap5": "^4.0",
         "drupal/bootstrap_layout_builder": "^2.2",
         "drupal/button_link": "^2.0",
         "drupal/captcha": "^2.0",
@@ -231,6 +258,8 @@
         "drupal/coffee": "^2.0",
         "drupal/colorbox": "^2.0",
         "drupal/colorbox_media_video": "^2.0",
+        "drupal/composer_deploy": "^1.10",
+        "drupal/computed_field": "^3.0",
         "drupal/config_filter": "^2.4",
         "drupal/config_ignore": "^3.0",
         "drupal/config_split": "^2@rc",
@@ -264,6 +293,7 @@
         "drupal/feeds_ex": "^1.0beta",
         "drupal/feeds_tamper": "^2.0beta2",
         "drupal/field_group": "^4.0",
+        "drupal/field_permissions": "^1.5",
         "drupal/file_delete": "^3.0",
         "drupal/filter_perms": "^2.0",
         "drupal/flexible_permissions": "^2.0",
@@ -298,6 +328,8 @@
         "drupal/linkicon": "^2.0",
         "drupal/linkit": "6.1.6",
         "drupal/linkpurpose": "^1.0",
+        "drupal/mail_login": "^4.2",
+        "drupal/mailsystem": "^4.5",
         "drupal/masquerade": "^2.0",
         "drupal/mathjax": "^4.1",
         "drupal/media_bulk_upload": "^3.0",
@@ -307,19 +339,25 @@
         "drupal/metatag": "^2",
         "drupal/migrate_plus": "^6.0",
         "drupal/migrate_upgrade": "^4.0",
+        "drupal/mimemail": "^1.0@alpha",
         "drupal/moderation_sidebar": "^1.7",
         "drupal/module_filter": "^5.0",
         "drupal/multiselect": "^2.0@beta",
         "drupal/node_revision_delete": "^2.0@alpha",
         "drupal/oembed_providers": "^2.1",
         "drupal/optional_end_date": "^1.3",
+        "drupal/override_node_options": "^2.9",
         "drupal/paragraph_view_mode": "^3.2",
         "drupal/paragraphs": "^1.12",
+        "drupal/password_policy": "^4.0",
         "drupal/path_redirect_import": "^2.0",
         "drupal/pathauto": "^1.6",
+        "drupal/prepopulate": "^2.5",
         "drupal/protected_pages": "^1.7",
         "drupal/purge_file": "^1.1",
         "drupal/purge_tokens": "^3.6",
+        "drupal/quick_node_clone": "^1.22",
+        "drupal/rabbit_hole": "^1.2",
         "drupal/recaptcha": "^3.1",
         "drupal/redirect": "^1.6",
         "drupal/reroute_email": "^2.2",
@@ -344,6 +382,7 @@
         "drupal/slick_views": "^3.0",
         "drupal/smart_date": "^4.0",
         "drupal/smart_trim": "^2.0",
+        "drupal/state_machine": "^1.14",
         "drupal/styleguide": "^2.2",
         "drupal/superfish": "^1.7",
         "drupal/svg_image": "^3.0",
@@ -384,13 +423,16 @@
         "drupal/xmlsitemap": "^2.0",
         "drupal/yearonly": "^9.1",
         "drupal/yoast_seo": "^2.2",
+        "drupal_git/pdf_using_mpdf": "^2.2",
         "drush/drush": "^13.4",
         "google/charts": "^45.0",
         "google/recaptcha": "^1.3",
+        "leigh-osu/cas_larch": "^2.0",
         "leigh-osu/manzanita": "^1@beta",
         "leigh-osu/osu_cas_multisite": "^1.0",
         "leigh-osu/osu_cas_site_sync": "^1.0",
         "leigh-osu/osu_digital_measures": "^1.0",
+        "leigh-osu/osu_endophyte": "^2.1",
         "leigh-osu/osu_migrations_cas": "^1.0",
         "mnsami/composer-custom-directory-installer": "^2.0",
         "npm-asset/apexcharts": "^4.7",
@@ -608,6 +650,9 @@
                 "External-story redirect dedupe by source path (langcode-agnostic)": "patches/osu_story-external-redirect-dedupe.patch",
                 "Clean up redirect/metatags/sitemap when the external URL is cleared": "patches/osu_story-clear-external-url-cleanup.patch",
                 "Settings page with an auto-forward on/off toggle for external stories": "patches/osu_story-auto-forward-toggle.patch"
+            },
+            "drupal_git/pdf_using_mpdf": {
+                "Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2023-10-17/pdf_using_mpdf_d10_compactibility_0.patch"
             }
         },
         "drupal-scaffold": {
@@ -644,6 +689,32 @@
                 "type:drupal-library",
                 "type:npm-asset",
                 "type:bower-asset"
+            ],
+            "docroot/sites/endophyte.emt.oregonstate.edu/modules/contrib/{$name}": [
+                "drupal/autologout",
+                "drupal/barcodes",
+                "drupal/composer_deploy",
+                "drupal/computed_field",
+                "drupal/field_permissions",
+                "drupal/mail_login",
+                "drupal/mailsystem",
+                "drupal/mimemail",
+                "drupal/override_node_options",
+                "drupal/password_policy",
+                "drupal/prepopulate",
+                "drupal/quick_node_clone",
+                "drupal/rabbit_hole",
+                "drupal/state_machine",
+                "drupal_git/pdf_using_mpdf"
+            ],
+            "docroot/sites/endophyte.emt.oregonstate.edu/themes/contrib/{$name}": [
+                "drupal/bootstrap5"
+            ],
+            "docroot/sites/endophyte.emt.oregonstate.edu/modules/custom/{$name}": [
+                "leigh-osu/osu_endophyte"
+            ],
+            "docroot/sites/endophyte.emt.oregonstate.edu/themes/custom/{$name}": [
+                "leigh-osu/cas_larch"
             ],
             "docroot/modules/contrib/{$name}": [
                 "type:drupal-module"

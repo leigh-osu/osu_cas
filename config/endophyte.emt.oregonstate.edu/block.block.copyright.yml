@@ -1,0 +1,25 @@
+uuid: 2a5791d9-ed98-4aa4-9375-6e807a205cd3
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:block_basic:e742044b-c055-41c7-9132-0371d2a81dc4'
+  module:
+    - block_content
+  theme:
+    - cas_larch
+id: copyright
+theme: cas_larch
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:e742044b-c055-41c7-9132-0371d2a81dc4'
+settings:
+  id: 'block_content:e742044b-c055-41c7-9132-0371d2a81dc4'
+  label: Copyright
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

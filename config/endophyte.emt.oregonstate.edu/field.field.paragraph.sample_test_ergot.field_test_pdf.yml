@@ -1,0 +1,27 @@
+uuid: ba179aba-c754-4963-97b4-bf0037950496
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_pdf
+    - paragraphs.paragraphs_type.sample_test_ergot
+  module:
+    - file
+id: paragraph.sample_test_ergot.field_test_pdf
+field_name: field_test_pdf
+entity_type: paragraph
+bundle: sample_test_ergot
+label: 'Additional files'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: 'labtest_pdf/[date:custom:Y]-[date:custom:m]'
+  file_extensions: pdf
+  max_filesize: ''
+  description_field: true
+field_type: file

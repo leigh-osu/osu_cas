@@ -1,0 +1,54 @@
+uuid: f2386e5f-d314-4ec0-be2c-be359021a5bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_client_address
+    - group.type.client
+  module:
+    - address
+id: group.client.field_client_address
+field_name: field_client_address
+entity_type: group
+bundle: client
+label: Address
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    langcode: null
+    country_code: US
+    administrative_area: OR
+    locality: ''
+    dependent_locality: null
+    postal_code: ''
+    sorting_code: null
+    address_line1: ''
+    address_line2: ''
+    organization: null
+    given_name: null
+    additional_name: null
+    family_name: null
+default_value_callback: ''
+settings:
+  available_countries:
+    CA: CA
+    JP: JP
+    US: US
+  langcode_override: ''
+  field_overrides:
+    givenName:
+      override: hidden
+    additionalName:
+      override: hidden
+    familyName:
+      override: hidden
+    organization:
+      override: hidden
+    sortingCode:
+      override: hidden
+    dependentLocality:
+      override: hidden
+  fields: {  }
+field_type: address

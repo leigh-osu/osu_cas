@@ -1,0 +1,23 @@
+uuid: 022ef3c0-3343-463c-9e7f-8077aaed8862
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_final_ok
+    - paragraphs.paragraphs_type.sample_test_ergot
+id: paragraph.sample_test_ergot.field_test_final_ok
+field_name: field_test_final_ok
+entity_type: paragraph
+bundle: sample_test_ergot
+label: 'Certification value approved'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

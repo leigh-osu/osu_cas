@@ -1,0 +1,10 @@
+uuid: d5933056-a073-4814-8621-bea11295fd9a
+langcode: en
+status: true
+dependencies: {  }
+id: sample_test_lolitrem_b
+label: 'Test: Lolitrem B'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

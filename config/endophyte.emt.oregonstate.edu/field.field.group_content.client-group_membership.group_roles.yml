@@ -1,0 +1,22 @@
+uuid: 47764266-2a23-4cbc-a56a-955410b5b1dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group_content.group_roles
+    - group.content_type.client-group_membership
+id: group_content.client-group_membership.group_roles
+field_name: group_roles
+entity_type: group_content
+bundle: client-group_membership
+label: Roles
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'group_type:group_role'
+  handler_settings:
+    group_type_id: client
+field_type: entity_reference

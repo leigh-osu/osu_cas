@@ -1,0 +1,21 @@
+uuid: 63639a99-0474-4273-8d65-3c6f068dc1ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_rush_value_date
+    - paragraphs.paragraphs_type.sample_test_ergovaline
+  module:
+    - datetime
+id: paragraph.sample_test_ergovaline.field_test_rush_value_date
+field_name: field_test_rush_value_date
+entity_type: paragraph
+bundle: sample_test_ergovaline
+label: 'Rush test completed'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,23 @@
+uuid: 88ecdb2f-a25f-4c98-bce9-4e232c665213
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_legacy_test_id
+    - paragraphs.paragraphs_type.sample_test_ergot
+id: paragraph.sample_test_ergot.field_test_legacy_test_id
+field_name: field_test_legacy_test_id
+entity_type: paragraph
+bundle: sample_test_ergot
+label: 'Legacy test id'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

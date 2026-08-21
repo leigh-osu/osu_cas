@@ -1,0 +1,43 @@
+uuid: 13e1c9e6-adee-48af-b42f-f7fd90b3b6bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sample_test_ergovaline
+    - node.type.sample
+    - paragraphs.paragraphs_type.sample_test_ergovaline
+  module:
+    - entity_reference_revisions
+id: node.sample.field_sample_test_ergovaline
+field_name: field_sample_test_ergovaline
+entity_type: node
+bundle: sample
+label: 'Ergovaline test'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      sample_test_ergovaline: sample_test_ergovaline
+    negate: 0
+    target_bundles_drag_drop:
+      client_phone:
+        weight: 4
+        enabled: false
+      sample_test_ergot:
+        weight: 7
+        enabled: false
+      sample_test_ergovaline:
+        weight: 8
+        enabled: true
+      sample_test_lolitrem_b:
+        weight: 9
+        enabled: false
+      test_lolitrem_b:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions

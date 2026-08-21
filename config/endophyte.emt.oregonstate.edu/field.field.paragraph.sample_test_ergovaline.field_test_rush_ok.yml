@@ -1,0 +1,23 @@
+uuid: ffb09731-1947-476b-9230-fbb54dba2450
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_rush_ok
+    - paragraphs.paragraphs_type.sample_test_ergovaline
+id: paragraph.sample_test_ergovaline.field_test_rush_ok
+field_name: field_test_rush_ok
+entity_type: paragraph
+bundle: sample_test_ergovaline
+label: 'Rush test approved'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

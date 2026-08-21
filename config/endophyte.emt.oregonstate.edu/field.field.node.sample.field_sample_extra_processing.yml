@@ -1,0 +1,23 @@
+uuid: 15910c7d-c5e7-45b0-b963-6e0ae406905f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sample_extra_processing
+    - node.type.sample
+id: node.sample.field_sample_extra_processing
+field_name: field_sample_extra_processing
+entity_type: node
+bundle: sample
+label: 'Sample required additional processing'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

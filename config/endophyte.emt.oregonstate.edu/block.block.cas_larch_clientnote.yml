@@ -1,0 +1,30 @@
+uuid: 7a1a43a7-1cae-4617-9a69-43e887ae2f99
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:block_basic:8c8d3d92-0d8f-42e1-a01e-78894330b8d1'
+  module:
+    - block_content
+    - system
+  theme:
+    - cas_larch
+id: cas_larch_clientnote
+theme: cas_larch
+region: content
+weight: 10
+provider: null
+plugin: 'block_content:8c8d3d92-0d8f-42e1-a01e-78894330b8d1'
+settings:
+  id: 'block_content:8c8d3d92-0d8f-42e1-a01e-78894330b8d1'
+  label: 'Client Note:'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/group/*/content/create/group_node:sample'

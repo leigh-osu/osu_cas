@@ -1,0 +1,24 @@
+uuid: 96396123-c3c7-4d8c-960a-7b460b05931f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_final_value_calc
+    - paragraphs.paragraphs_type.sample_test_ergot
+  module:
+    - computed_field
+id: paragraph.sample_test_ergot.field_test_final_value_calc
+field_name: field_test_final_value_calc
+entity_type: paragraph
+bundle: sample_test_ergot
+label: 'Ergot certification value'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings:
+  code: "$value = '';"
+field_type: computed_string

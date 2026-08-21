@@ -1,0 +1,23 @@
+uuid: 09b09202-5f94-4a53-8764-5216490d9027
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_ergot_estimate
+    - paragraphs.paragraphs_type.sample_test_ergot
+id: paragraph.sample_test_ergot.field_test_ergot_estimate
+field_name: field_test_ergot_estimate
+entity_type: paragraph
+bundle: sample_test_ergot
+label: 'One or more ergot alkaloids exceed upper limit of quantitation - Value given is an estimate'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

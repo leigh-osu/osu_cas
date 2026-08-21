@@ -1,0 +1,22 @@
+uuid: fa991ca0-3564-41ee-a0d0-8f3ff31971df
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.block_basic
+    - field.field.block_content.block_basic.body
+  module:
+    - text
+id: block_content.block_basic.default
+targetEntityType: block_content
+bundle: block_basic
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

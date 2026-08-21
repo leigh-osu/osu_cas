@@ -1,0 +1,21 @@
+uuid: 6af1f2df-1030-4e28-9948-05e302fcc410
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_rush_value_ev
+    - paragraphs.paragraphs_type.sample_test_ergovaline
+  module:
+    - options
+id: paragraph.sample_test_ergovaline.field_test_rush_value_ev
+field_name: field_test_rush_value_ev
+entity_type: paragraph
+bundle: sample_test_ergovaline
+label: 'Ergovaline rush estimate'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

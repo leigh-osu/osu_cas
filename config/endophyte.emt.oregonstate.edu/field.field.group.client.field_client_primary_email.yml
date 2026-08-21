@@ -1,0 +1,19 @@
+uuid: 93eb1561-3803-4dd6-a1a5-a5d24cb54c1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_client_primary_email
+    - group.type.client
+id: group.client.field_client_primary_email
+field_name: field_client_primary_email
+entity_type: group
+bundle: client
+label: 'Primary contact email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

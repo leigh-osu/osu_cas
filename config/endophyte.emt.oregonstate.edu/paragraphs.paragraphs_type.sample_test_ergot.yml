@@ -1,0 +1,10 @@
+uuid: 13679d49-a4fe-45c9-93a1-c9920bc9f866
+langcode: en
+status: true
+dependencies: {  }
+id: sample_test_ergot
+label: 'Test: Ergot'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
