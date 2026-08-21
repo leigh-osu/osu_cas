@@ -1,0 +1,20 @@
+uuid: 4ff3af31-231f-41e4-9e56-0200093456ae
+langcode: en
+status: true
+dependencies:
+  theme:
+    - cas_larch
+id: tabs
+theme: cas_larch
+region: content
+weight: -3
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

@@ -1,0 +1,18 @@
+uuid: ca598037-7fd0-4400-8ac0-0e2967fe859a
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.client
+  enforced:
+    config:
+      - user.role.accounting
+id: client-d2a11d04b
+label: Accounting
+weight: 6
+group_type: client
+permissions:
+  - 'view group'
+admin: false
+scope: outsider
+global_role: accounting

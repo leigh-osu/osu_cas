@@ -1,0 +1,18 @@
+uuid: 7ba4afcf-18c6-408d-a5a5-76c47ef4f874
+langcode: en
+status: true
+dependencies:
+  theme:
+    - cas_larch
+id: cas_larch_pagetitle_2
+theme: cas_larch
+region: content
+weight: -4
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

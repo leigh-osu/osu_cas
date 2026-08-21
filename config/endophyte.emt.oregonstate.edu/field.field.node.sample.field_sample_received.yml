@@ -1,0 +1,23 @@
+uuid: a4a132eb-0943-4247-9775-408c0cdff756
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sample_received
+    - node.type.sample
+id: node.sample.field_sample_received
+field_name: field_sample_received
+entity_type: node
+bundle: sample
+label: 'Sample received'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

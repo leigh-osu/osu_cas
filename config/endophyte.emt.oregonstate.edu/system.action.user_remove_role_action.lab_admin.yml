@@ -1,0 +1,14 @@
+uuid: 94f5d0e2-de27-417c-b7bd-e34ba7b70c7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.lab_admin
+  module:
+    - user
+id: user_remove_role_action.lab_admin
+label: 'Remove the Lab administrator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: lab_admin

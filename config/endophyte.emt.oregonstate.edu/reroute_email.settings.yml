@@ -1,0 +1,9 @@
+_core:
+  default_config_hash: FWyW0pDoSvPRtqOVlIbk4PxTLiS9S_Ng7zS1JOflWVE
+enable: false
+address: rleigh@northcountry.com
+allowed: rleigh@northcountry.com
+description: true
+message: true
+mailkeys: ''
+whitelist: rleigh@northcountry.com

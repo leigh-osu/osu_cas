@@ -21,6 +21,16 @@
 /docroot/profiles/contrib/*
 /docroot/libraries/*
 
+# Site-specific extensions, installed by Composer into a single site's
+# directory rather than the shared tree -- see the per-package entries in
+# composer.json's installer-paths. Composer owns these on every environment
+# (Pipelines runs composer install at build), so they are ignored here for the
+# same reason the shared contrib directories above are.
+/docroot/sites/*/modules/contrib/*
+/docroot/sites/*/themes/contrib/*
+/docroot/sites/*/modules/custom/*
+/docroot/sites/*/themes/custom/*
+
 # Ignore configuration files that may contain sensitive information.
 /docroot/sites/*/settings.local.php
 #/docroot/sites/*/services*.yml
@@ -45,12 +55,12 @@
 # image builds and provider credentials); promotion to main strips it -- see
 # scripts-dev/promote_main.sh.
 /.ddev/homeadditions/.ssh/
-/docroot/sites/agsci.oregonstate.edu/settings.ddev.php
+/docroot/sites/*/settings.ddev.php
 /docroot/modules/custom
 /docroot/themes/custom
 /docroot/profiles/custom
 /databackup
-/files/agsci/private-files
+/files/*/private-files
 /.claude/*
 /legacy-d7
 

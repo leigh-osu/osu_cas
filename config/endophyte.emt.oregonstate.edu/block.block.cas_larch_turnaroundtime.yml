@@ -1,0 +1,38 @@
+uuid: ccd00434-9918-41a6-92c8-2dd9ce4f9f81
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:block_basic:2d7c0308-2eb6-420e-86e7-ce07aef72adb'
+  module:
+    - block_content
+    - system
+    - user
+  theme:
+    - cas_larch
+id: cas_larch_turnaroundtime
+theme: cas_larch
+region: sidebar_second
+weight: -3
+provider: null
+plugin: 'block_content:2d7c0308-2eb6-420e-86e7-ce07aef72adb'
+settings:
+  id: 'block_content:2d7c0308-2eb6-420e-86e7-ce07aef72adb'
+  label: 'ESL Turn Around Time'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/group/*\r\n/esl-dashboard\r\n/user/*"
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated

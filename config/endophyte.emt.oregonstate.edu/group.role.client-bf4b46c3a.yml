@@ -1,0 +1,24 @@
+uuid: 66573a46-f9d3-4c52-8aec-0bf8848fcdbc
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.client
+  enforced:
+    config:
+      - user.role.site_admin
+id: client-bf4b46c3a
+label: 'Site administrator'
+weight: -4
+group_type: client
+permissions:
+  - 'administer members'
+  - 'create group_node:sample entity'
+  - 'edit group'
+  - 'update any group_node:sample entity'
+  - 'view group'
+  - 'view group_membership content'
+  - 'view group_node:sample entity'
+admin: false
+scope: outsider
+global_role: site_admin

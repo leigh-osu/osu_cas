@@ -1,0 +1,23 @@
+uuid: f9a267fa-6287-441a-89e3-5158bb18a1c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.sample
+  module:
+    - node
+id: sample
+label: 'Sample path'
+type: 'canonical_entities:node'
+pattern: '/sample/[node:title]'
+selection_criteria:
+  4c3b12cc-8664-4235-962a-7ce94164e3f2:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      sample: sample
+selection_logic: and
+weight: -5
+relationships: {  }

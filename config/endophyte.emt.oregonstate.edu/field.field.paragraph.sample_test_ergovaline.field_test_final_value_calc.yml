@@ -1,0 +1,24 @@
+uuid: 8b48d2d2-0405-4991-a626-52abb04a1aeb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_final_value_calc
+    - paragraphs.paragraphs_type.sample_test_ergovaline
+  module:
+    - computed_field
+id: paragraph.sample_test_ergovaline.field_test_final_value_calc
+field_name: field_test_final_value_calc
+entity_type: paragraph
+bundle: sample_test_ergovaline
+label: 'Ergovaline certification value'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings:
+  code: "$value = '';"
+field_type: computed_string

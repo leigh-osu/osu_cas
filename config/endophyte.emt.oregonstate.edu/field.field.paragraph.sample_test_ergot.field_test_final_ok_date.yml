@@ -1,0 +1,21 @@
+uuid: a61d974c-e95e-41c8-96e5-0e5e45b60523
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_final_ok_date
+    - paragraphs.paragraphs_type.sample_test_ergot
+  module:
+    - datetime
+id: paragraph.sample_test_ergot.field_test_final_ok_date
+field_name: field_test_final_ok_date
+entity_type: paragraph
+bundle: sample_test_ergot
+label: 'Certification approval date'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

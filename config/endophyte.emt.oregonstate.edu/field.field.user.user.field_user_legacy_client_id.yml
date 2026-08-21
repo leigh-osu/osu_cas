@@ -1,0 +1,24 @@
+uuid: 8559ab7b-6a9d-4a83-9b13-aed562d48c4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_user_legacy_client_id
+  module:
+    - user
+id: user.user.field_user_legacy_client_id
+field_name: field_user_legacy_client_id
+entity_type: user
+bundle: user
+label: 'Legacy client id'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

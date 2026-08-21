@@ -1,0 +1,19 @@
+uuid: 1fcbd6df-3703-412a-bee2-81549edadf49
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sample_accession
+    - node.type.sample
+id: node.sample.field_sample_accession
+field_name: field_sample_accession
+entity_type: node
+bundle: sample
+label: 'Accession Group'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

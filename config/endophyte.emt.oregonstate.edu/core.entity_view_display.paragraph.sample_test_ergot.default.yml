@@ -1,0 +1,125 @@
+uuid: 271f2cf2-58ef-456f-ba20-af3bf9ea9b28
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.sample_test_ergot.field_test_ergot_estimate
+    - field.field.paragraph.sample_test_ergot.field_test_final_date
+    - field.field.paragraph.sample_test_ergot.field_test_final_ok
+    - field.field.paragraph.sample_test_ergot.field_test_final_ok_date
+    - field.field.paragraph.sample_test_ergot.field_test_final_ok_user
+    - field.field.paragraph.sample_test_ergot.field_test_final_user
+    - field.field.paragraph.sample_test_ergot.field_test_final_value
+    - field.field.paragraph.sample_test_ergot.field_test_final_value_calc
+    - field.field.paragraph.sample_test_ergot.field_test_legacy_sample_id
+    - field.field.paragraph.sample_test_ergot.field_test_legacy_test_id
+    - field.field.paragraph.sample_test_ergot.field_test_pdf
+    - field.field.paragraph.sample_test_ergot.field_test_status
+    - paragraphs.paragraphs_type.sample_test_ergot
+  module:
+    - computed_field
+    - datetime
+    - file
+    - options
+id: paragraph.sample_test_ergot.default
+targetEntityType: paragraph
+bundle: sample_test_ergot
+mode: default
+content:
+  field_test_ergot_estimate:
+    type: boolean
+    label: inline
+    settings:
+      format: true-false
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_test_final_date:
+    type: datetime_default
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: short
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_test_final_ok_date:
+    type: datetime_default
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: short
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_test_final_ok_user:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_test_final_user:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_test_final_value:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_test_final_value_calc:
+    type: computed_string
+    label: inline
+    settings:
+      sanitized: true
+      cache_unit: -1
+      cache_duration: 1
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_test_legacy_sample_id:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_test_legacy_test_id:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_test_pdf:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_test_status:
+    type: list_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_test_final_ok: true

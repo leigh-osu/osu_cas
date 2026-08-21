@@ -1,0 +1,35 @@
+uuid: 431c4c79-2be3-4636-8a27-71976625466a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_final_user
+    - paragraphs.paragraphs_type.sample_test_ergot
+id: paragraph.sample_test_ergot.field_test_final_user
+field_name: field_test_final_user
+entity_type: paragraph
+bundle: sample_test_ergot
+label: 'Certification by'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: field_user_full_name
+      direction: ASC
+    auto_create: false
+    filter:
+      type: role
+      role:
+        lab_tech: lab_tech
+        lab_admin: lab_admin
+        site_admin: site_admin
+        client: '0'
+        accounting: '0'
+    include_anonymous: false
+field_type: entity_reference

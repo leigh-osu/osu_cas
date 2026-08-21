@@ -1,0 +1,25 @@
+uuid: 1ba9bb1b-b3fb-428d-a153-e7b9a9692d8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sample_status
+    - node.type.sample
+  module:
+    - state_machine
+id: node.sample.field_sample_status
+field_name: field_sample_status
+entity_type: node
+bundle: sample
+label: 'Sample status'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: sample_arrival_pending
+default_value_callback: ''
+settings:
+  workflow: sample
+  workflow_callback: ''
+field_type: state

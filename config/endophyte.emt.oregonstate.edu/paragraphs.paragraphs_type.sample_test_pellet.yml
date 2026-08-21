@@ -1,0 +1,10 @@
+uuid: 0d34631f-d9f3-46d8-997e-fcb988798388
+langcode: en
+status: true
+dependencies: {  }
+id: sample_test_pellet
+label: 'Test: Pellet'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

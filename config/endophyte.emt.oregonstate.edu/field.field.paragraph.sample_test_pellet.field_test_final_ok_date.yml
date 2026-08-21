@@ -1,0 +1,21 @@
+uuid: 91633db6-8e45-42de-a2f3-0892b04829b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_final_ok_date
+    - paragraphs.paragraphs_type.sample_test_pellet
+  module:
+    - datetime
+id: paragraph.sample_test_pellet.field_test_final_ok_date
+field_name: field_test_final_ok_date
+entity_type: paragraph
+bundle: sample_test_pellet
+label: 'Certification approval date'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

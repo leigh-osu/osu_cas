@@ -1,0 +1,35 @@
+uuid: 72fdf9dd-ee31-42c2-b644-cadac2ccc99d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_rush_ok_user
+    - paragraphs.paragraphs_type.sample_test_lolitrem_b
+id: paragraph.sample_test_lolitrem_b.field_test_rush_ok_user
+field_name: field_test_rush_ok_user
+entity_type: paragraph
+bundle: sample_test_lolitrem_b
+label: 'Rush test approved by'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: field_user_full_name
+      direction: ASC
+    auto_create: false
+    filter:
+      type: role
+      role:
+        lab_admin: lab_admin
+        site_admin: site_admin
+        client: '0'
+        accounting: '0'
+        lab_tech: '0'
+    include_anonymous: false
+field_type: entity_reference

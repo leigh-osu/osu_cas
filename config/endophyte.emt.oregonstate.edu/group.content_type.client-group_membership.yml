@@ -1,0 +1,15 @@
+uuid: 61be69d7-c9bd-4e6f-a68b-1346344a0a6f
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.client
+  module:
+    - user
+id: client-group_membership
+group_type: client
+content_plugin: group_membership
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: false

@@ -1,0 +1,19 @@
+uuid: 1999db19-b82c-403b-b0b7-eefeefaa0e16
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_client_notes_client
+    - group.type.client
+id: group.client.field_client_notes_client
+field_name: field_client_notes_client
+entity_type: group
+bundle: client
+label: 'Client notes'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

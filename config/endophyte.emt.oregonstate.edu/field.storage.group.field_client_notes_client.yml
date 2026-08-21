@@ -1,0 +1,23 @@
+uuid: 7be98b9c-af33-48ba-960e-301d3b7cc9cc
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - group
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: group.field_client_notes_client
+field_name: field_client_notes_client
+entity_type: group
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

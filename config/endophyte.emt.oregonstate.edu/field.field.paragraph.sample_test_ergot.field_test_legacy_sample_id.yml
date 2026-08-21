@@ -1,0 +1,19 @@
+uuid: fff21148-fac3-4710-a229-32122f8b0cc1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_legacy_sample_id
+    - paragraphs.paragraphs_type.sample_test_ergot
+id: paragraph.sample_test_ergot.field_test_legacy_sample_id
+field_name: field_test_legacy_sample_id
+entity_type: paragraph
+bundle: sample_test_ergot
+label: 'Legacy sample id'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

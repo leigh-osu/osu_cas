@@ -1,0 +1,24 @@
+uuid: fd871216-9fd0-4c71-a7be-9616d12e1eb4
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.client
+  enforced:
+    config:
+      - user.role.lab_admin
+id: client-76a6bc598
+label: 'Lab administrator'
+weight: -2
+group_type: client
+permissions:
+  - 'administer members'
+  - 'create group_node:sample entity'
+  - 'edit group'
+  - 'update any group_node:sample entity'
+  - 'view group'
+  - 'view group_membership content'
+  - 'view group_node:sample entity'
+admin: false
+scope: outsider
+global_role: lab_admin

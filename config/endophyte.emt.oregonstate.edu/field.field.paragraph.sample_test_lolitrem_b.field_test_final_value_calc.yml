@@ -1,0 +1,24 @@
+uuid: fc030428-a922-4347-8b4b-6ef92919d26d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_final_value_calc
+    - paragraphs.paragraphs_type.sample_test_lolitrem_b
+  module:
+    - computed_field
+id: paragraph.sample_test_lolitrem_b.field_test_final_value_calc
+field_name: field_test_final_value_calc
+entity_type: paragraph
+bundle: sample_test_lolitrem_b
+label: 'Lolitrem B certification value'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings:
+  code: "$value = '';"
+field_type: computed_string

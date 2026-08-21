@@ -1,0 +1,21 @@
+uuid: 4f4cdb75-6688-4c95-ad67-c232f6a3ddd3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_rush_ok_date
+    - paragraphs.paragraphs_type.sample_test_lolitrem_b
+  module:
+    - datetime
+id: paragraph.sample_test_lolitrem_b.field_test_rush_ok_date
+field_name: field_test_rush_ok_date
+entity_type: paragraph
+bundle: sample_test_lolitrem_b
+label: 'Rush test approved'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

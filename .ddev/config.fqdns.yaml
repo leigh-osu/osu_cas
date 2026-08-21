@@ -28,6 +28,9 @@ additional_fqdns:
   - ddev.crafs.oregonstate.edu
   - ddev.cropandsoil.oregonstate.edu
   - ddev.emt.oregonstate.edu
+  # Not a Domain record -- the Endophyte Service Lab is its own core multisite
+  # under docroot/sites/endophyte.emt.oregonstate.edu, with its own database.
+  - ddev.endophyte.emt.oregonstate.edu
   - ddev.entomology.oregonstate.edu
   - ddev.fic.oregonstate.edu
   - ddev.foodsci.oregonstate.edu

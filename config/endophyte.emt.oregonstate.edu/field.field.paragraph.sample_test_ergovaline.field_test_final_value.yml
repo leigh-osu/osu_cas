@@ -1,0 +1,23 @@
+uuid: 3d891ad5-f429-4490-adce-0cc2b52f0aab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_final_value
+    - paragraphs.paragraphs_type.sample_test_ergovaline
+id: paragraph.sample_test_ergovaline.field_test_final_value
+field_name: field_test_final_value
+entity_type: paragraph
+bundle: sample_test_ergovaline
+label: 'Ergovaline lab value'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ' ppb'
+field_type: integer

@@ -1,0 +1,47 @@
+uuid: eafd417a-c3ae-48e5-b8f8-92d41e2aad3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.sample_test_pellet.field_test_claviceps
+    - field.field.paragraph.sample_test_pellet.field_test_egotamine_calculation
+    - field.field.paragraph.sample_test_pellet.field_test_final_date
+    - field.field.paragraph.sample_test_pellet.field_test_final_ok
+    - field.field.paragraph.sample_test_pellet.field_test_final_ok_date
+    - field.field.paragraph.sample_test_pellet.field_test_final_ok_user
+    - field.field.paragraph.sample_test_pellet.field_test_final_user
+    - field.field.paragraph.sample_test_pellet.field_test_final_value
+    - field.field.paragraph.sample_test_pellet.field_test_final_value_calc
+    - field.field.paragraph.sample_test_pellet.field_test_pdf
+    - field.field.paragraph.sample_test_pellet.field_test_pellet_rep_a
+    - field.field.paragraph.sample_test_pellet.field_test_pellet_rep_b
+    - field.field.paragraph.sample_test_pellet.field_test_status
+    - paragraphs.paragraphs_type.sample_test_pellet
+  module:
+    - options
+id: paragraph.sample_test_pellet.preview
+targetEntityType: paragraph
+bundle: sample_test_pellet
+mode: preview
+content:
+  field_test_status:
+    type: list_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_test_claviceps: true
+  field_test_egotamine_calculation: true
+  field_test_final_date: true
+  field_test_final_ok: true
+  field_test_final_ok_date: true
+  field_test_final_ok_user: true
+  field_test_final_user: true
+  field_test_final_value: true
+  field_test_final_value_calc: true
+  field_test_pdf: true
+  field_test_pellet_rep_a: true
+  field_test_pellet_rep_b: true

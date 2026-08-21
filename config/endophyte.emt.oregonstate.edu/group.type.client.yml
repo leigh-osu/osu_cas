@@ -1,0 +1,11 @@
+uuid: 0eef2655-efab-4d41-a83b-b00443b1aee8
+langcode: en
+status: true
+dependencies: {  }
+id: client
+label: Client
+description: 'A client company '
+new_revision: true
+creator_membership: false
+creator_wizard: true
+creator_roles: {  }

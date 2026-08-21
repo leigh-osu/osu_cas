@@ -1,0 +1,92 @@
+uuid: 9816de1e-26c5-4467-88c8-860d4dc6c0ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.sample_test_ergovaline.field_test_final_date
+    - field.field.paragraph.sample_test_ergovaline.field_test_final_ok
+    - field.field.paragraph.sample_test_ergovaline.field_test_final_ok_date
+    - field.field.paragraph.sample_test_ergovaline.field_test_final_ok_user
+    - field.field.paragraph.sample_test_ergovaline.field_test_final_user
+    - field.field.paragraph.sample_test_ergovaline.field_test_final_value
+    - field.field.paragraph.sample_test_ergovaline.field_test_final_value_calc
+    - field.field.paragraph.sample_test_ergovaline.field_test_legacy_sample_id
+    - field.field.paragraph.sample_test_ergovaline.field_test_legacy_test_id
+    - field.field.paragraph.sample_test_ergovaline.field_test_pdf
+    - field.field.paragraph.sample_test_ergovaline.field_test_rush
+    - field.field.paragraph.sample_test_ergovaline.field_test_rush_ok
+    - field.field.paragraph.sample_test_ergovaline.field_test_rush_ok_date
+    - field.field.paragraph.sample_test_ergovaline.field_test_rush_ok_user
+    - field.field.paragraph.sample_test_ergovaline.field_test_rush_value_date
+    - field.field.paragraph.sample_test_ergovaline.field_test_rush_value_ev
+    - field.field.paragraph.sample_test_ergovaline.field_test_rush_value_user
+    - field.field.paragraph.sample_test_ergovaline.field_test_status
+    - paragraphs.paragraphs_type.sample_test_ergovaline
+  module:
+    - file
+id: paragraph.sample_test_ergovaline.default
+targetEntityType: paragraph
+bundle: sample_test_ergovaline
+mode: default
+content:
+  field_test_final_ok:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_test_final_value:
+    type: number
+    weight: 3
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_test_pdf:
+    type: file_generic
+    weight: 5
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_test_rush:
+    type: boolean_checkbox
+    weight: 0
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_test_rush_ok:
+    type: boolean_checkbox
+    weight: 2
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_test_rush_value_ev:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_test_status:
+    type: options_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_test_final_date: true
+  field_test_final_ok_date: true
+  field_test_final_ok_user: true
+  field_test_final_user: true
+  field_test_final_value_calc: true
+  field_test_legacy_sample_id: true
+  field_test_legacy_test_id: true
+  field_test_rush_ok_date: true
+  field_test_rush_ok_user: true
+  field_test_rush_value_date: true
+  field_test_rush_value_user: true
+  status: true

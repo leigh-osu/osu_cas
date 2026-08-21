@@ -1,0 +1,19 @@
+uuid: f6fd0e01-032b-4a83-baa9-61d91f094824
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sample_notes_client
+    - node.type.sample
+id: node.sample.field_sample_notes_client
+field_name: field_sample_notes_client
+entity_type: node
+bundle: sample
+label: 'Client notes'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

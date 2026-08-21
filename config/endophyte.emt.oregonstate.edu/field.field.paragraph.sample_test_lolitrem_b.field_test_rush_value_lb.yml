@@ -1,0 +1,21 @@
+uuid: d776bb9c-c21b-42a2-a89f-bb7f0732a922
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_rush_value_lb
+    - paragraphs.paragraphs_type.sample_test_lolitrem_b
+  module:
+    - options
+id: paragraph.sample_test_lolitrem_b.field_test_rush_value_lb
+field_name: field_test_rush_value_lb
+entity_type: paragraph
+bundle: sample_test_lolitrem_b
+label: 'Lolitrem B rush estimate'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

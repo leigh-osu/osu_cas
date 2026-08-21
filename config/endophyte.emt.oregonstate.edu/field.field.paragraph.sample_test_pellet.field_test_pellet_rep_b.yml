@@ -1,0 +1,23 @@
+uuid: 62bb5585-ea2f-4024-9bd1-2b2c2365bd79
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_pellet_rep_b
+    - paragraphs.paragraphs_type.sample_test_pellet
+id: paragraph.sample_test_pellet.field_test_pellet_rep_b
+field_name: field_test_pellet_rep_b
+entity_type: paragraph
+bundle: sample_test_pellet
+label: 'Pellet rep B'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
