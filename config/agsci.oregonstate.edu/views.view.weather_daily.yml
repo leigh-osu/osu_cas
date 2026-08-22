@@ -2576,7 +2576,7 @@ display:
         - 'config:field.storage.node.field_dw_snow'
   cfu_gdd:
     id: cfu_gdd
-    display_title: 'Weather Data'
+    display_title: 'GDD Hyslop Weather Data'
     display_plugin: page
     position: 10
     display_options:
@@ -2956,6 +2956,7 @@ display:
         filters: false
         filter_groups: false
         footer: false
+      display_description: ''
       footer:
         area:
           id: area
@@ -2970,7 +2971,10 @@ display:
             value: '*= Degrees C, Zero Degree C base: (daily maximum temp (degrees C) + daily minimum temp (degrees C))/2, added cumulatively on a yearly basis from January 1.<br>**= Miles of wind at 2 meters (6.6 ft) height.'
             format: basic_html
           tokenize: false
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
       path: corvallis-farm-unit/weather/gdd-weather-data
     cache_metadata:
       max-age: -1
@@ -4088,7 +4092,7 @@ display:
         - 'config:field.storage.node.field_dw_date'
   hyslop_year:
     id: hyslop_year
-    display_title: 'Daily Weather Data'
+    display_title: 'Hyslop Daily Weather Data'
     display_plugin: page
     position: 7
     display_options:
@@ -5673,8 +5677,12 @@ display:
         filters: false
         filter_groups: false
         footer: false
+      display_description: ''
       footer: {  }
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
       path: hyslop-weather-station/weather/yearly/%
     cache_metadata:
       max-age: -1
@@ -7324,7 +7332,7 @@ display:
         - 'config:field.storage.node.field_dw_snow'
   malheur_year:
     id: malheur_year
-    display_title: 'Daily Weather Data'
+    display_title: 'MES Daily Weather Data'
     display_plugin: page
     position: 5
     display_options:
@@ -8261,8 +8269,12 @@ display:
         filters: false
         filter_groups: false
         footer: false
+      display_description: ''
       footer: {  }
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
       path: malheur/weather/yearly/%
     cache_metadata:
       max-age: -1

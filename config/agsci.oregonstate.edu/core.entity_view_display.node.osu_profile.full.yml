@@ -224,7 +224,7 @@ mode: full
 content:
   field_osu_organizations:
     type: entity_reference_label
-    label: inline
+    label: above
     settings:
       link: true
     third_party_settings: {  }
@@ -543,9 +543,9 @@ content:
     region: content
   field_tax_faculty_expertise:
     type: entity_reference_label
-    label: inline
+    label: above
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     weight: 2
     region: content
