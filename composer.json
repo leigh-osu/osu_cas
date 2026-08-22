@@ -358,6 +358,7 @@
         "drupal/purge_tokens": "^3.6",
         "drupal/quick_node_clone": "^1.22",
         "drupal/rabbit_hole": "^1.2",
+        "drupal/readonlymode": "^1.4",
         "drupal/recaptcha": "^3.1",
         "drupal/redirect": "^1.6",
         "drupal/reroute_email": "^2.2",
