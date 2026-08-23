@@ -17,12 +17,9 @@
  */
 
 $ah_env = $_ENV['AH_SITE_ENVIRONMENT'] ?? '';
-// LAUNCH: 'prod' is in this list only until cutover. While the real hostnames
-// point elsewhere, the prod environment is reached via x.prod.oregonstate.edu
-// / prod.x.org and Domain negotiation must match those. When the real
-// hostnames move to Acquia prod, remove 'prod' here so the records keep
-// their production hostnames.
-if (in_array($ah_env, ['dev', 'stage', 'prod'], TRUE)) {
+// Launched 2026-08-23: every agsci domain now lives on Acquia prod, so the
+// records keep their production hostnames there and only dev/stage rewrite.
+if (in_array($ah_env, ['dev', 'stage'], TRUE)) {
   $osu_cas_domain_records = [
   'agbiotech_oregonstate_edu' => 'agbiotech.oregonstate.edu',
   'agsci_oregonstate_edu' => 'agsci.oregonstate.edu',
@@ -60,24 +57,6 @@ if (in_array($ah_env, ['dev', 'stage', 'prod'], TRUE)) {
   'support_roots_oregonstate_edu' => 'support.roots.oregonstate.edu',
   'tradeoffs_oregonstate_edu' => 'tradeoffs.oregonstate.edu',
   ];
-  // LAUNCHED domains: cut over to Acquia prod one at a time. Once a domain's
-  // real hostname is attached to the prod environment (Cloud UI/API moves it
-  // from the D7 application), its record must keep the production hostname on
-  // prod -- the env rewrite below would otherwise leave the real hostname
-  // matching no record, and the site silently serves the default (CAS) domain
-  // in its place, which is exactly what happened to emt.oregonstate.edu for a
-  // few minutes on 2026-08-23. Dev and stage keep the rewrite for every
-  // domain. When everything has moved, delete this list and drop 'prod' from
-  // the env check above, per the original plan.
-  $osu_cas_launched = [
-    'emt_oregonstate_edu',
-    'bee_oregonstate_edu',
-  ];
-  if ($ah_env === 'prod') {
-    foreach ($osu_cas_launched as $osu_cas_launched_id) {
-      unset($osu_cas_domain_records[$osu_cas_launched_id]);
-    }
-  }
   foreach ($osu_cas_domain_records as $osu_cas_record_id => $osu_cas_hostname) {
     if (str_ends_with($osu_cas_hostname, '.oregonstate.edu')) {
       $osu_cas_env_hostname = substr($osu_cas_hostname, 0, -strlen('.oregonstate.edu')) . ".$ah_env.oregonstate.edu";
