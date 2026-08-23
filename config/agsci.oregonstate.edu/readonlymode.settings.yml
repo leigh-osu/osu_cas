@@ -1,6 +1,6 @@
 _core:
   default_config_hash: AggWckkHjtn4-6p-0CnwW3j37e9AHYhcPm_qkjcGfa4
-enabled: 1
+enabled: 0
 url: ''
 messages:
   default: '[site:name] is currently being prepared for production rollout. During this maintenance it is not possible to change site content (like comments, pages and users).'

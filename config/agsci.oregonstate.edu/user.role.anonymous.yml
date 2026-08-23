@@ -10,7 +10,6 @@ dependencies:
     - media
     - search
     - simple_styleguide
-    - sitewide_alert
     - system
 _core:
   default_config_hash: PO7HXDBxqAzU9M6nXH11hftPPqh46hQD-IRw_wOX1XE
@@ -25,4 +24,3 @@ permissions:
   - 'search content'
   - 'use text format restricted_html'
   - 'view media'
-  - 'view published sitewide alert entities'
