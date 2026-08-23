@@ -1,0 +1,16 @@
+uuid: 8bd11896-87f1-4dfd-a996-adf8dd7ed815
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: turf_lawn
+label: turf_lawn
+logic: and
+conditions:
+  dff9f398-88b7-4fe7-ae7c-e620a7b0e97c:
+    id: request_path
+    uuid: dff9f398-88b7-4fe7-ae7c-e620a7b0e97c
+    pages: /node/77601
+    negate: false
+allow_other_conditions: false

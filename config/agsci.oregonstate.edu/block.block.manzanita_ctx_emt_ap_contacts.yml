@@ -1,0 +1,62 @@
+uuid: 71c39fcf-7a80-4bed-9416-f2288334d8a9
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:eb26e689-9813-4fc6-8204-efd3e2b0538d'
+  module:
+    - block_content
+    - system
+  theme:
+    - manzanita
+id: manzanita_ctx_emt_ap_contacts
+theme: manzanita
+region: sidebar
+weight: -9
+provider: null
+plugin: 'block_content:eb26e689-9813-4fc6-8204-efd3e2b0538d'
+settings:
+  id: 'block_content:eb26e689-9813-4fc6-8204-efd3e2b0538d'
+  label: 'EMT AP Contacts'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: |-
+      /node/217606
+      /node/217611
+      /node/217616
+      /node/217621
+      /node/217626
+      /node/217631
+      /node/217636
+      /node/217641
+      /node/217646
+      /node/217651
+      /node/217716
+      /node/217721
+      /node/217731
+      /node/217736
+      /node/217751
+      /node/217756
+      /node/217761
+      /node/217766
+      /node/217771
+      /node/217776
+      /node/217781
+      /node/217786
+      /node/217791
+      /node/217801
+      /node/217806
+      /node/217946
+      /node/217951
+      /node/218111
+      /node/219776
+      /node/219821
+      /node/212141
+      /node/225791

@@ -1,0 +1,15 @@
+uuid: 446992c9-55fc-4220-863d-dda034b67049
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.osuseafoodlab_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_osuseafoodlab_oregonstate_edu
+label: 'Add selected content to the Seafood Research and Education Center domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - osuseafoodlab_oregonstate_edu

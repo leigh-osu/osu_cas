@@ -1,0 +1,13 @@
+services:
+  osu_endophyte.SampleGuard:
+    class: Drupal\osu_endophyte\Guard\SampleGuard
+    tags:
+      - { name: state_machine.guard, group: sample_workflow }
+  osu_endophyte.workflow.helper:
+    class: Drupal\osu_endophyte\WorkflowHelper
+    arguments: ['@current_user']
+  osu_endophyte.workflow_transition:
+    class: Drupal\osu_endophyte\EventSubscriber\WorkflowTransitionEventSubscriber
+    arguments: ['@osu_endophyte.workflow.helper']
+    tags:
+      - { name: event_subscriber }

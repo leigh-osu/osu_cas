@@ -1,0 +1,45 @@
+// Group footer (osu_cas_multisite_groups cas_group_footer): the current
+// group's contact card, first block in the footer region so it shares the
+// footer's ground, panorama and link treatment — one footer, the group's
+// card above the College's, as D7's unit footer sat, closed off by the
+// unit footer's 2px beaver-orange rule. The block sits inside
+// .madrone-footer's responsive side padding, so the rule is a pseudo-element
+// stretched to the viewport (footer clips the scrollbar-width overrun) to
+// match the full-bleed rule on the region's top edge (see _cas_footer.scss).
+.cas-group-footer {
+  margin-bottom: 2.5em;
+  padding-bottom: 1.5em;
+  position: relative;
+
+  &::after {
+    background: $osuorange;
+    bottom: 0;
+    content: '';
+    height: 2px;
+    left: 50%;
+    margin-left: -50vw;
+    position: absolute;
+    width: 100vw;
+  }
+
+  // Social icons are their own signposts; no underline under an icon.
+  .cas-group-footer__social a {
+    text-decoration: none;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+  }
+
+  // Embedded maps arrive with fixed pixel sizes from D7; keep them inside
+  // their column.
+  iframe {
+    max-width: 100%;
+  }
+}

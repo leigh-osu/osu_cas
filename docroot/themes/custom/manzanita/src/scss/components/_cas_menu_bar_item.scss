@@ -1,0 +1,79 @@
+// Migrated D7 menu-bar items land as field blocks
+// (block-field-block…osu-menu-bar-item…field-osu-menu-bar-item-link), not the
+// inline-block variant madrone's _osu_menubar.scss styles, so they inherit the
+// default field font size (~18px) and look oversized. Size the link like the
+// compact uppercase D7 menu-bar buttons. Targets the field so it applies to
+// both migrated (field) and native (inline) blocks.
+// The icon and label field blocks carry bootstrap_styles' bs-text-center class,
+// but that class ships only in bootstrap_styles' example CSS (not attached on
+// the front end), so the button content is left-aligned. Centre it here so the
+// icon sits above a centred label.
+.block--type-osu-menu-bar-item {
+  text-align: center;
+
+  // The block type's stored layout styling gives the rollover wrapper a
+  // bs-border-radius-* utility (8px pill corners); CAS menubars are square.
+  [class*='bs-border-radius'] {
+    border-radius: 0;
+  }
+
+  // Centre the button vertically in its menu-bar cell (items with and
+  // without icons otherwise top-align at different heights).
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // Size the button to its content rather than letting it fill the flex
+  // cell; the hover background then hugs the padded label.
+  align-items: center;
+  height: 100%;
+}
+
+.field--name-field-osu-menu-bar-item-icon {
+  // D7 sizes menu-bar icons at 36px on their own centred line above the
+  // label (.paragraph-menu ul li a i { width: 100%; font-size: 36px; }).
+  i {
+    display: inline-block;
+    font-size: 36px;
+  }
+}
+
+.field--name-field-osu-menu-bar-item-link {
+  // The gap between wrapped label lines comes from this block's line-height
+  // strut (inherited ~2.25 from the body), not the inline <a>, so tighten it
+  // here rather than on the anchor.
+  line-height: 1.1;
+
+  a {
+    // Block, not inline-block: an inline-block sits on the wrapper line
+    // box's baseline, which pushed the label visibly below the bar's
+    // vertical centre.
+    display: block;
+    padding-block: 0.5em;
+    // Button side padding steps with the viewport: 1em on mobile,
+    // 1.25em from md (768px), 1.75em on full-size displays (1200px).
+    padding-inline: 1em;
+
+    @media (min-width: 768px) {
+      padding-inline: 1.25em;
+    }
+
+    @media (min-width: 1200px) {
+      padding-inline: 1.75em;
+    }
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+}
+
+// Breathing room, matching the Source issue bars (_cas_issue_menubar.scss):
+// 2px of bar padding and 2px above/below each button, so the hover /
+// current white box floats inside the bar instead of touching its edges.
+.layout-container div.bg-color:has(> .container > .layout-builder__layout .block--type-osu-menu-bar-item) {
+  padding: 2px;
+}
+
+.block--type-osu-menu-bar-item > .block__content > div {
+  margin-block: 2px;
+}

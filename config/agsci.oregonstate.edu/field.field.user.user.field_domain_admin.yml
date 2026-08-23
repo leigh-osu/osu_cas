@@ -1,0 +1,24 @@
+uuid: 4d06961f-6b67-4673-98e6-b6a43b0b9819
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_domain_admin
+  module:
+    - user
+_core:
+  default_config_hash: O1bkeSylaQchUvPswMEFgiZMEDYzlvPHNw-duly8s1E
+id: user.user.field_domain_admin
+field_name: field_domain_admin
+entity_type: user
+bundle: user
+label: 'Domain administrator'
+description: 'Select the domains this user may administer.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: domain_admin
+  handler_settings: {  }
+field_type: entity_reference

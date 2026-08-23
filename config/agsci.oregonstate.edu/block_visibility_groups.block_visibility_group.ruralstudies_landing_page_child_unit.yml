@@ -1,0 +1,16 @@
+uuid: e405ab07-792b-4a09-9cda-50039de36bef
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: ruralstudies_landing_page_child_unit
+label: ruralstudies_landing-page-child-unit
+logic: and
+conditions:
+  0aaf4da3-c682-49d5-8be7-8d44a9ffccb6:
+    id: request_path
+    uuid: 0aaf4da3-c682-49d5-8be7-8d44a9ffccb6
+    pages: /ruralstudies
+    negate: false
+allow_other_conditions: false

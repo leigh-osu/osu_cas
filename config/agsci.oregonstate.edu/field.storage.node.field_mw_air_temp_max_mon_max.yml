@@ -1,0 +1,20 @@
+uuid: ccf7dcdf-7630-4826-9ed1-2f4b30ff3af9
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_mw_air_temp_max_mon_max
+field_name: field_mw_air_temp_max_mon_max
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

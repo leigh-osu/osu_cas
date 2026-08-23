@@ -1,0 +1,23 @@
+uuid: fc914316-0b00-4386-965c-5b64666127da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_final_value
+    - paragraphs.paragraphs_type.sample_test_lolitrem_b
+id: paragraph.sample_test_lolitrem_b.field_test_final_value
+field_name: field_test_final_value
+entity_type: paragraph
+bundle: sample_test_lolitrem_b
+label: 'Lolitrem B lab value'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ' ppb'
+field_type: integer

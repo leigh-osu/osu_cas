@@ -1,0 +1,16 @@
+uuid: 945f8cb8-b9b5-430e-ab22-7a4213892fd5
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: sitewide
+label: sitewide
+logic: and
+conditions:
+  94d07065-942a-4b8c-bcd5-d8b2a10cc1f8:
+    id: request_path
+    uuid: 94d07065-942a-4b8c-bcd5-d8b2a10cc1f8
+    pages: '*'
+    negate: false
+allow_other_conditions: false

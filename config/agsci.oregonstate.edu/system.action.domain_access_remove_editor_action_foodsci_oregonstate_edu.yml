@@ -1,0 +1,15 @@
+uuid: 3554258d-0dad-4585-b3a6-1338faf66074
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.foodsci_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_foodsci_oregonstate_edu
+label: 'Remove editors from the Food Science &amp; Technology domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - foodsci_oregonstate_edu

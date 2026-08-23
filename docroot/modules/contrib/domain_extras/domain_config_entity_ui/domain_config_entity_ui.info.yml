@@ -1,0 +1,15 @@
+name: 'Domain Configuration Entity UI'
+description: 'Adds per-domain support for config-entity admin pages so list builders and other override-free entity reads honor the active domain''s registered overrides. Pairs with domain_config_ui, which covers the ConfigFormBase side.'
+type: module
+package: Domain
+lifecycle: experimental
+lifecycle_link: https://www.drupal.org/project/domain_extras/issues/3588091
+core_version_requirement: ^10.3 || ^11
+configure: domain_config_entity_ui.settings_form
+dependencies:
+  - domain:domain_config_ui
+
+# Information added by Drupal.org packaging script on 2026-08-07
+version: '3.0.5'
+project: 'domain_extras'
+datestamp: 1786097847

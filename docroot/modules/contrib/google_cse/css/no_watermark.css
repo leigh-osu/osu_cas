@@ -1,0 +1,9 @@
+input.gsc-input {
+  background: rgb(255, 255, 255) !important;
+}
+img.gcsc-branding-img-noclear {
+  display: none;
+}
+.google-cse input[type="search"] {
+  background: unset !important;
+}

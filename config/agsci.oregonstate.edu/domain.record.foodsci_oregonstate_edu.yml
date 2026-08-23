@@ -1,0 +1,12 @@
+uuid: 581636df-98b8-48da-95b4-7bf07be1555a
+langcode: en
+status: true
+dependencies: {  }
+id: foodsci_oregonstate_edu
+domain_id: 10544044
+hostname: foodsci.oregonstate.edu
+name: 'Food Science & Technology'
+scheme: https
+weight: 12
+is_default: false
+path_prefix: ''

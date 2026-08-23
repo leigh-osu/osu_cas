@@ -1,0 +1,15 @@
+uuid: b220fd27-abc9-4257-93f1-2ebd04343604
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.fw_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_fw_oregonstate_edu
+label: 'Add selected content to the Fisheries, Wildlife, and Conservation Sciences domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - fw_oregonstate_edu

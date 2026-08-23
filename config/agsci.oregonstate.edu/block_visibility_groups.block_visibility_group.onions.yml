@@ -1,0 +1,16 @@
+uuid: 70bb6663-c79d-4fd8-aeb9-2fdc8119ea97
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: onions
+label: onions
+logic: and
+conditions:
+  55e504cf-50e3-4e15-8cb0-c743e5f1f4d7:
+    id: request_path
+    uuid: 55e504cf-50e3-4e15-8cb0-c743e5f1f4d7
+    pages: /mes/crops/onions
+    negate: false
+allow_other_conditions: false

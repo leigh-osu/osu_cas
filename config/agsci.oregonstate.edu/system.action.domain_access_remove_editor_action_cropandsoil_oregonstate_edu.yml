@@ -1,0 +1,15 @@
+uuid: cf3a6393-ad50-4cca-8fa9-eda6fdbdf1f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.cropandsoil_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_cropandsoil_oregonstate_edu
+label: 'Remove editors from the Crop &amp; Soil Science Department domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - cropandsoil_oregonstate_edu

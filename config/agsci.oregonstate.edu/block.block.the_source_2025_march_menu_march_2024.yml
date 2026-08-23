@@ -1,0 +1,31 @@
+uuid: d80f102e-78e7-4cb1-b099-97a1c637b1f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.the_source_2025_march
+    - system.menu.menu-march-2024
+  module:
+    - block_visibility_groups
+    - system
+  theme:
+    - madrone
+id: the_source_2025_march_menu_march_2024
+theme: madrone
+region: sidebar
+weight: 2
+provider: null
+plugin: 'system_menu_block:menu-march-2024'
+settings:
+  id: 'system_menu_block:menu-march-2024'
+  label: 'March 2025'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: the_source_2025_march

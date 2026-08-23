@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Install hooks for group_content_menu module.
+ */
+
+use Drupal\Core\Entity\ContentEntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+
+/**
+ * Update group content menus to be publishable.
+ */
+function group_content_menu_update_9301(): string {
+  $definition_update_manager = \Drupal::entityDefinitionUpdateManager();
+  $entity_type = $definition_update_manager->getEntityType('group_content_menu');
+  assert($entity_type instanceof ContentEntityTypeInterface);
+
+  // Add the 'published' entity key to the entity type.
+  $entity_keys = $entity_type->getKeys();
+  $entity_keys['published'] = 'status';
+  $entity_type->set('entity_keys', $entity_keys);
+
+  $definition_update_manager->updateEntityType($entity_type);
+
+  // Add the status field.
+  $status = BaseFieldDefinition::create('boolean')
+    ->setLabel(t('Publishing status'))
+    ->setDescription(t('A boolean indicating the published state.'))
+    ->setRevisionable(TRUE)
+    ->setTranslatable(TRUE)
+    ->setDefaultValue(TRUE)
+    ->setDisplayConfigurable('view', FALSE)
+    ->setDisplayConfigurable('form', FALSE);
+
+  $has_content_translation_status_field = $definition_update_manager->getFieldStorageDefinition('content_translation_status', 'group_content_menu');
+  if ($has_content_translation_status_field) {
+    $status->setInitialValueFromField('content_translation_status', TRUE);
+  }
+  else {
+    $status->setInitialValue(TRUE);
+  }
+  $definition_update_manager->installFieldStorageDefinition('status', 'group_content_menu', 'group_content_menu', $status);
+
+  // Uninstall the 'content_translation_status' field if needed.
+  if ($has_content_translation_status_field) {
+    $content_translation_status = $definition_update_manager->getFieldStorageDefinition('content_translation_status', 'group_content_menu');
+    $definition_update_manager->uninstallFieldStorageDefinition($content_translation_status);
+  }
+
+  return t('The publishing status field has been added to Group Content Menus.');
+}

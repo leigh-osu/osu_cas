@@ -1,0 +1,178 @@
+.osu-cas-site-sync {
+  /* Float over the page, pinned to the bottom of the browser window, but
+     contained to the content-area width (matches manzanita $cas-fixed-width)
+     and centred rather than spanning the full viewport. */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 1320px;
+  margin-inline: auto;
+  z-index: 500;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1.25rem;
+  padding: 0.75rem 1rem;
+  background-color: #f5f5f0;
+  border-top: 3px solid #d73f09; /* OSU orange */
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+  font-size: 0.9rem;
+}
+
+.osu-cas-site-sync__link {
+  text-decoration: none;
+  color: #1a1a1a;
+}
+
+.osu-cas-site-sync__link:hover {
+  text-decoration: underline;
+}
+
+.osu-cas-site-sync__nid {
+  color: #666;
+  font-family: monospace;
+  font-size: 0.85em;
+  margin-left: 0.25rem;
+}
+
+.osu-cas-site-sync__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+  cursor: pointer;
+  color: #1a1a1a;
+  user-select: none;
+}
+
+.osu-cas-site-sync__toggle input {
+  margin: 0;
+}
+
+.osu-cas-site-sync__hint {
+  color: #a33;
+  font-size: 0.85em;
+}
+
+.osu-cas-site-sync__slideshow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.osu-cas-site-sync__slideshow-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.osu-cas-site-sync__slideshow-type {
+  max-width: 14rem;
+  padding: 0.1rem 0.25rem;
+  font-size: 0.9em;
+}
+
+.osu-cas-site-sync__slideshow-prev,
+.osu-cas-site-sync__slideshow-next,
+.osu-cas-site-sync__slideshow-random {
+  padding: 0.1rem 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #fff;
+  color: #1a1a1a;
+  font-size: 0.8em;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.osu-cas-site-sync__slideshow-prev:hover,
+.osu-cas-site-sync__slideshow-next:hover,
+.osu-cas-site-sync__slideshow-random:hover {
+  background-color: #e8e8e3;
+}
+
+/* Vertical rules between the features. */
+.osu-cas-site-sync__feature + .osu-cas-site-sync__feature {
+  border-left: 3px solid #d73f09; /* OSU orange, match the block edge */
+  padding-left: 1.25rem;
+}
+
+/* ...except between the NID chip and View D7, and between View D7 and the Sync
+   toggle: these read as one group. */
+.osu-cas-site-sync__nid-copy + .osu-cas-site-sync__link,
+.osu-cas-site-sync__link + .osu-cas-site-sync__toggle {
+  border-left: 0;
+  padding-left: 0;
+}
+
+/* Small screens: one feature per line, breaking exactly at the separators,
+   which become horizontal rules. */
+@media (max-width: 48em) {
+  .osu-cas-site-sync {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .osu-cas-site-sync__feature + .osu-cas-site-sync__feature {
+    border-left: 0;
+    border-top: 3px solid #d73f09;
+    padding-left: 0;
+    padding-top: 0.5rem;
+  }
+
+  .osu-cas-site-sync__nid-copy + .osu-cas-site-sync__link,
+  .osu-cas-site-sync__link + .osu-cas-site-sync__toggle {
+    border-top: 0;
+    padding-top: 0;
+  }
+}
+
+.osu-cas-site-sync__nid-copy {
+  position: relative;
+  text-decoration: none;
+  color: #1a1a1a;
+  white-space: nowrap;
+}
+
+.osu-cas-site-sync__nid-copy:hover {
+  text-decoration: underline;
+}
+
+.osu-cas-site-sync__nid-copy.is-copied::after {
+  content: "copied";
+  position: absolute;
+  top: -1.4em;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.05em 0.45em;
+  border-radius: 3px;
+  background-color: #1a1a1a;
+  color: #fff;
+  font-size: 0.75em;
+}
+
+.osu-cas-site-sync__slideshow-prev:disabled,
+.osu-cas-site-sync__slideshow-next:disabled,
+.osu-cas-site-sync__slideshow-random:disabled {
+  opacity: 0.35;
+  background-color: #f0f0eb;
+  cursor: default;
+}
+
+/* Jump-to-NID box: a plain input, press Enter to jump. */
+.osu-cas-site-sync__jump-input {
+  width: 6rem;
+  padding: 0.1rem 0.25rem;
+  font-size: 0.9em;
+}
+
+/* The fixed bar covers the bottom of the page; give the footer enough
+   bottom padding that its last line stays readable above the bar. This
+   stylesheet only loads when the sync block renders, so ordinary visitors
+   (no block) get no extra padding. */
+footer[role='contentinfo'] {
+  padding-bottom: 4.5rem;
+}

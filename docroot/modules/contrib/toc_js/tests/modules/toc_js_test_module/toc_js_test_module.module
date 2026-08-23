@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Contains hook implementations for the toc_js_test_module module.
+ */
+
+use Drupal\Core\Hook\Attribute\LegacyHook;
+use Drupal\toc_js_test_module\Hook\TocJsTestModuleHooks;
+
+/**
+ * Implements hook_preprocess_node().
+ */
+#[LegacyHook]
+function toc_js_test_module_preprocess_node(&$variables) {
+  \Drupal::service(TocJsTestModuleHooks::class)->preprocessNode($variables);
+}

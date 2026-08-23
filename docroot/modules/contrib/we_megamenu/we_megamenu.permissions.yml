@@ -1,0 +1,4 @@
+administer we_megamenu:
+  title: 'Administer Mega Menu'
+  description: 'Set configuration settings for Mega Menu module.'
+  restrict access: TRUE

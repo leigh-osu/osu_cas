@@ -1,0 +1,11 @@
+# Schema for the configuration files of the Domain Config Entity UI module.
+domain_config_entity_ui.settings:
+  type: config_object
+  label: 'Domain Config Entity UI settings'
+  mapping:
+    covered_entity_types:
+      type: sequence
+      label: 'Config entity types covered by the per-domain support'
+      sequence:
+        type: machine_name
+        label: 'Entity type id'

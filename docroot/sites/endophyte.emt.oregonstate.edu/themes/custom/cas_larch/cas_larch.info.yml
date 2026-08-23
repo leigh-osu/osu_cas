@@ -1,0 +1,20 @@
+name: 'CAS Larch'
+type: theme
+description: 'CAS Larch subtheme based on Bootstrap 5 theme.'
+version: '2.0.0'
+core_version_requirement: '^9 || ^10'
+'base theme': bootstrap5
+stylesheets-remove:
+  - '@bootstrap5/css/style.css'
+libraries:
+  - cas_larch/global-styling
+regions:
+  header: Header
+  nav_branding: 'Navigation branding region'
+  nav_main: 'Main navigation region'
+  nav_additional: 'Additional navigation region (eg search form, social icons, etc)'
+  breadcrumb: Breadcrumbs
+  content: 'Main content'
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  footer: Footer

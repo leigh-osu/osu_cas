@@ -1,0 +1,190 @@
+uuid: 308e3b62-b22f-4d55-b1b8-593e85a53fc9
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: PXXUsDm5O3QUUQAvza-0kT9cuetx6c3LlO8Eh_-mWTk
+id: cas_node_og_group
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7 OG'
+  - 'OSU Groups Structure'
+  - 'OSU Groups'
+  - OSU
+  - CAS
+migration_group: osu_groups
+label: 'CAS: Insert OG Group (with fields)'
+source:
+  plugin: d7_node_domain_access
+  node_type: group
+process:
+  type:
+    plugin: default_value
+    default_value: basic_group
+  id: nid
+  uid:
+    plugin: default_value
+    default_value: 1
+  label: title
+  path/pathauto:
+    plugin: default_value
+    default_value: 0
+  path/alias: alias
+  body:
+    plugin: sub_process
+    source: body
+    process:
+      value:
+        plugin: osu_media_wysiwyg_filter
+        source: value
+      summary: summary
+      format:
+        plugin: default_value
+        default_value: full_html
+  field_group_access: group_access
+  field_group_parent:
+    plugin: sub_process
+    source: field_parent_unit
+    process:
+      target_id:
+        -
+          plugin: static_map
+          source: target_id
+          map:
+            25228: 16031
+            42846: 25345
+            108616: 184
+            96631: 211056
+            16090: 180
+            45846: 11895
+            63586: 67781
+            46646: 16025
+            95471: 16023
+            106121: 67286
+            26734: 26734
+            43: 43
+          default_value: 0
+        -
+          plugin: migration_lookup
+          migration:
+            - cas_parent_unit_default_group
+            - upgrade_d7_node_og_group
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  field_group_short_name:
+    plugin: cas_group_short_name
+    source:
+      - field_short_name
+      - title
+  field_group_email:
+    plugin: sub_process
+    source: field_group_email
+    process:
+      value: email
+  field_group_phone: field_group_phone
+  field_group_location_name: field_group_location_name
+  field_group_location_address: field_group_location_address
+  field_group_location_address2: field_group_location_address2
+  field_group_location_city: field_group_location_city
+  field_group_location_state: field_group_location_state
+  field_group_location_zip: field_group_location_zip
+  field_group_facebook: field_group_facebook
+  field_group_twitter: field_group_twitter
+  field_group_linkedin: field_group_linkedin
+  field_group_youtube: field_group_youtube
+  field_group_instagram: field_group_instagram
+  field_group_hours:
+    plugin: sub_process
+    source: field_group_hours
+    process:
+      value:
+        plugin: osu_media_wysiwyg_filter
+        source: value
+      format:
+        plugin: default_value
+        default_value: full_html
+  field_group_add_info:
+    plugin: sub_process
+    source: field_additional_information
+    process:
+      value:
+        plugin: osu_media_wysiwyg_filter
+        source: value
+      format:
+        plugin: default_value
+        default_value: full_html
+  field_group_map:
+    plugin: sub_process
+    source: field_embedded_map
+    process:
+      value:
+        plugin: osu_media_wysiwyg_filter
+        source: value
+      format:
+        plugin: default_value
+        default_value: full_html
+  field_group_footer_col4:
+    plugin: sub_process
+    source: field_4th_column_footer
+    process:
+      value:
+        plugin: osu_media_wysiwyg_filter
+        source: value
+      format:
+        plugin: default_value
+        default_value: full_html
+  field_site_coordinators:
+    plugin: sub_process
+    source: field_site_coordinator_s_
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: upgrade_d7_user_to_profile
+          source: uid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  field_group_info_sheet:
+    plugin: sub_process
+    source: field_information_sheet
+    process:
+      target_id:
+        -
+          plugin: cas_file_url_to_fid
+          source: value
+        -
+          plugin: migration_lookup
+          migration:
+            - upgrade_d7_media_documents
+            - cas_media_private_documents
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  field_group_newsletter_link: field_group_newsletter_link
+  field_domain_access:
+    plugin: sub_process
+    source: domain_access_node
+    process:
+      target_id: target_id
+  field_domain_all_affiliates: domain_all_affiliates
+  field_domain_source:
+    plugin: cas_group_canonical_domain
+    source:
+      - domain_source
+      - domain_access_node
+destination:
+  plugin: 'entity:group'
+migration_dependencies:
+  required:
+    - cas_parent_unit_default_group
+    - upgrade_d7_users_with_roles
+    - upgrade_d7_media_documents
+  optional: {  }

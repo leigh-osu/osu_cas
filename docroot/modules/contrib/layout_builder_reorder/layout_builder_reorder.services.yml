@@ -1,0 +1,4 @@
+services:
+  Drupal\layout_builder_reorder\Hook\LayoutBuilderReorderHooks:
+    class: Drupal\layout_builder_reorder\Hook\LayoutBuilderReorderHooks
+    autowire: true

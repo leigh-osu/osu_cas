@@ -1,0 +1,14 @@
+uuid: d5368979-019a-458d-aad2-c4ee02b34cff
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.emt_oregonstate_edu
+  module:
+    - domain_source
+id: domain_source_set_action.emt_oregonstate_edu
+label: 'Set content domain source value to the Environmental &amp; Molecular Toxicology domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: emt_oregonstate_edu

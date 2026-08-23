@@ -1,0 +1,11 @@
+name: 'OSU Editorial Workflow'
+type: module
+description: 'Provides support for Editorial Workflows of content.'
+package: OSU
+version: 1.0.3
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:content_moderation
+  - moderation_sidebar:moderation_sidebar
+  - scheduler:scheduler
+  - scheduler_content_moderation_integration:scheduler_content_moderation_integration

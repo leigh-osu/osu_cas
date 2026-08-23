@@ -1,0 +1,192 @@
+uuid: d41ef196-a214-40db-8856-d4090d6ac3f7
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_243676
+title: 'Beginning Researchers Support Program - Student Application'
+description: null
+categories: {  }
+elements: |-
+  student_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Student Name'
+    '#required': true
+  student_id_number:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Student I.D. Number'
+    '#required': true
+  email_address:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Email Address'
+    '#required': true
+  choose_your_department_that_your_major_falls_under:
+    '#type': radios
+    '#options':
+      aged: 'Agricultural Education & Agricultural Sciences'
+      anrs: 'Animal and Rangeland Sciences'
+      appled_econ: 'Applied Economics'
+      bee: 'Biological & Ecological Engineering'
+      bpp: 'Botany & Plant Pathology'
+      brr: 'BioResource Research'
+      css: 'Crop & Soil Science'
+      emt: 'Environmental & Molecular Toxicology'
+      fwcs: 'Fisheries, Wildlife, & Conservation Sciences'
+      foodsci: 'Food Science & Technology'
+      hort: Horticulture
+      microb: Microbiology
+      sdd: Sustainability
+      other: Other
+    '#title': 'Choose your department that your major falls under'
+    '#required': true
+  osu_cumulative_gpa:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'OSU Cumulative GPA'
+    '#required': true
+  projects_intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	Only choose the top&nbsp;<strong>two</strong>&nbsp;Beginning Research projects that you are interested in. The next question in the survey provides the titles of the research projects. Please read the details regarding location, work hours per week, hourly pay rate to help you make your decision at&nbsp;<a href="https://agsci.oregonstate.edu/education/beginning-researchers-support-program/available-internships" style="color: rgb(54, 108, 204); font-family: Gudea, sans-serif; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">beginning-researchers-support-program/available-internships.</a></p>
+  1st_choice_project:
+    '#type': radios
+    '#options':
+      1biocontrol: 'Biocontrol potential of native entomopathogenic nematodes for insect management in Oregon seed crops'
+      1dissecting: 'Dissecting the thiamin-mediated biotic defense response pathway in plants'
+      1seasonal: 'Seasonal application timing effects on the availability of sulfur-based fertilizers in soil'
+      1tunnels: 'Tunnels for Organic Strawberry Season Extension'
+      1grapesmoke: 'Grape smoke exposure effects: Determining the compounds that cause smoke impacts in wine'
+      1geisha: 'Impact of Different roasting profiles to the floral aroma of Geisha coffee'
+      1smartrock: 'Smart Rock: IoT Environmental Sensing in the OPEnS Lab'
+      1dendrometer: 'Dendrometer: IoT Environmental Sensing in the OPEnS Lab'
+      1weatherchimes: 'WeatherChimes: IoT Environmental Sensing in the OPEnS Lab'
+      1loom: 'Loom: Programming for IoT Environmental Sensing in the OPEnS Lab'
+      1food: 'Addressing food deserts with common gardens'
+      1coupling: 'Coupling ecosystem structure to habitat microclimate through GEDI derived canopy water storage estimates'
+    '#title': '1st Choice Project'
+    '#required': true
+  2nd_choice_project:
+    '#type': radios
+    '#options':
+      2biocontrol: 'Biocontrol potential of native entomopathogenic nematodes for insect management in Oregon seed crops'
+      2dissecting: 'Dissecting the thiamin-mediated biotic defense response pathway in plants'
+      2seasonal: 'Seasonal application timing effects on the availability of sulfur-based fertilizers in soil'
+      2tunnels: 'Tunnels for Organic Strawberry Season Extension'
+      2grapesmoke: 'Grape smoke exposure effects: Determining the compounds that cause smoke impacts in wine'
+      2geisha: 'Impact of Different roasting profiles to the floral aroma of Geisha coffee'
+      2smartrock: 'Smart Rock: IoT Environmental Sensing in the OPEnS Lab'
+      2dendrometer: 'Dendrometer: IoT Environmental Sensing in the OPEnS Lab'
+      2weatherchimes: 'WeatherChimes: IoT Environmental Sensing in the OPEnS Lab'
+      2loom: 'Loom: Programming for IoT Environmental Sensing in the OPEnS Lab'
+      2food: 'Addressing food deserts with common gardens'
+      2coupling: 'Coupling ecosystem structure to habitat microclimate through GEDI derived canopy water storage estimates'
+    '#title': '2nd Choice Project'
+    '#required': true
+  cover_letter:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': pdf
+    '#title': 'Cover Letter'
+    '#description': 'If the title of your COVER LETTER does not include your last name, please rename your document to include your last name then upload a PDF of your COVER LETTER (PDF)'
+  resume:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': pdf
+    '#title': Resume
+    '#description': 'If the title of your RESUME does not include your last name, please rename your document to include your last name then upload a PDF of your RESUME (PDF)'
+  transcript_notice:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	Please note that we will access your unofficial transcript and provide it to prospective research faculty.</p>
+  how_many_credits_do_you_plan_to_take_during_summer_term_2022:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'How many credits do you plan to take during summer term 2022?'
+    '#required': true
+  how_many_credits_do_you_plan_to_take_during_fall_term:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'How many credits do you plan to take during fall term 2022?'
+    '#required': true
+  describe_any_additional_activities_or_work_you_are_involved_in_outside_of_classes:
+    '#type': textarea
+    '#title': 'Describe any additional activities or work you are involved in outside of classes.'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: Wanda.Crannell@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

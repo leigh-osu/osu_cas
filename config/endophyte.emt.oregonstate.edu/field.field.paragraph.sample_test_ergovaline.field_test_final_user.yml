@@ -1,0 +1,35 @@
+uuid: f1d7cf2f-9230-4b8b-82dc-d3f581eca0c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_final_user
+    - paragraphs.paragraphs_type.sample_test_ergovaline
+id: paragraph.sample_test_ergovaline.field_test_final_user
+field_name: field_test_final_user
+entity_type: paragraph
+bundle: sample_test_ergovaline
+label: 'Certification by'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: field_user_full_name
+      direction: ASC
+    auto_create: false
+    filter:
+      type: role
+      role:
+        lab_tech: lab_tech
+        lab_admin: lab_admin
+        site_admin: site_admin
+        client: '0'
+        accounting: '0'
+    include_anonymous: false
+field_type: entity_reference

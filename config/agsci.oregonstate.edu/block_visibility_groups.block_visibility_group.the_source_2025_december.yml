@@ -1,0 +1,16 @@
+uuid: c748decb-5dfd-46f2-b779-747188d04f3a
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: the_source_2025_december
+label: the_source_2025_december
+logic: and
+conditions:
+  ea541f56-4ea1-40bb-b079-324494d9802e:
+    id: request_path
+    uuid: ea541f56-4ea1-40bb-b079-324494d9802e
+    pages: "/thesource/dec-2025\r\n/thesource/dec-2025*\r\n/thesource/december-2025\r\n/thesource/december-2025*"
+    negate: false
+allow_other_conditions: false

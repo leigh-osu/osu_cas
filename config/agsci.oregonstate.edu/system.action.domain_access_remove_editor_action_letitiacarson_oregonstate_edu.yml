@@ -1,0 +1,15 @@
+uuid: b8ac6f92-9027-49fc-812c-fc7d13772ad0
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.letitiacarson_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_letitiacarson_oregonstate_edu
+label: 'Remove editors from the Letitia Carson  domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - letitiacarson_oregonstate_edu

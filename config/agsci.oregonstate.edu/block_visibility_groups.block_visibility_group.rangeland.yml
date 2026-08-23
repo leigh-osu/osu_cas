@@ -1,0 +1,16 @@
+uuid: fa7c27d5-ea26-4a27-9947-dae1bda8acba
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: rangeland
+label: rangeland
+logic: and
+conditions:
+  57505f16-0a99-46f5-a87f-98d2c8339b1e:
+    id: request_path
+    uuid: 57505f16-0a99-46f5-a87f-98d2c8339b1e
+    pages: /node/112776
+    negate: false
+allow_other_conditions: false

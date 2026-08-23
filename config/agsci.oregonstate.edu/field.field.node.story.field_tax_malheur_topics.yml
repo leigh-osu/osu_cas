@@ -1,0 +1,29 @@
+uuid: e66baeb4-39cd-489d-bb60-641d89e03112
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tax_malheur_topics
+    - node.type.story
+    - taxonomy.vocabulary.malheur_topics
+id: node.story.field_tax_malheur_topics
+field_name: field_tax_malheur_topics
+entity_type: node
+bundle: story
+label: 'Malheur topics'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:filter_existing_terms'
+  handler_settings:
+    target_bundles:
+      malheur_topics: malheur_topics
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

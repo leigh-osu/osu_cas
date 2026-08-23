@@ -1,0 +1,14 @@
+uuid: 429022c4-6c0d-45ee-a672-16a97631a240
+langcode: en
+status: 1
+dependencies: {  }
+_core:
+  default_config_hash: J_OBt6pX8iOjlqha_-3X3yuF7N1c1m8iHWcIUucjsss
+id: tablet_landscape
+label: 'Tablet Landscape'
+weight: 2
+orientation: landscape
+dimensions:
+  width: 2360
+  height: 1640
+  dppx: 2.0

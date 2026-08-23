@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group_content.field_membership_type
+    - group.content_type.group_content_type_57248759845cf
+    - taxonomy.vocabulary.membership_types
+id: group_content.group_content_type_57248759845cf.field_membership_type
+field_name: field_membership_type
+entity_type: group_content
+bundle: group_content_type_57248759845cf
+label: 'Membership type'
+description: 'The role this person holds in this group (Faculty, Graduate Student, Emeritus, …) — D7 og_membership field_membership_type.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      membership_types: membership_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

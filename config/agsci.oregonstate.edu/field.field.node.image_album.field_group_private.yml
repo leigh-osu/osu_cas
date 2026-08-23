@@ -1,0 +1,23 @@
+uuid: 06fe45c3-a26b-437f-aa09-fd10942fb9c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_group_private
+    - node.type.image_album
+id: node.image_album.field_group_private
+field_name: field_group_private
+entity_type: node
+bundle: image_album
+label: 'Group members only'
+description: 'Hide this content from the public, show ONLY to group members.<br />DO NOT USE THIS FOR SENSITIVE INFORMATION - NOT HIGH SECURITY STORAGE.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Group members only'
+  off_label: Public
+field_type: boolean

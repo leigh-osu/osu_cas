@@ -1,0 +1,23 @@
+uuid: bd7f83c9-3312-4a87-b2d0-5eec6117f696
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfs_number_of_students
+    - node.type.degree_fact_sheet
+id: node.degree_fact_sheet.field_dfs_number_of_students
+field_name: field_dfs_number_of_students
+entity_type: node
+bundle: degree_fact_sheet
+label: 'Number of students in this major'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,13 @@
+uuid: 0a0cc328-9a27-4f70-b4ce-1beedeb15b11
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: Pm7XBGhsuy77sEFnObf23tIU5ip6_KcQPpUjAAxnX98
+id: media.frameless
+label: Frameless
+description: ''
+targetEntityType: media
+cache: true

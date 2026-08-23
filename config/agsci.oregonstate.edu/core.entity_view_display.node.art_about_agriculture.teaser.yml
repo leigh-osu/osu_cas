@@ -1,0 +1,64 @@
+uuid: e5531934-ac5a-42c5-a36e-4c3ebfcaf09c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.art_about_agriculture.body
+    - field.field.node.art_about_agriculture.field_aaa_artist
+    - field.field.node.art_about_agriculture.field_aaa_artist_first_name
+    - field.field.node.art_about_agriculture.field_aaa_artist_last_name
+    - field.field.node.art_about_agriculture.field_aaa_artwork
+    - field.field.node.art_about_agriculture.field_aaa_awards
+    - field.field.node.art_about_agriculture.field_aaa_description
+    - field.field.node.art_about_agriculture.field_aaa_dimensions
+    - field.field.node.art_about_agriculture.field_aaa_location
+    - field.field.node.art_about_agriculture.field_aaa_permission_granted
+    - field.field.node.art_about_agriculture.field_aaa_thumbnail
+    - field.field.node.art_about_agriculture.field_aaa_year
+    - field.field.node.art_about_agriculture.field_domain_access
+    - field.field.node.art_about_agriculture.field_domain_all_affiliates
+    - field.field.node.art_about_agriculture.field_domain_source
+    - field.field.node.art_about_agriculture.field_group_private
+    - field.field.node.art_about_agriculture.field_tax_aaa
+    - node.type.art_about_agriculture
+  module:
+    - text
+    - user
+id: node.art_about_agriculture.teaser
+targetEntityType: node
+bundle: art_about_agriculture
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entitygroupfield: true
+  field_aaa_artist: true
+  field_aaa_artist_first_name: true
+  field_aaa_artist_last_name: true
+  field_aaa_artwork: true
+  field_aaa_awards: true
+  field_aaa_description: true
+  field_aaa_dimensions: true
+  field_aaa_location: true
+  field_aaa_permission_granted: true
+  field_aaa_thumbnail: true
+  field_aaa_year: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_group_private: true
+  field_tax_aaa: true
+  langcode: true

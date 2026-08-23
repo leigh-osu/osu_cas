@@ -1,0 +1,23 @@
+uuid: 6e3266b7-80a5-42bb-9b4c-2c891833ace5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_group_private
+    - node.type.osu_profile
+id: node.osu_profile.field_group_private
+field_name: field_group_private
+entity_type: node
+bundle: osu_profile
+label: 'Group members only'
+description: 'Hide this content from the public, show ONLY to group members.<br />DO NOT USE THIS FOR SENSITIVE INFORMATION - NOT HIGH SECURITY STORAGE.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Group members only'
+  off_label: Public
+field_type: boolean

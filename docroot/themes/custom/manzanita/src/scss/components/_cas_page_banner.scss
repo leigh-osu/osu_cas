@@ -1,0 +1,7 @@
+// Page header banner (field_page_banner_image, migrated from D7
+// field_picture). The banner_1600_x_400 crop spans the full content
+// container regardless of viewport, like D7's header_1200_x_400 banner.
+.block-field-blocknodepagefield-page-banner-image img {
+  width: 100%;
+  height: auto;
+}

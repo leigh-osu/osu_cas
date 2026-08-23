@@ -1,0 +1,264 @@
+uuid: 8b252b80-fc7c-464c-8a1f-764fe4a34bc8
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 16861
+template: false
+archive: false
+id: webform_265006
+title: 'Graduating Senior Profile '
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	Congratulations on getting close to finishing your degree! The CSS Department is proud of your achievements and the dedication you have demonstrated towards achieving your goals!</p>
+
+      <p>
+      	As you begin one of your last few terms here at OSU, we would like to take a few minutes to gather some additional information about your experiences and future plans. Additionally, by completing this profile, you may be considered for a CSS Outstanding Senior Award, which consists of a plaque and a $1,000 award - this is a prestigious award as only two CSS Outstanding Senior awards are presented each year.</p>
+
+      <p>
+      	&nbsp;</p>
+
+      <p>
+      	* = Required elements&nbsp;</p>
+  first_name:
+    '#type': textfield
+    '#title': 'First Name'
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#title': 'Last Name'
+    '#required': true
+  campus:
+    '#type': radios
+    '#options':
+      corvallis: Corvallis
+      ecampus: Ecampus
+    '#title': Campus
+    '#required': true
+  degree_option:
+    '#type': radios
+    '#options':
+      agronomy: Agronomy
+      'soil science': 'Soil Science'
+      'plant breeding genetics and genomics': 'Plant Breeding, Genetics and Genomics'
+    '#title': 'CSS Degree Option'
+    '#required': true
+  anticipated_graduation_term:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Anticipated Graduation Term'
+    '#required': true
+  personal_statement:
+    '#type': textarea
+    '#title': 'Personal Statement'
+    '#description': 'Please describe yourself, where you are located, and what brought you to OSU and the Crop and Soil Science Department.                                                                                                                                                                               '
+    '#required': true
+  leadership:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <h3>
+      	Leadership</h3>
+  engagement_in_osu_cas_and_or_css:
+    '#type': textarea
+    '#title': 'Engagement in OSU, CAS and/or CSS'
+    '#description': 'Have you been involved with any University, college, or Crop and Soil Science department organization(s)/club(s)? If so, please describe your level of involvement (i.e., member, officer, etc.) for each organization and identify your favorite activity.'
+    '#required': true
+  extracurricular_community_and_or_public_service_activities:
+    '#type': textarea
+    '#title': 'Extracurricular, community, and/or public service activities'
+    '#description': 'We would like to learn more about what drives you outside of academics. Could you please describe the any service activities that you are involved with outside of OSU?  This may include public service, community organizations, or non-degree-related activities (examples may include youth sport coach, community planning, FFA alumni, etc.). Be sure to describe your level of participation with the activity(activities). '
+    '#required': true
+  professional_potential:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <h3>
+      	Professional Potential</h3>
+  are_you_a_member_of_professional_organizations_or_associations:
+    '#type': textarea
+    '#title': 'Are you a member of professional organizations or associations? If yes, please list them and note your level of involvement (member, officer, volunteer, etc.)'
+    '#description': 'If yes, please list them and note your level of involvement (member, officer, volunteer, etc.). '
+    '#required': true
+  please_describe_the_experiential_learning_activity_that_you_completed_and_how_the_experience_influenced_your_career_path:
+    '#type': textarea
+    '#title': 'Please describe the experiential learning activity that you completed and how the experience influenced your career path. '
+    '#required': true
+  what_achievement_are_you_most_proud_of_during_your_academic_career:
+    '#type': textarea
+    '#title': 'What achievement are you most proud of during your academic career? '
+    '#required': true
+  what_are_your_goals_for_the_future_academic_and_or_career:
+    '#type': textarea
+    '#title': 'What are your goals for the future (academic and/or career)?'
+    '#required': true
+  what_was_the_biggest_challenge_that_you_faced_during_your_academic_pursuits:
+    '#type': textarea
+    '#title': 'What was the biggest challenge that you faced during your academic pursuits and what was the most influential support that helped you overcome that challenge? '
+  is_there_anything_else_that_you_would_like_to_share_regarding_your_experiences_as_a_student_in_the_css_department:
+    '#type': textarea
+    '#title': 'Is there anything else that you would like to share regarding your experiences as a student in the CSS Department'
+  information_release:
+    '#type': radios
+    '#options':
+      'yes': 'Yes'
+      'no': 'No'
+    '#title': 'Information Release'
+    '#description': |-
+      I hereby consent to release for publication my name, a summary of the information provided, and photo submitted.  Such information may be published in newspapers, OSU websites, social media sites (Facebook, Instagram, YouTube, Twitter, etc.), and/or Crop and Soil Science Department publications (newsletters, CSS website, etc.).  I understand that photos and/or information submitted may be used in publications and/or websites outside of CSS control.  I waive any right to inspect the uses of any printed or electronic copy.  I hereby release the Crop and Soil Science Department from any claims that may arise from these uses. 
+
+
+      Note: Your response to the Information Consent question will in no way influence your degree completion, degree conferral, award or scholarship eligibility, or recommendations.
+    '#required': true
+  photo_upload:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Photo Upload'
+    '#required': true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: rachel.swindon@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: 'Crop and Soil Science'
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: alyssa.duval@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: 'Crop and Soil Science'
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+  email_3:
+    id: email
+    handler_id: email_3
+    label: 'Email 3'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 3
+    settings:
+      states:
+        - completed
+      to_mail: stefan.seiter@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: 'Crop and Soil Science'
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

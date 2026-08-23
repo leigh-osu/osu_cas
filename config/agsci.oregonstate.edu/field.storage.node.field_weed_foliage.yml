@@ -1,0 +1,19 @@
+uuid: f5da724c-aa7e-452b-817f-8576d4affb51
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_weed_foliage
+field_name: field_weed_foliage
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

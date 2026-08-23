@@ -1,0 +1,14 @@
+uuid: 92c88fdb-aa9b-4353-9187-724fdc76a140
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.plantbreeding_oregonstate_edu_
+  module:
+    - domain_source
+id: domain_source_set_action.plantbreeding_oregonstate_edu_
+label: 'Set content domain source value to the Plant Breeding and Genetics domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: plantbreeding_oregonstate_edu_

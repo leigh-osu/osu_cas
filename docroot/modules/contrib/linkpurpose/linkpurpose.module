@@ -1,0 +1,119 @@
+<?php
+
+/**
+ * @file
+ * Linkpurpose module file.
+ */
+
+/**
+ * Implements hook_page_attachments().
+ *
+ * Attaches linkpurpose library and config based on context.
+ */
+function linkpurpose_page_attachments(array &$attachments): void {
+
+  $attachments['#cache']['tags'][] = 'config:linkpurpose.settings';
+  $config = Drupal::config('linkpurpose.settings');
+
+  // Exit if we are on an admin route.
+  // @todo CONFIG VARIABLE FOR THIS? Any argument to run on admin routes?
+  $attachments['#cache']['contexts'][] = 'route';
+  if (Drupal::service('router.admin_context')->isAdminRoute()) {
+    return;
+  }
+
+  $attachments['#cache']['contexts'][] = 'languages';
+
+  $domain = empty($config->get('domain')) ? $GLOBALS['base_url'] : $config->get('domain') . ', ' . $GLOBALS['base_url'];
+  $attachments['#attached']['drupalSettings']['linkpurpose']['domain'] = $domain;
+
+  $configItems = [
+    'roots',
+    'shadowComponents',
+    'ignore',
+    'suppressNoBreak',
+    'insertIconOutsideHiddenSpan',
+    'hideIcon',
+    'noRunIfPresent',
+    'noRunIfAbsent',
+    'noIconOnImages',
+    'purposeDocument',
+    'purposeDocumentSelector',
+    'purposeDocumentMessage',
+    'purposeDocumentClass',
+    'purposeDocumentIconWrapperClass',
+    'purposeDocumentIconType',
+    'purposeDocumentIconPosition',
+    'purposeDocumentIconClasses',
+    'purposeDownload',
+    'purposeDownloadSelector',
+    'purposeDownloadMessage',
+    'purposeDownloadClass',
+    'purposeDownloadIconWrapperClass',
+    'purposeDownloadIconType',
+    'purposeDownloadIconPosition',
+    'purposeDownloadIconClasses',
+    'purposeApp',
+    'purposeAppSelector',
+    'purposeAppMessage',
+    'purposeAppClass',
+    'purposeAppIconWrapperClass',
+    'purposeAppIconType',
+    'purposeAppIconPosition',
+    'purposeAppIconClasses',
+    'purposeExternal',
+    'purposeExternalNoReferrer',
+    'purposeExternalNewWindow',
+    'purposeExternalSelector',
+    'purposeExternalMessage',
+    'purposeExternalClass',
+    'purposeExternalIconWrapperClass',
+    'purposeExternalIconType',
+    'purposeExternalIconPosition',
+    'purposeExternalIconClasses',
+    'purposeMail',
+    'purposeMailSelector',
+    'purposeMailMessage',
+    'purposeMailClass',
+    'purposeMailIconWrapperClass',
+    'purposeMailIconType',
+    'purposeMailIconPosition',
+    'purposeMailIconClasses',
+    'purposeTel',
+    'purposeTelSelector',
+    'purposeTelMessage',
+    'purposeTelClass',
+    'purposeTelIconWrapperClass',
+    'purposeTelIconType',
+    'purposeTelIconPosition',
+    'purposeTelIconClasses',
+    'purposeNewWindow',
+    'purposeNewWindowSelector',
+    'purposeNewWindowMessage',
+    'purposeNewWindowClass',
+    'purposeNewWindowIconWrapperClass',
+    'purposeNewWindowIconType',
+    'purposeNewWindowIconPosition',
+    'purposeNewWindowIconClasses',
+  ];
+  foreach ($configItems as $configItem) {
+    if (!empty($config->get($configItem))) {
+      // Run messages through translation.
+      // phpcs:ignore Drupal.Semantics.FunctionT.NotLiteralString
+      $attach = str_contains($configItem, 'Message') ? t($config->get($configItem)) : $config->get($configItem);
+      $attachments['#attached']['drupalSettings']['linkpurpose'][$configItem] = $attach;
+    }
+  }
+  /** @var \Drupal\Core\File\FileUrlGeneratorInterface $fileUrlGenerator */
+  $fileUrlGenerator = \Drupal::service('file_url_generator');
+  $attachments['#attached']['drupalSettings']['linkpurpose']['css_url'] = $fileUrlGenerator
+    ->generateString(Drupal::service('extension.list.module')->getPath('linkpurpose'));
+
+  if (!$config->get('themePreprocess')) {
+    $attachments['#attached']['library'][] = !$config->get('noAggregate') ? 'linkpurpose/init' : 'linkpurpose/init-noagg';
+  }
+  else {
+    $attachments['#attached']['library'][] = !$config->get('noAggregate') ? 'linkpurpose/library' : 'linkpurpose/library-noagg';
+  }
+
+}

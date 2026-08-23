@@ -1,0 +1,50 @@
+{#
+/**
+ * @file
+ * Header search block — search works as a full-screen overlay like D7
+ * larch's #search-overlay (adapted from doug_fir's tophat): the header bar
+ * shows only a magnifier toggle (no inline textbox); clicking it opens the
+ * overlay with the real search form, plus an Exit Search button. Also
+ * carries the Apply / MyCAS utility links larch hardcoded in page.tpl.php.
+ * Overrides madrone's block--header--plugin-id--search-form-block (that
+ * suggestion comes from madrone_theme_suggestions_block_alter and outranks
+ * the plain plugin-id template). Toggle behaviour: js/manzanita.js
+ * (Drupal.behaviors.casSearchOverlay); styles: scss/layout/_cas_header.scss.
+ */
+#}
+{% set classes = [
+  'block',
+  'block-' ~ configuration.provider|clean_class,
+  'block-' ~ plugin_id|clean_class,
+  'col-auto',
+  'd-flex',
+  'justify-content-end',
+  'align-items-center',
+] %}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    <div class="cas-search-frame border-start border-neutral-200 d-flex align-items-center h-100">
+      <button type="button" class="cas-search-toggle"
+              aria-expanded="false" aria-controls="cas-search-overlay">
+        <span class="visually-hidden">{{ 'Open search'|t }}</span>
+        <i class="fa fa-search osu-text-icon" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div id="cas-search-overlay" class="cas-search-overlay" hidden>
+      <div{{ content_attributes.addClass('block__content', 'cas-search-overlay__form') }}>
+        {{ content }}
+      </div>
+      <button type="button" class="cas-search-overlay__exit">{{ 'Exit Search'|t }}</button>
+    </div>
+  {% endblock %}
+  <nav class="cas-header-links d-none d-md-flex align-items-center"
+       aria-label="{{ 'Utility links'|t }}">
+    <a href="https://admissions.oregonstate.edu/apply-choose-application">{{ 'Apply'|t }}</a>
+    <a href="/mycas">{{ 'MyCAS'|t }}</a>
+  </nav>
+</div>

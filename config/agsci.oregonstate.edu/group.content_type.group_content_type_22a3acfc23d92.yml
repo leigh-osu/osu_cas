@@ -1,0 +1,17 @@
+uuid: 02f00fd2-289b-47cf-b196-9061e055f9c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.basic_group
+    - node.type.weather_daily_data
+  module:
+    - gnode
+    - node
+id: group_content_type_22a3acfc23d92
+group_type: basic_group
+content_plugin: 'group_node:weather_daily_data'
+plugin_config:
+  group_cardinality: 1
+  entity_cardinality: -1
+  use_creation_wizard: false

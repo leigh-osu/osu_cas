@@ -1,0 +1,15 @@
+uuid: 2c048b7f-dcda-4c44-8024-d3ebff1214bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.cropandsoil_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_cropandsoil_oregonstate_edu
+label: 'Remove selected content from the Crop &amp; Soil Science Department domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - cropandsoil_oregonstate_edu

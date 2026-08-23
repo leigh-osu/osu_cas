@@ -1,0 +1,126 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Token Url Plus module.
+ */
+
+use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_token_info_alter().
+ */
+function token_url_plus_token_info_alter(&$info) {
+  $info['types']['url-with-query'] = [
+    'name' => t('URL with query string'),
+    'description' => t('Tokens related to URLs with query strings attached.'),
+    'needs-data' => 'full-url',
+  ];
+  $info['tokens']['url-with-query']['full-url'] = [
+    'name' => t('URL with query string'),
+    'description' => t('The URL of the current page with query string included, if it exists.'),
+  ];
+  $info['tokens']['url-with-query']['without-some-parameters'] = [
+    'name' => t('URL with some query parameters'),
+    'description' => t("The URL of the current page with query string included but filtered by removing the provided query parameters. e.g. 'without-some-parameters:utm_campaign,utm_medium,utm_source' would be replaced with the current url, with the three utm parameters filtered out if they existed."),
+  ];
+  $info['tokens']['url-with-query']['with-some-parameters'] = [
+    'name' => t('URL with some query parameters'),
+    'description' => t("The URL of the current page with query string included but filtered to only include the provided query parameters. e.g. 'with-some-parameters:page,category_id' would return a url containing only query parameters, '?page=1&category_id=2' if they existed."),
+  ];
+  $info['tokens']['current-page']['url-with-query'] = [
+    'name' => t('URL with query string'),
+    'description' => t('The URL of the current page with query string included, if it exists.'),
+    'type' => 'url-with-query',
+  ];
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function token_url_plus_tokens($type, array $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
+  $replacements = [];
+  $language_manager = \Drupal::languageManager();
+  $url_options = ['absolute' => TRUE];
+  if (isset($options['langcode'])) {
+    $url_options['language'] = $language_manager->getLanguage($options['langcode']);
+  }
+  if ($type == 'current-page') {
+    $request = \Drupal::request();
+    $bubbleable_metadata->addCacheContexts(['url']);
+    /** @var \Drupal\Core\Url|NULL */
+    $url = NULL;
+    try {
+      $url = Url::createFromRequest($request)
+        ->setOptions($url_options)
+        ->setOption('query', $request->query->all());
+    }
+    catch (\Exception $e) {
+      // Url::createFromRequest() can fail, e.g. on 404 pages.
+      // Fall back and try again with Url::fromUserInput().
+      try {
+        $url = Url::fromUserInput($request->getPathInfo(), $url_options);
+      }
+      catch (\Exception $e) {
+        // Instantiation would fail again on malformed urls.
+      }
+    }
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        case 'url-with-query':
+          if (isset($url)) {
+            $result = $url->toString(TRUE);
+            $bubbleable_metadata->addCacheableDependency($result);
+            $replacements[$original] = $result->getGeneratedUrl();
+          }
+          break;
+      }
+    }
+    // Chained token relationships.
+    if ($with_query_tokens = \Drupal::token()->findWithPrefix($tokens, 'url-with-query')) {
+      $replacements += \Drupal::token()->generate('url-with-query', $with_query_tokens, ['full-url' => $url], $options, $bubbleable_metadata);
+    }
+  }
+
+  // Chained url-with-query:* tokens.
+  if ($type == 'url-with-query' && !empty($data['full-url'])) {
+    $url = $data['full-url'];
+    foreach ($tokens as $name => $original) {
+      if ($without_tokens = \Drupal::token()->findWithPrefix($tokens, 'without-some-parameters')) {
+        $filtered_query_params = key($without_tokens);
+        $cloned_url = clone $url;
+        $query = $cloned_url->getOption('query');
+        if (!empty($query)) {
+          $filtered_query = array_diff_key($query, array_flip(explode(',', $filtered_query_params)));
+          $cloned_url->setOption('query', $filtered_query);
+        }
+        $result = $cloned_url->toString(TRUE);
+        $bubbleable_metadata->addCacheableDependency($result);
+        $replacements[$original] = $result->getGeneratedUrl();
+      }
+      if ($with_tokens = \Drupal::token()->findWithPrefix($tokens, 'with-some-parameters')) {
+        $filtered_query_params = key($with_tokens);
+        $cloned_url = clone $url;
+        $query = $cloned_url->getOption('query');
+        if (!empty($query)) {
+          $filtered_query = array_intersect_key($query, array_flip(explode(',', $filtered_query_params)));
+          $cloned_url->setOption('query', $filtered_query);
+        }
+        $result = $cloned_url->toString(TRUE);
+        $bubbleable_metadata->addCacheableDependency($result);
+        $replacements[$original] = $result->getGeneratedUrl();
+      }
+      switch ($name) {
+        case 'full-url':
+          if (isset($url)) {
+            $result = $url->toString(TRUE);
+            $bubbleable_metadata->addCacheableDependency($result);
+            $replacements[$original] = $result->getGeneratedUrl();
+          }
+          break;
+      }
+    }
+  }
+  return $replacements;
+}

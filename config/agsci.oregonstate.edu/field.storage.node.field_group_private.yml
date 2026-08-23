@@ -1,0 +1,18 @@
+uuid: dfe5e1d4-21ee-4448-804a-e6d7309c7c0e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_group_private
+field_name: field_group_private
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

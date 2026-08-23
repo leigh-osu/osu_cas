@@ -1,0 +1,61 @@
+search.plugin.google_cse_search:
+  type: mapping
+  label: 'Google Programmable Search Engine Plugin Configuration'
+  mapping:
+    cx:
+      type: string
+      label: 'Search Engine ID (cx)'
+      description: 'The unique identifier for the Google Programmable Search Engine.'
+    display_drupal_search:
+      type: boolean
+      label: 'Display Drupal-provided search input'
+      description: 'Whether to display the Drupal-provided search input or use Google’s search input.'
+    watermark:
+      type: boolean
+      label: 'Display Google watermark'
+      description: 'Whether to show the Google watermark.'
+    results_display:
+      type: string
+      label: 'Search Results Display'
+      description: 'Where the search results should be displayed: on-site or on Google.'
+    results_accessibility:
+      type: boolean
+      label: 'Accessibility improvements'
+      description: 'Add accessibility improvements to search results'
+    custom_results_display:
+      type: string
+      label: 'Custom Results Display'
+      description: 'The layout to use for displaying the search results.'
+    results_prefix:
+      type: text
+      label: 'Search results prefix text'
+      description: 'Text to appear before the search results. Basic HTML is allowed.'
+    results_suffix:
+      type: text
+      label: 'Search results suffix text'
+      description: 'Text to appear after the search results. Basic HTML is allowed.'
+    results_searchbox_width:
+      type: integer
+      label: 'Search input width'
+      description: 'Width of the search input in characters.'
+    query_key:
+      type: string
+      label: 'Query Key'
+      description: 'The query parameter key for search inputs.'
+    custom_css:
+      type: string
+      label: 'Custom Stylesheet'
+      description: 'A custom stylesheet to override or add styles.'
+    data_attributes:
+      type: sequence
+      label: 'Data Attributes'
+      description: 'Custom data attributes for the search form.'
+      sequence:
+        - type: mapping
+          mapping:
+            key:
+              type: string
+              label: 'Attribute Name'
+            value:
+              type: string
+              label: 'Attribute Value'

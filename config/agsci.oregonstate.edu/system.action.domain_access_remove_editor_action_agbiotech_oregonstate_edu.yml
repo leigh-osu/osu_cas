@@ -1,0 +1,15 @@
+uuid: f43f7a0f-c1be-4690-ae93-23fed72fc4de
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.agbiotech_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_agbiotech_oregonstate_edu
+label: 'Remove editors from the Biotechnology in Agriculture domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - agbiotech_oregonstate_edu

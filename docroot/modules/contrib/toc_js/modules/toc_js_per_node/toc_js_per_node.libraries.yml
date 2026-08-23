@@ -1,0 +1,6 @@
+summary:
+  js:
+    js/toc-js-per-node-summary.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

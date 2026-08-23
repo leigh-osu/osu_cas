@@ -1,0 +1,20 @@
+uuid: 2951a322-de5c-458a-bfea-cc031ceedd8b
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_dfs_number_of_students
+field_name: field_dfs_number_of_students
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

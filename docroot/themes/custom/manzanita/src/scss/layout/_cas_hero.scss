@@ -1,0 +1,121 @@
+@import '../abstracts/cas_variables';
+
+// Hero placement: an editor adds the class `cas-hero` to the FIRST Layout
+// Builder section of a page ("Container classes" under the section's
+// Settings tab), normally combined with the "Edge to Edge" container type
+// and a background image or video. js/manzanita.js measures the header +
+// primary-menu stack and sets --cas-hero-pull on the section, which slides
+// the section's background up beneath the bars; the rules below turn the
+// solid black bars into a semi-transparent ramp so the hero shows through.
+// Ordinary pages (no .cas-hero anywhere) are untouched.
+
+// Slide the background up under the header. For video backgrounds the
+// visible carrier is the outer .background-local-video wrapper (the editor's
+// class lands on the inner container wrapper), so pull that one up instead.
+// The matching padding-top puts the section's content back where it started,
+// so only the background extends under the ramp. --cas-hero-pull is set by
+// JS on the pulled element, and inherits down to the content wrapper.
+main[role='main'] {
+  .cas-hero:not(.video-content *),
+  .background-local-video:has(.cas-hero) {
+    margin-top: calc(-1 * var(--cas-hero-pull, 0px));
+  }
+
+  .cas-hero {
+    padding-top: var(--cas-hero-pull, 0px);
+  }
+}
+
+body.has-cas-hero {
+  // The bars paint above the pulled-up hero background. Header and menu sit
+  // a layer above the breadcrumb bar: it comes later in the DOM, so with
+  // equal z-index it would paint over dropdown sub-menus descending from
+  // the menu (which read as "transparent" panels cut off by the bar).
+  header[role='banner'],
+  #madrone-primary-menu-container {
+    position: relative;
+    z-index: 11;
+  }
+
+  #madrone-breadcrumb-container {
+    position: relative;
+    z-index: 10;
+  }
+
+  // Header bar: the solid black (and the region wrapper's osu-bg utility)
+  // becomes the top of the ramp. The orange brand rule on the very top edge
+  // and the grey divider into the menu are kept, matching regular pages.
+  header[role='banner'] {
+    background-color: transparent !important;
+  }
+
+  // Header + menu span one even ramp, 0.85 -> 0.10 (the breadcrumb bar is
+  // hidden on hero pages), each bar taking an equal ~0.37 drop.
+  #madrone-header-container {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.48)) !important;
+  }
+
+  #madrone-header-container .header-search-block-form {
+    background-color: transparent !important;
+  }
+
+  // The search input paints its own full-height black box (invisible against
+  // the solid header on ordinary pages); let the ramp show through it here.
+  .header-search-block-form input[type='search'].form-control {
+    &,
+    &:focus {
+      background-color: transparent !important;
+    }
+  }
+
+  // Menu bar: the ramp continues down to fully transparent. The bar is three
+  // paint layers deep — madrone's region template wraps the container in a
+  // .container-fluid.bg-neutral-200 div, and cas_menus paints the container
+  // AND the menu block divs solid — so every layer except the gradient must
+  // go transparent. Top-level items follow; dropdown sub-menus keep their
+  // solid background so they stay legible over the image.
+  .container-fluid:has(> #madrone-primary-menu-container) {
+    background-color: transparent !important;
+  }
+
+  #madrone-primary-menu-container {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.1)) !important;
+
+    .block-superfish,
+    .block-group-content-menu,
+    ul,
+    li {
+      background-color: transparent !important;
+    }
+
+    // Dropdown sub-menus keep their solid off-white panels over the hero
+    // image (see _cas_menus) — only the top-level bar is part of the
+    // transparency ramp. Superfish nests the panel as li > ul, the group
+    // menu as ul ul; cover both. The li rows stay transparent so the
+    // panel's background and hover fills show through as usual.
+    li ul,
+    ul ul {
+      background-color: $neutral-100 !important;
+    }
+  }
+
+  // No breadcrumb bar over a hero — the ramp above ends at the image.
+  #madrone-breadcrumb-container {
+    display: none !important;
+  }
+
+  // The page-title block would end up beneath the hero; hero pages carry
+  // their own heading inside the section (a title block placed inside the
+  // hero itself is left alone).
+  main .block-page-title-block:not(.cas-hero *) {
+    display: none;
+  }
+
+  // Status messages and local tasks (editors/admins) still need to be
+  // reachable above the hero background.
+  main .messages,
+  main .block-local-tasks-block {
+    position: relative;
+    z-index: 10;
+  }
+}

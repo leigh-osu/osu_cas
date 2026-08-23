@@ -1,0 +1,15 @@
+uuid: 375b2cdf-c725-42d5-8d4b-3ac967aea8d5
+langcode: en
+status: true
+dependencies: {  }
+name: 400x290
+label: '400x288 (larch box)'
+effects:
+  b9c9ac8e-fad0-4aec-a6e2-a6ed8d5bb62f:
+    uuid: b9c9ac8e-fad0-4aec-a6e2-a6ed8d5bb62f
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 400
+      height: 288
+      anchor: center-center

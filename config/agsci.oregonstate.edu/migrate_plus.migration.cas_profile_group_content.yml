@@ -1,0 +1,54 @@
+uuid: 05dfdfd6-27d2-4df4-bdab-d2a97afb51a4
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: LUEsw3IgcZ6nYzVksYTsLGpgQHWq_CFTSCzmcsQWlkE
+id: cas_profile_group_content
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7 OG'
+  - 'OSU Groups Content'
+  - 'OSU Groups'
+  - OSU
+  - CAS
+migration_group: osu_groups
+label: 'Migrate D7 user OG memberships into profile-node Group content'
+source:
+  plugin: d7_og_membership_user
+process:
+  label: etid
+  type:
+    plugin: cas_group_relationship_type_id
+    group_type: basic_group
+    relation_plugin: 'group_node:osu_profile'
+  gid:
+    -
+      plugin: migration_lookup
+      migration: cas_node_og_group
+      no_stub: true
+      source: gid
+    -
+      plugin: skip_on_empty
+      method: row
+      message: 'gid is missing'
+  entity_id:
+    -
+      plugin: migration_lookup
+      migration: upgrade_d7_user_to_profile
+      no_stub: true
+      source: etid
+    -
+      plugin: skip_on_empty
+      method: row
+      message: 'profile node missing.'
+destination:
+  plugin: 'entity:group_content'
+migration_dependencies:
+  required:
+    - cas_node_og_group
+    - upgrade_d7_user_to_profile
+  optional: {  }

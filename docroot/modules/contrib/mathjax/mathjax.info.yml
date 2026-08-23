@@ -1,0 +1,14 @@
+name: MathJax
+type: module
+description: Javascript-based LaTeX rendering solution for your Drupal website.
+core_version_requirement: ^9.1 || ^10 || ^11
+configure: mathjax.settings
+libraries:
+  - mathjax/setup
+  - mathjax/source
+  - mathjax/config
+
+# Information added by Drupal.org packaging script on 2024-08-21
+version: '4.1.0'
+project: 'mathjax'
+datestamp: 1724272617

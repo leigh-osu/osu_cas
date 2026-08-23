@@ -1,0 +1,10 @@
+uuid: f0b0dd11-1f78-44ee-96e2-66f2bf8829ce
+langcode: en
+status: 1
+dependencies: {  }
+_core:
+  default_config_hash: QDBWimJ-UUz0vGjRDtPPIU3FxewZb5x-ReptIL75fGA
+id: extra_wide_desktop
+label: 'Extra Wide Desktop'
+base_class: col-xxl
+weight: '-15'

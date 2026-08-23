@@ -1,0 +1,15 @@
+uuid: 6785dc8b-60a7-4bab-a5d0-96ebd3cb20da
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.tradeoffs_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_tradeoffs_oregonstate_edu
+label: 'Add editors to the Tradeoff Analysis Project domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - tradeoffs_oregonstate_edu

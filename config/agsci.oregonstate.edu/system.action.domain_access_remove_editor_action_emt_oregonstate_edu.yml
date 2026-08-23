@@ -1,0 +1,15 @@
+uuid: 708cac3a-cb8d-4a0f-a210-f1aa001cd236
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.emt_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_emt_oregonstate_edu
+label: 'Remove editors from the Environmental &amp; Molecular Toxicology domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - emt_oregonstate_edu

@@ -1,0 +1,58 @@
+uuid: 37145d82-4ad7-4f67-8c2e-f42f339810ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.funding_opportunities.body
+    - field.field.node.funding_opportunities.field_domain_access
+    - field.field.node.funding_opportunities.field_domain_all_affiliates
+    - field.field.node.funding_opportunities.field_domain_source
+    - field.field.node.funding_opportunities.field_fundop_award_ceiling
+    - field.field.node.funding_opportunities.field_fundop_due_date_full
+    - field.field.node.funding_opportunities.field_fundop_due_date_loi
+    - field.field.node.funding_opportunities.field_fundop_link
+    - field.field.node.funding_opportunities.field_fundop_number
+    - field.field.node.funding_opportunities.field_fundop_open_ended
+    - field.field.node.funding_opportunities.field_fundop_posted_date
+    - field.field.node.funding_opportunities.field_fundop_sponsor
+    - field.field.node.funding_opportunities.field_group_private
+    - field.field.node.funding_opportunities.field_tax_cas_section
+    - node.type.funding_opportunities
+  module:
+    - text
+    - user
+id: node.funding_opportunities.teaser
+targetEntityType: node
+bundle: funding_opportunities
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entitygroupfield: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_fundop_award_ceiling: true
+  field_fundop_due_date_full: true
+  field_fundop_due_date_loi: true
+  field_fundop_link: true
+  field_fundop_number: true
+  field_fundop_open_ended: true
+  field_fundop_posted_date: true
+  field_fundop_sponsor: true
+  field_group_private: true
+  field_tax_cas_section: true
+  langcode: true

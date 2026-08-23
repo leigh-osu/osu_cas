@@ -1,0 +1,12 @@
+name: Barcodes experimental fields
+type: module
+description: Test new field types
+package: Testing
+
+dependencies:
+  - barcodes:barcodes
+
+# Information added by Drupal.org packaging script on 2024-12-23
+version: '2.1.1'
+project: 'barcodes'
+datestamp: 1734943834

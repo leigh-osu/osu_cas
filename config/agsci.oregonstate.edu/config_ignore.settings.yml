@@ -1,0 +1,10 @@
+_core:
+  default_config_hash: IgOVnECx6lbVt6JVFnadoEEugneDf3UblPZnOzov43Q
+mode: intermediate
+ignored_config_entities:
+  import:
+    - 'block.block.*'
+    - 'block_visibility_groups.block_visibility_group.*'
+    - system.site
+    - 'webform.webform.*'
+  export: {  }

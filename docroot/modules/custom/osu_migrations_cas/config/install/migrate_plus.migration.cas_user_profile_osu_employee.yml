@@ -1,0 +1,98 @@
+langcode: en
+status: true
+id: cas_user_profile_osu_employee
+label: 'CAS OSU Employee profile - additional fields'
+migration_group: content
+dependencies: {  }
+migration_tags:
+  - Drupal 7
+  - OSU
+  - CAS
+  - CAS Content
+source:
+  # Custom source flattens the building/room/location chain into profile_address.
+  plugin: d7_osu_profile2_employee_address
+  profile2_type: osu_employee
+process:
+  nid:
+    - plugin: migration_lookup
+      migration: upgrade_d7_user_to_profile
+      source: uid
+      no_stub: true
+    - plugin: skip_on_empty
+      method: row
+
+  # Phone extras (D7 text -> D10 telephone).
+  field_profile_alt_phone: phone_other
+  field_profile_fax: phone_fax
+
+  # Flattened office address.
+  field_profile_address/country_code: profile_address/country_code
+  field_profile_address/administrative_area: profile_address/administrative_area
+  field_profile_address/locality: profile_address/locality
+  field_profile_address/postal_code: profile_address/postal_code
+  field_profile_address/address_line1: profile_address/address_line1
+  field_profile_address/address_line2: profile_address/address_line2
+
+  # Every affiliated_with department (the stock office-location migration
+  # keeps only one); names match the osu_organization terms.
+  field_osu_organizations:
+    plugin: sub_process
+    source: affiliation_names
+    process:
+      target_id:
+        # entity_generate: departments were a D7 content type that is NOT
+        # recreated in D10 — affiliations live as osu_organization terms,
+        # created on the fly for names the vocabulary lacks.
+        - plugin: entity_generate
+          entity_type: taxonomy_term
+          bundle_key: vid
+          bundle: osu_organization
+          value_key: name
+          ignore_case: true
+          source: name
+        - plugin: skip_on_empty
+          method: row
+
+  # Functional group terms (vocabulary migrated by OSU Taxonomy).
+  field_profile_functional_group:
+    plugin: sub_process
+    source: functional_group
+    process:
+      target_id:
+        - plugin: migration_lookup
+          migration: 'upgrade_d7_taxonomy_terms:functional_groups'
+          source: tid
+          no_stub: true
+        - plugin: skip_on_empty
+          method: row
+
+  # Headquarters. D7 stores the list_text key ('01'..'05') and D10 is a
+  # list_string with the same keys and labels, so the raw value carries over
+  # untouched. It used to be mapped to the label because the D10 field was a
+  # plain string; storing labels meant the value could not be validated,
+  # filtered or relabelled without editing every profile.
+  field_profile_headquarters:
+    - plugin: get
+      source: headquarters/0/value
+    - plugin: skip_on_empty
+      method: process
+
+  type:
+    plugin: default_value
+    default_value: osu_profile
+
+destination:
+  plugin: 'entity:node'
+  default_bundle: osu_profile
+  overwrite_properties:
+    - field_profile_alt_phone
+    - field_profile_fax
+    - field_profile_address
+    - field_osu_organizations
+    - field_profile_functional_group
+    - field_profile_headquarters
+
+migration_dependencies:
+  required:
+    - upgrade_d7_user_to_profile

@@ -1,0 +1,2 @@
+services:
+  Drupal\toc_js_filter\Hook\TocJsFilterHooks: {}

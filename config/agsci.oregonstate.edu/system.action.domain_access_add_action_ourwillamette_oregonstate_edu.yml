@@ -1,0 +1,15 @@
+uuid: 4eb23bf2-b497-43d9-8cee-5841e9a66b69
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.ourwillamette_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_ourwillamette_oregonstate_edu
+label: 'Add selected content to the Our Willamette Waters domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - ourwillamette_oregonstate_edu

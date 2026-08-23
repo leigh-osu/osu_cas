@@ -1,0 +1,16 @@
+uuid: be9e1e8e-ac6c-4613-a5db-4207aa9da4b0
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: marine_ecology
+label: marine_ecology
+logic: and
+conditions:
+  a6b4e98c-3acb-4d1f-a42d-d6188bf938c2:
+    id: request_path
+    uuid: a6b4e98c-3acb-4d1f-a42d-d6188bf938c2
+    pages: /node/44702
+    negate: false
+allow_other_conditions: false

@@ -1,0 +1,461 @@
+<?php
+
+/**
+ * @file
+ * Contains osu_endophyte.module.
+ */
+
+use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+//use Drupal\group\Entity\GroupContentType;
+
+/**
+ * Implements hook_help().
+ */
+function osu_endophyte_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the osu_endophyte module.
+    case 'help.page.osu_endophyte':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Custom Code for the Endophyte Service Lab') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_entity_display_build_alter
+ * @param $build
+ * @param $context
+ */
+function osu_endophyte_entity_display_build_alter(&$build, $context) {
+  $entity = $context['entity'];
+
+  //add sample button to client group items
+  if ($entity->getEntityTypeId() == 'group' &&
+      $entity->bundle() == 'client' &&
+      $context['view_mode'] == 'full') {
+
+    $create_sample_link = '/group/'. $entity->id() .'/content/create/group_node%3Asample?destination=/client-samples-in-transit/'. $entity->id();
+    $build['add_sample_link'] = [
+      '#weight' => 100,
+      '#markup' => "<p class='my-4'><a href='$create_sample_link' class='btn btn-primary'>New sample for ". $entity->get('label')->value ."</a></p>",
+    ];
+    $build['add_sample_link_rye2'] = [
+      '#weight' => 100,
+      '#markup' => "<p class='my-4'><a href='$create_sample_link&test-preset=rye2' class='btn btn-primary'>New \"perennial ryegrass both tests\" sample for ". $entity->get('label')->value ."</a></p>",
+    ];
+    $build['add_sample_link_tfe'] = [
+      '#weight' => 100,
+      '#markup' => "<p class='my-4'><a href='$create_sample_link&test-preset=tfe' class='btn btn-primary'>New \"tall fescue ergovaline\" sample for ". $entity->get('label')->value ."</a></p>",
+    ];
+    //show add member link for admins
+    $user_roles = \Drupal::currentUser()->getRoles();
+    if(in_array('lab_admin', $user_roles) || in_array('site_admin', $user_roles)) {
+      $create_membership_link = '/group/'. $entity->id() .'/content/add/group_membership';
+      $build['add_membership_link'] = [
+        '#weight' => 200,
+        '#markup' => "<p class='my-4'><a href='$create_membership_link' class='btn btn-primary'>Add authorized user for ". $entity->get('label')->value ."</a></p>",
+      ];
+    }
+  }
+
+  // button for sample tracking page
+  if ($entity->bundle() == 'sample'&&
+      $context['view_mode'] == 'full') {
+    if ($entity->field_sample_status->value == 'sample_arrival_pending') {
+      $build['sample_tracker_link'] = [
+        '#weight' => 100,
+        '#markup' => "<a href='/node/". $entity->id() ."/tracker' class='btn btn-primary' target=_blank>Print sample tracking page</a>",
+      ];
+    };
+  }
+}
+
+
+/**
+ * Implements hook_mail().
+ */
+function osu_endophyte_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'esl_mail_key':
+       $message['from'] = \Drupal::config('system.site')->get('mail');
+       $message['subject'] = t('Mail Subject');
+       $message['body'][] = $params['message'];
+       $message['params']['files'] = $params['attachments'];
+       break;
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ * @param EntityInterface $entity
+ */
+function osu_endophyte_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  $current_user = \Drupal::currentUser();
+  $now = DrupalDateTime::createFromTimestamp(time(), 'UTC');
+
+  if ($entity->bundle() == 'sample') {
+    // set initial date
+    if (!$entity->field_sample_date_requested->value) {
+      $entity->set('field_sample_date_requested', $now->format('Y-m-d\TH:i:s'));
+    }
+    // if they enter an accession number, same as checkin in samples
+    if (isset($entity->field_sample_accession->value) && $entity->field_sample_received->value == FALSE) {
+      $entity->set('field_sample_received', TRUE);
+    }
+    // set date for sample received and change status
+    if ($entity->field_sample_received->value == TRUE && !$entity->field_sample_received_date->value) {
+      $entity->set('field_sample_received_date', $now->format('Y-m-d\TH:i:s'));
+      $entity->set('field_sample_received_user', $current_user->id());
+      $entity->set('field_sample_status', 'sample_tests_pending');
+    }
+
+    // check if all requested tests have been completed
+    $test_status = [];
+    if (isset($entity->field_sample_test_ergot->entity->field_test_status->value)) {
+      $test_status[] = $entity->field_sample_test_ergot->entity->field_test_status->value;
+    }
+    if (isset($entity->field_sample_test_ergovaline->entity->field_test_status->value)) {
+      $test_status[] = $entity->field_sample_test_ergovaline->entity->field_test_status->value;
+    }
+    if (isset($entity->field_sample_test_lolitrem_b->entity->field_test_status->value)) {
+      $test_status[] = $entity->field_sample_test_lolitrem_b->entity->field_test_status->value;
+    }
+    if (isset($entity->field_sample_test_pellet->entity->field_test_status->value)) {
+      $test_status[] = $entity->field_sample_test_pellet->entity->field_test_status->value;
+    }
+    if (count(array_unique($test_status)) === 1 && end($test_status) === 'lab_test_completed') {
+      if (!$entity->field_sample_date_completed->value) {
+        $entity->set('field_sample_date_completed', $now->format('Y-m-d\TH:i:s'));
+      }
+      $entity->set('field_sample_status', 'sample_tests_completed');
+    }
+
+    // set date completed for cancelled samples
+    if ($entity->field_sample_status->value == 'sample_tests_cancelled' && !$entity->field_sample_date_completed->value) {
+      $entity->set('field_sample_date_completed', $now->format('Y-m-d\TH:i:s'));
+    }
+  }
+
+  // all paragraph test entities
+  if (in_array ($entity->bundle(), [ 'sample_test_ergot', 'sample_test_ergovaline', 'sample_test_lolitrem_b', 'sample_test_pellet' ])) {
+    // push to next status level, set fields accordingly
+    // series of if statements handles fact that multiple steps might process at once
+    if ($entity->field_test_status->value == 'lab_test_requested') {
+      if (isset($entity->field_test_rush->value) && $entity->field_test_rush->value) {
+        $entity->set('field_test_status', 'lab_test_rush_pending');
+      } else {
+        $entity->set('field_test_status', 'lab_test_pending');
+      }
+    }
+    if ($entity->field_test_status->value == 'lab_test_rush_pending') {
+      // ergovaline rush
+      if (isset($entity->field_test_rush_value_ev->value) && $entity->field_test_rush_value_ev->value != '') {
+        $entity->set('field_test_rush_value_date', $now->format('Y-m-d\TH:i:s'));
+        $entity->set('field_test_rush_value_user', $current_user->id());
+        $entity->set('field_test_status', 'lab_test_rush_ok_pending');
+      }
+      // lolitrem b rush
+      if (isset($entity->field_test_rush_value_lb->value) && $entity->field_test_rush_value_lb->value != '') {
+        $entity->set('field_test_rush_value_date', $now->format('Y-m-d\TH:i:s'));
+        $entity->set('field_test_rush_value_user', $current_user->id());
+        $entity->set('field_test_status', 'lab_test_rush_ok_pending');
+      }
+    }
+    if ($entity->field_test_status->value == 'lab_test_rush_ok_pending') {
+      if (isset($entity->field_test_rush_ok->value) && $entity->field_test_rush_ok->value) {
+        $entity->set('field_test_rush_ok_date', $now->format('Y-m-d\TH:i:s'));
+        $entity->set('field_test_rush_ok_user', $current_user->id());
+        $entity->set('field_test_status', 'lab_test_pending');
+      }
+    }
+    if ($entity->field_test_status->value == 'lab_test_pending') {
+      if (isset($entity->field_test_final_value->value) && ($entity->field_test_final_value->value != '')) {
+        if ($entity->bundle() != 'sample_test_pellet') {
+          $entity->set('field_test_final_date', $now->format('Y-m-d\TH:i:s'));
+          $entity->set('field_test_final_user', $current_user->id());
+          $entity->set('field_test_status', 'lab_test_ok_pending');
+        }
+        else {
+          //pellet tests need to have a file attached, extra values
+          if ($entity->field_test_pdf->target_id != NULL && $entity->field_test_pellet_rep_a->value != NULL && $entity->field_test_pellet_rep_b->value != NULL) {
+            $entity->set('field_test_final_date', $now->format('Y-m-d\TH:i:s'));
+            $entity->set('field_test_final_user', $current_user->id());
+            $entity->set('field_test_status', 'lab_test_ok_pending');
+          }
+        }
+      }
+    }
+    if ($entity->field_test_status->value == 'lab_test_ok_pending') {
+      if (isset($entity->field_test_final_ok->value) && $entity->field_test_final_ok->value != NULL) {
+        $entity->set('field_test_final_ok_date', $now->format('Y-m-d\TH:i:s'));
+        $entity->set('field_test_final_ok_user', $current_user->id());
+        $entity->set('field_test_status', 'lab_test_completed');
+      }
+    }
+  }
+}
+
+/**
+ * @param array $build
+ * @param EntityInterface $entity
+ * @param EntityViewDisplayInterface $display
+ * @param $view_mode
+ */
+function osu_endophyte_paragraph_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+
+  //only show test results to clients when they have been approved
+  $user_roles = \Drupal::currentUser()->getRoles();
+  if(in_array('client', $user_roles)) {
+    if (isset($entity->field_test_rush_ok->value)  && $entity->field_test_rush_ok->value != TRUE) {
+      if ($entity->getType() == 'sample_test_ergovaline') {
+        unset($build['field_test_rush_value_ev']);
+      } else if ($entity->getType() == 'sample_test_lolitrem_b') {
+        unset($build['field_test_rush_value_lb']);
+      }
+    }
+
+    if ($entity->get('field_test_final_ok')->value != TRUE) {
+      unset($build['field_test_final_value_calc']);
+    }
+  }
+}
+
+
+
+/**
+ * Provide post-processing of auto generated titles (labels).
+ *
+ * @param string $label
+ *   The auto-generated label to be altered.
+ * @param object $entity
+ *   The entity that the label is from.
+ *
+ * @see \Drupal\auto_entitylabel\AutoEntityLabelManager::generateLabel()
+ */
+function osu_endophyte_auto_entitylabel_label_alter(&$label, $entity) {
+  //rename sample from simple auto format to pad id; can only happen after initial save to have id
+  if ($entity->bundle() == 'sample' && strpos($label, 'sample') == 0 && !is_null($entity->id())){
+    if ($entity->get('field_sample_legacy_sample_id')->value != NULL){
+      $label = $entity->get('field_sample_legacy_sample_id')->value;
+    }
+    else {
+      $label = '0'. \Drupal::service('date.formatter')->format($entity->get('created')->value, 'custom', 'ymd') . str_pad($entity->id(), 6, '0', STR_PAD_LEFT);
+    }
+  }
+}
+
+
+/**
+ * Implements hook_form_alter().
+ * @param $form
+ * @param FormStateInterface $form_state
+ * @param $form_id
+ */
+function osu_endophyte_form_alter(&$form, FormStateInterface $form_state, $form_id)
+{
+//  dpm($form_id);
+  if ($form_id == 'node_sample_form') {
+    $form['#title'] = t('Add New Sample');
+  }
+
+  if (in_array($form_id, ['node_sample_form', 'node_sample_edit_form'])) {
+    $form['field_sample_variety_other']['#states'] = [
+      'visible' => [
+        'select[name="field_sample_variety"]' => [['value' => 'fescue_other'], ['value' => 'ryegrass_other'], ['value' => 'other']]
+      ]
+    ];
+  }
+}
+
+
+/**
+ * Implements hook_entity_type_alter().
+ * @param array $entity_types
+ */
+function osu_endophyte_entity_type_alter(array &$entity_types) {
+
+  /** @var $entity_types \Drupal\Core\Entity\EntityTypeInterface[] */
+
+  $entity = $entity_types['node'];
+  $entity->addConstraint('SampleStatus');
+  $entity->addConstraint('SampleTest');
+
+}
+
+///**
+// * Implements hook_entity_bundle_field_info_alter().
+// */
+//function osu_endophyte_entity_bundle_field_info_alter(&$fields, \Drupal\Core\Entity\EntityTypeInterface $entity_type, $bundle) {
+//  if ($bundle === 'sample') {
+//    if (isset($fields['field_sample_status'])){
+//      dsm("it's a start");
+//      $fields['field_sample_status']->addConstraint('SampleConstraint', []);
+//      dsm($fields['field_sample_status']);
+//    }
+////    if (isset($fields['unique_number'])) {
+////      // Use the ID as defined in the annotation of the constraint definition
+////      $fields['unique_number']->addConstraint('UniqueInteger', []);
+////    }
+//  }
+//}
+
+/**
+ * Implements hook_theme().
+ * @param $existing
+ * @param $type
+ * @param $theme
+ * @param $path
+ * @return array
+ */
+function osu_endophyte_theme($existing, $type, $theme, $path) {
+  return array(
+    'osu_endophyte_dashboard' => [
+      'template' => 'osu-endophyte-dashboard',
+      'variables' => [
+        'sample_arrival_pending_count' => NULL,
+        'sample_tests_pending_count' => NULL,
+        'sample_tests_completed_count' => NULL,
+        'sample_tests_cancelled_count' => NULL,
+      ]
+    ],
+    'osu_endophyte_sample_tracker' => [
+      'template' => 'osu-endophyte-sample-tracker',
+      'base hook' => 'node',
+    ],
+    'osu_endophyte_test_certificate' => [
+      'template' => 'osu-endophyte-test-certificate',
+      'base hook' => 'node',
+    ],
+  );
+}
+
+/**
+ * Display value for certification test results
+ * @param $entity_type_manager
+ * @param $entity
+ * @param $fields
+ * @param $delta
+ */
+function computed_field_field_test_final_value_calc_compute($entity_type_manager, $entity, $fields, $delta) {
+  if (isset($entity->field_test_final_value->value) && $entity->field_test_final_value->value != "") {
+    $actual = $entity->field_test_final_value->value;
+    // legacy values calc
+    if ($entity->field_test_final_value->value < 0) {
+      $value = "Less than " . abs($actual);
+    }
+    // ergot values have a different low threshold
+    elseif (($entity->getType() == 'sample_test_ergot') && ($entity->field_test_final_value->value < 200)) {
+      $value = "Less than 200";
+    }
+    // low value threshold for other tests
+    elseif (($entity->getType() != 'sample_test_ergot') && ($entity->field_test_final_value->value < 100)) {
+      $value = "Less than 100";
+    }
+    //show the actual value
+    else {
+      $value = $actual;
+    }
+    return $value;
+  }
+}
+
+
+/**
+ * Display value for pellet ergotamine tests
+ * @param $entity_type_manager
+ * @param $entity
+ * @param $fields
+ * @param $delta
+ */
+function computed_field_field_test_egotamine_calculation_compute($entity_type_manager, $entity, $fields, $delta) {
+  $value = "";
+  if (isset($entity->field_test_pellet_rep_a->value) && isset($entity->field_test_pellet_rep_b->value)) {
+    if(($entity->field_test_pellet_rep_a->value < 100) && $entity->field_test_pellet_rep_b->value < 100){
+      $value = "Less than 100";
+    }
+    else {
+      $greater = max([$entity->field_test_pellet_rep_a->value, $entity->field_test_pellet_rep_b->value]);
+      $calc = round(($greater/50), 0) * 50;
+      if ($calc > 1000) {
+        $value = "Greater than 1000";
+      } else {
+        $value = "~$calc";
+      }
+    }
+  }
+  return ($value);
+}
+
+/**
+ * Called when a node is cloned.
+ *
+ * @param \Drupal\node\NodeInterface $node
+ *   The node being cloned.
+ */
+function osu_endophyte_cloned_node_alter(\Drupal\node\NodeInterface &$node) {
+  // clear title for autoNodeTitle
+  $node->setTitle('');
+  //reset status
+  $node->set('field_sample_status', array(0, array('value' => 'sample_arrival_pending')));
+}
+
+/**
+ * Implements hook_node_create
+ * used here for sample presets
+ *
+ * @param \Drupal\node\NodeInterface $node
+ * @return void
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ */
+function osu_endophyte_node_create(\Drupal\node\NodeInterface $node) {
+  if ($node->getType() == 'sample') {
+    $preset = \Drupal::request()->query->get('test-preset');
+
+    // preset for "Perennial ryegrass both tests"
+    if (isset($preset) && $preset == 'rye2') {
+      $ev_paragraph = \Drupal::entityTypeManager()->getStorage('paragraph')->create([
+        'type' => 'sample_test_ergovaline',
+      ]);
+      $lb_paragraph = \Drupal::entityTypeManager()->getStorage('paragraph')->create([
+        'type' => 'sample_test_lolitrem_b',
+      ]);
+      $node->field_sample_test_ergovaline[] = $ev_paragraph;
+      $node->field_sample_test_lolitrem_b[] = $lb_paragraph;
+      $node->field_sample_variety = 'ryegrass_perennial';
+    }
+
+    // preset for "Tall fescue ergovaline"
+    if (isset($preset) && $preset == 'tfe') {
+      $ev_paragraph = \Drupal::entityTypeManager()->getStorage('paragraph')->create([
+        'type' => 'sample_test_ergovaline',
+      ]);
+      $node->field_sample_test_ergovaline[] = $ev_paragraph;
+      $node->field_sample_variety = 'tall_fescue';
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for paragraph.html.twig.
+ */
+function osu_endophyte_preprocess_paragraph(&$variables): void {
+  $paragraph = $variables['paragraph'];
+  // Get the type
+  $test_type = substr($paragraph->bundle(), 12);
+  $certificate = $paragraph->field_test_final_ok->value;
+  $parent_nodeid = $paragraph->parent_id->value;
+  if($certificate) {
+    $certdisplay = array();
+    $certdisplay['#weight'] = -1;
+    $certdisplay['#markup'] = "<div class='test-certification'><a href='/node/$parent_nodeid/certificate/$test_type' class='pdf' target='_blank'>Test Certification</a> <a href='/node/$parent_nodeid/certificate/$test_type' class='pdf'><i class='fa-solid fa-file-pdf fa-xl'></i></a></div>";
+    $variables["content"]['mydisplay']=$certdisplay;
+  }
+}

@@ -1,0 +1,9 @@
+uuid: 06d00260-475f-46f6-aa64-91957982dc9a
+langcode: en
+status: true
+dependencies: {  }
+name: 'Plant Variety Classification'
+vid: plant_variety_classification
+description: 'Classifications for grouping the Plant Variety data'
+weight: 0
+new_revision: false

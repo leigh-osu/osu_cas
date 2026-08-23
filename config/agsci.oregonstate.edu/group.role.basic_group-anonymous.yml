@@ -1,0 +1,35 @@
+uuid: b4563a28-661b-4f40-8c40-361b182c3875
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.basic_group
+    - user.role.anonymous
+id: basic_group-anonymous
+label: Anonymous
+weight: -10
+admin: false
+scope: outsider
+global_role: anonymous
+group_type: basic_group
+permissions:
+  - 'view group_node:150_species entity'
+  - 'view group_node:art_about_agriculture entity'
+  - 'view group_node:course entity'
+  - 'view group_node:degree_fact_sheet entity'
+  - 'view group_node:enterprise_budgets entity'
+  - 'view group_node:feed entity'
+  - 'view group_node:fun_facts entity'
+  - 'view group_node:funding_opportunities entity'
+  - 'view group_node:image_album entity'
+  - 'view group_node:osu_profile entity'
+  - 'view group_node:page entity'
+  - 'view group_node:plant_variety_release entity'
+  - 'view group_node:project entity'
+  - 'view group_node:publications entity'
+  - 'view group_node:story entity'
+  - 'view group_node:video entity'
+  - 'view group_node:weather_daily_data entity'
+  - 'view group_node:weather_monthly_data entity'
+  - 'view group_node:webform entity'
+  - 'view group_node:weed entity'

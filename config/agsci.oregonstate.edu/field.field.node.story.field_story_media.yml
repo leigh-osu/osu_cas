@@ -1,0 +1,35 @@
+uuid: bf95913a-347b-4eb8-a90d-4ddf65d57fd2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_story_media
+    - media.type.audio
+    - media.type.document
+    - media.type.image
+    - media.type.kaltura
+    - node.type.story
+id: node.story.field_story_media
+field_name: field_story_media
+entity_type: node
+bundle: story
+label: 'File Attachment'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      audio: audio
+      document: document
+      image: image
+      kaltura: kaltura
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: document
+field_type: entity_reference

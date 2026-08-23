@@ -1,0 +1,19 @@
+uuid: a6ffdc02-74f8-4ef0-ac29-5f886b1deae0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_name_suffix
+    - node.type.osu_profile
+id: node.osu_profile.field_profile_name_suffix
+field_name: field_profile_name_suffix
+entity_type: node
+bundle: osu_profile
+label: Suffix
+description: 'Like Jr., III'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

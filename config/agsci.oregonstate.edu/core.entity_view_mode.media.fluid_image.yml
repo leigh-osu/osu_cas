@@ -1,0 +1,13 @@
+uuid: f1061795-60f7-4fb5-824d-ca02b98303f7
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: lQYdXVYa3Z_e94s8qVcc3Di1_HlGRWO15F_0hcZfUEo
+id: media.fluid_image
+label: 'Fluid Image'
+description: ''
+targetEntityType: media
+cache: true

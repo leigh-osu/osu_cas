@@ -1,0 +1,7 @@
+// Group dashboard "Create content" block (cas_group_add_content in
+// osu_cas_multisite): sits below the dashboard content, separated by a
+// beaver-orange rule.
+.cas-group-add-content {
+  border-top: 0.25em solid $osuorange;
+  margin-top: 1em;
+}

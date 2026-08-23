@@ -1,0 +1,12 @@
+uuid: fc305df2-b12a-4bcd-a23d-2dbfb2e6fff6
+langcode: en
+status: true
+dependencies: {  }
+id: spottedwing_org
+domain_id: 387928
+hostname: spottedwing.org
+name: 'Spotted Wing Drosophila'
+scheme: https
+weight: 21
+is_default: false
+path_prefix: ''

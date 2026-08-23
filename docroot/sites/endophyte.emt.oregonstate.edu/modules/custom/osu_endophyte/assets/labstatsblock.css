@@ -1,0 +1,6 @@
+/* Used for Lab Statistics block */
+
+.labstats td {
+  background-color: #0a65aa;
+  color: red;
+}

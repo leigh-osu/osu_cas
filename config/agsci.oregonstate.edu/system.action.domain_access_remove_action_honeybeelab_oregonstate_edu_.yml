@@ -1,0 +1,15 @@
+uuid: 7953dd20-3797-4cd2-ae37-6cc5c1863d11
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.honeybeelab_oregonstate_edu_
+  module:
+    - domain_access
+id: domain_access_remove_action_honeybeelab_oregonstate_edu_
+label: 'Remove selected content from the Honey Bee Lab domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - honeybeelab_oregonstate_edu_

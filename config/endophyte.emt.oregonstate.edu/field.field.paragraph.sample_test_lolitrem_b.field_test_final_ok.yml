@@ -1,0 +1,23 @@
+uuid: 6144aaf8-35d0-4bc5-8a7e-0a15b9e1b5bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_final_ok
+    - paragraphs.paragraphs_type.sample_test_lolitrem_b
+id: paragraph.sample_test_lolitrem_b.field_test_final_ok
+field_name: field_test_final_ok
+entity_type: paragraph
+bundle: sample_test_lolitrem_b
+label: 'Certification value approved'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

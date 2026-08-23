@@ -1,0 +1,15 @@
+finished:
+  7:
+    views: views
+    views_slideshow: views_slideshow
+    draggableviews: draggableviews
+    views_bulk_operations: views_bulk_operations
+    views_data_export: views_data_export
+    better_exposed_filters: better_exposed_filters
+    metatag_views: metatag
+    views_infinite_scroll: views_infinite_scroll
+
+# These are not finished yet; see the issues listed below for full details.
+not_finished:
+  6:
+    views: views

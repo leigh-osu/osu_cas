@@ -1,0 +1,12 @@
+uuid: 52f8855d-584c-4c02-a4bd-3a35ca0757ad
+langcode: en
+status: true
+dependencies: {  }
+id: seafood_oregonstate_edu
+domain_id: 8257268
+hostname: seafood.oregonstate.edu
+name: 'Seafood Network Information Center'
+scheme: https
+weight: 23
+is_default: false
+path_prefix: ''

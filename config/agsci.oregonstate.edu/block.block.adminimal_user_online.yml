@@ -1,0 +1,25 @@
+uuid: 8d249d4a-e4d7-4cff-b146-9884c5264a41
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.who_s_online
+  module:
+    - views
+  theme:
+    - claro
+id: adminimal_user_online
+theme: claro
+region: content
+weight: 3
+provider: null
+plugin: 'views_block:who_s_online-who_s_online_block'
+settings:
+  id: 'views_block:who_s_online-who_s_online_block'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: '10'
+  exposed: {  }
+visibility: {  }

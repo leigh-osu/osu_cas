@@ -1,0 +1,22 @@
+uuid: cd8be8b5-0393-4203-a8fa-a1bf97d2332f
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.basic_group
+    - user.role.authenticated
+id: basic_group-member
+label: Member
+weight: -8
+admin: false
+scope: insider
+global_role: authenticated
+group_type: basic_group
+permissions:
+  - 'update own group_node:osu_profile entity'
+  - 'view group'
+  - 'view group_node:feed content'
+  - 'view group_node:feed entity'
+  - 'view group_node:osu_profile entity'
+  - 'view group_node:page content'
+  - 'view group_node:page entity'

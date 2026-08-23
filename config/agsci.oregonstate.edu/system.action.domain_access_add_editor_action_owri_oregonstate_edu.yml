@@ -1,0 +1,15 @@
+uuid: b2c45c5e-a977-4503-85a5-77ef832154cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.owri_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_owri_oregonstate_edu
+label: 'Add editors to the Oregon Wine Research Institute domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - owri_oregonstate_edu

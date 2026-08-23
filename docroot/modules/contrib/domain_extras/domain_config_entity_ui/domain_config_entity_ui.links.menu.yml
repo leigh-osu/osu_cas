@@ -1,0 +1,6 @@
+domain_config_entity_ui.settings_form:
+  title: 'Domain config entity types'
+  route_name: domain_config_entity_ui.settings_form
+  parent: domain.admin
+  description: 'Pick which config entity types expose the per-domain configuration toggle.'
+  weight: 5

@@ -1,0 +1,14 @@
+uuid: 2ce07961-ea6a-4afd-81a3-de0e5316beeb
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.spottedwing_org
+  module:
+    - domain_source
+id: domain_source_set_action.spottedwing_org
+label: 'Set content domain source value to the Spotted Wing Drosophila domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: spottedwing_org

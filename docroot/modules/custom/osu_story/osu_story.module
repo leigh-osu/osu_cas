@@ -1,0 +1,188 @@
+<?php
+
+/**
+ * @file
+ * OSU Story Module.
+ */
+
+use Drupal\node\NodeInterface;
+use Drupal\redirect\Entity\Redirect;
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ *
+ * After a new node is saved, we need to regenerate the XML Sitemap.
+ */
+function osu_story_node_insert(NodeInterface $node) {
+  if (_osu_story_auto_forward_enabled()
+    && $node->bundle() == 'story'
+    && $node->hasField('field_meta_tags')
+    && !$node->get('field_osu_story_external_url')->isEmpty()) {
+    $url_item = $node->get('field_osu_story_external_url')->first();
+    $external_url = $url_item ? $url_item->getUrl()->toString() : '';
+    _osu_story_update_story_redirects_set_xmlsitemap($node, $external_url);
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ *
+ * The external-URL treatment is save-time entity creation, so clearing
+ * field_osu_story_external_url used to leave the redirect, metatag
+ * overrides and sitemap exclusion behind -- the node stayed unreachable.
+ * When the field goes from set to empty, undo all three. Runs in presave
+ * so the metatag and sitemap changes ride the same save.
+ */
+function osu_story_node_presave(NodeInterface $node) {
+  if ($node->bundle() != 'story'
+    || $node->isNew()
+    || !$node->get('field_osu_story_external_url')->isEmpty()
+    || !isset($node->original)
+    || $node->original->get('field_osu_story_external_url')->isEmpty()) {
+    return;
+  }
+  // Delete the redirect(s) that made the node bounce to its target.
+  /** @var Drupal\redirect\RedirectRepository $redirect_repository */
+  $redirect_repository = \Drupal::service('redirect.repository');
+  foreach ($redirect_repository->findBySourcePath($node->toUrl()->getInternalPath()) as $redirect) {
+    $redirect->delete();
+  }
+  // Restore the external-URL metatag overrides; anything an editor set
+  // manually stays.
+  if ($node->hasField('field_meta_tags') && !empty($node->get('field_meta_tags')->value)) {
+    $meta_tags = unserialize($node->get('field_meta_tags')->value);
+    unset($meta_tags['canonical_url'], $meta_tags['robots'], $meta_tags['og_url']);
+    $node->set('field_meta_tags', $meta_tags ? serialize($meta_tags) : NULL);
+  }
+  // Let the sitemap advertise the node again (bundle default applies).
+  $xmlsitemap_settings = $node->xmlsitemap ?? [];
+  $xmlsitemap_settings['status'] = TRUE;
+  $xmlsitemap_settings['status_override'] = 0;
+  $node->xmlsitemap = $xmlsitemap_settings;
+  \Drupal::messenger()->addStatus(t('This story is no longer external: its redirect was removed, meta tags restored, and it is back in the XML Sitemap.'));
+}
+
+/**
+ * Whether the external-story auto-forward feature is enabled.
+ *
+ * Configurable at /admin/config/content/osu-story; defaults to enabled
+ * when the settings object has never been saved.
+ */
+function _osu_story_auto_forward_enabled(): bool {
+  return \Drupal::config('osu_story.settings')->get('auto_forward_external') ?? TRUE;
+}
+
+/**
+ * Applies the external treatment to stories that are missing it.
+ *
+ * Stories created or edited while auto forwarding was disabled have no
+ * redirect entity; called when the feature is (re-)enabled so they start
+ * forwarding too. Idempotent — stories that already have a redirect are
+ * untouched. Returns the number of stories repaired.
+ */
+function _osu_story_auto_forward_catch_up(): int {
+  $redirect_repository = \Drupal::service('redirect.repository');
+  $nids = \Drupal::database()->query(
+    "SELECT u.entity_id FROM {node__field_osu_story_external_url} u WHERE u.bundle = 'story'"
+  )->fetchCol();
+  $repaired = 0;
+  foreach ($nids as $nid) {
+    if (!empty($redirect_repository->findBySourcePath("node/$nid"))) {
+      continue;
+    }
+    $node = \Drupal\node\Entity\Node::load($nid);
+    if ($node) {
+      $node->save();
+      $repaired++;
+    }
+  }
+  return $repaired;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ *
+ * On update, we need to regenerate the XML Sitemap.
+ */
+function osu_story_node_update(NodeInterface $node) {
+  if (_osu_story_auto_forward_enabled()
+    && $node->bundle() == 'story'
+    && !$node->get('field_osu_story_external_url')->isEmpty()) {
+    $url_item = $node->get('field_osu_story_external_url')->first();
+    $external_url = $url_item ? $url_item->getUrl()->toString() : '';
+    _osu_story_update_story_redirects_set_xmlsitemap($node, $external_url);
+  }
+}
+
+/**
+ * Updates the metatags, XML Sitemap settings, and redirects for external URLs.
+ *
+ * This method is used to mark a story node as external by:
+ * - Updating its meta tags with canonical URL, robots, and Open Graph URL
+ * values.
+ * - Excluding the story node from the XML Sitemap to prevent indexing.
+ * - Creating a redirect to an external URL, if one does not already exist.
+ *
+ * @param \Drupal\node\NodeInterface $node
+ *   The story node entity to update.
+ * @param string $external_url
+ *   The external URL to set in meta tags and redirects.
+ *
+ * @return void
+ */
+function _osu_story_update_story_redirects_set_xmlsitemap(NodeInterface $node, string $external_url): void {
+  // Meta tag updates.
+  if ($node->hasField('field_meta_tags')) {
+    $meta_tag_field = $node->get('field_meta_tags')->value;
+    // if the field is not empty, we will update only our fields.
+    if (!empty($meta_tag_field)) {
+      // Decode the JSON string.
+      $meta_tags = unserialize($meta_tag_field);
+    }
+    // Nothing was manually set in metatag this will allow us to overwrite it.
+    else {
+      $meta_tags = [];
+    }
+    // Set Meatag data.
+    $meta_tags['canonical_url'] = $external_url;
+    $meta_tags['robots'] = 'noindex, nofollow';
+    $meta_tags['og_url'] = $external_url;
+    $node->set('field_meta_tags', serialize($meta_tags));
+  }
+  // XML Sitemap, exclude this page.
+  $xmlsitemap_settings = $node->xmlsitemap;
+  $xmlsitemap_settings['status'] = FALSE;
+  $xmlsitemap_settings['status_override'] = 1;
+  $node->xmlsitemap = $xmlsitemap_settings;
+  // Create a redirect if one does not already exist for this nid and
+  // external url.
+  /** @var Drupal\redirect\RedirectRepository $redirect_repository */
+  $redirect_repository = \Drupal::service('redirect.repository');
+  $source_path = $node->toUrl()->getInternalPath();
+  $source_redirects = $redirect_repository->findBySourcePath($source_path);
+  // A story node has at most one external redirect. Treat it as present if
+  // any redirect already exists for this source path, regardless of langcode.
+  // Redirects are saved with varying langcodes ('und' vs 'en') depending on
+  // migration/runtime context, so matching the check against a fixed language
+  // hash misses existing redirects and re-saving the node (e.g. during group
+  // placement) collides on the redirect.hash unique key.
+  $redirect_found = !empty($source_redirects);
+  // We should only have one Redirect created for a given nid and
+  // external url.
+  if (!$redirect_found) {
+    $redirect_config = \Drupal::config('redirect.settings');
+    $redirect = Redirect::create();
+    $redirect->setSource($node->toUrl()->getInternalPath());
+    $redirect->setStatusCode($redirect_config->get('default_status_code'));
+    $redirect->setRedirect($external_url);
+    $redirect->save();
+    // Set a status message.
+    \Drupal::messenger()
+      ->addStatus(t('<p>This story has been marked as external.<br />Meta-tags have been updated, the story is excluded from the XML Sitemap, and a redirect to the external URL has been created to protect SEO.</p>'));
+  }
+  else {
+    // Set a status message.
+    \Drupal::messenger()
+      ->addStatus(t('<p>This story has been marked as external.<br />Meta-tags have been updated, the story is excluded from the XML Sitemap.</p>'));
+  }
+}

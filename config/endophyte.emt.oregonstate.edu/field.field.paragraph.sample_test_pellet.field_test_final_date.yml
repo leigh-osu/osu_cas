@@ -1,0 +1,21 @@
+uuid: 184d30df-e614-4cd3-a5ed-90f028a78215
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_final_date
+    - paragraphs.paragraphs_type.sample_test_pellet
+  module:
+    - datetime
+id: paragraph.sample_test_pellet.field_test_final_date
+field_name: field_test_final_date
+entity_type: paragraph
+bundle: sample_test_pellet
+label: 'Certification date'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

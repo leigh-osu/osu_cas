@@ -1,0 +1,29 @@
+uuid: 38092478-e958-49c6-b259-788a8a534212
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tax_turf_topics
+    - node.type.page
+    - taxonomy.vocabulary.turf
+id: node.page.field_tax_turf_topics
+field_name: field_tax_turf_topics
+entity_type: node
+bundle: page
+label: 'Turf Topics'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      turf: turf
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: sorting_topics
+field_type: entity_reference

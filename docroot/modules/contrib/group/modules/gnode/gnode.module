@@ -1,0 +1,120 @@
+<?php
+
+/**
+ * @file
+ * Enables Group functionality for the Node module.
+ */
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Url;
+use Drupal\group\Entity\GroupInterface;
+use Drupal\node\NodeInterface;
+use Drupal\node\NodeTypeInterface;
+use Symfony\Component\Routing\RouterInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function gnode_node_type_insert(NodeTypeInterface $node_type) {
+  \Drupal::service('group_relation_type.manager')->clearCachedDefinitions();
+}
+
+/**
+ * Implements hook_entity_operation().
+ */
+function gnode_entity_operation(EntityInterface $entity) {
+  $operations = [];
+
+  if ($entity->getEntityTypeId() == 'group' && \Drupal::moduleHandler()->moduleExists('views')) {
+    assert($entity instanceof GroupInterface);
+    if ($entity->hasPermission('access group_node overview', \Drupal::currentUser())) {
+      $router = \Drupal::service('router.no_access_checks');
+      assert($router instanceof RouterInterface);
+      if ($router->getRouteCollection()->get('view.group_nodes.page_1') !== NULL) {
+        $operations['nodes'] = [
+          'title' => t('Nodes'),
+          'weight' => 20,
+          'url' => Url::fromRoute('view.group_nodes.page_1', ['group' => $entity->id()]),
+        ];
+      }
+    }
+  }
+
+  return $operations;
+}
+
+/**
+ * Implements hook_form_alter()
+ */
+function gnode_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id === 'node_preview_form_select') {
+    $route_match = \Drupal::routeMatch();
+    $node = $route_match->getParameter('node_preview');
+
+    if ($node instanceof NodeInterface && $node->isNew()) {
+      $store = \Drupal::service('tempstore.private')->get('node_preview');
+
+      /** @var \Drupal\Core\Form\FormStateInterface $form_state */
+      if ($form_state = $store->get($node->uuid())) {
+        /** @var \Drupal\group\Entity\GroupInterface $group */
+        $group = $form_state->get('group');
+
+        if ($group instanceof GroupInterface) {
+          // Redirect user to group content create form.
+          $form['backlink']['#url'] = Url::fromRoute('entity.group_content.create_form', [
+            'group' => $group->id(),
+            'plugin_id' => $form_state->get('group_relation'),
+          ], [
+            'absolute' => TRUE,
+            'query' => [
+                'uuid' => $node->uuid(),
+              ],
+          ]);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_create_access().
+ *
+ * If node create access is being checked from the content preview, use the group
+ * ID and plugin ID to determine if the account has permission to
+ * create content in the group.
+ *
+ */
+function gnode_node_create_access(AccountInterface $account, array $context, $entity_bundle) {
+  $route_match = \Drupal::routeMatch();
+  $route_name = $route_match->getRouteName();
+
+  if ($route_name === 'entity.node.preview') {
+    /** @var \Drupal\node\NodeInterface $node */
+    $node = $route_match->getParameter('node_preview');
+
+    // Custom access for group content creation.
+    if ($node->isNew()) {
+      $store = \Drupal::service('tempstore.private')->get('node_preview');
+
+      /** @var \Drupal\Core\Form\FormStateInterface $form_state */
+      if ($form_state = $store->get($node->uuid())) {
+        /** @var \Drupal\group\Entity\GroupInterface $group */
+        $group = $form_state->get('group');
+        $plugin_id = $form_state->get('group_relation');
+
+        if (
+          $group instanceof GroupInterface &&
+          $group->hasPermission("create $plugin_id entity", $account)
+        ) {
+          return AccessResult::allowed();
+        }
+      }
+    }
+  }
+
+  // No opinion.
+  return AccessResult::neutral();
+}

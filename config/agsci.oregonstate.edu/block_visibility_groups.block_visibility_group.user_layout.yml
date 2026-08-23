@@ -1,0 +1,16 @@
+uuid: 8f8ee240-e96d-4153-9ba0-0fbc24429903
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: user_layout
+label: user-layout
+logic: and
+conditions:
+  c52daf0e-bfea-42fa-80c2-9410cafd3acf:
+    id: request_path
+    uuid: c52daf0e-bfea-42fa-80c2-9410cafd3acf
+    pages: '/user/*'
+    negate: false
+allow_other_conditions: false

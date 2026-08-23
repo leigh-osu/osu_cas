@@ -1,0 +1,23 @@
+uuid: f4709682-56d8-48f0-b068-a667e58b968e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dw_snow_depth
+    - node.type.weather_daily_data
+id: node.weather_daily_data.field_dw_snow_depth
+field_name: field_dw_snow_depth
+entity_type: node
+bundle: weather_daily_data
+label: 'Snow depth (in)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

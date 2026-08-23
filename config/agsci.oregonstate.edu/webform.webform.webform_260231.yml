@@ -1,0 +1,229 @@
+uuid: def11b5b-9324-4e45-b6c4-4c2ca8cf12a8
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_260231
+title: 'ER Jackman Fellows Recognition Luncheon Registration'
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p style="text-align: center;">
+      	[[{"fid":"501806","view_mode":"default","fields":{"format":"default","alignment":"center","field_file_image_alt_text[und][0][value]":"E.R. Jackman Friends &amp; Alumni Fellows Luncheon","field_file_image_title_text[und][0][value]":"E.R. Jackman Friends &amp; Alumni Fellows Luncheon","external_url":""},"type":"media","field_deltas":{"1":{"format":"default","alignment":"center","field_file_image_alt_text[und][0][value]":"E.R. Jackman Friends &amp; Alumni Fellows Luncheon","field_file_image_title_text[und][0][value]":"E.R. Jackman Friends &amp; Alumni Fellows Luncheon","external_url":""}},"link_text":null,"attributes":{"alt":"E.R. Jackman Friends &amp; Alumni Fellows Luncheon","title":"E.R. Jackman Friends &amp; Alumni Fellows Luncheon","height":252,"width":869,"class":"media-element file-default media-wysiwyg-align-center","data-delta":"1"}}]]</p>
+
+      <h4 style="text-align: center;">
+      	<br />
+      	Friday, October 10, 2025<br />
+      	12:00 pm -1:30 pm</h4>
+
+      <p style="text-align: center;">
+      	OSU Foundation, Main Board Room<br />
+      	4238 SW Research Way<br />
+      	Corvallis, OR 97333</p>
+
+      <p style="text-align: center;">
+      	<strong><em>Registration closes on October 1, 2025</em></strong><span style="color: rgb(51, 51, 51); font-family: &quot;Open sans&quot;, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 300; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;"></span></p>
+  first_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'First Name'
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Last Name'
+    '#required': true
+  email_address:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Email address'
+    '#required': true
+  i_am_osu_alumni:
+    '#type': radios
+    '#options':
+      alumni_yes: 'Yes'
+      alumni_no: 'No'
+    '#title_display': inline
+    '#title': 'I am an OSU Alumni'
+    '#required': true
+  if_yes_what_major_grad_year:
+    '#type': textfield
+    '#title': 'If yes, what major / grad year'
+    '#states':
+      visible:
+        - ':input[name="i_am_osu_alumni"]':
+            value: alumni_yes
+  i_plan_to_bring_a_guest:
+    '#type': radios
+    '#options':
+      guest_yes: 'Yes'
+      guest_no: 'No'
+    '#title_display': inline
+    '#title': 'I plan to bring a guest'
+    '#required': true
+  guest_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Guest name'
+    '#states':
+      visible:
+        - ':input[name="i_plan_to_bring_a_guest"]':
+            value: guest_yes
+  do_you_have_any_food_sensitivities:
+    '#type': checkboxes
+    '#options':
+      food_gluten: 'Gluten Free'
+      food_dairy: 'Dairy Free'
+      food_nuts: 'Nut Free'
+      food_vegetarian: Vegetarian
+      food_kosher: Kosher
+      food_other: Other
+    '#multiple': true
+    '#title': 'Do you have any food preferences?'
+  other_food_preferences:
+    '#type': textarea
+    '#title': 'Other food preferences'
+    '#states':
+      visible:
+        - ':input[name="do_you_have_any_food_sensitivities[food_other]"]':
+            checked: true
+  additional_feedback:
+    '#type': textarea
+    '#title': 'Additional feedback'
+  contact_info:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	<strong>Questions?</strong> Contact Ally Miklasz, Director of Alumni Relations, College of Agricultural Sciences, at <a href="mailto:ally.miklasz@osualum.com" style="color:#467886; text-decoration:underline">ally.miklasz@osualum.com</a>&nbsp;or 541-556-9516</p>
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<p>\r\n\tThank you for registering to attend ER Jackman Fellows Recognition Luncheon on October 10 at noon in the OSU Foundation, Main Board Room. If something comes up and you’re not able to attend the event, please email Ally.Miklasz@osualum.com so she may remove you from our expected attendees list and adjust the headcount for lunch.</p>\r\n\r\n<p>\r\n\tI look forward to seeing you at our luncheon so that I can have the opportunity to meet you, learn more about your connections to our college, answer questions about our work, celebrate our shared history, and personally thank you. Our lunch will be just prior to the annual meeting of the ER Jackman Friends and Alumni group. As a lifetime Fellow, you are also invited to join us for our annual meeting this year and in years going forward where I will be sharing updates about our college and our future plans.</p>\r\n\r\n<p>\r\n\tGo Beavs!</p>\r\n\r\n<p>\r\n\tStaci L. Simonich, Ph.D., M.B.A.<br />\r\n\tDean and Reub Long Professor<br />\r\n\tCollege of Agricultural Sciences<br />\r\n\tDirector of the Oregon Agricultural Experiment Station</p>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email_address:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: 'ER Jackman Fellows Recognition Luncheon registration'
+      body: |-
+        [webform_submission:values:first_name] [webform_submission:values:last_name],
+
+        Thank you for registering to attend ER Jackman Fellows Recognition Luncheon on October 10 at noon in the OSU Foundation, Main Board Room. If something comes up and you’re not able to attend the event, please email Ally.Miklasz@osualum.com so she may remove you from our expected attendees list and adjust the headcount for lunch.
+
+        I look forward to seeing you at our luncheon so that I can have the opportunity to meet you, learn more about your connections to our college, answer questions about our work, celebrate our shared history, and personally thank you. Our lunch will be just prior to the annual meeting of the ER Jackman Friends and Alumni group. As a lifetime Fellow, you are also invited to join us for our annual meeting this year and in years going forward where I will be sharing updates about our college and our future plans.
+
+        Go Beavs! 
+
+        Staci L. Simonich, Ph.D., M.B.A.
+        Dean and Reub Long Professor
+        College of Agricultural Sciences
+        Director of the Oregon Agricultural Experiment Station
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+  email_3:
+    id: email
+    handler_id: email_3
+    label: 'Email 3'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 3
+    settings:
+      states:
+        - completed
+      to_mail: ally.miklasz@osualum.com
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |
+        Submitted on [webform_submission:completed_date:long]
+        Submitted by user: [webform_submission:user]
+        Submitted values are:
+
+        [webform_submission:values]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

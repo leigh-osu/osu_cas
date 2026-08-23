@@ -1,0 +1,23 @@
+uuid: b46f5351-58e2-470a-b07e-3059127a2065
+langcode: en
+status: true
+dependencies:
+  module:
+    - osu_cas_multisite_groups
+  theme:
+    - manzanita
+id: manzanita_cas_group_footer
+theme: manzanita
+region: footer
+weight: -10
+provider: null
+plugin: cas_group_footer
+settings:
+  id: cas_group_footer
+  label: 'Group footer'
+  label_display: '0'
+  provider: osu_cas_multisite_groups
+  exclude_groups:
+    - 228631
+    - 228631
+visibility: {  }

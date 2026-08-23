@@ -1,0 +1,7 @@
+field.field_settings.ui_patterns_source:
+  type: mapping
+  label: 'Source field settings'
+  mapping:
+    synchronized_translation:
+      label: 'Synchronized Translation'
+      type: boolean

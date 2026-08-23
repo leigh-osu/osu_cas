@@ -1,0 +1,12 @@
+name: 'Image field to media'
+type: module
+description: 'Enables to convert existing image fields to Media image fields.'
+core_version_requirement: ^10.3 || ^11
+package: 'Fields'
+dependencies:
+  - 'drupal:media'
+
+# Information added by Drupal.org packaging script on 2025-07-12
+version: '3.0.1'
+project: 'image_field_to_media'
+datestamp: 1752280149

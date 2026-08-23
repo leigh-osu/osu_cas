@@ -1,0 +1,83 @@
+ui_patterns_component:
+  type: mapping
+  label: 'Component configuration'
+  constraints:
+    FullyValidatable: ~
+  mapping:
+    component_id:
+      # string instead of machine_name because of the colon.
+      type: string
+      label: 'Component ID'
+      nullable: true
+    variant_id:
+      type: ui_patterns_prop
+      nullable: true
+      label: 'Variant ID'
+    # @todo make a mechanism that will check the props keys depending on the
+    # the component ID. And so maybe convert into mapping.
+    props:
+      type: sequence
+      label: 'Props'
+      sequence:
+        type: ui_patterns_prop
+        label: 'Prop'
+    # @todo make a mechanism that will check the slots keys depending on the
+    # the component ID. And so maybe convert into mapping.
+    slots:
+      type: sequence
+      label: 'Slots'
+      sequence:
+        type: ui_patterns_slot
+        label: 'Slot'
+
+ui_patterns_prop:
+  type: mapping
+  label: 'Prop'
+  mapping:
+    source_id:
+      # string instead of machine_name because of the colon.
+      type: string
+      label: 'Prop source ID'
+    node_id:
+      type: string
+      label: 'Node ID'
+    source:
+      type: ui_patterns_source.[%parent.source_id]
+      label: 'Prop source configuration'
+
+ui_patterns_slot:
+  type: mapping
+  label: 'Slot'
+  mapping:
+    sources:
+      type: sequence
+      label: 'Slot sources'
+      sequence:
+        type: ui_patterns_slot_source
+        label: 'Slot source'
+
+ui_patterns_slot_source:
+  type: mapping
+  label: 'Slot source'
+  mapping:
+    source_id:
+      # string instead of machine_name because of the colon.
+      type: string
+      label: 'Slot source ID'
+    source:
+      type: ui_patterns_source.[%parent.source_id]
+      label: 'Slot source configuration'
+    third_party_settings:
+      # Third party settings are always optional: they're an optional extension
+      # point.
+      requiredKey: false
+      type: sequence
+      label: 'Third party settings'
+      sequence:
+        type: '[%parent.%parent.%type].third_party.[%key]'
+    _weight:
+      type: weight
+      label: 'Slot source weight'
+    node_id:
+      type: string
+      label: 'Node ID'

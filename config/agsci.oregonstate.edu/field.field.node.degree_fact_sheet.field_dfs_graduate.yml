@@ -1,0 +1,21 @@
+uuid: 14282ff2-f954-41ba-af02-b97b9c2cb067
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfs_graduate
+    - node.type.degree_fact_sheet
+id: node.degree_fact_sheet.field_dfs_graduate
+field_name: field_dfs_graduate
+entity_type: node
+bundle: degree_fact_sheet
+label: 'Graduate Program'
+description: 'Checked for graduate programs, unchecked for undergraduate.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Graduate
+  off_label: Undergraduate
+field_type: boolean

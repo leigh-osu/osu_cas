@@ -1,0 +1,16 @@
+uuid: cf6f0470-bf88-47cd-80ca-d7e330537047
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: ent_grad_fac
+label: ent_grad_fac
+logic: and
+conditions:
+  6dc1c641-f9e0-4a7a-a62a-6ccf1fe767e1:
+    id: request_path
+    uuid: 6dc1c641-f9e0-4a7a-a62a-6ccf1fe767e1
+    pages: /node/211791
+    negate: false
+allow_other_conditions: false

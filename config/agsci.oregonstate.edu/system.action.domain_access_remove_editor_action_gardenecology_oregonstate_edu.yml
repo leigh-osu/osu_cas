@@ -1,0 +1,15 @@
+uuid: 8528e385-7dc1-46f6-bfa5-8dffad365bc6
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.gardenecology_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_gardenecology_oregonstate_edu
+label: 'Remove editors from the Garden Ecology Lab domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - gardenecology_oregonstate_edu

@@ -1,0 +1,16 @@
+uuid: 6879ae72-385b-4d1a-a8ed-5d106ad7ee99
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: turf_athl_field
+label: turf_athl_field
+logic: and
+conditions:
+  1bcdf62c-fb70-46e5-8dd1-c996a84aeba7:
+    id: request_path
+    uuid: 1bcdf62c-fb70-46e5-8dd1-c996a84aeba7
+    pages: /node/77606
+    negate: false
+allow_other_conditions: false

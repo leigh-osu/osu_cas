@@ -1,0 +1,84 @@
+uuid: 01e9357a-b178-4d1b-ba58-da7c689472b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.fun_facts.body
+    - field.field.node.fun_facts.field_domain_access
+    - field.field.node.fun_facts.field_domain_all_affiliates
+    - field.field.node.fun_facts.field_domain_source
+    - field.field.node.fun_facts.field_fun_facts_category
+    - field.field.node.fun_facts.field_fun_facts_image
+    - field.field.node.fun_facts.field_fun_facts_source
+    - field.field.node.fun_facts.field_group_private
+    - field.field.node.fun_facts.field_tax_big_fish_species
+    - field.field.node.fun_facts.field_tax_big_fish_topic
+    - node.type.fun_facts
+  module:
+    - text
+    - user
+id: node.fun_facts.default
+targetEntityType: node
+bundle: fun_facts
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_fun_facts_category:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_fun_facts_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_fun_facts_source:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_tax_big_fish_species:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_tax_big_fish_topic:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  entitygroupfield: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_group_private: true
+  langcode: true

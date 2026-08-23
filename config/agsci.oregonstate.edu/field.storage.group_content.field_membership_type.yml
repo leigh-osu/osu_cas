@@ -1,0 +1,20 @@
+uuid: 06be6a56-eccc-466c-a10c-d3dffcf25517
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+    - taxonomy
+id: group_content.field_membership_type
+field_name: field_membership_type
+entity_type: group_content
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,166 @@
+uuid: 9e0d7022-8b8c-4725-97f5-3259fb9dfa67
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_248741
+title: 'Crux Fermentation Project, OSU Tailgate'
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	See what’s brewing with OSU’s College of Agricultural Sciences and Crux Fermentation Project.</p>
+
+      <p>
+      	<strong>Date</strong>: October 22<sup>nd</sup>, 2022<br />
+      	<strong>Time</strong>: 2:00pm doors open, 5:00pm kickoff at Reser Stadium<br />
+      	<strong>Place</strong>: <a href="https://goo.gl/maps/XUK1pZ5DgJuJKmJh8">CH2M Hill Alumni Center patio</a></p>
+
+      <p>
+      	The first 100 to sign up for the event will each receive ONE FREE drink ticket to be used at OSUAA Tailgate Town.</p>
+  first_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'First Name'
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Last Name'
+    '#required': true
+  i_plan_to_bring_a_guest:
+    '#type': radios
+    '#options':
+      guest_yes: 'Yes'
+      guest_no: 'No'
+    '#title_display': inline
+    '#title': 'I plan to bring a guest'
+  guest_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Guest name'
+  i_am_osu_staff_faculty:
+    '#type': radios
+    '#options':
+      faculty_yes: 'Yes'
+      faculty_no: 'No'
+    '#title_display': inline
+    '#title': 'I am OSU Staff/Faculty '
+  i_am_an_osu_alumni:
+    '#type': radios
+    '#options':
+      alumni_yes: 'Yes'
+      alumni_no: 'No'
+    '#title_display': inline
+    '#title': 'I am an OSU Alumni '
+    '#required': true
+  email_address:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Email address'
+    '#required': true
+  phone_numbers:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Primary phone number'
+    '#required': true
+  contact:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	<strong>Questions about the event?</strong> Contact Ally Rumpakis, Director of Alumni Relations at <a href="mailto:ally.rumpakis@osualum.com">ally.rumpakis@osualum.com</a> or 541-556-9156</p>
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email_address:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |
+        [webform_submission:values:first_name] [webform_submission:values:last_name],
+
+        Thank you for registering to attend the OSU and Crux Fermentation Project Tailgate before the 10/22 home football game against Colorado. Please save these details below for your reference leading up to the event:
+
+        Tailgate doors open at 2:00pm
+        Kickoff begins at 5:00pm
+
+        CH2M Hill Alumni Center, Patio
+        725 SW 26th Street
+        Corvallis, OR 97331
+        <a href="https://www.google.com/maps/place/CH2M+HILL+Alumni+Center/@44.5599209,-123.2789587,17z/data=!3m1!4b1!4m5!3m4!1s0x54c040c7ff9ab0e1:0x4638f38509df6437!8m2!3d44.5599209!4d-123.2789587">View Map</a>
+
+        To check-in: Please check-in at the main OSU Alumni Association registration table (as you enter the Alumni Association building main doors). You will be directed to the patio and receive your free drink ticket if you are one of the first 100 to register. 
+
+        If you have questions, please contact Ally Rumpakis, Director of Alumni Relations for the College of Agricultural Sciences at ally.rumpakis@osualum.com. 
+        We look forward to seeing you there, Go Beavs!
+      excluded_elements:
+        phone_numbers: phone_numbers
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

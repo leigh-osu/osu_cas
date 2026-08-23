@@ -1,0 +1,106 @@
+uuid: 57dcd50c-0028-43dd-a980-e01158e17464
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: HYI_0-LToQseoNtGFXtb7zYFZsBfoV_yR5E1nJPpnfM
+id: cas_feed_to_feed
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - OSU
+  - CAS
+  - 'CAS Content'
+migration_group: content
+label: 'D7 Feed to Live Feed (osu_live_feeds)'
+source:
+  plugin: d7_node_domain_access
+  node_type: feed
+  high_water_property:
+    name: changed
+process:
+  type:
+    plugin: default_value
+    default_value: feed
+  title:
+    -
+      plugin: get
+      source: title
+    -
+      plugin: callback
+      callable: trim
+  status: status
+  uid:
+    plugin: default_value
+    default_value: 1
+  field_feed_url/uri:
+    -
+      plugin: extract
+      source: url
+      index:
+        - 0
+        - value
+      default: ''
+    -
+      plugin: callback
+      callable: trim
+    -
+      plugin: skip_on_empty
+      method: row
+      message: 'feed has no URL'
+    -
+      plugin: str_replace
+      regex: true
+      search: '~^(?![a-z][a-z0-9+.-]*://)~i'
+      replace: 'https://'
+  field_feed_items:
+    -
+      plugin: extract
+      source: num_items
+      index:
+        - 0
+        - value
+      default: 5
+    -
+      plugin: default_value
+      default_value: 5
+    -
+      plugin: callback
+      callable: intval
+  field_feed_type:
+    -
+      plugin: extract
+      source: feed_type
+      index:
+        - 0
+        - value
+      default: generic_parser
+    -
+      plugin: default_value
+      default_value: generic_parser
+  field_domain_access:
+    -
+      plugin: sub_process
+      source: domain_access_node
+      process:
+        target_id: target_id
+  field_domain_all_affiliates:
+    -
+      plugin: get
+      source: domain_all_affiliates
+  field_domain_source:
+    plugin: cas_node_canonical_domain
+    source:
+      - domain_source
+      - domain_access_node
+destination:
+  plugin: 'entity:node'
+  bundle: feed
+migration_dependencies:
+  required:
+    - upgrade_d7_users_with_roles
+  optional: {  }

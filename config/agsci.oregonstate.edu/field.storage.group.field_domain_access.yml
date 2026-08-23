@@ -1,0 +1,20 @@
+uuid: ee3135b1-3932-4760-9ac0-3a7aac36804d
+langcode: en
+status: true
+dependencies:
+  module:
+    - domain
+    - group
+id: group.field_domain_access
+field_name: field_domain_access
+entity_type: group
+type: entity_reference
+settings:
+  target_type: domain
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

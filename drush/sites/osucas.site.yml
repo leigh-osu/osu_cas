@@ -1,0 +1,45 @@
+# Acquia Cloud Next environments for the 'osucas' application.
+#
+# Refresh the connection details with:
+#   acli api:applications:environment-list 5cc57811-0a85-46ba-8728-be1636449924
+#
+# The application has three environments. Acquia names the staging one
+# 'stage', not 'test', and there is no RA environment -- aliases for both used
+# to be here and could not connect. Cloud Next has no livedev either, so the
+# /mnt/gfs livedev sub-aliases are gone as well.
+
+# Application 'osucas', environment 'dev'.
+dev:
+  root: /var/www/html/osucas.dev/docroot
+  ac-site: osucas
+  ac-env: dev
+  ac-realm: prod
+  uri: osucasdev.prod.acquia-sites.com
+  ssh:
+    options: '-q'
+  host: osucasdev.ssh.prod.acquia-sites.com
+  user: osucas.dev
+
+# Application 'osucas', environment 'stage'.
+stage:
+  root: /var/www/html/osucas.stage/docroot
+  ac-site: osucas
+  ac-env: stage
+  ac-realm: prod
+  uri: osucasstage.prod.acquia-sites.com
+  ssh:
+    options: '-q'
+  host: osucasstage.ssh.prod.acquia-sites.com
+  user: osucas.stage
+
+# Application 'osucas', environment 'prod'.
+prod:
+  root: /var/www/html/osucas.prod/docroot
+  ac-site: osucas
+  ac-env: prod
+  ac-realm: prod
+  uri: osucasprod.prod.acquia-sites.com
+  ssh:
+    options: '-q'
+  host: osucasprod.ssh.prod.acquia-sites.com
+  user: osucas.prod

@@ -1,0 +1,24 @@
+uuid: 09da01c1-045b-4e3e-822f-6181a1365609
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.weather_daily_data
+  module:
+    - text
+id: node.weather_daily_data.body
+field_name: body
+entity_type: node
+bundle: weather_daily_data
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

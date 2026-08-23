@@ -1,0 +1,15 @@
+uuid: 78a9957e-a95a-423a-b9e7-1a4cd12395f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.ourwillamette_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_ourwillamette_oregonstate_edu
+label: 'Remove editors from the Our Willamette Waters domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - ourwillamette_oregonstate_edu

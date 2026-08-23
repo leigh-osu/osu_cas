@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains text_field_formatter.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function text_field_formatter_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the text_field_formatter module.
+    case 'help.page.text_field_formatter':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This is the extension of the plain text field formatter with additional wrappers and classes.') . '</p>';
+      return $output;
+
+    default:
+  }
+}

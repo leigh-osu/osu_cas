@@ -1,0 +1,9 @@
+{
+    "name": "drupal/token_url_plus",
+    "description": "Adds some current-page:url token variations that are geared for customized canonical urls that contain query parameters.",
+    "type": "drupal-module",
+    "require": {
+        "drupal/core": "^10 || ^11",
+        "drupal/token": "^1"
+    }
+}

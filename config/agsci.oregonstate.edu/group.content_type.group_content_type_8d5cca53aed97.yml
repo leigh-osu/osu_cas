@@ -1,0 +1,17 @@
+uuid: 8608379f-f134-4ad8-b375-b3d6da877cb0
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.basic_group
+    - node.type.degree_fact_sheet
+  module:
+    - gnode
+    - node
+id: group_content_type_8d5cca53aed97
+group_type: basic_group
+content_plugin: 'group_node:degree_fact_sheet'
+plugin_config:
+  group_cardinality: 1
+  entity_cardinality: -1
+  use_creation_wizard: false

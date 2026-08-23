@@ -1,0 +1,16 @@
+{
+    "name": "leigh-osu/osu_endophyte",
+    "description": "Sample workflow, test certificates and lab statistics for the OSU Endophyte Service Lab.",
+    "minimum-stability": "stable",
+    "license": "GPL-2.0-or-later",
+    "type": "drupal-custom-module",
+    "authors": [
+        {
+            "name": "Roger Leigh",
+            "email": "roger.leigh@oregonstate.edu"
+        }
+    ],
+    "require": {
+        "php": ">=8.1"
+    }
+}

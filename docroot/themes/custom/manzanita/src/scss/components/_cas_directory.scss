@@ -1,0 +1,46 @@
+// Faculty & Staff directory table (views.view.profile, faculty_staff display).
+// Matches the D7-era directory mock: navy column headers, double rules
+// between rows, bold name over plain title, generous cell padding.
+
+.view-id-profile.view-display-id-faculty_staff {
+  table {
+    border: 0;
+
+    thead th {
+      color: $stratosphere-600;
+      font-weight: 700;
+      border-bottom: 1px solid $crater;
+      background: none;
+    }
+
+    tbody tr {
+      border-top: 3px double $crater;
+
+      &:first-child {
+        border-top: 0;
+      }
+    }
+
+    td {
+      vertical-align: top;
+      padding: 1.5rem 1rem;
+      border: 0;
+    }
+  }
+
+  // Bold name link above the plain job title.
+  .views-field-title a {
+    font-weight: 700;
+    color: $paddletailblack;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .views-field-field-profile-image img {
+    max-width: 160px;
+    height: auto;
+  }
+}

@@ -1,0 +1,23 @@
+uuid: 620dcbbc-b4e4-4b20-8c7f-9653a1e81055
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sample_legacy_client_id
+    - node.type.sample
+id: node.sample.field_sample_legacy_client_id
+field_name: field_sample_legacy_client_id
+entity_type: node
+bundle: sample
+label: 'Legacy client id'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

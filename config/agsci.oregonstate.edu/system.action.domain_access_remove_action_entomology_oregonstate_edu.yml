@@ -1,0 +1,15 @@
+uuid: 87e2b69a-ac82-4d11-8947-c771e5b2a955
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.entomology_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_entomology_oregonstate_edu
+label: 'Remove selected content from the Entomology Program domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - entomology_oregonstate_edu

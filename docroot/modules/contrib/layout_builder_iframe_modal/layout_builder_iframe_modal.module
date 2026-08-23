@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Enables the iframe renderer for layout builder.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Hook\Attribute\LegacyHook;
+use Drupal\layout_builder_iframe_modal\Hook\FormHooks;
+use Drupal\layout_builder_iframe_modal\Hook\LinkHooks;
+use Drupal\layout_builder_iframe_modal\Hook\ThemeHooks;
+
+/**
+ * Implements hook_theme().
+ */
+#[LegacyHook]
+function layout_builder_iframe_modal_theme() {
+  return \Drupal::service(ThemeHooks::class)->theme();
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+#[LegacyHook]
+function layout_builder_iframe_modal_preprocess_html(&$variables): void {
+  \Drupal::service(ThemeHooks::class)->preprocessHtml($variables);
+}
+
+/**
+ * Implements hook_contextual_links_alter().
+ */
+#[LegacyHook]
+function layout_builder_iframe_modal_contextual_links_alter(array &$links, $group, array $route_parameters): void {
+  \Drupal::service(LinkHooks::class)->contextualLinksAlter($links, $group, $route_parameters);
+}
+
+/**
+ * Implements hook_link_alter().
+ */
+#[LegacyHook]
+function layout_builder_iframe_modal_link_alter(&$variables): void {
+  \Drupal::service(LinkHooks::class)->linkAlter($variables);
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+#[LegacyHook]
+function layout_builder_iframe_modal_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  \Drupal::service(FormHooks::class)->formAlter($form, $form_state, $form_id);
+}

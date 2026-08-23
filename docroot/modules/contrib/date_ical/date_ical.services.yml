@@ -1,0 +1,3 @@
+services:
+  date_ical.feed:
+    class: Drupal\date_ical\DateICal

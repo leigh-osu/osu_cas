@@ -1,0 +1,15 @@
+uuid: ba8650f5-e7bb-4247-bf57-777cee3ecff2
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.appliedecon_oregonstate_edu_
+  module:
+    - domain_access
+id: domain_access_remove_action_appliedecon_oregonstate_edu_
+label: 'Remove selected content from the Applied Economics domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - appliedecon_oregonstate_edu_

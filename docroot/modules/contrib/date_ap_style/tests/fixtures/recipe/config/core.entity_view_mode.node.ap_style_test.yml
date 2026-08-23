@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.ap_style_test
+label: 'AP Style Test'
+targetEntityType: node
+cache: true

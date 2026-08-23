@@ -1,0 +1,27 @@
+uuid: 1d1c9d80-0993-4ba8-aa32-a0d5480d30e6
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_dfs_language
+field_name: field_dfs_language
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: English
+      label: English
+    -
+      value: Español
+      label: Español
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

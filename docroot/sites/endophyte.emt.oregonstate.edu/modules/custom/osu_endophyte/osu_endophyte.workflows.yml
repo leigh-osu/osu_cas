@@ -1,0 +1,87 @@
+sample:
+  id: sample
+  label: Sample
+  group: sample_workflow
+  states:
+    sample_arrival_pending:
+      label: Pending sample arrival
+    sample_tests_pending:
+      label: Pending sample tests
+    sample_tests_completed:
+      label: Sample tests completed
+      notify_client: true
+    sample_tests_cancelled:
+      label: Sample tests cancelled
+  transitions:
+    sample_arrival_wait:
+      label: Pending sample arrival
+      from: [ sample_tests_pending ]
+      to: sample_arrival_pending
+    sample_tests_wait:
+      label: Pending sample tests
+      from: [ sample_arrival_pending ]
+      to: sample_tests_pending
+    sample_tests_completed:
+      label: Sample tests completed
+      from: [ sample_tests_pending ]
+      to: sample_tests_completed
+    sample_tests_added:
+      label: Pending additional tests
+      from: [ sample_tests_completed ]
+      to: sample_tests_pending
+    sample_tests_cancelled:
+      label: Sample tests cancelled
+      from: [ sample_arrival_pending, sample_tests_pending ]
+      to: sample_tests_cancelled
+
+lab_test:
+  id: lab_test
+  label: Lab test workflow
+  group: lab_test_workflow
+  states:
+    lab_test_requested:
+      label: Test requested
+    lab_test_rush_pending:
+      label: Pending rush test
+      notify_lab_tech: true
+    lab_test_rush_ok_pending:
+      label: Pending rush test approval
+      notify_lab_admin: true
+    lab_test_pending:
+      label: Pending lab test
+      notify_lab_tech: true
+    lab_test_ok_pending:
+      label: Pending lab test approval
+      notify_lab_admin: true
+    lab_test_completed:
+      label: Lab test completed
+      notify_client: true
+      notify_accounting: true
+    lab_test_canceled:
+      label: Lab test canceled
+  transitions:
+    lab_test_rush_wait:
+      label: Pending rush test
+      from: [ lab_test_requested, lab_test_pending ]
+      to: lab_test_rush_pending
+    lab_test_rush_ok_wait:
+      label: Pending rush approval
+      from: [ lab_test_rush_pending ]
+      to: lab_test_rush_ok_pending
+    lab_test_wait:
+      label: Pending lab test
+      from: [ lab_test_requested, lab_test_rush_pending, lab_test_rush_ok_pending ]
+      to: lab_test_pending
+    lab_test_ok_wait:
+      label: Pending lab test approval
+      from: [ lab_test_pending ]
+      to: lab_test_ok_pending
+    lab_test_complete:
+      label: Lab test completed
+      from: [ lab_test_ok_pending ]
+      to: lab_test_completed
+    lab_test_cancel:
+      label: Lab test canceled
+      from: [ lab_test_requested, lab_test_rush_pending, lab_test_pending ]
+      to: lab_test_canceled
+

@@ -1,0 +1,48 @@
+uuid: c69c328e-ed7d-42b9-afd0-e1d223745d9d
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - osu_migrations
+      - paragraphs_to_layout_builder
+_core:
+  default_config_hash: 4eRPPGCO-DUIeI2KUMDlS41TwzoSkCq7-p1Xzz7Mhl8
+id: paragraph_lp_adjustable_columns__to__layout_builder
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - 'Layout content'
+  - 'OSU Paragraphs'
+  - OSU
+  - 'CAS Paragraphs'
+  - CAS
+migration_group: paragraphs_to_layout_builder
+label: 'Drupal 7 lp_adjustable_columns Paragraphs'
+source:
+  plugin: osu_d7_paragraphs_item
+  bundle: lp_adjustable_columns
+  key: migrate
+process:
+  type:
+    plugin: default_value
+    default_value: paragraph_block
+  info:
+    source: field_paragraph_label
+    plugin: default_value
+    default_value: 'Migrated d7 lp_adjustable_columns section'
+  field_block_serialized_data:
+    plugin: cas_adjustable_columns_section
+    source: field_lp_adj_column
+  reusable:
+    plugin: default_value
+    default_value: 0
+destination:
+  plugin: 'entity:block_content'
+migration_dependencies:
+  required: {  }
+  optional: {  }

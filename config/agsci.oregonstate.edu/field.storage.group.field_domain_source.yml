@@ -1,0 +1,20 @@
+uuid: efd0c5c3-8159-49db-9998-986e727a0231
+langcode: en
+status: true
+dependencies:
+  module:
+    - domain
+    - group
+id: group.field_domain_source
+field_name: field_domain_source
+entity_type: group
+type: entity_reference
+settings:
+  target_type: domain
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

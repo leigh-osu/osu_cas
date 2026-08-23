@@ -1,0 +1,147 @@
+uuid: e744a580-bff7-4a8a-a656-dbb5a8a3d52b
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_236046
+title: 'Beginning Researcher Support Program - Faculty participation form'
+description: null
+categories: {  }
+elements: |-
+  project_title:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Project Title'
+    '#required': true
+  faculty_mentor_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Faculty Mentor Name'
+    '#required': true
+  faculty_mentor_department:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Faculty Mentor Department'
+  student_research_work_will_be:
+    '#type': checkboxes
+    '#options':
+      hybrid: Hyrbid
+      remote: Remote
+      in-person: In-person
+    '#multiple': true
+    '#title': 'Student research work will be'
+    '#description': 'mark all that apply'
+    '#required': true
+  location:
+    '#type': textfield
+    '#title': 'Student research location'
+    '#states':
+      visible:
+        - ':input[name="student_research_work_will_be[hybrid]"]':
+            checked: true
+        - ':input[name="student_research_work_will_be[in-person]"]':
+            checked: true
+  project_abstract:
+    '#type': textarea
+    '#title': 'Project Abstract'
+  the_job___project_description:
+    '#type': textarea
+    '#title': 'The Job - Project Description'
+    '#required': true
+  description_of_work_environment:
+    '#type': textarea
+    '#title': 'Description of work environment'
+  description_of_student_responsibilities:
+    '#type': textarea
+    '#title': 'Description of Student Responsibilities'
+  skills:
+    '#type': textarea
+    '#title': Skills
+  learning_outcomes:
+    '#type': textarea
+    '#title': 'Learning Outcomes'
+  expected_start_and_end_date:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Expected start and end date'
+    '#required': true
+  anticipated_hours_per_week:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Anticipated hours per week'
+    '#required': true
+  anticipated_hourly_wage:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Anticipated hourly wage'
+    '#required': true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: Wanda.Crannell@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

@@ -1,0 +1,4 @@
+administer domain config entity ui:
+  title: 'Administer Domain Config Entity UI'
+  description: 'Manage which config entity types expose the per-domain configuration toggle.'
+  restrict access: true

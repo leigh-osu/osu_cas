@@ -1,0 +1,15 @@
+uuid: aa6d00e5-e45c-46bd-a6ec-3c1644cb5ec6
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.letitiacarson_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_letitiacarson_oregonstate_edu
+label: 'Add editors to the Letitia Carson  domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - letitiacarson_oregonstate_edu

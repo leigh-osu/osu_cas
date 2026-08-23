@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * @file
+ * Background image formatter module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function background_image_formatter_theme($existing, $type, $theme, $path) {
+  $items = [];
+
+  $items['background_image_formatter_inline'] = [
+    'variables' => [
+      'background_image_selector' => NULL,
+      'image_uri' => NULL,
+      'url' => NULL,
+      'entity_type' => NULL,
+      'entity_bundle' => NULL,
+      'entity' => NULL,
+      'field_name' => NULL,
+      'delta' => NULL,
+    ],
+  ];
+
+  return $items;
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function background_image_formatter_theme_suggestions_background_image_formatter_inline(array $variables) {
+  $suggestions = [];
+
+  if (empty($variables['entity_type'])) {
+    return $suggestions;
+  }
+
+  $suggestions[] = 'background_image_formatter_inline__' . $variables['entity_type'];
+
+  if (!empty($variables['entity_bundle'])) {
+    $suggestions[] = 'background_image_formatter_inline__' . $variables['entity_type'] . '__' . $variables['entity_bundle'];
+  }
+
+  if (!empty($variables['entity_bundle']) && !empty($variables['field_name'])) {
+    $suggestions[] = 'background_image_formatter_inline__' . $variables['entity_type'] . '__' . $variables['entity_bundle'] . '__' . $variables['field_name'];
+  }
+
+  if (!empty($variables['entity']) && method_exists($variables['entity'], 'id')) {
+    $suggestions[] = 'background_image_formatter_inline__' . $variables['entity_type'] . '__entityid_' . $variables['entity']->id();
+  }
+
+  return $suggestions;
+}

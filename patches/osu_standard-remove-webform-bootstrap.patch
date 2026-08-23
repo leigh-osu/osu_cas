@@ -1,0 +1,13 @@
+Remove webform_bootstrap from the osu_standard install list.
+
+diff --git a/osu_standard.info.yml b/osu_standard.info.yml
+--- a/osu_standard.info.yml
++++ b/osu_standard.info.yml
+@@ -153,7 +153,6 @@
+   - webform
+   - webform_access
+   - webform_attachment
+-  - webform_bootstrap
+   - webform_node
+   - webform_ui
+   - xmlsitemap

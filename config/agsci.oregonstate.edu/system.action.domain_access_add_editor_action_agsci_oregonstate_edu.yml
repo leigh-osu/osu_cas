@@ -1,0 +1,15 @@
+uuid: a0333379-1f57-4016-bf1d-2ca04a016779
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.agsci_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_agsci_oregonstate_edu
+label: 'Add editors to the College of Agricultural Sciences domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - agsci_oregonstate_edu

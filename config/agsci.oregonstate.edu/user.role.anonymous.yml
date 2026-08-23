@@ -1,0 +1,28 @@
+uuid: ffa85dbf-4b03-4118-ad13-d233eee429a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.restricted_html
+  module:
+    - filter
+    - google_cse
+    - media
+    - search
+    - simple_styleguide
+    - sitewide_alert
+    - system
+_core:
+  default_config_hash: PO7HXDBxqAzU9M6nXH11hftPPqh46hQD-IRw_wOX1XE
+id: anonymous
+label: 'Anonymous user'
+weight: -10
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access style guide'
+  - 'search Google CSE'
+  - 'search content'
+  - 'use text format restricted_html'
+  - 'view media'
+  - 'view published sitewide alert entities'

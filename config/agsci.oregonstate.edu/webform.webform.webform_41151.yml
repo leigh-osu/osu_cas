@@ -1,0 +1,201 @@
+uuid: 47814476-653e-4410-ab8b-1ec738d901df
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_41151
+title: 'BEE Photo Submission Form'
+description: null
+categories: {  }
+elements: |-
+  introduction:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	Do you have a photo of yourself wearing a BEE hat while on vacation or working?&nbsp; How about a photo of you working on a Biological or Ecological Engineering project in the field?&nbsp; We would love to have them!</p>
+
+      <p>
+      	[[{"fid":"25131","view_mode":"media_original","fields":{"format":"media_original","field_file_image_alt_text[und][0][value]":"BEE hat in the field","field_file_image_title_text[und][0][value]":"BEE hat in the field"},"type":"media","link_text":null,"field_deltas":{"1":{"format":"media_original","field_file_image_alt_text[und][0][value]":"BEE hat in the field","field_file_image_title_text[und][0][value]":"BEE hat in the field"}},"attributes":{"alt":"BEE hat in the field","title":"BEE hat in the field","height":"900","width":"1200","class":"media-element file-media-original","data-delta":"1"}}]]</p>
+  your_first_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Your First Name'
+    '#required': true
+  your_last_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Your Last Name'
+    '#required': true
+  email:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': Email
+    '#required': true
+  photo:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title_display': inline
+    '#title': Photo
+    '#required': true
+  photo_caption:
+    '#type': textarea
+    '#title': 'Photo Caption'
+    '#description': 'Please tell us the who, what, where, when and why of the photo.'
+    '#required': true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<p>\r\n\tHello,</p>\r\n\r\n<p>\r\n\tThank you for submitting your photo!&nbsp; This message is to confirm that we have received your photo.</p>\r\n\r\n<p>\r\n\tBest Regards,</p>\r\n\r\n<p>\r\n\tBEE Team</p>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: jennifer.cohen@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |-
+        Submitted on [webform_submission:date:long]
+        Submitted by user: [webform_submission:user]
+        Submitted values are:
+        [webform_submission:values]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: cat.mullins@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |-
+        Submitted on [webform_submission:date:long]
+        Submitted by user: [webform_submission:user]
+        Submitted values are:
+        [webform_submission:values]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+  email_3:
+    id: email
+    handler_id: email_3
+    label: 'Email 3'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 3
+    settings:
+      states:
+        - completed
+      to_mail: sam.christopher@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

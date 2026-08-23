@@ -1,0 +1,29 @@
+uuid: 27881c5d-f2a0-44ae-968c-de5aa52fcd86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tax_owri_topics
+    - node.type.video
+    - taxonomy.vocabulary.owri
+id: node.video.field_tax_owri_topics
+field_name: field_tax_owri_topics
+entity_type: node
+bundle: video
+label: 'OWRI topics'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      owri: owri
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

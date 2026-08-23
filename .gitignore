@@ -1,0 +1,78 @@
+# This file contains default .gitignore rules. To use it, copy it to .gitignore,
+# and it will cause files like your settings.php and user-uploaded files to be
+# excluded from Git version control. This is a common strategy to avoid
+# accidentally including private information in public repositories and patch
+# files.
+#
+# Because .gitignore can be specific to your site, this file has a different
+# name; updating Drupal core will not override your custom .gitignore file.
+
+# Ignore core when managing all of a project's dependencies with Composer
+# including Drupal core.
+/docroot/core/
+
+# Ignore dependencies that are managed with Composer.
+# Generally you should only ignore the root vendor directory. It's important
+# that core/assets/vendor and any other vendor directories within contrib or
+# custom module, theme, etc., are not ignored unless you purposely do so.
+/vendor/
+/docroot/modules/contrib/*
+/docroot/themes/contrib/*
+/docroot/profiles/contrib/*
+/docroot/libraries/*
+
+# Site-specific extensions, installed by Composer into a single site's
+# directory rather than the shared tree -- see the per-package entries in
+# composer.json's installer-paths. Composer owns these on every environment
+# (Pipelines runs composer install at build), so they are ignored here for the
+# same reason the shared contrib directories above are.
+/docroot/sites/*/modules/contrib/*
+/docroot/sites/*/themes/contrib/*
+/docroot/sites/*/modules/custom/*
+/docroot/sites/*/themes/custom/*
+
+# Ignore configuration files that may contain sensitive information.
+/docroot/sites/*/settings.local.php
+#/docroot/sites/*/services*.yml
+
+# Ignore paths that contain user-generated content.
+/docroot/sites/*/files
+/docroot/sites/*/private
+
+# Ignore SimpleTest multi-site environment.
+/docroot/sites/simpletest
+
+# Ignore paths that contain user-generated content.
+*/files
+*/private
+# Ignoring Idea folder
+/.idea/
+# Ignoring any local environment settings
+/.env
+# Ignoring sass build cache
+.sass-cache/
+# .ddev is tracked on develop (its own .ddev/.gitignore excludes snapshots,
+# image builds and provider credentials); promotion to main strips it -- see
+# scripts-dev/promote_main.sh.
+/.ddev/homeadditions/.ssh/
+/docroot/sites/*/settings.ddev.php
+/docroot/modules/custom
+/docroot/themes/custom
+/docroot/profiles/custom
+/databackup
+/files/*/private-files
+/.claude/*
+/legacy-d7
+
+# Acquia CLI local state (app/environment binding), written by acli commands.
+/.acquia-cli.yml
+
+# Shared Claude Code project settings (the rest of .claude stays local)
+!/.claude/settings.json
+scripts-dev/unmanaged/all.txt
+scripts-dev/unmanaged/managed_uris.txt
+scripts-dev/unmanaged/disk_files.txt
+scripts-dev/unmanaged/d10_disk_files.txt
+scripts-dev/unmanaged/referenced_unmanaged*.txt
+scripts-dev/unmanaged/case_mismatch_links.tsv
+scripts-dev/missing_file_links.csv

@@ -1,0 +1,11 @@
+uuid: fe8c2b6e-5621-47a1-bb74-c58860353263
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.sample_tracker
+label: 'Sample tracker'
+description: ''
+targetEntityType: node
+cache: true

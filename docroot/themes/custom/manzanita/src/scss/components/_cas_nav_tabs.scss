@@ -1,0 +1,34 @@
+@import '../abstracts/cas_variables';
+
+// Bootstrap nav-tabs (the osu_simple_tabs view's views_bootstrap_tab style,
+// and any other .nav-tabs in content): the selected tab reads dark grey,
+// the rest sit back in very light grey.
+.nav-tabs {
+  // madrone underlines the selected tab in Beaver Orange via
+  // --bs-nav-tabs-link-active-border-color. Orange is reserved for links, so
+  // the selected tab's bottom border takes the tab's own dark fill instead and
+  // the tab reads as one solid block rather than a block with a stripe.
+  --bs-nav-tabs-link-active-border-color: transparent transparent #{$neutral-800};
+
+  .nav-link {
+    background-color: $neutral-100;
+    color: $neutral-700;
+    // The light-grey fill paints under the default transparent bottom
+    // border, which used to let the tab row's full-width rule show through;
+    // draw that rule back in. The .active tab's own border override still
+    // wins on the selected tab, and now matches its fill.
+    border-bottom-color: var(--bs-nav-tabs-border-color);
+
+    &.active {
+      background-color: $neutral-800;
+      color: $bucktoothwhite;
+    }
+
+    // madrone flips the hover/focus background to near-black
+    // ($paddletailblack); the text must follow it to stay legible.
+    &:not(.active):hover,
+    &:not(.active):focus {
+      color: $bucktoothwhite;
+    }
+  }
+}

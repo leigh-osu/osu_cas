@@ -1,0 +1,12 @@
+name: Views Aggregator Plus More Functions
+type: module
+description: Adds more aggregation functions for Views Aggregator Plus
+package: Views
+core_version_requirement: ^10.3 || ^11
+dependencies:
+  - views_aggregator:views_aggregator
+
+# Information added by Drupal.org packaging script on 2024-11-08
+version: '2.1.1'
+project: 'views_aggregator'
+datestamp: 1731102086

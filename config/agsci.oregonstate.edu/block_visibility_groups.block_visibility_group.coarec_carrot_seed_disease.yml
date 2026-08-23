@@ -1,0 +1,16 @@
+uuid: 5683c0d9-194e-4f3a-841c-2454a7a5df82
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: coarec_carrot_seed_disease
+label: coarec_carrot_seed_disease
+logic: and
+conditions:
+  84dd682a-5a00-4568-80a1-651244c643e9:
+    id: request_path
+    uuid: 84dd682a-5a00-4568-80a1-651244c643e9
+    pages: /node/118361
+    negate: false
+allow_other_conditions: false

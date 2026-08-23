@@ -1,0 +1,15 @@
+uuid: de74af20-7123-49e2-8f0e-fc3c50bb5f48
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 9LvdlP6gFjgJaQmF6FvukZLkBEqdtpSHgWER8LlDECI
+id: audio
+label: Audio
+description: ''
+source: audio_file
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_file
+field_map: {  }

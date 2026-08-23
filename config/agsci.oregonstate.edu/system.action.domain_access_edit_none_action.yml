@@ -1,0 +1,13 @@
+uuid: 631aa10d-de32-47f2-9a65-2953ce3551d2
+langcode: en
+status: true
+dependencies:
+  module:
+    - domain_access
+_core:
+  default_config_hash: VEI1wqqkrV2aMO4mVMODRp6u6W0bnJcVKqxRE9IeduM
+id: domain_access_edit_none_action
+label: 'Remove editors from all affiliates'
+type: user
+plugin: domain_access_edit_none_action
+configuration: {  }

@@ -1,0 +1,7 @@
+linkpurpose.settings:
+  path: '/admin/config/user-interface/linkpurpose'
+  defaults:
+    _form: '\Drupal\linkpurpose\Form\LinkpurposeSettings'
+    _title: 'Link Purpose Settings'
+  requirements:
+    _permission: 'administer linkpurpose'

@@ -1,0 +1,9 @@
+uuid: 872323f3-3139-4f93-a5a6-150fb8922de5
+langcode: en
+status: true
+dependencies: {  }
+name: 'COAREC Authors'
+vid: coarec_authors
+description: null
+weight: 0
+new_revision: false

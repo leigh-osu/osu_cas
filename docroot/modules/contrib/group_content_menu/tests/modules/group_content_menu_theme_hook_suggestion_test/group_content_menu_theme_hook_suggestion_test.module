@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Provides a preprocess hook to test the module's theme hook suggestion option.
+ */
+
+declare(strict_types=1);
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function group_content_menu_theme_hook_suggestion_test_preprocess_menu__group_menu__custom_hook_name(): void {
+  \Drupal::state()->set('group_content_menu_theme_hook_suggestion_called_key', TRUE);
+}

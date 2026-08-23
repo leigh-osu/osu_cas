@@ -1,0 +1,141 @@
+uuid: ad1b9347-955f-4827-9815-8eb5b25560d0
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_257281
+title: 'E-campus Meet and Greet Registration'
+description: null
+categories: {  }
+elements: |-
+  introduction:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	<strong>Special End of Year Virtual Meet-Up with College of Agricultural Sciences Dean, Staci Simonich</strong></p>
+
+      <p>
+      	Congratulations on completing the 2022-2023 academic year! To celebrate this accomplishment, Dean Simonich would like to personally congratulate you during a virtual meet-up on June 16 at 3pm.</p>
+
+      <p>
+      	Please register below for this event and receive log-in information. In addition, feel free to submit any questions you would like the Dean to address during this 30 minute chat.</p>
+
+      <p>
+      	Once again, congrats and Go Beavs!</p>
+  name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Name
+    '#required': true
+  email:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': Email
+    '#required': true
+  your_major:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Major Program'
+    '#required': true
+  anticipated_graduation_year:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Anticipated graduation year'
+  where_are_you_located:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Where are you located?'
+  what_questions_would_you_like_for_the_dean_to_address:
+    '#type': textarea
+    '#title': 'What questions would you like for the dean to address?'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<p>\r\n\tThanks for registering to attend the virtual meet and greet on Friday, June 16, 2023 from 3:00-3:30 pm.</p>\r\n\r\n<p>\r\n\tJoin Zoom Meeting<br />\r\n\tMeeting URL: &nbsp;&nbsp; &nbsp;https://oregonstate.zoom.us/j/99025892450?pwd=SFhkZWdlOGxuSTRFRGM0UGt4NTBvUT09&amp;from=addon<br />\r\n\tPassword:&nbsp;&nbsp; &nbsp;586640</p>\r\n\r\n<p>\r\n\tJoin by Telephone<br />\r\n\tCall: &nbsp;&nbsp; &nbsp;<br />\r\n\tUS: +1 971 247 1195 or +1 253 215 8782 or +1 301 715 8592 or 877 853 5257 (Toll Free) or 888 475 4499 (Toll Free) or 833 548 0276 (Toll Free) or 833 548 0282 (Toll Free)<br />\r\n\tMeeting ID: &nbsp;&nbsp; &nbsp;990 2589 2450<br />\r\n\tInternational numbers</p>\r\n\r\n<p>\r\n\tJoin by Polycom/Cisco/Other Room System<br />\r\n\tPassword: &nbsp;&nbsp; &nbsp;586640<br />\r\n\t99025892450@zoomcrc.com<br />\r\n\tPassword: &nbsp;&nbsp; &nbsp;586640</p>\r\n\r\n<p>\r\n\t&nbsp;</p>\r\n\r\n<p>\r\n\tOnce again, congrats and Go Beavs!</p>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |-
+        Thanks for registering to attend the virtual meet and greet on Friday, June 16, 2023 from 3:00-3:30 pm. 
+
+        Join Zoom Meeting 
+        Meeting URL: 	https://oregonstate.zoom.us/j/99025892450?pwd=SFhkZWdlOGxuSTRFRGM0UGt4NTBvUT09&from=addon
+        Password:	586640
+
+        Join by Telephone 
+        Call: 	
+        US: +1 971 247 1195 or +1 253 215 8782 or +1 301 715 8592 or 877 853 5257 (Toll Free) or 888 475 4499 (Toll Free) or 833 548 0276 (Toll Free) or 833 548 0282 (Toll Free) 
+        Meeting ID: 	990 2589 2450
+        International numbers
+
+        Join by Polycom/Cisco/Other Room System 
+        Password: 	586640
+        99025892450@zoomcrc.com 
+        Password: 	586640
+
+        Once again, congrats and Go Beavs!
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

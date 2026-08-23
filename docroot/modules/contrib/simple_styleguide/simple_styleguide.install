@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Contains simple_styleguide.install.
+ */
+
+use Drupal\Core\Field\BaseFieldDefinition;
+
+/**
+ * Adding weight field to styleguide patterns.
+ */
+function simple_styleguide_update_8001() {
+  $field_storage_definition = BaseFieldDefinition::create('integer')
+    ->setLabel(t('Weight'))
+    ->setDescription(t('Row weight of entity.'))
+    ->setDefaultValue(0)
+    ->setRevisionable(FALSE);
+
+  \Drupal::entityDefinitionUpdateManager()
+    ->installFieldStorageDefinition('start', 'styleguide_pattern', 'styleguide_pattern', $field_storage_definition);
+}
+
+/**
+ * Adding description field to styleguide patterns.
+ */
+function simple_styleguide_update_8002() {
+  $field_storage_definition = BaseFieldDefinition::create('text_long')
+    ->setLabel(t('Description'))
+    ->setDescription(t('Description of entity.'))
+    ->setDefaultValue(0)
+    ->setRevisionable(FALSE);
+
+  \Drupal::entityDefinitionUpdateManager()
+    ->installFieldStorageDefinition('description', 'styleguide_pattern', 'styleguide_pattern', $field_storage_definition);
+}

@@ -1,0 +1,133 @@
+uuid: 15c6fdf3-c7f3-455e-b816-49cee20f451a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.enterprise_budgets.body
+    - field.field.node.enterprise_budgets.field_aeb_author
+    - field.field.node.enterprise_budgets.field_aeb_date
+    - field.field.node.enterprise_budgets.field_aeb_description
+    - field.field.node.enterprise_budgets.field_aeb_pdf
+    - field.field.node.enterprise_budgets.field_aeb_size
+    - field.field.node.enterprise_budgets.field_aeb_units
+    - field.field.node.enterprise_budgets.field_aeb_xls
+    - field.field.node.enterprise_budgets.field_domain_access
+    - field.field.node.enterprise_budgets.field_domain_all_affiliates
+    - field.field.node.enterprise_budgets.field_domain_source
+    - field.field.node.enterprise_budgets.field_group_private
+    - field.field.node.enterprise_budgets.field_tax_commodity
+    - field.field.node.enterprise_budgets.field_tax_county
+    - field.field.node.enterprise_budgets.field_tax_region
+    - node.type.enterprise_budgets
+  module:
+    - datetime
+    - options
+    - text
+    - user
+id: node.enterprise_budgets.default
+targetEntityType: node
+bundle: enterprise_budgets
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_aeb_author:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_aeb_date:
+    type: datetime_default
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_aeb_description:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_aeb_pdf:
+    type: entity_reference_entity_view
+    label: inline
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_aeb_size:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_aeb_units:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_aeb_xls:
+    type: entity_reference_entity_view
+    label: inline
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_tax_commodity:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_tax_county:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_tax_region:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 11
+    region: content
+hidden:
+  entitygroupfield: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_group_private: true
+  langcode: true

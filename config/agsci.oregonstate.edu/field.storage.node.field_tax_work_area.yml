@@ -1,0 +1,20 @@
+uuid: 633c9071-50d2-4f4c-9271-90743373d466
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_tax_work_area
+field_name: field_tax_work_area
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

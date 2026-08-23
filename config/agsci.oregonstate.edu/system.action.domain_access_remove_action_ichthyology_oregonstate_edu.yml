@@ -1,0 +1,15 @@
+uuid: f9815a43-e058-43e6-be4f-590b3fa9781c
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.ichthyology_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_ichthyology_oregonstate_edu
+label: 'Remove selected content from the Ichthyology domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - ichthyology_oregonstate_edu

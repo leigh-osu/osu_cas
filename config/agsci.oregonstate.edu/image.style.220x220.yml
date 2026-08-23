@@ -1,0 +1,21 @@
+uuid: 452338f1-6e3b-4cd2-874e-9d5a58ba9d4e
+langcode: en
+status: true
+dependencies: {  }
+name: 220x220
+label: 220x220
+effects:
+  d0d74239-7e5f-4399-913f-1201c42d9feb:
+    uuid: d0d74239-7e5f-4399-913f-1201c42d9feb
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 220
+      height: 220
+      anchor: center-center
+  d74db9f4-924d-41eb-b159-4bf89973d4c2:
+    uuid: d74db9f4-924d-41eb-b159-4bf89973d4c2
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

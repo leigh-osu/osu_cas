@@ -1,0 +1,22 @@
+uuid: bef4974e-3d0a-492b-aebd-36e1e4818fb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_fac_awards
+    - node.type.osu_profile
+  module:
+    - text
+id: node.osu_profile.field_profile_fac_awards
+field_name: field_profile_fac_awards
+entity_type: node
+bundle: osu_profile
+label: 'Honors and Awards'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

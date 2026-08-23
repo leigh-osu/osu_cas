@@ -1,0 +1,38 @@
+name: Manzanita
+description: 'OSU CAS Subtheme based on OSU Madrone theme'
+core_version_requirement: ^10 || ^11
+type: theme
+dependencies:
+  - madrone:madrone
+version: '1.1.35'
+base theme: madrone
+
+# What the editing area is styled with. Drupal walks the base-theme chain, so
+# madrone's dist/madrone.css already arrived here and manzanita's own CSS did
+# not -- meaning every CAS-specific style was missing inside CKEditor while
+# being present on the page. Listing it restores the front end's own pairing,
+# in the front end's order.
+ckeditor_stylesheets:
+  - css/manzanita.css
+
+logo: logo.svg
+screenshot: manzanita.png
+regions:
+  header: Header
+  primary_menu: Primary menu
+  full_top: Full width below Primary menu
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  help: Help
+  page_top: Page Top
+  content: Content
+  sidebar: Sidebar
+  page_bottom: Page Bottom
+  pre_footer: Full width above the Footer
+  footer: Footer
+
+libraries:
+  - madrone/fonts
+  - madrone/bootstrap
+  - madrone/global-styling
+  - manzanita/global-styling

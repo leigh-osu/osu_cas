@@ -1,0 +1,37 @@
+uuid: d6cddb65-d021-4ead-8731-7eee2abf5bda
+langcode: en
+status: true
+dependencies:
+  module:
+    - osu_endophyte
+    - system
+    - user
+  theme:
+    - cas_larch
+id: labstatistics
+theme: cas_larch
+region: sidebar_second
+weight: -4
+provider: null
+plugin: osu_endophyte_lab_stats
+settings:
+  id: osu_endophyte_lab_stats
+  label: 'Lab Statistics'
+  label_display: visible
+  provider: osu_endophyte
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/group/*\r\n/esl-dashboard\r\n/user/*"
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      client: client
+      accounting: accounting
+      lab_tech: lab_tech
+      lab_admin: lab_admin
+      site_admin: site_admin

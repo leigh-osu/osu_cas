@@ -1,0 +1,35 @@
+library:
+  js:
+    library/js/linkpurpose.min.js: {}
+  css:
+    layout:
+      library/css/linkpurpose.css: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+
+init:
+  js:
+    js/linkpurpose-drupal.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - linkpurpose/library
+
+library-noagg:
+  js:
+    library/js/linkpurpose.min.js: { preprocess: false }
+  css:
+    layout:
+      library/css/linkpurpose.css: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+
+init-noagg:
+  js:
+    js/linkpurpose-drupal.js: { preprocess: false }
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - linkpurpose/library-noagg

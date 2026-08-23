@@ -1,0 +1,11 @@
+services:
+  Drupal\entityreference_filter\Hook\EntityReferenceFilterHooks:
+    autowire: true
+    arguments:
+      $viewsFilterManager: '@plugin.manager.views.filter'
+  Drupal\entityreference_filter\Service\FilterArgumentsResolver:
+    autowire: true
+  Drupal\entityreference_filter\Service\ReferenceViewOptionsBuilder:
+    autowire: true
+  Drupal\entityreference_filter\Service\FilterDependencyResolver:
+    autowire: true

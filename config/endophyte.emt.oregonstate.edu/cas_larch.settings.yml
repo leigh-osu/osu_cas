@@ -1,0 +1,27 @@
+b4_body_schema: none
+b4_body_bg_schema: none
+b4_navbar_schema: dark
+b4_navbar_bg_schema: none
+b4_footer_schema: none
+b4_footer_bg_schema: none
+b4_top_container: 'container-fluid m-0 p-0'
+b4_top_container_config: ''
+subtheme_folder: themes/custom
+subtheme_name: 'B4 subtheme'
+subtheme_machine_name: b4subtheme
+cas_bootstrap_sass_parent_name: ''
+cas_bootstrap_sass_parent_url: ''
+_core:
+  default_config_hash: hMWjhLJ6AZwkp0wN6Fm6WRhfoHjfzMvYkzNF_7eW1Gg
+features:
+  node_user_picture: false
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: 1
+logo:
+  use_default: 0
+  path: ''
+favicon:
+  use_default: 1
+cas_larch_parent_name: 'Environmental and Molecular Toxicology'
+cas_larch_parent_url: 'https://emt.oregonstate.edu/'

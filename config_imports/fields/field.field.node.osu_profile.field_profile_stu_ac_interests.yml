@@ -1,0 +1,22 @@
+uuid: 47e4cbfa-3613-49dc-bc65-6105f26809bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_stu_ac_interests
+    - node.type.osu_profile
+  module:
+    - text
+id: node.osu_profile.field_profile_stu_ac_interests
+field_name: field_profile_stu_ac_interests
+entity_type: node
+bundle: osu_profile
+label: 'Academic Interests'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

@@ -1,0 +1,73 @@
+// Footer copy runs slightly smaller than body text. overflow-x: clip keeps
+// the group footer's viewport-wide rule (see _cas_group_footer.scss) from
+// adding a horizontal scrollbar.
+footer[role='contentinfo'] {
+  font-size: 0.9em;
+  overflow-x: clip;
+}
+
+// A 2px beaver-orange rule opens the footer, full-bleed; the group footer
+// draws the matching one between the group's card and the College's.
+footer[role='contentinfo'] .region-footer {
+  border-top: 2px solid $osuorange;
+}
+
+// The site-links block's Student/Employee/New Employees groups sit in
+// col-xs-4 divs — a Bootstrap 3 class that BS5 ignores, so they stack at
+// every width. Give them their three columns back on wider views.
+footer[role='contentinfo'] .footer-site-links .col-xs-4 {
+  @media (min-width: 768px) {
+    flex: 0 0 auto;
+    width: 33.3333%;
+  }
+}
+
+// Footer links: white with a standing beaver-orange underline; rollover
+// inverts to orange text under a white underline. The !importants outrank
+// madrone's .region-footer link rules and the copyright row's
+// .osu-link-white utility.
+footer[role='contentinfo'] a,
+footer[role='contentinfo'] a.osu-link-white {
+  color: #fff !important;
+  text-decoration: underline !important;
+  text-decoration-color: $osuorange !important;
+
+  &:hover,
+  &:focus {
+    color: $osuorange !important;
+    text-decoration-color: #fff !important;
+  }
+}
+
+// The footer block's link lists render with default bullets (the site-wide
+// marker styling is scoped to the main content region); strip them.
+footer[role='contentinfo'] ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+// The footer content block's body carries hand-written D7-era Bootstrap 3
+// column markup; widen the first (address) column from its col-md-2
+// (16.7%) to a col-md-3-equivalent 25% without editing the content.
+footer[role='contentinfo'] .footer-address {
+  @media (min-width: 768px) {
+    flex: 0 0 auto;
+    width: 25%;
+  }
+}
+
+// Darkened Mt. Hood panorama (3600x518 webp) over the region's solid
+// osu-bg-page-alt-2 ($paddletailblack), which remains as the fallback and
+// matches the image's near-black tone.
+footer[role='contentinfo'] .region-footer {
+  background-image: url('../assets/cas_footer_background.webp');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+// Vertical breathing room around the copyright row.
+footer[role='contentinfo'] .madrone-copyright {
+  padding-block: 1.5em;
+}

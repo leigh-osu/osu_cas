@@ -1,0 +1,14 @@
+// Weed pages: botanical convention for the latin name, and breathing room
+// between the stacked fields (none above the first).
+:where(.node--type-weed) {
+  .field + .field {
+    margin-top: 1em;
+  }
+
+  // Label-hidden single-value fields collapse to one div, so target the
+  // field itself rather than an inner item.
+  .field--name-field-weed-latin-name {
+    font-style: italic;
+    font-weight: bold;
+  }
+}

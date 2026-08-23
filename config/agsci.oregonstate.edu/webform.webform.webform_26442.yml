@@ -1,0 +1,188 @@
+uuid: 699fc568-7086-4ddc-9c15-25dac0345041
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 21
+template: false
+archive: false
+id: webform_26442
+title: 'Leadership Academy Cohort'
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <h3>
+      	Follow these steps:</h3>
+
+      <p>
+      	<strong>Step 1. If you meet these criteria, go ahead and apply!&nbsp;</strong></p>
+
+      <ul>
+      	<li>
+      		Undergraduate in the College of Agricultural Sciences or College of Forestry</li>
+      	<li>
+      		Sophomore standing by the time you would enroll in the Academy</li>
+      	<li>
+      		Academic standing is good (not on academic warning or suspension)</li>
+      	<li>
+      		At least one year remaining at OSU Corvallis Campus. At this time, the Leadership Academy is not available for Ecampus students.</li>
+      	<li>
+      		You can register for one credit of LEAD 407 and meet with us on Wednesdays from 4:00-5:50pm for seminar</li>
+      </ul>
+
+      <p>
+      	&nbsp;</p>
+
+      <p>
+      	<strong>Step 2. Fill out the form below and attach your resume. </strong></p>
+
+      <p>
+      	Don't worry if you feel like your resume is incomplete or that you don't have much on it; we aren't looking for anything specific, we just want to get to know you! We don't require a minimum GPA to join the Academy, but we do want to make sure you have time for this commitment. As long as your academic standing is good (i.e., not on academic warning, suspension, etc.) then you're good to go!</p>
+
+      <p>
+      	&nbsp;</p>
+
+      <p>
+      	<strong>Step 3. We'll call you!</strong></p>
+
+      <p>
+      	We will reach out to you letting you know if you've been selected to move to the group interview. You'll be notified in early June if you've been accepted.</p>
+  name:
+    '#type': textfield
+    '#title': Name
+    '#required': true
+  personal_pronoun:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Personal Pronouns'
+  email_address:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Email Address'
+    '#required': true
+  resume:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'txt pdf doc docx'
+    '#title': Resume
+  major:
+    '#type': textfield
+    '#unique': false
+    '#title': Major
+    '#required': true
+  academic_standing:
+    '#type': radios
+    '#options':
+      standing_soph: Sophomore
+      standing_junior: Junior
+      standing_senior: Senior
+    '#title': 'Select what your academic standing will be in Fall 2026'
+    '#required': true
+  minor_if_applicable:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Minor (if applicable)'
+  number_of_completed_credit_hours:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Number of Completed Credit Hours'
+    '#required': true
+  cumulative_gpa:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Cumulative GPA'
+    '#required': true
+  anticipated_graduation_date:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Anticipated Graduation Date'
+    '#required': true
+  why_do_you_want_to_be_a_part_of_the_leadership_academy:
+    '#type': textarea
+    '#title': 'Why do you want to be a part of the Leadership Academy?'
+    '#required': true
+  what_role_do_you_see_leadership_playing_in_your_personal_life_and_career_goals:
+    '#type': textarea
+    '#title': 'What role do you see leadership playing in your personal life and career goals?'
+    '#required': true
+  how_did_you_hear_about_the_leadership_academy:
+    '#type': textarea
+    '#title': 'How did you hear about the Leadership Academy?'
+    '#required': true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<p>\r\n\t<em>Thank you for applying to the CAS Leadership Academy. We have received your application and will notify you about your application status after the deadline has closed. If you have any questions, please contact Faith Vawter at <a href=\"mailto:CASLeadershipAcademy@oregonstate.edu\" target=\"_blank\">CASLeadershipAcademy@oregonstate.edu</a>&nbsp; or <a href=\"Faith.Vawter@oregonstate.edu\">Faith.Vawter@oregonstate.edu.</a></em></p>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: CASLeadershipAcademy@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |-
+        Thank you for applying to the CAS Leadership Academy. We have received your application and will notify you about your application status after the deadline has closed. If you have any questions, please contact Faith Vawter at Faith.Vawter@oregonstate.edu.   
+
+        Submitted on [webform_submission:date:long]
+        Submitted by user: [webform_submission:user]
+        Submitted values are:
+        [webform_submission:values]
+
+        The results of this submission may be viewed at:
+        [webform_submission:url]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

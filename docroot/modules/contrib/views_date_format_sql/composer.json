@@ -1,0 +1,39 @@
+{
+  "name": "drupal/views_date_format_sql",
+  "description": "This enables group aggregation for date fields using the choosen granularity.",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "homepage": "https://drupal.org/project/views_date_format_sql",
+  "authors": [
+    {
+      "name": "Steven Ayers (bluegeek9)",
+      "homepage": "https://www.drupal.org/u/bluegeek9",
+      "role": "Maintainer"
+    },
+    {
+      "name": "zany",
+      "homepage": "https://www.drupal.org/u/zany",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Matthew Radcliffe (mradcliffe)",
+      "homepage": "https://www.drupal.org/u/mradcliffe",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/views_date_format_sql?version=8.x",
+    "source": "https://git.drupalcode.org/project/views_date_format_sql",
+    "forum": "https://drupal.stackexchange.com/questions/tagged/views_date_format_sql"
+  },
+  "require": {
+    "drupal/core": "^10 || ^11"
+  },
+  "repositories": {
+    "drupal": {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+uuid: 8ff110fd-a464-4bc6-bc63-76527b298fcd
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.horticulture_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_horticulture_oregonstate_edu
+label: 'Add selected content to the Horticulture domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - horticulture_oregonstate_edu

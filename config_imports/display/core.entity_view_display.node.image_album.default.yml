@@ -1,0 +1,52 @@
+uuid: b6f0a2cc-5865-4dde-97ef-d95e390a4d2c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.full
+    - core.entity_view_mode.media.gallery_card
+    - field.field.node.image_album.body
+    - field.field.node.image_album.field_domain_access
+    - field.field.node.image_album.field_domain_all_affiliates
+    - field.field.node.image_album.field_image_album_images
+    - field.field.node.image_album.field_image_album_show_profile
+    - node.type.image_album
+  module:
+    - colorbox
+    - text
+    - user
+id: node.image_album.default
+targetEntityType: node
+bundle: image_album
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_image_album_images:
+    type: colorbox_view_modes
+    label: hidden
+    settings:
+      colorbox_view_mode: gallery_card
+      colorbox_modal_view_mode: full
+      colorbox_gallery: post
+      colorbox_gallery_custom: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  entitygroupfield: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_image_album_show_profile: true
+  langcode: true
+

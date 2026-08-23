@@ -1,0 +1,98 @@
+// Degree fact sheet cards (degree_fact_sheets view / cas_degree_list block):
+// the D10 stand-in for D7's flip cards. The picture is the backdrop; the
+// title and Career Highlights (D7's flip side) sit over it as real text on
+// a dark scrim, and the levels / overview / Learn More follow beneath.
+.cas-dfs-cards {
+  .views-exposed-form {
+    margin-bottom: 1.5rem;
+  }
+
+  .dfs-card-cell {
+    display: flex;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.dfs-card {
+  background: #fff;
+  border: 1px solid $neutral-300;
+  border-top: 4px solid $osuorange;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__hero {
+    background: $paddletailblack;
+    min-height: 17.6rem;
+    position: relative;
+  }
+
+  &__image {
+    inset: 0;
+    position: absolute;
+
+    img {
+      display: block;
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  // The scrim keeps the text readable on any photo.
+  &__overlay {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.75));
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 17.6rem;
+    padding: 1.25rem 1.5rem;
+    position: relative;
+  }
+
+  // Headings keep the theme's own h3/h4/h5 sizes and spacing; over the
+  // picture they are only recoloured white.
+  &__title {
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  }
+
+  &__careers-heading {
+    color: #fff;
+  }
+
+  &__careers ul {
+    columns: 2;
+    font-size: 0.9rem;
+    margin: 0;
+    padding-left: 1.1rem;
+
+    li {
+      break-inside: avoid;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: 1rem 1.5rem 1.5rem;
+  }
+
+  // Degree types as an h4 (one per line), theme size; orange is for links.
+  &__levels {
+    border-bottom: 1px solid $neutral-300;
+    padding-bottom: 0.5rem;
+  }
+
+  &__overview {
+    font-size: 0.95rem;
+  }
+
+  &__more {
+    margin: auto 0 0;
+    padding-top: 1rem;
+    text-align: center;
+  }
+}

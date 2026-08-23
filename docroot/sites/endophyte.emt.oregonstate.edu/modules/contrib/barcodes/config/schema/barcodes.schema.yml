@@ -1,0 +1,72 @@
+field.formatter.settings.barcode:
+  type: mapping
+  label: 'Barcodes field formatter settings'
+  mapping:
+    type:
+      type: string
+      label: 'Barcode type'
+    format:
+      type: string
+      label: 'Display format, e.g. png, svg, jpg.'
+    color:
+      type: string
+      label: 'The color code'
+    height:
+      type: integer
+      label: 'The height in pixels'
+    width:
+      type: integer
+      label: 'The width in pixels'
+    padding_top:
+      type: integer
+      label: 'The top padding in pixels'
+    padding_right:
+      type: integer
+      label: 'The right padding in pixels'
+    padding_bottom:
+      type: integer
+      label: 'The bottom padding in pixels'
+    padding_left:
+      type: integer
+      label: 'The left padding in pixels'
+    show_value:
+      type: boolean
+      label: 'Show the actual value in addition to the barcode'
+
+block.settings.barcode:
+  type: block_settings
+  label: 'Barcode block settings'
+  mapping:
+    type:
+      type: string
+      label: 'Barcode type'
+    format:
+      type: string
+      label: 'Display format, e.g. png, svg, jpg.'
+    value:
+      type: string
+      label: 'The barcode value'
+    color:
+      type: string
+      label: 'The color code'
+    height:
+      type: integer
+      label: 'The height in pixels'
+    width:
+      type: integer
+      label: 'The width in pixels'
+    padding_top:
+      type: integer
+      label: 'The top padding in pixels'
+    padding_right:
+      type: integer
+      label: 'The right padding in pixels'
+    padding_bottom:
+      type: integer
+      label: 'The bottom padding in pixels'
+    padding_left:
+      type: integer
+      label: 'The left padding in pixels'
+    show_value:
+      type: boolean
+      label: 'Show the actual value in addition to the barcode'

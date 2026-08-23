@@ -1,0 +1,18 @@
+uuid: 4f396cad-bf6b-4071-86d1-5b9d0d1d36e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.enterprise_budgets
+id: node.enterprise_budgets.title
+field_name: title
+entity_type: node
+bundle: enterprise_budgets
+label: Number
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

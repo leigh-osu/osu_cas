@@ -1,0 +1,22 @@
+uuid: b6629958-c0f0-4d03-8e5a-4ad7a9297fbf
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - manzanita
+_core:
+  default_config_hash: WB4woEMqvhbN7ZcLeSvE9HnsshDBLTzm4548Lsc_1-0
+id: manzanita_breadcrumbs
+theme: manzanita
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

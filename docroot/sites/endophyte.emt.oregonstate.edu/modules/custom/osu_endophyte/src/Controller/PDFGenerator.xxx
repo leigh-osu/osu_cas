@@ -1,0 +1,104 @@
+<?php
+
+namespace Drupal\osu_endophyte\Controller;
+
+use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\node\NodeInterface;
+//use Drupal\pdf_using_mpdf\Conversion\ConvertToPdf;
+use Drupal\Core\Url;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Extension\ModuleHandlerInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\pdf_using_mpdf\Controller\GeneratePdf;
+
+class PDFGenerator extends GeneratePdf
+{
+
+//  /**
+//   * @var EntityTypeManagerInterface
+//   */
+//  protected $entityTypeManager;
+//
+//  /**
+//   * @var ModuleHandlerInterface
+//   */
+//  protected $moduleHandler;
+//
+//  /**
+//   * @var ConvertToPdf
+//   */
+//  protected $convertToPdf;
+//
+//  /**
+//   * Inject ConvertToPdf service
+//   *
+//   * GeneratePdf constructor.
+//   * @param ConvertToPdf $convert
+//   * @param EntityTypeManagerInterface $entityTypeManager
+//   * @param ModuleHandlerInterface $moduleHandler
+//   */
+//  public function __construct(ConvertToPdf $convert, EntityTypeManagerInterface $entityTypeManager, ModuleHandlerInterface $moduleHandler)
+//  {
+//    $this->convertToPdf = $convert;
+//    $this->entityTypeManager = $entityTypeManager;
+//    $this->moduleHandler = $moduleHandler;
+//  }
+//
+//  /**
+//   * {@inheritdoc}
+//   */
+//  public static function create(ContainerInterface $container)
+//  {
+//    return new static(
+//      $container->get('pdf_using_mpdf.conversion'),
+//      $container->get('entity_type.manager'),
+//      $container->get('module_handler')
+//    );
+//  }
+
+  /**
+   * Generate a PDF for a given node
+   *
+   * @param NodeInterface|null $node
+   * @return RedirectResponse
+   */
+
+  public function generate($node = NULL, $template = NULL) {
+    // Use 'pdf' view mode, this can be altered via hooks, if needed
+//    $view = $this->entityTypeManager->getViewBuilder('node')->view($node, 'sample_tracker');
+    $view = $this->entityTypeManager->getViewBuilder('node')->view($node,);
+
+//    $renderedNode = render($view)->__toString();
+    $renderedNode = twig_render_template(drupal_get_path('module', 'osu_endophyte') . "/templates/osu-endophyte-sample-tracker.html.twig", $view);
+    // Let other modules alter HTML for PDF generation
+    $this->moduleHandler->alter('mpdf_html', $renderedNode, $node);
+
+    // Let other modules alter and overwrite mPDF settings
+    $settings = $this->convertToPdf->getConfig();
+    $this->moduleHandler->alter('mpdf_settings', $settings, $node);
+
+    $this->convertToPdf->convert($renderedNode, $settings, ['node' => $node]);
+    $url = Url::fromRoute('entity.node.canonical', ['node' => $node->id()], ['absolute' => TRUE]);
+
+    return new RedirectResponse($url->toString());
+  }
+
+//  public function hello()
+//  {
+//    $html = '<h4>Hello there</h4><p>this is pretty cool!</p><h2>Right?!</h2>';
+//    $settings = '';
+//    $context = '';
+//
+////    /** @var \Drupal\pdf_using_mpdf\ConvertToPdfInterface $pdf **/
+//    $pdfService = \Drupal::service('pdf_using_mpdf.conversion');
+////    $pdfService->convert($html, $settings, $context);
+//    $pdfService->convert($html);
+//
+//    return [
+////      '#type' => 'markup',
+//      '#markup' => $this->t($html)
+//    ];
+//  }
+}
+

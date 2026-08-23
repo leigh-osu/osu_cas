@@ -1,0 +1,8 @@
+sample_workflow:
+  label: Sample workflow
+  entity_type: node
+
+lab_test_workflow:
+  label: Lab Test workflow
+  entity_type: paragraph
+

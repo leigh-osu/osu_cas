@@ -1,0 +1,8 @@
+uuid: 32afb9f5-58b2-44ec-a285-e8feb3ef3fc3
+langcode: en
+status: true
+dependencies: {  }
+id: menu-sara-s-admin-stuff
+label: "Sara's admin stuff"
+description: ''
+locked: false

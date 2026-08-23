@@ -1,0 +1,15 @@
+uuid: bbe2121f-44f3-478a-a048-d833cced10d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.plantbreeding_oregonstate_edu_
+  module:
+    - domain_access
+id: domain_access_add_action_plantbreeding_oregonstate_edu_
+label: 'Add selected content to the Plant Breeding and Genetics domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - plantbreeding_oregonstate_edu_

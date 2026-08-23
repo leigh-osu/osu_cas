@@ -1,0 +1,5 @@
+osu_story.settings:
+  title: 'OSU Story'
+  description: 'Configure external-story auto forwarding.'
+  route_name: osu_story.settings
+  parent: system.admin_config_content

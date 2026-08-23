@@ -1,0 +1,21 @@
+uuid: 743b9077-6932-4f82-83dc-a56b7614b8e4
+langcode: en
+status: true
+dependencies:
+  module:
+    - masquerade
+  theme:
+    - manzanita
+id: manzanita_masquerade
+theme: manzanita
+region: pre_footer
+weight: 0
+provider: null
+plugin: masquerade
+settings:
+  id: masquerade
+  label: Masquerade
+  label_display: '0'
+  provider: masquerade
+  show_unmasquerade_link: false
+visibility: {  }

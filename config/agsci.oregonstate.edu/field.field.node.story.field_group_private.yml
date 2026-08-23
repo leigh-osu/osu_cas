@@ -1,0 +1,23 @@
+uuid: a4302610-b678-4776-8830-d92f0e44743b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_group_private
+    - node.type.story
+id: node.story.field_group_private
+field_name: field_group_private
+entity_type: node
+bundle: story
+label: 'Group members only'
+description: 'Hide this content from the public, show ONLY to group members.<br />DO NOT USE THIS FOR SENSITIVE INFORMATION - NOT HIGH SECURITY STORAGE.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Group members only'
+  off_label: Public
+field_type: boolean

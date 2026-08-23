@@ -1,0 +1,20 @@
+uuid: 51753c7e-3d87-4e98-a761-15fc4e46a76f
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_mw_normal_ending_at_min
+field_name: field_mw_normal_ending_at_min
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

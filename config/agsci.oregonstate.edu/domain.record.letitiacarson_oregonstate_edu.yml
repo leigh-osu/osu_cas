@@ -1,0 +1,12 @@
+uuid: d9eade43-8c04-4493-905a-69a1a4ed12f5
+langcode: en
+status: true
+dependencies: {  }
+id: letitiacarson_oregonstate_edu
+domain_id: 9700841
+hostname: letitiacarson.oregonstate.edu
+name: 'Letitia Carson '
+scheme: https
+weight: 36
+is_default: false
+path_prefix: ''

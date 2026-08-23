@@ -1,0 +1,33 @@
+Resolve wysiwyg media tokens for private-scheme images: include the CAS
+cas_media_private_images migration in OsuMediaEmbed's lookup list (the
+stock media migrations cover scheme: public only, so tokens embedding
+private images passed through as raw JSON).
+
+diff --git a/src/OsuMediaEmbed.php b/src/OsuMediaEmbed.php
+--- a/src/OsuMediaEmbed.php
++++ b/src/OsuMediaEmbed.php
+@@ -136,7 +136,9 @@
+     $newMid = $this->lookup->lookup([
+       'upgrade_d7_media_audio',
+       'upgrade_d7_media_documents',
+       'upgrade_d7_media_images',
++      'cas_media_private_images',
++      'cas_media_private_documents',
+       'upgrade_d7_media_kaltura',
+       'upgrade_d7_media_local_video',
+       'upgrade_d7_media_remote_video',
+diff --git a/modules/paragraphs_to_layout_builder/src/Plugin/migrate/process/EntityBackground.php b/modules/paragraphs_to_layout_builder/src/Plugin/migrate/process/EntityBackground.php
+--- a/modules/paragraphs_to_layout_builder/src/Plugin/migrate/process/EntityBackground.php
++++ b/modules/paragraphs_to_layout_builder/src/Plugin/migrate/process/EntityBackground.php
+@@ -88,7 +88,10 @@
+     if (!is_null($image_fid)) {
+       // If we got an id perform a lookup and return the new media id.
+       try {
+-        $media_id = $this->migrateLookup->lookup('upgrade_d7_media_images', $image_fid);
++        $media_id = $this->migrateLookup->lookup([
++          'upgrade_d7_media_images',
++          'cas_media_private_images',
++        ], $image_fid);
+       }
+       catch (PluginException $e) {
+         return NULL;

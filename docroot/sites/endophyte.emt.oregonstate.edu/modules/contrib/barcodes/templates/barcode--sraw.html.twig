@@ -1,0 +1,34 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present a barcode.
+ *
+ * Available variables:
+ * - barcode: The rendered barcode format.
+ * - type: The barcode type.
+ * - format: The barcode format to display.
+ * - value: The barcode value.
+ * - width: The display width.
+ * - height: The display height.
+ * - color: The barcode color.
+ * - padding_top: The top padding.
+ * - padding_right: The right padding.
+ * - padding_bottom: The bottom padding.
+ * - padding_left: The left padding.
+ * - show_value: Show the raw barcode value.
+ * - svg: The rendered barcode in svg format.
+ * - png: The rendered barcode in png format.
+ * - htmldiv: The rendered barcode in htmldiv format.
+ * - unicode: The rendered barcode in unicode format.
+ * - binary: The rendered barcode in binary format.
+ * - extended_value: The barcode value + extended value if exists.
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="barcode barcode-{{ type|replace({'+': 'plus'})|lower }}">
+  <div class="code">{{ barcode|raw }}</div>
+  {% if show_value %}
+    <div class="value">{{ value }}</div>
+  {% endif %}
+</div>

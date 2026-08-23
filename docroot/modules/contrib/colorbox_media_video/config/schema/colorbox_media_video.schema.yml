@@ -1,0 +1,25 @@
+field.formatter.settings.colorbox_media_remote_video:
+  type: field.formatter.settings.oembed
+  label: 'Colorbox Media Remote Video formatter settings'
+  mapping:
+    display:
+      type: string
+      label: Display
+    link_text:
+      type: label
+      label: 'Link text'
+    image_style:
+      type: string
+      label: 'Thumbnail image style'
+    colorbox_gallery:
+      type: string
+      label: 'Gallery (video grouping)'
+    colorbox_gallery_custom:
+      type: string
+      label: 'Custom gallery'
+    colorbox_caption:
+      type: string
+      label: 'Caption'
+    colorbox_caption_custom:
+      type: label
+      label: 'Custom caption'

@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pub_editors
+    - node.type.publications
+    - taxonomy.vocabulary.publication_authors
+id: node.publications.field_pub_editors
+field_name: field_pub_editors
+entity_type: node
+bundle: publications
+label: Editors
+description: 'Editors of the containing work (book, proceedings, series).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      publication_authors: publication_authors
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

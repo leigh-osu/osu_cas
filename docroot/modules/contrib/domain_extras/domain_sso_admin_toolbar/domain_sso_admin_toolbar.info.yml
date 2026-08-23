@@ -1,0 +1,14 @@
+name: Domain SSO Admin Toolbar
+description: 'Adds a domain switcher to the admin toolbar with automatic SSO login.'
+type: module
+package: Domain
+core_version_requirement: ^10.2 || ^11
+dependencies:
+  - domain:domain
+  - domain_extras:domain_sso
+  - admin_toolbar:admin_toolbar
+
+# Information added by Drupal.org packaging script on 2026-08-07
+version: '3.0.5'
+project: 'domain_extras'
+datestamp: 1786097847

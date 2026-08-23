@@ -1,0 +1,56 @@
+uuid: a7d14262-a362-4851-8806-9f27f5999092
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: rQERx0Pg133CmtEg5cEHwx6j0zlrLbV_140gyXbdrtY
+id: field_collection_field_lp_adj_column__to__layout_builder
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - 'Field Collection Content'
+  - 'OSU Paragraphs'
+  - OSU
+  - 'CAS field collections'
+  - CAS
+migration_group: paragraphs_to_layout_builder
+label: 'field_lp_adj_column Field Collections'
+source:
+  plugin: d7_field_collection_item
+  field_name: field_lp_adj_column
+  bundle: group
+process:
+  type:
+    plugin: default_value
+    default_value: paragraph_block
+  info:
+    plugin: default_value
+    default_value: 'Migrated d7 lp_adjustable_columns item'
+  temp_paragraph_image:
+    plugin: get
+    source: field_lp_col_image
+  body/value:
+    -
+      plugin: extract
+      source: field_lp_col_text
+      index:
+        - 0
+        - value
+      default: ''
+    -
+      plugin: osu_media_wysiwyg_filter
+    -
+      plugin: cas_paragraph_image
+  body/format:
+    plugin: default_value
+    default_value: full_html
+  field_block_serialized_data:
+    plugin: cas_adjustable_columns_item
+destination:
+  plugin: 'entity:block_content'
+migration_dependencies:
+  required: {  }
+  optional: {  }

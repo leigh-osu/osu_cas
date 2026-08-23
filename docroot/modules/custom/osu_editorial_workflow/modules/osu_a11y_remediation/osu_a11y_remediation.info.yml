@@ -1,0 +1,10 @@
+name: OSU Accessibility Remediation
+type: module
+description: Adds accessibility remediation email field to all node types for the Preserve—Public Record Exception workflow state.
+package: OSU
+version: 1.0.3
+core_version_requirement: ^10 || ^11
+dependencies:
+  - osu_editorial_workflow:osu_editorial_workflow
+  - drupal:content_moderation
+  - drupal:node

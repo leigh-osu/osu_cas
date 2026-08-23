@@ -1,0 +1,16 @@
+uuid: ff9359d7-bde4-4953-85fa-05af34f46a45
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: ospud
+label: ospud
+logic: and
+conditions:
+  534af1a5-8091-4047-9fca-5f538f0cccd7:
+    id: request_path
+    uuid: 534af1a5-8091-4047-9fca-5f538f0cccd7
+    pages: /node/86251
+    negate: false
+allow_other_conditions: false

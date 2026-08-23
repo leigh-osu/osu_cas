@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Date Test'
+type: date_test
+description: 'Content type for testing AP Style date formatters.'
+help: 'Content type for testing date formatters.'
+new_revision: true
+preview_mode: 1
+display_submitted: true

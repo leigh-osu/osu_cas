@@ -1,0 +1,158 @@
+uuid: 0fa91a7e-d0ff-4433-97ca-4136437b15a1
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_273506
+title: 'RSVP for the CAS Communicator Meeting'
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	The next CAS Communicators Meeting will be on <strong>Tuesday, August 4th 10:00-Noon</strong><br />
+      	<em><strong>In-Person:</strong></em> MU 215: Thought Lab&nbsp;room (Coffee and snacks will be provided)<br />
+      	<strong><em>Remote</em>:</strong> Zoom</p>
+
+      <p>
+      	<strong>Agenda topics: </strong></p>
+
+      <ul>
+      	<li>
+      		<a href="/cas-communications/training-materials/drupal-10-migration">Drupal 10 Migration timeline</a></li>
+      	<li>
+      		<a href="/cas-communications/training-materials/drupal-10-tutorials">Drupal 10 tutorial</a></li>
+      	<li>
+      		Q&amp;A</li>
+      </ul>
+  first_name:
+    '#type': textfield
+    '#unique': false
+    '#title': 'First Name'
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Last Name'
+    '#required': true
+  department_or_unit:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Department or Unit '
+  e_mail:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title': E-mail
+    '#required': true
+  how_will_you_attend_the_meeting:
+    '#type': radios
+    '#options':
+      inperson: 'in person'
+      zoom: 'remotely over Zoom'
+    '#title': 'How will you attend the meeting?'
+    '#required': true
+  are_there_any_questions_you_would_like_us_to_address_during_this_meeting:
+    '#type': textarea
+    '#title': 'Are there any questions you would like us to address during this meeting?'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<p>\r\n\tThank you for RSVPing to this event</p>\r\n\r\n<p style=\"text-align: center;\">\r\n\t<a class=\"btn btn-primary\" href=\"/sites/agscid7/files/cas-webteam/cas_communicators_meeting_august_4_2026.ics\">Add this meeting to your Outlook Calendar</a></p>\r\n\r\n<p style=\"text-align: center;\">\r\n\t&nbsp;</p>\r\n\r\n<p>\r\n\t<strong>Zoom Meeting Details</strong></p>\r\n\r\n<ul>\r\n\t<li>\r\n\t\t<p>\r\n\t\t\t<span style=\"font-size:12pt\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif\">Join Zoom Meeting<br />\r\n\t\t\t<a href=\"https://oregonstate.zoom.us/j/95626962377?pwd=vaQsP2XUNpTPadl4szUSE2CWZhwI6d.1\" style=\"color:#467886; text-decoration:underline\">https://oregonstate.zoom.us/j/95626962377?pwd=vaQsP2XUNpTPadl4szUSE2CWZhwI6d.1</a><br />\r\n\t\t\t<br />\r\n\t\t\tPassword: 086973<br />\r\n\t\t\t<br />\r\n\t\t\tPhone Dial-In Information<br />\r\n\t\t\t+1 971 247 1195 US (Portland)<br />\r\n\t\t\t+1 253 215 8782 US (Tacoma)<br />\r\n\t\t\t+1 301 715 8592 US (Washington DC)<br />\r\n\t\t\t<br />\r\n\t\t\tMeeting ID: 956 2696 2377<br />\r\n\t\t\t<br />\r\n\t\t\tJoin by Polycom/Cisco/Other Room System<br />\r\n\t\t\t<a href=\"mailto:95626962377@zoomcrc.com\" style=\"color:#467886; text-decoration:underline\">95626962377@zoomcrc.com</a></span></span></p>\r\n\r\n\t\t<p>\r\n\t\t\t<span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif\"></span></span></p>\r\n\r\n\t\t<p>\r\n\t\t\t<span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"></span></span></p>\r\n\t</li>\r\n</ul>\r\n\r\n<p>\r\n\t<span style=\"font-size:11pt\"><span style=\"font-family:&quot;Calibri&quot;,sans-serif\"> </span></span></p>\r\n\r\n<p>\r\n\t&nbsp;</p>\r\n\r\n<p>\r\n\t<a href=\"/cas-communications/training-materials/cas-site-coordinators-meeting\"><span class=\"osu fa-arrow-left fas fa-3x\"></span>&nbsp; CAS Site Coordinators Meeting landing page</a></p>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:e_mail:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |
+        Greetings [webform_submission:values:first_name] [webform_submission:values:last_name], 
+
+        We look forward to seeing you on August 4th from 10:00-Noon.
+        You have registered to attend [webform_submission:values:how_will_you_attend_the_meeting].
+
+        Download the meeting invitation for your Outlook Calendar which includes the zoom link: 
+        https://agsci.oregonstate.edu/sites/agscid7/files/cas-webteam/cas_communicators_meeting_august_4_2026.ics
+
+
+        CAS Marketing & Communications Team
+
+
+        ------------------
+        Memorial Union 215
+
+        or
+
+        Join Zoom Meeting
+        https://oregonstate.zoom.us/j/95626962377?pwd=vaQsP2XUNpTPadl4szUSE2CWZhwI6d.1
+
+        Password: 086973
+
+        Phone Dial-In Information
+        +1 971 247 1195 US (Portland)
+        +1 253 215 8782 US (Tacoma)
+        +1 301 715 8592 US (Washington DC)
+
+        Meeting ID: 956 2696 2377
+
+        Join by Polycom/Cisco/Other Room System
+        95626962377@zoomcrc.com
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

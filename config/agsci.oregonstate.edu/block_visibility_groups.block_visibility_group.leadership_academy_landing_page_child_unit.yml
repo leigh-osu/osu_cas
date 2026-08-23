@@ -1,0 +1,16 @@
+uuid: b2f277af-ab72-455f-aca7-4ce04974eddf
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: leadership_academy_landing_page_child_unit
+label: leadership_academy_landing-page-child-unit
+logic: and
+conditions:
+  7a3b94cd-aa90-4722-9a0d-08fd5426abc6:
+    id: request_path
+    uuid: 7a3b94cd-aa90-4722-9a0d-08fd5426abc6
+    pages: "/leadershipacademy\r\n/node/215"
+    negate: false
+allow_other_conditions: false

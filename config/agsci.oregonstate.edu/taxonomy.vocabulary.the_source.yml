@@ -1,0 +1,9 @@
+uuid: 8a17c08c-16f5-4005-a960-4346b5e07c7f
+langcode: en
+status: true
+dependencies: {  }
+name: 'The Source'
+vid: the_source
+description: 'Sections of The Source newsletter'
+weight: 0
+new_revision: false

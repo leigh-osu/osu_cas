@@ -1,0 +1,10 @@
+uuid: adbf462a-ce5b-481e-9fb2-aa38937d774a
+langcode: en
+status: true
+dependencies: {  }
+id: osu_media
+label: osu_media
+description: ''
+source_type: null
+module: null
+shared_configuration: null

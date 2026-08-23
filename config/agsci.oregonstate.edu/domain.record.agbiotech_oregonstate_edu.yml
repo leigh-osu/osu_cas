@@ -1,0 +1,12 @@
+uuid: ccf893a4-3170-4082-9af2-a49d316e0d0a
+langcode: en
+status: true
+dependencies: {  }
+id: agbiotech_oregonstate_edu
+domain_id: 2005347
+hostname: agbiotech.oregonstate.edu
+name: 'Biotechnology in Agriculture'
+scheme: https
+weight: 4
+is_default: false
+path_prefix: ''

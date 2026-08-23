@@ -1,0 +1,735 @@
+<?php
+
+/**
+ * @file
+ * OSU CAS Multisite Groups — group and domain support for the CAS platform.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Url;
+use Drupal\group\Entity\GroupRelationship;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter() for node_osu_profile_edit_form.
+ *
+ * Profile owners reach this form through the basic_group-member
+ * 'update own group_node:osu_profile entity' permission. They may edit their
+ * own profile content, but not re-home the profile (the entitygroupfield
+ * Groups widget) or unpublish it. The gate cannot be 'administer nodes':
+ * ordinary members carry it via the group_content_author role. Instead, trim
+ * the form when someone edits the profile they own, unless they hold
+ * 'bypass node access' (dx_administrator / architect / manage_content) —
+ * group editors working on other people's profiles are unaffected.
+ */
+function osu_cas_multisite_groups_form_node_osu_profile_edit_form_alter(array &$form, FormStateInterface $form_state, string $form_id): void {
+  $account = \Drupal::currentUser();
+  $node = $form_state->getFormObject()->getEntity();
+  if ($node->getOwnerId() == $account->id() && !$account->hasPermission('bypass node access')) {
+    $form['entitygroupfield']['#access'] = FALSE;
+    $form['status']['#access'] = FALSE;
+  }
+  _osu_cas_multisite_groups_hide_profile_domain_fields($form, $account);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for node_osu_profile_form.
+ *
+ * The add form gets the same domain-field trim as the edit form.
+ */
+function osu_cas_multisite_groups_form_node_osu_profile_form_alter(array &$form, FormStateInterface $form_state, string $form_id): void {
+  _osu_cas_multisite_groups_hide_profile_domain_fields($form, \Drupal::currentUser());
+}
+
+/**
+ * Hides profile domain fields from everyone but admins.
+ *
+ * Profiles are directory content sent to all affiliates (D7 parity, set by
+ * migration and field default), so their domain assignment is bookkeeping
+ * that only System Administrators / Architects ('bypass node access') should
+ * see or change.
+ */
+function _osu_cas_multisite_groups_hide_profile_domain_fields(array &$form, $account): void {
+  if ($account->hasPermission('bypass node access')) {
+    return;
+  }
+  foreach (['field_domain_access', 'field_domain_all_affiliates', 'field_domain_source'] as $field) {
+    if (isset($form[$field])) {
+      $form[$field]['#access'] = FALSE;
+    }
+  }
+}
+
+/**
+ * Implements hook_node_access_records_alter().
+ *
+ * Members-only content, mirroring D7's og_access "group content visibility":
+ * a node flagged field_group_private carries view grants only for the groups
+ * it is placed in (realm cas_group_private, gid = group id), replacing the
+ * Domain Access records that would otherwise grant anonymous view. Because
+ * enforcement rides the node-grants system, Views listings, search, menu
+ * links and sitemaps hide these nodes from non-members automatically.
+ * Unpublished nodes keep their original records — domain_unpublished already
+ * restricts those correctly.
+ */
+function osu_cas_multisite_groups_node_access_records_alter(array &$grants, NodeInterface $node): void {
+  if (!$node->isPublished()
+    || !$node->hasField('field_group_private')
+    || empty($node->get('field_group_private')->value)) {
+    return;
+  }
+  $records = [];
+  foreach (GroupRelationship::loadByEntity($node) as $relationship) {
+    $gid = (int) $relationship->getGroupId();
+    $records[$gid] = [
+      'realm' => 'cas_group_private',
+      'gid' => $gid,
+      'grant_view' => 1,
+      'grant_update' => 0,
+      'grant_delete' => 0,
+      'langcode' => $node->language()->getId(),
+    ];
+  }
+  // A flagged node in no group at all stays visible only to accounts that
+  // bypass node access — the D7-faithful reading of "members only" with no
+  // members. That needs an explicit locking record: returning no records
+  // would make core write its public 'all' fallback. gid 0 is granted to
+  // nobody (hook_node_grants only ever returns real group ids).
+  if (!$records) {
+    $records[0] = [
+      'realm' => 'cas_group_private',
+      'gid' => 0,
+      'grant_view' => 1,
+      'grant_update' => 0,
+      'grant_delete' => 0,
+      'langcode' => $node->language()->getId(),
+    ];
+  }
+  $grants = array_values($records);
+}
+
+/**
+ * Implements hook_node_access().
+ *
+ * The grants above govern listings, search and menus, but a full node view
+ * consults entity-access hooks first — and gnode answers "allowed" whenever
+ * the group's anonymous/outsider role may view group content, which
+ * short-circuits the grants table entirely. Forbidden beats allowed, so for
+ * a flagged node this denies everyone who is not a member of one of its
+ * groups. Accounts with 'bypass node access' never reach node-access hooks.
+ */
+function osu_cas_multisite_groups_node_access(NodeInterface $node, string $op, AccountInterface $account): \Drupal\Core\Access\AccessResultInterface {
+  $neutral = \Drupal\Core\Access\AccessResult::neutral()->addCacheableDependency($node);
+  if ($op !== 'view'
+    || !$node->hasField('field_group_private')
+    || empty($node->get('field_group_private')->value)) {
+    return $neutral;
+  }
+  $member_gids = osu_cas_multisite_groups_node_grants($account, 'view')['cas_group_private'] ?? [];
+  foreach (GroupRelationship::loadByEntity($node) as $relationship) {
+    if (in_array((int) $relationship->getGroupId(), $member_gids, TRUE)) {
+      return $neutral->cachePerUser();
+    }
+  }
+  return \Drupal\Core\Access\AccessResult::forbidden('Group members only.')
+    ->addCacheableDependency($node)
+    ->cachePerUser();
+}
+
+/**
+ * Implements hook_node_grants().
+ *
+ * The matching grants for cas_group_private: each authenticated user is
+ * granted the ids of the groups they are a member of. Accounts with 'bypass
+ * node access' (System Administrators, Architects) never reach this hook.
+ */
+function osu_cas_multisite_groups_node_grants(AccountInterface $account, string $op): array {
+  if ($op !== 'view' || !$account->isAuthenticated()) {
+    return [];
+  }
+  $gids = [];
+  foreach (\Drupal::service('group.membership_loader')->loadByUser($account) as $membership) {
+    $gids[] = (int) $membership->getGroupRelationship()->getGroupId();
+  }
+  return $gids ? ['cas_group_private' => $gids] : [];
+}
+
+/**
+ * Implements hook_field_widget_complete_form_alter().
+ *
+ * Sorts the group select on node forms alphabetically.
+ *
+ * entitygroupfield builds its options in entity-load order — that is, by group
+ * id, which for migrated content means D7 creation order and reads as random.
+ * With 195 groups the list is unusable that way. The module offers no sort
+ * setting, so rather than patch contrib the options are reordered here, after
+ * the widget has decided which groups the user may actually post into.
+ *
+ * Options arrive grouped into optgroups keyed by group type label, so each
+ * optgroup is sorted on its own; a flat list is sorted directly. strcasecmp
+ * rather than natcasesort so "Fun Facts" files before "Funding Opportunities"
+ * — natural ordering skips the space and reverses them.
+ */
+function osu_cas_multisite_groups_field_widget_complete_form_alter(array &$field_widget_complete_form, FormStateInterface $form_state, array $context): void {
+  $plugin_id = $context['widget']->getPluginId();
+  if ($plugin_id !== 'entitygroupfield_select_widget') {
+    return;
+  }
+  $bundle = $context['items']->getEntity()->bundle();
+  _osu_cas_multisite_groups_limit_group_count($field_widget_complete_form, $bundle);
+  _osu_cas_multisite_groups_sort_group_options($field_widget_complete_form);
+
+  // Adopt a group left sitting in the dropdown, ahead of the widget's own
+  // required check -- see _osu_cas_multisite_groups_adopt_pending_group().
+  if (isset($field_widget_complete_form['widget']['#element_validate'])) {
+    array_unshift(
+      $field_widget_complete_form['widget']['#element_validate'],
+      '_osu_cas_multisite_groups_adopt_pending_group'
+    );
+  }
+}
+
+/**
+ * Adopts a group selected in the dropdown but never added as a row.
+ *
+ * The entitygroupfield widget is a two-step control: pick a group, press
+ * "Add to Group", and only then does the selection exist as far as saving is
+ * concerned. Editors reasonably treat picking from the dropdown as having
+ * answered the question, press Save, and are told "Groups field is required"
+ * with the highlight sitting on the very dropdown that still shows their
+ * choice. Since 1.25 made the field required on most bundles, that papercut
+ * blocks the whole form.
+ *
+ * This runs ahead of the widget's own multipleElementValidate (prepended in
+ * the complete-form alter above) and does what the missed button press would
+ * have done, without the rebuild: create the relationship entity, register it
+ * in the widget's state the way an existing closed row is registered
+ * (mode 'closed' with show_warning, which is the widget's own "closed but
+ * still needs saving" combination -- 'edit' would send massageFormValues
+ * looking for a subform this row never rendered), and seed a matching values
+ * row so extraction visits the new delta. The widget's massage and postSave
+ * then persist it exactly as if the button had been pressed.
+ *
+ * An empty dropdown changes nothing, so a genuinely missing group still gets
+ * the required error.
+ */
+function _osu_cas_multisite_groups_adopt_pending_group(array $element, FormStateInterface $form_state): void {
+  $field_name = $element['#field_name'];
+  $parents = $element['#field_parents'];
+
+  $selected = \Drupal\Component\Utility\NestedArray::getValue(
+    $form_state->getValues(),
+    array_merge($parents, [$field_name, 'add_more', 'add_relation'])
+  );
+  if (empty($selected)) {
+    return;
+  }
+
+  $widget_state = \Drupal\Core\Field\WidgetBase::getWidgetState($parents, $field_name, $form_state);
+
+  // Respect the field cardinality the same way addMoreSubmit does.
+  $cardinality = $element['#cardinality'] ?? \Drupal\Core\Field\FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED;
+  if ($cardinality != \Drupal\Core\Field\FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED
+    && ($widget_state['real_item_count'] ?? 0) >= $cardinality) {
+    return;
+  }
+
+  $group = \Drupal\group\Entity\Group::load($selected);
+  if (!$group || empty($widget_state['entity_plugin_id'])) {
+    return;
+  }
+
+  $relationship_type_id = \Drupal::entityTypeManager()
+    ->getStorage(entitygroupfield_get_group_relationship_type_id())
+    ->getRelationshipTypeId($group->getGroupType()->id(), $widget_state['entity_plugin_id']);
+
+  $relationship = \Drupal::entityTypeManager()->getStorage('group_content')->create([
+    'type' => $relationship_type_id,
+    'gid' => $group->id(),
+  ]);
+
+  $delta = isset($widget_state['gcontent']) ? count($widget_state['gcontent']) : 0;
+  $widget_state['gcontent'][$delta] = [
+    'entity' => $relationship,
+    // The form display is only USED for rows in edit mode, but
+    // massageFormValues reads the key unconditionally, so a closed row
+    // without one warns on every save. Store the same display the widget
+    // itself would have collected for this row.
+    'display' => \Drupal\Core\Entity\Entity\EntityFormDisplay::collectRenderDisplay($relationship, 'default'),
+    'mode' => 'closed',
+    'show_warning' => TRUE,
+  ];
+  $widget_state['real_item_count'] = ($widget_state['real_item_count'] ?? 0) + 1;
+  $widget_state['items_count'] = max($widget_state['items_count'] ?? 0, $widget_state['real_item_count']);
+  \Drupal\Core\Field\WidgetBase::setWidgetState($parents, $field_name, $form_state, $widget_state);
+
+  // A values row for the new delta, so extractFormValues carries it through
+  // to massageFormValues.
+  $form_state->setValue(array_merge($parents, [$field_name, $delta]), ['_weight' => $delta]);
+
+  // The selection has been consumed.
+  $form_state->setValue(array_merge($parents, [$field_name, 'add_more', 'add_relation']), '');
+}
+
+/**
+ * Recursively alphabetises the #options of any select in a render array.
+ *
+ * The widget nests its select under wrappers that differ between the initial
+ * build and the AJAX "add another" rebuild, so the element is found by walking
+ * rather than by a fixed path.
+ */
+function _osu_cas_multisite_groups_sort_group_options(array &$element): void {
+  if (isset($element['#type'], $element['#options']) && $element['#type'] === 'select' && is_array($element['#options'])) {
+    foreach ($element['#options'] as &$option) {
+      // An optgroup: sort the groups inside it.
+      if (is_array($option)) {
+        uasort($option, fn($a, $b) => strcasecmp((string) $a, (string) $b));
+      }
+    }
+    unset($option);
+    // A flat list of groups, with no optgroups.
+    if (!array_filter($element['#options'], 'is_array')) {
+      uasort($element['#options'], fn($a, $b) => strcasecmp((string) $a, (string) $b));
+    }
+  }
+  foreach (Element::children($element) as $key) {
+    if (is_array($element[$key])) {
+      _osu_cas_multisite_groups_sort_group_options($element[$key]);
+    }
+  }
+}
+
+/**
+ * Implements hook_views_data_alter().
+ *
+ * Group support for content listings without join fan-out: a computed
+ * primary-group field on nodes (CasNodeGroups) and a select-friendly
+ * parent-group filter (CasGroupSelect).
+ */
+function osu_cas_multisite_groups_views_data_alter(array &$data) {
+  if (isset($data['node_field_data'])) {
+    $data['node_field_data']['cas_node_groups'] = [
+      'title' => t('Primary group (computed)'),
+      'help' => t('Alphabetically first group the node is placed in; a correlated subquery rather than a join, so rows never duplicate and the column stays click-sortable.'),
+      'field' => [
+        'id' => 'cas_node_groups',
+        'click sortable' => TRUE,
+      ],
+    ];
+    $data['node_field_data']['cas_ungrouped_nodes'] = [
+      'title' => t('In no group'),
+      'help' => t('Content belonging to no group at all. NOT EXISTS rather than a LEFT JOIN with IS NULL, which would fan out for content in several groups.'),
+      'real field' => 'nid',
+      'filter' => ['id' => 'cas_ungrouped_nodes'],
+    ];
+    $data['node_field_data']['cas_node_alias'] = [
+      'title' => t('URL alias'),
+      'help' => t('The alias as stored, read by correlated subquery so the column stays click-sortable and the listing stays one query.'),
+      'field' => [
+        'id' => 'cas_node_alias',
+        'click sortable' => TRUE,
+      ],
+    ];
+  }
+  if (isset($data['groups_field_data'])) {
+    $data['groups_field_data']['cas_my_groups'] = [
+      'title' => t('My groups (or all, when administering every group)'),
+      'help' => t("Limits the listing to the current user's groups; holders of 'administer all cas groups' see every group."),
+      'real field' => 'id',
+      'filter' => ['id' => 'cas_my_groups'],
+    ];
+    $data['groups_field_data']['cas_my_group_roles'] = [
+      'title' => t('My roles in this group'),
+      'help' => t('The roles the current user holds in the group on this row, read through the membership API.'),
+      'field' => [
+        'id' => 'cas_my_group_roles',
+        'click sortable' => TRUE,
+      ],
+    ];
+  }
+  if (isset($data['group_relationship_field_data'])) {
+    $data['group_relationship_field_data']['cas_membership_roles'] = [
+      'title' => t('Membership roles'),
+      'help' => t("The roles this membership carries, including synchronized ones. group_relationship__group_roles ships no views data, so the roles are read through the membership API instead."),
+      'field' => [
+        'id' => 'cas_membership_roles',
+        'click sortable' => FALSE,
+      ],
+    ];
+  }
+  if (isset($data['node_field_data'])) {
+    $data['node_field_data']['cas_group_nodes'] = [
+      'title' => t('Nodes in a group (contextual)'),
+      'help' => t('Limit nodes to one group by EXISTS subquery, so node access still applies and rows never duplicate.'),
+      'real field' => 'nid',
+      'argument' => ['id' => 'cas_group_nodes'],
+    ];
+  }
+  if (isset($data['node_field_data'])) {
+    $data['node_field_data']['gid_select'] = [
+      'title' => t('Parent group (dropdown)'),
+      'help' => t('Filter by parent group with an alphabetical dropdown (EXISTS subquery, no join).'),
+      'real field' => 'nid',
+      'filter' => ['id' => 'cas_group_select'],
+    ];
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function osu_cas_multisite_groups_theme(array $existing, string $type, string $theme, string $path): array {
+  return [
+    // The group footer card (CasGroupFooterBlock): columns is a keyed subset
+    // of map / contact / info / col4, each already a render array except
+    // contact (address parts, email, phone, hours, social link list).
+    'cas_group_footer' => [
+      'variables' => [
+        'group' => NULL,
+        'columns' => [],
+        'column_count' => 0,
+        'attributes' => [],
+      ],
+    ],
+    // The members' workspace on a group page (CasGroupAddContentBlock):
+    // create-content links and, for members, the group's content listing.
+    'cas_group_workspace' => [
+      'variables' => [
+        'create_links' => NULL,
+        'content_view' => NULL,
+      ],
+    ],
+    // The /dashboard page (DashboardController). See the controller for the
+    // shape of each variable.
+    'cas_dashboard' => [
+      'variables' => [
+        'display_name' => '',
+        'account_link' => NULL,
+        'profile_link' => NULL,
+        'site_roles' => [],
+        'groups_view' => NULL,
+        'content_view' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_user_login().
+ *
+ * Lands users on their dashboard after signing in. Setting 'destination'
+ * rather than returning a response keeps every login path working the same
+ * way: the CAS ServiceController and core's UserLoginForm both defer to
+ * Drupal's RedirectResponseSubscriber, which honours this parameter.
+ *
+ * A destination already on the request means the user was going somewhere
+ * specific — a protected link that bounced them through login — so it is left
+ * alone. Everything else lands on the dashboard, including the one-time login
+ * link, which core otherwise sends to the account form: CAS owns passwords
+ * here (cas.settings restrict_password_management), so there is nothing to set
+ * on that form and no reason to strand anyone there.
+ */
+function osu_cas_multisite_groups_user_login($account): void {
+  $request = \Drupal::request();
+  $destination = $request->query->get('destination') ?? $request->request->get('destination');
+
+  // A destination pointing back into the login flow would bounce the user
+  // straight back out of it, so it counts as no destination at all.
+  if (is_string($destination) && $destination !== ''
+    && !preg_match('#^/?user/(login|reset|password)#', $destination)) {
+    return;
+  }
+
+  $request->query->set('destination', Url::fromRoute('osu_cas_multisite_groups.dashboard')->toString());
+}
+
+/**
+ * Content types any editor may place in more than one group.
+ */
+const OSU_CAS_MULTI_GROUP_BUNDLES = [
+  // A story is news, and news is routinely a joint announcement: the same piece
+  // belongs in the department's feed and the college's. 1,060 of the 1,254
+  // nodes already sitting in two or more groups are stories, so this is the
+  // existing editorial practice rather than a new allowance. A story still has
+  // to name at least one owning unit.
+  'story',
+];
+
+/**
+ * Content types that may stand outside the group structure.
+ *
+ * A publication is cited by URL and belongs to its authors, not to one unit; a
+ * profile follows the person; simple tabs, webforms and live feeds are building
+ * blocks placed into a page rather than content a unit owns. Everything else is
+ * a unit's content and must say which unit.
+ */
+const OSU_CAS_GROUPLESS_BUNDLES = [
+  'publications',
+  'osu_profile',
+  'osu_simple_tabs',
+  'webform',
+  'feed',
+];
+
+/**
+ * Implements hook_entity_form_display_alter().
+ *
+ * Requires a group on the content types that belong to a unit.
+ *
+ * Set here rather than in each bundle's form display because it is one rule
+ * about the site, not twenty independent settings that drift apart: a new
+ * content type is covered the day it is created, and the exemption list reads
+ * as the policy it is.
+ *
+ * @see OSU_CAS_GROUPLESS_BUNDLES
+ */
+function osu_cas_multisite_groups_entity_form_display_alter(&$form_display, array $context): void {
+  if ($context['entity_type'] !== 'node') {
+    return;
+  }
+  $component = $form_display->getComponent('entitygroupfield');
+  if (!$component) {
+    return;
+  }
+  // Every group belongs to exactly one domain -- all 195 of them -- so for
+  // ordinary content the domain is a consequence of the group, not a decision.
+  // Three domain widgets invite an editor to contradict that, and a node
+  // published to a domain its group does not serve is invisible where people
+  // look for it. Hidden rather than removed: a field absent from the form is
+  // left untouched on save, so the 6,530 nodes already published beyond their
+  // group's domain keep those placements instead of being quietly withdrawn.
+  if (!\Drupal::currentUser()->hasPermission('administer domains')) {
+    foreach (OSU_CAS_DOMAIN_FIELDS as $domain_field) {
+      $form_display->removeComponent($domain_field);
+    }
+  }
+
+  $required = !in_array($context['bundle'], OSU_CAS_GROUPLESS_BUNDLES, TRUE);
+  if (($component['settings']['required'] ?? FALSE) === $required) {
+    return;
+  }
+  $component['settings']['required'] = $required;
+  $form_display->setComponent('entitygroupfield', $component);
+}
+
+/**
+ * Withholds "add another group" from users who may not place content twice.
+ *
+ * Content belongs to one unit. Adding a second group makes the same node appear
+ * in another unit's listings and menus, which is occasionally right and usually
+ * a mistake, so it is reserved to holders of 'add content to multiple groups'.
+ *
+ * Only the add control is removed, never an existing value. 1,254 nodes already
+ * sit in two or more groups — 1,060 of them stories — and rendering a
+ * single-value widget over those would have dropped the extra groups silently
+ * the next time an editor pressed Save. Withholding the button leaves that
+ * content exactly as it is while stopping the pattern from spreading, which is
+ * also what was asked for: who may *add* another group.
+ *
+ * The button is left in place when nothing is selected yet, since the first
+ * group is the one everyone must be able to choose.
+ */
+function _osu_cas_multisite_groups_limit_group_count(array &$element, string $bundle): void {
+  if (in_array($bundle, OSU_CAS_MULTI_GROUP_BUNDLES, TRUE)) {
+    return;
+  }
+  if (\Drupal::currentUser()->hasPermission('add content to multiple groups')) {
+    return;
+  }
+  $widget = &$element['widget'] ?? $element;
+  if (!isset($widget['add_more'])) {
+    return;
+  }
+  // Rows are the numeric children; anything else is structure.
+  $rows = 0;
+  foreach (\Drupal\Core\Render\Element::children($widget) as $key) {
+    if (is_numeric($key)) {
+      $rows++;
+    }
+  }
+  if ($rows >= 1) {
+    $widget['add_more']['#access'] = FALSE;
+  }
+}
+
+/**
+ * Domain fields shown only to users who administer domains.
+ */
+const OSU_CAS_DOMAIN_FIELDS = [
+  'field_domain_access',
+  'field_domain_source',
+  'field_domain_all_affiliates',
+];
+
+
+/**
+ * Implements hook_ENTITY_TYPE_presave() for node.
+ *
+ * Gives content a domain when nothing else has.
+ *
+ * The domain widgets are hidden from editors, and the field carries no default
+ * value or callback -- verified by saving a node as an ordinary author, which
+ * produced an empty field_domain_access. Content with no domain is published to
+ * nowhere: it appears on no site while looking perfectly fine in the content
+ * list. So the value has to come from somewhere, and the group is the honest
+ * source, falling back to whichever domain the author is working on.
+ *
+ * Only ever fills an empty field. Rewriting a populated one would collapse the
+ * 6,530 nodes currently published beyond their group's domain the moment
+ * anybody edited them.
+ */
+function osu_cas_multisite_groups_node_presave(\Drupal\node\NodeInterface $node): void {
+  if (!$node->hasField('field_domain_access') || !$node->get('field_domain_access')->isEmpty()) {
+    return;
+  }
+
+  // The domains of the groups this node is in. Empty for new content, whose
+  // group relationship is written after the node itself.
+  $domains = [];
+  if (!$node->isNew()) {
+    $domains = \Drupal::database()->query(
+      "SELECT DISTINCT gd.field_domain_access_target_id
+       FROM {group_relationship_field_data} gr
+       JOIN {group__field_domain_access} gd ON gd.entity_id = gr.gid
+       WHERE gr.entity_id = :nid AND gr.plugin_id LIKE 'group\\_node:%'",
+      [':nid' => $node->id()]
+    )->fetchCol();
+  }
+
+  if (!$domains) {
+    $active = \Drupal::service('domain.negotiator')->getActiveDomain();
+    if (!$active) {
+      return;
+    }
+    $domains = [$active->id()];
+  }
+
+  $node->set('field_domain_access', array_values($domains));
+  if ($node->hasField('field_domain_source') && $node->get('field_domain_source')->isEmpty()) {
+    $node->set('field_domain_source', reset($domains));
+  }
+}
+
+/**
+ * Implements hook_field_widget_single_element_form_alter().
+ *
+ * Emphasises the "Group members only" label.
+ *
+ * The checkbox changes who can see the content, and it sits in a column of
+ * ordinary options where nothing distinguishes it. A field label is escaped on
+ * output, so the emphasis cannot come from the label text itself; setting the
+ * element title to markup here is the supported way to do it, and the
+ * description below it already carries the warning about what the setting is
+ * and is not good for.
+ */
+function osu_cas_multisite_groups_field_widget_single_element_form_alter(array &$element, FormStateInterface $form_state, array $context): void {
+  if ($context['items']->getFieldDefinition()->getName() !== 'field_group_private') {
+    return;
+  }
+  if (!isset($element['value']['#title'])) {
+    return;
+  }
+  $element['value']['#title'] = \Drupal\Core\Render\Markup::create(
+    '<strong>' . \Drupal\Component\Utility\Html::escape((string) $context['items']->getFieldDefinition()->getLabel()) . '</strong>'
+  );
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Hides tagging fields belonging to other units.
+ *
+ * A story form offers 19 taxonomy fields — COAREC authors, Malheur topics,
+ * OWRI, SWD, turf, veg, nursery and the rest — because every unit's vocabulary
+ * has its own field and all of them are on every form. Almost none of it is
+ * relevant to the person writing, and a wall of empty selects is how tagging
+ * stops happening at all.
+ *
+ * A group names the vocabularies it uses on its OSU CAS tab; the rest are
+ * hidden while writing there. Two rules keep this from losing anything:
+ *
+ * - A group naming nothing shows everything, which is today's behaviour and the
+ *   state all 195 groups start in.
+ * - A field already holding a value is always shown, whoever the group is. An
+ *   inaccessible field keeps its stored value on save, so hiding one would not
+ *   destroy data, but it would leave an editor unable to see or correct a tag
+ *   that is live on the page.
+ */
+function osu_cas_multisite_groups_form_alter(array &$form, FormStateInterface $form_state, $form_id): void {
+  $object = $form_state->getFormObject();
+  if (!$object instanceof \Drupal\Core\Entity\EntityFormInterface) {
+    return;
+  }
+  $node = $object->getEntity();
+  if (!$node instanceof NodeInterface || !in_array($object->getOperation(), ['default', 'edit'], TRUE)) {
+    return;
+  }
+  // Administrators see every unit's fields.
+  if (\Drupal::currentUser()->hasPermission('administer group')) {
+    return;
+  }
+
+  $vocabularies = _osu_cas_multisite_groups_group_vocabularies($node);
+  if ($vocabularies === NULL) {
+    // No group context, or the group names no vocabularies: show everything.
+    return;
+  }
+
+  foreach (\Drupal::service('entity_field.manager')->getFieldDefinitions('node', $node->bundle()) as $name => $definition) {
+    if (!isset($form[$name])) {
+      continue;
+    }
+    if ($definition->getType() !== 'entity_reference' || $definition->getSetting('target_type') !== 'taxonomy_term') {
+      continue;
+    }
+    // Never hide a field the content is already using.
+    if ($node->hasField($name) && !$node->get($name)->isEmpty()) {
+      continue;
+    }
+    $targets = array_keys($definition->getSetting('handler_settings')['target_bundles'] ?? []);
+    if ($targets && !array_intersect($targets, $vocabularies)) {
+      $form[$name]['#access'] = FALSE;
+    }
+  }
+}
+
+/**
+ * The vocabularies the node's group context allows, or NULL for no restriction.
+ */
+function _osu_cas_multisite_groups_group_vocabularies(NodeInterface $node): ?array {
+  $gids = [];
+  // Creating through a group: the group is in the route, which is the normal
+  // path and the only one available while the node has no id yet.
+  $route_group = \Drupal::routeMatch()->getParameter('group');
+  if ($route_group) {
+    $gids[] = is_object($route_group) ? $route_group->id() : $route_group;
+  }
+  elseif (!$node->isNew()) {
+    $gids = \Drupal::database()->query(
+      "SELECT DISTINCT gid FROM {group_relationship_field_data}
+       WHERE entity_id = :nid AND plugin_id LIKE 'group\\_node:%'",
+      [':nid' => $node->id()]
+    )->fetchCol();
+  }
+  if (!$gids) {
+    return NULL;
+  }
+
+  $allowed = [];
+  foreach (\Drupal::entityTypeManager()->getStorage('group')->loadMultiple($gids) as $group) {
+    if (!$group->hasField('field_group_vocabularies')) {
+      continue;
+    }
+    // One group naming nothing means no restriction at all: content shared with
+    // a group that has not configured itself must not be narrowed by another.
+    if ($group->get('field_group_vocabularies')->isEmpty()) {
+      return NULL;
+    }
+    foreach ($group->get('field_group_vocabularies') as $item) {
+      $allowed[$item->target_id] = $item->target_id;
+    }
+  }
+  return $allowed ? array_values($allowed) : NULL;
+}

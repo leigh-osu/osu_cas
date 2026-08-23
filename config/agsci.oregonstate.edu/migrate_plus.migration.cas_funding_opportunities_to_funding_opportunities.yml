@@ -1,0 +1,130 @@
+uuid: d17bd347-4f13-432b-9214-8749c59d2f1a
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 61UgyG7MqLuneoTi_beiccZN3BdHCcKDwzfUQfkWiMY
+id: cas_funding_opportunities_to_funding_opportunities
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - 'Layout content'
+  - OSU
+  - CAS
+  - 'CAS Content'
+migration_group: content
+label: 'Basic Funding Opportunities to Funding Opportunities Migration'
+source:
+  plugin: d7_node_domain_access
+  node_type: funding_opportunities
+  high_water_property:
+    name: changed
+process:
+  title: title
+  body:
+    plugin: sub_process
+    source: body
+    process:
+      value:
+        plugin: osu_media_wysiwyg_filter
+        source: value
+      summary: summary
+      format:
+        plugin: default_value
+        default_value: full_html
+  field_fundop_number:
+    plugin: get
+    source: field_number
+  field_fundop_sponsor:
+    plugin: get
+    source: field_sponsor
+  field_fundop_award_ceiling:
+    plugin: get
+    source: field_award_amount
+  field_fundop_open_ended:
+    plugin: get
+    source: field_open_ended
+  field_fundop_due_date_full:
+    plugin: sub_process
+    source: field_due_date
+    process:
+      value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: Y-m-d
+        source: value
+  field_fundop_due_date_loi:
+    plugin: sub_process
+    source: field_due_date_letter_of_intent
+    process:
+      value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: Y-m-d
+        source: value
+  field_fundop_posted_date:
+    plugin: sub_process
+    source: field_posted_date
+    process:
+      value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: Y-m-d
+        source: value
+  field_fundop_link:
+    plugin: sub_process
+    source: field_link
+    process:
+      uri: url
+      title: title
+  field_tax_cas_section:
+    plugin: sub_process
+    source: field_cas_section
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: 'upgrade_d7_taxonomy_terms:type'
+          source: tid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  field_meta_tags:
+    plugin: d7_metatag_entities
+    source: pseudo_metatag_entities
+  path/pathauto:
+    plugin: default_value
+    default_value: 0
+  type:
+    plugin: default_value
+    default_value: funding_opportunities
+  field_domain_access:
+    plugin: sub_process
+    source: domain_access_node
+    process:
+      target_id: target_id
+  field_domain_all_affiliates:
+    plugin: get
+    source: domain_all_affiliates
+  field_domain_source:
+    plugin: get
+    source: domain_source
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+destination:
+  plugin: 'entity:node'
+  default_bundle: funding_opportunities
+migration_dependencies:
+  required:
+    - upgrade_d7_files
+    - upgrade_d7_users_with_roles
+    - 'upgrade_d7_taxonomy_terms:type'

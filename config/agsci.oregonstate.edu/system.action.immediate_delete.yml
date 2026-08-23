@@ -1,0 +1,13 @@
+uuid: 278a4473-d96f-4849-913c-2a763b6c2d9c
+langcode: en
+status: true
+dependencies:
+  module:
+    - file_delete
+_core:
+  default_config_hash: pJIl5vQwlme3hy0avH-vnJrRMQqwPPQQ-D0xHzda9Ws
+id: immediate_delete
+label: 'Immediately delete (with usage checks)'
+type: file
+plugin: file_delete_immediately
+configuration: {  }

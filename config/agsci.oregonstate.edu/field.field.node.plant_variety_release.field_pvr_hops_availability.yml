@@ -1,0 +1,19 @@
+uuid: e90546d9-e0a0-42d7-91d6-3cc72b3cd9cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pvr_hops_availability
+    - node.type.plant_variety_release
+id: node.plant_variety_release.field_pvr_hops_availability
+field_name: field_pvr_hops_availability
+entity_type: node
+bundle: plant_variety_release
+label: Availability
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,41 @@
+name: Madrone
+description: 'OSU Theme of the future'
+core_version_requirement: ^10 || ^11
+type: theme
+dependencies:
+version: '1.4.7'
+base theme: stable9
+logo: logo.svg
+screenshot: madrone.png
+regions:
+  header: Header
+  primary_menu: Primary menu
+  full_top: Full width below Primary menu
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  help: Help
+  page_top: Page Top
+  content: Content
+  sidebar: Sidebar
+  page_bottom: Page Bottom
+  pre_footer: Full width above the Footer
+  footer: Footer
+  tb_megamenu_blocks: Mega Menu Blocks (Hidden)
+regions_hidden:
+  - header
+ckeditor_stylesheets:
+  - dist/madrone.css
+# Will work on adding a custom cke5 stylesheet in the future.
+ckeditor5-stylesheets:
+  - dist/madrone-ckeditor-styles.css
+  - https://cdn.icomoon.io/155267/OregonStateBrandIcons/style-cf.css?8rsof6
+libraries:
+  - madrone/fonts
+  - madrone/osu_icons
+  - madrone/bootstrap
+  - madrone/global-styling
+  - core/drupal.message
+
+libraries-extend:
+  core/drupal.message:
+    - madrone/messages

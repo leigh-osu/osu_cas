@@ -1,0 +1,8 @@
+uuid: 262d1abd-f101-458b-87d4-59854c813a27
+langcode: en
+status: true
+dependencies: {  }
+id: menu-bee-audience
+label: 'Information for'
+description: 'BEE Audience menu'
+locked: false

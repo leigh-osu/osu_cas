@@ -1,0 +1,10 @@
+name: Entity test
+type: module
+package: Testing
+dependencies:
+  - drupal:field
+
+# Information added by Drupal.org packaging script on 2026-08-14
+version: '8.x-1.7'
+project: 'entity'
+datestamp: 1786708368

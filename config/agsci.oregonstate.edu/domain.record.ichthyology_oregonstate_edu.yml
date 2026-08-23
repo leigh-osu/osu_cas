@@ -1,0 +1,12 @@
+uuid: 31203dc5-fd30-4d98-9922-572637497ff8
+langcode: en
+status: true
+dependencies: {  }
+id: ichthyology_oregonstate_edu
+domain_id: 11643682
+hostname: ichthyology.oregonstate.edu
+name: Ichthyology
+scheme: https
+weight: 32
+is_default: false
+path_prefix: ''

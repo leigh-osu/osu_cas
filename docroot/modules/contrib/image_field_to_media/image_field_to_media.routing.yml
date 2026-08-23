@@ -1,0 +1,18 @@
+image_field_to_media.image_media_type_validator:
+  path: '/image-field-to-media-validator/{field_config}'
+  defaults:
+    _controller: '\Drupal\image_field_to_media\Controller\ImageFieldToMediaController::validate'
+  options:
+    _admin_route: TRUE
+  requirements:
+    _permission: 'create media fields based on existing image fields'
+
+image_field_to_media.field_settings_form:
+  path: '/image-field-to-media/{field_config}'
+  defaults:
+    _form: '\Drupal\image_field_to_media\Form\ImageFieldToMediaForm'
+    _title: 'Clone the image field to the Media image field'
+  options:
+    _admin_route: TRUE
+  requirements:
+    _permission: 'create media fields based on existing image fields'

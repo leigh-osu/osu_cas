@@ -1,0 +1,14 @@
+uuid: 3daada2c-b49d-48b3-926c-5bea49587a03
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.ichthyology_oregonstate_edu
+  module:
+    - domain_source
+id: domain_source_set_action.ichthyology_oregonstate_edu
+label: 'Set content domain source value to the Ichthyology domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: ichthyology_oregonstate_edu

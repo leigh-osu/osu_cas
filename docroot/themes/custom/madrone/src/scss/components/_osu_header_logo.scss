@@ -1,0 +1,37 @@
+.osu-logo {
+  &--companion:not(.osu-logo--in-group) {
+    .block__content {
+      .osu-logo--wide {
+        display: flex !important;
+      }
+
+      .osu-logo--crest {
+        display: none !important;
+      }
+
+      .osu-logo--spacer {
+        display: none !important;
+      }
+    }
+  }
+}
+
+.logo--user-upload {
+  .block__content {
+    align-items: start !important;
+    flex-direction: column;
+
+    .osu-logo--wide {
+      display: flex !important;
+    }
+
+    .osu-logo--crest {
+      display: none !important;
+    }
+
+    @media screen and (min-width: 768px) {
+      align-items: center !important;
+      flex-direction: row;
+    }
+  }
+}

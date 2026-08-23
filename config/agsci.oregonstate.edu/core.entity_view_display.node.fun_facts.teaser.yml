@@ -1,0 +1,50 @@
+uuid: 5d54b365-3467-4c38-877e-9374b2f00739
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.fun_facts.body
+    - field.field.node.fun_facts.field_domain_access
+    - field.field.node.fun_facts.field_domain_all_affiliates
+    - field.field.node.fun_facts.field_domain_source
+    - field.field.node.fun_facts.field_fun_facts_category
+    - field.field.node.fun_facts.field_fun_facts_image
+    - field.field.node.fun_facts.field_fun_facts_source
+    - field.field.node.fun_facts.field_group_private
+    - field.field.node.fun_facts.field_tax_big_fish_species
+    - field.field.node.fun_facts.field_tax_big_fish_topic
+    - node.type.fun_facts
+  module:
+    - text
+    - user
+id: node.fun_facts.teaser
+targetEntityType: node
+bundle: fun_facts
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entitygroupfield: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_fun_facts_category: true
+  field_fun_facts_image: true
+  field_fun_facts_source: true
+  field_group_private: true
+  field_tax_big_fish_species: true
+  field_tax_big_fish_topic: true
+  langcode: true

@@ -1,0 +1,11 @@
+uuid: c5e4717c-deb5-45fa-acf0-d6939d4cf449
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.page_banner
+label: 'Page banner'
+description: 'Wide banner crop (header_1200_x_400) for page header images.'
+targetEntityType: media
+cache: true

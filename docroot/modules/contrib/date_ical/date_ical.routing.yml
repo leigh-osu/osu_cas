@@ -1,0 +1,18 @@
+date_ical.field:
+  path: '/date-ical/{entity_type}/{entity_id}/{field_name}/{view_mode}'
+  defaults:
+    _title: 'iCal feed'
+    _controller: '\Drupal\date_ical\Controller\DateIcalController::feed'
+  methods: [ GET ]
+  requirements:
+    # it will use for third party.
+    _access: 'TRUE'
+
+date_ical.download:
+  path: '/date-ical/download'
+  defaults:
+    _title: 'Download iCalendar'
+    _controller: '\Drupal\date_ical\Controller\DateIcalController::download'
+  requirements:
+    # it will use for ckeditor download.
+    _access: 'TRUE'

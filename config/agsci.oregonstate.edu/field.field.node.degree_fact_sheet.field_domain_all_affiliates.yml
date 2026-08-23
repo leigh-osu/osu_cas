@@ -1,0 +1,21 @@
+uuid: d0b3c866-560a-49a7-9e44-88ceecdabc9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_domain_all_affiliates
+    - node.type.degree_fact_sheet
+id: node.degree_fact_sheet.field_domain_all_affiliates
+field_name: field_domain_all_affiliates
+entity_type: node
+bundle: degree_fact_sheet
+label: 'Send to all affiliates'
+description: 'Make this content available on all domains.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

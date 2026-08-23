@@ -1,0 +1,23 @@
+uuid: 36e8a526-5801-4850-8401-ac6508551f61
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dw_ground_level_min
+    - node.type.weather_daily_data
+id: node.weather_daily_data.field_dw_ground_level_min
+field_name: field_dw_ground_level_min
+entity_type: node
+bundle: weather_daily_data
+label: 'Ground Level Min'
+description: 'Air Temperature'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

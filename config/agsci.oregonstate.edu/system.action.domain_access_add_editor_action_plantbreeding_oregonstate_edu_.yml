@@ -1,0 +1,15 @@
+uuid: 7b0a4dc1-af6a-4601-aee0-748218be7228
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.plantbreeding_oregonstate_edu_
+  module:
+    - domain_access
+id: domain_access_add_editor_action_plantbreeding_oregonstate_edu_
+label: 'Add editors to the Plant Breeding and Genetics domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - plantbreeding_oregonstate_edu_

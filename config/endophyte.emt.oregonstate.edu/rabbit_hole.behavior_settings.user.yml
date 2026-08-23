@@ -1,0 +1,12 @@
+uuid: 4e36242a-b84d-4590-ab1f-79f54270fbe5
+langcode: en
+status: true
+dependencies: {  }
+id: user
+entity_type_id: user
+entity_id: null
+action: display_page
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

@@ -1,0 +1,14 @@
+uuid: 9f1d17f8-86a0-4d34-aef5-ac40c533b555
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.client
+id: client-anonymous
+label: Anonymous
+weight: -102
+group_type: client
+permissions: {  }
+admin: false
+scope: outsider
+global_role: anonymous

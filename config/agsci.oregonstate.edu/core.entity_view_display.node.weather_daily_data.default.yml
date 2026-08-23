@@ -1,0 +1,293 @@
+uuid: 29e9806c-50da-4b9c-922c-25c9be1e890f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.weather_daily_data.body
+    - field.field.node.weather_daily_data.field_domain_access
+    - field.field.node.weather_daily_data.field_domain_all_affiliates
+    - field.field.node.weather_daily_data.field_domain_source
+    - field.field.node.weather_daily_data.field_dw_20_inches_max
+    - field.field.node.weather_daily_data.field_dw_24_hour_air_move
+    - field.field.node.weather_daily_data.field_dw_2_inches_max
+    - field.field.node.weather_daily_data.field_dw_2_inches_min
+    - field.field.node.weather_daily_data.field_dw_40_inches_max
+    - field.field.node.weather_daily_data.field_dw_4_inches_max
+    - field.field.node.weather_daily_data.field_dw_4_inches_min
+    - field.field.node.weather_daily_data.field_dw_8_inches_max
+    - field.field.node.weather_daily_data.field_dw_8_inches_min
+    - field.field.node.weather_daily_data.field_dw_accum_gdd
+    - field.field.node.weather_daily_data.field_dw_at_obs_8am
+    - field.field.node.weather_daily_data.field_dw_date
+    - field.field.node.weather_daily_data.field_dw_end_obs_max
+    - field.field.node.weather_daily_data.field_dw_end_obs_min
+    - field.field.node.weather_daily_data.field_dw_evaporation
+    - field.field.node.weather_daily_data.field_dw_ground_level_max
+    - field.field.node.weather_daily_data.field_dw_ground_level_min
+    - field.field.node.weather_daily_data.field_dw_location
+    - field.field.node.weather_daily_data.field_dw_rain
+    - field.field.node.weather_daily_data.field_dw_sky
+    - field.field.node.weather_daily_data.field_dw_snow
+    - field.field.node.weather_daily_data.field_dw_snow_depth
+    - field.field.node.weather_daily_data.field_group_private
+    - node.type.weather_daily_data
+  module:
+    - field_group
+    - options
+    - text
+    - user
+third_party_settings:
+  field_group:
+    group_dw_soil_temperature:
+      children:
+        - field_dw_2_inches_max
+        - field_dw_2_inches_min
+        - field_dw_4_inches_max
+        - field_dw_4_inches_min
+        - field_dw_8_inches_max
+        - field_dw_8_inches_min
+        - field_dw_20_inches_max
+        - field_dw_40_inches_max
+      label: 'Soil Temperature'
+      parent_name: ''
+      region: content
+      weight: 8
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        description: ''
+    group_dw_air_temperature:
+      children:
+        - field_dw_end_obs_max
+        - field_dw_end_obs_min
+        - field_dw_at_obs_8am
+        - field_dw_ground_level_max
+        - field_dw_ground_level_min
+      label: 'Air Temperature'
+      parent_name: ''
+      region: content
+      weight: 9
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        description: ''
+id: node.weather_daily_data.default
+targetEntityType: node
+bundle: weather_daily_data
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_dw_20_inches_max:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_dw_24_hour_air_move:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_dw_2_inches_max:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  field_dw_2_inches_min:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 15
+    region: content
+  field_dw_40_inches_max:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 21
+    region: content
+  field_dw_4_inches_max:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 16
+    region: content
+  field_dw_4_inches_min:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 17
+    region: content
+  field_dw_8_inches_max:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 18
+    region: content
+  field_dw_8_inches_min:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 19
+    region: content
+  field_dw_accum_gdd:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_dw_at_obs_8am:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_dw_end_obs_max:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_dw_end_obs_min:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_dw_evaporation:
+    type: number_decimal
+    label: inline
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_dw_ground_level_max:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_dw_ground_level_min:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_dw_location:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_dw_rain:
+    type: number_decimal
+    label: inline
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_dw_sky:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_dw_snow:
+    type: number_decimal
+    label: inline
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_dw_snow_depth:
+    type: number_decimal
+    label: inline
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+hidden:
+  entitygroupfield: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_dw_date: true
+  field_group_private: true
+  langcode: true
+  links: true

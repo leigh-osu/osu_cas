@@ -1,0 +1,21 @@
+uuid: 9749841d-6b92-488d-9b86-a82e04032108
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_fac_accept_grad
+    - node.type.osu_profile
+  module:
+    - options
+id: node.osu_profile.field_profile_fac_accept_grad
+field_name: field_profile_fac_accept_grad
+entity_type: node
+bundle: osu_profile
+label: 'Do you accept graduate students?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,60 @@
+// The Source issue menu bar (scripts-dev/place_source_issue_menus.php): a
+// system menu block in its own Layout Builder section, rendered as a
+// horizontal white-on-beaver-orange bar under the Source header and the
+// date/volume line -- the D10 stand-in for D7's per-issue sidebar menus,
+// styled like the site's osu_menu_bar_item bars (uppercase buttons, hover
+// inverts to white/orange). The section div carries both classes, so
+// `.layout-builder__layout.cas-issue-menubar` outranks the vertical
+// sidebar-menu treatment in _cas_layout_menus.scss.
+.layout-builder__layout.cas-issue-menubar {
+  background-color: $osuorange;
+  margin-block: 0.75em 1.5em;
+  padding: 2px;
+
+  .block-menu ul.menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    // A hair of orange above and below each button, so the white current /
+    // hover button floats inside the bar (and wrapped rows keep a gap).
+    li {
+      margin: 2px 0;
+      padding: 0;
+    }
+
+    a,
+    a.nav-link {
+      background: transparent;
+      border-radius: 0;
+      color: #fff;
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      line-height: 1.1;
+      padding: 0.75em 1em;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: 400ms background-color ease, 400ms color ease;
+
+      @media (min-width: 768px) {
+        padding-inline: 1.25em;
+      }
+
+      &:hover,
+      &:focus,
+      &.is-active,
+      &.active {
+        background-color: #fff;
+        color: $osuorange;
+        text-decoration: none;
+      }
+    }
+  }
+}

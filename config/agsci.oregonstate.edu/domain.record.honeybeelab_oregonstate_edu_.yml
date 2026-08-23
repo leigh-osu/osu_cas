@@ -1,0 +1,12 @@
+uuid: 03df8a4a-d122-41e6-9047-f3a181721093
+langcode: en
+status: true
+dependencies: {  }
+id: honeybeelab_oregonstate_edu_
+domain_id: 13656044
+hostname: honeybeelab.oregonstate.edu
+name: 'Honey Bee Lab'
+scheme: https
+weight: 14
+is_default: false
+path_prefix: ''

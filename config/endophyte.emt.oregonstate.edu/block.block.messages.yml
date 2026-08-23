@@ -1,0 +1,20 @@
+uuid: 72339419-ce34-4d51-9260-78252f569d3c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - cas_larch
+id: messages
+theme: cas_larch
+region: content
+weight: -5
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  label_display: '0'
+  provider: system
+visibility: {  }

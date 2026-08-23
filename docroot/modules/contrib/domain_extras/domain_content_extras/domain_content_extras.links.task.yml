@@ -1,0 +1,7 @@
+domain_content_extras.affiliated_content:
+  title: 'Affiliated Content'
+  route_name: view.affiliated_content.page_2
+  base_route: system.admin_content
+
+domain_content_extras.domain_links:
+  deriver: 'Drupal\domain_content_extras\Plugin\Derivative\DynamicLocalTasks'

@@ -1,0 +1,16 @@
+uuid: 04ec4448-9a48-43c5-ae41-1b1661e638cd
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: smallfarms_events
+label: smallfarms_events
+logic: and
+conditions:
+  592ec8b4-08d6-46b6-8034-0644313a939f:
+    id: request_path
+    uuid: 592ec8b4-08d6-46b6-8034-0644313a939f
+    pages: /node/239106
+    negate: false
+allow_other_conditions: false

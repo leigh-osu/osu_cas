@@ -1,0 +1,16 @@
+diff --git a/src/Hook/NodeFormAlter.php b/src/Hook/NodeFormAlter.php
+--- a/src/Hook/NodeFormAlter.php
++++ b/src/Hook/NodeFormAlter.php
+@@ -141,7 +141,11 @@
+       '#description' => t('Menu links with lower weights are displayed before links with higher weights.'),
+     ];
+
+-    foreach (array_keys($form['actions']) as $action) {
++    // Another form_alter may have emptied the form before this one runs --
++    // readonlymode does exactly that for users without its bypass permission,
++    // leaving no actions element and fataling the whole node form here with
++    // array_keys(null). Nothing to attach submit handlers to means skip.
++    foreach (array_keys($form['actions'] ?? []) as $action) {
+       if ($action !== 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+         $form['actions'][$action]['#submit'][] = 'menu_ui_form_node_form_submit';
+       }

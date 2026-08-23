@@ -1,0 +1,23 @@
+uuid: 6df214b2-266e-43b2-ae85-d8e122c3499d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_legacy_test_id
+    - paragraphs.paragraphs_type.sample_test_lolitrem_b
+id: paragraph.sample_test_lolitrem_b.field_test_legacy_test_id
+field_name: field_test_legacy_test_id
+entity_type: paragraph
+bundle: sample_test_lolitrem_b
+label: 'Legacy test id'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

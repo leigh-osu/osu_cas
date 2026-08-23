@@ -1,0 +1,8 @@
+services:
+  _defaults:
+    autowire: true
+
+  domain_config_extras.utilities:
+    class: Drupal\domain_config_extras\DomainConfigUtilities
+    arguments:
+      $configStorage: '@config.storage'

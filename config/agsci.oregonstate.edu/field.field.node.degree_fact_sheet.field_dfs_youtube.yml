@@ -1,0 +1,19 @@
+uuid: bb14b071-efcf-43d7-bc30-6b4377e94466
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfs_youtube
+    - node.type.degree_fact_sheet
+id: node.degree_fact_sheet.field_dfs_youtube
+field_name: field_dfs_youtube
+entity_type: node
+bundle: degree_fact_sheet
+label: 'Youtube link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

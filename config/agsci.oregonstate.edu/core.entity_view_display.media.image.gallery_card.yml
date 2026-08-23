@@ -1,0 +1,35 @@
+uuid: d51726a3-192c-4e8c-b2ab-a88743ede018
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.gallery_card
+    - field.field.media.image.field_media_caption
+    - field.field.media.image.field_media_image
+    - image.style.220x220
+    - media.type.image
+  module:
+    - image
+id: media.image.gallery_card
+targetEntityType: media
+bundle: image
+mode: gallery_card
+content:
+  field_media_image:
+    type: image
+    label: visually_hidden
+    settings:
+      image_link: ''
+      image_style: 220x220
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_media_caption: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

@@ -1,0 +1,29 @@
+uuid: e44c86fb-5c0c-48cc-85cf-f5a5a7aa1779
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tax_cas_themes
+    - node.type.degree_fact_sheet
+    - taxonomy.vocabulary.cas_impact_areas
+id: node.degree_fact_sheet.field_tax_cas_themes
+field_name: field_tax_cas_themes
+entity_type: node
+bundle: degree_fact_sheet
+label: 'CAS Themes'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      cas_impact_areas: cas_impact_areas
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

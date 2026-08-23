@@ -1,0 +1,5 @@
+charts_apexcharts_api_example.display:
+  title: 'ApexCharts API Example'
+  description: 'Charts API demonstrations rendered with ApexCharts.'
+  parent: charts_api_example.display
+  route_name: charts_apexcharts_api_example.display

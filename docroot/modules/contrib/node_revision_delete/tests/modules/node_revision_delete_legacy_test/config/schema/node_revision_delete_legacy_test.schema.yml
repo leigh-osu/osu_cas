@@ -1,0 +1,11 @@
+plugin.plugin_configuration.node_revision_delete.legacy_amount:
+  type: node_revision_delete.default_plugin_configuration
+  label: 'Legacy amount plugin configuration'
+  mapping:
+    settings:
+      type: mapping
+      label: 'The legacy amount plugin settings'
+      mapping:
+        amount:
+          type: integer
+          label: 'Minimum number of revisions to keep (per language)'

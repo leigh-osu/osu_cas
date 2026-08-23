@@ -1,0 +1,23 @@
+uuid: 2c5f3be4-70f2-4e8f-977d-359f1f789984
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_group_private
+    - node.type.fun_facts
+id: node.fun_facts.field_group_private
+field_name: field_group_private
+entity_type: node
+bundle: fun_facts
+label: 'Group members only'
+description: 'Hide this content from the public, show ONLY to group members.<br />DO NOT USE THIS FOR SENSITIVE INFORMATION - NOT HIGH SECURITY STORAGE.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Group members only'
+  off_label: Public
+field_type: boolean

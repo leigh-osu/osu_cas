@@ -1,0 +1,165 @@
+uuid: f7b4eda0-a8b8-4b81-97da-0efa49c21594
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_102901
+title: 'Financial Hardship Grant Form'
+description: null
+categories: {  }
+elements: |-
+  introduction:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	<strong>Application note:</strong> Please note this award must first be applied to any outstanding student account balance you may have. This will help your financial status with the university with the intention of avoiding a financial hold interfering with your ability to register in a future term. If funding from your award exceeds an amount owed, the remaining amount will be issued to you directly in the form of a check or direct deposit if you have already established this process with the university.</p>
+
+      <div>
+      	<strong><strong>Asterisks (*) indicate required information.</strong></strong></div>
+  first_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'First Name'
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Last Name'
+    '#required': true
+  email_address:
+    '#type': email
+    '#size': 20
+    '#title_display': inline
+    '#title': 'Email Address'
+    '#required': true
+  student_id:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Student ID'
+    '#required': true
+  student_status:
+    '#type': checkboxes
+    '#options':
+      status1: 'CAS undergraduate degree-seeking student'
+      status2: 'Currently enrolled with 6 or more Oregon State credits'
+    '#multiple': true
+    '#title_display': inline
+    '#title': 'Student status:'
+    '#required': true
+  amount_requested:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Amount requested '
+    '#description': '(up to $1000)'
+    '#required': true
+  description_of_need:
+    '#type': textarea
+    '#title': 'Description of need'
+    '#description': 'Please outline your current financial hardship that immediately impacts your ability to stay enrolled and on track towards graduation. Indicate the resources you are currently using to meet your financial commitments and your expected graduation date. Share as much information as you need to address the eligibility criteria.'
+    '#required': true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<p>\r\n\tThank you for submitting a request for support from the CAS Financial Hardship Grant.&nbsp; Your request is being reviewed.&nbsp; In the meantime, for emergency support, please contact the <a href=\"https://nam04.safelinks.protection.outlook.com/?url=https%3A%2F%2Fexperience.oregonstate.edu%2Fwell-being%2Fbasic-needs&amp;data=05%7C01%7CSara.Monk%40oregonstate.edu%7Cee8c5e7096f948349af708dac9bbff59%7Cce6d05e13c5e4d6287a84c4a2713c113%7C0%7C0%7C638044106514579646%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=QysksVlabphLF%2BIgFU%2BHW%2F7tQif9ak5DGib%2Fq2csL%2F0%3D&amp;reserved=0\" originalsrc=\"https://experience.oregonstate.edu/well-being/basic-needs\" shash=\"TyywlCqUD5falaXjGZvw9do27MQZIXTU3UWtEX94OiE+UfEWdh3ZCMrlNftJJe72ltfwgy7ftAjkqr9mFyubNVMh82jt5l/udjZH8Ha7grFtCJ/xb24kfXIUoQJkGywE1KKoIgOASCNk0xZ51XhgsWAFbxIXcA+exNat5k5wSW0=\">Basic Needs Center</a>.&nbsp; If you are an Ecampus student, be sure to apply for an <a href=\"https://nam04.safelinks.protection.outlook.com/?url=https%3A%2F%2Fecampus.oregonstate.edu%2Fservices%2Ftuition%2Femergency-grant.htm&amp;data=05%7C01%7CSara.Monk%40oregonstate.edu%7Cee8c5e7096f948349af708dac9bbff59%7Cce6d05e13c5e4d6287a84c4a2713c113%7C0%7C0%7C638044106514579646%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=v8rs64qTJG4SokJjVVwx44OSNzFR4ZQDJdE3QpRclBI%3D&amp;reserved=0\" originalsrc=\"https://ecampus.oregonstate.edu/services/tuition/emergency-grant.htm\" shash=\"EUdoeeU6pZ0R1EDlJqEFP3iQX3k1BKTJY/lyFC+N+Oj5oi4I2KBDnE4hCRVuf8rv9FX/lFRqouyTqNbO0Ai2YY4w2Mai6d/LtXsuC+aNetNBcKljrWjLNlUFKfS504u7eEqML1dJo0tBFqjSA0JSg245QcXdtR4rD+Z6ngpGdwk=\">Ecampus Financial Hardship Grant</a>.</p>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: paul.dorres@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email_address:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: 'Thank you for submitting a request for support from the CAS Financial Hardship Grant.  Your request is being reviewed.  In the meantime, for emergency support, please contact the Basic Needs Center (https://experience.oregonstate.edu/well-being/basic-needs).  If you are an Ecampus student, be sure to apply for an Ecampus Financial Hardship Grant (https://ecampus.oregonstate.edu/services/tuition/emergency-grant.htm).'
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

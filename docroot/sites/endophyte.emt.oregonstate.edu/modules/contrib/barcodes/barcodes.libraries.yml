@@ -1,0 +1,257 @@
+barcodes:
+  version: 1.0.0
+  css:
+    theme:
+      css/barcodes.css: {}
+c128a:
+  version: 0.1
+  css:
+    theme:
+      css/c128a.css: {}
+  dependencies:
+    - barcodes/barcodes
+c128b:
+  version: 0.1
+  css:
+    theme:
+      css/c128b.css: {}
+  dependencies:
+    - barcodes/barcodes
+c128c:
+  version: 0.1
+  css:
+    theme:
+      css/c128c.css: {}
+  dependencies:
+    - barcodes/barcodes
+c128:
+  version: 0.1
+  css:
+    theme:
+      css/c128.css: {}
+  dependencies:
+    - barcodes/barcodes
+c39e:
+  version: 0.1
+  css:
+    theme:
+      css/c39e.css: {}
+  dependencies:
+    - barcodes/barcodes
+c39eplus:
+  version: 0.1
+  css:
+    theme:
+      css/c39eplu.css: {}
+  dependencies:
+    - barcodes/barcodes
+c39:
+  version: 0.1
+  css:
+    theme:
+      css/c39.css: {}
+  dependencies:
+    - barcodes/barcodes
+c39plus:
+  version: 0.1
+  css:
+    theme:
+      css/c39plus.css: {}
+  dependencies:
+    - barcodes/barcodes
+c93:
+  version: 0.1
+  css:
+    theme:
+      css/c93.css: {}
+  dependencies:
+    - barcodes/barcodes
+codabar:
+  version: 0.1
+  css:
+    theme:
+      css/codabar.css: {}
+  dependencies:
+    - barcodes/barcodes
+code11:
+  version: 0.1
+  css:
+    theme:
+      css/code11.css: {}
+  dependencies:
+    - barcodes/barcodes
+datamatrix:
+  version: 0.1
+  css:
+    theme:
+      css/datamat.css: {}
+  dependencies:
+    - barcodes/barcodes
+ean13:
+  version: 0.1
+  css:
+    theme:
+      css/ean13.css: {}
+  dependencies:
+    - barcodes/barcodes
+ean2:
+  version: 0.1
+  css:
+    theme:
+      css/ean2.css: {}
+  dependencies:
+    - barcodes/barcodes
+ean5:
+  version: 0.1
+  css:
+    theme:
+      css/ean5.css: {}
+  dependencies:
+    - barcodes/barcodes
+ean8:
+  version: 0.1
+  css:
+    theme:
+      css/ean8.css: {}
+  dependencies:
+    - barcodes/barcodes
+i25:
+  version: 0.1
+  css:
+    theme:
+      css/i25.css: {}
+  dependencies:
+    - barcodes/barcodes
+i25plus:
+  version: 0.1
+  css:
+    theme:
+      css/i25plus.css: {}
+  dependencies:
+    - barcodes/barcodes
+imb:
+  version: 0.1
+  css:
+    theme:
+      css/imb.css: {}
+  dependencies:
+    - barcodes/barcodes
+imbpre:
+  version: 0.1
+  css:
+    theme:
+      css/imbpre.css: {}
+  dependencies:
+    - barcodes/barcodes
+kix:
+  version: 0.1
+  css:
+    theme:
+      css/kix.css: {}
+  dependencies:
+    - barcodes/barcodes
+lraw:
+  version: 0.1
+  css:
+    theme:
+      css/lraw.css: {}
+  dependencies:
+    - barcodes/barcodes
+msi:
+  version: 0.1
+  css:
+    theme:
+      css/msi.css: {}
+  dependencies:
+    - barcodes/barcodes
+msiplus:
+  version: 0.1
+  css:
+    theme:
+      css/msiplus.css: {}
+  dependencies:
+    - barcodes/barcodes
+pdf417:
+  version: 0.1
+  css:
+    theme:
+      css/pdf417.css: {}
+  dependencies:
+    - barcodes/barcodes
+pharma2t:
+  version: 0.1
+  css:
+    theme:
+      css/pharma2.css: {}
+  dependencies:
+    - barcodes/barcodes
+pharma:
+  version: 0.1
+  css:
+    theme:
+      css/pharma.css: {}
+  dependencies:
+    - barcodes/barcodes
+planet:
+  version: 0.1
+  css:
+    theme:
+      css/planet.css: {}
+  dependencies:
+    - barcodes/barcodes
+postnet:
+  version: 0.1
+  css:
+    theme:
+      css/postnet.css: {}
+  dependencies:
+    - barcodes/barcodes
+qrcode:
+  version: 0.1
+  css:
+    theme:
+      css/qrcode.css: {}
+  dependencies:
+    - barcodes/barcodes
+rms4cc:
+  version: 0.1
+  css:
+    theme:
+      css/rms4cc.css: {}
+  dependencies:
+    - barcodes/barcodes
+s25:
+  version: 0.1
+  css:
+    theme:
+      css/s25.css: {}
+  dependencies:
+    - barcodes/barcodes
+s25plus:
+  version: 0.1
+  css:
+    theme:
+      css/s25plus.css: {}
+  dependencies:
+    - barcodes/barcodes
+sraw:
+  version: 0.1
+  css:
+    theme:
+      css/sraw.css: {}
+  dependencies:
+    - barcodes/barcodes
+upca:
+  version: 0.1
+  css:
+    theme:
+      css/upca.css: {}
+  dependencies:
+    - barcodes/barcodes
+upce:
+  version: 0.1
+  css:
+    theme:
+      css/upce.css: {}
+  dependencies:
+    - barcodes/barcodes

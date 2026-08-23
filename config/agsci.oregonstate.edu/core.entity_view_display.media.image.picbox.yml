@@ -1,0 +1,40 @@
+uuid: dade04b2-090c-4fa4-85ab-204efc745de7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.picbox
+    - field.field.media.image.field_media_caption
+    - field.field.media.image.field_media_image
+    - image.style.picbox_800x580
+    - media.type.image
+  module:
+    - image
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: media.image.picbox
+targetEntityType: media
+bundle: image
+mode: picbox
+content:
+  field_media_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: picbox_800x580
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_media_caption: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

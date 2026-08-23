@@ -1,0 +1,16 @@
+uuid: c621a72c-72c7-49ac-8e8e-186e86cb90de
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+_core:
+  default_config_hash: Rrzal6BucI9MK5WtMGaNcUmNEZJ3dRzj40eLE2zQYLI
+id: group_pages
+label: 'Group Pages'
+type: 'canonical_entities:group'
+pattern: '/[group:title]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

@@ -1,0 +1,112 @@
+uuid: e05fb33c-a8b8-4043-97ed-c24ea99d9e14
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_41011
+title: 'Contact Us'
+description: null
+categories: {  }
+elements: |-
+  your_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Your Name'
+    '#required': true
+  email:
+    '#type': email
+    '#size': 20
+    '#title_display': inline
+    '#title': Email
+    '#required': true
+  subject:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Subject
+    '#required': true
+  category:
+    '#type': select
+    '#options':
+      general: 'General Questions'
+      undergrad: 'Undergrad Head Advisor'
+      dept_head: 'BEE Department Head'
+      graduate: 'Graduate School'
+    '#title_display': inline
+    '#title': Category
+    '#required': true
+  message:
+    '#type': textarea
+    '#title': Message
+    '#required': true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:category:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: '[webform_submission:values:your_name:raw]'
+      body: |-
+        Submitted on [webform_submission:date:long]
+        Submitted by user: [webform_submission:user]
+        Submitted values are:
+        [webform_submission:values]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

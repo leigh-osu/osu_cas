@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for osu_sitewide_alert module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function osu_sitewide_alert_form_sitewide_alert_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (isset($form['message'])) {
+    $form['message']['widget'][0]['#description'] = t('You can use "Text and Links" format for basic formatting and links, or "Plain text" for unformatted text.');
+    $form['message']['widget'][0]['#format'] = 'text_and_links';
+    $form['message']['widget'][0]['#allowed_formats'] = [
+      'text_and_links',
+      'plain_text',
+    ];
+  }
+}

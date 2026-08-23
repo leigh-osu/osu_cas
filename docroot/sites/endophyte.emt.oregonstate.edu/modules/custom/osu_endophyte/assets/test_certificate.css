@@ -1,0 +1,69 @@
+/* used for generating pdf certificates */
+
+h1 {
+  font-size: 1.8em;
+  margin: 1.1em 0 0.9em 0;
+}
+h2 {
+  font-size: 1.2em;
+  margin-bottom: 0.2em;
+}
+
+table {
+  width: 100%;
+}
+
+.data-grid .label,
+.category {
+  width: 50%;
+  text-align: right;
+  font-weight: bold;
+}
+
+.note {
+}
+
+.note-label {
+  font-weight: bold;
+  text-align: right;
+  display: table-cell;
+  width: 15%;
+  padding-right: 5px;
+}
+
+.note-body {
+  display: table-cell;
+  text-align: left;
+  width: 80%;
+}
+
+.data-grid td {
+  padding: .2em;
+}
+
+td {
+  vertical-align: top;
+}
+
+div.logo-container {
+  position: absolute;
+}
+img.logo {
+  width: 100px;
+}
+
+.test-result {
+  font-size: 1.6em;
+  border: 2px solid black;
+  padding: .2em;
+  width: 68%;
+  margin-left: 16%;
+  font-weight: bold;
+  margin-bottom: -1em;
+}
+
+.lab-method td {
+  line-height: 0.8em;
+  margin-top: 0;
+  font-size: 0.7em;
+}

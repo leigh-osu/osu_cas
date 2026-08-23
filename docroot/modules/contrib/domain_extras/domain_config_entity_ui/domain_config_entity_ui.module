@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Adds per-domain support for config-entity admin pages.
+ *
+ * The hooks live in OOP classes under src/Hook/ via the #[Hook]
+ * attribute. This file holds the procedural fallback functions
+ * required for Drupal 10.6 compatibility — Drupal 11+ picks the
+ * #[Hook] attribute up directly through HookCollectorPass and never
+ * enters these functions; on 10.6 they are the entry point.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Hook\Attribute\LegacyHook;
+use Drupal\domain_config_entity_ui\Hook\DomainConfigEntityUiEntityTypeHooks;
+use Drupal\domain_config_entity_ui\Hook\DomainConfigEntityUiFormHooks;
+
+/**
+ * Implements hook_entity_type_alter().
+ */
+#[LegacyHook]
+function domain_config_entity_ui_entity_type_alter(array &$entity_types) {
+  \Drupal::service(DomainConfigEntityUiEntityTypeHooks::class)
+    ->entityTypeAlter($entity_types);
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+#[LegacyHook]
+function domain_config_entity_ui_form_alter(array &$form, FormStateInterface $form_state, string $form_id) {
+  \Drupal::service(DomainConfigEntityUiFormHooks::class)
+    ->formAlter($form, $form_state, $form_id);
+}
+
+/**
+ * Implements hook_domain_config_ui_disallowed_configurations_alter().
+ */
+#[LegacyHook]
+function domain_config_entity_ui_domain_config_ui_disallowed_configurations_alter(array &$disallowed) {
+  \Drupal::service(DomainConfigEntityUiFormHooks::class)
+    ->disallowedConfigurationsAlter($disallowed);
+}

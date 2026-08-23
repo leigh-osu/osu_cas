@@ -1,0 +1,32 @@
+uuid: bc098ddf-bb7a-46a4-bc9f-e6fa5598511a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.bmsb_landing_page
+  content:
+    - 'block_content:basic:cb04adc7-54c4-4217-b9ff-da4badaf0057'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - madrone
+id: bmsb_landing_page_96
+theme: madrone
+region: content
+weight: -1
+provider: null
+plugin: 'block_content:cb04adc7-54c4-4217-b9ff-da4badaf0057'
+settings:
+  id: 'block_content:cb04adc7-54c4-4217-b9ff-da4badaf0057'
+  label: ''
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: bmsb_landing_page

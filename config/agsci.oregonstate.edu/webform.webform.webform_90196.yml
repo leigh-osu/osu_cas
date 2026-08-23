@@ -1,0 +1,71 @@
+uuid: 2b10a34a-50aa-4282-b87b-7136664009a5
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_90196
+title: 'Upay - CAL/SHL'
+description: null
+categories: {  }
+elements: |-
+  ext_trans_id:
+    '#type': textfield
+    '#size': 20
+    '#title_display': inline
+    '#title': 'Invoice Number'
+    '#required': true
+  amt:
+    '#type': textfield
+    '#size': 20
+    '#title_display': inline
+    '#title': Amount
+    '#required': true
+  bill_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Contact First and Last Name'
+    '#required': true
+  bill_email_address:
+    '#type': email
+    '#size': 20
+    '#title_display': inline
+    '#title': 'Contact Email'
+  ext_trans_id_label:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Contact Phone'
+  instructions:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	This page is for charges related to Central Analytical Lab or Soil Health Lab ONLY. We accept Mastercard or Visa.</p>
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<p>\r\n\tThank you for submitting the form, This page is for charges related to Central Analytical Lab ONLY. We accept Mastercard or Visa.</p>\r\n\r\n<form action=\"https://secure.touchnet.net/C20159_upay/web/index.jsp\" method=\"post\">\r\n\t<input name=\"UPAY_SITE_ID\" type=\"hidden\" value=\"58\" /> <input name=\"EXT_TRANS_ID\" type=\"hidden\" value=\"[submission:values:EXT_TRANS_ID]\" /> <input name=\"AMT\" type=\"hidden\" value=\"[submission:values:AMT]\" /> <input class=\"btn btn-primary\" type=\"submit\" value=\"Click Here To Pay\" />&nbsp;</form>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }

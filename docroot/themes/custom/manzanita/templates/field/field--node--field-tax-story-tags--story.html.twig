@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Story Tags as a plain linked list (D7 article-sidebar parity).
+ *
+ * madrone's chip layout keys on the old field_tags name, so this template
+ * only needs to provide the list markup.
+ */
+#}
+{% set classes = [
+  'field',
+  'field--name-' ~ field_name|clean_class,
+  'field--type-' ~ field_type|clean_class,
+  'field--label-' ~ label_display,
+  'text-break',
+] %}
+<div{{ attributes.addClass(classes) }}>
+  {% if not label_hidden %}
+    <div{{ title_attributes.addClass('field__label', 'fw-bold') }}>{{ label }}</div>
+  {% endif %}
+  <ul class="field__items">
+    {% for item in items %}
+      <li{{ item.attributes.addClass('field__item') }}>{{ item.content }}</li>
+    {% endfor %}
+  </ul>
+</div>

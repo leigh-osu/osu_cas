@@ -1,0 +1,19 @@
+uuid: 3aed8a8b-07f9-467c-9f2c-8526bc339007
+langcode: und
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_dfs_preferred_link
+field_name: field_dfs_preferred_link
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

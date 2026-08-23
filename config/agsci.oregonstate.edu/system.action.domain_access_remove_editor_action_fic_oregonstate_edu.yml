@@ -1,0 +1,15 @@
+uuid: c21a1a38-00d8-4267-a5f9-d6eacfa57dca
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.fic_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_fic_oregonstate_edu
+label: 'Remove editors from the Food Innovation Center domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - fic_oregonstate_edu

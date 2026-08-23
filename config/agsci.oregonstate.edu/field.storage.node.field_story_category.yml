@@ -1,0 +1,39 @@
+uuid: f6105576-d9e9-4e22-883c-971bb1c01050
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_story_category
+field_name: field_story_category
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: top_story
+      label: 'Top Story'
+    -
+      value: story_spotlight
+      label: Spotlight
+    -
+      value: story_external
+      label: 'External link'
+    -
+      value: story_internal
+      label: 'Internal story'
+    -
+      value: feature_story
+      label: 'Feature story'
+    -
+      value: story_osu
+      label: 'OSU Story'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

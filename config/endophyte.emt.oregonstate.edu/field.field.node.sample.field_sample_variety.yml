@@ -1,0 +1,21 @@
+uuid: 557160bc-c907-4eaf-9ee0-ffc76844e4aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sample_variety
+    - node.type.sample
+  module:
+    - options
+id: node.sample.field_sample_variety
+field_name: field_sample_variety
+entity_type: node
+bundle: sample
+label: 'Sample type'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

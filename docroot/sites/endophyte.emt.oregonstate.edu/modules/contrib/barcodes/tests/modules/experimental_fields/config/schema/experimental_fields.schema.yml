@@ -1,0 +1,9 @@
+# Schema for the core UUID field storage settings is missing from core.
+field.storage_settings.uuid:
+  type: field.storage_settings.string
+  label: 'UUID settings'
+
+# Schema for the bigint module field widget settings is missing.
+field.widget.settings.bigint:
+  type: field.widget.settings.number
+  label: 'BigInt widget settings'

@@ -1,0 +1,8 @@
+uuid: c80116ba-5acd-477a-8173-43063560e107
+langcode: en
+status: true
+dependencies: {  }
+id: menu-september-2026
+label: 'September 2026'
+description: 'September 2026 issue of The Source'
+locked: false

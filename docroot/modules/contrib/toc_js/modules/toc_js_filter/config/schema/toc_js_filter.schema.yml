@@ -1,0 +1,106 @@
+filter_settings.toc_js_filter:
+  type: mapping
+  label: 'TOC.js filter settings'
+  mapping:
+    title:
+      type: label
+      label: 'Title'
+    title_tag:
+      type: string
+      label: 'Title HTML tag'
+    title_classes:
+      type: string
+      label: 'Title CSS classes'
+    selectors:
+      type: string
+      label: 'Heading selectors'
+    selectors_minimum:
+      type: integer
+      label: 'Minimum elements'
+    container:
+      type: string
+      label: 'Container selector'
+    prefix:
+      type: string
+      label: 'Prefix'
+    list_type:
+      type: string
+      label: 'List type (ul|ol)'
+    list_classes:
+      type: string
+      label: 'ToC list CSS classes'
+    li_classes:
+      type: string
+      label: 'ToC item CSS classes'
+    inheritable_classes:
+      type: string
+      label: 'Inheritable classes from headings'
+    classes:
+      type: string
+      label: 'Wrapper CSS classes'
+    heading_classes:
+      type: string
+      label: 'Heading CSS classes'
+    skip_invisible_headings:
+      type: boolean
+      label: 'Skip invisible headings'
+    use_heading_html:
+      type: boolean
+      label: 'Use heading HTML'
+    heading_cleanup_selector:
+      type: string
+      label: 'Heading cleanup selector'
+    collapsible_items:
+      type: boolean
+      label: 'Enable collapsible items'
+    collapsible_expanded:
+      type: boolean
+      label: 'Collapsible expanded by default'
+    back_to_top:
+      type: boolean
+      label: 'Show "back to top" links'
+    back_to_top_label:
+      type: label
+      label: '"Back to top" label'
+    back_to_top_selector:
+      type: string
+      label: '"Back to top" heading filter selector'
+    heading_focus:
+      type: boolean
+      label: 'Heading focus'
+    back_to_toc:
+      type: boolean
+      label: 'Show "back to toc" links'
+    back_to_toc_label:
+      type: label
+      label: '"Back to toc" label'
+    back_to_toc_classes:
+      type: string
+      label: '"Back to toc" CSS classes'
+    smooth_scrolling:
+      type: boolean
+      label: 'Smooth scrolling'
+    scroll_to_offset:
+      type: string
+      label: 'Scroll offset'
+    highlight_on_scroll:
+      type: boolean
+      label: 'Highlight on scroll'
+    highlight_offset:
+      type: integer
+      label: 'Highlight offset'
+    sticky:
+      type: boolean
+      label: 'Sticky'
+    sticky_offset:
+      type: string
+      label: 'Sticky offset'
+    toc_container:
+      type: string
+      label: 'ToC container selector'
+    ajax_page_updates:
+      type: boolean
+      label: 'Ajax page updates'
+    observable_selector:
+      type: string
+      label: 'Observable container selector'

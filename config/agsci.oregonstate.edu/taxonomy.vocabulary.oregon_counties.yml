@@ -1,0 +1,9 @@
+uuid: 9f3a9c6a-16ce-4dae-8b06-c5fc7de40daf
+langcode: en
+status: true
+dependencies: {  }
+name: 'Oregon Counties'
+vid: oregon_counties
+description: 'Counties within Oregon'
+weight: 0
+new_revision: false

@@ -1,0 +1,159 @@
+uuid: d6d122d7-b3d8-4d00-8537-3760b9b5cf7c
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_229751
+title: 'Research Project Survey'
+description: null
+categories: {  }
+elements: |-
+  full_name:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Full Name'
+    '#required': true
+  department:
+    '#type': textfield
+    '#unique': false
+    '#title': Department
+  outcomes_or_benefits:
+    '#type': textarea
+    '#title': 'What problem or challenge is this research addressing? Why is this research important? What outcomes or benefits do you anticipate?'
+  excites_you_about_research:
+    '#type': textarea
+    '#title': 'What excites you most about this research?'
+  relate_to_the_strategic_advantages_themes:
+    '#type': textarea
+    '#title': 'How does this research relate to the College’s four strategic advantages?'
+    '#description': '(<a href="https://agsci.oregonstate.edu/home/about/our-strategic-advantage">four strategic advantages</a>)'
+  is_there_a_recent_publication_or_grant:
+    '#type': checkboxes
+    '#options':
+      publication: Publication
+      grant: Grant
+      none: None
+    '#multiple': true
+    '#title': 'Is there a recent publication or grant that the College can feature in a story?'
+  recent_publications:
+    '#type': textarea
+    '#title': 'If a publication, please provide the citation.  What was its primary contribution, in layman’s terms?'
+    '#states':
+      visible:
+        - ':input[name="is_there_a_recent_publication_or_grant[publication]"]':
+            checked: true
+  recent_grant:
+    '#type': textarea
+    '#title': 'If a grant, please provide the title, funding agency and amount.  What are the primary goals of the project, in layman’s terms?'
+    '#states':
+      visible:
+        - ':input[name="is_there_a_recent_publication_or_grant[grant]"]':
+            checked: true
+  who_developed_project:
+    '#type': textarea
+    '#title': 'What (or who) helped develop this project to this point?   Did you receive funding from industry,  commissions, a foundation, or agency that helped you develop this research?'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: ben.davis@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+  email_3:
+    id: email
+    handler_id: email_3
+    label: 'Email 3'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 3
+    settings:
+      states:
+        - completed
+      to_mail: agsci@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

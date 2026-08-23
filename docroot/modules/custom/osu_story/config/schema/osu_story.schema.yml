@@ -1,0 +1,7 @@
+osu_story.settings:
+  type: config_object
+  label: 'OSU Story settings'
+  mapping:
+    auto_forward_external:
+      type: boolean
+      label: 'Automatically forward external stories to their target'

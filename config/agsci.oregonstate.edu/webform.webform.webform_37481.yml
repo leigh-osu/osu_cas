@@ -1,0 +1,278 @@
+uuid: 0f074735-4168-4238-9cd1-a7df464658b8
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 21
+template: false
+archive: false
+id: webform_37481
+title: 'Leadership Academy Scholarship Application'
+description: null
+categories: {  }
+elements: |-
+  first_name:
+    '#type': textfield
+    '#unique': false
+    '#title': 'First Name'
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#title': 'Last Name'
+    '#required': true
+  onid_email:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title': 'Onid Email'
+    '#required': true
+  student_id_number:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Student ID Number'
+    '#required': true
+  please_describe_the_activity_you_plan_to_participate_in_for_which_you_are_requesting_funds:
+    '#type': textarea
+    '#title': 'Please describe the activity you plan to participate in for which you are requesting funds.'
+    '#required': true
+  what_do_you_hope_to_gain_from_this_experience:
+    '#type': textarea
+    '#title': 'What do you hope to gain from this experience?'
+    '#required': true
+  what_specific_goals_from_your_professional_development_plan_pdp_does_this_activity_specifically_address_how:
+    '#type': textarea
+    '#title': 'What specific goals from your Professional Development Plan (PDP) does this activity specifically address? How?'
+    '#required': true
+  dates_of_activity:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Date(s) of activity '
+    '#required': true
+  application_deadline:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Application Deadline'
+    '#required': true
+  organization_name:
+    '#type': textarea
+    '#title': 'Organization Name'
+    '#description': 'Organization Information'
+    '#required': true
+  year_established:
+    '#type': textfield
+    '#title': 'Year Established'
+    '#required': true
+  organization_address:
+    '#type': textarea
+    '#title': 'Organization Address'
+    '#required': true
+  contact_name_and_title:
+    '#type': textarea
+    '#title': 'Contact Name and Title '
+    '#required': true
+  email_address:
+    '#type': textfield
+    '#title': 'Email Address'
+    '#required': true
+  phone_numbers:
+    '#type': textfield
+    '#title': 'Phone Number'
+    '#required': true
+  please_give_a_brief_description_of_the_organizations_background_how_did_you_learn_about_this_opportunity:
+    '#type': textarea
+    '#title': "Please give a brief description of the organization's background. How did you learn about this opportunity?"
+    '#required': true
+  how_will_funds_be_used:
+    '#type': textarea
+    '#title': 'How will funds be used?  Please include specific descriptions such as: registration , lodging, means, travel, required materials, professional dress, etc. Please label all costs.'
+    '#required': true
+  total_cost_of_activity:
+    '#type': textfield
+    '#title': 'Total cost of activity '
+    '#required': true
+  amount_requested:
+    '#type': textfield
+    '#title': 'Amount requested '
+    '#required': true
+  what_is_your_role_:
+    '#type': textarea
+    '#title': 'What is your role (facilitator, participant, observer) in this activity? Please describe activities you will participate in and your association to the organization.'
+    '#required': true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '1'
+  draft_auto_save: true
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<p>\r\n\tThank you for your submission! The Leadership academy appreciates your&nbsp;desire to further develop your professional skills. Our team will review your application and get back with you shortly.</p>\r\n\r\n<p>\r\n\tYou can check on the status of your application by emailing CASleadershipacademy@oregonstate.edu.</p>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: Haley.Clement@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+  email_3:
+    id: email
+    handler_id: email_3
+    label: 'Email 3'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 3
+    settings:
+      states:
+        - completed
+      to_mail: Faith.Vawter@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+  email_4:
+    id: email
+    handler_id: email_4
+    label: 'Email 4'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 4
+    settings:
+      states:
+        - completed
+      to_mail: CASLeadershipAcademy@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+  email_5:
+    id: email
+    handler_id: email_5
+    label: 'Email 5'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 5
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:onid_email:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

@@ -1,0 +1,21 @@
+uuid: f968717b-1a71-474c-8180-0cb4f1f2a461
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_dm_awards
+    - node.type.osu_profile
+id: node.osu_profile.field_profile_dm_awards
+field_name: field_profile_dm_awards
+entity_type: node
+bundle: osu_profile
+label: 'Show Digital Measures awards report'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

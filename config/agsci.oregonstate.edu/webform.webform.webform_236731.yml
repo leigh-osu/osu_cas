@@ -1,0 +1,196 @@
+uuid: 60658dc1-63da-4043-b69a-bf38fa7fa782
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_236731
+title: 'Veterans Survey'
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	This Veterans Day, the College of Agricultural Sciences wants to recognize and honor the many veterans who work and study here.&nbsp;&nbsp;If you are a veteran, please consider participating so that we can shine a light on the many walks of life our military community comes from in service to this nation and our college.</p>
+
+      <p>
+      	Thank you for considering. And thank you for your service.</p>
+  name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Name
+  position_at_osu:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Position at OSU'
+  years_served_in_the_military:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'What years did you serve?'
+  branch_of_the_military:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Branch(s) of the military '
+  lessons_learned_from_the_military:
+    '#type': textarea
+    '#title': 'Lessons learned from the military'
+  what_was_your_job_in_the_military:
+    '#type': textarea
+    '#title': 'What was your job in the military'
+  quote_about_your_experience:
+    '#type': textarea
+    '#title': 'Quote about your experience'
+  anything_you_would_like_to_share:
+    '#type': textarea
+    '#title': 'Anything else you would like to share'
+  upload_a_picture_of_you_in_your_uniform:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title_display': inline
+    '#title': 'Upload a picture of you in your uniform'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: sara.monk@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: ben.davis@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+  email_3:
+    id: email
+    handler_id: email_3
+    label: 'Email 3'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 3
+    settings:
+      states:
+        - completed
+      to_mail: stephen.ward@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

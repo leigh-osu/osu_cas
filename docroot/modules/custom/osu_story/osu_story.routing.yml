@@ -1,0 +1,7 @@
+osu_story.settings:
+  path: '/admin/config/content/osu-story'
+  defaults:
+    _form: 'Drupal\osu_story\Form\OsuStorySettingsForm'
+    _title: 'OSU Story'
+  requirements:
+    _permission: 'administer site configuration'

@@ -1,0 +1,19 @@
+uuid: 848b917b-ee82-47c4-947d-40f57884cc96
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfs_twitter
+    - node.type.degree_fact_sheet
+id: node.degree_fact_sheet.field_dfs_twitter
+field_name: field_dfs_twitter
+entity_type: node
+bundle: degree_fact_sheet
+label: 'Twitter link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

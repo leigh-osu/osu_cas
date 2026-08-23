@@ -1,0 +1,69 @@
+uuid: 6c392213-7b9f-4a91-acf5-688856c84575
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.sample_test_ergot.field_test_ergot_estimate
+    - field.field.paragraph.sample_test_ergot.field_test_final_date
+    - field.field.paragraph.sample_test_ergot.field_test_final_ok
+    - field.field.paragraph.sample_test_ergot.field_test_final_ok_date
+    - field.field.paragraph.sample_test_ergot.field_test_final_ok_user
+    - field.field.paragraph.sample_test_ergot.field_test_final_user
+    - field.field.paragraph.sample_test_ergot.field_test_final_value
+    - field.field.paragraph.sample_test_ergot.field_test_final_value_calc
+    - field.field.paragraph.sample_test_ergot.field_test_legacy_sample_id
+    - field.field.paragraph.sample_test_ergot.field_test_legacy_test_id
+    - field.field.paragraph.sample_test_ergot.field_test_pdf
+    - field.field.paragraph.sample_test_ergot.field_test_status
+    - paragraphs.paragraphs_type.sample_test_ergot
+  module:
+    - file
+id: paragraph.sample_test_ergot.default
+targetEntityType: paragraph
+bundle: sample_test_ergot
+mode: default
+content:
+  field_test_ergot_estimate:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_test_final_ok:
+    type: boolean_checkbox
+    weight: 2
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_test_final_value:
+    type: number
+    weight: 0
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_test_pdf:
+    type: file_generic
+    weight: 3
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_test_status:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_test_final_date: true
+  field_test_final_ok_date: true
+  field_test_final_ok_user: true
+  field_test_final_user: true
+  field_test_final_value_calc: true
+  field_test_legacy_sample_id: true
+  field_test_legacy_test_id: true
+  status: true

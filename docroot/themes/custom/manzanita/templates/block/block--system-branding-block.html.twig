@@ -1,0 +1,118 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{% macro site_link(is_front, site_name) %}
+  <a
+    class="site-name__site-link text-decoration-none osu-text-osuorange fw-bolder {% if is_front %}site-name__site-front{% endif %}"
+    href="{{ path('<front>') }}"
+    rel="home">
+    {% if is_front %}<h1>{% endif %}
+      {{ site_name }}
+      {% if is_front %}</h1>{% endif %}
+  </a>
+{% endmacro %}
+
+{% import _self as macros %}
+
+{% set classes = [
+  'block',
+  'block-' ~ configuration.provider|clean_class,
+  'block-' ~ plugin_id|clean_class,
+  'col',
+  companion_logo_name == 'default' ? 'osu-logo' : companion_logo_name == 'custom-upload' ? 'logo--user-upload' : 'osu-logo osu-logo--companion',
+  group_name ? 'osu-logo--in-group',
+] %}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    <div{{ content_attributes.addClass('block__content', 'd-flex', 'align-items-center') }}>
+      {% if site_logo %}
+        {# Logo spacing lives in _cas_header_logo.scss (20px), not utilities. #}
+        <div class="d-none d-lg-flex osu-logo--wide">
+          <div class="osu-logo__frame">
+            <a id="osu-logo-wide" class="text-decoration-none d-inline-block" href="{{ companion_logo_link }}">
+              <img class="" src="{{ base_path }}{{ active_theme_path() }}/logo.svg"
+                   alt="{{ companion_logo_alt|t }}"/>
+            </a>
+          </div>
+        </div>
+        <div class="d-flex d-lg-none osu-logo--crest">
+          <div class="osu-logo__frame">
+            <a id="osu-logo-crest" class="text-decoration-none" href="{{ companion_logo_link }}">
+              <img class="" src="{{ base_path }}{{ active_theme_path() }}/assets/osu-logo-crest-only.svg"
+                   alt="{{ companion_logo_alt|t }}"/>
+            </a>
+          </div>
+        </div>
+      {% endif %}
+      {% if (site_logo or companion_logo_name == 'custom-upload') and site_name %}
+        <div class="align-self-stretch border-start border-neutral-200 osu-logo--spacer"></div>
+      {% endif %}
+      {% if site_name %}
+        <div class="block__content__site-name d-flex flex-column ms-4 py-2-5 lh-sm">
+          {% if content.group_name_link %}
+            {# The exact D7 chain, one line: the college name (linking to the
+               college home) » [parent unit »] group. The Home group renders
+               the college name alone. #}
+            <div class="site-name__site-line d-flex flex-wrap align-items-baseline{% if hide_group_breadcrumb %} site-name__site-line--home{% endif %}">
+              {# Each » is glued to its preceding word (no whitespace before
+                 the span, &nbsp; inside it), so a wrap never strands an
+                 arrow on its own line. #}
+              <div class="site-name__site-link--wrapper">
+                <a class="site-name__site-link--with-group fs-6" href="{{ site_home_url ?? path('<front>') }}"
+                   rel="home">{{ site_name }}</a>{% if not hide_group_breadcrumb %}<span class="site-name__sep">&nbsp;&raquo;</span>{% endif %}
+              </div>
+              {% if not hide_group_breadcrumb and parent_unit_name %}
+                <div class="site-name__parent-unit--wrapper">
+                  {%- if parent_unit_url -%}
+                    <a class="site-name__parent-unit fs-6" href="{{ parent_unit_url }}">{{ parent_unit_name }}</a>
+                  {%- else -%}
+                    <span class="site-name__parent-unit fs-6">{{ parent_unit_name }}</span>
+                  {%- endif -%}<span class="site-name__sep">&nbsp;&raquo;</span>
+                </div>
+              {% endif %}
+            </div>
+            {% if not hide_group_breadcrumb %}
+              <div class="site-name__group-link--wrapper">
+                {{ content.group_name_link }}
+              </div>
+            {% endif %}
+          {% elseif companion_logo_name == 'default' %}
+            {{ macros.site_link(is_front, site_name) }}
+          {% elseif companion_logo_name == 'custom-upload' %}
+            {{ macros.site_link(is_front, site_name) }}
+          {% endif %}
+        </div>
+      {% endif %}
+      {#      {{ site_slogan }} #}
+    </div>
+  {% endblock %}
+</div>

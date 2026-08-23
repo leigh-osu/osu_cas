@@ -1,0 +1,15 @@
+uuid: 08f14f1d-7c80-4157-b102-a2c28dc6fd96
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.sungrant_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_sungrant_oregonstate_edu
+label: 'Remove editors from the Sungrant domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - sungrant_oregonstate_edu

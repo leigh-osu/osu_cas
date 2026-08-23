@@ -1,0 +1,18 @@
+@use 'sass:math';
+
+// Migrated adjustable-columns blocks keep their D7 Bootstrap-3 col-xs-*
+// classes, which Bootstrap 5 ignores (the xs tier became the bare col-N).
+// Without a width the blocks are auto-width flex items hugging their
+// content at the left of the d-flex row (e.g. an 800px iframe inside a
+// col-xs-12 was no longer centred). Recreate the xs tier for blocks in
+// Layout Builder regions; the responsive col-md-*/col-lg-* classes on the
+// same blocks still take over at their breakpoints as in D7.
+// :where() keeps the shim at zero specificity so the blocks' own
+// responsive col-md-* / col-lg-* (and offset) classes win at their
+// breakpoints, exactly like Bootstrap's real xs tier.
+@for $i from 1 through 12 {
+  :where(.layout-builder__layout .block.col-xs-#{$i}) {
+    flex: 0 0 auto;
+    width: math.percentage(math.div($i, 12));
+  }
+}

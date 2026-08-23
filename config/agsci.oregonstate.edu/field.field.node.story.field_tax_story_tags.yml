@@ -1,0 +1,26 @@
+uuid: 232daefa-3953-4bff-a0a5-b66a7e76f65a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tax_story_tags
+    - node.type.story
+    - taxonomy.vocabulary.story_tags
+id: node.story.field_tax_story_tags
+field_name: field_tax_story_tags
+entity_type: node
+bundle: story
+label: 'Story Tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:filter_existing_terms'
+  handler_settings:
+    target_bundles:
+      story_tags: story_tags
+    auto_create: true
+    auto_create_bundle: null
+field_type: entity_reference

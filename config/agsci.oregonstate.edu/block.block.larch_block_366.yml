@@ -1,0 +1,34 @@
+uuid: 1cc96a9d-e1d0-455c-92ec-6f7a5253fc1a
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:24b7eeb0-339a-408e-a2a3-30e8fa971046'
+  module:
+    - block_content
+    - system
+  theme:
+    - manzanita
+id: larch_block_366
+theme: manzanita
+region: content
+weight: 5
+provider: null
+plugin: 'block_content:24b7eeb0-339a-408e-a2a3-30e8fa971046'
+settings:
+  id: 'block_content:24b7eeb0-339a-408e-a2a3-30e8fa971046'
+  label: ''
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: |-
+      /faces-agsci/faculty
+      /faces-agsci/alumni
+      /faces-agsci/archive
+      /faces-agsci/students

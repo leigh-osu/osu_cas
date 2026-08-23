@@ -1,0 +1,166 @@
+/**
+ * @file
+ * Base styling for responsive preview.
+ */
+
+/**
+ * Constrain the window height to the client height when the preview is active.
+ */
+.responsive-preview-active {
+  overflow: hidden;
+  height: 100%;
+}
+
+/**
+ * Toolbar tab.
+ */
+.toolbar-tab-responsive-preview {
+  display: none;
+}
+
+/* At narrow screen widths, float the tab to the left so it falls in line with
+ * the rest of the toolbar tabs. */
+.toolbar .toolbar-bar .toolbar-tab-responsive-preview.toolbar-tab {
+  position: relative;
+  display: block;
+  float: right; /* LTR */
+}
+
+[dir="rtl"] .toolbar .toolbar-bar .toolbar-tab-responsive-preview.toolbar-tab {
+  float: left;
+}
+
+.toolbar-tab-responsive-preview .responsive-preview-trigger {
+  display: block;
+}
+
+/* Device preview options. */
+.toolbar-tab-responsive-preview .responsive-preview-item-list {
+  position: absolute;
+  right: 10px;
+  z-index: 512;
+  display: none;
+  white-space: nowrap;
+}
+
+.toolbar-tab-responsive-preview.open .responsive-preview-item-list {
+  display: block;
+}
+
+.toolbar-tab-responsive-preview.toolbar-tab .responsive-preview-options li {
+  position: relative;
+  float: none;
+}
+
+/**
+ * Preview container.
+ *
+ * The container is kept offscreen after it is built and has been disabled.
+ */
+.responsive-preview {
+  position: relative;
+  z-index: 500;
+  top: 0;
+  bottom: 0;
+  left: -200%; /* LTR */
+  width: 100%;
+  height: 100%;
+}
+
+[dir="rtl"] .responsive-preview {
+  right: -200%;
+  left: auto;
+}
+
+.responsive-preview.active {
+  position: fixed;
+  left: 0; /* LTR */
+}
+
+[dir="rtl"] .responsive-preview.active {
+  right: 0;
+  left: auto;
+}
+
+.responsive-preview-control {
+  position: absolute;
+}
+
+.responsive-preview-modal-background {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/**
+ * Preview iframe.
+ */
+.responsive-preview-frame-container {
+  position: absolute;
+  z-index: 100;
+}
+
+.responsive-preview-frame-container iframe {
+  position: relative;
+  display: block;
+}
+
+/**
+ * Scroll container.
+ */
+#responsive-preview-scroll-track {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: visible;
+}
+
+#responsive-preview-scroll-pane {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+}
+
+/**
+ * Override Toolbar styling in the preview iframe.
+ */
+body.toolbar-tray-open.responsive-preview-frame {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  padding-top: 0 !important;
+}
+
+.responsive-preview-frame {
+  overflow-x: hidden !important;
+  background-color: white;
+}
+
+/* Fix for Gin's sidebar navigation */
+.responsive-preview-frame.gin--vertical-toolbar.toolbar-fixed {
+  padding-left: 0;
+}
+
+.responsive-preview-frame #toolbar-administration {
+  display: none !important;
+}
+
+.responsive-preview-frame .node-preview-container {
+  display: none !important;
+}
+
+.responsive-preview-frame .contextual {
+  display: none !important;
+}
+
+/**
+ * Hide contextual toolbar tab when preview is active.
+ */
+.responsive-preview-active .contextual-toolbar-tab {
+  display: none !important;
+}

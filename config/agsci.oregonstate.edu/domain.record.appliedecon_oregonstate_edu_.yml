@@ -1,0 +1,12 @@
+uuid: 1428d503-85dd-4771-8a77-9dba31191343
+langcode: en
+status: true
+dependencies: {  }
+id: appliedecon_oregonstate_edu_
+domain_id: 9821136
+hostname: appliedecon.oregonstate.edu
+name: 'Applied Economics'
+scheme: https
+weight: 2
+is_default: false
+path_prefix: ''

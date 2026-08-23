@@ -1,0 +1,57 @@
+uuid: 3b005adb-735d-4bf2-87a0-9269389609fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.sample_test_lolitrem_b.field_test_final_date
+    - field.field.paragraph.sample_test_lolitrem_b.field_test_final_ok
+    - field.field.paragraph.sample_test_lolitrem_b.field_test_final_ok_date
+    - field.field.paragraph.sample_test_lolitrem_b.field_test_final_ok_user
+    - field.field.paragraph.sample_test_lolitrem_b.field_test_final_user
+    - field.field.paragraph.sample_test_lolitrem_b.field_test_final_value
+    - field.field.paragraph.sample_test_lolitrem_b.field_test_final_value_calc
+    - field.field.paragraph.sample_test_lolitrem_b.field_test_legacy_sample_id
+    - field.field.paragraph.sample_test_lolitrem_b.field_test_legacy_test_id
+    - field.field.paragraph.sample_test_lolitrem_b.field_test_pdf
+    - field.field.paragraph.sample_test_lolitrem_b.field_test_rush
+    - field.field.paragraph.sample_test_lolitrem_b.field_test_rush_ok
+    - field.field.paragraph.sample_test_lolitrem_b.field_test_rush_ok_date
+    - field.field.paragraph.sample_test_lolitrem_b.field_test_rush_ok_user
+    - field.field.paragraph.sample_test_lolitrem_b.field_test_rush_value_date
+    - field.field.paragraph.sample_test_lolitrem_b.field_test_rush_value_lb
+    - field.field.paragraph.sample_test_lolitrem_b.field_test_rush_value_user
+    - field.field.paragraph.sample_test_lolitrem_b.field_test_status
+    - paragraphs.paragraphs_type.sample_test_lolitrem_b
+  module:
+    - options
+id: paragraph.sample_test_lolitrem_b.preview
+targetEntityType: paragraph
+bundle: sample_test_lolitrem_b
+mode: preview
+content:
+  field_test_status:
+    type: list_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_test_final_date: true
+  field_test_final_ok: true
+  field_test_final_ok_date: true
+  field_test_final_ok_user: true
+  field_test_final_user: true
+  field_test_final_value: true
+  field_test_final_value_calc: true
+  field_test_legacy_sample_id: true
+  field_test_legacy_test_id: true
+  field_test_pdf: true
+  field_test_rush: true
+  field_test_rush_ok: true
+  field_test_rush_ok_date: true
+  field_test_rush_ok_user: true
+  field_test_rush_value_date: true
+  field_test_rush_value_lb: true
+  field_test_rush_value_user: true

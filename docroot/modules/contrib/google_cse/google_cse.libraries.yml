@@ -1,0 +1,21 @@
+googlecseWatermark:
+  css:
+    theme:
+      css/google_cse.css: {}
+  js:
+    js/google_cse.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+noWatermark:
+  css:
+    theme:
+      css/no_watermark.css: {}
+googlecseResults:
+  css:
+    theme:
+      css/google_cse.css: {}
+resultsAccessibility:
+  js:
+    js/search_results.js: {}

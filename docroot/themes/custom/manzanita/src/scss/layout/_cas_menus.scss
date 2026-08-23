@@ -1,0 +1,198 @@
+@import '../abstracts/cas_variables';
+
+// Top navigation menus: white text on black, matching the header bar.
+// Covers the primary (superfish) menu and the group content menu, including
+// their dropdown sub-menus, overriding madrone's neutral-200 backgrounds and
+// Bootstrap nav-pills colors.
+#madrone-primary-menu-container,
+.block-superfish,
+.block-group-content-menu {
+  &,
+  ul,
+  li {
+    background-color: $paddletailblack !important;
+  }
+}
+
+// Divider under the menu bar — present on regular pages and over the
+// cas-hero ramp alike.
+#madrone-primary-menu-container {
+  border-bottom: 2px solid $osuorange;
+}
+
+#madrone-primary-menu-container,
+.block-superfish,
+.block-group-content-menu {
+
+  a,
+  span,
+  a.nav-link,
+  span.nav-link {
+    // madrone gives superfish links a white background; clear it so the black
+    // menu/container shows through.
+    background-color: transparent !important;
+    color: #fff !important;
+    // OSU brand display font (registered as @font-face by madrone/fonts).
+    font-family: 'Stratum2Web', serif !important;
+    // Up from Bootstrap's 1rem --bs-nav-link-font-size; covers the top bar
+    // and the dropdowns alike (this rule reaches every link in the menus;
+    // dropdowns are reset to 1rem further down). 1px under 1.1rem by
+    // request.
+    font-size: calc(1.1rem - 1px) !important;
+    // Open tracking like the site name (instead of the body's -0.01em).
+    letter-spacing: 0.05em;
+    // Slimmer than madrone's 1rem vertical padding (set as padding: 1rem on
+    // superfish links and via --bs-nav-link-padding-y on the group menu),
+    // then 1px slimmer again by request.
+    --bs-nav-link-padding-y: calc(0.4rem - 1px);
+    padding-top: calc(0.4rem - 1px) !important;
+    padding-bottom: calc(0.4rem - 1px) !important;
+    // 1px inside the 1rem madrone/Bootstrap give links at every level.
+    --bs-nav-link-padding-x: calc(1rem - 1px);
+    padding-left: calc(1rem - 1px) !important;
+    padding-right: calc(1rem - 1px) !important;
+  }
+
+  // Rollover: orange fill with an off-white label, never underlined —
+  // matching the dropdown hover inversion.
+  a:hover,
+  span:hover,
+  a.nav-link:hover,
+  span.nav-link:hover,
+  .menuparent:hover > a,
+  .group-menu-hover > a,
+  .group-menu-hover > span {
+    background-color: $osuorange !important;
+    color: $neutral-100 !important;
+    text-decoration: none !important;
+  }
+
+  // A hovered parent's open panel keeps the light dropdown background
+  // (split from the link rule above so it doesn't go orange with it).
+  .group-menu-hover > ul {
+    background-color: $neutral-100 !important;
+  }
+
+  // Sub-menu chevron glyphs follow the white text (madrone colors the
+  // superfish ones $neutral-700, invisible on the dark dropdowns)...
+  .group-sub-menu > a::after,
+  .group-sub-menu > span::after,
+  li a.menuparent::after,
+  li span.menuparent::after {
+    color: #fff !important;
+  }
+
+  // ...and turn orange with the hovered link (white would vanish on the
+  // light hover wash). Declared after the white rule so it wins.
+  .group-sub-menu > a:hover::after,
+  .group-sub-menu > span:hover::after,
+  .group-menu-hover > a::after,
+  .group-menu-hover > span::after,
+  li:hover > a.menuparent::after,
+  li:hover > span.menuparent::after {
+    color: $osuorange !important;
+  }
+}
+
+// Dropdown/flyout panels: beaver orange on off-white, framed on all sides
+// by a 1px border in the header-divider grey (see _cas_header). Rollover
+// inverts to off-white on orange. The ID selector matters: the dark bar
+// rules above carry #madrone-primary-menu-container, whose ID specificity
+// would otherwise beat any class-only override here.
+#madrone-primary-menu-container ul ul,
+.block-superfish ul ul,
+.block-group-content-menu ul ul {
+  background-color: $neutral-100 !important;
+  border: 1px solid #666;
+
+  li {
+    background-color: transparent !important;
+  }
+
+  a,
+  span,
+  a.nav-link,
+  span.nav-link {
+    background-color: transparent !important;
+    color: $osuorange !important;
+    // Body face rather than the bar's Stratum2, at 1rem with normal
+    // tracking (the bar's 1.1rem / 0.05em stays top-level only), and no
+    // underline in any state (the hover inversion carries the affordance).
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 1rem !important;
+    letter-spacing: normal;
+    text-decoration: none !important;
+  }
+
+  a:hover,
+  span:hover,
+  a.nav-link:hover,
+  span.nav-link:hover,
+  li:hover > a,
+  li:hover > span,
+  li:hover > a.nav-link,
+  li:hover > span.nav-link,
+  .group-menu-hover > a,
+  .group-menu-hover > span {
+    background-color: $osuorange !important;
+    color: $neutral-100 !important;
+    text-decoration: none !important;
+  }
+
+  // Flyout arrows follow the link text. The .menuparent/.group-sub-menu
+  // variants matter: the bar section's arrow rules carry those classes, and
+  // plain a::after here would lose to them on specificity.
+  a::after,
+  span::after,
+  a.menuparent::after,
+  span.menuparent::after,
+  .group-sub-menu > a::after,
+  .group-sub-menu > span::after {
+    color: $osuorange !important;
+  }
+
+  a:hover::after,
+  span:hover::after,
+  li:hover > a::after,
+  li:hover > span::after,
+  li:hover > a.menuparent::after,
+  li:hover > span.menuparent::after,
+  .group-sub-menu > a:hover::after,
+  .group-sub-menu > span:hover::after,
+  .group-menu-hover > a::after,
+  .group-menu-hover > span::after {
+    color: $neutral-100 !important;
+  }
+}
+
+// Sub-menu parents get solid triangle arrows like D7 larch's superfish
+// sprite (arrows-777777/ffffff.png) — FA's caret-right \f0da is the same
+// shape — replacing madrone's thin \f054 chevrons. Size, right-edge
+// placement, and the white/orange-on-hover colors above are kept.
+.block-superfish li:not(.sf-depth-1) a.menuparent::after,
+.block-superfish li:not(.sf-depth-1) span.menuparent::after,
+.block-group-content-menu .menu--level-2 .group-sub-menu > a::after,
+.block-group-content-menu .menu--level-2 .group-sub-menu > span::after {
+  content: ' \f0da' !important;
+}
+
+// No down arrows on the menu bar's top level. Madrone appends \f078 after
+// superfish .sf-depth-1 parents and the group menu's top-level
+// .group-sub-menu items; drop just those — deeper levels keep their
+// dropdown/flyout chevrons.
+.block-superfish li.sf-depth-1 > a::after,
+.block-superfish li.sf-depth-1 > span::after,
+#group-content-menu > li.group-sub-menu > a::after,
+#group-content-menu > li.group-sub-menu > span::after {
+  content: none !important;
+}
+
+// Topmost menu level only: all caps. Superfish marks the first level with
+// .sf-depth-1; the group menu's top level is the direct children of
+// #group-content-menu. Sub-menus are left in their normal case.
+#madrone-primary-menu-container a.sf-depth-1,
+.block-superfish a.sf-depth-1,
+#group-content-menu > li > a,
+#group-content-menu > li > span {
+  text-transform: uppercase !important;
+}

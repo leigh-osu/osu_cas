@@ -1,0 +1,43 @@
+id: paragraph_body_with_title__to__layout_builder
+label: Drupal 7 paragraph_body_with_title Paragraphs
+migration_group: paragraphs_to_layout_builder
+dependencies: { }
+migration_tags:
+  - Drupal 7
+  - Content
+  - Layout content
+  - OSU Paragraphs
+  - OSU
+  - Volcano
+source:
+  plugin: d7_paragraphs_item
+  bundle: body_with_title
+  key: migrate
+process:
+  type:
+    plugin: default_value
+    default_value: 'title_with_body'
+  info:
+    plugin: default_value
+    default_value: 'Migrated d7 paragraph paragraph_body_with_title'
+  body:
+    - plugin: sub_process
+      source: field_body_with_title
+      process:
+        value:
+          plugin: osu_media_wysiwyg_filter
+          source: value
+        format:
+          plugin: default_value
+          default_value: 'full_html'
+  field_block_title_extra: field_title_with_body
+  reusable:
+    plugin: default_value
+    default_value: 0
+
+destination:
+  plugin: entity:block_content
+
+migration_dependencies:
+  required: [ ]
+  optional: [ ]

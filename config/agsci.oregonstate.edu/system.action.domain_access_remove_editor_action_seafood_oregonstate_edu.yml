@@ -1,0 +1,15 @@
+uuid: 601cf305-1bd8-4037-8e91-3b6704d7bf39
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.seafood_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_seafood_oregonstate_edu
+label: 'Remove editors from the Seafood Network Information Center domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - seafood_oregonstate_edu

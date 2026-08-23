@@ -1,0 +1,32 @@
+Subject: [PATCH] Strip markup from migrated menu bar item titles
+
+A few D7 menu links carried HTML in their title column (the
+'<span class="count">$90M</span><br/>total R&D expenditures'
+infographic pattern). D10 link titles are plain text and render
+escaped, so the tags showed literally. Delegate the clean-up to the
+CAS helper when osu_migrations_cas is available.
+---
+--- a/modules/paragraphs_to_layout_builder/src/Plugin/migrate/process/MenuItem.php
++++ b/modules/paragraphs_to_layout_builder/src/Plugin/migrate/process/MenuItem.php
+@@ -174,13 +174,20 @@
+       if ($url !== '' && class_exists(\Drupal\osu_migrations_cas\Plugin\migrate\process\CasLegacyFilePaths::class)) {
+         $url = \Drupal\osu_migrations_cas\Plugin\migrate\process\CasLegacyFilePaths::rewriteUrl($url);
+       }
++      // CAS: a few D7 titles embed markup ('<span class="count">$90M</span>
++      // <br/>total R&D expenditures'); D10 link titles are plain text and
++      // render escaped, so strip to text when the CAS module is present.
++      $title = $result->field_p_menu_link_title;
++      if (class_exists(\Drupal\osu_migrations_cas\CasText::class)) {
++        $title = \Drupal\osu_migrations_cas\CasText::plainLinkTitle($title);
++      }
+       $block = BlockContent::create([
+         'info' => 'Migrated d7 paragraph paragraph_menu',
+         'type' => 'osu_menu_bar_item',
+         'langcode' => 'en',
+         'field_osu_menu_bar_item_link' => [
+           'uri' => $url,
+-          'title' => $result->field_p_menu_link_title,
++          'title' => $title,
+         ],
+         'field_osu_menu_bar_item_icon' => $this->mapLegacyIcon($result->field_p_menu_icon_value),
+         'reusable' => 0,

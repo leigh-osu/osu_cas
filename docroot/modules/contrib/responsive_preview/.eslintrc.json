@@ -1,0 +1,50 @@
+{
+  "extends": "../../../core/.eslintrc.passing.json",
+  "globals": {
+    "Popper": "readonly"
+  },
+
+  "ignorePatterns": [
+    "js/popperjs/"
+  ],
+  "settings": {
+    "jsdoc": {
+      "mode": "permissive"
+    }
+  },
+  "rules": {
+    "strict": "off",
+    "prettier/prettier": "off",
+
+    // Legacy JSDoc warnings you don’t care about
+    "jsdoc/check-param-names": "off",
+    "jsdoc/require-param": "off",
+    "jsdoc/require-returns": "off",
+    "jsdoc/require-returns-type": "off",
+    "jsdoc/require-param-description": "off",
+    "jsdoc/require-param-type": "off",
+    "jsdoc/require-returns-description": "off",
+    "jsdoc/check-tag-names": "off",
+
+    // jQuery usage warnings
+    "no-jquery/no-css": "off",
+    "no-jquery/no-text": "off",
+    "no-jquery/no-val": "off",
+
+    // Other legacy JS warnings
+    "array-callback-return": "off",
+    "func-names": "off",
+    "no-else-return": "off",
+    "no-multi-assign": "off",
+    "no-restricted-syntax": "off",
+    "no-shadow-restricted-names": "off",
+    "no-undef": "off",
+    "no-unused-vars": "off",
+    "no-use-before-define": ["error", { "functions": false, "classes": true, "variables": true }],
+    "no-var": "off",
+    "one-var": "off",
+    "object-shorthand": "off",
+    "prefer-template": "off",
+    "vars-on-top": "off"
+  }
+}

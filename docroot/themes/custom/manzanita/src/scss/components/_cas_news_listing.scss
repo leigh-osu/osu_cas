@@ -1,0 +1,51 @@
+@import '../abstracts/cas_variables';
+
+// Group news listings (news_items_by_group view): D7 news-item shape —
+// thumbnail left, date + headline + teaser wrapping beside it, a rule
+// between items.
+.cas-news-listing {
+  // Two-column item: the thumb owns column 1, every text field stacks in
+  // column 2 so nothing wraps back under the picture.
+  .news-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1rem;
+    margin-bottom: 1rem;
+
+    > .views-field {
+      grid-column: 2;
+      text-align: left;
+    }
+  }
+
+  .news-item + .news-item {
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+  }
+
+  .views-field-field-osu-story-cover-image {
+    grid-column: 1 !important;
+    grid-row: 1 / span 5;
+    margin: 0.25rem 0 0.5rem;
+
+    img {
+      width: 100px;
+      height: 100px;
+      max-width: none;
+      object-fit: cover;
+    }
+  }
+
+  .views-field-field-story-publish-date {
+    color: $neutral-600;
+    font-size: 0.9rem;
+  }
+
+  .news-item__title {
+    margin: 0.1rem 0 0.35rem;
+  }
+
+  .news-item__source a {
+    font-size: 0.9rem;
+  }
+}

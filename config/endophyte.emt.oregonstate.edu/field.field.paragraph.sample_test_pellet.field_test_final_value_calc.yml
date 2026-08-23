@@ -1,0 +1,24 @@
+uuid: 98f7d098-312f-4f10-8776-3dfd3fdc2bcf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_test_final_value_calc
+    - paragraphs.paragraphs_type.sample_test_pellet
+  module:
+    - computed_field
+id: paragraph.sample_test_pellet.field_test_final_value_calc
+field_name: field_test_final_value_calc
+entity_type: paragraph
+bundle: sample_test_pellet
+label: 'Ergovaline certification value'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings:
+  code: "$value = '';"
+field_type: computed_string

@@ -1,0 +1,24 @@
+uuid: dc6aa874-c07e-40b1-be5a-4c22e04d8c5c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_150_species_type
+    - node.type.150_species
+    - taxonomy.vocabulary.150_species
+id: node.150_species.field_150_species_type
+field_name: field_150_species_type
+entity_type: node
+bundle: 150_species
+label: 'Species Type'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:filter_existing_terms'
+  handler_settings:
+    target_bundles:
+      150_species: 150_species
+field_type: entity_reference

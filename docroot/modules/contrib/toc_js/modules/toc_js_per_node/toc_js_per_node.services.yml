@@ -1,0 +1,4 @@
+services:
+  Drupal\toc_js_per_node\Hook\TocJsPerNodeHooks:
+    arguments:
+      - '@current_user'

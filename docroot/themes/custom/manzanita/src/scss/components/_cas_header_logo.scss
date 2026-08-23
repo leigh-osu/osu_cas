@@ -1,0 +1,12 @@
+// Hide the linkpurpose external-link icon on the header logo (the logo links
+// to the external oregonstate.edu, so linkpurpose appends an icon).
+.block-system-branding-block .link-purpose-external-icon {
+  display: none !important;
+}
+
+// 20px breathing room on all sides of the OSU logo (wide desktop logo and
+// mobile crest alike). The branding block template's logo wrappers carry
+// this class instead of the old ms-2/py-2/pe-2 utility spacing.
+.osu-logo__frame {
+  padding: 20px;
+}

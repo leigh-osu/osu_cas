@@ -1,0 +1,5 @@
+// Plant variety release pages: the sheet is a stack of (mostly inline-
+// labeled) fields; give each a little breathing room below.
+:where(.node--type-plant-variety-release .field) {
+  margin-bottom: 0.5em;
+}

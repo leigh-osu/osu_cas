@@ -1,0 +1,11 @@
+uuid: 86d7c26a-a990-4523-9eb4-8e9e28d8c2ab
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.picbox
+label: Picbox
+description: ''
+targetEntityType: media
+cache: true

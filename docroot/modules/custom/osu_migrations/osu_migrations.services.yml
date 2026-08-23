@@ -1,0 +1,13 @@
+services:
+  osu_migrations.migrate_db:
+    class: Drupal\Core\Database\Connection
+    factory: Drupal\Core\Database\Database::getConnection
+    arguments: [ default, migrate ]
+
+  osu_migrations.osu_media_embed:
+    class: Drupal\osu_migrations\OsuMediaEmbed
+    arguments: [ '@migrate.lookup', '@entity_type.manager' ]
+
+  osu_migrations.osu_migrate_missing_files:
+    class: Drupal\osu_migrations\OsuMigrateMissingFiles
+    arguments: [ '@logger.factory', '@entity_type.manager', '@file_system' ]

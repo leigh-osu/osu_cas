@@ -1,0 +1,24 @@
+# This file is copied from ./core/phpstan.neon.dist then set to only
+# ignore errors applicable to this project rather than all errors ignored
+# from Core as phpstan throws errors when ignore lines here are unused.
+
+# Configuration file for PHPStan static code checking, see https://phpstan.org .
+# PHPStan is triggered on Drupal CI in commit-code-check.sh.
+includes:
+  - phar://phpstan.phar/conf/bleedingEdge.neon
+
+parameters:
+  level: 1
+
+  paths:
+    - .
+
+  ignoreErrors:
+    # Marked as @internal in Drupal Core, so we need to do this.
+    - '#PermissionsForm extends @internal class#'
+    # new static() is a best practice in Drupal, so we cannot fix that.
+    - "#^Unsafe usage of new static#"
+    # $role_storage must stay a direct RoleStorageInterface parameter here to
+    # match the signature of the parent::__construct() call in
+    # UserPermissionsForm, which itself takes the storage directly.
+    - '#^Direct injection of entity storage via \$role_storage#'

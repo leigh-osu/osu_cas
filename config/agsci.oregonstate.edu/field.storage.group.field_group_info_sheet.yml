@@ -1,0 +1,20 @@
+uuid: 80f34f7b-a6a4-45b5-b7ab-50e758d43c98
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+    - media
+id: group.field_group_info_sheet
+field_name: field_group_info_sheet
+entity_type: group
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

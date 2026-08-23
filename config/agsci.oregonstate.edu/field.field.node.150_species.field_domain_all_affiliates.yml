@@ -1,0 +1,21 @@
+uuid: 50bc70ff-688d-4355-892f-7a5f34da409f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_domain_all_affiliates
+    - node.type.150_species
+id: node.150_species.field_domain_all_affiliates
+field_name: field_domain_all_affiliates
+entity_type: node
+bundle: 150_species
+label: 'Send to all affiliates'
+description: 'Make this content available on all domains.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

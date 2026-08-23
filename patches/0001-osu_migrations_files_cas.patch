@@ -1,0 +1,41 @@
+From 2a68abfbae5759701e8e6870adb4b24aa7f650fe Mon Sep 17 00:00:00 2001
+From: Roger Leigh <roger.leigh@oregonstate.edu>
+Date: Tue, 21 Apr 2026 13:58:50 -0700
+Subject: [PATCH] osu_migrations_files_cas
+
+---
+ .../migrations/upgrade_d7_file_private.yml                     | 3 ++-
+ modules/osu_migrations_files/migrations/upgrade_d7_files.yml   | 3 ++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/modules/osu_migrations_files/migrations/upgrade_d7_file_private.yml b/modules/osu_migrations_files/migrations/upgrade_d7_file_private.yml
+index f31b3f1..9f2cab7 100644
+--- a/modules/osu_migrations_files/migrations/upgrade_d7_file_private.yml
++++ b/modules/osu_migrations_files/migrations/upgrade_d7_file_private.yml
+@@ -17,7 +17,8 @@ source:
+     # configuration in this migration's process pipeline as an example.
+     # If this is an Acquia Cloud site copy the files in to the sites directory and update the path to
+     # /var/www/html/docroot/sites/site_fqdn/files-private/files
+-    source_base_path: '/var/www/d7-files-private/files'
++#    source_base_path: '/var/www/d7-files-private/files'
++    source_base_path: '/var/www/d7/sites/agscid7/files-private/'
+ process:
+   filename: filename
+   source_full_path:
+diff --git a/modules/osu_migrations_files/migrations/upgrade_d7_files.yml b/modules/osu_migrations_files/migrations/upgrade_d7_files.yml
+index 9443fed..9002418 100644
+--- a/modules/osu_migrations_files/migrations/upgrade_d7_files.yml
++++ b/modules/osu_migrations_files/migrations/upgrade_d7_files.yml
+@@ -36,7 +36,8 @@ source:
+     #
+     # See the configuration for the source_full_path property in the process
+     # section below.
+-    source_base_path: '/var/www/html/docroot'
++#    source_base_path: '/var/www/html/docroot'
++    source_base_path: '/var/www/d7'
+ process:
+   # If you are using this file to build a custom migration consider removing
+   # the fid field to allow incremental migrations.
+-- 
+2.50.1 (Apple Git-155)
+

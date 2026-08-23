@@ -1,0 +1,127 @@
+/**
+ * @file
+ * Responsive preview icon styling.
+ */
+.toolbar-tab-responsive-preview .responsive-preview-icon::before,
+.responsive-preview .responsive-preview-icon::before {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  content: "";
+  background-color: transparent;
+  background-image: url("../images/responsive-preview-icons.png");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+.toolbar .toolbar-bar .toolbar-tab-responsive-preview .responsive-preview-icon::before {
+  width: 13px;
+}
+.toolbar-tab-responsive-preview button.responsive-preview-icon,
+.responsive-preview button.responsive-preview-icon {
+  border: 0;
+  background-color: transparent;
+  font-size: 1em;
+}
+
+/* Toolbar icon. */
+.toolbar .toolbar-bar .responsive-preview-icon.responsive-preview-icon-responsive-preview {
+  width: 5em;
+  margin-right: 0;
+  margin-left: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
+.toolbar-tab-responsive-preview .responsive-preview-icon.responsive-preview-icon-responsive-preview::before {
+  background-position: center top;
+}
+.toolbar-tab-responsive-preview.open .responsive-preview-icon-responsive-preview::before,
+.toolbar-tab-responsive-preview .responsive-preview-icon-responsive-preview.active::before,
+.toolbar-tab-responsive-preview .responsive-preview-icon-responsive-preview:hover::before {
+  background-position: center -22px;
+}
+.toolbar .toolbar-bar .toolbar-tab-responsive-preview .responsive-preview-icon-responsive-preview::before {
+  top: 0.6667em;
+  left: 1em; /* LTR */
+  height: 22px;
+}
+[dir="rtl"] .toolbar .toolbar-bar .toolbar-tab-responsive-preview .responsive-preview-icon-responsive-preview::before {
+  right: 6px;
+  left: auto;
+}
+.toolbar .toolbar-tab-responsive-preview.toolbar-tab .responsive-preview-options .responsive-preview-device.responsive-preview-icon-active {
+  padding: 0.5em 1.3333em;
+  -moz-transition: padding 0.25s;
+  -webkit-transition: padding 0.25s;
+  transition: padding 0.25s;
+  text-indent: 0;
+}
+.toolbar .toolbar-tab-responsive-preview.toolbar-tab .responsive-preview-options .responsive-preview-device.responsive-preview-icon-active.active {
+  padding-left: 2.25em; /* LTR */
+}
+[dir="rtl"] .toolbar .toolbar-tab-responsive-preview.toolbar-tab .responsive-preview-options .responsive-preview-device.responsive-preview-icon-active.active {
+  padding-right: 2.25em;
+  padding-left: 1.333em;
+}
+.toolbar .toolbar-tab-responsive-preview.toolbar-tab .responsive-preview-options .responsive-preview-device.responsive-preview-icon-active::before {
+  top: 0.5em;
+  left: 0.667em; /* LTR */
+  width: 13px;
+  height: 14px;
+  background-position: -999px -999px;
+}
+[dir="rtl"] .toolbar .toolbar-tab-responsive-preview.toolbar-tab .responsive-preview-options .responsive-preview-device.responsive-preview-icon-active::before {
+  right: 0.667em;
+  left: auto;
+}
+.toolbar .toolbar-tab-responsive-preview.toolbar-tab .responsive-preview-options .responsive-preview-device.responsive-preview-icon-active.active::before {
+  background-position: center -116px;
+}
+
+/**
+ * Responsive preview controls icons.
+ */
+.responsive-preview-control.responsive-preview-icon::before {
+  top: 12px;
+  width: 12px;
+  height: 12px;
+}
+.responsive-preview-icon-close::before {
+  right: 9px; /* LTR */
+  background-position: left -44px;
+}
+[dir="rtl"] .responsive-preview-icon-close::before {
+  right: auto;
+  left: 9px;
+}
+.responsive-preview-icon-close:active::before,
+.responsive-preview-icon-close.active::before,
+.responsive-preview-icon-close:hover::before {
+  background-position: left -56px;
+}
+.responsive-preview-icon-orientation::before {
+  left: 9px; /* LTR */
+  background-position: left -92px; /* LTR */
+}
+[dir="rtl"] .responsive-preview-icon-orientation::before {
+  right: 9px;
+  left: auto;
+  background-position: left -155px;
+}
+.responsive-preview-icon-orientation:hover::before {
+  background-position: left -104px; /* LTR */
+}
+[dir="rtl"] .responsive-preview-icon-orientation:hover::before {
+  background-position: left -167px;
+}
+.responsive-preview-icon-orientation.rotated::before {
+  background-position: left -68px; /* LTR */
+}
+[dir="rtl"] .responsive-preview-icon-orientation.rotated::before {
+  background-position: left -131px;
+}
+.responsive-preview-icon-orientation.rotated:hover::before {
+  background-position: left -80px; /* LTR */
+}
+[dir="rtl"] .responsive-preview-icon-orientation.rotated:hover::before {
+  background-position: left -143px;
+}

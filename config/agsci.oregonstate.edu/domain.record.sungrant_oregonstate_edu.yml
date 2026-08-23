@@ -1,0 +1,12 @@
+uuid: 826adcaf-598c-4c46-977a-3ea7a9b1c6d3
+langcode: en
+status: true
+dependencies: {  }
+id: sungrant_oregonstate_edu
+domain_id: 10080734
+hostname: sungrant.oregonstate.edu
+name: Sungrant
+scheme: https
+weight: 35
+is_default: false
+path_prefix: ''

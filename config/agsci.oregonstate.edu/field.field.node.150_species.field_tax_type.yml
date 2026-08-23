@@ -1,0 +1,29 @@
+uuid: 60a3bdee-e921-4c04-9b82-23114acf866a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tax_type
+    - node.type.150_species
+    - taxonomy.vocabulary.type
+id: node.150_species.field_tax_type
+field_name: field_tax_type
+entity_type: node
+bundle: 150_species
+label: 'Species Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      150_species: 150_species
+    sort:
+      field: _none
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

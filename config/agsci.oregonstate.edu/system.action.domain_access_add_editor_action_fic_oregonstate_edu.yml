@@ -1,0 +1,15 @@
+uuid: 44410d59-4714-4b4a-8150-8156581b94c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.fic_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_fic_oregonstate_edu
+label: 'Add editors to the Food Innovation Center domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - fic_oregonstate_edu

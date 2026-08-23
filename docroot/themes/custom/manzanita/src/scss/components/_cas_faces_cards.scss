@@ -1,0 +1,25 @@
+// Faces of AgSci cards (faces_of_agsci view): picbox-sized cover photo with
+// the title and introduction beneath, 1em of padding around each card.
+.cas-faces-listing {
+  .faces-card,
+  .views-col {
+    padding: 1em;
+  }
+
+  .views-field-field-osu-meta-image img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .faces-card__title {
+    margin: 0.5rem 0 0.35rem;
+  }
+
+  // 'Learn more' button to the entry; the anchor carries the shared
+  // btn cas-button-dark scheme, this wrapper just centres it.
+  .faces-card__more {
+    text-align: center;
+    margin-top: 0.6rem;
+  }
+}

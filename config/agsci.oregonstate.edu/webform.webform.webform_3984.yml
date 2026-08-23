@@ -1,0 +1,120 @@
+uuid: 5ca08efe-1f61-45be-a48a-8217552368e3
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_3984
+title: 'Work Request Form'
+description: null
+categories: {  }
+elements: |-
+  date_submitted:
+    '#type': date
+    '#title_display': inline
+    '#title': 'Date submitted'
+  desired_completion_date:
+    '#type': date
+    '#title_display': inline
+    '#title': 'Desired Completion Date'
+  location:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Location
+    '#description': '(Field and Range)'
+  crop:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Crop
+  work_requested:
+    '#type': textarea
+    '#title': 'Work Requested'
+    '#description': 'Be as detailed as possible. Please include rates and formulations if requesting fertilizer or pesticide application.'
+  actual_completion_date:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Actual Completion Date'
+  work_is_acceptable:
+    '#type': radios
+    '#options':
+      acceptable_yes: 'yes'
+      acceptable_no: 'no'
+    '#title_display': inline
+    '#title': 'Work is acceptable'
+  work_is_incomplete_please_state_problems:
+    '#type': textarea
+    '#title': 'Work is incomplete (Please state problems)'
+  work_requested_by:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Work Requested by'
+  work_completed_by:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Work Completed by'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: jared.powell@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

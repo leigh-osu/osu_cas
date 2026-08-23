@@ -1,0 +1,106 @@
+uuid: 9755ccab-493c-4d11-9f62-0e797c983d41
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 8166
+template: false
+archive: false
+id: webform_100496
+title: 'Nash Readerboard Submission '
+description: null
+categories: {  }
+elements: |-
+  name:
+    '#type': textfield
+    '#title': Name
+    '#required': true
+  email:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title': Email
+    '#required': true
+  event_title:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Event title'
+    '#required': true
+  dates__times:
+    '#type': textarea
+    '#title': 'Date(s) & Time(s)'
+    '#required': true
+  information_about_your_event:
+    '#type': textarea
+    '#title': 'Information about your event/club/course etc. '
+    '#required': true
+  how_long_do_you_want_the_slide_displayed:
+    '#type': textfield
+    '#unique': false
+    '#title': 'How long do you want the slide displayed? '
+    '#description': 'If it is a recurring club/course/seminar series etc, when do you want the display to end? (End of term/academic year/etc.)'
+    '#required': true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<p>\r\n\tHello! Thank you for your submission!&nbsp;</p>\r\n\r\n<p>\r\n\tAmanda Polley will process your information, design a slide, and contact you with further information.&nbsp;</p>\r\n\r\n<p>\r\n\tPlease allow one week for turnaround. We will email you when your slide has gone into circulation.&nbsp;</p>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: amanda.polley@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: 'Webform: Nash Readerboard Submission'
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

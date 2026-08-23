@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ * The Media Library Form Element module file.
+ */
+
+use Drupal\Core\Hook\Attribute\LegacyHook;
+use Drupal\media_library_form_element\Hook\MediaLibraryFormElementHooks;
+
+/**
+ * Implements hook_theme().
+ */
+#[LegacyHook]
+function media_library_form_element_theme($existing, $type, $theme, $path) {
+  return \Drupal::service(MediaLibraryFormElementHooks::class)->theme($existing, $type, $theme, $path);
+}
+
+/**
+ * Prepares variables for media_library_element templates.
+ *
+ * Default template: media-library-element.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - element: An associative array containing the properties of the element.
+ *     Properties used: #attributes.
+ */
+function template_preprocess_media_library_element(&$variables) {
+  return \Drupal::service(MediaLibraryFormElementHooks::class)->preprocessMediaLibraryFormElement($variables);
+}

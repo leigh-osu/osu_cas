@@ -1,0 +1,15 @@
+uuid: b06cb5e5-b984-4d3d-beb1-ee714d2b69e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.ourwillamette_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_ourwillamette_oregonstate_edu
+label: 'Remove selected content from the Our Willamette Waters domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - ourwillamette_oregonstate_edu

@@ -1,0 +1,26 @@
+--- a/osu_story.module
++++ b/osu_story.module
+@@ -83,16 +83,13 @@
+   $redirect_repository = \Drupal::service('redirect.repository');
+   $source_path = $node->toUrl()->getInternalPath();
+   $source_redirects = $redirect_repository->findBySourcePath($source_path);
+-  $redirect_found = FALSE;
+-  // Find the redirect if it already exists.
+-  $language = $node->get('langcode')->value;
+-  $urlHash = Redirect::generateHash($source_path, [], $language);
+-  foreach ($source_redirects as $source_redirect) {
+-    if ($source_redirect->getHash() == $urlHash) {
+-      $redirect_found = TRUE;
+-      break;
+-    }
+-  }
++  // A story node has at most one external redirect. Treat it as present if
++  // any redirect already exists for this source path, regardless of langcode.
++  // Redirects are saved with varying langcodes ('und' vs 'en') depending on
++  // migration/runtime context, so matching the check against a fixed language
++  // hash misses existing redirects and re-saving the node (e.g. during group
++  // placement) collides on the redirect.hash unique key.
++  $redirect_found = !empty($source_redirects);
+   // We should only have one Redirect created for a given nid and
+   // external url.
+   if (!$redirect_found) {

@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * SUBTHEME theme file.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+function cas_larch_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
+  // CAS Settings
+  $form['cas_settings'] = [
+    '#type' => 'details',
+    '#title' => t('CAS theme settings'),
+    '#open' => TRUE,
+  ];
+
+  $form['cas_settings']['cas_larch_parent_name'] = [
+    '#type' => 'textfield',
+    '#title' => t('Parent site name'),
+    '#default_value' => theme_get_setting('cas_larch_parent_name'),
+    '#size' => 60,
+    '#maxlength' => 80,
+  ];
+  $form['cas_settings']['cas_larch_parent_url'] = [
+    '#type' => 'textfield',
+    '#title' => t('Parent site url'),
+    '#description' => t("For independent project sites, this provides a way to link back to a department or other entity in another site"),
+    '#default_value' => theme_get_setting('cas_larch_parent_url'),
+    '#size' => 60,
+    '#maxlength' => 80,
+  ];
+}
+
+function cas_larch_preprocess_page(&$variables, $hook){
+  $variables['site_name'] = \Drupal::config('system.site')->get('name');
+  $variables['base_path'] = base_path();
+  $variables['cas_larch_parent_name'] = theme_get_setting('cas_larch_parent_name');
+  $variables['cas_larch_parent_url'] = theme_get_setting('cas_larch_parent_url');
+}

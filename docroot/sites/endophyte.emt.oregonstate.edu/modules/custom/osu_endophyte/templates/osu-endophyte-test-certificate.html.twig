@@ -1,0 +1,36 @@
+<div class="logo-container">
+  <img class="logo" src="{{ logo_data }}" >
+</div>
+<div style="position: relative; text-align: center; font-family: 'Open Sans', Sans-Serif;">
+  <h1>Oregon State University</h1>
+  <h2>Endophyte Service Laboratory<br />
+  College of Agricultural Sciences<br />
+  139 Oak Creek Building<br />
+    Corvallis, OR 97333</h2>
+  <h4>Dr. Jennifer Duringer, Director<br/>
+  Email: Jennifer.Duringer@oregonstate.edu<br/>
+    Lab phone: (541) 737-2872</h4>
+
+  <h1>{{ test_name }}</h1>
+  <h2>{{ subtitle }}</h2>
+  <table class="data-grid">
+    <tr class="lab-method"><td class="label">Laboratory method:</td><td> {{ lab_method }}</td></tr>
+    <tr><td class="label">Submitted by:</td><td> {{ group_name }}</td></tr>
+    <tr><td class="label">Sample type:</td><td> {{ variety }}
+      {% if variety_other %}
+      - {{ variety_other }}
+      {% endif %}<br/></tr>
+    <tr><td class="label">Sample ID:</td><td> {{ sample_id }}</td></tr>
+    <tr><td class="label">Field/Lot:</td><td> {{ field }}</td></tr>
+    <tr><td class="label">Sample received:</td><td> {{ received_date|date('m/d/Y', 'America/Los_Angeles') }}</td></tr>
+    <tr><td class="label">Test certification:</td><td> {{ completed_date|date('m/d/Y', 'America/Los_Angeles') }}</td></tr>
+  </table>
+  <p class="test-result">{{ final_calc }} ppb</p>
+  <p>{{ concentration }} concentration in parts per billion</p>
+  <div class="note">{{ test_note|raw }}</div>
+  <p style="font-size: 0.9em;">If you have any questions or need assistance with<br />interpretation, please call our laboratory.</p>
+  <p style="font-size: 0.70rem; text-align: left;"><strong>Disclaimer</strong>: The analysis of the sample material provided by the client has been conducted following OSU Endophyte Service Laboratory Standard Operating Procedures and the Quality Assurance Manual. The responsibility for safe use of this material rests solely with the client.</p>
+
+{#  <div class="page_break" style="page-break-before: always;"></div>#}
+</div>
+

@@ -1,0 +1,15 @@
+uuid: 9a62cd41-7174-4e97-87f1-384fe4e7dafa
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.ichthyology_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_ichthyology_oregonstate_edu
+label: 'Add editors to the Ichthyology domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - ichthyology_oregonstate_edu

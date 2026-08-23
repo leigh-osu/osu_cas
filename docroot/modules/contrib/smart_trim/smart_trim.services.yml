@@ -1,0 +1,25 @@
+services:
+  smart_trim.truncate_html:
+    class: Drupal\smart_trim\TruncateHTML
+
+  smart_trim.tokens:
+    class: Drupal\smart_trim\SmartTrimTokens
+    arguments:
+      - '@entity_type.manager'
+      - '@entity_field.manager'
+      - '@token.entity_mapper'
+      - '@entity.repository'
+      - '@entity_display.repository'
+      - '@plugin.manager.field.formatter'
+      - '@renderer'
+      - '@entity_type.bundle.info'
+
+  smart_trim.twig_extension:
+    class: Drupal\smart_trim\SmartTrimTwigExtension
+    arguments: ['@smart_trim.truncate_html']
+    tags:
+      - { name: twig.extension }
+
+  Drupal\smart_trim\Hook\SmartTrimHooks:
+    autoconfigure: true
+    autowire: true

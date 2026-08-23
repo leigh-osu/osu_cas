@@ -1,0 +1,10 @@
+id: tablet_portrait
+label: 'Tablet Portrait'
+weight: 1
+status: 1
+orientation: portrait
+dimensions:
+  width: 1640
+  height: 2360
+  dppx: !!float 2
+langcode: en

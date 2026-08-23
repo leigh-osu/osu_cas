@@ -1,0 +1,73 @@
+@import '../abstracts/cas_variables';
+
+// Breadcrumb trail on a dark-grey full-bleed bar, keeping the header →
+// menu → breadcrumb (dark grey) → page stack. The cool grey is off-palette
+// on purpose (madrone's neutrals are warm). Edge-to-edge width comes
+// from the fixed-width media query in _cas_fixed_width.scss.
+#madrone-breadcrumb-container {
+  background-color: #3b3d3f;
+
+  // No crumbs, no bar: group landing pages get an empty trail from
+  // GroupMenuBreadcrumbBuilder (osu_cas_multisite), and the region would
+  // otherwise paint an empty dark strip.
+  &:not(:has(li)) {
+    display: none;
+  }
+
+  .breadcrumb {
+    // madrone's 10px margin-top would show as a white sliver above the bar;
+    // pad inside the dark bar instead. Size, line-height and vertical
+    // padding mirror the menu bar above (calc(1.1rem - 1px) links,
+    // calc(0.4rem - 1px) padding, 1.75rem line) so the two bars match in
+    // height — but in Open Sans mixed case, not the menu's uppercase.
+    margin: 0;
+    padding-block: calc(0.4rem - 1px);
+    // A shade under the menu's calc(1.1rem - 1px) by request.
+    font-size: 15.8px;
+    line-height: 1.75rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+  }
+
+  .breadcrumb-item {
+    // The current page renders as a plain breadcrumb-item with bare text —
+    // core's template adds no .active class — so the "you are here" colour
+    // goes on the item itself; links share it and signal by underline.
+    color: $neutral-100;
+
+    a {
+      color: $neutral-100;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        // The shorthand resets decoration color to currentColor (near-
+        // white), so the orange is explicit.
+        text-decoration: underline;
+        text-decoration-color: $osuorange;
+      }
+    }
+
+    // Separator glyphs stay quiet; the current-page (active) crumb reads
+    // nearly as bright as the links, just off-white enough to signal
+    // "you are here, not a link".
+    &::before {
+      color: $neutral-400;
+    }
+
+    &.active {
+      color: $neutral-100;
+    }
+
+    // Trailing divider after the last crumb — the trail no longer shows the
+    // current page, so it reads "CBARC > Research >" pointing at the page
+    // you are on. Mirrors Bootstrap's ::before divider.
+    &:last-child::after {
+      content: var(--bs-breadcrumb-divider, '>');
+      padding-left: var(--bs-breadcrumb-item-padding-x, 0.5rem);
+      color: $neutral-400;
+      font-weight: 900;
+    }
+  }
+}

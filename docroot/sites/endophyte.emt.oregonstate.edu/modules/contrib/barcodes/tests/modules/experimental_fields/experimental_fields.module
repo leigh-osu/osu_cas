@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * Adds field types to the Barcodes field formatter for testing purposes only.
+ *
+ * This module modifies the Barcodes FieldFormatter plugin to allow it to work
+ * on "experimental" field types. That is, types that aren't yet currently
+ * supported by the Barcodes FieldFormatter. These types are:
+ *   created, decimal, string_long, timestamp, uri.
+ *
+ * This module also serves as an example of how to allow the Barcodes module
+ * to format field types other than the built-in types.
+ */
+
+/**
+ * Implements hook_field_formatter_info_alter().
+ */
+function experimental_fields_field_formatter_info_alter(array &$info) {
+  // Allow the barcode field formatter to be used on a new field type.
+  $info['barcode']['field_types'][] = 'created';
+  $info['barcode']['field_types'][] = 'decimal';
+  $info['barcode']['field_types'][] = 'string_long';
+  $info['barcode']['field_types'][] = 'timestamp';
+  $info['barcode']['field_types'][] = 'uri';
+}

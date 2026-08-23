@@ -1,0 +1,12 @@
+uuid: e72cdaba-36f5-4b15-a969-610b9eecff80
+langcode: en
+status: true
+dependencies: {  }
+id: ourwillamette_oregonstate_edu
+domain_id: 2364382
+hostname: ourwillamette.oregonstate.edu
+name: 'Our Willamette Waters'
+scheme: https
+weight: 43
+is_default: false
+path_prefix: ''

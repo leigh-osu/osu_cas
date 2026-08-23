@@ -1,0 +1,20 @@
+uuid: 0602307f-fad5-4006-9a43-3ee5e4f6ef8e
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_mw_snow_total
+field_name: field_mw_snow_total
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 3
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

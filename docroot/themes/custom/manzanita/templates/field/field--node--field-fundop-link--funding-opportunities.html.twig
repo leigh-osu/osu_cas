@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * Funding opportunity link: a bold "Full announcement" anchor.
+ *
+ * D7 rendered this field as a plain link whose text was the static string
+ * "Full announcement" (the URL never shown). Core's link formatter has no
+ * static-text option, so the template supplies it; bold per the D10 design.
+ */
+#}
+<div{{ attributes.addClass('field', 'field--name-field-fundop-link') }}>
+  {% for item in items %}
+    <a class="fw-bold" href="{{ item.content['#url'].toString() }}">{{ 'Full announcement'|t }}</a>
+  {% endfor %}
+</div>

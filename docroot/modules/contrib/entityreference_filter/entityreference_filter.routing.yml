@@ -1,0 +1,7 @@
+entityreference_filter.ajax:
+  path: '/entityreference_filter/ajax'
+  defaults:
+    _controller: '\Drupal\entityreference_filter\Controller\EntityReferenceFilterAjaxController::ajaxFiltersValuesRebuild'
+  methods: [POST]
+  requirements:
+    _permission: 'access content'

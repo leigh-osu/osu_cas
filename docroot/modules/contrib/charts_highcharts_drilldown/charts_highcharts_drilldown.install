@@ -1,0 +1,86 @@
+<?php
+
+/**
+ * @file
+ * Installation and uninstallation functions.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function charts_highcharts_drilldown_requirements($phase) {
+  $requirements = [];
+
+  switch ($phase) {
+    case 'runtime':
+      $library_path = charts_highcharts_drilldown_find_library();
+      $config = \Drupal::service('config.factory')->getEditable('charts.settings');
+      $cdn = $config->get('advanced.requirements.cdn') ?? FALSE;
+
+      if (!$library_path) {
+        if ($cdn) {
+          $requirements['charts_highcharts_drilldown_js'] = [
+            'title' => t('Highcharts Drilldown Library'),
+            'value' => t('Available through a CDN'),
+            'severity' => REQUIREMENT_WARNING,
+            'description' => t('You are using the Highcharts Drilldown Library via a content delivery network. It is generally considered better practice to install the library files locally. Please see the README file inside charts_highcharts_drilldown for instructions to install the library.'),
+          ];
+        }
+        else {
+          $requirements['charts_highcharts_drilldown_js'] = [
+            'title' => t('Highcharts Drilldown Library'),
+            'value' => t('Not Installed'),
+            'severity' => REQUIREMENT_ERROR,
+            'description' => t('You are missing the Highcharts Drilldown Library in your Drupal installation directory and you have opted not to use a CDN. Please either enable use of the CDN in the Chart Settings under the Advanced tab or see the README file inside charts_highcharts_drilldown for instructions to install the library.'),
+          ];
+        }
+      }
+      else {
+        $requirements['charts_highcharts_drilldown_js'] = [
+          'title' => t('Highcharts Drilldown Library'),
+          'value' => t('Installed'),
+          'severity' => REQUIREMENT_OK,
+          'description' => t('You have installed the Highcharts Drilldown Library in your Drupal installation directory.'),
+        ];
+      }
+      break;
+  }
+
+  return $requirements;
+}
+
+/**
+ * Get the location of the Highcharts Drilldown Library.
+ *
+ * @return string
+ *   The location of the library, or FALSE if the library isn't installed.
+ */
+function charts_highcharts_drilldown_find_library() {
+  // The following logic is taken from libraries_get_libraries()
+  $searchdir = [];
+
+  // Similar to 'modules' and 'themes' directories inside an installation
+  // profile, installation profiles may want to place libraries into a
+  // 'libraries' directory.
+  $searchdir[] = 'profiles/' . \Drupal::installProfile() . '/libraries';
+
+  // Always search libraries.
+  $searchdir[] = 'libraries';
+
+  // Also search sites/<domain>/*.
+  $site_path = \Drupal::getContainer()->getParameter('site.path');
+  $site_path = explode('/', $site_path);
+  $site_name = $site_path[1];
+  $searchdir[] = $site_name . '/libraries';
+
+  foreach ($searchdir as $dir) {
+    if (file_exists($dir . '/highcharts_drilldown/drilldown.min.js') || file_exists($dir . '/highcharts_drilldown/drilldown.js')) {
+      return $dir . '/highcharts_drilldown';
+    }
+    if (file_exists($dir . '/highcharts_data/data.min.js') || file_exists($dir . '/highcharts_data/data.js')) {
+      return $dir . '/highcharts_data';
+    }
+  }
+
+  return FALSE;
+}

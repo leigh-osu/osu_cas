@@ -1,0 +1,20 @@
+// Blocks keep to themselves: floats inside a block (D7 media-wysiwyg
+// aligns, hand-floated images) must not escape and wrap the text of the
+// blocks that follow. flow-root gives every block in a Layout Builder
+// section its own block formatting context, containing its floats.
+// :where() keeps this at zero specificity so any block that styles its
+// own display (flex menu-bar items, grid cards, d-flex utilities) wins.
+:where(.layout-builder__layout .block) {
+  display: flow-root;
+}
+
+// Media embeds keep to their column: D7 media tokens carried inline pixel
+// widths (carried over onto the rendered <article class="media"> wrapper by
+// the osu_migrations media-embed patch). D7 capped them via the img's
+// max-width: 100%; in D10 the width sits on the wrapper, which has no cap,
+// so a token sized for a wide D7 column overflows a narrow Layout Builder
+// column and the neighboring text flows over the image. Honor the width up
+// to the container, exactly like D7 did.
+:where(.media[style*="width"]) {
+  max-width: 100%;
+}

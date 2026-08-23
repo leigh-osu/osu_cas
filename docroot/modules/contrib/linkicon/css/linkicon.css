@@ -1,0 +1,303 @@
+/**
+ * @file
+ */
+.linkicon *,
+.linkicon *::before {
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.item-list--linkicon {
+  margin: 2em 0;
+}
+
+/* Override Seven theme over-specified classes */
+.item-list--linkicon ul.linkicon {
+  margin: 0;
+  padding: 0;
+}
+
+.item-list--linkicon ul.linkicon li {
+  margin: 0 0 5px;
+  padding: 0; /* Override Bartik */
+  list-style: none;
+}
+
+.item-list--linkicon ul.linkicon--inline li {
+  display: inline-block;
+  margin: 0 2px 4px;
+  vertical-align: top;
+}
+
+.linkicon a,
+.linkicon a:hover {
+  text-decoration: none;
+  border: 0; /* Overrides Bartik */
+}
+
+.linkicon__text {
+  padding: 0 5px;
+}
+
+.linkcion--button .linkicon__text {
+  display: inline-block;
+  padding: 0 10px;
+  vertical-align: middle;
+}
+
+/* Screen reader text */
+.linkicon--no-text .linkicon__text {
+  position: absolute !important;
+  top: -9999px;
+  left: -9999px;
+}
+
+.linkicon--no-text a {
+  display: block;
+}
+
+/**
+ * Sizes
+ */
+.linkicon .icon::before,
+.linkicon svg.icon {
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+  padding: 5px;
+  text-align: center;
+  font-size: 20px;
+  line-height: 22px;
+  speak: none;
+}
+
+/**
+ * FontAwesome >= 5 with SVG compatibility.
+ * https://fontawesome.com/how-to-use/on-the-web/setup/upgrading-from-version-4
+ */
+.linkicon--small .icon::before,
+.linkicon--small svg.icon {
+  width: 28px;
+  height: 28px;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.linkicon--medium .icon::before,
+.linkicon--medium svg.icon {
+  width: 38px;
+  height: 38px;
+  font-size: 22px;
+  line-height: 28px;
+}
+
+.linkicon--large .icon::before,
+.linkicon--large svg.icon {
+  width: 64px;
+  height: 64px;
+  font-size: 42px;
+  line-height: 54px;
+}
+
+.linkicon--xlarge .icon::before,
+.linkicon--xlarge svg.icon {
+  width: 100px;
+  height: 100px;
+  font-size: 64px;
+  line-height: 88px;
+}
+
+.linkicon--xxlarge .icon::before,
+.linkicon--xxlarge svg.icon {
+  width: 140px;
+  height: 140px;
+  font-size: 92px;
+  line-height: 132px;
+}
+
+/**
+ * Tooltip
+ */
+.linkicon--tooltip a {
+  position: relative;
+  display: block;
+}
+
+.linkicon--tooltip .icon {
+  display: inline-block;
+}
+
+.linkicon--button .linkicon__text,
+.linkicon--tooltip .linkicon__text {
+  padding: 2px 10px;
+}
+
+.linkicon--tooltip .linkicon__text,
+.linkicon--button .linkicon__text,
+.linkicon--button .linkicon__icon,
+.linkicon--button .linkicon__icon::before {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.linkicon--tooltip a::after,
+.linkicon--tooltip a::before {
+  position: absolute;
+  bottom: 122%;
+  visibility: hidden;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  opacity: 0;
+}
+
+/**
+ * Arrow
+ */
+.linkicon--tooltip a::after {
+  z-index: 22;
+  left: 12px;
+  display: block;
+  width: 0;
+  height: 0;
+  margin-bottom: -6px;
+  content: "";
+  border-top: 7px solid #000;
+  border-top-color: rgba(0, 0, 0, 0.8);
+  border-right: 0 solid rgba(0, 0, 0, 0);
+  border-left: 7px solid rgba(0, 0, 0, 0);
+}
+
+.linkicon--tooltip a::before {
+  left: 50%;
+  margin-left: -50%;
+  padding: 5px 10px;
+  content: attr(data-title);
+  text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.8);
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.linkicon--tooltip a:hover::after,
+.linkicon--tooltip a:hover::before {
+  visibility: visible;
+  opacity: 1;
+}
+
+/**
+ * Colors
+ */
+.linkicon--color .icon,
+.linkicon--button a {
+  display: inline-block;
+  -moz-transition: background-color 0.4s ease-in 0s;
+  -ms-transition: background-color 0.4s ease-in 0s;
+  -o-transition: background-color 0.4s ease-in 0s;
+  -webkit-transition: background-color 0.4s ease-in 0s;
+  transition: background-color 0.4s ease-in 0s;
+  text-align: center;
+  vertical-align: middle;
+  color: #fff;
+}
+
+.linkicon--color a:focus {
+  color: #fff;
+}
+
+.linkicon--dark .icon,
+.linkicon--dark.linkicon--button a {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.linkicon--grey .icon,
+.linkicon--grey.linkicon--button a {
+  background-color: #808080;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.linkicon--purple .icon,
+.linkicon--purple.linkicon--button a {
+  background-color: #662d91;
+  background-color: rgba(102, 45, 145, 0.9);
+}
+
+.linkicon--orange .icon,
+.linkicon--orange.linkicon--button a {
+  background-color: #ef5400;
+  background-color: rgba(239, 84, 0, 0.9);
+}
+
+.linkicon--blue .icon,
+.linkicon--blue.linkicon--button a {
+  background-color: #00aedb;
+  background-color: rgba(0, 174, 219, 0.9);
+}
+
+.linkicon--lime .icon,
+.linkicon--lime.linkicon--button a {
+  background-color: #8ec127;
+  background-color: rgba(142, 193, 39, 0.9);
+}
+
+.linkicon--red .icon,
+.linkicon--red.linkicon--button a {
+  background-color: #d41243;
+  background-color: rgba(212, 18, 67, 0.9);
+}
+
+.linkicon--color .icon:hover,
+.linkicon--color.linkicon--button a:hover {
+  color: #fff;
+  background-color: #b7b7b7;
+  background-color: rgba(183, 183, 183, 0.9);
+}
+
+/**
+ * Shapes
+ */
+.linkicon--round .icon {
+  border-radius: 50%;
+}
+
+.linkicon--round-2 .icon {
+  border-radius: 2px;
+}
+
+.linkicon--round-5 .icon {
+  border-radius: 5px;
+}
+
+.linkicon--round-8 .icon {
+  border-radius: 8px;
+}
+
+.linkicon--round-10 .icon {
+  border-radius: 10px;
+}
+
+/**
+ * Position
+ */
+.linkicon--bottom .linkicon__text,
+.linkicon--top .linkicon__text {
+  display: block;
+}
+
+.linkicon--bottom.linkicon--inline li,
+.linkicon--top.linkicon--inline li {
+  text-align: center;
+}
+
+.linkicon--button.linkicon--bottom .icon,
+.linkicon--button.linkicon--top .icon {
+  width: 100%;
+}

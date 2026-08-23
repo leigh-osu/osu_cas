@@ -1,0 +1,51 @@
+uuid: 58224c9f-dcf7-45a9-b3d2-c894ee630f1e
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+  module:
+    - admin_toolbar_search
+    - exclude_node_title
+    - file
+    - filter
+    - google_cse
+    - media
+    - osu_cas_site_sync
+    - readonlymode
+    - responsive_preview
+    - search
+    - shortcut
+    - simple_styleguide
+    - sitewide_alert
+    - system
+    - toolbar
+    - tour
+_core:
+  default_config_hash: 3cVSDPTV0115hsYrdQIJgMWnUvXhwiyrd5ElHaXgxfg
+id: authenticated
+label: 'Authenticated user'
+weight: -9
+is_admin: false
+permissions:
+  - 'access administration pages'
+  - 'access content'
+  - 'access responsive preview'
+  - 'access shortcuts'
+  - 'access style guide'
+  - 'access toolbar'
+  - 'access tour'
+  - 'delete own files'
+  - 'exclude own node title'
+  - 'readonlymode access messages'
+  - 'search Google CSE'
+  - 'search content'
+  - 'update any media'
+  - 'update media'
+  - 'use admin toolbar search'
+  - 'use osu cas site sync'
+  - 'use text format basic_html'
+  - 'view media'
+  - 'view own unpublished media'
+  - 'view published sitewide alert entities'
+  - 'view the administration theme'

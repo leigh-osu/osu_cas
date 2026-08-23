@@ -1,0 +1,60 @@
+uuid: fcaaaaf0-bfa2-40d0-a533-8fb4d1006b8e
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - osu_migrations
+      - paragraphs_to_layout_builder
+_core:
+  default_config_hash: qMDFQepjwjUY5HBAy0Fx2ApwTQd928BcY8JY-1HW45g
+id: paragraph_1_column_background_video__to__layout_builder
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - 'Layout content'
+  - 'OSU Paragraphs'
+  - OSU
+  - 'CAS Paragraphs'
+  - CAS
+migration_group: paragraphs_to_layout_builder
+label: 'Drupal 7 1_column_background_video Paragraphs'
+source:
+  plugin: osu_d7_paragraphs_item
+  bundle: 1_column_background_video
+  key: migrate
+process:
+  type:
+    plugin: default_value
+    default_value: paragraph_block
+  body:
+    -
+      plugin: sub_process
+      source: field_p_1_col_main
+      process:
+        value:
+          plugin: osu_media_wysiwyg_filter
+          source: value
+        format:
+          plugin: default_value
+          default_value: full_html
+  field_styles: field_p_1_col_styles
+  field_eb_background_fc:
+    plugin: file_background
+    source: field_paragraph_video
+    custom_source_lookup: upgrade_d7_media_local_video
+  info:
+    plugin: default_value
+    default_value: 'Migrated d7 paragraph 1_column_background_video'
+  reusable:
+    plugin: default_value
+    default_value: 0
+destination:
+  plugin: 'entity:block_content'
+migration_dependencies:
+  required: {  }
+  optional: {  }

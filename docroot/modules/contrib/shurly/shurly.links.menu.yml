@@ -1,0 +1,11 @@
+shurly.admin:
+  title: 'ShURLy'
+  description: 'ShURLy configuration and short URLs.'
+  parent: system.admin_config_search
+  route_name: shurly.admin
+
+shurly.settings:
+  title: 'ShURLy settings'
+  description: 'Configure base URL, rate limits and more.'
+  parent: shurly.admin
+  route_name: shurly.settings

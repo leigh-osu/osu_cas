@@ -1,0 +1,14 @@
+uuid: a6f0ef37-79ce-486c-92c3-2f89c2b3065e
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.fw_oregonstate_edu
+  module:
+    - domain_source
+id: domain_source_set_action.fw_oregonstate_edu
+label: 'Set content domain source value to the Fisheries, Wildlife, and Conservation Sciences domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: fw_oregonstate_edu

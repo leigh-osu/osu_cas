@@ -1,0 +1,20 @@
+uuid: a3379fd6-3000-4744-acb6-a8929e88d1d1
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_dw_rain
+field_name: field_dw_rain
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 3
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

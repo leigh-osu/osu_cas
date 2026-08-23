@@ -1,0 +1,21 @@
+uuid: 80356afa-f07f-4c57-9b93-44e6e39d7f3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfs_degree_focus_area
+    - node.type.degree_fact_sheet
+  module:
+    - options
+id: node.degree_fact_sheet.field_dfs_degree_focus_area
+field_name: field_dfs_degree_focus_area
+entity_type: node
+bundle: degree_fact_sheet
+label: 'Focus area'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

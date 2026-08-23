@@ -1,0 +1,29 @@
+uuid: c72a6bc4-d093-4ba7-a619-84558ba2aa40
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fun_facts_image
+    - media.type.image
+    - node.type.fun_facts
+id: node.fun_facts.field_fun_facts_image
+field_name: field_fun_facts_image
+entity_type: node
+bundle: fun_facts
+label: Image
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

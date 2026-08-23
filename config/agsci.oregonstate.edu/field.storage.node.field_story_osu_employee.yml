@@ -1,0 +1,19 @@
+uuid: eec3916f-b565-4fa4-846c-6df138d56329
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_story_osu_employee
+field_name: field_story_osu_employee
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

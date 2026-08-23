@@ -1,0 +1,145 @@
+Subject: [PATCH] Keep the link on D7 media tokens carrying an external_url
+
+D7 media tokens could carry an external_url, which rendered the media as
+a link -- typically an image thumbnail linking to the PDF it illustrates
+(fact sheets, reports, flyers). The token-to-drupal-media conversion
+never read that key, so the image migrated and the link it wrapped was
+dropped silently: the page still looks right while the download is gone.
+2,702 tokens across 1,075 text rows are affected.
+
+Wrap the generated embed in an anchor when the token has one, then lift
+that anchor out of any paragraph enclosing it. D7 put an inline <img>
+inside a <p>, but <drupal-media> renders as a block-level <article>,
+which is invalid there -- full_html runs filter_htmlcorrector, so the
+media would be hoisted out at render time and the anchor left behind
+empty. Authoring the same content in D10 could not produce that markup
+either: CKEditor treats a media embed as a block widget and never nests
+one in a paragraph, so this emits what native editing would.
+
+The href keeps its D7 value deliberately -- cas_legacy_file_paths runs
+after this step and rewrites quoted hrefs to the D10 files path.
+---
+--- a/src/OsuMediaEmbed.php
++++ b/src/OsuMediaEmbed.php
+@@ -2,6 +2,7 @@
+ 
+ namespace Drupal\osu_migrations;
+ 
++use Drupal\Component\Utility\Html;
+ use Drupal\Core\Entity\EntityTypeManagerInterface;
+ use Drupal\Core\Template\Attribute;
+ use Drupal\migrate\MigrateLookupInterface;
+@@ -118,7 +119,26 @@
+             }
+           }
+         }
+-        return $this->getEmbedCode($embed_metadata) ?? $matches[0];
++        $embed_code = $this->getEmbedCode($embed_metadata);
++        if ($embed_code === NULL) {
++          return $matches[0];
++        }
++
++        // CAS: a D7 media token could carry an external_url, which rendered
++        // the media as a link -- typically an image thumbnail linking to the
++        // PDF it illustrates. 2,702 tokens across 1,075 text rows use it.
++        // Without this the image survives and the link it wrapped is dropped
++        // silently, so the page still looks right while the download is
++        // gone. The href keeps its D7 value on purpose: cas_legacy_file_paths
++        // runs after this step and rewrites quoted hrefs to the D10 files
++        // path. Other token fields are booleans when unset, hence the string
++        // check.
++        $external_url = $tag_info['fields']['external_url'] ?? NULL;
++        if (is_string($external_url) && trim($external_url) !== '') {
++          return '<a href="' . htmlspecialchars(trim($external_url), ENT_QUOTES, 'UTF-8') . '">'
++            . $embed_code . '</a>';
++        }
++        return $embed_code;
+       }
+       catch (NotEncodableValueException $e) {
+         return $matches[0];
+@@ -127,10 +147,84 @@
+         return $matches[0];
+       }
+     }, $value);
+-    return $text;
++    return $this->liftLinkedMedia($text);
+   }
+ 
+   /**
++   * Moves linked media embeds out of the paragraphs that enclose them.
++   *
++   * D7 put an inline <img> inside a <p>; the D10 equivalent, <drupal-media>,
++   * renders as a block-level <article>, which is invalid inside a <p>. The
++   * full_html format runs filter_htmlcorrector, so the media gets lifted out
++   * at render time and the <a> we wrapped it in is left behind empty -- the
++   * image shows, nothing is clickable.
++   *
++   * Authoring the same thing in D10 could not produce that markup: CKEditor
++   * treats a media embed as a block widget and never nests one in a
++   * paragraph. So the fix belongs here, emitting what native editing would:
++   * the linked media as a block-level sibling. A paragraph that also holds
++   * text is split around it, which is what the corrector would have done
++   * anyway, only without breaking the link.
++   */
++  private function liftLinkedMedia(string $html) {
++    if (!str_contains($html, '<drupal-media')) {
++      return $html;
++    }
++    $document = Html::load($html);
++    $xpath = new \DOMXPath($document);
++    $paragraphs = $xpath->query('//p[.//a[.//drupal-media]]');
++    if (!$paragraphs->length) {
++      return $html;
++    }
++    foreach (iterator_to_array($paragraphs) as $paragraph) {
++      $parent = $paragraph->parentNode;
++      if (!$parent) {
++        continue;
++      }
++      $replacements = [];
++      $run = $document->createElement('p');
++      foreach (iterator_to_array($paragraph->childNodes) as $child) {
++        $is_linked_media = $child instanceof \DOMElement
++          && strtolower($child->nodeName) === 'a'
++          && $xpath->query('.//drupal-media', $child)->length > 0;
++        if ($is_linked_media) {
++          if (self::hasContent($run)) {
++            $replacements[] = $run;
++          }
++          $replacements[] = $child;
++          $run = $document->createElement('p');
++          continue;
++        }
++        // Moves the node out of the original paragraph.
++        $run->appendChild($child);
++      }
++      if (self::hasContent($run)) {
++        $replacements[] = $run;
++      }
++      foreach ($replacements as $node) {
++        $parent->insertBefore($node, $paragraph);
++      }
++      $parent->removeChild($paragraph);
++    }
++    return Html::serialize($document);
++  }
++
++  /**
++   * Whether a node holds anything worth keeping as its own paragraph.
++   */
++  private static function hasContent(\DOMNode $node) {
++    if (trim($node->textContent) !== '') {
++      return TRUE;
++    }
++    foreach ($node->childNodes as $child) {
++      if ($child instanceof \DOMElement) {
++        return TRUE;
++      }
++    }
++    return FALSE;
++  }
++
++  /**
+    * Get the new drupal media embed code.
+    *
+    * @param array $embedMetadata

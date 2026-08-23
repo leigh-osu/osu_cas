@@ -1,0 +1,9 @@
+uuid: d90da456-3304-49eb-a98f-b6cfbc386598
+langcode: en
+status: true
+dependencies: {  }
+name: 'Story Tags'
+vid: story_tags
+description: 'Use tags to group stories on similar topics into categories.'
+weight: 0
+new_revision: false

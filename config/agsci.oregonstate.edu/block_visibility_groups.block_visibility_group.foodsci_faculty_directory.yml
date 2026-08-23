@@ -1,0 +1,16 @@
+uuid: 0adb5153-f289-4172-934b-805734ab1c68
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: foodsci_faculty_directory
+label: foodsci_faculty_directory
+logic: and
+conditions:
+  86e90004-6d59-498c-8872-9833876ce7f7:
+    id: request_path
+    uuid: 86e90004-6d59-498c-8872-9833876ce7f7
+    pages: /node/94911
+    negate: false
+allow_other_conditions: false

@@ -1,0 +1,15 @@
+uuid: f6960ae7-a5f9-4210-9d97-bcf87c068665
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.campusarb_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_campusarb_oregonstate_edu
+label: 'Remove selected content from the OSU Campus Arboretum domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - campusarb_oregonstate_edu

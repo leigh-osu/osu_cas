@@ -1,0 +1,19 @@
+uuid: 0fdca496-8081-4f1e-920f-4bf5c796d97c
+langcode: und
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_dfs_learning_outcomes
+field_name: field_dfs_learning_outcomes
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

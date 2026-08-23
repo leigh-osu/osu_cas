@@ -1,0 +1,15 @@
+uuid: 7133be6c-7fbd-48eb-85c4-085f9471aa3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.centerforsmallfarms_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_centerforsmallfarms_oregonstate_edu
+label: 'Remove editors from the Center for Resilient Agriculture &amp; Food Systems domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - centerforsmallfarms_oregonstate_edu

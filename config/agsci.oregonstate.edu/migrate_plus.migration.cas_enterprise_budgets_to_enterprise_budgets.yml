@@ -1,0 +1,163 @@
+uuid: bbe8ccae-accd-42da-9aa2-46b5125b20c3
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 5BWUaqD1v5WEbU2tO6gxQTTuO-2nrmoRinSrRX1-_xE
+id: cas_enterprise_budgets_to_enterprise_budgets
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - 'Layout content'
+  - OSU
+  - CAS
+  - 'CAS Content'
+migration_group: content
+label: 'Basic Enterprise Budgets to Enterprise Budgets Migration'
+source:
+  plugin: d7_node_domain_access
+  node_type: enterprise_budgets
+  high_water_property:
+    name: changed
+process:
+  title: title
+  body:
+    plugin: sub_process
+    source: body
+    process:
+      value:
+        plugin: osu_media_wysiwyg_filter
+        source: value
+      summary: summary
+      format:
+        plugin: default_value
+        default_value: full_html
+  field_aeb_author:
+    plugin: get
+    source: field_aeb_author
+  field_aeb_description:
+    plugin: get
+    source: field_aeb_description
+  field_aeb_size:
+    plugin: get
+    source: field_aeb_size
+  field_aeb_date:
+    plugin: sub_process
+    source: field_aeb_date
+    process:
+      value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: Y-m-d
+        source: value
+  field_aeb_units:
+    plugin: sub_process
+    source: field_aeb_units
+    process:
+      value:
+        plugin: static_map
+        source: value
+        bypass: true
+        map:
+          cows/month: cows_month
+  field_tax_commodity:
+    plugin: sub_process
+    source: field_commodity
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: 'upgrade_d7_taxonomy_terms:commodity'
+          source: tid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  field_tax_county:
+    plugin: sub_process
+    source: field_counties
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: 'upgrade_d7_taxonomy_terms:oregon_counties'
+          source: tid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  field_tax_region:
+    plugin: sub_process
+    source: field_aeb_region
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: 'upgrade_d7_taxonomy_terms:geographic_region'
+          source: tid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  field_aeb_pdf:
+    plugin: sub_process
+    source: field_pdf
+    process:
+      target_id:
+        -
+          plugin: cas_file_url_to_media
+          source: url
+        -
+          plugin: skip_on_empty
+          method: process
+  field_aeb_xls:
+    plugin: sub_process
+    source: field_aeb_xls
+    process:
+      target_id:
+        -
+          plugin: cas_file_url_to_media
+          source: url
+        -
+          plugin: skip_on_empty
+          method: process
+  field_meta_tags:
+    plugin: d7_metatag_entities
+    source: pseudo_metatag_entities
+  path/pathauto:
+    plugin: default_value
+    default_value: 0
+  type:
+    plugin: default_value
+    default_value: enterprise_budgets
+  field_domain_access:
+    plugin: sub_process
+    source: domain_access_node
+    process:
+      target_id: target_id
+  field_domain_all_affiliates:
+    plugin: get
+    source: domain_all_affiliates
+  field_domain_source:
+    plugin: get
+    source: domain_source
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+destination:
+  plugin: 'entity:node'
+  default_bundle: enterprise_budgets
+migration_dependencies:
+  required:
+    - upgrade_d7_files
+    - upgrade_d7_users_with_roles
+    - 'upgrade_d7_taxonomy_terms:commodity'
+    - 'upgrade_d7_taxonomy_terms:oregon_counties'
+    - 'upgrade_d7_taxonomy_terms:geographic_region'

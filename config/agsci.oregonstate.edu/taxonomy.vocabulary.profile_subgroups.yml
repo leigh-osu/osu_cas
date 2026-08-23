@@ -1,0 +1,9 @@
+uuid: 76ae5589-f179-4cb1-a25e-af8f4f66880e
+langcode: en
+status: true
+dependencies: {  }
+name: 'Profile subgroups'
+vid: profile_subgroups
+description: null
+weight: 0
+new_revision: false

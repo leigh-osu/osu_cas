@@ -1,0 +1,12 @@
+uuid: 08f0ce53-30d5-459d-916c-bc36030619f1
+langcode: en
+status: true
+dependencies: {  }
+id: http_marineresearch_oregonstate_edu
+domain_id: 244957
+hostname: marineresearch.oregonstate.edu
+name: 'Coastal Oregon Marine Experiment Station'
+scheme: https
+weight: 6
+is_default: false
+path_prefix: ''

@@ -1,0 +1,15 @@
+uuid: 26e563e1-8195-4e9c-bd61-c2ca2e6b9f12
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.soilwaterquality_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_soilwaterquality_oregonstate_edu
+label: 'Add editors to the Soil Water Quality domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - soilwaterquality_oregonstate_edu

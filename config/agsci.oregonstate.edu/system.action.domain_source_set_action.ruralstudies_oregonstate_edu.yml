@@ -1,0 +1,14 @@
+uuid: 5f2119cb-b139-42cc-a546-ae2a883eb576
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.ruralstudies_oregonstate_edu
+  module:
+    - domain_source
+id: domain_source_set_action.ruralstudies_oregonstate_edu
+label: 'Set content domain source value to the Rural Studies Program domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: ruralstudies_oregonstate_edu

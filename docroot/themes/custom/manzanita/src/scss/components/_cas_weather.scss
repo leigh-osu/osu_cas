@@ -1,0 +1,24 @@
+// Weather station tables (osu_cas_weather block, weather_daily /
+// weather_monthly views). The tables themselves take the site's default
+// .osu-table look (madrone _osu_tables.scss: bordered, striped, dark
+// header); only the numeric niceties and the GDD headline live here.
+.cas-weather-table {
+  overflow-x: auto;
+
+  table {
+    font-variant-numeric: tabular-nums;
+  }
+
+  // Dates never break across lines.
+  th:first-child,
+  td:first-child {
+    white-space: nowrap;
+  }
+}
+
+.cas-weather-gdd {
+  // D7 painted this orange; orange text is reserved for links here.
+  color: $paddletailblack;
+  font-size: 2.5rem;
+  font-weight: 700;
+}

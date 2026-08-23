@@ -1,0 +1,12 @@
+name: Charts Highcharts Drilldown
+description: 'Use this module to build a Highcharts drilldown chart.'
+type: module
+package: Charts
+core_version_requirement: ^9 || ^10 || ^11
+dependencies:
+  - charts:charts_highcharts
+
+# Information added by Drupal.org packaging script on 2025-03-18
+version: '1.1.2'
+project: 'charts_highcharts_drilldown'
+datestamp: 1742328956

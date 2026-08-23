@@ -1,0 +1,23 @@
+uuid: 660afb36-7759-4c64-99a7-14f8e1f87ea8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_group_private
+    - node.type.project
+id: node.project.field_group_private
+field_name: field_group_private
+entity_type: node
+bundle: project
+label: 'Group members only'
+description: 'Hide this content from the public, show ONLY to group members.<br />DO NOT USE THIS FOR SENSITIVE INFORMATION - NOT HIGH SECURITY STORAGE.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Group members only'
+  off_label: Public
+field_type: boolean

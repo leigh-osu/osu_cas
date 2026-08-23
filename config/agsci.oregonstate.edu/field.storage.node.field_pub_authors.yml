@@ -1,0 +1,22 @@
+uuid: d8f7ce60-f60b-418d-b758-13e91dd0b9b0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+_core:
+  default_config_hash: f9-i4MXIguBP_9QG3BPgfTZl8wOnqccPJ1HU3qTKJXs
+id: node.field_pub_authors
+field_name: field_pub_authors
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

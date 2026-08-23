@@ -1,0 +1,55 @@
+uuid: bf24d00a-6f4d-4cb7-a23b-e9c04879ec01
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: q5tnNbGVfsyaX_3sCT-_2vyliKMuMZqFk6wdBtusyKw
+id: cas_video_group_content
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7 OG'
+  - 'OSU Groups Content'
+  - 'OSU Groups'
+  - OSU
+  - CAS
+  - 'CAS Groups'
+migration_group: osu_groups
+label: 'Migrate D7 video nodes into Group content'
+source:
+  plugin: d7_og_membership_content
+  node_type:
+    - video
+process:
+  label: etid
+  type:
+    plugin: default_value
+    default_value: basic_group-group_node-video
+  gid:
+    -
+      plugin: migration_lookup
+      migration: cas_node_og_group
+      no_stub: true
+      source: gid
+    -
+      plugin: skip_on_empty
+      method: row
+      message: 'gid is missing'
+  entity_id:
+    -
+      plugin: migration_lookup
+      migration: cas_video_to_video
+      no_stub: true
+      source: etid
+    -
+      plugin: skip_on_empty
+      method: row
+      message: 'node missing.'
+destination:
+  plugin: 'entity:group_content'
+migration_dependencies:
+  required:
+    - cas_node_og_group
+    - cas_video_to_video

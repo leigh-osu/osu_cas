@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Contains toc_js.install.
+ */
+
+use Drupal\node\Entity\NodeType;
+
+/**
+ * Force cache rebuild to register new library alter hook.
+ */
+function toc_js_update_8001() {
+}
+
+/**
+ * Convert toc_js_active setting to boolean.
+ */
+function toc_js_update_10001() {
+  foreach (NodeType::loadMultiple() as $node_type) {
+    $toc_js_active = $node_type->getThirdPartySetting('toc_js', 'toc_js_active');
+    if ($toc_js_active !== NULL) {
+      $node_type->setThirdPartySetting('toc_js', 'toc_js_active', (bool) $toc_js_active);
+      $node_type->save();
+    }
+  }
+}

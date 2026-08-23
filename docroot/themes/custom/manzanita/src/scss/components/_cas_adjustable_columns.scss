@@ -1,0 +1,10 @@
+// D7 adjustable-columns parity: Bootstrap 3 baked the 15px column gutter
+// into the .col-* classes themselves; Bootstrap 5 moved it to `.row > *`.
+// Migrated adjustable-column blocks keep their D7 col-* classes (width still
+// works) but live in a Layout Builder flex region, not a .row, so their inner
+// gutter vanished — text sat flush against the block's own background.
+.layout .d-flex.flex-wrap > .block[class^='col-'],
+.layout .d-flex.flex-wrap > .block[class*=' col-'] {
+  padding-right: 15px;
+  padding-left: 15px;
+}

@@ -1,0 +1,39 @@
+uuid: 5f18e0ee-dfb7-4804-8376-e81071cf709a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_aeb_units
+field_name: field_aeb_units
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: acres
+      label: acres
+    -
+      value: cartons
+      label: cartons
+    -
+      value: cows
+      label: cows
+    -
+      value: cows_month
+      label: cows/month
+    -
+      value: ewes
+      label: ewes
+    -
+      value: head
+      label: head
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

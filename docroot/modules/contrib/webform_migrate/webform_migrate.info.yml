@@ -1,0 +1,13 @@
+name: 'Webform Migrate'
+type: module
+description: 'Migration routines from d6, d7 webform to d9+ webform.'
+core_version_requirement: ^10 || ^11
+package: 'Migration'
+dependencies:
+  - webform:webform
+  - webform:webform_node
+
+# Information added by Drupal.org packaging script on 2025-08-04
+version: '2.0.0-alpha2'
+project: 'webform_migrate'
+datestamp: 1754306336

@@ -1,0 +1,14 @@
+name: 'Colorbox Media Video'
+type: module
+description: 'Adds Colorbox support to Media Video and Remote Video types.'
+package: Media
+core_version_requirement: ^9.3 || ^10 || ^11
+
+dependencies:
+  - drupal:media
+  - colorbox
+
+# Information added by Drupal.org packaging script on 2025-08-27
+version: '2.0.3'
+project: 'colorbox_media_video'
+datestamp: 1756293836

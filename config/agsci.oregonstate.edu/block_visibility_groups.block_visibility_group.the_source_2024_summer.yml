@@ -1,0 +1,16 @@
+uuid: d1ba2a56-d744-407c-b828-437830cab82b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: the_source_2024_summer
+label: the_source_2024_summer
+logic: and
+conditions:
+  f5a6aee0-5b79-4877-8a82-6aa0296d0a06:
+    id: request_path
+    uuid: f5a6aee0-5b79-4877-8a82-6aa0296d0a06
+    pages: "/thesource/summer-2024\r\n/thesource/summer-2024*"
+    negate: false
+allow_other_conditions: false

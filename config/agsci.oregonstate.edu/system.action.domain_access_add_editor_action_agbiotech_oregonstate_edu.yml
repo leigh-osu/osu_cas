@@ -1,0 +1,15 @@
+uuid: 6b90159b-cad8-40c8-b263-11924e6fe157
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.agbiotech_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_agbiotech_oregonstate_edu
+label: 'Add editors to the Biotechnology in Agriculture domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - agbiotech_oregonstate_edu

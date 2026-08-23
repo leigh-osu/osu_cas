@@ -1,0 +1,15 @@
+uuid: fd4045a1-94a3-4d82-a6fb-6607bca727a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.anrs_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_anrs_oregonstate_edu
+label: 'Remove selected content from the Animal and Rangeland Sciences domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - anrs_oregonstate_edu

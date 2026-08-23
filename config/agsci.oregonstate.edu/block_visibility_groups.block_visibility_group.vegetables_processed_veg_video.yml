@@ -1,0 +1,16 @@
+uuid: 6e9d4019-2497-4593-81fc-429d7d642f30
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: vegetables_processed_veg_video
+label: vegetables_processed_veg_video
+logic: and
+conditions:
+  97d13635-4e81-415c-bcf9-aef9a5e8d5a6:
+    id: request_path
+    uuid: 97d13635-4e81-415c-bcf9-aef9a5e8d5a6
+    pages: /node/83116
+    negate: false
+allow_other_conditions: false

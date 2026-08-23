@@ -1,0 +1,143 @@
+uuid: c08b7abd-74a9-4d56-92f1-3514ce573058
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_50036
+title: 'OSU Internship Coordinator/Faculty Section'
+description: null
+categories: {  }
+elements: |-
+  students__name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Student’s  Name'
+    '#required': true
+  faculty_or_internship_supervisor:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Faculty or Internship Supervisor'
+  department:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Department
+  telephone:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Telephone
+  non_credit:
+    '#type': radios
+    '#options':
+      credit_yes: 'Yes'
+      credit_no: 'No'
+    '#title': Non-Credit
+    '#required': true
+  course_no:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Course #'
+  no_credits_approved:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'No. Credits Approved'
+  co_op_credits_to_date:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'CO-OP Credits To Date'
+  term_student_registering_for_credits:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Term Student Registering for Credit(s)'
+  over_ride_email_to_student:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Over-Ride/Email To Student'
+  how_internship_was_secured:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'How internship was secured'
+    '#description': '(announcement, list-serve, college/dept. site, on own)'
+  other_notes_arrangements:
+    '#type': textarea
+    '#title': 'Other notes/arrangements'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: Ag.Education@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |-
+        Submitted on [webform_submission:date:long]
+        Submitted by user: [webform_submission:user]
+        Submitted values are:
+        [webform_submission:values]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

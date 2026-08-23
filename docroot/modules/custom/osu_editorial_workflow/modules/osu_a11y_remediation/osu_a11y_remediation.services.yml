@@ -1,0 +1,6 @@
+services:
+  osu_a11y_remediation.event_subscriber:
+    class: Drupal\osu_a11y_remediation\EventSubscriber\OsuA11yRemediationWorkflowSubscriber
+    tags:
+      - { name: event_subscriber }
+    autowire: true

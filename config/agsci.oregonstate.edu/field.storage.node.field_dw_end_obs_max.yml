@@ -1,0 +1,20 @@
+uuid: acc09e82-8471-46cd-a491-fe7d62273d9b
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_dw_end_obs_max
+field_name: field_dw_end_obs_max
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

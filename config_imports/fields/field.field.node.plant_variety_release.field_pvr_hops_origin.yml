@@ -1,0 +1,19 @@
+uuid: 26da166f-9e54-4215-bd56-6db462f96fbd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pvr_hops_origin
+    - node.type.plant_variety_release
+id: node.plant_variety_release.field_pvr_hops_origin
+field_name: field_pvr_hops_origin
+entity_type: node
+bundle: plant_variety_release
+label: Origin
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

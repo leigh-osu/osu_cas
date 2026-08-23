@@ -1,0 +1,17 @@
+// Story sidebar: labels sit flush left, their values indent 1em under
+// them (Published Date renders label-inline and is untouched). Scoped to
+// story field blocks; the left column's fields are label-hidden, so only
+// the sidebar stack matches.
+[class*="block-field-blocknodestory"] .field--label-above {
+  > .field__item,
+  > div.field__items > .field__item {
+    margin-left: 1em;
+  }
+
+  // Story Tags renders as a real list; its markers carry the indent.
+  > ul.field__items {
+    margin-left: 1em;
+    padding-left: 1.1em;
+    margin-bottom: 0;
+  }
+}

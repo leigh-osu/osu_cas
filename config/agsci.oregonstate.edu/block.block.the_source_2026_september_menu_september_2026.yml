@@ -1,0 +1,31 @@
+uuid: adc8336a-f10f-4dfb-87d4-f248b1fe541a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.the_source_2026_september
+    - system.menu.menu-september-2026
+  module:
+    - block_visibility_groups
+    - system
+  theme:
+    - madrone
+id: the_source_2026_september_menu_september_2026
+theme: madrone
+region: sidebar
+weight: 5
+provider: null
+plugin: 'system_menu_block:menu-september-2026'
+settings:
+  id: 'system_menu_block:menu-september-2026'
+  label: 'September 2026'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: the_source_2026_september

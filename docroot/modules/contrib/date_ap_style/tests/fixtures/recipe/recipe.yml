@@ -1,0 +1,11 @@
+name: 'Date AP Style Test Setup'
+description: 'Sets up date fields using AP Style formatters for testing'
+type: 'Testing'
+install:
+  # Our module and required dependencies
+  - date_ap_style
+  - datetime_range
+  - smart_date
+config:
+  import:
+    config: '*'

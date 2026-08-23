@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.basic_group
+    - node.type.funding_opportunities
+  module:
+    - gnode
+    - node
+id: group_content_type_f206a09543f3f
+group_type: basic_group
+content_plugin: 'group_node:funding_opportunities'
+plugin_config:
+  group_cardinality: 1
+  entity_cardinality: -1
+  use_creation_wizard: false

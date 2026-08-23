@@ -1,0 +1,340 @@
+// Include custom sub theme.
+@import 'custom/variables';
+//@import 'custom/mixins/misc';
+//@import 'custom/misc';
+
+// Include bootstrap variables definitions overrides.
+@import 'overrides/variables';
+
+// Include parent theme with all things Bootstrap for full override.
+// Relative path to this styles.scss file.
+// Example: @import "../../../../../themes/contrib/bootstrap4/scss/style";
+@import "../../../contrib/bootstrap5/scss/style";
+// OR to go back to Bootstrap 4.6.0
+//@import "[DOCROOT]/themes/contrib/bootstrap4/scss/style-4-5";
+
+body {
+  min-height: 100%;
+
+  .node__content {
+    font-size: 1rem;
+  }
+
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Stratum2Web', sans-serif;
+
+    a {
+      font-family: 'Stratum2Web', sans-serif;
+    }
+
+    &.regular {
+      font-family: 'Stratum2Regular', sans-serif;
+
+      a {
+        font-family: 'Stratum2Regular', sans-serif;
+      }
+    }
+  }
+
+  h1,h2 {
+    text-transform: uppercase;
+  }
+}
+
+#site-branding {
+  border-top: 12px solid $osu-orange;
+  background-color: black!important;
+  min-height: 130px;
+
+  .osu-logo {
+
+    img {
+      height: 80px;
+      padding: 0 16px;
+    }
+  }
+
+  #osu-group-container{
+    color: white;
+    font-family: "Stratum2Light", sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    padding-left: 16px;
+
+    @include media-breakpoint-up(md) {
+      border-left: 1px solid $larch-gray;
+    }
+
+    a {
+      color: white;
+    }
+
+    #osu-group {
+      font-size: 24px;
+    }
+  }
+}
+
+.navbar {
+  clear: both;
+  background-color: black;
+  border-top: 1px solid $larch-gray;
+  border-bottom: 3px solid $osu-orange;
+  border-left: none;
+  border-right: none;
+  margin-top: 0 !important;
+  margin-bottom: 0;
+  padding: 0;
+  border-radius: 0;
+
+  #block-mainnavigation-2{
+    margin: 0;
+
+    ul.sf-menu {
+      margin-bottom: 0;
+
+  //    .sf-sub-indicator {
+  //      overflow: visible;
+  //    }
+    }
+  }
+}
+
+.region-content {
+  padding: 1.5em 0;
+}
+
+#main-content {
+  margin: 1.5em 0;
+
+  .field {
+    margin-bottom: 1em;
+
+    .field__label {
+      font-weight: bold;
+    }
+
+    > .field__item {
+      margin-left: 2em;
+    }
+
+    .field--name-field-phone-type {
+      display: inline-block;
+      font-weight: bold;
+
+      :after {
+        content: ":";
+      }
+    }
+
+    .field--name-field-number {
+      display: inline-block;
+    }
+  }
+}
+.block {
+  margin: 1em;
+}
+
+footer {
+  background-color: #000!important;
+  width: 100%;
+  min-height: 150px;
+  border-top: 2px solid $osu-orange;
+  margin-top: 1em;
+  #block-copyright{
+    color: $larch-gray;
+  }
+}
+
+.node-sample-form,
+.node-sample-edit-form {
+  position: relative;
+  #edit-actions{
+    background-color: white;
+    border-top: 1px solid $larch-gray;
+    position: fixed;
+    bottom: 7em;
+    width: 105%;
+    height: 4em;
+    margin-left: -5%;
+    margin-right: -5%;
+    padding-top: 1em;
+    .form-actions{
+    }
+  }
+}
+
+.field--name-field-sample-test-ergot
+{
+  background-color: $osu-moondust;
+}
+
+.field--name-field-sample-test-ergovaline {
+  background-color: $osu-reindeermoss;
+}
+
+.field--name-field-sample-test-lolitrem-b {
+  background-color: $osu-candela;
+}
+
+.field--name-field-sample-test-pellet {
+  background-color: $osu-till;
+}
+
+.view-id-client_samples_archive,
+.view-id-client_samples_in_lab,
+.view-id-samples_admin {
+  table th.ergot,
+  table td.ergot {
+    min-width: 6em;
+    background-color: rgba($osu-moondust, 0.25);
+  }
+
+  table th.ergovaline,
+  table td.ergovaline {
+    min-width: 6em;
+    background-color: rgba($osu-reindeermoss, 0.25);
+  }
+
+  table th.lolitrem-b,
+  table td.lolitrem-b {
+    min-width: 6em;
+    background-color: rgba($osu-candela, 0.25);
+  }
+
+  table th.pellet,
+  table td.pellet {
+    min-width: 6em;
+    background-color: rgba($osu-till, 0.25);
+  }
+}
+
+.card{
+  table {
+    background-color: white;
+  }
+
+  &.ergovaline{
+    background-color: rgba($osu-reindeermoss, 0.25);
+  }
+
+  &.lolitrem-b{
+    background-color: rgba($osu-candela, 0.25);
+
+  }
+
+  &.pellet{
+    background-color: rgba($osu-till, 0.25);
+  }
+
+  &.ergot{
+    background-color: rgba($osu-moondust, 0.25);
+  }
+}
+
+.field--name-field-sample-test-ergot,
+.field--name-field-sample-test-ergovaline,
+.field--name-field-sample-test-lolitrem-b,
+.field--name-field-sample-test-pellet {
+  padding: 1rem;
+  margin-bottom: 1rem;
+
+  > .field__label {
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .field {
+    font-size: 0.9rem;
+    padding-left: 20px;
+  }
+
+  .field--name-field-test-status {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    font-style: italic;
+  }
+
+  .test-certification {
+    font-size: 1.1rem;
+    padding-left: 20px;
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+  }
+
+  .field--name-field-test-rush-value-ev,
+  .field--name-field-test-rush-value-lb,
+  .field--name-field-test-final-value {
+    font-size: 1.3rem;
+    margin: 0.5rem 0 0.3rem 0;
+    padding-left: 0;
+  }
+
+}
+
+.node-sample-form,
+.node-sample-edit-form{
+  .field--type-boolean {
+    input {
+      transform: scale(2);
+      margin-left: 6px;
+    }
+
+    label {
+      padding-left: 10px;
+    }
+  }
+
+  .paragraphs-dropbutton-wrapper{
+    padding: 1em;
+    input.button{
+      background-color: #0d6efd;
+      color: white;
+      font-size: medium;
+    }
+  }
+}
+
+.views-exposed-form {
+  width: 300px;
+}
+
+/* remove integer spinners */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.labstats {
+  margin-bottom: 1em;
+  tr {
+    &.ergovaline{
+      background-color: rgba($osu-reindeermoss, 0.25);
+    }
+
+    &.lolitrem-b{
+      background-color: rgba($osu-candela, 0.25);
+
+    }
+
+    &.pellet{
+      background-color: rgba($osu-till, 0.25);
+    }
+
+    &.ergot{
+      background-color: rgba($osu-moondust, 0.25);
+    }
+    td {
+      padding: 2px 5px;
+      min-width: 3em;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+uuid: f1174fce-50e1-4f41-843a-4cf35eb0d0a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.client
+id: group.client.label
+field_name: label
+entity_type: group
+bundle: client
+label: 'Client name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

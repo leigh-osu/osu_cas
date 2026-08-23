@@ -1,0 +1,8 @@
+uuid: bfaaaa7d-f435-4dc5-af14-645213483975
+langcode: en
+status: true
+dependencies: {  }
+id: menu-december-2025
+label: 'December 2025'
+description: 'December 2025 issue of The Source'
+locked: false

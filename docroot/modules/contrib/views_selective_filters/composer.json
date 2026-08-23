@@ -1,0 +1,23 @@
+{
+    "name": "drupal/views_selective_filters",
+    "description": "Allows to have an exposed filter only show options that belong to result set.",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://drupal.org/project/views_selective_filters",
+    "support": {
+        "issues": "https://drupal.org/project/issues/views_selective_filters",
+        "source": "https://git.drupalcode.org/project/views_selective_filters"
+    },
+    "require-dev": {
+        "drupal/coder": "^8.3.16",
+        "drush/drush": "^12.5 || ^13.3"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "php-http/discovery": true,
+            "tbachert/spi": false
+        }
+    }
+}

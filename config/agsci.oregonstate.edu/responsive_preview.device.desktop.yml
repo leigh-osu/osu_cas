@@ -1,0 +1,14 @@
+uuid: 12753dd8-bc2c-4153-b4f2-4ab53a334502
+langcode: en
+status: 1
+dependencies: {  }
+_core:
+  default_config_hash: wF5fwqYu-32UuC7GDO_SxVWIJMM68pI1mG4_CPBxxj4
+id: desktop
+label: Desktop
+weight: 3
+orientation: landscape
+dimensions:
+  width: 1920
+  height: 1080
+  dppx: 1.0

@@ -1,0 +1,118 @@
+diff -ruN pub_orig/config/install/core.entity_form_display.node.publications.default.yml pub_new/config/install/core.entity_form_display.node.publications.default.yml
+--- pub_orig/config/install/core.entity_form_display.node.publications.default.yml	2026-08-03 10:00:46
++++ pub_new/config/install/core.entity_form_display.node.publications.default.yml	2026-08-03 10:01:58
+@@ -122,10 +122,12 @@
+       placeholder: ''
+     third_party_settings: { }
+   field_pub_authors:
+-    type: string_textfield
++    type: entity_reference_autocomplete_tags
+     weight: 3
+     region: content
+     settings:
++      match_operator: CONTAINS
++      match_limit: 10
+       size: 60
+       placeholder: ''
+     third_party_settings: { }
+diff -ruN pub_orig/config/install/core.entity_view_display.node.publications.default.yml pub_new/config/install/core.entity_view_display.node.publications.default.yml
+--- pub_orig/config/install/core.entity_view_display.node.publications.default.yml	2026-08-03 10:00:46
++++ pub_new/config/install/core.entity_view_display.node.publications.default.yml	2026-08-03 10:01:58
+@@ -48,10 +48,10 @@
+     weight: 16
+     region: content
+   field_pub_authors:
+-    type: string
++    type: entity_reference_label
+     label: inline
+     settings:
+-      link_to_entity: false
++      link: true
+     third_party_settings: { }
+     weight: 3
+     region: content
+diff -ruN pub_orig/config/install/field.field.node.publications.field_pub_authors.yml pub_new/config/install/field.field.node.publications.field_pub_authors.yml
+--- pub_orig/config/install/field.field.node.publications.field_pub_authors.yml	2026-08-03 10:00:46
++++ pub_new/config/install/field.field.node.publications.field_pub_authors.yml	2026-08-03 10:01:58
+@@ -5,6 +5,7 @@
+   config:
+     - field.storage.node.field_pub_authors
+     - node.type.publications
++    - taxonomy.vocabulary.publication_authors
+ id: node.publications.field_pub_authors
+ field_name: field_pub_authors
+ entity_type: node
+@@ -15,5 +16,14 @@
+ translatable: false
+ default_value: { }
+ default_value_callback: ''
+-settings: { }
+-field_type: string
++settings:
++  handler: 'default:taxonomy_term'
++  handler_settings:
++    target_bundles:
++      publication_authors: publication_authors
++    sort:
++      field: name
++      direction: asc
++    auto_create: true
++    auto_create_bundle: ''
++field_type: entity_reference
+diff -ruN pub_orig/config/install/field.field.node.publications.field_pub_type.yml pub_new/config/install/field.field.node.publications.field_pub_type.yml
+--- pub_orig/config/install/field.field.node.publications.field_pub_type.yml	2026-08-03 10:00:46
++++ pub_new/config/install/field.field.node.publications.field_pub_type.yml	2026-08-03 10:28:41
+@@ -10,7 +10,7 @@
+ field_name: field_pub_type
+ entity_type: node
+ bundle: publications
+-label: Type
++label: 'Publication type'
+ description: 'Select the Type of publication.'
+ required: false
+ translatable: false
+diff -ruN pub_orig/config/install/field.storage.node.field_pub_authors.yml pub_new/config/install/field.storage.node.field_pub_authors.yml
+--- pub_orig/config/install/field.storage.node.field_pub_authors.yml	2026-08-03 10:00:46
++++ pub_new/config/install/field.storage.node.field_pub_authors.yml	2026-08-03 10:01:58
+@@ -4,14 +4,13 @@
+ dependencies:
+   module:
+     - node
++    - taxonomy
+ id: node.field_pub_authors
+ field_name: field_pub_authors
+ entity_type: node
+-type: string
++type: entity_reference
+ settings:
+-  max_length: 255
+-  case_sensitive: false
+-  is_ascii: false
++  target_type: taxonomy_term
+ module: core
+ locked: false
+ cardinality: -1
+diff -ruN pub_orig/config/install/taxonomy.vocabulary.publication_authors.yml pub_new/config/install/taxonomy.vocabulary.publication_authors.yml
+--- pub_orig/config/install/taxonomy.vocabulary.publication_authors.yml	1969-12-31 16:00:00
++++ pub_new/config/install/taxonomy.vocabulary.publication_authors.yml	2026-08-03 10:01:58
+@@ -0,0 +1,8 @@
++langcode: en
++status: true
++dependencies: {  }
++name: 'Publication Authors'
++vid: publication_authors
++description: 'People credited on publications (authors and editors); migrated from D7 biblio contributors.'
++weight: 0
++new_revision: false
+diff -ruN pub_orig/config/install/views.view.osu_publications.yml pub_new/config/install/views.view.osu_publications.yml
+--- pub_orig/config/install/views.view.osu_publications.yml	2026-08-03 10:00:46
++++ pub_new/config/install/views.view.osu_publications.yml	2026-08-03 10:28:41
+@@ -739,7 +739,7 @@
+           exposed: true
+           expose:
+             operator_id: field_pub_type_target_id_op
+-            label: Type
++            label: 'Publication type'
+             description: ''
+             use_operator: false
+             operator: field_pub_type_target_id_op

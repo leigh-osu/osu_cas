@@ -1,0 +1,12 @@
+uuid: f8089163-3791-4cb5-8a88-8ad72f5ff2df
+langcode: en
+status: true
+dependencies: {  }
+id: campusarb_oregonstate_edu
+domain_id: 4366735
+hostname: campusarb.oregonstate.edu
+name: 'OSU Campus Arboretum'
+scheme: https
+weight: 18
+is_default: false
+path_prefix: ''

@@ -1,0 +1,7 @@
+entityreference_filter:
+  js:
+    js/entityreference_filter.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - core/drupal.ajax

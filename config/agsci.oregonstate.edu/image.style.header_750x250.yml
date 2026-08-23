@@ -1,0 +1,15 @@
+uuid: f35c1e30-3f71-4319-8133-e00e9a30877d
+langcode: en
+status: true
+dependencies: {  }
+name: header_750x250
+label: 'header 750x250'
+effects:
+  1a7b1471-76ed-40b9-91e7-8849bbd28c90:
+    uuid: 1a7b1471-76ed-40b9-91e7-8849bbd28c90
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 750
+      height: 250
+      anchor: center-center

@@ -1,0 +1,15 @@
+toc:
+  css:
+    theme:
+      css/toc.css: {}
+  js:
+    js/toc_js.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/once
+    - toc_js/tocjs
+
+tocjs:
+  js:
+    assets/js/tocjs.js: {}

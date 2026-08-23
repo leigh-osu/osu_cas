@@ -1,0 +1,200 @@
+<div id="esl-dashboard">
+  <h2 class="mt-5">Samples</h2>
+  <div class="mx-4 dashboard-section">
+
+    <h3 class="mt-4"><a href="/samples-admin?field_sample_status_value%5B%5D=sample_arrival_pending&label=&field_sample_accession_value=&title=&field_sample_field_lot_value=&field_test_rush_value=All&field_test_rush_value_1=All&field_sample_date_requested_value_1%5Bmin%5D=&field_sample_date_requested_value_1%5Bmax%5D=&field_sample_date_completed_value%5Bmin%5D=&field_sample_date_completed_value%5Bmax%5D=">Samples in transit</a>: {{ sample_arrival_pending_count }}</h3>
+
+    <h3 class="mt-4"><a href="/samples-admin?field_sample_status_value%5B%5D=sample_tests_pending&label=&field_sample_accession_value=&title=&field_sample_field_lot_value=&field_test_rush_value=All&field_test_rush_value_1=All&field_sample_date_requested_value_1%5Bmin%5D=&field_sample_date_requested_value_1%5Bmax%5D=&field_sample_date_completed_value%5Bmin%5D=&field_sample_date_completed_value%5Bmax%5D=">Samples in lab</a>: {{ sample_tests_pending_count }}</h3>
+      <div class="accordion mx-4" id="accordionTests">
+
+        {# Ergovaline #}
+        <div class="card ergovaline">
+          <div class="card-header" id="ergovalineRush" data-bs-toggle="collapse" data-bs-target="#collapseErgovalineRush" aria-expanded="false" aria-controls="collapseErgovalineRush">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button">
+                Ergovaline RUSH tests pending  ({{ drupal_view_result('lab_tests_ergovaline', 'block_1')|length }})
+              </button>
+            </h2>
+          </div>
+          <div id="collapseErgovalineRush" class="collapse" aria-labelledby="ergovalineRush" >
+            <div class="card-body">
+              {{ drupal_view('lab_tests_ergovaline', 'block_1') }}
+            </div>
+          </div>
+        </div>
+        <div class="card ergovaline">
+          <div class="card-header" id="ergovalineRushOk" data-bs-toggle="collapse" data-bs-target="#collapseErgovalineRushOk" aria-expanded="false" aria-controls="collapseErgovalineRushOk">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button">
+                Ergovaline RUSH tests approval pending  ({{ drupal_view_result('lab_tests_ergovaline', 'block_2')|length }})
+              </button>
+            </h2>
+          </div>
+          <div id="collapseErgovalineRushOk" class="collapse" aria-labelledby="ergovalineRushOk">
+            <div class="card-body">
+              {{ drupal_view('lab_tests_ergovaline', 'block_2') }}
+            </div>
+          </div>
+        </div>
+        <div class="card ergovaline">
+          <div class="card-header" id="ergovaline" data-bs-toggle="collapse" data-bs-target="#collapseErgovaline" aria-expanded="false" aria-controls="collapseErgovaline">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button">
+                Ergovaline tests pending  ({{ drupal_view_result('lab_tests_ergovaline', 'block_3')|length }})
+              </button>
+            </h2>
+          </div>
+          <div id="collapseErgovaline" class="collapse" aria-labelledby="ergovaline">
+            <div class="card-body">
+              {{ drupal_view('lab_tests_ergovaline', 'block_3') }}
+            </div>
+          </div>
+        </div>
+        <div class="card ergovaline">
+          <div class="card-header" id="ergovalineOk" data-bs-toggle="collapse" data-bs-target="#collapseErgovalineOk" aria-expanded="false" aria-controls="collapseErgovalineOk">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button">
+                Ergovaline tests approval pending  ({{ drupal_view_result('lab_tests_ergovaline', 'block_4')|length }})
+              </button>
+            </h2>
+          </div>
+          <div id="collapseErgovalineOk" class="collapse" aria-labelledby="ergovalineOk">
+            <div class="card-body">
+              {{ drupal_view('lab_tests_ergovaline', 'block_4') }}
+            </div>
+          </div>
+        </div>
+
+        {# Lolitrem B #}
+        <div class="card lolitrem-b">
+          <div class="card-header" id="lolitremBRush" data-bs-toggle="collapse" data-bs-target="#collapseLolitremBRush" aria-expanded="false" aria-controls="collapseLolitremBRush">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button">
+                Lolitrem B RUSH tests pending  ({{ drupal_view_result('lab_tests_lolitrem_b', 'block_1')|length }})
+              </button>
+            </h2>
+          </div>
+          <div id="collapseLolitremBRush" class="collapse" aria-labelledby="collapseLolitremBRush">
+            <div class="card-body">
+              {{ drupal_view('lab_tests_lolitrem_b', 'block_1') }}
+            </div>
+          </div>
+        </div>
+        <div class="card lolitrem-b">
+          <div class="card-header" id="lolitremBRushOk" data-bs-toggle="collapse" data-bs-target="#collapseLolitremBRushOk" aria-expanded="false" aria-controls="collapseLolitremBRushOk">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button">
+                Lolitrem B RUSH tests approval pending  ({{ drupal_view_result('lab_tests_lolitrem_b', 'block_2')|length }})
+              </button>
+            </h2>
+          </div>
+          <div id="collapseLolitremBRushOk" class="collapse" aria-labelledby="LolitremBRushOk">
+            <div class="card-body">
+              {{ drupal_view('lab_tests_lolitrem_b', 'block_2') }}
+            </div>
+          </div>
+        </div>
+        <div class="card lolitrem-b">
+          <div class="card-header" id="lolitremB" data-bs-toggle="collapse" data-bs-target="#collapseLolitremB" aria-expanded="false" aria-controls="collapseLolitremB">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button">
+                Lolitrem B tests pending  ({{ drupal_view_result('lab_tests_lolitrem_b', 'block_3')|length }})
+              </button>
+            </h2>
+          </div>
+          <div id="collapseLolitremB" class="collapse" aria-labelledby="lolitremB">
+            <div class="card-body">
+              {{ drupal_view('lab_tests_lolitrem_b', 'block_3') }}
+            </div>
+          </div>
+        </div>
+        <div class="card lolitrem-b">
+          <div class="card-header" id="lolitremBOk" data-bs-toggle="collapse" data-bs-target="#collapseLolitremBOk" aria-expanded="false" aria-controls="collapseLolitremBOk">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button">
+                Lolitrem B tests approval pending  ({{ drupal_view_result('lab_tests_lolitrem_b', 'block_4')|length }})
+              </button>
+            </h2>
+          </div>
+          <div id="collapseLolitremBOk" class="collapse" aria-labelledby="LolitremBOk">
+            <div class="card-body">
+              {{ drupal_view('lab_tests_lolitrem_b', 'block_4') }}
+            </div>
+          </div>
+        </div>
+
+        {# Pellet #}
+        <div class="card pellet">
+          <div class="card-header" id="pellet" data-bs-toggle="collapse" data-bs-target="#collapsePellet" aria-expanded="false" aria-controls="collapsePellet">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button">
+                Pellet tests pending  ({{ drupal_view_result('lab_tests_pellet', 'block_1')|length }})
+              </button>
+            </h2>
+          </div>
+          <div id="collapsePellet" class="collapse" aria-labelledby="Pellet">
+            <div class="card-body">
+              {{ drupal_view('lab_tests_pellet', 'block_1') }}
+            </div>
+          </div>
+        </div>
+        <div class="card pellet">
+          <div class="card-header" id="pelletOk" data-bs-toggle="collapse" data-bs-target="#collapsePelletOk" aria-expanded="false" aria-controls="collapsePelletOk">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button">
+                Pellet tests approval pending  ({{ drupal_view_result('lab_tests_pellet', 'block_2')|length }})
+              </button>
+            </h2>
+          </div>
+          <div id="collapsePelletOk" class="collapse" aria-labelledby="pelletOk">
+            <div class="card-body">
+              {{ drupal_view('lab_tests_pellet', 'block_2') }}
+            </div>
+          </div>
+        </div>
+
+        {# Ergot #}
+        <div class="card ergot">
+          <div class="card-header" id="ergot" data-bs-toggle="collapse" data-bs-target="#collapseErgot" aria-expanded="false" aria-controls="collapseErgot">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button">
+                Ergot tests pending  ({{ drupal_view_result('lab_tests_ergot', 'block_1')|length }})
+              </button>
+            </h2>
+          </div>
+          <div id="collapseErgot" class="collapse" aria-labelledby="ergot">
+            <div class="card-body">
+              {{ drupal_view('lab_tests_ergot', 'block_1') }}
+            </div>
+          </div>
+        </div>
+        <div class="card ergot">
+          <div class="card-header" id="ergotOk" data-bs-toggle="collapse" data-bs-target="#collapseErgotOk" aria-expanded="false" aria-controls="collapseErgotOk">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button">
+                Ergot tests approval pending  ({{ drupal_view_result('lab_tests_ergot', 'block_2')|length }})
+              </button>
+            </h2>
+          </div>
+          <div id="collapseErgotOk" class="collapse" aria-labelledby="ergotOk">
+            <div class="card-body">
+              {{ drupal_view('lab_tests_ergot', 'block_2') }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <h3 class="mt-4"><a href="/samples-admin?field_sample_status_value%5B%5D=sample_tests_completed&field_sample_status_value%5B%5D=sample_tests_cancelled&label=&field_sample_accession_value=&title=&field_sample_field_lot_value=&field_test_rush_value=All&field_test_rush_value_1=All&field_sample_date_requested_value_1%5Bmin%5D=&field_sample_date_requested_value_1%5Bmax%5D=&field_sample_date_completed_value%5Bmin%5D=7+days+ago&field_sample_date_completed_value%5Bmax%5D=%2B1+day">Samples completed/cancelled (last 7 days)</a>: {{ sample_tests_completed_count }} / {{ sample_tests_cancelled_count }}</h3>
+
+  </div>
+
+  <h2 class="mt-5">Users</h2>
+  <div class="mx-4 dashboard-section">
+    <p><a href="/admin/people">Manage users</a></p>
+    <p><a href="/admin/people/create">Add user</a></p>
+  </div>
+  <h2 class="mt-5">Clients</h2>
+  <div class="mx-4 dashboard-section">
+    <p><a href="/clients">Manage clients</a></p>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+// Menu blocks placed inside Layout Builder sections (sidebar menus like
+// the EMT Academics menu): a plain vertical list of normal orange links,
+// matching D7's aside menus -- no nav-pill padding, uppercase or hover
+// background. Site-chrome menus (header, group menus) are outside the
+// layout and unaffected.
+.layout-builder__layout .block-menu ul.menu {
+  flex-direction: column;
+
+  a,
+  a.nav-link,
+  span.nav-link {
+    display: inline-block;
+    padding: 0.15em 0;
+    background: none;
+    color: $osuorange;
+    font-size: inherit;
+    font-weight: inherit;
+    text-transform: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: none;
+      color: $osuorange;
+      text-decoration: underline;
+    }
+  }
+}

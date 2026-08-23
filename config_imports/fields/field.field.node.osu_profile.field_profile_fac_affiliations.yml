@@ -1,0 +1,22 @@
+uuid: 6341caca-f010-478e-844c-10256095edf8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_fac_affiliations
+    - node.type.osu_profile
+  module:
+    - text
+id: node.osu_profile.field_profile_fac_affiliations
+field_name: field_profile_fac_affiliations
+entity_type: node
+bundle: osu_profile
+label: 'Professional Affiliations'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

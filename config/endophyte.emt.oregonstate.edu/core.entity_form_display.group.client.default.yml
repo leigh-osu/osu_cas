@@ -1,0 +1,100 @@
+uuid: f8eb2a4a-9880-4765-a762-0cce0b9597c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group.client.field_client_address
+    - field.field.group.client.field_client_fax
+    - field.field.group.client.field_client_legacy_client_id
+    - field.field.group.client.field_client_legacy_user_id
+    - field.field.group.client.field_client_notes_client
+    - field.field.group.client.field_client_notes_osu
+    - field.field.group.client.field_client_phone_1
+    - field.field.group.client.field_client_phone_2
+    - field.field.group.client.field_client_primary_contact
+    - field.field.group.client.field_client_primary_email
+    - group.type.client
+  module:
+    - address
+id: group.client.default
+targetEntityType: group
+bundle: client
+mode: default
+content:
+  field_client_address:
+    type: address_default
+    weight: 3
+    region: content
+    settings:
+      wrapper_type: details
+    third_party_settings: {  }
+  field_client_fax:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_client_notes_client:
+    type: string_textarea
+    weight: 7
+    region: content
+    settings:
+      rows: 4
+      placeholder: ''
+    third_party_settings: {  }
+  field_client_notes_osu:
+    type: string_textarea
+    weight: 8
+    region: content
+    settings:
+      rows: 4
+      placeholder: ''
+    third_party_settings: {  }
+  field_client_phone_1:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_client_phone_2:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_client_primary_contact:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_client_primary_email:
+    type: email_default
+    weight: 2
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  field_client_legacy_client_id: true
+  field_client_legacy_user_id: true
+  path: true
+  status: true
+  uid: true

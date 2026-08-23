@@ -1,0 +1,2 @@
+services:
+  Drupal\domain_alias_extras\Hook\DomainAliasExtrasHooks: {}

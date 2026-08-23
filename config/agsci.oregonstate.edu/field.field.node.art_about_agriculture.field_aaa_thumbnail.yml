@@ -1,0 +1,29 @@
+uuid: b0faf13a-77a1-404d-80bd-447ef6fc03fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_aaa_thumbnail
+    - media.type.image
+    - node.type.art_about_agriculture
+id: node.art_about_agriculture.field_aaa_thumbnail
+field_name: field_aaa_thumbnail
+entity_type: node
+bundle: art_about_agriculture
+label: Thumbnail
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

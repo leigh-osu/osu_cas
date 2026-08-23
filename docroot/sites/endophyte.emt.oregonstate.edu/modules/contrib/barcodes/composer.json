@@ -1,0 +1,21 @@
+{
+    "name": "drupal/barcodes",
+    "type": "drupal-module",
+    "description": "Generate Barcodes of different types.",
+    "keywords": ["Drupal"],
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://www.drupal.org/project/barcodes",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/barcodes",
+        "source": "https://git.drupalcode.org/project/barcodes"
+    },
+    "require": {
+        "tecnickcom/tc-lib-barcode": "^2.0"
+    },
+    "require-dev": {
+        "drupal/bigint": "^2",
+        "drupal/token": "^1",
+        "drush/drush": ">=12.5"
+    }
+}

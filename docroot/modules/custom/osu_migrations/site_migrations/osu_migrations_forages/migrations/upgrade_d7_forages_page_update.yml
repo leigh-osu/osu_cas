@@ -1,0 +1,80 @@
+langcode: en
+status: true
+id: upgrade_d7_forages_page_update
+label: 'Update Basic Page to Page for missing fields.'
+dependencies: { }
+migration_tags:
+  - Drupal 7
+  - Content
+  - OSU
+  - OSU Content
+  - Forages
+source:
+  plugin: d7_node
+  node_type: page
+process:
+  nid: nid
+  field_animal:
+    plugin: sub_process
+    source: field_animal
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration: upgrade_d7_taxonomy_terms
+        source: tid
+  field_lead_content_expert:
+    plugin: sub_process
+    source: field_lead_content_expert
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration: upgrade_d7_node
+        source: target_id
+  field_peer_reviewers:
+    plugin: sub_process
+    source: field_peer_reviewers
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration: upgrade_d7_node
+        source: target_id
+  field_topic:
+    plugin: sub_process
+    source: field_topic
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration: upgrade_d7_taxonomy_terms
+        source: tid
+  field_topic_authors:
+    plugin: sub_process
+    source: field_topic_authors
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration: upgrade_d7_node
+        source: target_id
+  type:
+    plugin: default_value
+    default_value: page
+    overwrite_properties:
+      - field_animal
+      - field_lead_content_expert
+      - field_peer_reviewers
+      - field_topic_authors
+      - field_topic
+destination:
+  plugin: 'entity:node'
+  bundle: page
+migration_dependencies:
+  required:
+    - upgrade_d7_node
+    - upgrade_d7_taxonomy_terms
+    - book_to_page
+  optional:
+    - upgrade_d7_user_to_profile
+    - upgrade_d7_media_audio
+    - upgrade_d7_media_documents
+    - upgrade_d7_media_kaltura
+    - upgrade_d7_media_local_video
+    - upgrade_d7_media_remote_video

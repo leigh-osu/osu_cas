@@ -1,0 +1,16 @@
+uuid: 1eefa2e4-c090-42af-9f1f-c4e8e6136de7
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: seafood_lab_sub_page
+label: seafood_lab_sub_page
+logic: and
+conditions:
+  40900319-8ed1-470b-a5bc-a8e7e609622f:
+    id: request_path
+    uuid: 40900319-8ed1-470b-a5bc-a8e7e609622f
+    pages: "/seafood-research-education-center/*\r\n/osuseafoodlab/*\r\n/node/239501"
+    negate: false
+allow_other_conditions: false

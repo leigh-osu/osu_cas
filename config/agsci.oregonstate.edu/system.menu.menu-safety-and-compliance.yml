@@ -1,0 +1,8 @@
+uuid: d2ed3dbc-1f27-4ede-a902-1512ed10d69b
+langcode: en
+status: true
+dependencies: {  }
+id: menu-safety-and-compliance
+label: 'Safety and Compliance'
+description: 'CAS Safety and Compliance Programs and Resources.  Right side menu.'
+locked: false

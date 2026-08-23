@@ -1,0 +1,43 @@
+langcode: en
+status: true
+id: content
+label: Nodes
+description: 'A container for migrating Node entities'
+dependencies:
+  enforced:
+    module:
+      - paragraphs_to_layout_builder
+      - osu_migrations
+source_type: 'Drupal 7'
+module: null
+shared_configuration:
+  process:
+    nid: nid
+    vid: vid
+    type: type
+    langcode:
+      # A handful of D7 nodes carry language = '' rather than und or en.
+      # static_map with bypass passes those through unchanged, leaving the node
+      # with an empty langcode that matches none of its field rows (written as
+      # en), so every field on it silently loads empty. default_value is not
+      # strict, so it treats '' as falsy and substitutes en while leaving real
+      # language codes untouched.
+      - plugin: static_map
+        bypass: true
+        source: language
+        map:
+          und: en
+      - plugin: default_value
+        default_value: en
+    title: title
+    uid: node_uid
+    status: status
+    created: created
+    changed: changed
+    promote: promote
+    sticky: sticky
+    revision_uid: revision_uid
+    revision_log: log
+    revision_timestamp: timestamp
+  destination:
+    plugin: 'entity:node'

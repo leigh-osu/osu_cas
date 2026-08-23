@@ -1,0 +1,12 @@
+uuid: 2910d3c5-b2ac-4850-a796-22383ccb548b
+langcode: en
+status: true
+dependencies: {  }
+id: horticulture_oregonstate_edu
+domain_id: 13433672
+hostname: horticulture.oregonstate.edu
+name: Horticulture
+scheme: https
+weight: 13
+is_default: false
+path_prefix: ''

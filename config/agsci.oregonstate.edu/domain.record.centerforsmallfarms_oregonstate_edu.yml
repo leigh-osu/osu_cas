@@ -1,0 +1,12 @@
+uuid: d05fc8e0-8f31-42d0-8a60-38e59913df3d
+langcode: en
+status: true
+dependencies: {  }
+id: centerforsmallfarms_oregonstate_edu
+domain_id: 10174544
+hostname: crafs.oregonstate.edu
+name: 'Center for Resilient Agriculture & Food Systems'
+scheme: https
+weight: 33
+is_default: false
+path_prefix: ''

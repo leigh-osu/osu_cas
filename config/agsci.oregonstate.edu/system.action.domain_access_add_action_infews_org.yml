@@ -1,0 +1,15 @@
+uuid: 3395e831-698c-4980-a108-e16669245835
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.infews_org
+  module:
+    - domain_access
+id: domain_access_add_action_infews_org
+label: 'Add selected content to the Infews domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - infews_org

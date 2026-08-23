@@ -1,0 +1,53 @@
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_dfs_level
+field_name: field_dfs_level
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: degreelevel_bs
+      label: 'Bachelor of Science (B.S.)'
+    -
+      value: degreelevel_um
+      label: 'Undergraduate Minor'
+    -
+      value: degreelevel_ucert
+      label: 'Undergraduate Certificate'
+    -
+      value: degreelevel_microcred
+      label: Microcredential
+    -
+      value: degreelevel_ms
+      label: 'Master of Science (M.S.)'
+    -
+      value: degreelevel_mais
+      label: 'Master of Arts in Interdisciplinary Studies (M.A.I.S.)'
+    -
+      value: degreelevel_meng
+      label: 'Master of Engineering (MENG)'
+    -
+      value: degreelevel_psm
+      label: 'Professional Science Master (PSM)'
+    -
+      value: degreelevel_mpp
+      label: 'Master of Public Policy (MPP)'
+    -
+      value: degreelevel_phd
+      label: 'Doctor of Philosophy (Ph.D.)'
+    -
+      value: degreelevel_cert
+      label: 'Graduate Certificate'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

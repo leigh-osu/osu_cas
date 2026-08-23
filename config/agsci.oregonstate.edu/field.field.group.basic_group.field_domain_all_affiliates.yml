@@ -1,0 +1,23 @@
+uuid: 2fd8810e-5c1a-48e2-9aed-13fc9745364a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_domain_all_affiliates
+    - group.type.basic_group
+id: group.basic_group.field_domain_all_affiliates
+field_name: field_domain_all_affiliates
+entity_type: group
+bundle: basic_group
+label: 'Send to all affiliates'
+description: 'Make this group available on every domain.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

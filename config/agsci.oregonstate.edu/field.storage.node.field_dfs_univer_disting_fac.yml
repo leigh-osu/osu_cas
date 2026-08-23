@@ -1,0 +1,20 @@
+uuid: f4fca90c-b050-4e32-ae0f-50009db6772b
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_dfs_univer_disting_fac
+field_name: field_dfs_univer_disting_fac
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,15 @@
+uuid: 8a814386-1866-4e2e-b68c-a7373b6c3904
+langcode: en
+status: true
+dependencies: {  }
+name: 640_scale_crop
+label: '640 square Scale Crop'
+effects:
+  e43322b8-544f-4b3d-8009-e9dd20c84e57:
+    uuid: e43322b8-544f-4b3d-8009-e9dd20c84e57
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 640
+      height: 640
+      anchor: center-center

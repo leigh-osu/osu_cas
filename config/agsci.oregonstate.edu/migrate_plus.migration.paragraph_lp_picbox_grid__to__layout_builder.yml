@@ -1,0 +1,61 @@
+uuid: 539a25be-259d-4806-ae18-7f280faba787
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - osu_migrations
+      - paragraphs_to_layout_builder
+_core:
+  default_config_hash: EEIeCyDCv1su3RnpAsWI-ptN-kGOb6QTjJzLCMIXsgI
+id: paragraph_lp_picbox_grid__to__layout_builder
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - 'Layout content'
+  - 'OSU Paragraphs'
+  - OSU
+  - 'CAS Paragraphs'
+  - CAS
+migration_group: paragraphs_to_layout_builder
+label: 'Drupal 7 lp_picbox_grid paragraphs'
+source:
+  plugin: osu_d7_paragraphs_item
+  bundle: lp_picbox_grid
+  key: migrate
+process:
+  type:
+    plugin: default_value
+    default_value: paragraph_block
+  info:
+    source: field_paragraph_label
+    plugin: default_value
+    default_value: 'Migrated d7 lp_picbox_grid section'
+  body:
+    -
+      plugin: sub_process
+      source: field_lp_picbox_header
+      process:
+        value:
+          plugin: osu_media_wysiwyg_filter
+          source: value
+        format:
+          plugin: default_value
+          default_value: full_html
+  field_block_serialized_data:
+    -
+      plugin: cas_picbox_grid
+      source: field_lp_picbox
+  reusable:
+    plugin: default_value
+    default_value: 0
+destination:
+  plugin: 'entity:block_content'
+migration_dependencies:
+  required:
+    - field_collection_field_lp_picbox__to__layout_builder
+  optional: {  }

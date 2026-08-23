@@ -1,0 +1,8 @@
+uuid: a85d10a1-8c50-4587-aaa4-3acfb2906e13
+langcode: en
+status: true
+dependencies: {  }
+id: menu-june-2025
+label: 'June 2025'
+description: 'June 2025 issue of The Source'
+locked: false

@@ -1,0 +1,10 @@
+services:
+  toc_js.service:
+    class: Drupal\toc_js\Service\TocJsService
+    arguments:
+      - '@current_route_match'
+
+  Drupal\toc_js\Hook\TocJsHooks:
+    arguments:
+      - '@toc_js.service'
+      - '@current_user'

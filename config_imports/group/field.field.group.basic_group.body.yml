@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.body
+    - group.type.basic_group
+  module:
+    - text
+id: group.basic_group.body
+field_name: body
+entity_type: group
+bundle: basic_group
+label: 'Body'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

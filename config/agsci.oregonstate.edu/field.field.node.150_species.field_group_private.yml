@@ -1,0 +1,23 @@
+uuid: 34eef819-13d3-4c8d-a604-59bfa3d304a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_group_private
+    - node.type.150_species
+id: node.150_species.field_group_private
+field_name: field_group_private
+entity_type: node
+bundle: 150_species
+label: 'Group members only'
+description: 'Hide this content from the public, show ONLY to group members.<br />DO NOT USE THIS FOR SENSITIVE INFORMATION - NOT HIGH SECURITY STORAGE.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Group members only'
+  off_label: Public
+field_type: boolean

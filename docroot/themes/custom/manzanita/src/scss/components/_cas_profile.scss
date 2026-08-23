@@ -1,0 +1,199 @@
+// osu_profile full page: replicate the D7 people profile layout — photo left,
+// contact details beside it, career interests below, then the field_group
+// accordion sections styled like the D7 collapsed gray panels.
+// Markup comes from node--osu-profile--full.html.twig plus the field_group
+// "details" elements in the node.osu_profile.full view display.
+.node--type-osu-profile.node--view-mode-full {
+  .profile-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2.5rem;
+    margin-bottom: 1.5rem;
+
+    &__photo {
+      flex: 0 0 auto;
+      max-width: 220px;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &__info {
+      flex: 1 1 20rem;
+      padding-top: 0.25rem;
+
+      .field {
+        margin-bottom: 0.25rem;
+      }
+
+      // D7 separated the position/email block from the address block.
+      .field--name-field-profile-address {
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  .profile-summary {
+    margin-bottom: 1.5rem;
+
+    .field {
+      margin-bottom: 1rem;
+    }
+  }
+
+  // The profile sections are field_group <details> elements, dressed to
+  // match the site's Bootstrap accordions (_cas_accordion): Stratum2
+  // beaver-orange titles with the solid arrowhead on the right, the open
+  // bar inverting to white-on-black, stacked items sharing borders.
+  .profile-sections {
+    > details {
+      margin-bottom: 0;
+      border: 1px solid #dee2e6;
+      background-color: #fff;
+
+      + details {
+        // Adjacent items share an edge like accordion items.
+        margin-top: -1px;
+      }
+
+      > summary {
+        display: flex;
+        align-items: center;
+        padding: 1rem 1.25rem;
+        cursor: pointer;
+        list-style: none;
+        font-family: 'Stratum2Web', serif;
+        font-size: clamp(1.295rem, 1.295rem + 0.54vw, 1.7rem);
+        font-weight: 500;
+        color: $osuorange;
+
+        &::-webkit-details-marker {
+          display: none;
+        }
+
+        // Solid arrowhead on the right, matching the accordion button:
+        // beaver-orange pointing down while collapsed.
+        &::after {
+          content: '';
+          flex-shrink: 0;
+          width: 1.25rem;
+          height: 1.25rem;
+          margin-left: auto;
+          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23d73f09'%3e%3cpath d='M2 5h12L8 12z'/%3e%3c/svg%3e");
+          background-repeat: no-repeat;
+          background-size: 1.25rem;
+          transition: transform 0.2s ease-in-out;
+        }
+      }
+
+      &[open] > summary {
+        background-color: $paddletailblack;
+        color: $bucktoothwhite;
+
+        // White icon rotated to point left, like the open accordion bar.
+        &::after {
+          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath d='M2 5h12L8 12z'/%3e%3c/svg%3e");
+          transform: rotate(90deg);
+        }
+      }
+
+      > .details-wrapper {
+        padding: 0.75rem 1.25rem 1rem;
+      }
+
+      .field {
+        margin-bottom: 0.75rem;
+      }
+    }
+  }
+}
+
+// Group people listings (profiles_group_membership view): portraits render
+// at a fixed square no matter how narrow the hosting column is — the
+// scale-crop styles set the pixels, this pins the box against the theme's
+// img { max-width: 100% } shrinking it in tight layouts. The theme strips
+// the view's id class, so the field class is the stable hook (the field
+// only exists in this view). Lists are 100x100; grid cards are 200x200,
+// italic-titled, with 1em of padding per card.
+.views-field-field-profile-image img {
+  width: 100px;
+  height: 100px;
+  max-width: none;
+  object-fit: cover;
+}
+
+.cas-people-listing .views-view-grid {
+  // Portraits scale down with their card on small screens instead of
+  // overflowing (aspect-ratio keeps them square below 200px).
+  .views-field-field-profile-image img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .views-field-field-profile-primary-title {
+    font-style: italic;
+  }
+
+  // Flex the row so cards wrap: 4-up desktop, 2-up small, 1-up phones.
+  .views-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .views-col {
+    float: none;
+    width: 25%;
+    padding: 0.5em;
+  }
+
+  @media (max-width: 991.98px) {
+    .views-col {
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 575.98px) {
+    .views-col {
+      width: 100%;
+    }
+
+    .views-field-field-profile-image img {
+      max-width: 100px;
+    }
+  }
+}
+
+// The listing tables span their column regardless of content width.
+.cas-people-listing table {
+  width: 100%;
+}
+
+// The listing block fills its layout region: BLB regions are d-flex rows and
+// an unclassed block otherwise shrinks to flex-basis content width.
+.block-cas-group-profiles {
+  width: 100%;
+}
+
+// Tighten the gap between a heading paragraph block and the listing that
+// follows it to 0.75em (26px of h3 margin + block padding reads as a
+// disconnect): pull up by the surplus (26px - 0.75em at the 18px body size).
+.block-inline-blockparagraph-block + .block-cas-group-profiles {
+  margin-top: calc(0.75em - 26px);
+}
+
+// The heading block above a listing aligns flush with its table: drop the
+// column gutter and the body field's padding on just that block. (Heading
+// levels themselves are normalized to real h3s by
+// scripts-dev/fix_listing_heading_levels.php.)
+.block-inline-blockparagraph-block:has(+ .block-cas-group-profiles) {
+  padding-left: 0 !important;
+
+  .field--name-body {
+    padding-left: 0 !important;
+  }
+}

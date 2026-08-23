@@ -1,0 +1,19 @@
+uuid: 0032fc68-eb9a-4c72-963b-78921a50d213
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vid_presenter
+    - node.type.video
+id: node.video.field_vid_presenter
+field_name: field_vid_presenter
+entity_type: node
+bundle: video
+label: Presenter
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

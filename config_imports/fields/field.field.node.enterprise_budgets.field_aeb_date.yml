@@ -1,0 +1,21 @@
+uuid: ad46ce47-bd71-47c1-b0b5-739b20221df3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_aeb_date
+    - node.type.enterprise_budgets
+  module:
+    - datetime
+id: node.enterprise_budgets.field_aeb_date
+field_name: field_aeb_date
+entity_type: node
+bundle: enterprise_budgets
+label: Date
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

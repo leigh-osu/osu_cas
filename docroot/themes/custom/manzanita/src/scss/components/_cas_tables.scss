@@ -1,0 +1,49 @@
+// Content tables, site-wide: every table madrone dresses as .osu-table
+// (unclassed content tables, views tables, the weather and people listings
+// alike) plus the explicit .osu-table variants. Scoped to the page so
+// admin/Layout Builder chrome keeps its own sizes.
+.layout-container {
+  .osu-table,
+  .osu-table-orange,
+  table:not(.table) {
+    font-size: 0.9rem;
+  }
+
+  // Many D7-era tables were pasted in with inline styles (pixel widths
+  // capped by max-width: 100%, grey header cells, white-on-#444 text) that
+  // outrank any stylesheet. The theme wins where it matters: a wide table
+  // keeps its width and scrolls inside filter_responsive_table's
+  // .table-responsive wrapper instead of being crushed into the column, and
+  // header cells take the standard dark header. Cell widths and backgrounds
+  // are left alone -- some are deliberate.
+  table:not(.table) {
+    height: auto !important;
+    max-width: none !important;
+
+    // Pasted per-cell pixel widths starve the other columns; let columns
+    // size to their content instead. And undo Bootstrap's .text-break
+    // (word-break: break-word) that madrone puts on field bodies: inside a
+    // table it lets the auto layout shrink columns to single characters --
+    // D7 tables never broke words. Overlong content scrolls in the
+    // .table-responsive wrapper instead.
+    th,
+    td {
+      height: auto !important;
+      max-width: none !important;
+      min-width: 0 !important;
+      overflow-wrap: normal !important;
+      width: auto !important;
+      word-break: normal !important;
+    }
+
+    // Bootstrap paints stripes/hover as an inset box-shadow, which would
+    // wash over the dark header when the header row lives in <tbody>.
+    th {
+      background-color: #212529 !important;
+      box-shadow: none !important;
+      color: #fff !important;
+      font-weight: 600 !important;
+      line-height: inherit !important;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@import '../abstracts/cas_variables';
+
+// Extra Layout Builder section min-height utilities.
+//
+// madrone's _osu_utilities.scss generates .osu-min-h-100 … .osu-min-h-800 from
+// its $min-heights map (name = pixel value). CAS also offers two shorter steps
+// for tight spacers — the Layout Builder "Minimum height" section option lists
+// them via bootstrap_styles.settings min_height. madrone's map only goes down
+// to 100, so define the two smaller classes here; they load after madrone and
+// follow the same name-is-pixels convention.
+.osu-min-h-25 {
+  min-height: 25px;
+}
+
+.osu-min-h-50 {
+  min-height: 50px;
+}
+
+// Parity with madrone's background-video CLS fix, so a background-video section
+// set to one of these heights is sized the same way.
+.background-local-video {
+  &:has(.osu-min-h-25) {
+    min-height: 25px;
+  }
+  &:has(.osu-min-h-50) {
+    min-height: 50px;
+  }
+}

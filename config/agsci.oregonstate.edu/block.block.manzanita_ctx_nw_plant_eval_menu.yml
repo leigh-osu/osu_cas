@@ -1,0 +1,36 @@
+uuid: 60056cff-5b73-4930-af29-89044dd8b067
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:88626a4f-31a4-4ca4-9844-6cc11f9e78a6'
+  module:
+    - block_content
+    - system
+  theme:
+    - manzanita
+id: manzanita_ctx_nw_plant_eval_menu
+theme: manzanita
+region: sidebar
+weight: -10
+provider: null
+plugin: 'block_content:88626a4f-31a4-4ca4-9844-6cc11f9e78a6'
+settings:
+  id: 'block_content:88626a4f-31a4-4ca4-9844-6cc11f9e78a6'
+  label: 'Northwest Plant Evaluation Program menu'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: |-
+      /node/49351
+      /node/49671
+      /node/49711
+      /node/49736
+      /node/49741
+      /node/49761

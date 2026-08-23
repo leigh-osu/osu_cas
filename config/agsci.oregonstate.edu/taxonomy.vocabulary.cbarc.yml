@@ -1,0 +1,9 @@
+uuid: 23a7f374-0ce6-44dd-ba22-4a87c9692698
+langcode: en
+status: true
+dependencies: {  }
+name: CBARC
+vid: cbarc
+description: null
+weight: 0
+new_revision: false

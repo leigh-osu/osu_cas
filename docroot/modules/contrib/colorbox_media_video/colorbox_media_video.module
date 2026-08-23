@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Adds Colorbox support to Media Video and Remote Video types.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function colorbox_media_video_theme() {
+  return [
+    'colorbox_media_remote_video_formatter' => [
+      'variables' => [
+        'remote_video' => NULL,
+        'thumb' => NULL,
+        'entity' => NULL,
+        'settings' => NULL,
+      ],
+      'file' => 'colorbox_media_video.theme.inc',
+    ],
+  ];
+}

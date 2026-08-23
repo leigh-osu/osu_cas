@@ -1,0 +1,21 @@
+uuid: 8e8ea181-74dd-44ca-9e63-587dda0622e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_story_category
+    - node.type.story
+  module:
+    - options
+id: node.story.field_story_category
+field_name: field_story_category
+entity_type: node
+bundle: story
+label: 'Story Category'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

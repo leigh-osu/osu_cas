@@ -1,0 +1,73 @@
+// osu_card "picbox" view mode: replicate the D7 lp_picbox card. The link title
+// is overlaid in a translucent box across the top of the image, and the whole
+// card (image + overlay) is a single link target.
+.osu-card--picbox {
+  // 0.75em breathing room on all sides of each picbox tile; the larger bottom
+  // margin keeps D7's generous row separation.
+  margin: 0.75em 0.75em 2.5rem;
+
+  .picbox-container {
+    position: relative;
+  }
+
+  .picbox-item {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  // Headline + image box. Positioned so the absolute .picbox-headline and the
+  // .picbox-link::after click overlay both resolve against it (the
+  // description sits outside, so the overlay never covers its text).
+  .picbox-media {
+    position: relative;
+  }
+
+  // The link holds only the headline (see the picbox template: keeping the
+  // image out of it keeps the image's alt out of the link's accessible name),
+  // so a stretched ::after restores the whole-card click target. The anchor
+  // itself must stay unpositioned or ::after would resolve against it instead
+  // of .picbox-media.
+  .picbox-link {
+    display: block;
+    position: static;
+    text-decoration: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+    }
+  }
+
+  // Translucent title bar across the top of the image. D7 rendered it in
+  // Stratum2Web at normal weight, ~25px (180% of the 14px base), on
+  // rgba(0,0,0,.6); Madrone's default h3 (orange Open Sans 500) must not
+  // bleed through.
+  .picbox-headline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    margin: 0;
+    padding: 0.5em;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-family: 'Stratum2Web', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .field--name-body {
+    margin-top: 0.5rem;
+  }
+}

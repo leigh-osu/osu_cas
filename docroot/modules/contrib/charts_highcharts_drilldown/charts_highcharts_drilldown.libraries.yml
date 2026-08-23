@@ -1,0 +1,10 @@
+drilldown:
+  version: VERSION
+  cdn:
+    /libraries/highcharts_drilldown/drilldown.js: https://code.highcharts.com/12.1.1/modules/drilldown.js
+  js:
+    /libraries/highcharts_drilldown/drilldown.js: { minified: true }
+  dependencies:
+    - core/drupal
+    - charts_highcharts/highcharts
+    - charts_highcharts/data

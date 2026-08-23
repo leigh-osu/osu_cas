@@ -1,0 +1,19 @@
+uuid: f92fb6e4-0c7d-4bde-99af-bc0db2ccd423
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fun_facts_source
+    - node.type.fun_facts
+id: node.fun_facts.field_fun_facts_source
+field_name: field_fun_facts_source
+entity_type: node
+bundle: fun_facts
+label: Source
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

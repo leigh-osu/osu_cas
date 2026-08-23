@@ -1,0 +1,9 @@
+uuid: 9a11eaa7-bfed-4686-834e-ae4962ddcc55
+langcode: en
+status: true
+dependencies: {  }
+name: Commodity
+vid: commodity
+description: null
+weight: 0
+new_revision: false

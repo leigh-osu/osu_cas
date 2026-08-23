@@ -1,0 +1,16 @@
+uuid: 6bf82d80-0c8b-4615-b90e-ac772d28d40c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: fish_conservation
+label: fish_conservation
+logic: and
+conditions:
+  b3125492-dd29-4da6-92c4-aaa857147cac:
+    id: request_path
+    uuid: b3125492-dd29-4da6-92c4-aaa857147cac
+    pages: /node/44700
+    negate: false
+allow_other_conditions: false

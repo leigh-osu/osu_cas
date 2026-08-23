@@ -1,0 +1,15 @@
+uuid: 96303858-22bf-4008-91c9-fa7ad0f1bc20
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.support_roots_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_support_roots_oregonstate_edu
+label: 'Remove selected content from the Roots IT Support domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - support_roots_oregonstate_edu

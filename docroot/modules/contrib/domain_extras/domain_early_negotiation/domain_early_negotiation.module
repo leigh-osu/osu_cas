@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations for domain_early_negotiation.
+ */
+
+use Drupal\Core\Hook\Attribute\LegacyHook;
+use Drupal\domain_early_negotiation\Hook\DomainEarlyNegotiationHooks;
+
+/**
+ * Implements hook_domain_config_ui_disallowed_configurations_alter().
+ */
+#[LegacyHook]
+function domain_early_negotiation_domain_config_ui_disallowed_configurations_alter(array &$disallowed): void {
+  \Drupal::service(DomainEarlyNegotiationHooks::class)->disallowedConfigurationsAlter($disallowed);
+}

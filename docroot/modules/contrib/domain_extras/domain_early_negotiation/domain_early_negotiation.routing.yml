@@ -1,0 +1,7 @@
+domain_early_negotiation.settings:
+  path: '/admin/config/domain/early-negotiation'
+  defaults:
+    _form: '\Drupal\domain_early_negotiation\Form\DomainEarlyNegotiationSettingsForm'
+    _title: 'Early negotiation'
+  requirements:
+    _permission: 'administer domains'

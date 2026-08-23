@@ -1,0 +1,12 @@
+lb_modal_tabs:
+  version: 1.x
+  css:
+    component:
+      css/lb-modal.css: {}
+lb_unsaved_warning:
+  version: 1.x
+  js:
+    js/lb-unsaved-warning.js: {}
+  dependencies:
+    - core/drupal
+    - core/once

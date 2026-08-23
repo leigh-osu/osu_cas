@@ -1,0 +1,12 @@
+uuid: 657eaec5-f391-42c3-b8a3-047440c3c74c
+langcode: en
+status: true
+dependencies: {  }
+id: anrs_oregonstate_edu
+domain_id: 5641777
+hostname: anrs.oregonstate.edu
+name: 'Animal and Rangeland Sciences'
+scheme: https
+weight: 0
+is_default: false
+path_prefix: ''

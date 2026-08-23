@@ -1,0 +1,445 @@
+<?php
+
+/**
+ * @file
+ * OSU CAS Multisite — shared helpers and theming for the CAS platform.
+ */
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Access\AccessResultInterface;
+use Drupal\Core\Block\BlockPluginInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\FieldableEntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\node\NodeInterface;
+use Drupal\osu_cas_multisite\Render\CasBrandingGroupFallback;
+use Drupal\views\Views;
+
+/**
+ * Implements hook_node_access().
+ *
+ * Lets a person edit their own profile. field_profile_user names the account a
+ * profile describes, and the field help promises that account can edit it —
+ * but nothing enforced that. Editing worked only because every linked account
+ * happened to also be the node author, so core's "edit own content" carried
+ * it. The moment an editor creates a profile on someone else's behalf, which
+ * is exactly what the field exists for, the author and the subject differ and
+ * the subject could not touch their own page.
+ *
+ * Only 'update': deletion stays with the author and administrators. A neutral
+ * result leaves every other rule intact, and an explicit forbid elsewhere
+ * (unpublished access, moderation state transitions) still wins over the
+ * allow, since core only grants access when nothing forbids it.
+ */
+function osu_cas_multisite_node_access(NodeInterface $node, string $op, AccountInterface $account): AccessResultInterface {
+  $neutral = AccessResult::neutral();
+  if ($op !== 'update' || $node->bundle() !== 'osu_profile' || $account->isAnonymous()) {
+    return $neutral;
+  }
+  // Vary on both: the answer changes if the field is repointed, and it is
+  // different for every user looking at the same profile.
+  $neutral->addCacheableDependency($node)->cachePerUser();
+  if (!$node->hasField('field_profile_user')) {
+    return $neutral;
+  }
+  foreach ($node->get('field_profile_user') as $item) {
+    if ((int) $item->target_id === (int) $account->id()) {
+      return AccessResult::allowed()
+        ->addCacheableDependency($node)
+        ->cachePerUser();
+    }
+  }
+  return $neutral;
+}
+
+/**
+ * The four listings a person profile carries.
+ *
+ * D7 rendered these as viewfield fields inside the profile (my_biblio|block,
+ * image_gallery|block_3, news_items_larch|block_18, video_view|block_7). D10
+ * has no viewfield, so they arrive as extra fields instead: that keeps them
+ * placeable in Manage Display and, unlike a block placement, lets them sit
+ * inside the profile's own accordion groups where D7 had them.
+ *
+ * Each view display is argument-bound to the profile node, and the argument is
+ * passed explicitly below rather than read from the route, so the listings are
+ * correct wherever the profile is rendered.
+ *
+ * @see osu_cas_multisite_entity_extra_field_info()
+ * @see osu_cas_multisite_node_view()
+ */
+function osu_cas_multisite_profile_listings(): array {
+  return [
+    'listing_publications' => [
+      'label' => t('My Publications'),
+      'description' => t('Publications that name this profile (osu_publications: Profile Related Publications).'),
+      'view' => 'osu_publications',
+      'display' => 'block_1',
+      'weight' => 30,
+    ],
+    'listing_images' => [
+      'label' => t('My Images'),
+      'description' => t('Image albums that name this profile (image_galleries: My Images).'),
+      'view' => 'image_galleries',
+      'display' => 'profile',
+      'weight' => 31,
+    ],
+    'listing_news' => [
+      'label' => t('My News Articles'),
+      'description' => t('Stories that name this profile (news_items_by_group: My News).'),
+      'view' => 'news_items_by_group',
+      'display' => 'profile',
+      'weight' => 32,
+    ],
+    'listing_videos' => [
+      'label' => t('My Videos'),
+      'description' => t('Videos that name this profile (videos: My Videos).'),
+      'view' => 'videos',
+      'display' => 'profile',
+      'weight' => 33,
+    ],
+  ];
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ *
+ * Offers the four profile listings in Manage Display for osu_profile. They
+ * start hidden; core.entity_view_display.node.osu_profile.full places them.
+ */
+function osu_cas_multisite_entity_extra_field_info() {
+  $extra = [];
+  foreach (osu_cas_multisite_profile_listings() as $key => $listing) {
+    $extra['node']['osu_profile']['display'][$key] = [
+      'label' => $listing['label'],
+      'description' => $listing['description'],
+      'weight' => $listing['weight'],
+      'visible' => FALSE,
+    ];
+  }
+  return $extra;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view() for nodes.
+ *
+ * Renders whichever of the four listings the display places. The view is
+ * executed here rather than handed over as a lazy '#type' => view element so
+ * that an empty listing can be dropped entirely: a profile with no videos
+ * should not carry an empty "My Videos" heading, and field_group only folds
+ * away a group whose children all produced nothing. The views themselves keep
+ * their empty text, so a block placed anywhere else still explains itself.
+ */
+function osu_cas_multisite_node_view(array &$build, NodeInterface $node, EntityViewDisplayInterface $display, $view_mode) {
+  if ($node->bundle() !== 'osu_profile') {
+    return;
+  }
+  foreach (osu_cas_multisite_profile_listings() as $key => $listing) {
+    if (!$display->getComponent($key)) {
+      continue;
+    }
+    $view = Views::getView($listing['view']);
+    if (!$view || !$view->access($listing['display'])) {
+      continue;
+    }
+    $view->setDisplay($listing['display']);
+    $view->setArguments([$node->id()]);
+    $view->preExecute();
+    $view->execute();
+    if (empty($view->result)) {
+      continue;
+    }
+    $short = str_replace('listing_', '', $key);
+    $build[$key] = [
+      '#type' => 'container',
+      '#attributes' => [
+        // Same shape as a real above-label field, so the listings pick up the
+        // profile's existing label typography without any new CSS.
+        'class' => [
+          'field',
+          'field--name-' . str_replace('_', '-', $key),
+          'field--label-above',
+          'cas-profile-listing',
+          'cas-profile-listing--' . $short,
+        ],
+      ],
+      '#weight' => $display->getComponent($key)['weight'] ?? $listing['weight'],
+      'label' => [
+        '#type' => 'html_tag',
+        '#tag' => 'div',
+        '#value' => $listing['label'],
+        '#attributes' => ['class' => ['field__label', 'fw-bold']],
+      ],
+      'content' => $view->render(),
+    ];
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for colorbox_view_mode_formatter.
+ *
+ * The colorbox_view_modes formatter (colorbox.module) hardcodes the referenced
+ * entity's label as the lightbox caption — i.e. the anchor `title` attribute
+ * becomes the media's name (its filename). When the referenced media carries a
+ * caption, prefer field_media_caption so galleries (image_album,
+ * art_about_agriculture) show the real caption text ("Beach Farm House 1954")
+ * instead of "farm.png". Runs after colorbox's own preprocess, so this wins;
+ * media without a caption keep the default label behaviour.
+ */
+function osu_cas_multisite_preprocess_colorbox_view_mode_formatter(array &$variables) {
+  $item = $variables['item'] ?? NULL;
+  if ($item instanceof FieldableEntityInterface
+      && $item->hasField('field_media_caption')
+      && !$item->get('field_media_caption')->isEmpty()) {
+    $caption = trim((string) $item->get('field_media_caption')->value);
+    if ($caption !== '') {
+      $variables['attributes']['title'] = $caption;
+    }
+  }
+}
+
+
+/**
+ * Implements hook_plugin_filter_TYPE__CONSUMER_alter().
+ *
+ * paragraph_block is the landing bundle for migrated D7 paragraph bodies
+ * and is 'basic' plus migration-leftover fields — offering both in Layout
+ * Builder's "Add a new content block" list just invites the wrong pick.
+ * Existing placed paragraph_block inline blocks still render; only the
+ * create-new option disappears.
+ */
+function osu_cas_multisite_plugin_filter_block__layout_builder_alter(array &$definitions, array $extra_context) {
+  unset($definitions['inline_block:paragraph_block']);
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for details templates.
+ *
+ * Layout Builder's "Choose a block" dialog renders every category as
+ * <details open>, so the list arrives fully expanded and endless. Start
+ * them all collapsed; the dialog's filter JS still pops matching
+ * categories open while searching.
+ */
+function osu_cas_multisite_preprocess_details(array &$variables) {
+  $classes = $variables['element']['#attributes']['class'] ?? [];
+  if (in_array('js-layout-builder-category', $classes, TRUE)) {
+    unset($variables['attributes']['open']);
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Attach the tab-bar fix to Layout Builder's block configure/add forms —
+ * see css/lb-modal-tabs.css for the why.
+ */
+function osu_cas_multisite_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  if (in_array($form_id, ['layout_builder_update_block', 'layout_builder_add_block'], TRUE)) {
+    $form['#attached']['library'][] = 'osu_cas_multisite/lb_modal_tabs';
+
+    // New accordion blocks default to p-2 padding (site standard for
+    // accordions; migrated ones get the same via CasLayoutBase). Only when
+    // no padding is stored yet, so editor choices are never overridden.
+    if ($form_id === 'layout_builder_add_block' && isset($form['ui']['tab_content']['appearance']['spacing']['padding'])) {
+      $component = $form_state->getFormObject()->getCurrentComponent();
+      $stored = $component->get('bootstrap_styles')['block_style']['padding']['class'] ?? NULL;
+      if ($component->getPluginId() === 'inline_block:osu_accordion' && !$stored) {
+        $padding_options = \Drupal::config('bootstrap_styles.settings')->get('padding');
+        // Options render as [_none, ...configured classes]; the range value
+        // is the index into that list.
+        $index = 0;
+        foreach (array_values(array_filter(array_map('trim', explode("\n", (string) $padding_options)))) as $i => $line) {
+          if (str_starts_with($line, 'p-2|')) {
+            $index = $i + 1;
+            break;
+          }
+        }
+        if ($index) {
+          $form['ui']['tab_content']['appearance']['spacing']['padding']['#default_value'] = $index;
+        }
+      }
+    }
+  }
+  // The main Layout Builder edit form (node_page_layout_builder_form etc.):
+  // guard against navigating away with unsaved layout changes.
+  if (str_ends_with($form_id, '_layout_builder_form')) {
+    $form['#attached']['library'][] = 'osu_cas_multisite/lb_unsaved_warning';
+  }
+}
+
+/**
+ * Implements hook_osu_groups_site_wide_path_bundles_alter().
+ *
+ * Publications are addressed site-wide at /publication/<title>, not under the
+ * group that happens to hold them.
+ *
+ * osu_groups_basic_group_pathauto_pattern_alter() replaces whatever pattern
+ * matched with "/[node:group:url:path]/[node:title]" for any group-placed node,
+ * which is right for pages -- a page belongs to a unit's section of the site --
+ * and wrong for a publication. A paper is cited by URL and is not owned by one
+ * group: the same work is routinely attached to a lab, a department and a
+ * programme, and a group-scoped path would move it whenever that placement
+ * changed. The 8,171 migrated publications inherited exactly that problem from
+ * D7, where they sat under /biblio, /goyer-laboratory/biblio, /horticulture and
+ * /tradeoff-analysis-project/biblio according to which group had claimed them.
+ *
+ * The same reasoning the patch applied to profiles and feeds, and the same
+ * mechanism: this is the alter hook that patch introduced.
+ *
+ * @see patches/osu_groups-profile-paths-not-group-scoped.patch
+ * @see \Drupal\pathauto\PathautoGenerator::getPatternByEntity()
+ */
+function osu_cas_multisite_osu_groups_site_wide_path_bundles_alter(array &$bundles): void {
+  $bundles[] = 'publications';
+}
+
+/**
+ * Implements hook_views_data_alter().
+ *
+ * Exposes the publication author search as a filter on nodes rather than
+ * through a taxonomy relationship, which would multiply rows per author.
+ *
+ * @see \Drupal\osu_cas_multisite\Plugin\views\filter\CasPublicationAuthor
+ */
+function osu_cas_multisite_views_data_alter(array &$data): void {
+  if (!isset($data['node_field_data'])) {
+    return;
+  }
+  $data['node_field_data']['cas_publication_author'] = [
+    'title' => t('Publication author name'),
+    'help' => t("Matches any part of any author's name. EXISTS against the author terms rather than a relationship, so a publication with several authors stays one row."),
+    'real field' => 'nid',
+    'filter' => ['id' => 'cas_publication_author'],
+  ];
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for views_exposed_form.
+ *
+ * Narrows the year box on the publications listing.
+ *
+ * Views gives exposed filters no width setting, so every text input arrives as
+ * size="30" carrying Bootstrap's form-control, which is width:100%. That is
+ * right for Title and Author, where the value is a phrase, and silly for a year
+ * -- a four-character field stretched the full width of the filter bar and read
+ * as though a long value were expected.
+ *
+ * Both parts are needed: size alone does nothing against form-control's 100%,
+ * and w-auto alone would shrink the box to its (empty) content. maxlength stays
+ * at 4 because that covers every real year and both of Biblio's sentinels,
+ * 9998 and 9999.
+ *
+ * @see \Drupal\osu_cas_multisite\Plugin\Field\FieldFormatter\CasPublicationYear
+ */
+function osu_cas_multisite_form_views_exposed_form_alter(array &$form, FormStateInterface $form_state, $form_id): void {
+  $view = $form_state->get('view');
+  if (!$view || $view->id() !== 'osu_publications' || !isset($form['pub_year'])) {
+    return;
+  }
+  $form['pub_year']['#size'] = 6;
+  $form['pub_year']['#maxlength'] = 4;
+  $form['pub_year']['#attributes']['class'][] = 'w-auto';
+}
+
+/**
+ * Implements hook_block_view_BASE_BLOCK_ID_alter() for system_branding_block.
+ *
+ * Adds the header fallback for content that belongs to no group.
+ *
+ * @see \Drupal\osu_cas_multisite\Render\CasBrandingGroupFallback
+ */
+function osu_cas_multisite_block_view_system_branding_block_alter(array &$build, BlockPluginInterface $block): void {
+  $build['#pre_render'][] = [CasBrandingGroupFallback::class, 'preRender'];
+}
+
+/**
+ * Implements hook_user_cancel_methods_alter().
+ *
+ * Withholds "Delete the account, its content and groups." from the account
+ * cancellation form. On this platform an account's content is the historical
+ * record of a department -- profiles, stories, pages, whole groups the person
+ * created -- and the Group module widens core's delete method to take the
+ * groups and their content relationships with it. One radio button on one
+ * form should not be able to erase a unit's history.
+ *
+ * The disable and reassign methods remain, which cover every real
+ * offboarding case. Runs after group_user_cancel_methods_alter (module order
+ * is alphabetical), so this removes the option the Group module just
+ * finished labelling.
+ */
+function osu_cas_multisite_user_cancel_methods_alter(array &$methods): void {
+  unset($methods['user_cancel_delete']);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for user_cancel_form.
+ *
+ * Cancelling an account answers what happens to the account; it says nothing
+ * about the person's OSU Profile node, which is a separate piece of content
+ * that would otherwise linger as a directory entry for someone who is gone --
+ * or, under the reassign method, quietly become owned by Anonymous. When the
+ * person has a profile, the form asks the question directly and does what the
+ * administrator answers.
+ *
+ * Unchecked by default: the destructive half of the choice is opt-in.
+ */
+function osu_cas_multisite_form_user_cancel_form_alter(array &$form, FormStateInterface $form_state, $form_id): void {
+  /** @var \Drupal\user\UserInterface $account */
+  $account = $form_state->getFormObject()->getEntity();
+
+  // No emailing the person for permission: accounts here are CAS-backed, and
+  // the administrator on this form is the decision. Hidden rather than
+  // removed, and pinned to 0, because core treats an EMPTY value as "cancel
+  // now" -- a missing element would fall back to its default and quietly
+  // reintroduce the confirmation mail for anyone without the override
+  // permission.
+  $form['user_cancel_confirm']['#access'] = FALSE;
+  $form['user_cancel_confirm']['#value'] = 0;
+
+  $nids = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+    ->accessCheck(FALSE)
+    ->condition('type', 'osu_profile')
+    ->condition('field_profile_user', $account->id())
+    ->sort('nid')
+    ->execute();
+  if (!$nids) {
+    return;
+  }
+
+  $profiles = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($nids);
+  $name = reset($profiles)->label() ?: $account->getDisplayName();
+
+  $form['osu_cas_delete_profile'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Do you want to delete the OSU Profile for %name?', ['%name' => $name]),
+    '#description' => t('The profile is its own page in the directory and is not removed by cancelling the account. Leave unchecked to keep it.'),
+    '#default_value' => FALSE,
+    '#weight' => 5,
+  ];
+  $form_state->set('osu_cas_profile_nids', array_values($nids));
+
+  if (isset($form['actions']['submit'])) {
+    $form['actions']['submit']['#submit'][] = '_osu_cas_multisite_user_cancel_delete_profile';
+  }
+}
+
+/**
+ * Deletes the cancelled user's OSU Profile when the administrator asked to.
+ *
+ * Runs after the core submit that queues the cancellation, in the same
+ * request, so the answer is honoured whichever cancellation method was
+ * chosen.
+ */
+function _osu_cas_multisite_user_cancel_delete_profile(array &$form, FormStateInterface $form_state): void {
+  if (!$form_state->getValue('osu_cas_delete_profile')) {
+    return;
+  }
+  $nids = $form_state->get('osu_cas_profile_nids') ?: [];
+  $storage = \Drupal::entityTypeManager()->getStorage('node');
+  foreach ($storage->loadMultiple($nids) as $profile) {
+    $title = $profile->label();
+    $profile->delete();
+    \Drupal::messenger()->addStatus(t('The OSU Profile %title has been deleted.', ['%title' => $title]));
+  }
+}

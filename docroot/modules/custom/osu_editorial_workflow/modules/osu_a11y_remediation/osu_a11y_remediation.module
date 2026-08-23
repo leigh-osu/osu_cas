@@ -1,0 +1,179 @@
+<?php
+
+/**
+ * @file
+ * Module file.
+ */
+
+use Drupal\block\BlockInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\node\NodeInterface;
+use Drupal\pathauto\PathautoState;
+
+/**
+ * Implements hook_entity_base_field_info().
+ *
+ * Adds a new Field for collecting the Email of whom needs to be contacted for
+ * accessibility remediation.
+ */
+function osu_a11y_remediation_entity_base_field_info(EntityTypeInterface $entity_type): array {
+  $fields = [];
+  if ($entity_type->id() === 'node') {
+    $fields['osu_a11y_remediation_email'] = BaseFieldDefinition::create('email')
+      ->setLabel(new TranslatableMarkup('Accessibility Remediation Contact'))
+      ->setDescription(new TranslatableMarkup('Email address to contact for accessibility remediation requests for this content.'))
+      ->setRevisionable(TRUE)
+      ->setTranslatable(TRUE)
+      ->setDisplayOptions('form', [
+        'type' => 'email_default',
+        'weight' => 10,
+        'settings' => [],
+      ])
+      ->setDisplayOptions('view', [
+        'region' => 'hidden',
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', FALSE)
+      ->setRequired(FALSE);
+  }
+  return $fields;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function osu_a11y_remediation_node_presave(NodeInterface $entity) {
+  $moderation_state = $entity->get('moderation_state')->getString();
+  if ($moderation_state === 'preserve') {
+    $entity->path->pathauto = PathautoState::SKIP;
+  }
+}
+
+/**
+ * Implements hook_entity_type_alter().
+ */
+function osu_a11y_remediation_entity_type_alter(array &$entity_types): void {
+  $entity_types['node']->addConstraint('AccessibilityRemediationEmail');
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function osu_a11y_remediation_form_moderation_sidebar_quick_transition_form_alter(&$form, &$form_state): void {
+  $form['#validate'][] = 'osu_a11y_remediation_moderation_sidebar_validate';
+}
+
+/**
+ * Validates the moderation sidebar form for accessibility remediation.
+ *
+ * Checks whether the "Accessibility Remediation Contact" field is provided
+ * when the moderation operation is set to "Preserve". If the field is empty,
+ * an error is added to the form state.
+ *
+ * @param array &$form
+ *   The form structure array being validated.
+ * @param \Drupal\Core\Form\FormStateInterface &$form_state
+ *   The current state of the form.
+ */
+function osu_a11y_remediation_moderation_sidebar_validate(&$form, &$form_state): void {
+  $entity = $form_state->get('entity');
+  $triggering_element = $form_state->getTriggeringElement();
+  if (isset($triggering_element['#id']) && $triggering_element['#id'] === 'preserve') {
+    if ($entity instanceof NodeInterface
+      && $entity->hasField('osu_a11y_remediation_email')
+      && $entity->get('osu_a11y_remediation_email')
+        ->isEmpty()) {
+      $form_state->setError($triggering_element, t('The "Accessibility Remediation Contact" field is required when the moderation state is set to "Preserve".<br/>
+Please use the <em>Edit content</em> button to add the field.'));
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function osu_a11y_remediation_form_content_moderation_entity_moderation_form_alter(&$form, &$form_state): void {
+  $form['#validate'][] = 'osu_a11y_remediation_moderation_entity_validate';
+}
+
+/**
+ * Validates the moderation entity form for accessibility remediation.
+ *
+ * Ensures that the "Accessibility Remediation Contact" field is populated
+ * when the target moderation state is set to "Preserve". If the field is
+ * empty,
+ * an error is added to the form state under the "new_state" field.
+ *
+ * @param array &$form
+ *   The form structure array being validated.
+ * @param \Drupal\Core\Form\FormStateInterface &$form_state
+ *   The current state of the form, including user input and triggering
+ *   elements.
+ */
+function osu_a11y_remediation_moderation_entity_validate(&$form, &$form_state): void {
+  $entity = $form_state->get('entity');
+  $to_state = $form_state->getValue('new_state');
+  if ($to_state === 'preserve') {
+    if ($entity instanceof NodeInterface
+      && $entity->hasField('osu_a11y_remediation_email')
+      && $entity->get('osu_a11y_remediation_email')
+        ->isEmpty()) {
+      $form_state->setErrorByName("new_state", t('The "Accessibility Remediation Contact" field is required when the moderation state is set to "Preserved".'));
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Set a message and disable the form for the "Preserve Contact" block.
+ */
+function osu_a11y_remediation_form_block_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $block = $form_state->getFormObject()->getEntity();
+
+  if ($block->id() === 'madrone_views_block__preserve_contact_block_1') {
+    \Drupal::messenger()
+      ->addWarning(t('This block is managed by code and cannot be modified.'));
+    foreach (array_keys($form) as $key) {
+      if (str_starts_with($key, '#')) {
+        continue;
+      }
+      $form[$key]['#disabled'] = TRUE;
+    }
+    $form['actions']['#access'] = FALSE;
+  }
+}
+
+/**
+ * Implements hook_form_block_admin_display_form_alter().
+ *
+ * Remove the operations links (configure/delete) from the "Preserve Contact"
+ * block.
+ */
+function osu_a11y_remediation_form_block_admin_display_form_alter(array &$form, FormStateInterface $form_state): void {
+  $protected_block_id = 'madrone_views_block__preserve_contact_block_1';
+
+  if (isset($form['blocks'][$protected_block_id])) {
+    // Remove the operations links (configure/delete).
+    unset($form['blocks'][$protected_block_id]['operations']);
+    // Optionally, make the weight/region fields read-only.
+    $form['blocks'][$protected_block_id]['region-theme']['region']['#attributes']['disabled'] = TRUE;
+    $form['blocks'][$protected_block_id]['weight']['#attributes']['disabled'] = TRUE;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_predelete() for block entities.
+ *
+ * Ensures that the "Preserve Contact" block cannot be deleted.
+ */
+function osu_a11y_remediation_block_predelete(BlockInterface $block): void {
+  if ($block->id() === 'madrone_views_block__preserve_contact_block_1'
+    && !\Drupal::isConfigSyncing()
+  ) {
+    throw new \RuntimeException('This block is managed by code and cannot be deleted.');
+  }
+}

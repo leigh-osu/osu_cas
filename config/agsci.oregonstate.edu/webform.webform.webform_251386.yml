@@ -1,0 +1,362 @@
+uuid: 76b3bb29-9058-4eb4-b620-06ffec6ca8e3
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_251386
+title: 'Social Media questionnaire'
+description: null
+categories: {  }
+elements: |-
+  instructions:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	We would like to showcase the outstanding students, faculty, alumni and industry partners who make up the College of Agricultural Sciences. It is an opportunity for us to celebrate the diversity of the remarkable community of agricultural sciences in Oregon.&nbsp;</p>
+
+      <p>
+      	We want to hear about the great work you are doing and your motivation for doing it. This is also a chance for you to inspire others to pursue their passions and achieve their goals.</p>
+
+      <p>
+      	&nbsp;</p>
+
+      <h3>
+      	The Process</h3>
+
+      <p>
+      	1) Fill out the questionnaire below the best you can. *Don't feel obligated to answer every single question. Just the ones that compel you.</p>
+
+      <p>
+      	2) Download the model release form, sign it and upload it below. (It allows us to publish your story on the web and social media).</p>
+
+      <p>
+      	3) Upload your best pictures. The best pictures for web publishing are horizontally-framed and show your face clearly—but more importantly, they give a sense of context and setting and show your personality! *Please make sure each picture is at least 1MB in size!*</p>
+
+      <p>
+      	&nbsp;</p>
+
+      <p>
+      	<a class="btn btn-primary" href="/sites/agscid7/files/osu-model-release-2017-shortform.pdf">Model release form</a></p>
+  name:
+    '#type': textfield
+    '#unique': false
+    '#title': Name
+    '#required': true
+  professional_title:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Professional Title'
+  i_am:
+    '#type': radios
+    '#options':
+      student: Student
+      faculty_staff: Faculty/Staff
+      alumni: Alumni
+    '#title_display': inline
+    '#title': 'I am '
+    '#required': true
+  s_choose_cas:
+    '#type': textarea
+    '#title': 'Why did you choose OSU and CAS?'
+    '#states':
+      visible:
+        - ':input[name="i_am"]':
+            value: student
+  s_major_graduate:
+    '#type': textarea
+    '#title': 'What is your major and when do you expect to graduate?'
+    '#states':
+      visible:
+        - ':input[name="i_am"]':
+            value: student
+  student_challenges:
+    '#type': textarea
+    '#title': 'Did you face any Challenges or opportunities that surprised you?'
+    '#states':
+      visible:
+        - ':input[name="i_am"]':
+            value: student
+  s_tell_us_about_yourself:
+    '#type': textarea
+    '#title': "Tell us something about yourself that we couldn't tell by looking at you"
+    '#states':
+      visible:
+        - ':input[name="i_am"]':
+            value: student
+  s_advice_others:
+    '#type': textarea
+    '#title': 'What advice do you have for those considering coming to OSU/CAS?'
+    '#states':
+      visible:
+        - ':input[name="i_am"]':
+            value: student
+  f_position_dept:
+    '#type': textarea
+    '#title': 'What is your position and department?'
+    '#states':
+      visible:
+        - ':input[name="i_am"]':
+            value: faculty_staff
+  how_did_you_become:
+    '#type': textarea
+    '#title': 'Tell us about the educational and professional path that led you to your current role?'
+    '#states':
+      visible:
+        - ':input[name="i_am"]':
+            value: faculty_staff
+  f_most_excited:
+    '#type': textarea
+    '#title': 'What are you most excited about working on right now?'
+    '#states':
+      visible:
+        - ':input[name="i_am"]':
+            value: faculty_staff
+  f_favorite_part_osu:
+    '#type': textarea
+    '#title': 'What is your favorite part of OSU?'
+    '#states':
+      visible:
+        - ':input[name="i_am"]':
+            value: faculty_staff
+  f_advice:
+    '#type': textarea
+    '#title': 'What advice to you have for those interested in a career in higher education?'
+    '#states':
+      visible:
+        - ':input[name="i_am"]':
+            value: faculty_staff
+  a_major:
+    '#type': textarea
+    '#title': 'What was your major and when did you graduate?'
+    '#states':
+      visible:
+        - ':input[name="i_am"]':
+            value: alumni
+  a_doing_now:
+    '#type': textarea
+    '#title': 'What are you doing now? '
+    '#states':
+      visible:
+        - ':input[name="i_am"]':
+            value: alumni
+  a_advice:
+    '#type': textarea
+    '#title': 'What advice do you wish you could give your younger self when you were at CAS?'
+    '#states':
+      visible:
+        - ':input[name="i_am"]':
+            value: alumni
+  blogs___website:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Blogs / website / Social Media'
+  images__files:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'gif jpg jpeg png txt pdf doc docx ppt pptx avi mov mp3 wav zip'
+    '#title': 'Upload Model Release Form'
+  image1:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Image 1'
+  image_2:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Image 2'
+  image_3:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Image 3'
+  image_4:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Image 4'
+  image_5:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Image 5'
+  image_6:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Image 6'
+  image_7:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Image 7'
+  image_8:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Image 8'
+  image_9:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Image 9'
+  image_10:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'Image 10'
+  video:
+    '#type': managed_file
+    '#max_filesize': 256.0
+    '#file_extensions': 'avi mov mp3 ogg wav'
+    '#title': Video
+  media_please:
+    '#type': textarea
+    '#title': 'If your work (or your hobbies) have been featured in any media, please include links here:'
+  experience_here:
+    '#type': textarea
+    '#title': 'Is there anything else you would like to add about yourself or your experience at the College of Agricultural Sciences?'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<p>\r\n\tThanks for submitting. <span class=\"awesome\">You rock!</span></p>\r\n\r\n<p>\r\n\tYou will hear from us soon.</p>\r\n\r\n<p>\r\n\tBTW, please like us on <a href=\"https://www.facebook.com/OSUAgSci/\">Facebook</a> and follow us on <a href=\"https://twitter.com/OSUAgSci\">Twitter</a>&nbsp;and <a href=\"https://www.instagram.com/osuagsci/\">Instagram</a>.</p>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: Stephen.Ward@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: ben.davis@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+  email_3:
+    id: email
+    handler_id: email_3
+    label: 'Email 3'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 3
+    settings:
+      states:
+        - completed
+      to_mail: agsci@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

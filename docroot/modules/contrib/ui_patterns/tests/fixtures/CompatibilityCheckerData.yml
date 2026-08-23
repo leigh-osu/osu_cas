@@ -1,0 +1,387 @@
+# String prop type
+- label: "String prop type"
+  schema:
+    type: string
+  tests:
+    - label: "String"
+      schema:
+        type: string
+      result: true
+    - label: "String with a format"
+      schema:
+        type: string
+        format: whatever
+      result: true
+    - label: "String with max length"
+      schema:
+        type: string
+        maxLength: 10
+      result: true
+
+# Other string tests
+- label: "String with max length"
+  schema:
+    type: string
+    maxLength: 10
+  tests:
+    - label: "No length"
+      schema:
+        type: string
+      result: false
+    - label: "Same max length"
+      schema:
+        type: string
+        maxLength: 10
+      result: true
+    - label: "Smaller max length"
+      schema:
+        type: string
+        maxLength: 5
+      result: true
+    - label: "Larger max length"
+      schema:
+        type: string
+        maxLength: 20
+      result: false
+- label: "String with min length"
+  schema:
+    type: string
+    minLength: 10
+  tests:
+    - label: "No length"
+      schema:
+        type: string
+      result: false
+    - label: "Same min length"
+      schema:
+        type: string
+        minLength: 10
+      result: true
+    - label: "Smaller min length"
+      schema:
+        type: string
+        minLength: 5
+      result: false
+    - label: "Larger min length"
+      schema:
+        type: string
+        minLength: 20
+      result: true
+
+# Enum prop type
+- label: "Enum prop type"
+  schema:
+    type: [string, number, integer]
+    enum: []
+  tests:
+    - label: "Empty enum"
+      schema:
+        type: string
+        enum: []
+      result: true
+    - label: "With strings"
+      schema:
+        type: string
+        enum:
+          - foo
+          - bar
+          - baz
+      result: true
+    - label: "With numbers"
+      schema:
+        type: number
+        enum:
+          - 4
+          - 5
+          - 8
+      result: true
+
+# Other enum tests
+- label: "Enum with 2 strings"
+  schema:
+    type: string
+    enum:
+      - foo
+      - bar
+  tests:
+    - label: "Same enum"
+      schema:
+        type: string
+        enum:
+          - foo
+          - bar
+      result: true
+    - label: "Enum with an addition"
+      schema:
+        type: string
+        enum:
+          - foo
+          - bar
+          - baz
+      result: false
+    - label: "Enum with a removal"
+      schema:
+        type: string
+        enum:
+          - foo
+      result: true
+
+# Number prop type
+- label: "Number prop type"
+  schema:
+    type: number
+  tests:
+    - label: "Number"
+      schema:
+        type: number
+      result: true
+    - label: "Integer"
+      schema:
+        type: integer
+      result: true
+
+# Url prop type
+- label: "URL prop type"
+  schema:
+    type: string
+    format: iri-reference
+  tests:
+    - label: "IRI Reference"
+      schema:
+        type: string
+        format: iri-reference
+      result: true
+    - label: "URI reference"
+      schema:
+        type: string
+        format: uri-reference
+      result: true
+    - label: "IRI"
+      schema:
+        type: string
+        format: iri
+      result: true
+    - label: "URI"
+      schema:
+        type: string
+        format: uri
+      result: true
+
+# Color prop type
+- label: "Color prop type"
+  schema:
+    type: string
+    pattern: "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+  tests:
+    - label: "Color (6 or 3 hex)"
+      schema:
+        type: string
+        pattern: "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+      result: true
+#    - label: "Color (6)"
+#      schema:
+#        type: string
+#        pattern: "^#([A-Fa-f0-9]{6})$"
+#      result: true
+#    - label: "Color (3)"
+#      schema:
+#        type: string
+#        pattern: "^#([A-Fa-f0-9]{3})$"
+#      result: true
+
+# Links prop type
+- label: "Links prop type"
+  schema:
+    type: array
+    items:
+      type: object
+      properties:
+        title: { type: string }
+        url:
+          type: string
+          format: "iri-reference"
+  tests:
+    - label: "Links"
+      schema:
+        type: array
+        items:
+          type: object
+          properties:
+            title: { type: string }
+            url:
+              type: string
+              format: "iri-reference"
+      result: true
+    - label: "Links with extra property on"
+      schema:
+        type: array
+        items:
+          type: object
+          properties:
+            title: { type: string }
+            url:
+              type: string
+              format: "iri-reference"
+            extra: { type: string }
+      result: true
+    - label: "Links with absolute, non-internationalized, URL"
+      schema:
+        type: array
+        items:
+          type: object
+          properties:
+            title: { type: string }
+            url:
+              type: string
+              format: uri
+      result: true
+    - label: "Links with strings as URL"
+      schema:
+        type: array
+        items:
+          type: object
+          properties:
+            title: { type: string }
+            url:
+              type: string
+      result: false
+    - label: "Links with all resolved properties (url, attributes, link_attributes, below)"
+      schema:
+        type: array
+        items:
+          type: object
+          properties:
+            title: { type: string }
+            url:
+              type: string
+              format: "iri-reference"
+            attributes:
+              type: object
+              patternProperties:
+                ".+":
+                  anyOf:
+                    - type: [string, number]
+                    - type: array
+                      items:
+                        anyOf:
+                          - type: number
+                          - type: string
+            below:
+              type: array
+              items:
+                type: object
+      result: true
+    - label: "Links with only title and attributes (subset)"
+      schema:
+        type: array
+        items:
+          type: object
+          properties:
+            title: { type: string }
+            attributes:
+              type: object
+              patternProperties:
+                ".+":
+                  anyOf:
+                    - type: [string, number]
+                    - type: array
+                      items:
+                        anyOf:
+                          - type: number
+                          - type: string
+      result: true
+    - label: "Simple array"
+      schema:
+        type: array
+      result: false
+    - label: "Links with url as an object instead of a string (see: radix:dropdown-menu)"
+      schema:
+        type: array
+        items:
+          type: object
+          properties:
+            title: { type: string }
+            url:
+              type: object
+              properties:
+                options:
+                  type: object
+      result: false
+
+# Attributes prop type
+- label: "Attributes prop type"
+  schema:
+    type: object
+    patternProperties:
+      ".+":
+        anyOf:
+          - type: [string, number]
+          - type: array
+            items:
+              anyOf:
+                - type: number
+                - type: string
+  tests:
+    - label: "Attributes"
+      schema:
+        type: object
+        patternProperties:
+          ".+":
+            anyOf:
+              - type: [string, number]
+              - type: array
+                items:
+                  anyOf:
+                    - type: number
+                    - type: string
+      result: true
+    - label: "Attributes with only strings"
+      schema:
+        type: object
+        patternProperties:
+          ".+":
+            anyOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
+      result: true
+    - label: "Attributes with only URLs"
+      schema:
+        type: object
+        patternProperties:
+          ".+":
+            type: string
+            format: "iri-reference"
+      result: true
+
+# additionalProperties: false
+- label: "Object with additionalProperties false"
+  schema:
+    type: object
+    properties:
+      title: { type: string }
+      url: { type: string }
+    additionalProperties: false
+  tests:
+    - label: "Same properties"
+      schema:
+        type: object
+        properties:
+          title: { type: string }
+          url: { type: string }
+      result: true
+    - label: "Extra property not allowed"
+      schema:
+        type: object
+        properties:
+          title: { type: string }
+          url: { type: string }
+          extra: { type: string }
+      result: false
+    - label: "Subset of properties"
+      schema:
+        type: object
+        properties:
+          title: { type: string }
+      result: true

@@ -1,0 +1,11 @@
+name: 'Entity usage url updater test'
+type: module
+description: 'Support module for the Entity Usage module tests.'
+package: Testing
+dependencies:
+  - entity_usage:entity_usage
+
+# Information added by Drupal.org packaging script on 2026-07-23
+version: '8.x-2.2'
+project: 'entity_usage'
+datestamp: 1784797653

@@ -1,0 +1,19 @@
+uuid: 31a6efb5-0219-4627-9068-677a4435288e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sample_field_lot
+    - node.type.sample
+id: node.sample.field_sample_field_lot
+field_name: field_sample_field_lot
+entity_type: node
+bundle: sample
+label: Field/Lot
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

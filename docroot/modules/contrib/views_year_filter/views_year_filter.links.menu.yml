@@ -1,0 +1,6 @@
+views_year_filter.settings:
+  title: 'Views year filter settings'
+  route_name: views_year_filter.settings
+  description: 'Settings for the Module Views year filter.'
+  parent: system.admin_config_ui
+  weight: 99

@@ -1,0 +1,15 @@
+uuid: deb8606e-1006-4c90-8b12-28b5e1d46729
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.smallfarms_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_smallfarms_oregonstate_edu
+label: 'Remove selected content from the Small Farms Program domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - smallfarms_oregonstate_edu

@@ -1,0 +1,20 @@
+services:
+  _defaults:
+    autowire: true
+
+  logger.channel.domain_render_context:
+    parent: logger.channel_base
+    arguments: ['domain_render_context']
+
+  domain_render_context.renderer:
+    class: Drupal\domain_render_context\DomainRenderContext
+    arguments:
+      $negotiationContext: '@domain.negotiation_context'
+      $negotiator: '@domain.negotiator'
+      $requestContext: '@router.request_context'
+      $entityTypeManager: '@entity_type.manager'
+      $configFactory: '@config.factory'
+      $themeManager: '@theme.manager'
+      $themeInitialization: '@theme.initialization'
+      $logger: '@logger.channel.domain_render_context'
+  Drupal\domain_render_context\DomainRenderContextInterface: '@domain_render_context.renderer'

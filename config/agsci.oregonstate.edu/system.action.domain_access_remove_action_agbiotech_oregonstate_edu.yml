@@ -1,0 +1,15 @@
+uuid: 8d0202f4-068a-4db2-9ad4-7db52d2f7829
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.agbiotech_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_agbiotech_oregonstate_edu
+label: 'Remove selected content from the Biotechnology in Agriculture domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - agbiotech_oregonstate_edu

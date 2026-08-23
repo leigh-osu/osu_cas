@@ -1,0 +1,16 @@
+uuid: 7ee7cd84-9ec7-4a9f-890d-9990e563e35c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: video_grid_child_page
+label: video-grid-child-page
+logic: and
+conditions:
+  16a861b7-adae-4a2e-88ab-7d69ff96a3b8:
+    id: request_path
+    uuid: 16a861b7-adae-4a2e-88ab-7d69ff96a3b8
+    pages: /node/80176
+    negate: false
+allow_other_conditions: false

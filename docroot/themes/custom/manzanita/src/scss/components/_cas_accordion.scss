@@ -1,0 +1,27 @@
+// Accordion titles are actions: beaver-orange while collapsed, and the
+// open panel's title bar inverts to white-on-black. Bootstrap 5 resolves
+// all of this through custom properties, so no specificity fight with
+// its .accordion-button rules. The active chevron is re-drawn in white
+// (the stock one is dark and would vanish on the black bar).
+.accordion {
+  --bs-accordion-btn-color: #{$osuorange};
+  --bs-accordion-active-color: #{$bucktoothwhite};
+  --bs-accordion-active-bg: #{$paddletailblack};
+  // Solid arrowhead instead of Bootstrap's thin chevron: beaver-orange
+  // while collapsed, white on the open black bar (Bootstrap rotates the
+  // same icon 180deg when expanded).
+  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23d73f09'%3e%3cpath d='M2 5h12L8 12z'/%3e%3c/svg%3e");
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath d='M2 5h12L8 12z'/%3e%3c/svg%3e");
+  // Open state: arrow points LEFT (down-caret rotated a quarter turn
+  // clockwise) instead of Bootstrap's 180deg flip-up.
+  --bs-accordion-btn-icon-transform: rotate(90deg);
+}
+
+// Headings inside accordions carry the site's h3 treatment (see
+// _cas_typography): Stratum2 at the fluid h3 size. The button inherits
+// the same so the clickable title IS the heading, visually.
+.accordion-button {
+  font-family: 'Stratum2Web', serif;
+  font-size: clamp(1.295rem, 1.295rem + 0.54vw, 1.7rem);
+  font-weight: 500;
+}

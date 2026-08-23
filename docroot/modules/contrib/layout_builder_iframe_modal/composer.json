@@ -1,0 +1,25 @@
+{
+  "name": "drupal/layout_builder_iframe_modal",
+  "description": "Render Laybout Builder block edit forms in an iframe, using the admin theme.",
+  "type": "drupal-module",
+  "keywords": [
+    "Drupal",
+    "Layout Builder"
+  ],
+  "homepage": "https://www.drupal.org/project/layout_builder_iframe_modal",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Jan Hug",
+      "homepage": "https://www.drupal.org/u/dulnan",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/3169342?categories=All",
+    "source": "https://git.drupalcode.org/project/layout_builder_iframe_modal"
+  },
+  "require": {
+    "drupal/core": "^10.1.3 || ^11 || ^12"
+  }
+}

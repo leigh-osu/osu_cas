@@ -1,0 +1,23 @@
+uuid: f1350a55-fbf6-4c80-a065-fff0f1a98771
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfs_node_hide_title
+    - node.type.degree_fact_sheet
+id: node.degree_fact_sheet.field_dfs_node_hide_title
+field_name: field_dfs_node_hide_title
+entity_type: node
+bundle: degree_fact_sheet
+label: 'Hide title display'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: ''
+  off_label: ''
+field_type: boolean

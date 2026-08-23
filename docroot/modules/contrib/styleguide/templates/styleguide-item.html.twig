@@ -1,0 +1,23 @@
+{% set heading_attributes = create_attribute({
+    'class': ['styleguide'],
+    'id': key,
+}) %}
+{% set container_attributes = create_attribute({
+    'class': ['styleguide'],
+    'aria-labelledby': key,
+}) %}
+<h2{{ heading_attributes }}>{{ item.title }}</h2>
+{% if item.description %}
+    {% set description_id = key ~ '-description' %}
+    {% set description_attributes = create_attribute({
+        'class': ['styleguide-description'],
+        'id': description_id,
+    }) %}
+    {% set container_attributes = container_attributes.setAttribute('aria-describedby', description_id) %}
+    <div{{ description_attributes }}>
+        {{ item.description }}
+    </div>
+{% endif %}
+<div{{ container_attributes }}>
+    {{ content }}
+</div>

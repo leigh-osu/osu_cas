@@ -1,0 +1,63 @@
+services:
+  # Group builds group.relation_handler.access_control.group_node for us (see
+  # GroupServiceProvider) and expects decorators; it even forces shared: false
+  # on anything decorating a handler. This one lets the subject of a profile
+  # edit it — see ProfileSubjectAccessControl for why a hook cannot.
+  osu_cas_multisite_groups.relation_handler.access_control.group_node:
+    class: Drupal\osu_cas_multisite_groups\Plugin\Group\RelationHandler\ProfileSubjectAccessControl
+    decorates: group.relation_handler.access_control.group_node
+    arguments:
+      - '@osu_cas_multisite_groups.relation_handler.access_control.group_node.inner'
+
+  osu_cas_multisite_groups.current_group:
+    class: Drupal\osu_cas_multisite_groups\CurrentGroup
+    arguments:
+      - '@current_route_match'
+      - '@domain.negotiator'
+      - '@config.storage'
+      - '@entity_type.manager'
+      - '@database'
+
+  # The group context the header menu uses. Group's own context falls back to
+  # an arbitrary group membership on routes that have no group; this falls back
+  # to the domain's default group instead. Blocks opt in by context_mapping, so
+  # nothing else changes.
+  osu_cas_multisite_groups.group_display_context:
+    class: Drupal\osu_cas_multisite_groups\ContextProvider\GroupDisplayContext
+    arguments:
+      - '@osu_cas_multisite_groups.current_group'
+    tags:
+      - { name: context_provider }
+  osu_cas_multisite_groups.breadcrumb.group_menu:
+    class: Drupal\osu_cas_multisite_groups\Breadcrumb\GroupMenuBreadcrumbBuilder
+    arguments:
+      - '@entity_type.manager'
+      - '@plugin.manager.menu.link'
+      - '@database'
+    tags:
+      # Above easy_breadcrumb (1003) so group content gets the group-aware
+      # trail; everything else falls through to easy_breadcrumb.
+      - { name: breadcrumb_builder, priority: 1010 }
+
+  # Anonymous visitors asking for /group/N get the unit's public home page
+  # instead of a 403.
+  osu_cas_multisite_groups.anonymous_group_redirect:
+    class: Drupal\osu_cas_multisite_groups\EventSubscriber\AnonymousGroupRedirect
+    arguments:
+      - '@current_user'
+      - '@entity_type.manager'
+    tags:
+      - { name: event_subscriber }
+
+  # Grants full group permissions to holders of 'administer all cas groups'.
+  # Group consults only group roles, so site administrators are outsiders in
+  # groups they have not joined; this restores an override without giving
+  # anyone 195 memberships.
+  osu_cas_multisite_groups.group_override_calculator:
+    class: Drupal\osu_cas_multisite_groups\Access\CasGroupOverrideCalculator
+    arguments:
+      - '@entity_type.manager'
+    tags:
+      # Ahead of Group's own calculators (-100, -50) so the admin item is in
+      # place before they add their scoped roles.
+      - { name: flexible_permission_calculator, priority: -10 }

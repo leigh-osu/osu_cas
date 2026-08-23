@@ -1,0 +1,12 @@
+name: Migrate Domain Access
+description: 'Drupal 7 migration plugins for the Domain Access module'
+type: module
+package: Migration
+core_version_requirement: ^10.2 || ^11
+dependencies:
+  - drupal:migrate
+
+# Information added by Drupal.org packaging script on 2026-08-07
+version: '3.0.5'
+project: 'domain_extras'
+datestamp: 1786097847

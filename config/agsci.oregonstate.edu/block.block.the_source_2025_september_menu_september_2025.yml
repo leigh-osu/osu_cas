@@ -1,0 +1,31 @@
+uuid: 6808615d-127e-4a33-a606-e88b4c75ed20
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.the_source_2025_september
+    - system.menu.menu-september-2025
+  module:
+    - block_visibility_groups
+    - system
+  theme:
+    - madrone
+id: the_source_2025_september_menu_september_2025
+theme: madrone
+region: sidebar
+weight: 4
+provider: null
+plugin: 'system_menu_block:menu-september-2025'
+settings:
+  id: 'system_menu_block:menu-september-2025'
+  label: 'September 2025'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: the_source_2025_september

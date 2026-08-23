@@ -1,0 +1,11 @@
+name: 'Entity bundle plugin test'
+type: module
+description: 'Module for testing bundle plugins.'
+package: Testing
+dependencies:
+  - entity:entity
+
+# Information added by Drupal.org packaging script on 2026-08-14
+version: '8.x-1.7'
+project: 'entity'
+datestamp: 1786708368

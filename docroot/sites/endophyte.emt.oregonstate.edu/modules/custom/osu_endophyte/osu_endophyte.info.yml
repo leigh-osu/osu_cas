@@ -1,0 +1,11 @@
+name: 'OSU Endophyte'
+type: module
+description: 'Custom code for the Endophyte Service Lab'
+core_version_requirement: ^9 || ^10
+package: 'OSU'
+version: '2.1.1'
+dependencies:
+  - pdf_using_mpdf
+  - state_machine
+  - computed_field:computed_field
+  - auto_entitylabel:auto_entitylabel

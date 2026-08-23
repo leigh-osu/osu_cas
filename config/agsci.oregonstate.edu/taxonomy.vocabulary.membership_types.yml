@@ -1,0 +1,9 @@
+uuid: 42202e92-86e5-4c4f-a3ff-ee55f5161c77
+langcode: en
+status: true
+dependencies: {  }
+name: 'Group membership type'
+vid: membership_types
+description: null
+weight: 0
+new_revision: false

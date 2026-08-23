@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Install and uninstall functions for the 'image_field_to_media' module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function image_field_to_media_uninstall(): void {
+  \Drupal::state()->delete('image_field_to_media.hashes_of_image_files');
+}

@@ -1,0 +1,8 @@
+uuid: 90affb1c-39b2-4df9-ba13-22c5a2713db2
+langcode: en
+status: true
+dependencies: {  }
+id: menu-applied-leadership
+label: 'Applied Leadership'
+description: 'part of the OSU Leadership Minor'
+locked: false

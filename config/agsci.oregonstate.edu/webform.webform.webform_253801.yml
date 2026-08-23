@@ -1,0 +1,237 @@
+uuid: d4708402-1466-4b25-b224-420c4b5e9c3f
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 8316
+template: false
+archive: false
+id: webform_253801
+title: 'Field Day Registration 2026'
+description: null
+categories: {  }
+elements: |-
+  field_days:
+    '#type': checkboxes
+    '#options':
+      Pendleton: 'June 9th - Pendleton Station'
+      Sherman: 'June 10th - Sherman Station'
+    '#multiple': true
+    '#title': 'Field Days'
+    '#description': 'Select each of the Field Days you are planning to attend.'
+    '#required': true
+  first_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'First Name'
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Last Name'
+    '#required': true
+  name_of_company:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Company/Farm Name'
+  i_am_a:
+    '#type': radios
+    '#options':
+      grower: Grower/Farmer/Rancher
+      'Retired Farmer': Retired/Grower/Farmer/Rancher
+      rep: 'Rep (Bank, Insurance Agency, Chemical, Seed, Equipment, etc.)'
+      sponsor: "Sponsor of this year's Field Day(s)"
+      field: 'Fieldman/Crop Consultant'
+      employee: 'OSU or USDA Employee'
+      Retired: 'OSU or USDA Retired Employee'
+      OWGL: 'OWGL Staff'
+      Gov: 'Other Government Official'
+      other: Other
+    '#title': 'I am a'
+    '#required': true
+  if_other_please_elaborate:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'If other, please elaborate'
+    '#states':
+      visible:
+        - ':input[name="i_am_a"]':
+            value: other
+  email_address:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Email address'
+    '#required': true
+  phone_numbers:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Primary phone number'
+    '#required': true
+  fieldset_mailing_address:
+    '#type': fieldset
+    '#open': true
+    '#title': 'Mailing address'
+    street_address_14:
+      '#type': textfield
+      '#unique': false
+      '#title_display': inline
+      '#title': 'Street Address'
+      '#required': true
+    street_address2_14:
+      '#type': textfield
+      '#unique': false
+      '#title_display': inline
+      '#title': 'Street Address 2'
+    city_14:
+      '#type': textfield
+      '#unique': false
+      '#title_display': inline
+      '#title': City
+      '#required': true
+    state_14:
+      '#type': textfield
+      '#unique': false
+      '#title_display': inline
+      '#title': State
+      '#required': true
+    zip_14:
+      '#type': textfield
+      '#unique': false
+      '#title_display': inline
+      '#title': Zip
+      '#required': true
+  i_need_the_following_accommodations:
+    '#type': textarea
+    '#title': 'I need the following accommodations'
+    '#description': 'Please describe any accommodations that you will need while attending this event.'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: debbie.sutor@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email_address:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |-
+        [webform_submission:values:first_name] [webform_submission:values:last_name],
+
+        Thank you for registering to attend the [webform_submission:values:field_days] Field Day! We have limited parking, but would love to have as many people as possible attend, therefore we encourage you to please car-pool with your friends, colleagues & neighbors if possible. If something comes up and you’re not able to attend the event, please email Debbie.Sutor@oregonstate.edu so she may remove you from our expected attendees list and adjust the headcount for lunch.
+
+        We look forward to seeing you at 7:45am for the [webform_submission:values:field_days] Field Day
+
+
+        Pendleton Field Day - June 9, 2026
+        48037 Tubbs Ranch Rd
+        Adams, OR
+
+        Sherman Station Field Day – June 10, 2026
+        66147 Lone Rock Rd
+        Moro, OR
+      excluded_elements:
+        name_of_company: name_of_company
+        phone_numbers: phone_numbers
+        mailing_address: mailing_address
+        street_address: street_address
+        street_address2: street_address2
+        city: city
+        state: state
+        zip: zip
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

@@ -1,0 +1,15 @@
+uuid: 5e6bd235-01f7-4714-b026-23b65353aff5
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.emt_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_emt_oregonstate_edu
+label: 'Add editors to the Environmental &amp; Molecular Toxicology domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - emt_oregonstate_edu

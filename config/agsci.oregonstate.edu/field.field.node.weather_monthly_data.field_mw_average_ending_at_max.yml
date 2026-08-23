@@ -1,0 +1,23 @@
+uuid: 024cef0c-f364-43d9-a8fc-c5bfca1948ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mw_average_ending_at_max
+    - node.type.weather_monthly_data
+id: node.weather_monthly_data.field_mw_average_ending_at_max
+field_name: field_mw_average_ending_at_max
+entity_type: node
+bundle: weather_monthly_data
+label: 'Air Temp Average: Ending at Observation Max'
+description: 'A 20 year monthly average. Air Temperature: 24 hours ending at observation max'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

@@ -1,0 +1,6 @@
+charts_highcharts_maps.map_data:
+  path: '/charts-highmap/map-data/{json_field_name}/{taxonomy_term}'
+  defaults:
+    _controller: '\Drupal\charts_highcharts_maps\Controller\MapDataController::json'
+  requirements:
+    _custom_access: '\Drupal\charts_highcharts_maps\Controller\MapDataController::checkAccess'

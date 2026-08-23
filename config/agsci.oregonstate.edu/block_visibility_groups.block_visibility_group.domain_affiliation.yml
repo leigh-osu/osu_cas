@@ -1,0 +1,16 @@
+uuid: 5925fefd-bf4a-400f-8bb8-1d75746dccb1
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: domain_affiliation
+label: domain_affiliation
+logic: and
+conditions:
+  813e26ce-fc24-47d7-b655-3b3001064b7a:
+    id: request_path
+    uuid: 813e26ce-fc24-47d7-b655-3b3001064b7a
+    pages: '/*/domain-affiliation'
+    negate: false
+allow_other_conditions: false

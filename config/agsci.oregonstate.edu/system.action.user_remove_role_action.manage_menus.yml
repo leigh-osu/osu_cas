@@ -1,0 +1,14 @@
+uuid: 95789cd1-0a1d-4b77-b4d7-2b6cf80e96dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.manage_menus
+  module:
+    - user
+id: user_remove_role_action.manage_menus
+label: 'Remove the Manage Menus role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: manage_menus

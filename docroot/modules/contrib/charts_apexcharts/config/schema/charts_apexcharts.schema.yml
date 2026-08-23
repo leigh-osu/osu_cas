@@ -1,0 +1,39 @@
+charts.library_plugin.apexcharts.options.[%type]:
+  type: mapping
+  mapping:
+    enable_sparkline:
+      label: 'Enable sparkline'
+      type: boolean
+    enable_dark_mode:
+      label: 'Enable "dark" theme"'
+      type: boolean
+
+charts_apexcharts_bar_column:
+  type: mapping
+  mapping:
+    enable_stack_totals:
+      label: 'Enable stack totals'
+      type: boolean
+    enable_dumbbell:
+      label: 'Enable dumbbell'
+      type: boolean
+    min_color:
+      label: 'Minimum color'
+      type: string
+    max_color:
+      label: 'Maximum color'
+      type: string
+
+charts_apexcharts_line:
+  type: mapping
+  mapping:
+    enable_slope_chart:
+      label: 'Enable stack totals'
+      type: boolean
+
+
+charts.library_plugin.apexcharts.options.bar:
+  type: charts_apexcharts_bar_column
+
+charts.library_plugin.apexcharts.options.line:
+  type: charts_apexcharts_line

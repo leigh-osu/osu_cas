@@ -1,0 +1,26 @@
+uuid: 652fd88c-1130-456e-9306-92055af7c256
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.iyph_full_list
+  module:
+    - block_visibility_groups
+  theme:
+    - madrone
+id: iyph_full_list_feature_stories_block_1
+theme: madrone
+region: content
+weight: -10
+provider: null
+plugin: 'views_block:feature_stories-block_1'
+settings:
+  id: broken
+  label: ''
+  label_display: visible
+  provider: core
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: iyph_full_list

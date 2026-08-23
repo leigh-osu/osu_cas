@@ -1,0 +1,13 @@
+name: 'Domain Config Entity UI swaps test'
+description: 'Implements hook_domain_config_entity_ui_swaps_alter for kernel coverage of the swap-registry extension contract.'
+type: module
+package: Testing
+hidden: true
+core_version_requirement: ^10.3 || ^11
+dependencies:
+  - domain_extras:domain_config_entity_ui
+
+# Information added by Drupal.org packaging script on 2026-08-07
+version: '3.0.5'
+project: 'domain_extras'
+datestamp: 1786097847

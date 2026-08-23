@@ -1,0 +1,148 @@
+<?php
+
+/**
+ * @file
+ * Allows to add group content from entity form.
+ */
+
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Entity\FieldableEntityInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Field\FieldStorageDefinitionInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function entitygroupfield_theme() {
+  return [
+    'entitygroupfield_dropbutton_wrapper' => [
+      'variables' => ['children' => NULL],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_entity_base_field_info().
+ */
+function entitygroupfield_entity_base_field_info(EntityTypeInterface $entity_type) {
+  $fields = [];
+  if ($entity_types = entitygroupfield_get_entity_types()) {
+    // Adding field to entity types.
+    if (array_key_exists($entity_type->id(), $entity_types)) {
+      $field_label = $entity_type->id() === 'user' ? t('Group memberships') : t('Groups');
+      $fields['entitygroupfield'] = BaseFieldDefinition::create('entitygroupfield')
+        ->setName('entitygroupfield')
+        ->setTargetEntityTypeId($entity_type->id())
+        ->setSetting('target_type', entitygroupfield_get_group_relationship_id())
+        ->setLabel($field_label)
+        ->setTranslatable(FALSE)
+        ->setComputed(TRUE)
+        ->setCustomStorage(TRUE)
+        ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
+        ->setClass('\Drupal\entitygroupfield\Field\EntityGroupFieldItemList')
+        ->setDisplayConfigurable('form', TRUE)
+        ->setDisplayOptions('form', [
+          'region' => 'hidden',
+          'weight' => 50,
+        ])
+        ->setDisplayConfigurable('view', TRUE)
+        ->setDisplayOptions('view', [
+          'label' => 'hidden',
+          'region' => 'hidden',
+          'weight' => 50,
+        ]);
+    }
+  }
+  return $fields;
+}
+
+/**
+ * Implements hook_field_formatter_info_alter().
+ */
+function entitygroupfield_field_formatter_info_alter(array &$info) {
+  $info['entity_reference_entity_view']['field_types'][] = 'entitygroupfield';
+}
+
+/**
+ * Get entities that should have a group content field.
+ */
+function entitygroupfield_get_entity_types() {
+  $entity_types = [];
+  $plugin_manager = \Drupal::service('group_relation_type.manager');
+  foreach ($plugin_manager->getDefinitions() as $plugin_definition) {
+    if ($entity_type_definition = \Drupal::entityTypeManager()->getDefinition($plugin_definition->getEntityTypeId(), FALSE)) {
+      // Check if fields can be attached to the entity type.
+      if ($entity_type_definition->entityClassImplements(FieldableEntityInterface::class)) {
+        $entity_types[$plugin_definition->getEntityTypeId()]['label'] = (string) $entity_type_definition->getLabel();
+        $entity_types[$plugin_definition->getEntityTypeId()]['bundles'][] = $plugin_definition->getEntityTypeId();
+      }
+    }
+  }
+  return $entity_types;
+}
+
+/**
+ * Returns the group relation type plugin IDs for a given entity type.
+ *
+ * @param string $entity_type_id
+ *   The entity type ID.
+ * @param string $bundle
+ *   (optional) The entity bundle.
+ *
+ * @return string[]
+ *   An array of group relation type plugin IDs that match.
+ */
+function entitygroupfield_get_group_relation_type_plugin_ids($entity_type_id, $bundle = NULL) {
+  $plugin_ids = [];
+  foreach (\Drupal::service('group_relation_type.manager')->getDefinitions() as $plugin_id => $plugin_info) {
+    if ($plugin_info->getEntityTypeId() === $entity_type_id) {
+      if (isset($bundle) && !empty($plugin_info->getEntityBundle()) && $plugin_info->getEntityBundle() !== $bundle) {
+        continue;
+      }
+      $plugin_ids[] = $plugin_id;
+    }
+  }
+  return $plugin_ids;
+}
+
+/**
+ * Returns the group relationship entity ID.
+ *
+ * Expected to return:
+ *  - 'group_relationship' for Group 3.x.
+ *  - 'group_content' for Group 2.x.
+ *
+ * @throws \Exception
+ *   Thrown if the group relationship entity type can't be found.
+ */
+function entitygroupfield_get_group_relationship_id(): string {
+  $entity_type_manager = \Drupal::entityTypeManager();
+  if ($entity_type_manager->hasDefinition('group_relationship')) {
+    return 'group_relationship';
+  }
+  elseif ($entity_type_manager->hasDefinition('group_content')) {
+    return 'group_content';
+  }
+  throw new \Exception('Cannot find group relationship entity type.');
+}
+
+/**
+ * Returns the group relationship type entity type ID.
+ *
+ * Expected to return:
+ *  - 'group_relationship_type' for Group 3.x.
+ *  - 'group_content_type' for Group 2.x.
+ *
+ * @throws \Exception
+ *   Thrown if the group relationship type entity type can't be found.
+ */
+function entitygroupfield_get_group_relationship_type_id(): string {
+  $entity_type_manager = \Drupal::entityTypeManager();
+  if ($entity_type_manager->hasDefinition('group_relationship_type')) {
+    return 'group_relationship_type';
+  }
+  elseif ($entity_type_manager->hasDefinition('group_content_type')) {
+    return 'group_content_type';
+  }
+  throw new \Exception('Cannot find group relationship type entity type.');
+}

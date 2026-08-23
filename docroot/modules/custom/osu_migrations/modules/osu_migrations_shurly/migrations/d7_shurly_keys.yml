@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies: { }
+id: d7_shurly_keys
+migration_tags:
+  - Drupal 7
+  - ShURLy
+  - OSU ShURLy
+  - OSU
+label: "Migrate ShURLy API Keys"
+source:
+  plugin: d7_shurly_keys
+process:
+  uid: uid
+  apikey: apikey
+destination:
+  plugin: 'shurly_keys'
+migration_dependencies: { }

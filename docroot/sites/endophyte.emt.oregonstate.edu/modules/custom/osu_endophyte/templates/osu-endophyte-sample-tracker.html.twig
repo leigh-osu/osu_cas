@@ -1,0 +1,47 @@
+<div style="position: relative;">
+  <h3>OSU Endophyte Service Lab</h3>
+  <h1>Sample ID: {{ title }}</h1>
+  <div style="float: right; width: 160px; padding-top: 1em;">
+    {{ barcode | raw }}
+    <p>{{ title }}</p>
+  </div>
+  <p>
+    Date Created: {{ request_date|date('m/d/Y') }}<br/>
+    Field/Lot: {{ field }}<br/>
+    Variety: {{ variety }}
+    {% if variety_other %}
+      - {{ variety_other }}
+    {% endif %}<br/>
+    Grower Name: {{ grower_name }}<br/>
+    Sample Name: {{ sample_name }}<br/>
+  </p>
+  <h4>Tests Requested:</h4>
+  <p>
+    {% if ergot %}
+      Ergot test<br/>
+    {% endif %}
+    {% if ergovaline %}Ergovaline test
+      {% if ev_rush %} - Rush test requested{% endif %}<br/>
+    {% endif %}
+    {% if lolitrem %}Lolitrem B test
+      {% if lo_rush %} - Rush test requested{% endif %}<br/>
+    {% endif %}
+    {% if pellet %}Pellet test<br/>{% endif %}
+  </p>
+  <h4 class="mt-2">Client Information:</h4>
+  <p>{{ group_name }}</p>
+  <p>{{ group_address.0.address_line1 }} <br />
+  {% if group_address.0.address_line2 %}
+    {{ group_address.0.address_line2 }} <br />
+  {% endif %}
+  {{ group_address.0.locality }}, {{ group_address.0.administrative_area }} {{ group_address.0.postal_code }}</p>
+
+  <h4 class="mt-2">Ship to:</h4>
+  <p>Endophyte Service Lab<br/>
+    139 Oak Creek Building<br/>
+    3015 SW Western Blvd.<br/>
+    Oregon State University<br/>
+    Corvallis, OR 97333</p>
+{#  <div class="page_break" style="page-break-before: always;"></div>#}
+</div>
+

@@ -1,0 +1,265 @@
+uuid: e796d111-6e42-4488-8341-d4b3baa91d4a
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_276376
+title: 'Share Your Story: Advancing Inclusive Excellence in the College of Agricultural Sciences'
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	We are gathering content for future<strong>&nbsp;editions of our Inclusive Excellence newsletter</strong>, which highlights the ongoing work, stories, events, and insights that advance inclusive excellence in the College of Agricultural Sciences. Whether you’re a student, staff member, faculty member, or community partner, your experiences and observations help shape a more equitable and welcoming college environment.</p>
+
+      <p>
+      	Your contributions don’t need to be long or fully polished. We welcome a wide range of submissions, including:</p>
+
+      <ul>
+      	<li>
+      		Student or faculty highlights</li>
+      	<li>
+      		Projects or initiatives that promote equity and inclusion</li>
+      	<li>
+      		Upcoming events or event recaps</li>
+      	<li>
+      		Resources or tools that support inclusive conversations</li>
+      	<li>
+      		Brief anecdotes or reflections</li>
+      	<li>
+      		Challenges or experiences that were difficult but led to&nbsp;learning or change</li>
+      	<li>
+      		Meaningful moments during meetings or in classrooms</li>
+      	<li>
+      		Any instance—big or small—that helps advance inclusive excellence</li>
+      </ul>
+
+      <p>
+      	Our goal is to encourage open dialogue and learning in a space grounded in mutual respect, curiosity, and shared progress.</p>
+
+      <p>
+      	Submissions will help us highlight the ways our community is living out the values outlined in our <a href="https://agsci.oregonstate.edu/sites/agscid7/files/main/for-faculty/cedi_strategic_plan.pdf">Strategic Plan for Inclusive Excellence (SPIE</a>) and embracing the principles in our <a href="https://agsci.oregonstate.edu/sites/agscid7/files/main/for-faculty/care.pdf">CAS CARE document</a>—a guide to fostering civil discourse, valuing others, and promoting a culture of inclusion.</p>
+
+      <p>
+      	If you’d like to write your own story, feel free to share that too! You can even include photos so we can create a web layout and feature it in the newsletter.</p>
+
+      <h3>
+      	Story Submission</h3>
+  what_do:
+    '#type': textarea
+    '#title': 'What would you like to share related to culture, equity, diversity, or inclusion in our college?'
+    '#description': 'This could be a personal experience, a student or faculty highlight, a project, event, resource, or even just a moment that stood out—whether it was inspiring, challenging, enlightening, or simply handled with care. Tell us why it felt meaningful to you!'
+  would_you_like_us_to_help_shape_this_into_a_story_or_are_you_submitting_a_completed_one:
+    '#type': radios
+    '#options':
+      help_yes: 'I’d like help crafting this into a story'
+      help_no: 'I’m submitting a completed story'
+      help_idk: 'Not sure yet – just wanted to mention it!'
+    '#title': 'Would you like us to help shape this into a story, or are you submitting a completed one?'
+    '#required': true
+  has_an_article_already_been_published_on_this_story:
+    '#type': textfield
+    '#unique': false
+    '#title': 'Has an article already been published on this story? If so, please provide the URL.'
+    '#description': 'Please provide the URL for any other article about this story.'
+    '#states':
+      visible:
+        - ':input[name="would_you_like_us_to_help_shape_this_into_a_story_or_are_you_submitting_a_completed_one"]':
+            value: help_no
+  name_contact:
+    '#type': textarea
+    '#title': 'Your name and contact info'
+    '#description': '(So we can follow up if needed. We’re happy to keep submissions anonymous in the newsletter if preferred—just let us know.)'
+    '#required': true
+  anything_else:
+    '#type': textarea
+    '#title': "Anything else you'd like us to know?"
+  photos:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png txt pdf doc docx'
+    '#title_display': inline
+    '#title': "Do you have any photos, visuals or supporting files you'd like to share?"
+    '#description': 'Optional – you can upload images or supporting files here.'
+  photo2:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png txt pdf doc docx'
+    '#title_display': inline
+    '#title': 'Additional photos or supporting files'
+    '#description': 'Upload additional images or supporting files here.'
+  photo3:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png txt pdf doc docx'
+    '#title_display': inline
+    '#title': 'Additional photos or supporting files'
+    '#description': 'Upload additional images or supporting files here.'
+  photo4:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png pdf doc docx'
+    '#title_display': inline
+    '#title': 'Additional photos or supporting files'
+    '#description': 'Upload additional images or supporting files here.'
+  photo5:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png txt pdf doc docx'
+    '#title_display': inline
+    '#title': 'Additional photos or supporting files'
+    '#description': 'Upload additional images or supporting files here.'
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: ben.davis@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+  email_3:
+    id: email
+    handler_id: email_3
+    label: 'Email 3'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 3
+    settings:
+      states:
+        - completed
+      to_mail: agsci@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+  email_4:
+    id: email
+    handler_id: email_4
+    label: 'Email 4'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 4
+    settings:
+      states:
+        - completed
+      to_mail: lacey.desserault@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |-
+        Submitted on [webform_submission:completed_date:long]
+        Submitted by user: [webform_submission:user]
+
+        Submitted values are:
+        [webform_submission:values]
+
+        The results of this submission may be viewed at:
+        [webform_submission:url]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

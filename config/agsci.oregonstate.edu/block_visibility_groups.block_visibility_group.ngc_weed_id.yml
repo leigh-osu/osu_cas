@@ -1,0 +1,16 @@
+uuid: eaf23b1f-a3da-4273-a05f-924524a44a4b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: ngc_weed_id
+label: ngc_weed_id
+logic: and
+conditions:
+  d2ee4fe1-a36a-4603-9364-d03ddf5b447d:
+    id: request_path
+    uuid: d2ee4fe1-a36a-4603-9364-d03ddf5b447d
+    pages: /node/63571
+    negate: false
+allow_other_conditions: false

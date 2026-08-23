@@ -1,0 +1,19 @@
+uuid: 59237c47-6ad8-4f98-a01c-348ec99e03e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pvr_species
+    - node.type.plant_variety_release
+id: node.plant_variety_release.field_pvr_species
+field_name: field_pvr_species
+entity_type: node
+bundle: plant_variety_release
+label: Species
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

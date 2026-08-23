@@ -1,0 +1,76 @@
+<?php
+
+/**
+ * @file
+ * Module file.
+ */
+
+use Drupal\Core\Config\Entity\ConfigEntityTypeInterface;
+use Drupal\Core\Entity\ContentEntityTypeInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\eck_bundle_permissions\EckBundleAccessControlHandler;
+use Drupal\user\Entity\EntityPermissionsRouteProvider;
+
+/**
+ * Implements hook_help().
+ */
+function eck_bundle_permissions_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the eck_bundle_permissions module.
+    case 'help.page.eck_bundle_permissions':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module provides the following per-bundle permissions
+      for the Entity Construction Kit module:') . '</p>';
+      $output .= '<ul><li>create {entityType} entities of bundle {bundle}</li>';
+      $output .= '<li>edit all {entityType} entities of bundle {bundle}</li>';
+      $output .= '<li>delete all {entityType} entities of bundle {bundle}</li>';
+      $output .= '<li>view all {entityType} entities of bundle {bundle}</li></ul>';
+      $output .= '<p>' . t('For entity types with an author field, the module also provides
+      the following permissions:') . '</p>';
+      $output .= '<ul><li>edit own {entityType} entities of bundle {bundle}</li>';
+      $output .= '<li>delete own {entityType} entities of bundle {bundle}</li>';
+      $output .= '<li>view own {entityType} entities of bundle {bundle}</li></ul>';
+      $output .= '<h3>' . t('More Information') . '</h3>';
+      $output .= '<p>' . t('For more information about this module please visit the <a href="@link">module page</a>.', ['@link' => 'https://www.drupal.org/project/field_group']) . '</p>';
+
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_entity_type_alter().
+ */
+function eck_bundle_permissions_entity_type_alter(array &$entityTypes): void {
+  if (!empty($entityTypes['eck_entity_type'])) {
+    $eck = $entityTypes['eck_entity_type'];
+
+    $eckEntityTypeStorage = \Drupal::entityTypeManager()
+      ->createHandlerInstance($eck->getHandlerClass('storage'), $eck);
+    $eckEntityTypeIds = $eckEntityTypeStorage->getQuery()->execute();
+
+    foreach ($eckEntityTypeIds as $eckEntityTypeId) {
+      $eckEntityType = $entityTypes[$eckEntityTypeId] ?? NULL;
+      assert($eckEntityType instanceof ContentEntityTypeInterface);
+      $eckBundleType = $entityTypes[$eckEntityType->getBundleEntityType()] ?? NULL;
+      assert($eckBundleType instanceof ConfigEntityTypeInterface);
+
+      $eckEntityType->setAccessClass(EckBundleAccessControlHandler::class);
+
+      if (class_exists(EntityPermissionsRouteProvider::class)) {
+        $eckBundleType->setLinkTemplate(
+          'entity-permissions-form',
+          '/admin/structure/eck/entity/' . $eckEntityType->id() . '/bundles/{' . $eckEntityType->id() . '_type}/permissions'
+        );
+
+        $providers = $eckBundleType->getRouteProviderClasses() ?: [];
+        if (!isset($providers['permissions'])) {
+          $providers['permissions'] = EntityPermissionsRouteProvider::class;
+          $eckBundleType->setHandlerClass('route_provider', $providers);
+        }
+      }
+    }
+  }
+}

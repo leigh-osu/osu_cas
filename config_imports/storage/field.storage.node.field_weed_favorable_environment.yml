@@ -1,0 +1,33 @@
+uuid: a5ee4015-5190-4831-b80a-a3e75703acdf
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_weed_favorable_environment
+field_name: field_weed_favorable_environment
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: environment_container
+      label: Container
+    -
+      value: environment_field
+      label: Field
+    -
+      value: environment_aquatic
+      label: Aquatic
+    -
+      value: environment_greenhouse
+      label: Greenhouse
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

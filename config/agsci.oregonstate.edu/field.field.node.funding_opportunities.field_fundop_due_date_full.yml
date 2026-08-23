@@ -1,0 +1,21 @@
+uuid: 2a3035da-48b2-4ebc-93d5-0771eef28620
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fundop_due_date_full
+    - node.type.funding_opportunities
+  module:
+    - datetime
+id: node.funding_opportunities.field_fundop_due_date_full
+field_name: field_fundop_due_date_full
+entity_type: node
+bundle: funding_opportunities
+label: 'Due Date: Full Proposal'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

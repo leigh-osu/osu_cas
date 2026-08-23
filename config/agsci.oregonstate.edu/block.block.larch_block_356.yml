@@ -1,0 +1,25 @@
+uuid: 3a4c4f18-8b56-44df-89bf-d1b25ec92a5b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:41d31fc1-8d03-460d-b6a0-384af3e64517'
+  module:
+    - block_content
+  theme:
+    - manzanita
+id: larch_block_356
+theme: manzanita
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:41d31fc1-8d03-460d-b6a0-384af3e64517'
+settings:
+  id: 'block_content:41d31fc1-8d03-460d-b6a0-384af3e64517'
+  label: '<none>'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

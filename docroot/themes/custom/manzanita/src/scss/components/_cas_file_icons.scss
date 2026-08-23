@@ -1,0 +1,40 @@
+// File-type icons on file links (story attachments, publication files, …).
+//
+// Core's file link template stamps a generic type class on the wrapper
+// (file--application-pdf, file--x-office-document, …). Paint a document
+// glyph before the filename via a mask so one SVG serves every type and
+// the per-type rule only picks the colour. Masked with currentColor
+// override per type — no icon font, no external assets.
+
+.file {
+  // FontAwesome "file" solid outline (CC BY 4.0 path data).
+  --cas-file-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128z"/></svg>');
+  --cas-file-icon-color: #6c757d; // neutral fallback for unknown types
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 0.85em;
+    height: 1em;
+    margin-right: 0.4em;
+    vertical-align: -0.125em;
+    background-color: var(--cas-file-icon-color);
+    mask: var(--cas-file-icon) no-repeat center / contain;
+  }
+}
+
+.file--application-pdf {
+  --cas-file-icon-color: #c1281c; // Acrobat red
+}
+
+.file--x-office-document {
+  --cas-file-icon-color: #2b579a; // Word blue
+}
+
+.file--x-office-spreadsheet {
+  --cas-file-icon-color: #217346; // Excel green
+}
+
+.file--x-office-presentation {
+  --cas-file-icon-color: #d24726; // PowerPoint orange
+}

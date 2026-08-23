@@ -1,0 +1,27 @@
+uuid: 8cae29f5-8dd4-4bf9-87f8-97e46af8b3ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_site_coordinators
+    - group.type.basic_group
+id: group.basic_group.field_site_coordinators
+field_name: field_site_coordinators
+entity_type: group
+bundle: basic_group
+label: 'Site Coordinator(s)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      osu_profile: osu_profile
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+field_type: entity_reference

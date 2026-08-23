@@ -1,0 +1,13 @@
+tests/fixtures/d7/*
+!tests/fixtures/d7/drupal7-webform.make.yml
+!tests/fixtures/d7/settings.php
+
+tests/fixtures/files/*
+!tests/fixtures/files/sites
+tests/fixtures/files/sites/*
+!tests/fixtures/files/sites/default
+tests/fixtures/files/sites/default/*
+!tests/fixtures/files/sites/default/files
+tests/fixtures/files/sites/default/files/.htaccess
+tests/fixtures/files/sites/default/files/js
+tests/fixtures/files/sites/default/files/styles

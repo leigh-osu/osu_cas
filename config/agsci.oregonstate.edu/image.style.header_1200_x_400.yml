@@ -1,0 +1,15 @@
+uuid: 13a92ad6-758b-43ec-9a8f-cf7469f65863
+langcode: en
+status: true
+dependencies: {  }
+name: header_1200_x_400
+label: 'header 1200 x 300'
+effects:
+  703e0860-c5fc-405e-a1c2-6115fa2cf92b:
+    uuid: 703e0860-c5fc-405e-a1c2-6115fa2cf92b
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 300
+      anchor: center-center

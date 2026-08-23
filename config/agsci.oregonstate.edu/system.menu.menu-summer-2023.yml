@@ -1,0 +1,8 @@
+uuid: 83340350-9363-4530-bc7b-55ed60e4e79e
+langcode: en
+status: true
+dependencies: {  }
+id: menu-summer-2023
+label: 'Summer 2023'
+description: ''
+locked: false

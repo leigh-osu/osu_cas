@@ -1,0 +1,15 @@
+uuid: b5dcecc0-2710-4079-8f73-404ccb91f8b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.beecampus_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_beecampus_oregonstate_edu
+label: 'Remove selected content from the Bee Campus USA domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - beecampus_oregonstate_edu

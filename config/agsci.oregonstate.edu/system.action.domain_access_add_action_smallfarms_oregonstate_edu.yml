@@ -1,0 +1,15 @@
+uuid: af43148d-4760-4eab-87d2-573e5b446c46
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.smallfarms_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_smallfarms_oregonstate_edu
+label: 'Add selected content to the Small Farms Program domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - smallfarms_oregonstate_edu

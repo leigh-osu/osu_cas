@@ -1,0 +1,24 @@
+uuid: 37525138-232e-4c9a-b3e3-4500752d95ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.filtered_html
+  module:
+    - captcha
+    - file
+    - filter
+    - fontawesome
+    - system
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Authenticated user'
+weight: -9
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access fontawesome additional settings'
+  - 'delete own files'
+  - 'skip CAPTCHA'
+  - 'use text format filtered_html'

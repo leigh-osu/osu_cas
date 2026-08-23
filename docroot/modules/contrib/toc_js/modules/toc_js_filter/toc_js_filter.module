@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Contains toc_js_filter.module.
+ */
+
+use Drupal\Core\Hook\Attribute\LegacyHook;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\toc_js_filter\Hook\TocJsFilterHooks;
+
+/**
+ * Implements hook_help().
+ */
+#[LegacyHook]
+function toc_js_filter_help($route_name, RouteMatchInterface $route_match) {
+  return \Drupal::service(TocJsFilterHooks::class)->help($route_name, $route_match);
+}

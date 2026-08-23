@@ -1,0 +1,18 @@
+parameters:
+  layout_builder_iframe_modal.skip_procedural_hook_scan: true
+services:
+  _defaults:
+    autowire: true
+  main_content_renderer.iframe:
+    class: Drupal\layout_builder_iframe_modal\Render\MainContent\IframeRenderer
+    tags:
+      - { name: render.main_content_renderer, format: drupal_iframe }
+  layout_builder_iframe_modal.helper:
+    class: Drupal\layout_builder_iframe_modal\IframeModalHelper
+  Drupal\layout_builder_iframe_modal\IframeModalHelper: '@layout_builder_iframe_modal.helper'
+  Drupal\layout_builder_iframe_modal\Hook\FormHooks:
+    class: Drupal\layout_builder_iframe_modal\Hook\FormHooks
+  Drupal\layout_builder_iframe_modal\Hook\LinkHooks:
+    class: Drupal\layout_builder_iframe_modal\Hook\LinkHooks
+  Drupal\layout_builder_iframe_modal\Hook\ThemeHooks:
+    class: Drupal\layout_builder_iframe_modal\Hook\ThemeHooks

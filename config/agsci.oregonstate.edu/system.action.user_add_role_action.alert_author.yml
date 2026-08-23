@@ -1,0 +1,14 @@
+uuid: a84cdf29-be72-492e-83f5-264f979e87b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.alert_author
+  module:
+    - user
+id: user_add_role_action.alert_author
+label: 'Add the Alert Author role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: alert_author

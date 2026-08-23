@@ -1,0 +1,9 @@
+uuid: f4ab0b24-fa8b-4c11-a459-1513d139a3de
+langcode: en
+status: true
+dependencies: {  }
+name: 'Areas of Excellence'
+vid: focus_area
+description: null
+weight: 0
+new_revision: false

@@ -1,0 +1,14 @@
+uuid: 32817c34-51d9-4c28-8c4b-313ba355a352
+langcode: en
+status: true
+dependencies:
+  module:
+    - domain_source
+_core:
+  default_config_hash: cAUk1GKbk_DG2grdpqFRgUxq4k1WxGPHT-svudYYHtk
+id: domain_source_unset_action
+label: 'Unset domain source value'
+type: node
+plugin: domain_source_unset_action
+configuration:
+  domain_id: ''

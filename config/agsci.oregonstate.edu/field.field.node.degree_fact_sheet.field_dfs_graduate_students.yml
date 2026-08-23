@@ -1,0 +1,23 @@
+uuid: 92925f7b-70f1-4ce4-b1c9-1bfb78dfbb35
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfs_graduate_students
+    - node.type.degree_fact_sheet
+id: node.degree_fact_sheet.field_dfs_graduate_students
+field_name: field_dfs_graduate_students
+entity_type: node
+bundle: degree_fact_sheet
+label: 'Graduate Students'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

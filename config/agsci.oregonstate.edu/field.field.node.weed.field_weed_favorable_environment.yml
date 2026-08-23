@@ -1,0 +1,21 @@
+uuid: 9269a603-05ec-4fff-b058-e54802ba8815
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weed_favorable_environment
+    - node.type.weed
+  module:
+    - options
+id: node.weed.field_weed_favorable_environment
+field_name: field_weed_favorable_environment
+entity_type: node
+bundle: weed
+label: 'Favorable Environments'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

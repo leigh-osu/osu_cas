@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Implements hooks used by DomainAwareSwapRegistryAlterTest.
+ */
+
+declare(strict_types=1);
+
+/**
+ * Implements hook_domain_config_entity_ui_swaps_alter().
+ *
+ * Registers a fake user_role swap so the test can assert that the
+ * registry exposes contrib-registered entries to the SettingsForm
+ * and that the strict-equality guard inside entity_type_alter
+ * preserves user_role's actual RoleStorage handler (the swap is
+ * never applied because the expected current class doesn't match
+ * any handler the test installs).
+ */
+function domain_config_entity_ui_swaps_test_domain_config_entity_ui_swaps_alter(array &$swaps): void {
+  $swaps['user_role'] = [
+    'Drupal\\domain_config_entity_ui_swaps_test\\Entity\\FakeDomainAwareRoleStorage',
+    'Drupal\\user\\RoleStorage',
+  ];
+}

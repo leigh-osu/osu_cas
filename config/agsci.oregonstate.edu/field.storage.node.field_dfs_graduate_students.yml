@@ -1,0 +1,20 @@
+uuid: b51b25dd-16a4-4dcc-a971-6063c09f7cf3
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_dfs_graduate_students
+field_name: field_dfs_graduate_students
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

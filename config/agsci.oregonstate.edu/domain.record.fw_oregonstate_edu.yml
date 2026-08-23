@@ -1,0 +1,12 @@
+uuid: 7c6e1a23-a7cc-40dc-a7af-95366bb2a733
+langcode: en
+status: true
+dependencies: {  }
+id: fw_oregonstate_edu
+domain_id: 3558353
+hostname: fwcs.oregonstate.edu
+name: 'Fisheries, Wildlife, and Conservation Sciences'
+scheme: https
+weight: 8
+is_default: false
+path_prefix: ''

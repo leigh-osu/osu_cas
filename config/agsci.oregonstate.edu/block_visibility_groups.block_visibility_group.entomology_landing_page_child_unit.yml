@@ -1,0 +1,9 @@
+uuid: 98d4b182-a14d-4b31-83f6-1317fd62e133
+langcode: en
+status: true
+dependencies: {  }
+id: entomology_landing_page_child_unit
+label: entomology_landing-page-child-unit
+logic: and
+conditions: {  }
+allow_other_conditions: false

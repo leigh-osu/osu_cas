@@ -1,0 +1,248 @@
+uuid: d27c1174-273b-44a5-8a36-59c843d327a9
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Ku-Kecv_D8DV77IW9QcuN7sTmVJ0__5IXsFmhdO9Gjg
+id: cas_dfsg_to_dfsg
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - 'Layout content'
+  - OSU
+  - CAS
+  - 'CAS content'
+migration_group: content
+label: 'Degree Fact Sheet Graduate to combined Degree Fact Sheet'
+source:
+  plugin: d7_node_domain_access
+  node_type: degree_fact_sheet_graduate
+  high_water_property:
+    name: changed
+process:
+  title: title
+  body:
+    plugin: sub_process
+    source: body
+    process:
+      value:
+        plugin: osu_media_wysiwyg_filter
+        source: value
+      summary: summary
+      format:
+        plugin: default_value
+        default_value: full_html
+  field_dfs_overview:
+    plugin: sub_process
+    source: field_dfsg_overview
+    process:
+      value: value
+      format:
+        plugin: default_value
+        default_value: full_html
+  field_dfs_alumni_spotlight:
+    plugin: sub_process
+    source: field_alumni_spotlight
+    process:
+      value: value
+      format:
+        plugin: default_value
+        default_value: full_html
+  field_dfs_program_requirements:
+    plugin: get
+    source: field_dfsg_program_requirements
+  field_dfs_grad_student_support:
+    plugin: get
+    source: field_graduate_student_support
+  field_dfs_aaea_fellows:
+    plugin: get
+    source: field_dfsg_aaea_fellows
+  field_dfs_fellowships:
+    plugin: get
+    source: field_dfsg_fellowships
+  field_dfs_graduate_students:
+    plugin: get
+    source: field_dfsg_graduate_students
+  field_dfs_univer_disting_fac:
+    plugin: get
+    source: field_dfsg_univer_disting_fac
+  field_dfs_degree_focus_area:
+    plugin: get
+    source: field_degree_focus_area
+  field_dfs_language:
+    plugin: get
+    source: field_language
+  field_dfs_level:
+    plugin: get
+    source: field_level
+  field_dfs_location:
+    plugin: get
+    source: field_location_dfs
+  field_dfs_node_hide_title:
+    plugin: get
+    source: field_node_hide_title
+  field_dfs_facebook:
+    plugin: get
+    source: field_group_facebook
+  field_dfs_instagram:
+    plugin: get
+    source: field_group_instagram
+  field_dfs_linkedin:
+    plugin: get
+    source: field_group_linkedin
+  field_dfs_twitter:
+    plugin: get
+    source: field_group_twitter
+  field_dfs_youtube:
+    plugin: get
+    source: field_group_youtube
+  field_dfs_cascades_campus:
+    plugin: sub_process
+    source: field_cascades_campus
+    process:
+      uri: url
+      title: title
+  field_dfs_corvallis_campus:
+    plugin: sub_process
+    source: field_corvallis_campus
+    process:
+      uri: url
+      title: title
+  field_dfs_la_grande_campus:
+    plugin: sub_process
+    source: field_la_grande_campus
+    process:
+      uri: url
+      title: title
+  field_dfs_newport_campus:
+    plugin: sub_process
+    source: field_newport_campus
+    process:
+      uri: url
+      title: title
+  field_dfs_ecampus:
+    plugin: sub_process
+    source: field_ecampus
+    process:
+      uri: url
+      title: title
+  field_dfs_department_link:
+    plugin: sub_process
+    source: field_dfs_department_link
+    process:
+      uri: url
+      title: title
+  field_dfs_preferred_link:
+    plugin: sub_process
+    source: field_dfs_preferred_link
+    process:
+      uri: url
+      title: title
+  field_dfs_osu_catalog:
+    plugin: sub_process
+    source: field_osu_catalog
+    process:
+      uri: url
+      title: title
+  field_dfs_banner:
+    plugin: sub_process
+    source: field_dfs_banner
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration: upgrade_d7_files
+        source: fid
+      alt: alt
+      title: title
+      width: width
+      height: height
+  field_dfs_box_image:
+    plugin: sub_process
+    source: field_dfs_box_image
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration: upgrade_d7_files
+        source: fid
+      alt: alt
+      title: title
+      width: width
+      height: height
+  field_dfs_photo:
+    plugin: sub_process
+    source: field_dfs_photo
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration: upgrade_d7_files
+        source: fid
+      alt: alt
+      title: title
+      width: width
+      height: height
+  field_dfs_degree_title:
+    plugin: cas_dfsg_degrees
+    source: field_dfsg_degrees
+    column: title
+  field_dfs_degree_level_text:
+    plugin: cas_dfsg_degrees
+    source: field_dfsg_degrees
+    column: level
+  field_dfs_degree_description:
+    plugin: cas_dfsg_degrees
+    source: field_dfsg_degrees
+    column: description
+  field_tax_cas_themes:
+    plugin: sub_process
+    source: field_cas_themes
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: 'upgrade_d7_taxonomy_terms:cas_impact_areas'
+          source: tid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: process
+  field_meta_tags:
+    plugin: d7_metatag_entities
+    source: pseudo_metatag_entities
+  path/pathauto:
+    plugin: default_value
+    default_value: 0
+  field_dfs_graduate:
+    plugin: default_value
+    default_value: 1
+  type:
+    plugin: default_value
+    default_value: degree_fact_sheet
+  field_domain_access:
+    plugin: sub_process
+    source: domain_access_node
+    process:
+      target_id: target_id
+  field_domain_all_affiliates:
+    plugin: get
+    source: domain_all_affiliates
+  field_domain_source:
+    plugin: get
+    source: domain_source
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+destination:
+  plugin: 'entity:node'
+  default_bundle: degree_fact_sheet
+migration_dependencies:
+  required:
+    - upgrade_d7_files
+    - upgrade_d7_users_with_roles
+    - 'upgrade_d7_taxonomy_terms:cas_impact_areas'

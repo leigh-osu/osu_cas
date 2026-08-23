@@ -1,0 +1,13 @@
+iframe:
+  js:
+    js/iframe.js: {}
+  css:
+    component:
+      css/iframe.css: {}
+
+redirect:
+  js:
+    js/redirect.js: {}
+  css:
+    component:
+      css/redirect.css: {}

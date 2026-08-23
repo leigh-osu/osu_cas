@@ -1,0 +1,75 @@
+/* LTR */
+h2.styleguide {
+  margin: 2em 0 0.5em 0;
+  padding: 0;
+  text-transform: uppercase;
+  font:
+    16px bold helvetica,
+    arial,
+    sans-serif;
+}
+
+#styleguide-header {
+  padding: 0.5em 1em;
+  color: #333;
+  border: 1px solid #ccc;
+  background: #eee;
+}
+
+/* LTR */
+#styleguide-header .item-list {
+  float: left;
+  width: 20%;
+  margin: 0 2em 1em 0;
+}
+
+#styleguide-header h3 {
+  margin: 0.5em 0 0;
+  text-transform: uppercase;
+  font:
+    16px bold helvetica,
+    arial,
+    sans-serif;
+}
+
+#styleguide-header a,
+#styleguide-header li a.active {
+  color: #0071b3;
+}
+
+#styleguide-header .break {
+  clear: both;
+  margin-bottom: 1em;
+}
+
+.styleguide-description {
+  margin: 0 0 0.5em;
+  font:
+    12px helvetica,
+    arial,
+    sans-serif;
+}
+
+div.styleguide {
+  padding-top: 1em;
+  border-top: 1px solid #777;
+}
+
+.styleguide .layout:hover .layout__region {
+  outline: 2px dashed #2f91da;
+  background-color: #eff6fc;
+}
+
+.styleguide .demo-block {
+  display: inline-block;
+  margin: 10px;
+}
+
+.styleguide__layout-info {
+  display: flex;
+  margin: 10px 0;
+}
+
+.styleguide__layout-info *:first-child {
+  margin-right: 10px;
+}

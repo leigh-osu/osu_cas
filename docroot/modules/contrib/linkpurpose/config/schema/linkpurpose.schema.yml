@@ -1,0 +1,227 @@
+linkpurpose.settings:
+  type: config_object
+  label: 'Link Purpose Settings'
+  mapping:
+    domain:
+      type: string
+      label: 'Domains of internal links'
+    roots:
+      type: string
+      label: 'Mark links inside these page regions'
+    shadowComponents:
+      type: string
+      label: 'Mark links inside these shadow components'
+    ignore:
+      type: string
+      label: 'Ignore links that match these selectors'
+    hideIcon:
+      type: string
+      label: 'Only provide screen reader hints for links that match these selectors'
+    noRunIfPresent:
+      type: string
+      label: 'Do not mark links if selector is found'
+    noRunIfAbsent:
+      type: string
+      label: 'Do not mark links if selector is not found'
+    themePreprocess:
+      type: boolean
+      label: 'Allow theme to preprocess JS before calling library'
+    noAggregate:
+      type: boolean
+      label: 'Prevent JS aggregation'
+    noIconOnImages:
+      type: boolean
+      label: 'Visually hide icon on links containing an image'
+    insertIconOutsideHiddenSpan:
+      type: string
+      label: 'Prevent inserting icons into visually hidden spans'
+    suppressNoBreak:
+      type: string
+      label: 'Prevent adding noBreak to matched links'
+
+    purposeExternal:
+      type: boolean
+      label: 'Tag external links'
+    purposeExternalNoReferrer:
+      type: boolean
+      label: 'Tag external links with NoReferrer'
+    purposeExternalNewWindow:
+      type: boolean
+      label: 'Open external links in new window'
+    purposeExternalSelector:
+      type: string
+      label: 'External link selector'
+    purposeExternalPosition:
+      type: string
+      label: 'Prepend, append, etc'
+    purposeExternalMessage:
+      type: label
+      label: 'External link screen reader text'
+    purposeExternalClass:
+      type: string
+      label: 'External link class'
+    purposeExternalIconWrapperClass:
+      type: string
+      label: 'External link icon wrapper class'
+    purposeExternalIconType:
+      type: string
+      label: 'External link icon type (html or classes)'
+    purposeExternalIconPosition:
+      type: string
+      label: 'Prepend, append, etc'
+    purposeExternalIconClasses:
+      type: string
+      label: 'External link icon classes'
+
+    purposeDocument:
+      type: boolean
+      label: 'Tag document links'
+    purposeDocumentSelector:
+      type: string
+      label: 'Document selector'
+    purposeDocumentMessage:
+      type: label
+      label: 'Document screen reader text'
+    purposeDocumentClass:
+      type: string
+      label: 'Document class'
+    purposeDocumentIconWrapperClass:
+      type: string
+      label: 'Document icon wrapper class'
+    purposeDocumentIconType:
+      type: string
+      label: 'Document icon type (html or classes)'
+    purposeDocumentIconPosition:
+      type: string
+      label: 'Document icon position'
+    purposeDocumentIconClasses:
+      type: string
+      label: 'Document icon classes'
+    purposeDocumentIconSRC:
+      type: string
+      label: 'External link icon image source'
+
+    purposeDownload:
+      type: boolean
+      label: 'Tag downloads'
+    purposeDownloadSelector:
+      type: string
+      label: 'Download selector'
+    purposeDownloadMessage:
+      type: label
+      label: 'Download screen reader text'
+    purposeDownloadClass:
+      type: string
+      label: 'Download class'
+    purposeDownloadIconWrapperClass:
+      type: string
+      label: 'Download icon wrapper class'
+    purposeDownloadIconType:
+      type: string
+      label: 'Download icon type (html or classes)'
+    purposeDownloadIconPosition:
+      type: string
+      label: 'Download icon position'
+    purposeDownloadIconClasses:
+      type: string
+      label: 'Download icon classes'
+
+    purposeApp:
+      type: boolean
+      label: 'Tag app links'
+    purposeAppSelector:
+      type: string
+      label: 'App selector'
+    purposeAppMessage:
+      type: label
+      label: 'App screen reader text'
+    purposeAppClass:
+      type: string
+      label: 'App class'
+    purposeAppIconWrapperClass:
+      type: string
+      label: 'App icon wrapper class'
+    purposeAppIconType:
+      type: string
+      label: 'App icon type (html or classes)'
+    purposeAppIconPosition:
+      type: string
+      label: 'App icon position'
+    purposeAppIconClasses:
+      type: string
+      label: 'App icon classes'
+
+    purposeMail:
+      type: boolean
+      label: 'Tag mail links'
+    purposeMailSelector:
+      type: string
+      label: 'Mail selector'
+    purposeMailMessage:
+      type: label
+      label: 'Mail screen reader text'
+    purposeMailClass:
+      type: string
+      label: 'Mail class'
+    purposeMailIconWrapperClass:
+      type: string
+      label: 'Mail icon wrapper class'
+    purposeMailIconType:
+      type: string
+      label: 'Mail icon type (html or classes)'
+    purposeMailIconPosition:
+      type: string
+      label: 'Mail icon position'
+    purposeMailIconClasses:
+      type: string
+      label: 'Mail icon classes'
+
+    purposeTel:
+      type: boolean
+      label: 'Tag tel links'
+    purposeTelSelector:
+      type: string
+      label: 'Tel selector'
+    purposeTelMessage:
+      type: label
+      label: 'Tel screen reader text'
+    purposeTelClass:
+      type: string
+      label: 'Tel class'
+    purposeTelIconWrapperClass:
+      type: string
+      label: 'Tel icon wrapper class'
+    purposeTelIconType:
+      type: string
+      label: 'Tel icon type (html or classes)'
+    purposeTelIconPosition:
+      type: string
+      label: 'Tel icon position'
+    purposeTelIconClasses:
+      type: string
+      label: 'Tel icon classes'
+
+    purposeNewWindow:
+      type: boolean
+      label: 'Tag new window links'
+    purposeNewWindowSelector:
+      type: string
+      label: 'New window selector'
+    purposeNewWindowMessage:
+      type: label
+      label: 'New window screen reader text'
+    purposeNewWindowClass:
+      type: string
+      label: 'New window class'
+    purposeNewWindowIconWrapperClass:
+      type: string
+      label: 'New window icon wrapper class'
+    purposeNewWindowIconType:
+      type: string
+      label: 'New window icon type (html or classes)'
+    purposeNewWindowIconPosition:
+      type: string
+      label: 'New window icon position'
+    purposeNewWindowIconClasses:
+      type: string
+      label: 'New window icon classes'

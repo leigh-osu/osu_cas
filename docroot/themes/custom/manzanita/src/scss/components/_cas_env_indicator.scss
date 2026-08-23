@@ -1,0 +1,38 @@
+// Build-environment badge injected into the header by
+// manzanita_preprocess_page(): red dev, yellow stage, green prod, blue local.
+header[role='banner'] {
+  position: relative;
+}
+
+.env-indicator {
+  position: fixed;
+  // Sit just below any fixed admin toolbar. Drupal's displace API keeps
+  // --drupal-displace-offset-top updated with the toolbar height, so this
+  // follows the toolbar as it collapses/expands; 0 when there is none.
+  top: var(--drupal-displace-offset-top, 0px);
+  right: 0;
+  left: auto;
+  width: max-content;
+  max-width: 50%;
+  // Floats above everything at the top of the page, sitewide_alert
+  // included: that module renders through hook_page_top(), so its banner
+  // occupies the same strip the badge is pinned to. Nothing else in the
+  // theme goes above 1100, so this stays the topmost layer.
+  z-index: 1200;
+  padding: 0.3rem 1.2rem;
+  border-bottom-left-radius: 0.7rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: #fff;
+  pointer-events: none;
+  user-select: none;
+
+  &--local { background-color: #0072c6; }               // blue
+  &--dev   { background-color: #d63d2b; }                // red
+  &--stage { background-color: #f0ad20; color: #1a1a1a; } // yellow (dark text)
+  &--prod  { background-color: #218739; }                // green
+  &--other { background-color: #555; }
+}

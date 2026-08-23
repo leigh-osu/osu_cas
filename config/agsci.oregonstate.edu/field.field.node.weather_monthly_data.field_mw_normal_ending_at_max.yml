@@ -1,0 +1,23 @@
+uuid: 6db9b8ad-c25f-48d1-9caa-0ecc2a67afcb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mw_normal_ending_at_max
+    - node.type.weather_monthly_data
+id: node.weather_monthly_data.field_mw_normal_ending_at_max
+field_name: field_mw_normal_ending_at_max
+entity_type: node
+bundle: weather_monthly_data
+label: 'Air Temp Normal: Ending at Observation Max'
+description: 'Monthly Normal: Air Temperature: 24 Hours ending at Observation Max'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

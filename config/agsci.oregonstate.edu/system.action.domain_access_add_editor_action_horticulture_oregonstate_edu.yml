@@ -1,0 +1,15 @@
+uuid: 02856801-a2f1-4c90-8f7c-2dcfb8de3b51
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.horticulture_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_horticulture_oregonstate_edu
+label: 'Add editors to the Horticulture domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - horticulture_oregonstate_edu

@@ -1,0 +1,15 @@
+uuid: 8cbcb346-dff5-4e2e-b045-08f1b2fd7501
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.ichthyology_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_ichthyology_oregonstate_edu
+label: 'Remove editors from the Ichthyology domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - ichthyology_oregonstate_edu

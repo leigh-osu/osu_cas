@@ -1,0 +1,14 @@
+uuid: 60c8f1c8-79fe-4c4c-8b82-999a0ec7a83a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.lab_admin
+  module:
+    - user
+id: user_add_role_action.lab_admin
+label: 'Add the Lab administrator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: lab_admin

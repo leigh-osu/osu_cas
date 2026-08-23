@@ -1,0 +1,11 @@
+// D7's osu_icons editor palette defined color utility classes that the
+// D10 plugin renamed (sand/moondust/… became light/primary/…), but the
+// migrated content still carries the old names on hundreds of icons
+// (e.g. class="sand icon-osu-group"). Recreate the missing legacy names
+// with D7's values, at zero specificity so any component-scoped color
+// (DFS tiles, buttons) still wins.
+:where(.sand) { color: #e0e0e0; }
+:where(.moondust) { color: #c6dae7; }
+:where(.reindeer-moss) { color: #c4d6a4; }
+:where(.pine-stand) { color: #4a773c; }
+:where(.osu) { color: #d73f09; }

@@ -1,0 +1,16 @@
+uuid: 5fe81e1b-de64-4fe6-99d7-58789a05f4cc
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: veratrum
+label: veratrum
+logic: and
+conditions:
+  71ba82e7-0392-47c7-9d52-024655b724ea:
+    id: request_path
+    uuid: 71ba82e7-0392-47c7-9d52-024655b724ea
+    pages: /node/112821
+    negate: false
+allow_other_conditions: false

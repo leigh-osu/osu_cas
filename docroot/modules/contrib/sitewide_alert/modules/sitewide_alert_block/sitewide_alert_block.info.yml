@@ -1,0 +1,13 @@
+name: 'Sitewide Alert Block'
+type: module
+description: 'Render Sitewide Alerts in a block, rather than on top of the page.'
+php: 7.4
+core_version_requirement: ^10.3 || ^11
+package: 'Other'
+dependencies:
+  - sitewide_alert:sitewide_alert
+
+# Information added by Drupal.org packaging script on 2026-05-13
+version: '3.1.2'
+project: 'sitewide_alert'
+datestamp: 1778700017

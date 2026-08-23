@@ -1,0 +1,29 @@
+# Plugin \Drupal\ckeditor_link_styles\Plugin\CKEditor5Plugin\LinkStyles
+ckeditor5.plugin.ckeditor_link_styles_linkStyles:
+  type: mapping
+  label: Link Styles
+  mapping:
+    styles:
+      type: sequence
+      label: 'Styles'
+      constraints:
+        UniqueLabelInList:
+          labelKey: label
+      sequence:
+        type: mapping
+        label: 'Link Style'
+        mapping:
+          label:
+            type: label
+            label: 'Link style label'
+          element:
+            type: ckeditor5.element
+            constraints:
+              # Validate that this contains exactly 1 attribute (class) and >=1 class attr value.
+              CKEditor5Element:
+                requiredAttributes:
+                  -
+                    attributeName: class
+                    minAttributeValueCount: 1
+              StyleSensibleElement: []
+            label: 'Style tag + classes'

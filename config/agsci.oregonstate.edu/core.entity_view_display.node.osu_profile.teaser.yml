@@ -1,0 +1,181 @@
+uuid: ca14ce3e-dd4b-4981-b904-0fb80f009d35
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.osu_profile.field_domain_access
+    - field.field.node.osu_profile.field_domain_all_affiliates
+    - field.field.node.osu_profile.field_domain_source
+    - field.field.node.osu_profile.field_group_private
+    - field.field.node.osu_profile.field_osu_organizations
+    - field.field.node.osu_profile.field_profile_address
+    - field.field.node.osu_profile.field_profile_alt_phone
+    - field.field.node.osu_profile.field_profile_biography
+    - field.field.node.osu_profile.field_profile_credentials
+    - field.field.node.osu_profile.field_profile_curriculum_vitae
+    - field.field.node.osu_profile.field_profile_dm_awards
+    - field.field.node.osu_profile.field_profile_dm_pubs
+    - field.field.node.osu_profile.field_profile_email
+    - field.field.node.osu_profile.field_profile_ext_pubs
+    - field.field.node.osu_profile.field_profile_fac_accept_grad
+    - field.field.node.osu_profile.field_profile_fac_additional
+    - field.field.node.osu_profile.field_profile_fac_affiliations
+    - field.field.node.osu_profile.field_profile_fac_awards
+    - field.field.node.osu_profile.field_profile_fac_career_int
+    - field.field.node.osu_profile.field_profile_fac_career_links
+    - field.field.node.osu_profile.field_profile_fac_courses
+    - field.field.node.osu_profile.field_profile_fac_education
+    - field.field.node.osu_profile.field_profile_fac_employment
+    - field.field.node.osu_profile.field_profile_fac_grads
+    - field.field.node.osu_profile.field_profile_fac_lab_group
+    - field.field.node.osu_profile.field_profile_fac_nonthesis
+    - field.field.node.osu_profile.field_profile_fac_outreach_ext
+    - field.field.node.osu_profile.field_profile_fac_presentations
+    - field.field.node.osu_profile.field_profile_fac_service
+    - field.field.node.osu_profile.field_profile_fac_specialty
+    - field.field.node.osu_profile.field_profile_fac_type
+    - field.field.node.osu_profile.field_profile_fax
+    - field.field.node.osu_profile.field_profile_first_name
+    - field.field.node.osu_profile.field_profile_functional_group
+    - field.field.node.osu_profile.field_profile_google_scholar
+    - field.field.node.osu_profile.field_profile_headquarters
+    - field.field.node.osu_profile.field_profile_image
+    - field.field.node.osu_profile.field_profile_last_name
+    - field.field.node.osu_profile.field_profile_middle_name
+    - field.field.node.osu_profile.field_profile_name_suffix
+    - field.field.node.osu_profile.field_profile_office_phone
+    - field.field.node.osu_profile.field_profile_personal_interests
+    - field.field.node.osu_profile.field_profile_personal_links
+    - field.field.node.osu_profile.field_profile_preferred_name
+    - field.field.node.osu_profile.field_profile_primary_title
+    - field.field.node.osu_profile.field_profile_pronouns
+    - field.field.node.osu_profile.field_profile_pub_med
+    - field.field.node.osu_profile.field_profile_pubs_website
+    - field.field.node.osu_profile.field_profile_researchgate
+    - field.field.node.osu_profile.field_profile_stu_ac_interests
+    - field.field.node.osu_profile.field_profile_stu_major_prof
+    - field.field.node.osu_profile.field_profile_stu_majors
+    - field.field.node.osu_profile.field_profile_subgroups
+    - field.field.node.osu_profile.field_profile_user
+    - field.field.node.osu_profile.field_tax_faculty_expertise
+    - node.type.osu_profile
+  module:
+    - layout_builder
+    - layout_builder_restrictions
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts:
+        - 'bootstrap_layout_builder:blb_col_1'
+        - 'bootstrap_layout_builder:blb_col_2'
+        - 'bootstrap_layout_builder:blb_col_3'
+        - 'bootstrap_layout_builder:blb_col_4'
+        - 'bootstrap_layout_builder:blb_col_5'
+        - 'bootstrap_layout_builder:blb_col_6'
+      restricted_categories: {  }
+      blacklisted_blocks: {  }
+      whitelisted_blocks: {  }
+    entity_view_mode_restriction_by_region:
+      allowed_layouts:
+        - 'bootstrap_layout_builder:blb_col_1'
+        - 'bootstrap_layout_builder:blb_col_2'
+        - 'bootstrap_layout_builder:blb_col_3'
+        - 'bootstrap_layout_builder:blb_col_4'
+        - 'bootstrap_layout_builder:blb_col_5'
+        - 'bootstrap_layout_builder:blb_col_6'
+_core:
+  default_config_hash: _jo-_rFapzZliVFsN8xV8LTvXpdXdvm5DYB2yB6GA34
+id: node.osu_profile.teaser
+targetEntityType: node
+bundle: osu_profile
+mode: teaser
+content:
+  field_preferred_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_profile_biography:
+    type: text_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  entitygroupfield: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_group_private: true
+  field_osu_organizations: true
+  field_profile_address: true
+  field_profile_alt_phone: true
+  field_profile_credentials: true
+  field_profile_curriculum_vitae: true
+  field_profile_dm_awards: true
+  field_profile_dm_pubs: true
+  field_profile_email: true
+  field_profile_ext_pubs: true
+  field_profile_fac_accept_grad: true
+  field_profile_fac_additional: true
+  field_profile_fac_affiliations: true
+  field_profile_fac_awards: true
+  field_profile_fac_career_int: true
+  field_profile_fac_career_links: true
+  field_profile_fac_courses: true
+  field_profile_fac_education: true
+  field_profile_fac_employment: true
+  field_profile_fac_grads: true
+  field_profile_fac_lab_group: true
+  field_profile_fac_nonthesis: true
+  field_profile_fac_outreach_ext: true
+  field_profile_fac_presentations: true
+  field_profile_fac_service: true
+  field_profile_fac_specialty: true
+  field_profile_fac_type: true
+  field_profile_fax: true
+  field_profile_first_name: true
+  field_profile_functional_group: true
+  field_profile_google_scholar: true
+  field_profile_headquarters: true
+  field_profile_image: true
+  field_profile_last_name: true
+  field_profile_middle_name: true
+  field_profile_name_suffix: true
+  field_profile_office_phone: true
+  field_profile_personal_interests: true
+  field_profile_personal_links: true
+  field_profile_preferred_name: true
+  field_profile_primary_title: true
+  field_profile_pronouns: true
+  field_profile_pub_med: true
+  field_profile_pubs_website: true
+  field_profile_researchgate: true
+  field_profile_stu_ac_interests: true
+  field_profile_stu_major_prof: true
+  field_profile_stu_majors: true
+  field_profile_subgroups: true
+  field_profile_user: true
+  field_tax_faculty_expertise: true
+  langcode: true
+  listing_images: true
+  listing_news: true
+  listing_publications: true
+  listing_videos: true

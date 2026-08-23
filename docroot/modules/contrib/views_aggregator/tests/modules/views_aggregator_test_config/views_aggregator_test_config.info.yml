@@ -1,0 +1,13 @@
+name: 'Views Aggregator Test Views'
+type: module
+description: 'Provides views for Views Aggregator Plus tests.'
+package: Testing
+# project: 'views_aggregator'
+dependencies:
+  - drupal:views
+  - views_aggregator:views_aggregator
+
+# Information added by Drupal.org packaging script on 2024-11-08
+version: '2.1.1'
+project: 'views_aggregator'
+datestamp: 1731102086

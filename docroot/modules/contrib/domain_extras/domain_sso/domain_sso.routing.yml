@@ -1,0 +1,34 @@
+domain_sso.handshake.consume:
+  path: '/domain-sso/handshake-consume'
+  defaults:
+    _controller: '\Drupal\domain_sso\Controller\ConsumeController::consume'
+    _title: 'Consume Domain SSO token'
+  methods: [POST, GET]
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE
+    _maintenance_access: TRUE
+
+domain_sso.handshake.issue:
+  path: '/domain-sso/handshake-issue'
+  defaults:
+    _controller: '\Drupal\domain_sso\Controller\IssueController::issue'
+    _title: 'Issue Domain SSO token'
+  methods: [GET]
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE
+    _maintenance_access: TRUE
+
+domain_sso.sso_login:
+  path: '/domain-sso'
+  defaults:
+    _controller: '\Drupal\domain_sso\Controller\SsoController::login'
+    _title: 'Domain Single Sign-On'
+  requirements:
+    _user_is_logged_in: 'FALSE'
+  options:
+    no_cache: TRUE
+    _maintenance_access: TRUE

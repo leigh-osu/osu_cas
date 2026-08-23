@@ -1,0 +1,619 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.degree_fact_sheet.body
+    - field.field.node.degree_fact_sheet.field_dfs_aaea_fellows
+    - field.field.node.degree_fact_sheet.field_dfs_advising_email
+    - field.field.node.degree_fact_sheet.field_dfs_advisor
+    - field.field.node.degree_fact_sheet.field_dfs_alumni_spotlight
+    - field.field.node.degree_fact_sheet.field_dfs_banner
+    - field.field.node.degree_fact_sheet.field_dfs_box_image
+    - field.field.node.degree_fact_sheet.field_dfs_cascades_campus
+    - field.field.node.degree_fact_sheet.field_dfs_corvallis_campus
+    - field.field.node.degree_fact_sheet.field_dfs_degree_description
+    - field.field.node.degree_fact_sheet.field_dfs_degree_focus_area
+    - field.field.node.degree_fact_sheet.field_dfs_degree_level_text
+    - field.field.node.degree_fact_sheet.field_dfs_degree_options
+    - field.field.node.degree_fact_sheet.field_dfs_degree_title
+    - field.field.node.degree_fact_sheet.field_dfs_department_link
+    - field.field.node.degree_fact_sheet.field_dfs_ecampus
+    - field.field.node.degree_fact_sheet.field_dfs_example_4_year_plan
+    - field.field.node.degree_fact_sheet.field_dfs_facebook
+    - field.field.node.degree_fact_sheet.field_dfs_faces_of_agsci
+    - field.field.node.degree_fact_sheet.field_dfs_fellowships
+    - field.field.node.degree_fact_sheet.field_dfs_grad_student_support
+    - field.field.node.degree_fact_sheet.field_dfs_graduate
+    - field.field.node.degree_fact_sheet.field_dfs_graduate_students
+    - field.field.node.degree_fact_sheet.field_dfs_instagram
+    - field.field.node.degree_fact_sheet.field_dfs_introduction_header
+    - field.field.node.degree_fact_sheet.field_dfs_la_grande_campus
+    - field.field.node.degree_fact_sheet.field_dfs_language
+    - field.field.node.degree_fact_sheet.field_dfs_learning_outcomes
+    - field.field.node.degree_fact_sheet.field_dfs_level
+    - field.field.node.degree_fact_sheet.field_dfs_linkedin
+    - field.field.node.degree_fact_sheet.field_dfs_location
+    - field.field.node.degree_fact_sheet.field_dfs_newport_campus
+    - field.field.node.degree_fact_sheet.field_dfs_node_hide_title
+    - field.field.node.degree_fact_sheet.field_dfs_number_of_students
+    - field.field.node.degree_fact_sheet.field_dfs_osu_catalog
+    - field.field.node.degree_fact_sheet.field_dfs_overview
+    - field.field.node.degree_fact_sheet.field_dfs_pdf_flyer
+    - field.field.node.degree_fact_sheet.field_dfs_pdf_flyer_espanol
+    - field.field.node.degree_fact_sheet.field_dfs_photo
+    - field.field.node.degree_fact_sheet.field_dfs_potential_career_paths
+    - field.field.node.degree_fact_sheet.field_dfs_preferred_link
+    - field.field.node.degree_fact_sheet.field_dfs_program_requirements
+    - field.field.node.degree_fact_sheet.field_dfs_twitter
+    - field.field.node.degree_fact_sheet.field_dfs_univer_disting_fac
+    - field.field.node.degree_fact_sheet.field_dfs_youtube
+    - field.field.node.degree_fact_sheet.field_domain_access
+    - field.field.node.degree_fact_sheet.field_domain_all_affiliates
+    - field.field.node.degree_fact_sheet.field_domain_source
+    - field.field.node.degree_fact_sheet.field_group_private
+    - field.field.node.degree_fact_sheet.field_tax_cas_themes
+    - image.style.thumbnail
+    - node.type.degree_fact_sheet
+  module:
+    - field_group
+    - file
+    - image
+    - link
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_media:
+      children:
+        - field_dfs_banner
+        - field_dfs_box_image
+        - field_dfs_photo
+        - field_dfs_pdf_flyer
+        - field_dfs_pdf_flyer_espanol
+      label: 'Media & downloads'
+      region: content
+      parent_name: ''
+      weight: 20
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+    group_links:
+      children:
+        - field_dfs_department_link
+        - field_dfs_preferred_link
+        - field_dfs_osu_catalog
+        - field_dfs_corvallis_campus
+        - field_dfs_cascades_campus
+        - field_dfs_la_grande_campus
+        - field_dfs_newport_campus
+        - field_dfs_ecampus
+        - field_dfs_facebook
+        - field_dfs_instagram
+        - field_dfs_linkedin
+        - field_dfs_twitter
+        - field_dfs_youtube
+      label: 'Links & social'
+      region: content
+      parent_name: ''
+      weight: 21
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+    group_undergrad:
+      children:
+        - field_dfs_advising_email
+        - field_dfs_advisor
+        - field_dfs_introduction_header
+        - field_dfs_degree_options
+        - field_dfs_example_4_year_plan
+        - field_dfs_learning_outcomes
+        - field_dfs_potential_career_paths
+        - field_dfs_number_of_students
+        - field_dfs_faces_of_agsci
+      label: 'Undergraduate program'
+      region: content
+      parent_name: ''
+      weight: 22
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+    group_grad:
+      children:
+        - field_dfs_degree_title
+        - field_dfs_degree_level_text
+        - field_dfs_degree_description
+        - field_dfs_program_requirements
+        - field_dfs_alumni_spotlight
+        - field_dfs_grad_student_support
+        - field_dfs_graduate_students
+        - field_dfs_fellowships
+        - field_dfs_aaea_fellows
+        - field_dfs_univer_disting_fac
+      label: 'Graduate program'
+      region: content
+      parent_name: ''
+      weight: 23
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+id: node.degree_fact_sheet.default
+targetEntityType: node
+bundle: degree_fact_sheet
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 10
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 184
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_dfs_aaea_fellows:
+    type: number
+    weight: 5
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dfs_advising_email:
+    type: email_default
+    weight: 0
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_dfs_advisor:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_dfs_alumni_spotlight:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_dfs_degree_title:
+    type: string_textfield
+    weight: -3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_dfs_degree_level_text:
+    type: string_textfield
+    weight: -2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_dfs_degree_description:
+    type: text_textarea
+    weight: -1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_dfs_banner:
+    type: image_image
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_dfs_box_image:
+    type: image_image
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_dfs_cascades_campus:
+    type: link_default
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_dfs_corvallis_campus:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_dfs_degree_focus_area:
+    type: options_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_dfs_degree_options:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_dfs_department_link:
+    type: link_default
+    weight: 0
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_dfs_ecampus:
+    type: link_default
+    weight: 7
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_dfs_example_4_year_plan:
+    type: link_default
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_dfs_facebook:
+    type: string_textfield
+    weight: 8
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_dfs_faces_of_agsci:
+    type: string_textarea
+    weight: 8
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_dfs_fellowships:
+    type: number
+    weight: 4
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dfs_grad_student_support:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_dfs_graduate:
+    type: boolean_checkbox
+    weight: 2
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_dfs_graduate_students:
+    type: number
+    weight: 3
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dfs_instagram:
+    type: string_textfield
+    weight: 9
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_dfs_introduction_header:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_dfs_la_grande_campus:
+    type: link_default
+    weight: 5
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_dfs_language:
+    type: options_select
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_dfs_learning_outcomes:
+    type: link_default
+    weight: 5
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_dfs_level:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_dfs_linkedin:
+    type: string_textfield
+    weight: 10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_dfs_location:
+    type: options_select
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_dfs_newport_campus:
+    type: link_default
+    weight: 6
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_dfs_node_hide_title:
+    type: boolean_checkbox
+    weight: 86
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_dfs_number_of_students:
+    type: number
+    weight: 7
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dfs_osu_catalog:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_dfs_overview:
+    type: text_textarea
+    weight: 8
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_dfs_pdf_flyer:
+    type: file_generic
+    weight: 3
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_dfs_pdf_flyer_espanol:
+    type: file_generic
+    weight: 4
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_dfs_photo:
+    type: image_image
+    weight: 2
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_dfs_potential_career_paths:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_dfs_preferred_link:
+    type: link_default
+    weight: 1
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_dfs_program_requirements:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_dfs_twitter:
+    type: string_textfield
+    weight: 11
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_dfs_univer_disting_fac:
+    type: number
+    weight: 6
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dfs_youtube:
+    type: string_textfield
+    weight: 12
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_domain_access:
+    type: entity_reference_autocomplete
+    weight: 88
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_domain_all_affiliates:
+    type: boolean_checkbox
+    weight: 92
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_domain_source:
+    type: entity_reference_autocomplete
+    weight: 90
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_group_private:
+    type: boolean_checkbox
+    weight: 26
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_tax_cas_themes:
+    type: entity_reference_autocomplete
+    weight: 84
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 184
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 184
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 184
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 184
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 184
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 184
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  entitygroupfield: true

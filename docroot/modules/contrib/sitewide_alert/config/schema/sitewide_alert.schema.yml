@@ -1,0 +1,52 @@
+sitewide_alert.settings:
+  type: config_object
+  label: 'Sitewide alert settings'
+  constraints:
+    FullyValidatable: ~
+  mapping:
+    show_on_admin:
+      type: 'boolean'
+      label: 'Show on Administration Pages'
+    alert_styles:
+      type: 'string'
+      label: 'Available alert styles'
+      constraints:
+        Regex:
+          pattern: '/^(.*)|(.*)$/'
+    show_count:
+      type: 'boolean'
+      label: 'Show alerts count'
+    display_order:
+      type: 'string'
+      label: 'Display Order'
+      constraints:
+        AllowedValues: [ 'descending', 'ascending' ]
+    automatic_refresh:
+      type: 'boolean'
+      label: 'Automatically update (Refresh) Alerts'
+    refresh_interval:
+      type: 'integer'
+      label: 'Browser Refresh Interval (in seconds)'
+      constraints:
+        Range:
+          min: 0
+    cache_max_age:
+      type: 'integer'
+      label: 'Cache Max age (in seconds)'
+      constraints:
+        Range:
+          min: 0
+    server_side_render:
+      type: 'boolean'
+      label: 'Render alerts server-side'
+    show_untranslated:
+      type: 'boolean'
+      label: 'Show untranslated alerts'
+
+views.field.sitewide_alert_page_visibility:
+  type: views_field
+  label: 'Sitewide Alert Page Visibility'
+  mapping:
+    all_pages_text:
+      type: label
+      label: 'Text for "All pages"'

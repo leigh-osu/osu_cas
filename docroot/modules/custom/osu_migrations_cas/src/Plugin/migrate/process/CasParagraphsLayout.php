@@ -1,0 +1,520 @@
+<?php
+
+namespace Drupal\osu_migrations_cas\Plugin\migrate\process;
+
+use Drupal\migrate\Annotation\MigrateProcessPlugin;
+use Drupal\migrate\MigrateException;
+use Drupal\migrate\MigrateExecutable;
+use Drupal\migrate\MigrateExecutableInterface;
+use Drupal\migrate\Row;
+use Drupal\paragraphs_to_layout_builder\Exception\LayoutMigrationMissingBlockException;
+use Drupal\paragraphs_to_layout_builder\Exception\LayoutMigrationMissingParagraphToLayoutException;
+use Drupal\paragraphs_to_layout_builder\LayoutMigrationItem;
+use Drupal\osu_migrations_cas\CasLayoutBase;
+
+/**
+ * Paragraphs Layout process plugin.
+ *
+ * @code
+ * layout_builder__layout:
+ *   plugin: layout_builder_layout
+ *   source_field: field_paragraphs
+ * @endcode
+ *
+ * @MigrateProcessPlugin(
+ *   id = "cas_paragraphs_layout"
+ * )
+ */
+class CasParagraphsLayout extends CasLayoutBase {
+
+  /**
+   * ID map of the picbox card migration, for block ID -> D7 item lookups.
+   *
+   * @var \Drupal\migrate\Plugin\MigrateIdMapInterface|null
+   */
+  protected $picboxIdMap;
+
+  /**
+   * Transform paragraph source values into a Layout Builder sections.
+   *
+   * @param mixed $value
+   *   The value to be transformed.
+   * @param \Drupal\migrate\MigrateExecutableInterface $migrate_executable
+   *   The migration in which this process is being executed.
+   * @param \Drupal\migrate\Row $row
+   *   The row from the source to process. Normally, just transforming the value
+   *   is adequate but very rarely you might need to change two columns at the
+   *   same time or something like that.
+   * @param string $destination_property
+   *   The destination property currently worked on. This is only used together
+   *   with the $row above.
+   *
+   * @return \Drupal\layout_builder\Section[]
+   *   A Layout Builder Section object populated with Section Components.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\PluginException
+   * @throws \Drupal\migrate\MigrateException
+   */
+  public function transform(
+    $value,
+    MigrateExecutableInterface $migrate_executable,
+    Row $row,
+    $destination_property,
+  ) {
+    $sourceField = $this->configuration['source_field'];
+    if (!isset($sourceField)) {
+      throw new MigrateException('Missing source_field for paragraph layout process plugin.');
+    }
+
+    $values = $row->getSourceProperty($sourceField);
+    $map = $row->getSource()['constants']['map'];
+    $ignored_bundles = ['viewfield'];
+    $sections = [];
+    if (is_array($values)) {
+      foreach ($values as $delta => $item) {
+        try {
+          $type = $this->getParagraphType($item['value']);
+          if (in_array($type, $ignored_bundles, TRUE)) {
+            continue;
+          }
+          // 2_column_views pairs two view references with two rich-text
+          // columns, and 35 of its 41 live items are text-only — editors
+          // used it as a plain two-column layout. The text columns migrate
+          // like any other 2-col paragraph; the embedded views stay excluded
+          // (views are not migrated), so an item with no text at all has
+          // nothing to show and gets no section.
+          if ($type === '2_column_views' && !$this->twoColumnViewsHasText($item['value'])) {
+            continue;
+          }
+          // Dividers were empty full-width spacer bands in D7, not content.
+          // Emit a component-less section carrying the D7 size (as a
+          // min-height) and colour (as a background), rather than an empty
+          // block. No block is created, so skip the rest of the loop.
+          if ($type === 'paragraph_divider') {
+            $sections[] = $this->createDividerSection($item['value']);
+            continue;
+          }
+          $sectionType = $this->getSectionType($type);
+          $section = $this->createSection($sectionType, []);
+
+          // Map migration IDs to their layout builder region.
+          $migration_ids = [];
+          if ($type == "paragraph_2_col") {
+            $migration_ids[$map['paragraph_2_col_left']] = "blb_region_col_1";
+            $migration_ids[$map['paragraph_2_col_right']] = "blb_region_col_2";
+          }
+          elseif ($type == "2_column_4_8") {
+            $migration_ids[$map['2_column_4_8_left']] = "blb_region_col_1";
+            $migration_ids[$map['2_column_4_8_right']] = "blb_region_col_2";
+          }
+          elseif ($type == "paragraph_2_column_8_4") {
+            $migration_ids[$map['paragraph_2_column_8_4_left']] = "blb_region_col_1";
+            $migration_ids[$map['paragraph_2_column_8_4_right']] = "blb_region_col_2";
+          }
+          elseif ($type == "2_column_views") {
+            $migration_ids[$map['2_column_views_left']] = "blb_region_col_1";
+            $migration_ids[$map['2_column_views_right']] = "blb_region_col_2";
+          }
+          elseif ($type == "paragraph_3_col") {
+            $migration_ids[$map['paragraph_3_col_left']] = "blb_region_col_1";
+            $migration_ids[$map['paragraph_3_col_center']] = "blb_region_col_2";
+            $migration_ids[$map['paragraph_3_col_right']] = "blb_region_col_3";
+          }
+          elseif ($type == "4_column") {
+            $migration_ids[$map['4_column_col1']] = "blb_region_col_1";
+            $migration_ids[$map['4_column_col2']] = "blb_region_col_2";
+            $migration_ids[$map['4_column_col3']] = "blb_region_col_3";
+            $migration_ids[$map['4_column_col4']] = "blb_region_col_4";
+          }
+          elseif (array_key_exists($type, $map)) {
+            $migration_ids[$map[$type]] = "blb_region_col_1";
+          }
+          else {
+            throw new LayoutMigrationMissingParagraphToLayoutException($this->t('Missing custom paragraph migration for paragraph type @type.', ['@type' => $type]));
+          }
+
+          // Iterate through migration_ids creating components for each block and attaching to section.
+          foreach ($migration_ids as $migration_id => $migration_row) {
+            $migrationItem = new LayoutMigrationItem($type, $item['value'], $delta, $migration_id);
+            $components = $this->createComponent($migrationItem, $section, $migration_row);
+
+            // Colored 2-col columns (black/orange-bg-*) and background-image
+            // columns fill the whole column in D7; drop the column's
+            // horizontal gutter so the colour/image reaches the edges.
+            foreach (in_array($type, ['paragraph_2_col', '2_column_4_8', 'paragraph_2_column_8_4'], TRUE) ? $components : [] as $colored_component) {
+              $styles = $colored_component->get('bootstrap_styles')['block_style'] ?? [];
+              $bg = $styles['background_color']['class'] ?? NULL;
+              $is_bg_image = ($styles['background']['background_type'] ?? NULL) === 'image';
+              if ($is_bg_image || in_array($bg, ['osu-bg-osuorange', 'osu-bg-page-alt-2'], TRUE)) {
+                $layout_settings = $section->getLayoutSettings();
+                if (!in_array('px-0', $layout_settings['layout_regions_classes'][$migration_row] ?? [], TRUE)) {
+                  $layout_settings['layout_regions_classes'][$migration_row][] = 'px-0';
+                  $section->setLayoutSettings($layout_settings);
+                }
+              }
+            }
+
+            //add classes to row that will be seen in LayoutBuilder UI
+            // Backgrounds are set from the row block data in
+            // CasLayoutBase::setAdjustableColumnsSectionSettings().
+            if ($type == "lp_adjustable_columns") {
+              $layout_settings = $section->getLayoutSettings();
+              $layout_settings['regions_classes']['blb_region_col_1'] = 'd-flex flex-wrap';
+              $section->setLayoutSettings($layout_settings);
+            }
+
+            // Limitations on menu migrations means we don't know what section type to use until now.
+            // $components can be empty when every attached block of an
+            // adjustable-columns row was skipped as missing (see
+            // CasLayoutBase::handleAdjustableColumnsItems()).
+            if (!empty($components[0]) && $components[0]->get('configuration')['id'] == 'inline_block:osu_menu_bar_item') {
+              // Query old db to get the menu bg color option.
+              $menu_style_query = $this->migrateDb->select('field_data_field_p_menu_styles', 'fdfpms');
+              $menu_style_query->fields('fdfpms', ['field_p_menu_styles_value']);
+              $menu_style_query->condition('fdfpms.entity_id', $item['value'], 'IN');
+              $menu_bg_color = $menu_style_query->execute()->fetchField();
+
+              $menu_section_settings = $this->setMenuBgClass($menu_bg_color);
+              $section = $this->createSection('bootstrap_layout_builder:blb_col_' . count($components), [], $menu_section_settings);
+            }
+
+            $this->appendComponentsToSection($components, $section);
+          }
+
+          // The D7 editor's paragraph label becomes the section's
+          // administrative label — the same field the Configure-section
+          // tray offers by hand — so migrated layouts read "Configure
+          // Hero" instead of "Configure Section 3". Only some D7 bundles
+          // carried the field; everything else keeps the positional
+          // fallback.
+          $section_label = $this->migrateDb->select('field_data_field_paragraph_label', 'l')
+            ->fields('l', ['field_paragraph_label_value'])
+            ->condition('l.entity_type', 'paragraphs_item')
+            ->condition('l.entity_id', $item['value'])
+            ->execute()
+            ->fetchField();
+          if (is_string($section_label) && trim($section_label) !== '') {
+            $layout_settings = $section->getLayoutSettings();
+            $layout_settings['label'] = trim($section_label);
+            $section->setLayoutSettings($layout_settings);
+          }
+
+          $sections[] = $section;
+
+          if($type == 'lp_picbox_grid'){
+            $blockId = $this->lookupBlock($migrationItem->getMigrationId(), $migrationItem->getId());
+            $block = $this->entityTypeManager->getStorage('block_content')
+              ->load($blockId);
+            // A picbox now yields one grid-row section per chunk of columns.
+            $sections = array_merge($sections, $this->handlePicboxGridLayoutItems($block));
+          }
+        }
+        catch (LayoutMigrationMissingBlockException $e) {
+          $this->handleMissingBlockException($migrate_executable, $e);
+          continue;
+        }
+        catch (LayoutMigrationMissingParagraphToLayoutException $e) {
+          $migrate_executable->saveMessage($e->getMessage(), $e->getCode());
+          if ($migrate_executable instanceof MigrateExecutable) {
+            $migrate_executable->message->display($e->getMessage());
+          }
+          continue;
+        }
+      }
+    }
+
+    return $sections;
+  }
+
+  /**
+   * Gets the type of paragraph given a paragraph id.
+   *
+   * Uses basic static caching since this may be called multiple times for the
+   * same paragraphs.
+   *
+   * @param string $id
+   *   The paragraph id.
+   *
+   * @return string
+   *   The paragraph bundle.
+   */
+  public function getParagraphType($id) {
+    $types = &drupal_static(__FUNCTION__);
+    if (!isset($types[$id])) {
+      $query = $this->migrateDb->select('paragraphs_item', 'p');
+      $query->fields('p', ['bundle']);
+      $query->condition('p.item_id', $id, '=');
+      $types[$id] = $query->execute()->fetchField();
+    }
+    return $types[$id];
+  }
+
+  /**
+   * Whether a 2_column_views item has anything in its text columns.
+   *
+   * The bundle's view references are excluded from migration, so an item
+   * whose field_left_content and field_right_text are both empty (a
+   * view-only or wholly empty item) yields no section at all.
+   *
+   * @param int|string $itemId
+   *   The D7 paragraphs_item id.
+   *
+   * @return bool
+   *   TRUE when either text column holds a value.
+   */
+  protected function twoColumnViewsHasText($itemId): bool {
+    foreach (['field_data_field_left_content' => 'field_left_content_value',
+      'field_data_field_right_text' => 'field_right_text_value'] as $table => $column) {
+      $value = $this->migrateDb->select($table, 't')
+        ->fields('t', [$column])
+        ->condition('t.entity_type', 'paragraphs_item')
+        ->condition('t.entity_id', $itemId)
+        ->execute()
+        ->fetchField();
+      if (is_string($value) && trim(strip_tags($value)) !== '') {
+        return TRUE;
+      }
+    }
+    return FALSE;
+  }
+
+  /**
+   * Build a component-less section for a D7 divider paragraph.
+   *
+   * D7 dividers (paragraphs-item--paragraph_divider.tpl.php) were empty
+   * edge-to-edge spacer bands: field_p_divider_size set the height and
+   * field_p_divider_color the background. Reproduce that as a Layout Builder
+   * section with no components, carrying the height and colour as
+   * bootstrap_styles section settings rather than migrating an empty block.
+   *
+   * The horizontal-line variant (field_p_divider_additional) is intentionally
+   * not reproduced; every divider becomes a plain spacer band.
+   *
+   * @param int|string $itemId
+   *   The D7 paragraphs_item id of the divider.
+   *
+   * @return \Drupal\layout_builder\Section
+   *   An edge-to-edge (w-100) blb_col_1 section with no components.
+   */
+  protected function createDividerSection($itemId) {
+    // D7 size -> min-height utility. The osu-min-h-25/50 classes are provided
+    // by manzanita (_cas_min_height.scss); 100 and up come from madrone.
+    $size = $this->migrateDb->select('field_data_field_p_divider_size', 'd')
+      ->fields('d', ['field_p_divider_size_value'])
+      ->condition('d.entity_id', $itemId)
+      ->execute()
+      ->fetchField();
+    $min_height = match ($size) {
+      'medium' => 'osu-min-h-50',
+      'large' => 'osu-min-h-100',
+      // 'small' and any unexpected/empty value default to the smallest step.
+      default => 'osu-min-h-25',
+    };
+
+    // D7 colour -> osu-bg-* background. White (and empty) stay transparent, so
+    // no background class is added. Targets exist in madrone/manzanita's
+    // bg palettes; values mirror osu_paragraphs/styles/_divider.less.
+    $color = $this->migrateDb->select('field_data_field_p_divider_color', 'd')
+      ->fields('d', ['field_p_divider_color_value'])
+      ->condition('d.entity_id', $itemId)
+      ->execute()
+      ->fetchField();
+    $background = match ($color) {
+      'orange' => 'osu-bg-osuorange',
+      'green' => 'osu-bg-pine-stand',
+      'yellow' => 'osu-bg-luminance',
+      'blue' => 'osu-bg-stratosphere',
+      'black' => 'osu-bg-black',
+      'gray' => 'osu-bg-coastline',
+      default => NULL,
+    };
+
+    $bootstrap_styles = ['min_height' => ['class' => $min_height]];
+    if ($background !== NULL) {
+      // BackgroundColor::build() reads background.background_type unconditionally
+      // (bootstrap_styles/.../Style/BackgroundColor.php), so the sibling
+      // 'background' key must be present or it warns on every render. The class
+      // itself lives in background_color.
+      $bootstrap_styles['background'] = ['background_type' => 'color'];
+      $bootstrap_styles['background_color'] = ['class' => $background];
+    }
+
+    // w-100 = edge-to-edge; no components = an empty styled band.
+    return $this->createSection('bootstrap_layout_builder:blb_col_1', [], [
+      'container' => 'w-100',
+      'container_wrapper' => ['bootstrap_styles' => $bootstrap_styles],
+    ]);
+  }
+
+  /**
+   * Set the Menu bar section options.
+   *
+   * @param string $paragraph_style
+   *
+   * @return array
+   *   Layout builder Section settings.
+   */
+  private function setMenuBgClass(string $paragraph_style) {
+    $menu_section_settings = [
+      'container' => 'container',
+      'container_wrapper' => [
+        'bootstrap_styles' => [
+          'background' => [
+            'background_type' => 'color',
+          ],
+        ],
+      ],
+    ];
+    switch ($paragraph_style) {
+      case 'menu-orange':
+        $menu_section_settings['container_wrapper']['bootstrap_styles']['background_color']['class'] = 'osu-bg-osuorange';
+        $menu_section_settings['container_wrapper']['bootstrap_styles']['text_color']['class'] = 'osu-text-bucktoothwhite';
+        break;
+
+      case 'menu-gray':
+        $menu_section_settings['container_wrapper']['bootstrap_styles']['background_color']['class'] = 'osu-bg-light-grey';
+        break;
+
+      case 'menu-blue':
+        $menu_section_settings['container_wrapper']['bootstrap_styles']['background_color']['class'] = 'osu-bg-moondust';
+        break;
+
+      case 'menu-black':
+        $menu_section_settings['container_wrapper']['bootstrap_styles']['background_color']['class'] = 'osu-bg-page-alt-2';
+        $menu_section_settings['container_wrapper']['bootstrap_styles']['text_color']['class'] = 'osu-text-bucktoothwhite';
+        break;
+
+      case 'menu-green':
+        $menu_section_settings['container_wrapper']['bootstrap_styles']['background_color']['class'] = 'osu-bg-crater';
+        $menu_section_settings['container_wrapper']['bootstrap_styles']['text_color']['class'] = 'osu-text-bucktoothwhite';
+        break;
+
+      default:
+        // D7's default menu bar is orange (#d73f09) with white links; the
+        // menu-* classes are overrides.
+        $menu_section_settings['container_wrapper']['bootstrap_styles']['background_color']['class'] = 'osu-bg-osuorange';
+        $menu_section_settings['container_wrapper']['bootstrap_styles']['text_color']['class'] = 'osu-text-bucktoothwhite';
+        break;
+    }
+    return $menu_section_settings;
+  }
+
+  /**
+   * Append components to a section.
+   *
+   * @param array $components
+   *   The components to append.
+   * @param mixed $section
+   *   The section to append the components to.
+   */
+  public function appendComponentsToSection($components, $section) {
+    foreach ($components as $component) {
+      $section->appendComponent($component);
+    }
+  }
+
+  /**
+   * Build the grid-row sections for a D7 picbox grid.
+   *
+   * The card blocks are laid out as a Bootstrap grid of field_lp_picbox_cols_max
+   * columns: one blb_col_N section per row of N cards, one card per grid cell.
+   *
+   * @param \Drupal\block_content\Entity\BlockContent $block
+   *   The block containing IDs of the Grid Item blocks.
+   *
+   * @return \Drupal\layout_builder\Section[]
+   *   One Layout Builder Section per grid row.
+   */
+  protected function handlePicboxGridLayoutItems($block) {
+    $extra_data = unserialize($block->get('field_block_serialized_data')->value);
+    $block_ids = explode(',', $extra_data['migration']['attached_block_ids']);
+    // field_lp_picbox_cols_max, captured by CasPicboxGrid.
+    $columns = max(1, (int) $extra_data['migration']['picbox_columns']);
+
+    // One Bootstrap grid row (blb_col_N section) per chunk of $columns cards,
+    // one card per grid cell -- the same one-block-per-column structure as the
+    // migrated menu bar. Bootstrap columns in a row are equal height, so the
+    // cards line up as a grid, instead of the old round-robin distribution that
+    // stacked multiple cards per column and left rows unaligned.
+    $sections = [];
+    foreach (array_chunk($block_ids, $columns) as $chunk) {
+      $components = [];
+      foreach (array_values($chunk) as $index => $block_id) {
+        $block_revision_id = $this->blockContentStorage->getLatestRevisionId($block_id);
+        $component = $this->createSectionComponent('osu_card', $block_revision_id, 'blb_region_col_' . ($index + 1), [], $index, 'picbox');
+        $this->setPicboxComponentTitle($component, $block_id);
+        $components[] = $component;
+      }
+      $section = $this->createSection('bootstrap_layout_builder:blb_col_' . $columns, []);
+      $this->appendComponentsToSection($components, $section);
+      $sections[] = $section;
+    }
+    return $sections;
+  }
+
+  /**
+   * Puts the D7 headline on the card component as its displayed title.
+   *
+   * D7's larch template overlaid field_lp_picbox_box_headline on the image and
+   * printed it independently of the link -- the link field contributed only
+   * its URL, and its own title was disabled at field level (0 of 8,353 items
+   * have one). So the headline has a single home here too: the component
+   * title, with "Display title" switched on, which the picbox view mode
+   * renders as the overlay and Layout Builder exposes for editing.
+   *
+   * The block label is not the source: it carries D7's field_paragraph_label,
+   * a separate field that is as often an editor's admin note ("ranked 9th",
+   * "hort soc - fellows") as a title.
+   *
+   * @param \Drupal\layout_builder\SectionComponent $component
+   *   The card's Layout Builder component.
+   * @param string|int $block_id
+   *   The card block ID.
+   */
+  protected function setPicboxComponentTitle($component, $block_id) {
+    $headline = $this->picboxHeadline($block_id);
+    if ($headline === NULL) {
+      return;
+    }
+    $configuration = $component->get('configuration');
+    $configuration['label'] = $headline;
+    $configuration['label_display'] = 'visible';
+    $component->setConfiguration($configuration);
+  }
+
+  /**
+   * Looks up the D7 headline behind a migrated picbox card block.
+   *
+   * The card migration's ID map gives the D7 field-collection item the block
+   * came from; the headline is read straight off the D7 field table.
+   *
+   * @param string|int $block_id
+   *   The card block ID.
+   *
+   * @return string|null
+   *   The headline text, or NULL when the D7 picbox had none.
+   */
+  protected function picboxHeadline($block_id): ?string {
+    if ($this->picboxIdMap === NULL) {
+      $this->picboxIdMap = \Drupal::service('plugin.manager.migration')
+        ->createInstance('field_collection_field_lp_picbox__to__layout_builder')
+        ->getIdMap();
+    }
+    $source = $this->picboxIdMap->lookupSourceId(['id' => $block_id]);
+    if (empty($source['item_id'])) {
+      return NULL;
+    }
+    $headline = $this->migrateDb->select('field_data_field_lp_picbox_box_headline', 'h')
+      ->fields('h', ['field_lp_picbox_box_headline_value'])
+      ->condition('h.entity_type', 'field_collection_item')
+      ->condition('h.entity_id', $source['item_id'])
+      ->execute()
+      ->fetchField();
+    // D7 editors left stray markup and entities in some headlines; the
+    // component title is plain text.
+    $text = trim(html_entity_decode(strip_tags((string) $headline), ENT_QUOTES, 'UTF-8'));
+    $text = trim(preg_replace('~\s+~u', ' ', $text));
+    return $text === '' ? NULL : $text;
+  }
+
+}

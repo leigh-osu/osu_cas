@@ -1,0 +1,16 @@
+// Publication node display tweaks.
+
+// Keywords, authors and editors render as inline lists separated by
+// semicolons — commas would blur into the "Surname, Initial" author names.
+.node--type-publications .field--name-field-pub-keywords,
+.node--type-publications .field--name-field-pub-authors,
+.node--type-publications .field--name-field-pub-editors {
+  .field__items,
+  .field__item {
+    display: inline;
+  }
+
+  .field__item:not(:last-child)::after {
+    content: '; ';
+  }
+}

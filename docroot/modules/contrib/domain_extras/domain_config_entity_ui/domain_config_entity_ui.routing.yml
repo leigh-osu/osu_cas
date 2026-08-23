@@ -1,0 +1,7 @@
+domain_config_entity_ui.settings_form:
+  path: '/admin/config/domain/config-entity-ui'
+  defaults:
+    _form: '\Drupal\domain_config_entity_ui\Form\SettingsForm'
+    _title: 'Domain config entity types'
+  requirements:
+    _permission: 'administer domain config entity ui'

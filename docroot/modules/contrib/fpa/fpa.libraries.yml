@@ -1,0 +1,13 @@
+fpa.permissions:
+  css:
+    theme:
+      css/fpa.admin.css: {}
+  js:
+    js/fpa.js: {}
+
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - user/drupal.user.permissions
+    - js_cookie/js-cookie

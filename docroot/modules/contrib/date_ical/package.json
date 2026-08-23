@@ -1,0 +1,19 @@
+{
+  "name": "date_ical",
+  "version": "1.0.0",
+  "description": "Date iCal CKEditor plugin.",
+  "author": "",
+  "license": "GPL-2.0-or-later",
+  "scripts": {
+    "watch": "webpack --mode development --watch",
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "@ckeditor/ckeditor5-icons": "~45.2.0",
+    "ckeditor5": "~45.2.0",
+    "raw-loader": "^4.0.2",
+    "terser-webpack-plugin": "^5.3.14",
+    "webpack": "^5.99.8",
+    "webpack-cli": "^6.0.1"
+  }
+}

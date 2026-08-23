@@ -1,0 +1,5 @@
+drupal.responsive-preview-navigation:
+  version: VERSION
+  css:
+    theme:
+      css/responsive-preview.navigation.css: {}

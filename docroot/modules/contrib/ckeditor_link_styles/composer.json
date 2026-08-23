@@ -1,0 +1,23 @@
+{
+    "name": "drupal/ckeditor_link_styles",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "description": "Provides the ability to select styles (css classes) for links within CKEditor5.",
+    "keywords": ["Drupal"],
+    "homepage": "https://www.drupal.org/project/ckeditor_link_styles",
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=8.0"
+    },
+    "authors": [
+        {
+            "name": "Chris Snyder",
+            "email": "chris@chrissnyder.org",
+            "role": "Maintainer"
+        }
+    ],
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/ckeditor_link_styles",
+        "source": "https://cgit.drupalcode.org/ckeditor_link_styles"
+    }
+}

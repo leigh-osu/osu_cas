@@ -1,0 +1,14 @@
+name: Link Purpose Icons
+description: Adds icons and screen reader hints to specified links.
+type: module
+core_version_requirement: ^9 || ^10 || ^11
+php: 8.1
+configure: linkpurpose.settings
+dependencies:
+  - drupal:user
+package: 'User interface'
+
+# Information added by Drupal.org packaging script on 2026-07-27
+version: '1.0.23'
+project: 'linkpurpose'
+datestamp: 1785163694

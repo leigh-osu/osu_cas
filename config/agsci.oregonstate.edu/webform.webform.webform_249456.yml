@@ -1,0 +1,199 @@
+uuid: 84949aed-e1ba-47d3-8e0a-88adebc1a2f7
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_249456
+title: 'Wine and Grape Sample Analysis Submission Form'
+description: null
+categories: {  }
+elements: |-
+  business_or_company_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Business or Company name'
+  point_of_contact_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Point-of-contact name'
+    '#required': true
+  contact_phone_number:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Contact phone number'
+    '#required': true
+  contact_email_address:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Contact email address'
+    '#required': true
+  type_of_analysis_desired:
+    '#type': checkboxes
+    '#options':
+      analysis-free-phenols: Free-phenols
+      analysis-bound-pheols: Bound-phenols
+      analysis-other: Other
+    '#multiple': true
+    '#title': 'Type of analysis desired'
+    '#required': true
+  if_other_please_elaborate:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'If other, please elaborate'
+    '#states':
+      visible:
+        - ':input[name="type_of_analysis_desired[analysis-other]"]':
+            checked: true
+  number_of_samples_to_be_submitted:
+    '#type': textfield
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Number of samples to be submitted'
+    '#required': true
+  service_agreement:
+    '#type': radios
+    '#options':
+      agreement: 'I have read and agree to the terms of the Service Agreement'
+    '#title': 'Service Agreement'
+    '#description': 'I have read and agree to the attached <a href="/sites/agscid7/files/foodsci/attachments/testing_service_agreements_-_smoke.pdf">Service Agreement</a>.'
+    '#required': true
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: "<p style=\"text-align: center;\">\r\n\t<strong>Thank you for your submission</strong></p>\r\n\r\n<p>\r\n\tYou will be receiving an email shortly confirming submission of your samples for analysis. If you have any questions, please contact Cole Cerrato at <a href=\"mailto:cole.cerrato@oregonstate.edu\">cole.cerrato@oregonstate.edu</a>.</p>\r\n\r\n<p>\r\n\tAll samples should be shipped or dropped off at:</p>\r\n\r\n<p>\r\n\t3051 SW Campus Way<br />\r\n\t100 Wiegand Hall<br />\r\n\tCorvallis, OR 97331</p>\r\n\r\n<p>\r\n\t<strong>For wine submission:</strong></p>\r\n\r\n<ol>\r\n\t<li>\r\n\t\tProvide at least 50 mL of each wine sample requiring analysis (50 mL is enough for duplicate free- and bound-phenol analysis)</li>\r\n\t<li>\r\n\t\tClearly label all samples for your own reference later. The data will be given a labelled key based on the labels provided</li>\r\n\t<li>\r\n\t\tEnsure all containers are properly sealed</li>\r\n\t<li>\r\n\t\tIf sending by carrier, ship 1 to 3 days delivery, following all guidelines carrier guidelines</li>\r\n\t<li>\r\n\t\tDeliveries performed winemaker, should be done by appointment with Cole Cerrato Monday-Friday</li>\r\n</ol>\r\n\r\n<p>\r\n\t<strong>For grape submission:</strong></p>\r\n\r\n<ol>\r\n\t<li>\r\n\t\tProvide at 5-6 clusters of grapes</li>\r\n\t<li>\r\n\t\tClearly label all samples for your own reference later. The data will be given a labelled key based on the labels provided</li>\r\n\t<li>\r\n\t\tEnsure all containers are properly sealed</li>\r\n\t<li>\r\n\t\tIf sending by carrier, ship 1 day or overnight to avoid spoilage that could impact results</li>\r\n\t<li>\r\n\t\tDeliveries performed by grape grower, should be done by appointment with Cole Cerrato Monday-Friday</li>\r\n\t<li>\r\n\t\tPlease contact us, if you’re interested in testing nano-ferments</li>\r\n</ol>\r\n"
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:contact_email_address:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |-
+        Thank you for your submission,
+
+        You will be receiving an email shortly confirming submission of your samples for analysis. If you have any questions, please contact Cole Cerrato at cole.cerrato@oregonstate.edu.
+
+        All samples should be shipped or dropped off at:
+
+        3051 SW Campus Way
+        100 Wiegand Hall
+        Corvallis, OR 97331
+
+        For wine submission:
+
+            1. Provide at least 50 mL of each wine sample requiring analysis (50 mL is enough for duplicate free- and bound-phenol analysis)
+            2. Clearly label all samples for your own reference later. The data will be given a labelled key based on the labels provided
+            3. Ensure all containers are properly sealed
+            4. If sending by carrier, ship 1 to 3 days delivery, following all guidelines carrier guidelines
+            5. Deliveries performed winemaker, should be done by appointment with Cole Cerrato Monday-Friday
+
+        For grape submission:
+
+            1. Provide at 5-6 clusters of grapes
+            2. Clearly label all samples for your own reference later. The data will be given a labelled key based on the labels provided
+            3. Ensure all containers are properly sealed
+            4. If sending by carrier, ship 1 day or overnight to avoid spoilage that could impact results
+            5. Deliveries performed by grape grower, should be done by appointment with Cole Cerrato Monday-Friday
+            6. Please contact us, if you’re interested in testing nano-ferments
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: cole.cerrato@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |-
+        Submitted on [webform_submission:completed_date:long]
+
+        Submitted values are:
+        [webform_submission:values]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

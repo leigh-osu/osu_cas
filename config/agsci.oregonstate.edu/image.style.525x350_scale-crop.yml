@@ -1,0 +1,15 @@
+uuid: 0533c7b5-0796-4c65-a1a2-75c548033f02
+langcode: en
+status: true
+dependencies: {  }
+name: 525x350_scale-crop
+label: '525x350 scale-crop'
+effects:
+  9ae0f736-84c8-4159-aeea-efb566cb9c13:
+    uuid: 9ae0f736-84c8-4159-aeea-efb566cb9c13
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 525
+      height: 350
+      anchor: center-center

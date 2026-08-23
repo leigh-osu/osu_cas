@@ -1,0 +1,41 @@
+
+#osu_endophyte.pdf_generator:
+#  path: 'node/{node}/testpdf'
+#  defaults:
+#    _controller: '\Drupal\osu_endophyte\Controller\PDFGenerator::generate'
+#  requirements:
+#    _access_generate_pdf: '{node}'
+#  options:
+#    no_cache: 'TRUE'
+#    parameters:
+#      node:
+#        type: entity:node
+osu_endophyte.sample_tracker:
+  path: 'node/{node}/tracker'
+  defaults:
+    _controller: '\Drupal\osu_endophyte\Controller\SampleTracker::generate'
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: 'TRUE'
+    parameters:
+      node:
+        type: entity:node
+osu_endophyte.test_certificate:
+  path: 'node/{node}/certificate/{test_type}'
+  defaults:
+    _controller: '\Drupal\osu_endophyte\Controller\TestCertificate::generate'
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: 'TRUE'
+    parameters:
+      node:
+        type: entity:node
+osu_endophyte.dashboard:
+  path: 'esl-dashboard'
+  defaults:
+    _controller: '\Drupal\osu_endophyte\Controller\Dashboard::content'
+    _title: "ESL Dashboard"
+  requirements:
+    _permission: 'access esl dashboard'

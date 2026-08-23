@@ -1,0 +1,235 @@
+uuid: 7ef3bbbc-96a8-4b98-8a34-c79ba5a18185
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_113131
+title: 'Website Feedback'
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <div style="padding:25px; background-color: #C4D6A4;">
+      	<h3>
+      		Ask an Expert</h3>
+
+      	<p>
+      		Ask Extension is a way for you to get answers from the Oregon State University Extension Service. We have experts in family and health, community development, food and agriculture, coastal issues, forestry, programs for young people, and gardening.</p>
+
+      	<p>
+      		<a class="btn btn-large btn-primary" href="https://extension.oregonstate.edu/ask-expert" target="_blank">Contact Ask an Expert</a></p>
+      </div>
+
+      <div style="padding:25px; background-color: #b7a99a;">
+      	<h3>
+      		Contact Your Local Master Gardener</h3>
+
+      	<p>
+      		The Oregon State University Extension Master Gardener program educates Oregonians about the art and science of growing and caring for plants.</p>
+
+      	<p>
+      		<a class="btn btn-large btn-primary" href="https://extension.oregonstate.edu/program/all/mg/local-programs" target="_blank">Find Your Local Master Gardener</a></p>
+      </div>
+
+      <h3>
+      	College of Agricultural Sciences Units</h3>
+  name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Name
+    '#required': true
+  email_address:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Email Address'
+    '#required': true
+  feedback_topic:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Feedback Topic'
+  what_website_are_you_contacting_us_about:
+    '#type': select
+    '#options':
+      cas: 'College of Agricultural Sciences'
+      roots: 'IT Support (Roots)'
+      ctr_ghic: 'Global Hemp Innovation Center'
+      ap: 'Academic Programs (Student Inquiry)'
+      dept_ag_ed: 'Department of Agricultural Education & Agricultural Sciences'
+      dept_applied_econ: 'Department of Applied Economics'
+      dept_anrs: 'Department of Animal and Rangeland Sciences'
+      dept_bee: 'Department of Biological & Ecological Engineering'
+      dept_bpp: 'Department of Botany and Plant Pathology'
+      dept_css: 'Department of Crop and Soil Science'
+      dept_emt: 'Department of Environmental and Molecular Toxicology'
+      dept_fw: 'Department of Fisheries and Wildlife'
+      dept_foodsci: 'Department of Food Science and Technology'
+      dept_hort: 'Department of Horticulture'
+      ctr_ent: 'Entomology Program'
+      ctr_coarc: 'Central Oregon Agricultural Research and Extension Center'
+      ctr_comes: 'Coastal Oregon Marine Experiment Station'
+      ctr_cbarc: 'Columbia Basin Agricultural Research Center'
+      ctr_eoarc_burns: 'Eastern Oregon Agricultural Research Center - Burns'
+      ctr_eoarc_union: 'Eastern Oregon Agricultural Research Center - Union'
+      ctr_fic: 'Food Innovation Center Experiment Station'
+      ctr_harec: 'Hermiston Agricultural Research and Extension Center'
+      ctr_kbrec: 'Klamath Basin Research and Extension Center'
+      ctr_mes: 'Malheur Experiment Station'
+      ctr_mcared: 'Mid-Columbia Agricultural Research and Extension Center'
+      ctr_nwred: 'North Willamette Research and Extension Center'
+      ctr_seafood_lab: 'Seafood Research and Education Center'
+      ctr_small_farms: 'Small Farms'
+      ctr_sorec: 'Southern Oregon Research and Extension Center'
+      ctr_owri: 'Oregon Wine Research Institute'
+      ap_brr: 'BioResource Research Program'
+      ap_pbg: 'Plant Breeding and Genetics'
+      ap_eoanr: 'Eastern Oregon Agriculture and Natural Resource Program'
+      ap_sdd: 'Sustainability Double-Degree Program'
+      shl: 'Soil Health Lab'
+      honey: 'Honey Bee Lab'
+      hyslop: 'Hyslop Weather Station'
+      barns: 'Dairy, Horse, or Sheep Barns'
+      other: Other
+    '#title': 'About which website are you contacting us?'
+    '#required': true
+  if_other_what_website_is_your_feedback_in_reference_to:
+    '#type': textfield
+    '#unique': false
+    '#title': 'If Other, What website is your feedback in reference to?'
+    '#states':
+      visible:
+        - ':input[name="what_website_are_you_contacting_us_about"]':
+            value: other
+  which_county_in_oregon:
+    '#type': select
+    '#options':
+      not_OR: "I'm not in Oregon"
+      Baker: Baker
+      Benton: Benton
+      Clackamas: Clackamas
+      Clatsop: Clatsop
+      Columbia: Columbia
+      Coos: Coos
+      Crook: Crook
+      Curry: Curry
+      Deschutes: Deschutes
+      Douglas: Douglas
+      Gilliam: Gilliam
+      Grant: Grant
+      Harney: Harney
+      'Hood River': 'Hood River'
+      Jackson: Jackson
+      Jefferson: Jefferson
+      Josephine: Josephine
+      Klamath: Klamath
+      Lake: Lake
+      Lane: Lane
+      Lincoln: Lincoln
+      Linn: Linn
+      Malheur: Malheur
+      Marion: Marion
+      Morrow: Morrow
+      Multnomah: Multnomah
+      Polk: Polk
+      Sherman: Sherman
+      Tillamook: Tillamook
+      Umatilla: Umatilla
+      Union: Union
+      Wallowa: Wallowa
+      Wasco: Wasco
+      Washington: Washington
+      Wheeler: Wheeler
+      Yamhill: Yamhill
+    '#title': 'Which Oregon county are you from?'
+    '#states':
+      visible:
+        - ':input[name="what_website_are_you_contacting_us_about"]':
+            value: ctr_ent
+  entomology_questions:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <div style="padding:25px; background-color: #FDD26E;">
+      	<p style="margin-left: 40px;">
+      		<strong>For Entomology inquires, we suggest that you use the <a href="https://entomology.oregonstate.edu/entomology/about-us/contact-us">Contact Entomology webpage</a> to help you find the best resource for your question.</strong></p>
+      </div>
+    '#states':
+      visible:
+        - ':input[name="what_website_are_you_contacting_us_about"]':
+            value: ctr_ent
+  feedback:
+    '#type': textarea
+    '#title': Feedback
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:what_website_are_you_contacting_us_about:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: 'Website Feedback'
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: '[webform_submission:values:feedback_topic:raw]'
+      body: |
+        [webform_submission:values]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

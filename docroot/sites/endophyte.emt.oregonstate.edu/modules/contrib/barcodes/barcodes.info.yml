@@ -1,0 +1,14 @@
+name: Barcodes
+type: module
+description: Tools for using Barcodes
+package: Content display
+core_version_requirement: ^10.3 || ^11
+
+test_dependencies:
+  - bigint:bigint
+  - token:token
+
+# Information added by Drupal.org packaging script on 2024-12-23
+version: '2.1.1'
+project: 'barcodes'
+datestamp: 1734943834

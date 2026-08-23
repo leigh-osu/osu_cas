@@ -1,0 +1,5 @@
+parameters:
+  ignoreErrors:
+    # PHPUnit attributes don't exist in PHPUnit 9 (Drupal 10).
+    # We use both annotations and attributes for cross-version compatibility.
+    - '#Attribute class PHPUnit\\Framework\\Attributes\\[A-Za-z]+ does not exist\.#'

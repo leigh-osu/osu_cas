@@ -1,0 +1,14 @@
+uuid: 35be4f65-ef13-4afa-bbea-49ca0f2f292f
+langcode: en
+status: 1
+dependencies: {  }
+_core:
+  default_config_hash: Uxh654JOp8t3XxVdfNxC_7uld0sHnVR_k3ZCkNgrDZ0
+id: tablet_portrait
+label: 'Tablet Portrait'
+weight: 1
+orientation: portrait
+dimensions:
+  width: 1640
+  height: 2360
+  dppx: 2.0

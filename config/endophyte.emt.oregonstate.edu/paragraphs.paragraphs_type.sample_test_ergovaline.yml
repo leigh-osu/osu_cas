@@ -1,0 +1,10 @@
+uuid: 29ac0a8f-f5ca-4ce6-951b-8af177ee7436
+langcode: en
+status: true
+dependencies: {  }
+id: sample_test_ergovaline
+label: 'Test: Ergovaline'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

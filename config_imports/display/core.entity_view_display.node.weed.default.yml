@@ -1,0 +1,243 @@
+uuid: f27a6db7-e26d-4b9a-ba28-356a681278f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.full
+    - core.entity_view_mode.media.gallery_card
+    - field.field.node.weed.body
+    - field.field.node.weed.field_domain_access
+    - field.field.node.weed.field_domain_all_affiliates
+    - field.field.node.weed.field_domain_source
+    - field.field.node.weed.field_tax_life_cycle
+    - field.field.node.weed.field_weed_bittercress_and_aphid
+    - field.field.node.weed.field_weed_brief_description
+    - field.field.node.weed.field_weed_common_name
+    - field.field.node.weed.field_weed_control_description
+    - field.field.node.weed.field_weed_cotyledon_or_seedling
+    - field.field.node.weed.field_weed_dissemination
+    - field.field.node.weed.field_weed_family
+    - field.field.node.weed.field_weed_favorable_env_note
+    - field.field.node.weed.field_weed_favorable_environment
+    - field.field.node.weed.field_weed_flowers
+    - field.field.node.weed.field_weed_foliage
+    - field.field.node.weed.field_weed_habit
+    - field.field.node.weed.field_weed_image
+    - field.field.node.weed.field_weed_latin_name
+    - field.field.node.weed.field_weed_literature_cited
+    - field.field.node.weed.field_weed_look_alikes
+    - field.field.node.weed.field_weed_management_link
+    - field.field.node.weed.field_weed_of_interest
+    - field.field.node.weed.field_weed_physical_description
+    - field.field.node.weed.field_weed_plant_status
+    - field.field.node.weed.field_weed_roots
+    - field.field.node.weed.field_weed_rosette
+    - field.field.node.weed.field_weed_seed_or_seed_pods
+    - field.field.node.weed.field_weed_stem
+    - node.type.weed
+  module:
+    - colorbox
+    - link
+    - options
+    - text
+    - user
+id: node.weed.default
+targetEntityType: node
+bundle: weed
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 23
+    region: content
+  field_tax_life_cycle:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_weed_bittercress_and_aphid:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 16
+    region: content
+  field_weed_control_description:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 17
+    region: content
+  field_weed_cotyledon_or_seedling:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_weed_dissemination:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_weed_family:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_weed_favorable_env_note:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_weed_favorable_environment:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_weed_flowers:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_weed_foliage:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_weed_habit:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_weed_image:
+    type: colorbox_view_modes
+    label: hidden
+    settings:
+      colorbox_view_mode: gallery_card
+      colorbox_modal_view_mode: full
+      colorbox_gallery: post
+      colorbox_gallery_custom: ''
+    third_party_settings: {  }
+    weight: -50
+    region: content
+  field_weed_latin_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_weed_literature_cited:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 22
+    region: content
+  field_weed_look_alikes:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 18
+    region: content
+  field_weed_management_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_weed_of_interest:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 21
+    region: content
+  field_weed_physical_description:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 19
+    region: content
+  field_weed_plant_status:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_weed_roots:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 15
+    region: content
+  field_weed_rosette:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_weed_seed_or_seed_pods:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_weed_stem:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  entitygroupfield: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_flowers: true
+  field_stem: true
+  field_weed_brief_description: true
+  field_weed_common_name: true
+  langcode: true

@@ -1,0 +1,9 @@
+uuid: 31c4cc6a-a6bd-495f-80df-e79be0c9bb1b
+langcode: en
+status: true
+dependencies: {  }
+name: 'Work areas'
+vid: work_areas
+description: null
+weight: 0
+new_revision: false

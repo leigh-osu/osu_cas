@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for date_ical module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function date_ical_theme() {
+  return [
+    'date_ical_icon' => [
+      'variables' => [
+        'format' => NULL,
+        'url' => NULL,
+        'title' => '📅',
+        'attributes' => [],
+      ],
+    ],
+  ];
+}

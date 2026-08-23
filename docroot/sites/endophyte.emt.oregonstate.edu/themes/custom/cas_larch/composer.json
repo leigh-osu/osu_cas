@@ -1,0 +1,13 @@
+{
+    "name": "leigh-osu/cas_larch",
+    "description": "Bootstrap 5 sub-theme for the OSU Endophyte Service Lab.",
+    "minimum-stability": "stable",
+    "license": "GPL-2.0-or-later",
+    "type": "drupal-custom-theme",
+    "authors": [
+        {
+            "name": "Roger Leigh",
+            "email": "roger.leigh@oregonstate.edu"
+        }
+    ]
+}

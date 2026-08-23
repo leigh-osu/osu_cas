@@ -1,0 +1,24 @@
+uuid: f94d1046-d6fe-4ceb-8025-e3b1f3d008f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.publications
+  module:
+    - node
+id: publications
+label: Publications
+type: 'canonical_entities:node'
+pattern: '/publication/[node:title]'
+selection_criteria:
+  54b7a9fd-df24-4879-b657-881502bbe884:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 54b7a9fd-df24-4879-b657-881502bbe884
+    context_mapping:
+      node: node
+    bundles:
+      publications: publications
+selection_logic: and
+weight: -5
+relationships: {  }

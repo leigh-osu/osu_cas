@@ -1,0 +1,10 @@
+id: desktop
+label: 'Desktop'
+weight: 3
+status: 1
+orientation: landscape
+dimensions:
+  width: 1920
+  height: 1080
+  dppx: !!float 1
+langcode: en

@@ -1,0 +1,4 @@
+'create media fields based on existing image fields':
+  title: 'Create media fields based on existing image fields'
+  description: 'Allows to create media entities and add media fields to content entities.'
+  restrict access: true

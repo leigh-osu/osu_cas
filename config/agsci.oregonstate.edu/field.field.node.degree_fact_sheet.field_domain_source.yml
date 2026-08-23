@@ -1,0 +1,25 @@
+uuid: e0282295-b7b7-4d40-9eb6-a63b01517ed3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_domain_source
+    - node.type.degree_fact_sheet
+id: node.degree_fact_sheet.field_domain_source
+field_name: field_domain_source
+entity_type: node
+bundle: degree_fact_sheet
+label: 'Domain Source'
+description: 'Select the canonical domain for this content.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:domain'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: weight
+      direction: ASC
+field_type: entity_reference

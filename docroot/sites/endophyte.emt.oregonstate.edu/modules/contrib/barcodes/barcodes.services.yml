@@ -1,0 +1,16 @@
+services:
+  logger.channel.barcodes:
+    parent: logger.channel_base
+    arguments: ['barcodes']
+  barcodes.twig_extension:
+    class: \Drupal\barcodes\Template\Barcode
+    arguments: ['@token']
+    tags:
+      - { name: twig.extension }
+
+  Drupal\barcodes\Hook\BarcodesHelpHooks:
+    class: \Drupal\barcodes\Hook\BarcodesHelpHooks
+    autowire: true
+  Drupal\barcodes\Hook\BarcodesRenderHooks:
+    class: \Drupal\barcodes\Hook\BarcodesRenderHooks
+    autowire: true

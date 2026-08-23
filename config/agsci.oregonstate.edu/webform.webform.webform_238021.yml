@@ -1,0 +1,270 @@
+uuid: eba88b62-1e80-4ce8-b802-24fff2c1a1cb
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_238021
+title: 'Hort Course Override Request Form'
+description: null
+categories: {  }
+elements: |-
+  full_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Full Name'
+    '#required': true
+  osu_id_number:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'OSU ID Number'
+    '#required': true
+  osu_email_address:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': 'OSU Email Address'
+    '#required': true
+  degree:
+    '#type': textfield
+    '#title_display': inline
+    '#title': Degree
+    '#required': true
+  horticulture_option:
+    '#type': checkboxes
+    '#options':
+      opt_turf_landscape: 'Ecological Management of Turf, Landscape, and Urban Horticulture'
+      opt_gen_hort: 'General Horticulture (Online)'
+      opt_hort_research: 'Horticultural Research'
+      opt_breeding_genetics: 'Plant Breeding and Genetics'
+      opt_sustainable: 'Sustainable Horticultural Production'
+      opt_viticulture: 'Viticulture and Enology'
+      opt_none: None
+    '#multiple': true
+    '#title': 'Horticulture Option'
+  advisor:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Advisor
+    '#required': true
+  term:
+    '#type': radios
+    '#options':
+      fall: Fall
+      winter: Winter
+      spring: Spring
+      summer: Summer
+    '#title': Term
+    '#required': true
+  crn:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': CRN
+    '#required': true
+  course_name:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'Course Name'
+    '#required': true
+  course_section_number:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Course Section number'
+    '#required': true
+  instructor_name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Instructor Name'
+    '#required': true
+  time_day_of_course:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Time/day of course'
+    '#required': true
+  additional_information_about_your_request:
+    '#type': textarea
+    '#title': 'Additional information about your request '
+  please_upload_an_image_of_the_registration_error:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png'
+    '#title': 'If you are receiving an error message, please attach a screenshot, or type in below the error message'
+  error_message:
+    '#type': textarea
+    '#title': 'Error Message'
+  please_upload_a_transcript_if_relevant_for_override_request:
+    '#type': managed_file
+    '#max_filesize': 2.0
+    '#file_extensions': 'gif jpg jpeg png pdf doc docx'
+    '#title': 'Please upload a transcript, if relevant, for override request'
+  contact:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <p>
+      	<strong>For additional questions contact:</strong></p>
+
+      <p style="margin-left: 40px;">
+      	Anne Gearhart<br />
+      	Head Advisor<br />
+      	Department of Horticulture<br />
+      	<a href="mailto:anne.gearhart@oregonstate.edu">anne.gearhart@oregonstate.edu</a><br />
+      	541-737-5448</p>
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: elaine.clark@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+  email_2:
+    id: email
+    handler_id: email_2
+    label: 'Email 2'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:osu_email_address:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |-
+        Submitted on [webform_submission:completed_date:long]
+        Submitted by user: [webform_submission:user]
+        Submitted values are:
+        [webform_submission:values]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+  email_3:
+    id: email
+    handler_id: email_3
+    label: 'Email 3'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 3
+    settings:
+      states:
+        - completed
+      to_mail: gearhara@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: |
+        Submitted on [webform_submission:completed_date:long]
+        Submitted by user: [webform_submission:user]
+        Submitted values are:
+        [webform_submission:values]
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

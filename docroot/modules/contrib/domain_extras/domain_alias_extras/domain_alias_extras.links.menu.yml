@@ -1,0 +1,6 @@
+domain_alias_extras.settings:
+  title: 'Domain Alias Extras'
+  route_name: domain_alias_extras.settings
+  parent: domain.admin
+  description: 'Edit the environments available when defining domain aliases (e.g. local, staging, production).'
+  weight: 20

@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mw_location
+    - node.type.weather_monthly_data
+  module:
+    - options
+id: node.weather_monthly_data.field_mw_location
+field_name: field_mw_location
+entity_type: node
+bundle: weather_monthly_data
+label: Location
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,41 @@
+// Define new variables.
+
+//CAS//
+$larch-teal: #0d5257;
+$larch-blue: #003b5c;
+$larch-gray: #8e9089;
+$larch-red: #af292e;
+
+//OSU colors https://communications.oregonstate.edu/brand-guide/visual-identity/colors
+$osu-orange: #d73f09;
+$osu-pinestand: #4a773c;
+$osu-hightide: #00859b;
+$osu-luminance: #ffb500;
+$osu-stratosphere: #006a8e;
+$osu-reindeermoss: #c4d6a4;
+$osu-seafoam: #b8dde1;
+$osu-candela: #fdd26e;
+$osu-moondust: #c6dae7;
+$osu-hopbine: #aa9d2e;
+$osu-roguewave: #0d5257;
+$osu-solarflare: #d3832b;
+$osu-starcanvas: #003b5c;
+$osu-till: #b7a99a;
+$osu-coastline: #a7aca2;
+$osu-highdesert: #7a6855;
+$osu-crater: #8e9089;
+
+@font-face {
+  font-family: 'Stratum2Web';
+  src: url('../fonts/Stratum2WebBold.woff2') format('woff2'), url('../fonts/Stratum2WebBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Stratum2Light';
+  src: url('../fonts/Stratum2WebLight.woff2') format('woff2'), url('../fonts/Stratum2WebLight.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Stratum2Regular';
+  src: url('../fonts/Stratum2WebRegular.woff2') format('woff2'), url('../fonts/Stratum2WebRegular.woff') format('woff');
+}

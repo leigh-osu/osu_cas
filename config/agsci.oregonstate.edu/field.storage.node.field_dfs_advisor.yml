@@ -1,0 +1,19 @@
+uuid: 43a1eef4-cff9-45ce-9193-591950ee8a9d
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_dfs_advisor
+field_name: field_dfs_advisor
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 4
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

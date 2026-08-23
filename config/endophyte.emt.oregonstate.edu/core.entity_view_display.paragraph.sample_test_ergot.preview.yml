@@ -1,0 +1,45 @@
+uuid: 455a4c53-f5e9-4cc8-a449-b94cd9257104
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.sample_test_ergot.field_test_ergot_estimate
+    - field.field.paragraph.sample_test_ergot.field_test_final_date
+    - field.field.paragraph.sample_test_ergot.field_test_final_ok
+    - field.field.paragraph.sample_test_ergot.field_test_final_ok_date
+    - field.field.paragraph.sample_test_ergot.field_test_final_ok_user
+    - field.field.paragraph.sample_test_ergot.field_test_final_user
+    - field.field.paragraph.sample_test_ergot.field_test_final_value
+    - field.field.paragraph.sample_test_ergot.field_test_final_value_calc
+    - field.field.paragraph.sample_test_ergot.field_test_legacy_sample_id
+    - field.field.paragraph.sample_test_ergot.field_test_legacy_test_id
+    - field.field.paragraph.sample_test_ergot.field_test_pdf
+    - field.field.paragraph.sample_test_ergot.field_test_status
+    - paragraphs.paragraphs_type.sample_test_ergot
+  module:
+    - options
+id: paragraph.sample_test_ergot.preview
+targetEntityType: paragraph
+bundle: sample_test_ergot
+mode: preview
+content:
+  field_test_status:
+    type: list_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_test_ergot_estimate: true
+  field_test_final_date: true
+  field_test_final_ok: true
+  field_test_final_ok_date: true
+  field_test_final_ok_user: true
+  field_test_final_user: true
+  field_test_final_value: true
+  field_test_final_value_calc: true
+  field_test_legacy_sample_id: true
+  field_test_legacy_test_id: true
+  field_test_pdf: true

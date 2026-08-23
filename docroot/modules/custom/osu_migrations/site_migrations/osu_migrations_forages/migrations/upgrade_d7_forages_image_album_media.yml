@@ -1,0 +1,52 @@
+# Fake migration to copy the data from image_album to media fields.
+langcode: en
+status: true
+dependencies: { }
+id: upgrade_d7_forages_image_album_media
+migration_tags:
+  - Drupal 7
+  - OSU Content
+  - OSU
+  - Forages
+source:
+  plugin: d7_node
+  node_type: image_album
+process:
+  # Migrate the image field
+  mid:
+    plugin: image_album_media
+    source: field_album_image
+  _media_image_type:
+    - plugin: sub_process
+      source: field_photo_subject
+      process:
+        target_id:
+          - plugin: migration_lookup
+            migration: upgrade_d7_taxonomy_terms
+            source: tid
+  _media_affiliation:
+    - plugin: sub_process
+      source: field_species_affiliation
+      process:
+        target_id:
+          - plugin: migration_lookup
+            migration: upgrade_d7_node
+            source: target_id
+  type:
+    plugin: default_value
+    default_value: image
+destination:
+  plugin: 'entity:media'
+  default_bundle: image
+migration_dependencies:
+  required:
+    - upgrade_d7_files
+    - upgrade_d7_media_images
+    - upgrade_d7_users_with_roles
+    - upgrade_d7_taxonomy_terms
+  optional:
+    - upgrade_d7_media_audio
+    - upgrade_d7_media_documents
+    - upgrade_d7_media_local_video
+    - upgrade_d7_media_kaltura
+    - upgrade_d7_media_remote_video

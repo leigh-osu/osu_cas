@@ -1,0 +1,91 @@
+uuid: 5c7e0da0-3285-4472-ad01-bb5db4c0d613
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: f4CGlW7UFOqEM3kCcV7MIh-BULRmHb_REip6ql-Xf20
+id: cas_user_profile_osu_employee
+class: null
+idMap: {  }
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - OSU
+  - CAS
+  - 'CAS Content'
+migration_group: content
+label: 'CAS OSU Employee profile - additional fields'
+source:
+  plugin: d7_osu_profile2_employee_address
+  profile2_type: osu_employee
+process:
+  nid:
+    -
+      plugin: migration_lookup
+      migration: upgrade_d7_user_to_profile
+      source: uid
+      no_stub: true
+    -
+      plugin: skip_on_empty
+      method: row
+  field_profile_alt_phone: phone_other
+  field_profile_fax: phone_fax
+  field_profile_address/country_code: profile_address/country_code
+  field_profile_address/administrative_area: profile_address/administrative_area
+  field_profile_address/locality: profile_address/locality
+  field_profile_address/postal_code: profile_address/postal_code
+  field_profile_address/address_line1: profile_address/address_line1
+  field_profile_address/address_line2: profile_address/address_line2
+  field_osu_organizations:
+    plugin: sub_process
+    source: affiliation_names
+    process:
+      target_id:
+        -
+          plugin: entity_generate
+          entity_type: taxonomy_term
+          bundle_key: vid
+          bundle: osu_organization
+          value_key: name
+          ignore_case: true
+          source: name
+        -
+          plugin: skip_on_empty
+          method: row
+  field_profile_functional_group:
+    plugin: sub_process
+    source: functional_group
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: 'upgrade_d7_taxonomy_terms:functional_groups'
+          source: tid
+          no_stub: true
+        -
+          plugin: skip_on_empty
+          method: row
+  field_profile_headquarters:
+    -
+      plugin: get
+      source: headquarters/0/value
+    -
+      plugin: skip_on_empty
+      method: process
+  type:
+    plugin: default_value
+    default_value: osu_profile
+destination:
+  plugin: 'entity:node'
+  default_bundle: osu_profile
+  overwrite_properties:
+    - field_profile_alt_phone
+    - field_profile_fax
+    - field_profile_address
+    - field_osu_organizations
+    - field_profile_functional_group
+    - field_profile_headquarters
+migration_dependencies:
+  required:
+    - upgrade_d7_user_to_profile

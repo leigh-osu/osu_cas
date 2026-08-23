@@ -1,0 +1,14 @@
+uuid: b1b31399-a314-40df-bc2e-ba63838fb178
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.infews_org
+  module:
+    - domain_source
+id: domain_source_set_action.infews_org
+label: 'Set content domain source value to the Infews domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: infews_org

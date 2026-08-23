@@ -1,0 +1,21 @@
+# @see core/modules/ckeditor5/ckeditor5.ckeditor5.yml
+# @see https://www.drupal.org/project/ckeditor5_dev
+date_ical_plugin:
+  # Configuration that will be sent to CKEditor 5 JavaScript plugins.
+  ckeditor5:
+    plugins:
+      - dateIcal.DateIcal
+
+  # Configuration that will be used directly by Drupal.
+  drupal:
+    label: 'Date iCal'
+    library: date_ical/date_ical
+    admin_library: date_ical/admin.date_ical
+    toolbar_items:
+      dateIcal:
+        label: 'Date iCalendar'
+    # The plugin does not provide elements.
+    elements:
+      - <time>
+      - <time class="date-ical">
+    class: Drupal\date_ical\Plugin\CKEditor5Plugin\DateICal

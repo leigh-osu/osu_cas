@@ -1,0 +1,5 @@
+osu_endophyte.dashboard:
+  title: Admin Dashboard
+  route_name: osu_endophyte.dashboard
+  parent: main
+  menu_name: main

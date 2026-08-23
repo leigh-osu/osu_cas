@@ -1,0 +1,20 @@
+uuid: db0b9c05-351c-4d28-ba2f-c20dd6d3296a
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_dw_20_inches_max
+field_name: field_dw_20_inches_max
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

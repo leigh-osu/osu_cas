@@ -1,0 +1,43 @@
+uuid: 83da942c-ba49-4390-8110-e3b85a5df8a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sample_test_pellet
+    - node.type.sample
+    - paragraphs.paragraphs_type.sample_test_pellet
+  module:
+    - entity_reference_revisions
+id: node.sample.field_sample_test_pellet
+field_name: field_sample_test_pellet
+entity_type: node
+bundle: sample
+label: 'Pellet test'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      sample_test_pellet: sample_test_pellet
+    negate: 0
+    target_bundles_drag_drop:
+      client_phone:
+        weight: 5
+        enabled: false
+      sample_test_ergot:
+        weight: 6
+        enabled: false
+      sample_test_ergovaline:
+        weight: 7
+        enabled: false
+      sample_test_lolitrem_b:
+        weight: 8
+        enabled: false
+      sample_test_pellet:
+        weight: 10
+        enabled: true
+field_type: entity_reference_revisions

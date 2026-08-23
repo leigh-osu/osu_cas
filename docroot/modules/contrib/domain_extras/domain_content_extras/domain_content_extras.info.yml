@@ -1,0 +1,12 @@
+name: Domain Content Extras
+description: 'Various utilities related to the Domain content module.'
+type: module
+package: Domain
+core_version_requirement: ^10.2 || ^11
+dependencies:
+  - domain:domain_content
+
+# Information added by Drupal.org packaging script on 2026-08-07
+version: '3.0.5'
+project: 'domain_extras'
+datestamp: 1786097847

@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfs_banner
+    - node.type.degree_fact_sheet
+  module:
+    - image
+id: node.degree_fact_sheet.field_dfs_banner
+field_name: field_dfs_banner
+entity_type: node
+bundle: degree_fact_sheet
+label: Banner
+description: 'Banner image at the top of the page'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image: 0
+field_type: image

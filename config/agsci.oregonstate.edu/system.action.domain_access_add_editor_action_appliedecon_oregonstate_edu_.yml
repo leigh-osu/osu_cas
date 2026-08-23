@@ -1,0 +1,15 @@
+uuid: 6117a031-c5b0-4341-8346-ec5de52cada7
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.appliedecon_oregonstate_edu_
+  module:
+    - domain_access
+id: domain_access_add_editor_action_appliedecon_oregonstate_edu_
+label: 'Add editors to the Applied Economics domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - appliedecon_oregonstate_edu_

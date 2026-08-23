@@ -1,0 +1,23 @@
+uuid: 92413d45-d3ba-4f83-b981-c089f47dfdfe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dfs_example_4_year_plan
+    - node.type.degree_fact_sheet
+  module:
+    - link
+id: node.degree_fact_sheet.field_dfs_example_4_year_plan
+field_name: field_dfs_example_4_year_plan
+entity_type: node
+bundle: degree_fact_sheet
+label: 'Example 4-Year Plan'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

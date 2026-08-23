@@ -1,0 +1,96 @@
+views.style.date_ical:
+  type: views_style
+  label: 'date_ical'
+  mapping:
+    cal_name:
+      type: string
+      label: 'iCal Calendar Name'
+    no_calname:
+      type: boolean
+      label: 'Exclude Calendar Name'
+    disable_webcal:
+      type: boolean
+      label: 'Disable webcal://'
+    exclude_dtstamp:
+      type: boolean
+      label: 'Exclude DTSTAMP'
+    unescape_punctuation:
+      type: boolean
+      label: 'Unescape Commas and Semicolons'
+    skip_blank_dates:
+      type: boolean
+      label: 'Skip blank dates'
+    download_directly:
+      type: boolean
+      label: 'Download directly'
+
+field.formatter.settings.date_ical:
+  type: mapping
+  label: Date iCal formatter settings
+  mapping:
+    summary_field:
+      type: string
+      label: 'Summary field'
+    description_field:
+      type: string
+      label: 'Description field'
+    location_field:
+      type: string
+      label: 'Location field'
+    categories_field:
+      type: string
+      label: 'Categories field'
+    organizer_field:
+      type: string
+      label: 'Organizer field'
+    status_field:
+      type: string
+      label: 'Status field'
+    url_field:
+      type: string
+      label: 'URL field'
+    rrule:
+      type: string
+      label: 'Recurrence Rule'
+    rrule_field:
+      type: string
+      label: 'Repeating Rule field'
+    attendee_field:
+      type: string
+      label: 'email field'
+    alarm_field:
+      type: string
+      label: 'Alarm field'
+    attach_field:
+      type: string
+      label: 'Attach field'
+    geo_field:
+      type: string
+      label: 'Geolocation field'
+    download_directly:
+      type: boolean
+      label: 'Download directly'
+    disable_webcal:
+      type: boolean
+      label: 'Disable webcal://'
+
+# Plugin \Drupal\date_ical\Plugin\CKEditor5Plugin\DateICal
+ckeditor5.plugin.date_ical_plugin:
+  type: mapping
+  label: List
+  mapping:
+    description:
+      type: boolean
+      label: Description field
+    location:
+      type: boolean
+      label: Location field
+    categories:
+      type: boolean
+      label: Categories field
+    organizer:
+      type: boolean
+      label: Organizer field
+    url:
+      type: boolean
+      label: Url field

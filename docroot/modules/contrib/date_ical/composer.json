@@ -1,0 +1,31 @@
+{
+  "name": "drupal/date_ical",
+  "description": "It provides a plugin for Views to enable exporting your site's calendar as an iCal feed",
+  "type": "drupal-module",
+  "minimum-stability": "dev",
+  "keywords": ["Drupal", "date", "ical", "ics", "calendar"],
+  "homepage": "https://www.drupal.org/project/date_ical",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/date_ical",
+    "source": "https://git.drupalcode.org/project/date_ical"
+  },
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "NGUYEN Bao",
+      "email": "n.bao@yahoo.com",
+      "homepage": "https://www.drupal.org/u/lazzyvn",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Joseph OLSTAD",
+      "email": "joseph@7pro.ca",
+      "homepage": "https://www.drupal.org/u/joseph.olstad",
+      "role": "Maintainer"
+    }
+  ],
+  "require": {
+    "drupal/core": "^9 || ^10 || ^11 || ^12",
+    "kigkonsult/icalcreator": ">=2.40"
+  }
+}

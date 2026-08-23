@@ -1,0 +1,7 @@
+// Styled 2-col rows (colored or background-image columns, migrated with
+// px-0 regions): drop madrone's layout-row side padding (1-3rem
+// padding-inline on container > .row.layout-builder__layout) so the
+// column colour/image reaches the row edges, like D7's span backgrounds.
+[class*='container'] > .row.layout-builder__layout:has(> .px-0) {
+  padding-inline: 0;
+}

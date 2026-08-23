@@ -1,0 +1,19 @@
+uuid: 87558ea9-34c3-468b-b90e-ccaae6e1837e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_weed_cotyledon_or_seedling
+field_name: field_weed_cotyledon_or_seedling
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

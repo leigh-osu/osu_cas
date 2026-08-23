@@ -1,0 +1,36 @@
+uuid: 8d2400a9-1f0b-41c2-ae50-268f96518c90
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_dfs_location
+field_name: field_dfs_location
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: corvallis
+      label: Corvallis
+    -
+      value: lagrande
+      label: 'La Grande'
+    -
+      value: newport
+      label: Newport
+    -
+      value: cascades
+      label: Cascades
+    -
+      value: online
+      label: Online
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,98 @@
+uuid: f768cc9e-5aad-488f-bff7-47ccd2eb2925
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.pdf
+    - field.field.node.sample.field_sample_accession
+    - field.field.node.sample.field_sample_date_completed
+    - field.field.node.sample.field_sample_date_requested
+    - field.field.node.sample.field_sample_extra_processing
+    - field.field.node.sample.field_sample_field_lot
+    - field.field.node.sample.field_sample_grower_name
+    - field.field.node.sample.field_sample_legacy_client_id
+    - field.field.node.sample.field_sample_legacy_sample_id
+    - field.field.node.sample.field_sample_notes_client
+    - field.field.node.sample.field_sample_notes_osu
+    - field.field.node.sample.field_sample_received
+    - field.field.node.sample.field_sample_received_date
+    - field.field.node.sample.field_sample_received_user
+    - field.field.node.sample.field_sample_sample_name
+    - field.field.node.sample.field_sample_status
+    - field.field.node.sample.field_sample_test_ergot
+    - field.field.node.sample.field_sample_test_ergovaline
+    - field.field.node.sample.field_sample_test_lolitrem_b
+    - field.field.node.sample.field_sample_test_pellet
+    - field.field.node.sample.field_sample_variety
+    - field.field.node.sample.field_sample_variety_other
+    - node.type.sample
+  module:
+    - datetime
+    - options
+    - user
+id: node.sample.pdf
+targetEntityType: node
+bundle: sample
+mode: pdf
+content:
+  field_sample_date_requested:
+    type: datetime_default
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: short
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_sample_field_lot:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_sample_grower_name:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_sample_sample_name:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_sample_variety:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_sample_accession: true
+  field_sample_date_completed: true
+  field_sample_extra_processing: true
+  field_sample_legacy_client_id: true
+  field_sample_legacy_sample_id: true
+  field_sample_notes_client: true
+  field_sample_notes_osu: true
+  field_sample_received: true
+  field_sample_received_date: true
+  field_sample_received_user: true
+  field_sample_status: true
+  field_sample_test_ergot: true
+  field_sample_test_ergovaline: true
+  field_sample_test_lolitrem_b: true
+  field_sample_test_pellet: true
+  field_sample_variety_other: true
+  links: true

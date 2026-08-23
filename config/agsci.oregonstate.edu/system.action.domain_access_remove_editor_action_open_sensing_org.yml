@@ -1,0 +1,15 @@
+uuid: ca46fd46-eae3-4ac5-bfac-716b71ba1d07
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.open_sensing_org
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_open_sensing_org
+label: 'Remove editors from the Open Sensing Lab domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - open_sensing_org

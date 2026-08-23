@@ -1,0 +1,14 @@
+/**
+ * @file
+ */
+.item-list--linkicon ul.linkicon-preview {
+  margin: 1em 0;
+  list-style: none;
+}
+
+.item-list--linkicon ul.linkicon-preview li {
+  display: block;
+  float: left;
+  margin: 5px 10px;
+  list-style: none;
+}

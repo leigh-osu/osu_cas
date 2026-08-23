@@ -1,0 +1,190 @@
+uuid: 147fa7eb-393d-45f5-aee6-c378ddd87552
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 17
+template: false
+archive: false
+id: webform_112116
+title: 'Start a Project'
+description: null
+categories: {  }
+elements: |-
+  intro:
+    '#type': processed_text
+    '#format': full_html
+    '#text': |-
+      <h3>
+      	<strong>Our Process</strong></h3>
+
+      <p>
+      	In order to best serve the goals of the college and help identify the best way to connect those goals with faculty, staff, students, and other stakeholders, we want to partner with you to help identify the best communications strategy to achieve your desired outcomes. One way we do that is to start with some questions. Please fill out the form below and it will be uploaded into our ticketing system so that we can meet your needs with efficiency and clarity.</p>
+
+      <p>
+      	We are also available via email and/or phone via our <a href="/cas-communications#people">Team Page</a>.</p>
+  name:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': Name
+    '#required': true
+  e_mail:
+    '#type': email
+    '#size': 20
+    '#unique': false
+    '#title_display': inline
+    '#title': E-mail
+    '#required': true
+  phone_number:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Phone Number'
+  department_organization:
+    '#type': textfield
+    '#unique': false
+    '#title_display': inline
+    '#title': 'Department / Organization'
+  type_of_project:
+    '#type': radios
+    '#options':
+      existing: 'Do you need support with an existing web site?'
+      new: 'Do you need to develop something completely new?'
+    '#title': 'Type of Project'
+    '#required': true
+  fieldset_creative_brief:
+    '#type': fieldset
+    '#open': true
+    '#title': 'Creative Brief'
+    '#states':
+      visible:
+        - ':input[name="type_of_project"]':
+            value: new
+    the_assignment_6:
+      '#type': textarea
+      '#title': 'The Assignment'
+      '#description': 'A simple statement of the task. This should be as clear and specific as possible. What is the objective and or action we want to impact? Two sentences max. We would prefer one.'
+    the_truth_6:
+      '#type': textarea
+      '#title': 'The Truth'
+      '#description': 'Make it big. Make it honest. Make it ACTIONABLE. And if there is no issue to push off, find a real, big opportunity or a specific problem you are trying to solve. '
+    audience_6:
+      '#type': textarea
+      '#title': Audience
+      '#description': 'Give an inspiring, true account of our user. Not everything you know smarty. Only what is important to the assignment. Think about what they are passionate about and how they behave (socially, digitally, culturally) in relation to the challenge we have set.'
+    the_friction_6:
+      '#type': textarea
+      '#title': 'The Friction'
+      '#description': 'When you look at the brand, product, or service and you look at the target’s beliefs, behavior, or needs, where are the disconnects? Where are the tension points that need solving? What is keeping your audience from doing what you want them to do/believing what you want them to believe? '
+    the_shift_6:
+      '#type': textarea
+      '#title': 'The Shift'
+      '#description': |
+        What do people think now and what do we want them to think? When you look at the brand, product, or service and you look at consumer belief, behavior, or need, where are the disconnects? Where are the tension points that need solving?
+
+        From: Current POV.
+        To: The POV we want to see. 
+    the_big_idea_6:
+      '#type': textarea
+      '#title': 'The Big Idea'
+      '#description': 'Simple. Honest. Big. A provocative, true statement that provides a unique POV on the task. This is a springboard. A starting point. It is NOT a bad tagline. NO cleverness. Just say it.'
+    the_support_6:
+      '#type': textarea
+      '#title': 'The Support'
+      '#description': 'Why will people want to engage in this idea and join/share the conversation? What’s the proof? What do we have to offer? '
+    tone_6:
+      '#type': textarea
+      '#title': Tone
+      '#description': 'How do we want to talk? What will work with the audience we’re trying to involve.'
+    success_metrics_6:
+      '#type': textarea
+      '#title': 'Success Metrics'
+      '#description': 'What will make you hold this idea up as a success? Is it to sell product? Grow a community? Create talk? Impact culture? Celebrate a new release or discovery? Promote an event? When possible, be specific.'
+    timing_6:
+      '#type': textarea
+      '#title': Timing
+      '#description': 'What are the key dates teams need to know about that will guide the calendar and timeline. '
+    budget_6:
+      '#type': textarea
+      '#title': Budget
+      '#description': 'Not required, but this is helpful to know.'
+  url_if_applicable:
+    '#type': textfield
+    '#title_display': inline
+    '#title': 'URL of the site'
+    '#states':
+      visible:
+        - ':input[name="type_of_project"]':
+            value: existing
+  description:
+    '#type': textarea
+    '#title': Description
+    '#states':
+      visible:
+        - ':input[name="type_of_project"]':
+            value: existing
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  wizard_progress_bar: true
+  preview: 0
+  draft: '0'
+  draft_auto_save: false
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_message: ''
+  limit_total: null
+  limit_user: null
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+handlers:
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email 1'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: caswebrequest@oregonstate.edu
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: false
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+variants: {  }

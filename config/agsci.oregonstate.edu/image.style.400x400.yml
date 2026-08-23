@@ -1,0 +1,15 @@
+uuid: c966c899-f860-4473-a860-5fe72e2fc811
+langcode: en
+status: true
+dependencies: {  }
+name: 400x400
+label: 400x400
+effects:
+  e4f0f8a4-5bdc-4231-99ba-26bfd424ff11:
+    uuid: e4f0f8a4-5bdc-4231-99ba-26bfd424ff11
+    id: image_scale
+    weight: 1
+    data:
+      width: 400
+      height: 400
+      upscale: true

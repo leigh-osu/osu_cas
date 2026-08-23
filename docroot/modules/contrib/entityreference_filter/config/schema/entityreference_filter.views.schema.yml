@@ -1,0 +1,23 @@
+views.filter.entityreference_filter_view_result:
+  type: views.filter.many_to_one
+  label: 'Entity reference filter'
+  mapping:
+    type:
+      type: string
+      label: 'Selection type'
+    reference_display:
+      type: string
+      label: 'Entity reference view display'
+    reference_arguments:
+      type: string
+      label: 'Entity reference view arguments'
+    hide_empty_filter:
+      type: boolean
+      label: 'Hide empty filter'
+    value:
+      type: sequence
+      label: 'Values'
+      nullable: true
+      sequence:
+        type: string
+        label: 'Value'

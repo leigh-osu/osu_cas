@@ -1,0 +1,21 @@
+uuid: cdd1a64e-78c3-4771-b3f2-8dd168c7984d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_fac_type
+    - node.type.osu_profile
+  module:
+    - options
+id: node.osu_profile.field_profile_fac_type
+field_name: field_profile_fac_type
+entity_type: node
+bundle: osu_profile
+label: 'Faculty Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

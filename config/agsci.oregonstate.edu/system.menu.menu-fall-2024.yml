@@ -1,0 +1,8 @@
+uuid: 05262ced-981a-40fb-b75b-b45eac156409
+langcode: en
+status: true
+dependencies: {  }
+id: menu-fall-2024
+label: 'December 2024'
+description: 'December 2024 issue of The Source'
+locked: false

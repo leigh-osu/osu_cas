@@ -1,0 +1,19 @@
+uuid: 3ab44699-40f3-43d8-a305-db1af5346e7a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_group_email
+    - group.type.basic_group
+id: group.basic_group.field_group_email
+field_name: field_group_email
+entity_type: group
+bundle: basic_group
+label: Email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

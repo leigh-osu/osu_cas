@@ -1,0 +1,12 @@
+uuid: a245ed92-64a0-4f0e-862c-a6b3b71a65d7
+langcode: en
+status: true
+dependencies: {  }
+id: entomology_oregonstate_edu
+domain_id: 10276089
+hostname: entomology.oregonstate.edu
+name: 'Entomology Program'
+scheme: https
+weight: 9
+is_default: false
+path_prefix: ''

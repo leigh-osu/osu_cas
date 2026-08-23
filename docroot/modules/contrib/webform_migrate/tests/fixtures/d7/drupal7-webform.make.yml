@@ -1,0 +1,23 @@
+api: 2
+core: 7.x
+
+projects:
+  # Drupal 7 core, including patches
+  drupal:
+    type: core
+    version: "7.72"
+
+  # CTools
+  ctools:
+    version: "1.15"
+    type: module
+
+  # Views
+  views:
+    version: "3.24"
+    type: module
+
+  # Webform
+  webform:
+    version: "4.23"
+    type: module

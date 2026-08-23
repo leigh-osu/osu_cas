@@ -1,0 +1,4 @@
+services:
+  Drupal\file_delete\Hook\FileDeleteHooks:
+    class: Drupal\file_delete\Hook\FileDeleteHooks
+    autowire: true

@@ -1,0 +1,14 @@
+uuid: 26a65fa3-861f-4f0a-a4c6-0e2cbeb81083
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.letitiacarson_oregonstate_edu
+  module:
+    - domain_source
+id: domain_source_set_action.letitiacarson_oregonstate_edu
+label: 'Set content domain source value to the Letitia Carson  domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: letitiacarson_oregonstate_edu

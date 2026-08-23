@@ -1,0 +1,21 @@
+date_ical:
+  js:
+    js/build/dateIcal.js: { preprocess: false, minified: true }
+  dependencies:
+    - ckeditor5/ckeditor5
+    - date_ical/admin.date_ical
+
+# Loaded in the text format configuration form to provide styling for the icon
+# used in toolbar config.
+admin.date_ical:
+  css:
+    theme:
+      css/date-ical.admin.css: { }
+
+date_ical.android:
+  js:
+    js/dateICal.js: { }
+  dependencies:
+    - core/jquery
+    - core/once
+    - core/drupal

@@ -1,0 +1,47 @@
+/* Feed source link: white RSS glyph on a beaver-orange chip, top-right of
+   the item list, as in D7 larch. */
+.live-feed__source {
+  float: right;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.28rem;
+  margin: 0.3rem 0 0.5rem 0.75rem;
+  background-color: #d73f09;
+  border-radius: 0.25rem;
+  color: #fff;
+}
+
+.live-feed__source:hover,
+.live-feed__source:focus {
+  background-color: #000;
+  color: #fff;
+}
+
+.live-feed__source svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+/* Item image: 75px thumb floated left of the title, as in D7 osu_news. */
+.live-feed__item {
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+/* 1px grey rule between items (not after the last). */
+.live-feed__item + .live-feed__item {
+  border-top: 1px solid #ccc;
+  padding-top: 0.75rem;
+}
+
+.live-feed__image {
+  float: left;
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  margin: 0.25rem 0.75rem 0.25rem 0;
+}

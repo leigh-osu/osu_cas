@@ -1,0 +1,15 @@
+uuid: 56f2da92-d432-44ea-81ea-bba7b1101940
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.soilwaterquality_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_soilwaterquality_oregonstate_edu
+label: 'Add selected content to the Soil Water Quality domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - soilwaterquality_oregonstate_edu

@@ -1,0 +1,17 @@
+uuid: 51bedbf7-4732-4ec3-bf75-ad7049d0418a
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.client
+id: client-member
+label: Member
+weight: -100
+admin: false
+scope: insider
+global_role: authenticated
+group_type: client
+permissions:
+  - 'create group_node:sample entity'
+  - 'view group'
+  - 'view group_node:sample entity'

@@ -1,0 +1,6 @@
+# This is _cspell_unrecognized_words.txt
+gnode
+groupmenu
+mlid
+mytheme
+tmgmt

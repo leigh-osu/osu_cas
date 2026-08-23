@@ -1,0 +1,32 @@
+uuid: 8dd117ac-6f9e-4476-9862-b1371daaa9e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.onion_header
+  content:
+    - 'block_content:basic:77144b44-5227-4799-a333-f0f5cc261f0e'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - madrone
+id: onion_header_276
+theme: madrone
+region: content
+weight: -10
+provider: null
+plugin: 'block_content:77144b44-5227-4799-a333-f0f5cc261f0e'
+settings:
+  id: 'block_content:77144b44-5227-4799-a333-f0f5cc261f0e'
+  label: ''
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: onion_header

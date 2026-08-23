@@ -1,0 +1,15 @@
+{
+  "name": "drupal/google_cse",
+  "description": "Use Google Programmable Search to search your site and/or any other sites.",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "homepage": "https://drupal.org/project/google_cse",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/google_cse",
+    "source": "https://git.drupalcode.org/project/google_cse"
+  },
+  "require": {
+    "drupal/core": "^10|| ^11"
+  }
+}

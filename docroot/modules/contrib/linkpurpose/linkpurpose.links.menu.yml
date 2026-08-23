@@ -1,0 +1,5 @@
+linkpurpose.settings:
+  title: 'Link Purpose'
+  description: 'Hint icons for links with unexpected behavior.'
+  route_name: linkpurpose.settings
+  parent: system.admin_config_ui

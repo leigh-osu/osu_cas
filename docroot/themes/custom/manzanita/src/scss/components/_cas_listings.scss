@@ -1,0 +1,267 @@
+// Listing blocks rebuilt from D7 views (videos, image galleries, feature
+// stories, fun facts, plant varieties, publications, artists). Cards and
+// rows keep to the site's type scale; grids come from views' responsive
+// grid style.
+
+// Video cards: thumbnail with a play badge, title beneath, whole card a link.
+.cas-videos .views-view-responsive-grid {
+  gap: 1.25rem;
+}
+
+.cas-video-card {
+  color: inherit;
+  display: block;
+  text-decoration: none;
+
+  &__thumb {
+    aspect-ratio: 16 / 9;
+    background: $neutral-100;
+    display: block;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  &__play {
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 50%;
+    height: 3rem;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 3rem;
+
+    &::after {
+      border-color: transparent transparent transparent #fff;
+      border-style: solid;
+      border-width: 0.6rem 0 0.6rem 1rem;
+      content: '';
+      left: 55%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__title {
+    display: block;
+    font-weight: 600;
+    margin-top: 0.5rem;
+  }
+
+  &:hover &__play,
+  &:focus &__play {
+    background: $osuorange;
+  }
+}
+
+// Image galleries: album title, then a wrap of thumbnails.
+.cas-gallery-album {
+  margin-bottom: 1.5rem;
+
+  &__thumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    img {
+      display: block;
+    }
+  }
+}
+
+// Feature stories: banner image, title, caption.
+.cas-feature-story {
+  margin-bottom: 2rem;
+
+  &__image img {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+
+  .fs-title {
+    margin: 0.75rem 0 0.25rem;
+  }
+}
+
+.cas-feature-page {
+  margin-bottom: 1.5rem;
+
+  &__title {
+    font-size: 1.15rem;
+    margin: 0 0 0.25rem;
+  }
+}
+
+// Fun facts: text with source; illustrated variant is a thumbnail row.
+.cas-fun-fact {
+  margin-bottom: 1rem;
+
+  &__source {
+    color: $neutral-600;
+    font-size: 0.9em;
+  }
+
+  &__image img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
+}
+
+// Plant variety cards.
+.cas-plant-varieties .views-view-responsive-grid {
+  gap: 1rem;
+}
+
+.cas-pvr-card {
+  border: 1px solid $neutral-300;
+  height: 100%;
+  padding: 1rem;
+
+  &__title {
+    margin-top: 0;
+  }
+}
+
+// Artists represented: artist heading over their works.
+.cas-art-artists h3 {
+  font-size: 1.15rem;
+  margin: 1.25rem 0 0.25rem;
+}
+
+// Listing blocks fill their layout region: BLB regions are d-flex rows and
+// an unclassed block otherwise shrinks to its content width (which also
+// breaks Slick's track measurement).
+.layout-builder__layout {
+  .block-views,
+  .block-cas-fun-facts,
+  .block-cas-degree-list,
+  .block-cas-content-by-term,
+  .block-cas-weather,
+  .block-cas-group-news,
+  .block-cas-group-faces {
+    width: 100%;
+  }
+}
+
+// Slick reels: arrows inside the block edges, slides padded apart.
+.slick--view--videos {
+  padding: 0 2.5rem;
+
+  .slick__slide {
+    padding: 0 0.6rem;
+  }
+}
+
+// When Slick stands down (fewer videos than a full view) the slides must
+// still sit in a row, not stack.
+.slick--view--videos.unslick {
+  padding: 0;
+
+  .slick__slide {
+    display: inline-block;
+    vertical-align: top;
+    width: 33.333%;
+
+    @media (max-width: 991px) {
+      width: 50%;
+    }
+
+    @media (max-width: 575px) {
+      width: 100%;
+    }
+  }
+}
+
+// Feature story banner (D7 feature_story block): one story at a time,
+// rotating; title and caption sit over the foot of the picture on a
+// translucent white panel. Arrows overlay the picture edges. A lone story
+// (unslick) renders the same, minus the arrows.
+.slick--view--feature-stories {
+  .cas-feature-story {
+    margin-bottom: 0;
+    position: relative;
+  }
+
+  .cas-feature-story__caption {
+    background: rgba(255, 255, 255, 0.85);
+    bottom: 0;
+    left: 0;
+    padding: 0.5rem 3rem 0.5rem 1rem;
+    position: absolute;
+    right: 0;
+  }
+
+  .fs-title {
+    font-size: 1.15rem;
+    margin: 0 0 0.25rem;
+  }
+
+  .fs-caption {
+    margin: 0;
+  }
+
+  .slick-prev,
+  .slick-next {
+    z-index: 2;
+  }
+
+  .slick-prev {
+    left: 0.5rem;
+  }
+
+  .slick-next {
+    right: 0.5rem;
+  }
+}
+
+// D7 page views rebuilt as routes: funding table, enterprise budgets,
+// art gallery grid, social lists.
+.cas-funding-opportunities {
+  td:last-child {
+    white-space: nowrap;
+  }
+
+  .views-field-field-fundop-link a {
+    overflow-wrap: anywhere;
+  }
+}
+
+.cas-art-galleries .views-view-responsive-grid {
+  gap: 1.25rem;
+}
+
+.cas-art-card {
+  &__image img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
+
+  &__title {
+    font-size: 1.05rem;
+    margin: 0.5rem 0 0.25rem;
+  }
+
+  &__artist,
+  &__exhibit {
+    margin: 0 0 0.25rem;
+  }
+
+  &__exhibit {
+    color: $neutral-600;
+    font-size: 0.9em;
+  }
+}
+
+.cas-group-social li {
+  margin-bottom: 0.35rem;
+}

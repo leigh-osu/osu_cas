@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Publication Authors'
+vid: publication_authors
+description: 'People credited on publications (authors and editors); migrated from D7 biblio contributors.'
+weight: 0
+new_revision: false
