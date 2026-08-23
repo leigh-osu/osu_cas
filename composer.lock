@@ -221,10 +221,10 @@
         },
         {
             "name": "choices/choices",
-            "version": "9.0.1",
+            "version": "11.0.2",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Choices-js/Choices/archive/refs/tags/v9.0.1.zip"
+                "url": "https://github.com/Choices-js/Choices/archive/refs/tags/v11.0.2.zip"
             },
             "type": "drupal-library",
             "extra": {
@@ -17994,10 +17994,10 @@
         },
         {
             "name": "jquery/inputmask",
-            "version": "5.0.8",
+            "version": "5.0.9",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/RobinHerbots/jquery.inputmask/archive/refs/tags/5.0.8.zip"
+                "url": "https://github.com/RobinHerbots/jquery.inputmask/archive/refs/tags/5.0.9.zip"
             },
             "type": "drupal-library",
             "extra": {
