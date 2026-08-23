@@ -64,6 +64,7 @@ dependencies:
     - paragraphs
     - path
     - pathauto
+    - readonlymode
     - recaptcha
     - redirect
     - responsive_preview
@@ -307,6 +308,7 @@ permissions:
   - 'notify of path changes'
   - 'opt-in or out of google analytics tracking'
   - 'override xmlsitemap link settings'
+  - 'readonlymode access forms'
   - 'revert all revisions'
   - 'revert all sitewide alert revisions'
   - 'search Google CSE'

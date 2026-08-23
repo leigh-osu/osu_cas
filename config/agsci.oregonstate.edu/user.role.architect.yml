@@ -57,6 +57,7 @@ dependencies:
     - osu_cas_multisite_groups
     - path
     - pathauto
+    - readonlymode
     - recaptcha
     - redirect
     - responsive_preview
@@ -278,6 +279,7 @@ permissions:
   - 'mark as hidden in editoria11y'
   - 'mark as ok in editoria11y'
   - 'override xmlsitemap link settings'
+  - 'readonlymode access forms'
   - 'revert all revisions'
   - 'revert all sitewide alert revisions'
   - 'revert page revisions'
