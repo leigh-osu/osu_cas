@@ -12,6 +12,7 @@ dependencies:
     - google_cse
     - media
     - osu_cas_site_sync
+    - readonlymode
     - responsive_preview
     - search
     - shortcut
@@ -36,6 +37,7 @@ permissions:
   - 'access tour'
   - 'delete own files'
   - 'exclude own node title'
+  - 'readonlymode access messages'
   - 'search Google CSE'
   - 'search content'
   - 'update any media'
