@@ -593,6 +593,9 @@
                 "2853001-24 Node previews do not work when adding group node": "https://www.drupal.org/files/issues/2023-05-16/2853001-2.x-24.patch",
                 "2872645-54 JSON:API Support for group": "https://www.drupal.org/files/issues/2024-10-22/group-add-content-2872645-54.patch"
             },
+            "drupal/group_content_menu": {
+                "Node form fatals when another form_alter has emptied the form (readonlymode)": "patches/group_content_menu-gutted-form-actions.patch"
+            },
             "drupal/paragraphs": {
                 "3090200-83 Paragraphs Access Check in LB": "https://www.drupal.org/files/issues/2026-06-24/3084934-13_combine_3090200-22-rebase.patch"
             },
