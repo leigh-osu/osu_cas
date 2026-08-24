@@ -79,7 +79,11 @@ handlers:
       states:
         - completed
       to_mail: '[webform_submission:values:category:raw]'
-      to_options: {  }
+      to_options:
+        general: bee.info@oregonstate.edu
+        undergrad: bee.info@oregonstate.edu
+        dept_head: adam.ward@oregonstate.edu
+        graduate: bee.info@oregonstate.edu
       bcc_mail: ''
       bcc_options: {  }
       cc_mail: ''
