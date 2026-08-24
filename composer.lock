@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3fa3f509cc04051b0302c4abc1f417e5",
+    "content-hash": "982029b142c841c11d7291c21b7f88eb",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -19177,16 +19177,16 @@
         },
         {
             "name": "leigh-osu/osu_cas_multisite",
-            "version": "v1.27.1",
+            "version": "v1.28.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leigh-osu/osu_cas_multisite.git",
-                "reference": "69f729951164a2b9d55368dddb1f7dc7e6a86c92"
+                "reference": "dccfdcf9af5caf7d38daa1d533cb26c65a4fc6fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_cas_multisite/zipball/69f729951164a2b9d55368dddb1f7dc7e6a86c92",
-                "reference": "69f729951164a2b9d55368dddb1f7dc7e6a86c92",
+                "url": "https://api.github.com/repos/leigh-osu/osu_cas_multisite/zipball/dccfdcf9af5caf7d38daa1d533cb26c65a4fc6fd",
+                "reference": "dccfdcf9af5caf7d38daa1d533cb26c65a4fc6fd",
                 "shasum": ""
             },
             "require": {
@@ -19195,10 +19195,10 @@
             "type": "drupal-custom-module",
             "description": "Shared helpers and theming for the OSU CAS multisite platform; the osu_cas_multisite_degrees submodule carries the degree fact sheet rendering.",
             "support": {
-                "source": "https://github.com/leigh-osu/osu_cas_multisite/tree/v1.27.1",
+                "source": "https://github.com/leigh-osu/osu_cas_multisite/tree/v1.28.0",
                 "issues": "https://github.com/leigh-osu/osu_cas_multisite/issues"
             },
-            "time": "2026-08-22T00:00:20+00:00"
+            "time": "2026-08-24T00:14:00+00:00"
         },
         {
             "name": "leigh-osu/osu_cas_site_sync",
