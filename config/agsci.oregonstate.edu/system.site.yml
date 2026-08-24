@@ -3,7 +3,7 @@ _core:
 langcode: en
 uuid: 1d767e61-d0e8-4ed8-96c9-77106c4337bf
 name: 'College of Agricultural Sciences'
-mail: admin@example.com
+mail: noreply@mail.drupal.oregonstate.edu
 slogan: ''
 page:
   403: ''
