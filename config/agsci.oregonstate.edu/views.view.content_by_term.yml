@@ -2792,16 +2792,7 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value:
-            2886: 2886
-            2901: 2901
-            2906: 2906
-            2911: 2911
-            2916: 2916
-            2946: 2946
-            2951: 2951
-            2956: 2956
-            2896: 2896
+          value: {  }
           group: 1
           exposed: true
           expose:
