@@ -83,7 +83,10 @@ handlers:
       states:
         - completed
       to_mail: '[webform_submission:values:degree_type:raw]'
-      to_options: {  }
+      to_options:
+        Undergraduate: emt@oregonstate.edu
+        MS: susan.tilton@oregonstate.edu
+        PhD: susan.tilton@oregonstate.edu
       bcc_mail: ''
       bcc_options: {  }
       cc_mail: ''
