@@ -205,7 +205,46 @@ handlers:
       states:
         - completed
       to_mail: '[webform_submission:values:what_website_are_you_contacting_us_about:raw]'
-      to_options: {  }
+      to_options:
+        cas: agsci@oregonstate.edu
+        roots: roots.support@oregonstate.edu
+        ctr_ghic: hemp@oregonstate.edu
+        ap: casstudy@oregonstate.edu
+        dept_ag_ed: Ag.Education@oregonstate.edu
+        dept_applied_econ: applied.economics@oregonstate.edu
+        dept_anrs: animal.sciences@oregonstate.edu
+        dept_bee: bee.info@oregonstate.edu
+        dept_bpp: kimberly.callahan@oregonstate.edu
+        dept_css: rachel.swindon@oregonstate.edu
+        dept_emt: emt@oregonstate.edu
+        dept_fw: Amanda.Polley@oregonstate.edu
+        dept_foodsci: sarah.haluzak@oregonstate.edu
+        dept_hort: horticulture@oregonstate.edu
+        ctr_ent: Silvia.Rondon@oregonstate.edu
+        ctr_coarc: Jeremiah.dung@oregonstate.edu
+        ctr_comes: comes@oregonstate.edu
+        ctr_cbarc: debbie.sutor@oregonstate.edu
+        ctr_eoarc_burns: petrina.white@oregonstate.edu
+        ctr_eoarc_union: Kim.mckague@oregonstate.edu
+        ctr_fic: Marcia.Walker@oregonstate.edu
+        ctr_harec: michelle.hines@oregonstate.edu
+        ctr_kbrec: diana.avila@oregonstate.edu
+        ctr_mes: william.buhrig@oregonstate.edu
+        ctr_mcared: sonia.voigt@oregonstate.edu
+        ctr_nwred: Shelley.Hughes@oregonstate.edu
+        ctr_seafood_lab: comes@oregonstate.edu
+        ctr_small_farms: smallfarmsprogram@oregonstate.edu
+        ctr_sorec: lundquka@oregonstate.edu
+        ctr_owri: jorjorie@oregonstate.edu
+        ap_brr: BRR@oregonstate.edu
+        ap_pbg: townsenm@oregonstate.edu
+        ap_eoanr: EOUAG@oregonstate.edu
+        ap_sdd: SUS.advising@oregonstate.edu
+        shl: soil.lab@oregonstate.edu
+        honey: Ramesh.Sagili@oregonstate.edu
+        hyslop: agsci@oregonstate.edu
+        barns: selby.boerman@oregonstate.edu
+        other: agsci@oregonstate.edu
       bcc_mail: ''
       bcc_options: {  }
       cc_mail: ''

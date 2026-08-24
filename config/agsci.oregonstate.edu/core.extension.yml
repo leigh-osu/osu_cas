@@ -190,6 +190,7 @@ module:
   seckit: 0
   section_library: 0
   serialization: 0
+  shield: 0
   shortcut: 0
   simple_popup_blocks: 0
   simple_styleguide: 0
