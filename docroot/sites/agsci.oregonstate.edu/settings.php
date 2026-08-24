@@ -1063,3 +1063,19 @@ $config['reroute_email.settings']['enable'] = ($osu_cas_ah_env !== 'prod');
  * Keep this at the end of the file. Moving it back up top restores the bug.
  */
 $settings['config_sync_directory'] = '../config/agsci.oregonstate.edu';
+
+/**
+ * Shield: HTTP basic auth on the Acquia non-production environments.
+ *
+ * Exported shield.settings has shield_enable FALSE, so prod and local are
+ * untouched. On dev/stage the credentials come from the per-environment
+ * secrets file (/mnt/files/osucas.<env>/secrets.settings.php), which is
+ * required earlier in this file and defines $osu_cas_shield_pass.
+ */
+if (in_array($_ENV['AH_SITE_ENVIRONMENT'] ?? '', ['dev', 'stage'], TRUE)
+  && !empty($osu_cas_shield_pass)) {
+  $config['shield.settings']['shield_enable'] = TRUE;
+  $config['shield.settings']['credentials']['shield']['user'] = 'osucas';
+  $config['shield.settings']['credentials']['shield']['pass'] = $osu_cas_shield_pass;
+  $config['shield.settings']['print'] = 'OSU CAS preview environment';
+}

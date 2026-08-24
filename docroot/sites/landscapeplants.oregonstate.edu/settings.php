@@ -930,3 +930,19 @@ if (file_exists('/var/www/site-php')) {
     ini_set("memory_limit", "512M");
   }
 }
+
+/**
+ * Shield: HTTP basic auth on the Acquia non-production environments.
+ *
+ * Exported shield.settings has shield_enable FALSE, so prod and local are
+ * untouched. On dev/stage the credentials come from the per-environment
+ * secrets file (/mnt/files/osucas.<env>/secrets.settings.php), which is
+ * required earlier in this file and defines $osu_cas_shield_pass.
+ */
+if (in_array($_ENV['AH_SITE_ENVIRONMENT'] ?? '', ['dev', 'stage'], TRUE)
+  && !empty($osu_cas_shield_pass)) {
+  $config['shield.settings']['shield_enable'] = TRUE;
+  $config['shield.settings']['credentials']['shield']['user'] = 'osucas';
+  $config['shield.settings']['credentials']['shield']['pass'] = $osu_cas_shield_pass;
+  $config['shield.settings']['print'] = 'OSU CAS preview environment';
+}
