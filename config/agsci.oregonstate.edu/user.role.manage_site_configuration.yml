@@ -9,7 +9,6 @@ dependencies:
     - date_ap_style
     - easy_breadcrumb
     - google_analytics
-    - google_tag
     - honeypot
     - linkit
     - node_revision_delete
@@ -40,7 +39,6 @@ permissions:
   - 'administer crop types'
   - 'administer easy breadcrumb'
   - 'administer google analytics'
-  - 'administer google tag manager'
   - 'administer honeypot'
   - 'administer linkit profiles'
   - 'administer madrone theme'

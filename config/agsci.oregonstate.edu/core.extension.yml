@@ -79,7 +79,6 @@ module:
   gnode: 0
   google_analytics: 0
   google_cse: 0
-  google_tag: 0
   group: 0
   group_content_menu: 0
   group_support_revisions: 0
@@ -143,7 +142,6 @@ module:
   osu_ckeditor_plugins: 0
   osu_default_content: 0
   osu_digital_measures: 0
-  osu_google_tag: 0
   osu_groups: 0
   osu_groups_basic_group: 0
   osu_icon_field: 0
