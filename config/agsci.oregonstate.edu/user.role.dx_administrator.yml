@@ -44,7 +44,6 @@ dependencies:
     - fontawesome
     - google_analytics
     - google_cse
-    - google_tag
     - group
     - help
     - honeypot
@@ -147,7 +146,6 @@ permissions:
   - 'administer feeds_tamper'
   - 'administer filters'
   - 'administer google analytics'
-  - 'administer google tag manager'
   - 'administer group'
   - 'administer group display'
   - 'administer group fields'

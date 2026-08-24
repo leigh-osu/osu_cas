@@ -648,7 +648,8 @@
                 "Remove webform_bootstrap from install list": "patches/osu_standard-remove-webform-bootstrap.patch",
                 "Full OSU brand background palette and orange text color in bootstrap_styles": "patches/osu_standard-brand-background-palette.patch",
                 "Add 25px and 50px Layout Builder section minimum-height options": "patches/osu_standard-min-height-25-50.patch",
-                "Remove linkpurpose from profile dependencies (uninstallable per-site)": "patches/osu_standard-remove-linkpurpose.patch"
+                "Remove linkpurpose from profile dependencies (uninstallable per-site)": "patches/osu_standard-remove-linkpurpose.patch",
+                "Remove google_tag from profile dependencies (uninstallable per-site)": "patches/osu_standard-remove-google-tag.patch"
             },
             "osu-wams/osu_story": {
                 "External-story redirect dedupe by source path (langcode-agnostic)": "patches/osu_story-external-redirect-dedupe.patch",

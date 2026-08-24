@@ -1,0 +1,84 @@
+Remove google_tag and osu_google_tag from the osu_standard profile
+dependencies so they can be uninstalled per-site (profile dependencies
+are locked against uninstall). Neither module does anything without a
+GTM container, and the platform's default osu_global container was
+deleted by osu_google_tag's own update hook. The shipped role configs
+must drop their google_tag dependency and permission too, or a fresh
+site:install fails on unmet dependencies.
+
+diff --git a/osu_standard.info.yml b/osu_standard.info.yml
+--- a/osu_standard.info.yml
++++ b/osu_standard.info.yml
+@@ -95,7 +95,6 @@
+   - fontawesome
+   - google_analytics
+   - google_cse
+-  - google_tag
+   - honeypot
+   - image_effects
+   - imagemagick
+@@ -159,7 +158,6 @@
+   # Custom Modules
+   - osu_bootstrap_layout_builder
+   - osu_ckeditor_plugins
+-  - osu_google_tag
+   - osu_simple_popup_blocks
+   - osu_default_content
+   - osu_media
+diff --git a/config/install/user.role.architect.yml b/config/install/user.role.architect.yml
+--- a/config/install/user.role.architect.yml
++++ b/config/install/user.role.architect.yml
+@@ -39,7 +39,6 @@
+     - file
+     - filter
+     - google_analytics
+-    - google_tag
+     - help
+     - honeypot
+     - image
+@@ -124,7 +123,6 @@
+   - 'administer feeds_tamper'
+   - 'administer filters'
+   - 'administer google analytics'
+-  - 'administer google tag manager'
+   - 'administer honeypot'
+   - 'administer image styles'
+   - 'administer layout builder component attributes'
+diff --git a/config/install/user.role.dx_administrator.yml b/config/install/user.role.dx_administrator.yml
+--- a/config/install/user.role.dx_administrator.yml
++++ b/config/install/user.role.dx_administrator.yml
+@@ -43,7 +43,6 @@
+     - fontawesome
+     - google_analytics
+     - google_cse
+-    - google_tag
+     - help
+     - honeypot
+     - image
+@@ -141,7 +140,6 @@
+   - 'administer feeds_tamper'
+   - 'administer filters'
+   - 'administer google analytics'
+-  - 'administer google tag manager'
+   - 'administer honeypot'
+   - 'administer image styles'
+   - 'administer layout builder component attributes'
+diff --git a/config/install/user.role.manage_site_configuration.yml b/config/install/user.role.manage_site_configuration.yml
+--- a/config/install/user.role.manage_site_configuration.yml
++++ b/config/install/user.role.manage_site_configuration.yml
+@@ -10,7 +10,6 @@
+     - date_ap_style
+     - easy_breadcrumb
+     - google_analytics
+-    - google_tag
+     - honeypot
+     - linkit
+     - node_revision_delete
+@@ -38,7 +37,6 @@
+   - 'administer crop types'
+   - 'administer easy breadcrumb'
+   - 'administer google analytics'
+-  - 'administer google tag manager'
+   - 'administer honeypot'
+   - 'administer linkit profiles'
+   - 'administer madrone theme'
