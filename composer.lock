@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "46b3404098862326c199ddbfa05e296f",
+    "content-hash": "0c0fb9e13357c7eba2f02e0750eb0713",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -19396,6 +19396,31 @@
                 "issues": "https://github.com/leigh-osu/osu_migrations_cas/issues"
             },
             "time": "2026-08-17T19:37:47+00:00"
+        },
+        {
+            "name": "leigh-osu/osu_migrations_mmi",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leigh-osu/osu_migrations_mmi.git",
+                "reference": "c5bd38eacf7328ed21cdbfbe2ff9a2bae90c4188"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leigh-osu/osu_migrations_mmi/zipball/c5bd38eacf7328ed21cdbfbe2ff9a2bae90c4188",
+                "reference": "c5bd38eacf7328ed21cdbfbe2ff9a2bae90c4188",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "type": "drupal-custom-module",
+            "description": "Marine Mammal Institute D7 to D10 migration for OSU CAS (second input into the live install)",
+            "support": {
+                "source": "https://github.com/leigh-osu/osu_migrations_mmi/tree/v0.1.0",
+                "issues": "https://github.com/leigh-osu/osu_migrations_mmi/issues"
+            },
+            "time": "2026-08-24T23:57:44+00:00"
         },
         {
             "name": "leongersen/nouislider",

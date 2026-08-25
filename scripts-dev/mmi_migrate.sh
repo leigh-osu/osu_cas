@@ -1,0 +1,254 @@
+#!/bin/bash
+
+# MMI second-input migration runner (branch mmi-migration)
+#
+# Migrates the Marine Mammal Institute D7 site INTO the live CAS D10 install
+# as a second input: its own migrate_mmi connection, mmi_* migration ids and
+# groups, and a +400000 nid/vid offset (see MmiNidOffset::OFFSET in
+# osu_migrations_mmi). Plan: "MMI Migration Audit" artifact, 2026-08-19.
+#
+# Unlike the retired rebuild_site.sh this never installs Drupal. The target is
+# a FREEZE of the live production database, restored by section 1, and every
+# later section must be reproducible against a fresh freeze: no manual drush
+# one-offs -- anything the migration needs lands in this script or in the
+# osu_migrations_mmi module.
+#
+# HARD RULE: the agsci migration map tables (migrate_map_cas_*,
+# migrate_map_upgrade_*, migrate_map_paragraph_*, their migrate_message_*
+# twins) are kept as provenance for the finished CAS migration and for
+# reference during the first weeks of rollout. This script must NEVER drop,
+# truncate or reset-status any migration outside the mmi_* namespace. Section
+# guards count them before and after and abort on any loss.
+#
+# Usage:
+#   bash scripts-dev/mmi_migrate.sh              # show section help
+#   bash scripts-dev/mmi_migrate.sh list         # list sections and exit
+#   bash scripts-dev/mmi_migrate.sh all          # run all sections
+#   bash scripts-dev/mmi_migrate.sh 2            # run only section 2
+#   bash scripts-dev/mmi_migrate.sh from 2       # run section 2 onward
+#   bash scripts-dev/mmi_migrate.sh rollback     # roll back mmi_* migrations only
+#
+# Environment:
+#   FREEZE_DUMP  path to the D10 production freeze dump; default: newest
+#                osucas_*.sql.gz in the local Acquia backup mirror
+#   REFRESH_D7   1 = refresh the mmi D7 source (db+files) from the Acquia
+#                backup before verifying it (section 2). Default 0: the source
+#                is a deliberate snapshot; refresh it on purpose, not per run.
+#
+# Sections:
+#   1  restore D10 target from the live-site freeze   -> snapshot mmi-freeze
+#   2  verify (optionally refresh) the mmi D7 source
+#   3  enable osu_migrations_mmi + group wiring       -> snapshot mmi-wired
+#   4  users: ONID reconciliation + mmi_users         (TODO -- sequence step 6)
+#   5  media + files                                  (TODO -- step 2)
+#   6  nodes: reuse clones, news, research_project    (TODO -- steps 2-3)
+#   7  paragraphs -> Layout Builder                   (TODO -- step 4)
+#   8  aliases + redirects + menu links (nid offset)  (TODO -- step 5)
+#   9  groups: 15 labs under the mmi domain           (TODO -- step 2)
+
+# Configuration
+SITE_URI="https://osu-cas.ddev.site"   # the ONLY uri that maps to the agsci site
+TARGET_DB="db"                          # local DDEV database holding the D10 site
+D7_PROJECT="/Users/leighr/Sites/osu/agscid7"
+BACKUP_ROOT="/Users/leighr/Sites/osu/acquia_backup/backup"
+
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "${PROJECT_ROOT}" || exit 1
+
+drush() {
+  ddev drush --uri="${SITE_URI}" "$@"
+}
+
+# Create a named snapshot, removing any existing snapshot of the same name
+# first so `ddev snapshot` cannot fail on a name collision (same scheme as the
+# retired rebuild_site.sh).
+snapshot_save() {
+  local name="$1"
+  rm -rf "${PROJECT_ROOT}/.ddev/db_snapshots/${name}" \
+         "${PROJECT_ROOT}/.ddev/db_snapshots/${name}".* \
+         "${PROJECT_ROOT}/.ddev/db_snapshots/${name}"-* 2>/dev/null || true
+  ddev snapshot --name "${name}"
+}
+
+# Count the non-mmi migrate_map/migrate_message tables in the target. These
+# are the agsci provenance tables this script is forbidden to touch; sections
+# snapshot the count on entry and re-check it on exit.
+agsci_map_table_count() {
+  ddev mysql -N -uroot -proot -e \
+    "SELECT COUNT(*) FROM information_schema.tables
+     WHERE table_schema='${TARGET_DB}'
+       AND (table_name LIKE 'migrate\_map\_%' OR table_name LIKE 'migrate\_message\_%')
+       AND table_name NOT LIKE 'migrate\_map\_mmi\_%'
+       AND table_name NOT LIKE 'migrate\_message\_mmi\_%';" 2>/dev/null | tr -d '[:space:]'
+}
+
+MAP_BASELINE=""
+guard_enter() {
+  MAP_BASELINE="$(agsci_map_table_count)"
+  echo "  [guard] agsci migrate map/message tables: ${MAP_BASELINE}"
+}
+guard_exit() {
+  local now
+  now="$(agsci_map_table_count)"
+  if [ -n "${MAP_BASELINE}" ] && [ "${now}" -lt "${MAP_BASELINE}" ]; then
+    echo "  [guard] FATAL: agsci migrate table count dropped ${MAP_BASELINE} -> ${now}." >&2
+    echo "  [guard] The agsci maps are provenance and must never be dropped. Aborting." >&2
+    exit 1
+  fi
+  echo "  [guard] agsci migrate map/message tables intact (${now})"
+}
+
+# The one sanctioned reset path: mmi_* migrations only. Never widen this.
+rollback_mmi() {
+  echo "=== Rolling back mmi_* migrations (agsci maps untouched) ==="
+  guard_enter
+  for group in mmi_groups mmi_content mmi_media; do
+    drush migrate:rollback --group="${group}" || true
+  done
+  guard_exit
+}
+
+# ---------------------------------------------------------------------------
+# Section 1: restore the D10 target from the live-site freeze
+#            -> snapshot mmi-freeze
+# ---------------------------------------------------------------------------
+section_1() {
+  echo "=== Section 1: restore D10 target from live freeze ==="
+
+  local dump="${FREEZE_DUMP:-}"
+  if [ -z "${dump}" ]; then
+    dump="$(ls -1t "${BACKUP_ROOT}/osucas/prod/databases/"osucas_*.sql.gz 2>/dev/null | head -1)"
+  fi
+  if [ -z "${dump}" ] || [ ! -f "${dump}" ]; then
+    echo "No freeze dump found (FREEZE_DUMP unset, nothing in ${BACKUP_ROOT}/osucas/prod/databases)" >&2
+    exit 1
+  fi
+
+  echo "Freeze dump: ${dump} ($(du -h "${dump}" | cut -f1), $(date -r "${dump}" '+%Y-%m-%d %H:%M'))"
+  echo "This REPLACES the local '${TARGET_DB}' database. Ctrl-C within 5s to abort."
+  sleep 5
+
+  ddev import-db --database="${TARGET_DB}" --file="${dump}" || exit 1
+
+  # The freeze carries the agsci provenance maps with it; prove they arrived
+  # before anything else runs against this copy.
+  guard_enter
+  if [ -z "${MAP_BASELINE}" ] || [ "${MAP_BASELINE}" -eq 0 ]; then
+    echo "FATAL: freeze restored with no agsci migrate_map tables -- wrong dump?" >&2
+    exit 1
+  fi
+
+  drush cr
+  drush status --field=bootstrap || exit 1
+  echo "Nodes in restored target: $(ddev mysql -N -uroot -proot "${TARGET_DB}" -e 'SELECT COUNT(*) FROM node;')"
+
+  guard_exit
+  snapshot_save mmi-freeze
+}
+
+# ---------------------------------------------------------------------------
+# Section 2: verify (optionally refresh) the mmi D7 source
+# ---------------------------------------------------------------------------
+section_2() {
+  echo "=== Section 2: mmi D7 source ==="
+
+  if [ "${REFRESH_D7:-0}" = "1" ]; then
+    echo "Refreshing mmi source from the Acquia backup mirror..."
+    (cd "${D7_PROJECT}" && bash localscripts/sync_d7_backup.sh --site mmi) || exit 1
+  fi
+
+  # The D7 project must be running for ddev-agscid7-db to resolve.
+  if ! (cd "${D7_PROJECT}" && ddev describe >/dev/null 2>&1); then
+    echo "Starting the agscid7 DDEV project..."
+    (cd "${D7_PROJECT}" && ddev start) || exit 1
+  fi
+
+  # Prove the migrate_mmi connection works end to end: from inside the web
+  # container, through the settings.local.php block, into the mmi database.
+  echo "Source inventory over the migrate_mmi connection:"
+  drush php:eval '
+    $db = \Drupal\Core\Database\Database::getConnection("default", "migrate_mmi");
+    printf("  nodes:     %d\n", $db->query("SELECT COUNT(*) FROM {node}")->fetchField());
+    printf("  files:     %d\n", $db->query("SELECT COUNT(*) FROM {file_managed}")->fetchField());
+    printf("  aliases:   %d\n", $db->query("SELECT COUNT(*) FROM {url_alias}")->fetchField());
+    printf("  redirects: %d\n", $db->query("SELECT COUNT(*) FROM {redirect}")->fetchField());
+    printf("  users:     %d\n", $db->query("SELECT COUNT(*) FROM {users} WHERE uid > 0")->fetchField());
+    printf("  newest changed: %s\n", date("Y-m-d H:i", $db->query("SELECT MAX(changed) FROM {node}")->fetchField()));
+  ' || { echo "migrate_mmi connection FAILED -- is the migrate_mmi block in settings.local.php?" >&2; exit 1; }
+}
+
+# ---------------------------------------------------------------------------
+# Section 3: enable osu_migrations_mmi + group wiring  -> snapshot mmi-wired
+# ---------------------------------------------------------------------------
+section_3() {
+  echo "=== Section 3: enable osu_migrations_mmi ==="
+  guard_enter
+
+  drush en -y osu_migrations_mmi || exit 1
+  drush cr
+
+  echo "MMI migration groups:"
+  drush config:get migrate_plus.migration_group.mmi_content id >/dev/null || exit 1
+  for group in mmi_content mmi_media mmi_groups; do
+    echo "--- ${group}"
+    drush migrate:status --group="${group}" 2>/dev/null || echo "  (no migrations yet)"
+  done
+
+  guard_exit
+  snapshot_save mmi-wired
+}
+
+# ---------------------------------------------------------------------------
+# Sections 4-9: filled in as the build progresses (audit sequence steps 2-7).
+# Each must stay re-runnable against a fresh section-1 freeze.
+# ---------------------------------------------------------------------------
+section_4() {
+  echo "=== Section 4: users -- ONID reconciliation + mmi_users ==="
+  echo "TODO: match on cas_user_authmap ONID username, never uid (35 name / 39 uid collisions)."
+  exit 1
+}
+section_5() {
+  echo "=== Section 5: media + files ==="
+  echo "TODO: mmi_* clones of the media migrations; injectable CasLegacyFilePaths source roots."
+  exit 1
+}
+section_6() {
+  echo "=== Section 6: nodes ==="
+  echo "TODO: reuse clones (page/book/story/biblio/album/video/webform/feed), news + research_project mapping."
+  exit 1
+}
+section_7() {
+  echo "=== Section 7: paragraphs -> Layout Builder ==="
+  echo "TODO: existing paragraph clones + view / compounds / navigation_grid_paragraph / expedition."
+  exit 1
+}
+section_8() {
+  echo "=== Section 8: aliases + redirects + menu links ==="
+  echo "TODO: 9,702 rows that encode a nid; offset via MmiNidOffset::OFFSET."
+  exit 1
+}
+section_9() {
+  echo "=== Section 9: groups ==="
+  echo "TODO: 15 basic_groups under domain mmi_oregonstate_edu; MMI CasGroupShortName map."
+  exit 1
+}
+
+# ---------------------------------------------------------------------------
+LAST_SECTION=9
+
+list_sections() {
+  sed -n '/^# Sections:/,/^$/p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'
+}
+
+run_section() {
+  "section_$1" || exit 1
+}
+
+case "${1:-}" in
+  list) list_sections ;;
+  all) for i in $(seq 1 ${LAST_SECTION}); do run_section "$i"; done ;;
+  from) for i in $(seq "${2:?usage: from N}" ${LAST_SECTION}); do run_section "$i"; done ;;
+  rollback) rollback_mmi ;;
+  [1-9]) run_section "$1" ;;
+  *) list_sections; echo; echo "usage: $0 {list|all|N|from N|rollback}" ;;
+esac
