@@ -19220,16 +19220,16 @@
         },
         {
             "name": "leigh-osu/manzanita",
-            "version": "v1.1.37",
+            "version": "v1.1.38",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leigh-osu/manzanita.git",
-                "reference": "9aebefd6e02fc74e52fc70ec1f2fc878118a77a0"
+                "reference": "f9e290367fce917f14d8c1a294638f2942f6008c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/manzanita/zipball/9aebefd6e02fc74e52fc70ec1f2fc878118a77a0",
-                "reference": "9aebefd6e02fc74e52fc70ec1f2fc878118a77a0",
+                "url": "https://api.github.com/repos/leigh-osu/manzanita/zipball/f9e290367fce917f14d8c1a294638f2942f6008c",
+                "reference": "f9e290367fce917f14d8c1a294638f2942f6008c",
                 "shasum": ""
             },
             "type": "drupal-custom-theme",
@@ -19244,23 +19244,23 @@
             ],
             "description": "Drupal Theme for OSU College of Agricultural Sciences",
             "support": {
-                "source": "https://github.com/leigh-osu/manzanita/tree/v1.1.37",
+                "source": "https://github.com/leigh-osu/manzanita/tree/v1.1.38",
                 "issues": "https://github.com/leigh-osu/manzanita/issues"
             },
-            "time": "2026-08-24T02:05:42+00:00"
+            "time": "2026-08-25T21:44:43+00:00"
         },
         {
             "name": "leigh-osu/osu_cas_multisite",
-            "version": "v1.28.0",
+            "version": "v1.29.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leigh-osu/osu_cas_multisite.git",
-                "reference": "dccfdcf9af5caf7d38daa1d533cb26c65a4fc6fd"
+                "reference": "632f3ffe7acd68c5871728084798f66c1de02b97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_cas_multisite/zipball/dccfdcf9af5caf7d38daa1d533cb26c65a4fc6fd",
-                "reference": "dccfdcf9af5caf7d38daa1d533cb26c65a4fc6fd",
+                "url": "https://api.github.com/repos/leigh-osu/osu_cas_multisite/zipball/632f3ffe7acd68c5871728084798f66c1de02b97",
+                "reference": "632f3ffe7acd68c5871728084798f66c1de02b97",
                 "shasum": ""
             },
             "require": {
@@ -19269,10 +19269,10 @@
             "type": "drupal-custom-module",
             "description": "Shared helpers and theming for the OSU CAS multisite platform; the osu_cas_multisite_degrees submodule carries the degree fact sheet rendering.",
             "support": {
-                "source": "https://github.com/leigh-osu/osu_cas_multisite/tree/v1.28.0",
+                "source": "https://github.com/leigh-osu/osu_cas_multisite/tree/v1.29.0",
                 "issues": "https://github.com/leigh-osu/osu_cas_multisite/issues"
             },
-            "time": "2026-08-24T00:14:00+00:00"
+            "time": "2026-08-25T21:44:58+00:00"
         },
         {
             "name": "leigh-osu/osu_cas_site_sync",
