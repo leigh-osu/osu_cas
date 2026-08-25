@@ -1,0 +1,39 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.column_image
+    - field.field.media.image.field_media_caption
+    - field.field.media.image.field_media_image
+    - image.style.column_image_1200x1600
+    - media.type.image
+  module:
+    - image
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: media.image.column_image
+targetEntityType: media
+bundle: image
+mode: column_image
+content:
+  field_media_image:
+    type: image
+    label: visually_hidden
+    settings:
+      image_link: ''
+      image_style: column_image_1200x1600
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_media_caption: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true
