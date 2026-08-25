@@ -8,14 +8,16 @@ This is the **Oregon State University College of Agricultural Sciences (CAS) Dru
 
 ## Working Model
 
-The D7→D10 migration is finished. **There are no more site rebuilds and no more migration runs.** The site database is durable state, not a regenerable artifact.
+The agsci D7→D10 migration is finished. **For agsci content there are no more site rebuilds and no more migration runs.** The site database is durable state, not a regenerable artifact.
+
+**Exception — MMI (in flight):** the Marine Mammal Institute D7 site (`mmi` database on ddev-agscid7) is being migrated *into* this live install on the `mmi-migration` branch. That work uses its own `migrate_mmi` connection key, `mmi_*` migration IDs/groups, and a fixed +400000 nid offset — it never reuses the agsci `migrate` connection, `cas_*`/`upgrade_d7_*` migration IDs, or their map tables. The no-more-migrations rule continues to hold for agsci throughout.
 
 Changes land one of two ways:
 
 1. **Directly in the site** — content and configuration made through the UI or drush, captured with `drush cex` where it belongs in config.
 2. **In the `osu_cas_multisite` modules** — `docroot/modules/custom/osu_cas_multisite` and its submodules (`osu_cas_multisite_degrees`, `osu_cas_multisite_editor`, `osu_cas_multisite_groups`, `osu_cas_weather`, `osu_live_feeds`).
 
-Do not propose rebuilding, re-migrating, or re-importing content as a fix for a data problem — fix the data in place. Do not add new `migrate_plus.migration.*` configs or park config in `config_imports/` expecting something to replay it.
+Do not propose rebuilding, re-migrating, or re-importing content as a fix for a data problem — fix the data in place. Do not add new `migrate_plus.migration.*` configs outside the `mmi_*` namespace, and do not park config in `config_imports/` expecting something to replay it.
 
 ## Local Development Commands
 
