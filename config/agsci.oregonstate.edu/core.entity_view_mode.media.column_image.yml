@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.column_image
+label: 'Column image'
+description: 'D7 larch_column_image equivalent: 1200x1600 portrait scale-and-crop for adjustable-columns images.'
+targetEntityType: media
+cache: true
