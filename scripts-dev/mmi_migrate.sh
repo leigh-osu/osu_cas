@@ -102,7 +102,7 @@ guard_exit() {
 rollback_mmi() {
   echo "=== Rolling back mmi_* migrations (agsci maps untouched) ==="
   guard_enter
-  for group in mmi_groups mmi_content mmi_media; do
+  for group in mmi_groups mmi_content mmi_media mmi_accounts; do
     drush migrate:rollback --group="${group}" || true
   done
   guard_exit
@@ -184,12 +184,18 @@ section_3() {
   echo "=== Section 3: enable osu_migrations_mmi ==="
   guard_enter
 
-  drush en -y osu_migrations_mmi || exit 1
+  if drush pm:list --field=status --filter=osu_migrations_mmi 2>/dev/null | grep -qi enabled; then
+    # Already on: refresh the module-shipped migration/group config so yml
+    # edits land without a reinstall (map tables survive either way).
+    drush cim --partial --source=/var/www/html/docroot/modules/custom/osu_migrations_mmi/config/install -y || exit 1
+  else
+    drush en -y osu_migrations_mmi || exit 1
+  fi
   drush cr
 
   echo "MMI migration groups:"
   drush config:get migrate_plus.migration_group.mmi_content id >/dev/null || exit 1
-  for group in mmi_content mmi_media mmi_groups; do
+  for group in mmi_accounts mmi_content mmi_media mmi_groups; do
     echo "--- ${group}"
     drush migrate:status --group="${group}" 2>/dev/null || echo "  (no migrations yet)"
   done
@@ -204,8 +210,33 @@ section_3() {
 # ---------------------------------------------------------------------------
 section_4() {
   echo "=== Section 4: users -- ONID reconciliation + mmi_users ==="
-  echo "TODO: match on cas_user_authmap ONID username, never uid (35 name / 39 uid collisions)."
-  exit 1
+  guard_enter
+
+  drush scr scripts-dev/mmi_domain_record.php || exit 1
+  echo "--- reconciliation audit (CSV: scripts-dev/mmi_user_reconciliation.csv)"
+  drush scr scripts-dev/mmi_user_audit.php || exit 1
+  echo "--- pre-seed adopted accounts (ROLLBACK_PRESERVE)"
+  drush scr scripts-dev/mmi_preseed_user_map.php || exit 1
+
+  drush migrate:import mmi_users || exit 1
+  drush migrate:import mmi_user_authmap || exit 1
+  drush migrate:status --group=mmi_accounts
+
+  # Prove no live account was touched: every pre-seeded destination uid must
+  # still carry its pre-run name/mail (spot data), and created accounts must
+  # all have uids above the pre-run maximum.
+  drush php:eval '
+    $d10 = \Drupal::database();
+    $rows = $d10->query("SELECT sourceid1, destid1 FROM {migrate_map_mmi_users} WHERE rollback_action = 1")->fetchAllKeyed();
+    printf("adopted rows: %d (live uids: %s)\n", count($rows), implode(",", $rows));
+    $created = $d10->query("SELECT COUNT(*) FROM {migrate_map_mmi_users} WHERE rollback_action = 0 AND destid1 IS NOT NULL")->fetchField();
+    printf("created accounts: %d\n", $created);
+    $bad = $d10->query("SELECT COUNT(*) FROM {migrate_map_mmi_users} WHERE destid1 IS NULL")->fetchField();
+    printf("unresolved map rows: %d\n", $bad);
+  ' || exit 1
+
+  guard_exit
+  snapshot_save mmi-users
 }
 section_5() {
   echo "=== Section 5: media + files ==="
