@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a0a8f05e0c57e4d0602b9854c02a49e9",
+    "content-hash": "7ec81a070480de83428f3dc0fc2553b4",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -19294,16 +19294,16 @@
         },
         {
             "name": "leigh-osu/manzanita",
-            "version": "v1.1.39",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leigh-osu/manzanita.git",
-                "reference": "5b24bad2cf7484cfb1f1eff6d8dad6c24f83eb39"
+                "reference": "1cdd805a02cf1dcc13cd93bc8dbaf961566a6825"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/manzanita/zipball/5b24bad2cf7484cfb1f1eff6d8dad6c24f83eb39",
-                "reference": "5b24bad2cf7484cfb1f1eff6d8dad6c24f83eb39",
+                "url": "https://api.github.com/repos/leigh-osu/manzanita/zipball/1cdd805a02cf1dcc13cd93bc8dbaf961566a6825",
+                "reference": "1cdd805a02cf1dcc13cd93bc8dbaf961566a6825",
                 "shasum": ""
             },
             "type": "drupal-custom-theme",
@@ -19318,10 +19318,10 @@
             ],
             "description": "Drupal Theme for OSU College of Agricultural Sciences",
             "support": {
-                "source": "https://github.com/leigh-osu/manzanita/tree/v1.1.39",
+                "source": "https://github.com/leigh-osu/manzanita/tree/v1.2.0",
                 "issues": "https://github.com/leigh-osu/manzanita/issues"
             },
-            "time": "2026-08-25T23:25:25+00:00"
+            "time": "2026-08-26T02:46:15+00:00"
         },
         {
             "name": "leigh-osu/osu_cas_multisite",
@@ -19438,6 +19438,34 @@
                 "issues": "https://github.com/leigh-osu/osu_endophyte/issues"
             },
             "time": "2026-08-21T01:27:38+00:00"
+        },
+        {
+            "name": "leigh-osu/osu_landscapeplants",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leigh-osu/osu_landscapeplants.git",
+                "reference": "cc01bedbfe706e80e20c3b4db5f3899d268fcf83"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leigh-osu/osu_landscapeplants/zipball/cc01bedbfe706e80e20c3b4db5f3899d268fcf83",
+                "reference": "cc01bedbfe706e80e20c3b4db5f3899d268fcf83",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/core": "^10 || ^11"
+            },
+            "type": "drupal-custom-module",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Landscape Plants site behaviour: computed botanical names, sibling species, search-result rendering, and the one-time D7 plantid migrations.",
+            "support": {
+                "source": "https://github.com/leigh-osu/osu_landscapeplants/tree/v1.0.0",
+                "issues": "https://github.com/leigh-osu/osu_landscapeplants/issues"
+            },
+            "time": "2026-08-26T02:47:55+00:00"
         },
         {
             "name": "leigh-osu/osu_migrations_cas",
