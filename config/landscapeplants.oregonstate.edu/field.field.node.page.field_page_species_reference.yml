@@ -1,0 +1,24 @@
+uuid: df0b1904-192f-44f6-a4ae-34ab075f3e76
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_species_reference
+    - node.type.page
+    - node.type.plant
+id: node.page.field_page_species_reference
+field_name: field_page_species_reference
+entity_type: node
+bundle: page
+label: 'Species reference'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      plant: plant
+field_type: entity_reference

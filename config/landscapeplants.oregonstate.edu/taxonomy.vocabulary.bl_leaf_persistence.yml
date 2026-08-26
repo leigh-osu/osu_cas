@@ -1,0 +1,9 @@
+uuid: 89e9a5a7-9950-4c92-942a-07bf11c59d6a
+langcode: en
+status: true
+dependencies: {  }
+name: 'Leaf persistence'
+vid: bl_leaf_persistence
+description: null
+weight: 0
+new_revision: false

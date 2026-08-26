@@ -1,0 +1,22 @@
+uuid: 80081332-42b9-4709-9ab4-002afb145e5f
+langcode: en
+status: true
+dependencies:
+  theme:
+    - manzanita
+_core:
+  default_config_hash: T0wbI6qVdThbbIqXDZFg_1VZ3_ittXBdEoUH7d7ux_E
+id: manzanita_local_tasks
+theme: manzanita
+region: content
+weight: -20
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

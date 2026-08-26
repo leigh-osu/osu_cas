@@ -1,0 +1,24 @@
+uuid: e6470d50-777f-4e3a-9c37-cfaa29a9bc86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_bl_leaf_attachment
+    - node.type.plant
+    - taxonomy.vocabulary.bl_leaf_attachment
+id: node.plant.field_plant_bl_leaf_attachment
+field_name: field_plant_bl_leaf_attachment
+entity_type: node
+bundle: plant
+label: 'Leaf attachment to stem'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      bl_leaf_attachment: bl_leaf_attachment
+field_type: entity_reference

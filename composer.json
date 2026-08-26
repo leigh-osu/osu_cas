@@ -131,6 +131,10 @@
         },
         {
             "type": "vcs",
+            "url": "https://github.com/leigh-osu/osu_landscapeplants.git"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/leigh-osu/osu_migrations_cas.git"
         },
         {
@@ -289,6 +293,7 @@
         "drupal/entityreference_filter": "^2.0@beta",
         "drupal/eva": "^3.1",
         "drupal/exclude_node_title": "^2.0",
+        "drupal/facets": "^2.0",
         "drupal/feeds": "^3.0beta2",
         "drupal/feeds_ex": "^1.0beta",
         "drupal/feeds_tamper": "^2.0beta2",
@@ -435,6 +440,7 @@
         "leigh-osu/osu_cas_site_sync": "^1.0",
         "leigh-osu/osu_digital_measures": "^1.0",
         "leigh-osu/osu_endophyte": "^2.1",
+        "leigh-osu/osu_landscapeplants": "^1.0",
         "leigh-osu/osu_migrations_cas": "^1.0",
         "mnsami/composer-custom-directory-installer": "^2.0",
         "npm-asset/apexcharts": "^4.7",

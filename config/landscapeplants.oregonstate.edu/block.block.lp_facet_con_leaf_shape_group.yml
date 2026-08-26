@@ -1,0 +1,22 @@
+uuid: c3714f16-00f1-40d9-89dc-3570c3c361ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.con_leaf_shape_group
+  module:
+    - facets
+  theme:
+    - manzanita
+id: lp_facet_con_leaf_shape_group
+theme: manzanita
+region: full_top
+weight: -24
+provider: null
+plugin: 'facet_block:con_leaf_shape_group'
+settings:
+  id: 'facet_block:con_leaf_shape_group'
+  label: 'Filter by leaf shape and grouping:'
+  label_display: visible
+  provider: facets
+visibility: {  }

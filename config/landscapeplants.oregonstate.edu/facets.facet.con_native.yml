@@ -1,0 +1,63 @@
+uuid: 5a8dd93e-f0f1-4fa8-9d1b-b891d48239c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.conifer
+    - views.view.search_conifer
+  module:
+    - search_api
+id: con_native
+name: 'Filter by native to (or naturalized in) Oregon:'
+weight: -30
+min_count: 1
+missing: false
+missing_label: others
+url_alias: field_plant_native
+facet_source_id: 'search_api:views_page__search_conifer__page_1'
+field_identifier: field_plant_native
+query_operator: and
+hard_limit: 50
+exclude: false
+use_hierarchy: false
+keep_hierarchy_parents_active: false
+hierarchy:
+  type: taxonomy
+  config: {  }
+expand_hierarchy: false
+enable_parent_when_child_gets_disabled: true
+widget:
+  type: checkbox
+  config:
+    show_numbers: true
+    soft_limit: 20
+    soft_limit_settings:
+      show_less_label: 'Show fewer'
+      show_more_label: 'Show more'
+empty_behavior:
+  behavior: text
+  text_format: filtered_html
+  text: '<em>No matches with selected filters.</em>'
+only_visible_when_facet_source_is_visible: true
+show_only_one_result: false
+show_title: null
+processor_configs:
+  boolean_item:
+    processor_id: boolean_item
+    weights:
+      build: -20
+    settings:
+      on_value: 'Yes'
+      off_value: 'No'
+  raw_value_widget_order:
+    processor_id: raw_value_widget_order
+    weights:
+      sort: -40
+    settings:
+      sort: DESC
+  url_processor_handler:
+    processor_id: url_processor_handler
+    weights:
+      pre_query: -10
+      build: -10
+    settings: {  }

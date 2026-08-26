@@ -1,0 +1,93 @@
+uuid: 4733b1a2-2c23-4342-8c7b-3db89ab7d744
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.server.dataserver
+    - node.type.plant
+  module:
+    - node
+    - search_api
+id: conifer
+name: Conifer
+description: ''
+read_only: false
+field_settings:
+  field_plant_con_fruit:
+    label: '"Fruit" (cone)'
+    datasource_id: 'entity:node'
+    property_path: field_plant_con_fruit
+    type: integer
+  field_plant_con_growth_form:
+    label: 'Growth form'
+    datasource_id: 'entity:node'
+    property_path: field_plant_con_growth_form
+    type: integer
+  field_plant_con_growth_habit:
+    label: 'Growth habit'
+    datasource_id: 'entity:node'
+    property_path: field_plant_con_growth_habit
+    type: integer
+  field_plant_con_leaf_color:
+    label: 'Leaf color (growing season)'
+    datasource_id: 'entity:node'
+    property_path: field_plant_con_leaf_color
+    type: integer
+  field_plant_con_leaf_persistence:
+    label: 'Leaf persistence'
+    datasource_id: 'entity:node'
+    property_path: field_plant_con_leaf_persistence
+    type: integer
+  field_plant_con_leaf_shape_group:
+    label: 'Leaf shape and grouping'
+    datasource_id: 'entity:node'
+    property_path: field_plant_con_leaf_shape_group
+    type: integer
+  field_plant_con_stems:
+    label: Stems
+    datasource_id: 'entity:node'
+    property_path: field_plant_con_stems
+    type: integer
+  field_plant_native:
+    label: 'Native to (or naturalized in) Oregon'
+    datasource_id: 'entity:node'
+    property_path: field_plant_native
+    type: boolean
+  field_plant_sort_name:
+    label: 'Sort name'
+    datasource_id: 'entity:node'
+    property_path: field_plant_sort_name
+    type: string
+  field_plant_type:
+    label: Type
+    datasource_id: 'entity:node'
+    property_path: field_plant_type
+    type: string
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - plant
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  custom_value: {  }
+  entity_type: {  }
+  language_with_fallback: {  }
+  rendered_item: {  }
+  status:
+    weights:
+      preprocess_index: -50
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 500
+  delete_on_fail: true
+  index_directly: true
+  track_changes_in_references: true
+server: dataserver

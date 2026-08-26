@@ -1,0 +1,38 @@
+uuid: e9a37fbf-905f-4ad8-9484-7cc3d01aed7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_images
+    - node.type.plant
+  module:
+    - image
+id: node.plant.field_plant_images
+field_name: field_plant_images
+entity_type: node
+bundle: plant
+label: Images
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: plantimage
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: false
+  title_field: true
+  title_field_required: false
+  default_image:
+    uuid: null
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

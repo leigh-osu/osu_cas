@@ -1,0 +1,22 @@
+uuid: 5364e521-2f75-4fc5-a87f-aed923d4f614
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.bl_leaf_chars
+  module:
+    - facets
+  theme:
+    - manzanita
+id: lp_facet_bl_leaf_chars
+theme: manzanita
+region: full_top
+weight: -23
+provider: null
+plugin: 'facet_block:bl_leaf_chars'
+settings:
+  id: 'facet_block:bl_leaf_chars'
+  label: 'Filter by leaf or leaflets characteristics:'
+  label_display: visible
+  provider: facets
+visibility: {  }

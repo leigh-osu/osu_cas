@@ -1,0 +1,9 @@
+uuid: ccc982df-ffe2-4258-a2ef-1b42d803d138
+langcode: en
+status: true
+dependencies: {  }
+name: 'Leaf or leaflets characteristics'
+vid: plant_bl_leaf_or_leaflets_chars
+description: null
+weight: 0
+new_revision: false

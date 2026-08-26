@@ -1,0 +1,19 @@
+uuid: c97b553a-89c3-4db8-a82e-12d7c4a8696d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_cultivar
+    - node.type.plant
+id: node.plant.field_plant_cultivar
+field_name: field_plant_cultivar
+entity_type: node
+bundle: plant
+label: Cultivar/Trademark
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

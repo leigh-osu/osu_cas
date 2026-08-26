@@ -1,0 +1,9 @@
+uuid: 7e66d7ff-e43c-4be2-a8b9-a864924e6083
+langcode: en
+status: true
+dependencies: {  }
+name: 'Growth form'
+vid: con_growth_form
+description: null
+weight: 0
+new_revision: false

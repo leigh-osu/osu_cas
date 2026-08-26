@@ -889,6 +889,8 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
  * Keep this code block at the end of this file to take full effect.
  */
 
+$settings['config_sync_directory'] = '../config/landscapeplants.oregonstate.edu';
+
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
@@ -903,7 +905,11 @@ if (file_exists('/var/www/site-php')) {
   global $conf;
   // Do not autoconnect to database.
   $conf['acquia_hosting_settings_autoconnect'] = FALSE;
-  require "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/landscapeplants_oregonstate_edu-settings.inc";
+  // The Acquia database is named "landscapeplants", not the long form
+  // SiteGenerator would derive from the FQDN. Acquia writes one
+  // <dbname>-settings.inc per database, so this string and the database name
+  // must stay in step -- a mismatch is a fatal on every request to this site.
+  require "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/landscapeplants-settings.inc";
   // Set the MySQL variable values.
   $databases['default']['default']['init_commands'] = [
     'transaction_isolation' => 'SET SESSION transaction_isolation="READ-COMMITTED"'
@@ -931,6 +937,13 @@ if (file_exists('/var/www/site-php')) {
   }
 }
 
+// Hand-maintained ddev include: ddev only generates settings.ddev.php for the
+// project's own docroot site, so this second core multisite loads its own.
+$ddev_settings = __DIR__ . '/settings.ddev.php';
+if (getenv('IS_DDEV_PROJECT') == 'true' && is_readable($ddev_settings)) {
+  require $ddev_settings;
+}
+
 /**
  * Shield: HTTP basic auth on the Acquia non-production environments.
  *
@@ -946,3 +959,22 @@ if (in_array($_ENV['AH_SITE_ENVIRONMENT'] ?? '', ['dev', 'stage'], TRUE)
   $config['shield.settings']['credentials']['shield']['pass'] = $osu_cas_shield_pass;
   $config['shield.settings']['print'] = 'OSU CAS preview environment';
 }
+
+/**
+ * Re-assert the config sync directory, after Acquia has had its say.
+ *
+ * The `-settings.inc` required above pulls in Acquia's platform-level
+ * /var/acquia/drupal/settings/settings.inc.php, which unconditionally does:
+ *
+ *   $settings['config_sync_directory'] = "$app_root/../config/$AH_DRUPAL_SITE_NAME";
+ *
+ * discarding the value set earlier in this file. Here that would aim `drush
+ * cex` and `drush cim` at ../config/landscapeplants (the database name)
+ * instead of the tracked ../config/landscapeplants.oregonstate.edu.
+ *
+ * Assigning it here is what fixes it: this is the last word in the file, so it
+ * runs after the Acquia include rather than before it.
+ *
+ * Keep this at the end of the file. Moving it back up top restores the bug.
+ */
+$settings['config_sync_directory'] = '../config/landscapeplants.oregonstate.edu';

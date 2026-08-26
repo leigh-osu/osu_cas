@@ -1,0 +1,22 @@
+uuid: 3e32594e-e997-42c9-85fe-1aa05fc17d97
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.bl_flower_appearance
+  module:
+    - facets
+  theme:
+    - manzanita
+id: lp_facet_bl_flower_appearance
+theme: manzanita
+region: full_top
+weight: -22
+provider: null
+plugin: 'facet_block:bl_flower_appearance'
+settings:
+  id: 'facet_block:bl_flower_appearance'
+  label: 'Filter by flower appearance:'
+  label_display: visible
+  provider: facets
+visibility: {  }

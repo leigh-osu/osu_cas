@@ -1,0 +1,20 @@
+uuid: e705ebe7-0553-4966-9f27-c7beb826ca40
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_plant_bl_leaf_attachment
+field_name: field_plant_bl_leaf_attachment
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

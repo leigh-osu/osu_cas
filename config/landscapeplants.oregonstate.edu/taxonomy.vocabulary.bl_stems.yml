@@ -1,0 +1,9 @@
+uuid: abea04b3-24cd-4323-a0a9-53b9ed0911b2
+langcode: en
+status: true
+dependencies: {  }
+name: Stems
+vid: bl_stems
+description: null
+weight: 0
+new_revision: false

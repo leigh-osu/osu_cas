@@ -1,0 +1,22 @@
+uuid: 46928275-4ce8-40ee-9fae-ad20bb9058ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.bl_leaf_attachment
+  module:
+    - facets
+  theme:
+    - manzanita
+id: lp_facet_bl_leaf_attachment
+theme: manzanita
+region: full_top
+weight: -26
+provider: null
+plugin: 'facet_block:bl_leaf_attachment'
+settings:
+  id: 'facet_block:bl_leaf_attachment'
+  label: 'Filter by leaf attachment to stem:'
+  label_display: visible
+  provider: facets
+visibility: {  }

@@ -1,0 +1,24 @@
+uuid: e5acb264-e9fd-4766-94cd-6727bd98d628
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_bl_flower_color
+    - node.type.plant
+    - taxonomy.vocabulary.bl_flower_color
+id: node.plant.field_plant_bl_flower_color
+field_name: field_plant_bl_flower_color
+entity_type: node
+bundle: plant
+label: 'Flower color'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      bl_flower_color: bl_flower_color
+field_type: entity_reference

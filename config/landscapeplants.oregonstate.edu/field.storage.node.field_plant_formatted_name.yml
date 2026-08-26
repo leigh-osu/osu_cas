@@ -1,0 +1,19 @@
+uuid: 23ca1826-3b60-4344-9d56-402bb4f025b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_plant_formatted_name
+field_name: field_plant_formatted_name
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

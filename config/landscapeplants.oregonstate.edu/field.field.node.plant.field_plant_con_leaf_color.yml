@@ -1,0 +1,24 @@
+uuid: eac0bd1b-f5ac-40fe-b7de-d03ec409f7be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_con_leaf_color
+    - node.type.plant
+    - taxonomy.vocabulary.con_leaf_color
+id: node.plant.field_plant_con_leaf_color
+field_name: field_plant_con_leaf_color
+entity_type: node
+bundle: plant
+label: 'Leaf color (growing season)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      con_leaf_color: con_leaf_color
+field_type: entity_reference

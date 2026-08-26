@@ -1,0 +1,9 @@
+uuid: 1f2e058f-e375-4c32-bb14-cf0aaad77bc5
+langcode: en
+status: true
+dependencies: {  }
+name: 'Leaf attachment to stem'
+vid: bl_leaf_attachment
+description: null
+weight: 0
+new_revision: false

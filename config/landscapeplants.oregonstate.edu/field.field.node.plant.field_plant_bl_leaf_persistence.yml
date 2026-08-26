@@ -1,0 +1,24 @@
+uuid: 020c7e45-ddf3-4e87-8a1e-eafde6da661c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_bl_leaf_persistence
+    - node.type.plant
+    - taxonomy.vocabulary.bl_leaf_persistence
+id: node.plant.field_plant_bl_leaf_persistence
+field_name: field_plant_bl_leaf_persistence
+entity_type: node
+bundle: plant
+label: 'Leaf persistence'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      bl_leaf_persistence: bl_leaf_persistence
+field_type: entity_reference

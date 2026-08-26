@@ -1,0 +1,9 @@
+uuid: 7feac634-d0d8-4006-ba17-8a456ac5fabc
+langcode: en
+status: true
+dependencies: {  }
+name: 'Technical Terms'
+vid: technical_terms
+description: null
+weight: 0
+new_revision: false

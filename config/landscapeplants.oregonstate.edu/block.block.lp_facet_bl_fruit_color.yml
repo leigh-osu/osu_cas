@@ -1,0 +1,22 @@
+uuid: ec290d91-6c70-49d8-921a-d1c37307d52f
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.bl_fruit_color
+  module:
+    - facets
+  theme:
+    - manzanita
+id: lp_facet_bl_fruit_color
+theme: manzanita
+region: full_top
+weight: -19
+provider: null
+plugin: 'facet_block:bl_fruit_color'
+settings:
+  id: 'facet_block:bl_fruit_color'
+  label: 'Filter by fruit color:'
+  label_display: visible
+  provider: facets
+visibility: {  }

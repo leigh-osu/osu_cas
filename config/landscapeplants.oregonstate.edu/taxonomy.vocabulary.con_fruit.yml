@@ -1,0 +1,9 @@
+uuid: 656b003c-4901-4ef5-9ed1-e7623524b9dc
+langcode: en
+status: true
+dependencies: {  }
+name: '"Fruit" (cone)'
+vid: con_fruit
+description: null
+weight: 0
+new_revision: false

@@ -1,0 +1,19 @@
+uuid: 8f772601-ebff-4960-afd2-ab024c8f0663
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_family
+    - node.type.plant
+id: node.plant.field_plant_family
+field_name: field_plant_family
+entity_type: node
+bundle: plant
+label: Family
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

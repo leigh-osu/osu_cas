@@ -1,0 +1,19 @@
+uuid: 5b6c9afe-7106-44c5-8929-27166ae7643c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_subspecies
+    - node.type.plant
+id: node.plant.field_plant_subspecies
+field_name: field_plant_subspecies
+entity_type: node
+bundle: plant
+label: Subspecies
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

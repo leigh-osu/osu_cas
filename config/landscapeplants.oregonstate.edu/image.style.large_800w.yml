@@ -1,0 +1,15 @@
+uuid: 58459e4f-26a9-429a-b4f6-6aa90b708adc
+langcode: en
+status: true
+dependencies: {  }
+name: large_800w
+label: 'Large 800w'
+effects:
+  8e56e7f0-lp00-4a00-a800-large800w000:
+    uuid: 8e56e7f0-lp00-4a00-a800-large800w000
+    id: image_scale
+    weight: 1
+    data:
+      width: 800
+      height: null
+      upscale: false

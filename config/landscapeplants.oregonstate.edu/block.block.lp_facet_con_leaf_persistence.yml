@@ -1,0 +1,22 @@
+uuid: 59790624-5a33-4fae-b0e8-db5f7560ee88
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.con_leaf_persistence
+  module:
+    - facets
+  theme:
+    - manzanita
+id: lp_facet_con_leaf_persistence
+theme: manzanita
+region: full_top
+weight: -26
+provider: null
+plugin: 'facet_block:con_leaf_persistence'
+settings:
+  id: 'facet_block:con_leaf_persistence'
+  label: 'Filter by leaf persistence:'
+  label_display: visible
+  provider: facets
+visibility: {  }

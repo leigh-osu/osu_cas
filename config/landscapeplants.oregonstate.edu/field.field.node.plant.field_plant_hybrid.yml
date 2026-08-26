@@ -1,0 +1,21 @@
+uuid: d7e8e9c2-cbb6-40a5-bf07-ff921320e1b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_hybrid
+    - node.type.plant
+id: node.plant.field_plant_hybrid
+field_name: field_plant_hybrid
+entity_type: node
+bundle: plant
+label: Hybrid
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

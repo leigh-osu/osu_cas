@@ -1,0 +1,9 @@
+uuid: dd1e4feb-f223-42e9-a85c-cd8cb3c24e96
+langcode: en
+status: true
+dependencies: {  }
+name: Genus
+vid: term_genus
+description: null
+weight: 0
+new_revision: false

@@ -1,0 +1,22 @@
+uuid: 5574584e-faef-46a3-8b36-c9d6a5907c52
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.bl_fruit_shape
+  module:
+    - facets
+  theme:
+    - manzanita
+id: lp_facet_bl_fruit_shape
+theme: manzanita
+region: full_top
+weight: -20
+provider: null
+plugin: 'facet_block:bl_fruit_shape'
+settings:
+  id: 'facet_block:bl_fruit_shape'
+  label: 'Filter by fruit shape:'
+  label_display: visible
+  provider: facets
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: cd19a0e2-9d90-4a03-86fa-c6f05cd69fb8
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.bl_growth_habit
+  module:
+    - facets
+  theme:
+    - manzanita
+id: lp_facet_bl_growth_habit
+theme: manzanita
+region: full_top
+weight: -29
+provider: null
+plugin: 'facet_block:bl_growth_habit'
+settings:
+  id: 'facet_block:bl_growth_habit'
+  label: 'Filter by growth habit:'
+  label_display: visible
+  provider: facets
+visibility: {  }
