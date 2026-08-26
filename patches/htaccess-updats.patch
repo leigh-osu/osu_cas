@@ -1,8 +1,6 @@
-diff --git a/.htaccess b/.htaccess
-index 4031da475cf..7ef04e5192e 100644
 --- a/.htaccess
 +++ b/.htaccess
-@@ -22,6 +22,13 @@ DirectoryIndex index.php index.html index.htm
+@@ -22,6 +22,13 @@
  AddType image/svg+xml svg svgz
  AddEncoding gzip svgz
  
@@ -16,10 +14,11 @@ index 4031da475cf..7ef04e5192e 100644
  # Most of the following PHP settings cannot be changed at runtime. See
  # sites/default/default.settings.php and
  # Drupal\Core\DrupalKernel::bootEnvironment() for settings that can be
-@@ -113,6 +120,434 @@ AddEncoding gzip svgz
+@@ -112,7 +119,444 @@
+   # If your site is running in a VirtualDocumentRoot at http://example.com/,
    # uncomment the following line:
    # RewriteBase /
- 
++
 +  # use a noindex robots on any env not prod
 +  RewriteCond %{ENV:AH_SITE_ENVIRONMENT} !prod
 +  RewriteRule ^robots\.txt$ robots_noindex.txt [L]
@@ -27,6 +26,15 @@ index 4031da475cf..7ef04e5192e 100644
 +  # Handle autodiscover.xml posts
 +  RewriteCond %{REQUEST_URI} ^/autodiscover/autodiscover.xml [NC]
 +  RewriteRule .* - [F,L]
++
++  # Legacy D7-era file URLs: content and external links still reference
++  # /sites/agsci/files and /sites/agscid7/files (the old site-dir names).
++  # Serve them from the real site directory. This must stay an internal
++  # rewrite, NOT sites/agsci + sites/agscid7 symlinks: Acquia's multisite
++  # file provisioning treats each sites/* entry as its own site and
++  # re-points the real files mount at a fresh empty directory
++  # (prod files outage, 2026-08-26).
++  RewriteRule ^sites/(?:agsci|agscid7)/files/(.*)$ sites/agsci.oregonstate.edu/files/$1 [L]
 +
 +  # Blocking bot for user agent.
 +  RewriteCond %{HTTP_USER_AGENT} ClaudeBot [NC]
@@ -231,7 +239,7 @@ index 4031da475cf..7ef04e5192e 100644
 +  RewriteCond %{HTTP_HOST} ^fa\.oregonstate\.edu$ [NC]
 +  RewriteCond %{REQUEST_URI} ^/controllers-unit/payroll$
 +  RewriteRule ^(.*)$ https://finance.oregonstate.edu/payroll [R=permanent,L]
-+
+ 
 +  RewriteCond %{HTTP_HOST} ^fa\.oregonstate\.edu$ [NC]
 +  RewriteCond %{REQUEST_URI} ^/controllers-unit/payroll/direct-deposit-sign-up$
 +  RewriteRule ^(.*)$ https://finance.oregonstate.edu/payroll/direct-deposit-how-sign [R=permanent,L]
@@ -451,7 +459,7 @@ index 4031da475cf..7ef04e5192e 100644
    # Redirect common PHP files to their new locations.
    RewriteCond %{REQUEST_URI} ^(.*)?/(install\.php) [OR]
    RewriteCond %{REQUEST_URI} ^(.*)?/(rebuild\.php)
-@@ -184,3 +619,9 @@ AddEncoding gzip svgz
+@@ -184,3 +628,9 @@
    # Disable Proxy header, since it's an attack vector.
    RequestHeader unset Proxy
  </IfModule>
