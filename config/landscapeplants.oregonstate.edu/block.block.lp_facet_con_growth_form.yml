@@ -1,0 +1,22 @@
+uuid: 8d48222d-3784-4d23-85f8-afecbc7bac42
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.con_growth_form
+  module:
+    - facets
+  theme:
+    - manzanita
+id: lp_facet_con_growth_form
+theme: manzanita
+region: full_top
+weight: -28
+provider: null
+plugin: 'facet_block:con_growth_form'
+settings:
+  id: 'facet_block:con_growth_form'
+  label: 'Filter by growth form:'
+  label_display: visible
+  provider: facets
+visibility: {  }

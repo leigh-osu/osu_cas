@@ -1,0 +1,20 @@
+uuid: ae1875e1-53dc-46e9-bed5-14e43b643c1c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_plant_con_leaf_persistence
+field_name: field_plant_con_leaf_persistence
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

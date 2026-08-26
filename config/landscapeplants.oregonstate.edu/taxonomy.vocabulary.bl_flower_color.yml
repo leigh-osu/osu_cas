@@ -1,0 +1,9 @@
+uuid: f9ae334d-1288-4efa-a164-86b19ac5578d
+langcode: en
+status: true
+dependencies: {  }
+name: 'Flower color'
+vid: bl_flower_color
+description: null
+weight: 0
+new_revision: false

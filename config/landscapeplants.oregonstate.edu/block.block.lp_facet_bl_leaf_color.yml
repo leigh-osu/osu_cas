@@ -1,0 +1,22 @@
+uuid: 910eafd2-d440-488f-bd32-ca81fafe702d
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.bl_leaf_color
+  module:
+    - facets
+  theme:
+    - manzanita
+id: lp_facet_bl_leaf_color
+theme: manzanita
+region: full_top
+weight: -25
+provider: null
+plugin: 'facet_block:bl_leaf_color'
+settings:
+  id: 'facet_block:bl_leaf_color'
+  label: 'Filter by leaf color (growing season):'
+  label_display: visible
+  provider: facets
+visibility: {  }

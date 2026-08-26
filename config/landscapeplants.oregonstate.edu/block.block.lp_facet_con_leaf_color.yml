@@ -1,0 +1,22 @@
+uuid: 00d29626-326b-4677-b224-46eab02a5847
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.con_leaf_color
+  module:
+    - facets
+  theme:
+    - manzanita
+id: lp_facet_con_leaf_color
+theme: manzanita
+region: full_top
+weight: -25
+provider: null
+plugin: 'facet_block:con_leaf_color'
+settings:
+  id: 'facet_block:con_leaf_color'
+  label: 'Filter by leaf color (growing season):'
+  label_display: visible
+  provider: facets
+visibility: {  }

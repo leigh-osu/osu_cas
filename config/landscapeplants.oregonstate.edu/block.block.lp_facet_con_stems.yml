@@ -1,0 +1,22 @@
+uuid: ef0c6755-993a-468f-8841-e0e8c7ba39ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.con_stems
+  module:
+    - facets
+  theme:
+    - manzanita
+id: lp_facet_con_stems
+theme: manzanita
+region: full_top
+weight: -27
+provider: null
+plugin: 'facet_block:con_stems'
+settings:
+  id: 'facet_block:con_stems'
+  label: 'Filter by stems:'
+  label_display: visible
+  provider: facets
+visibility: {  }

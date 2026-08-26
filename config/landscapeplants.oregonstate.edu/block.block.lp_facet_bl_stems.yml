@@ -1,0 +1,22 @@
+uuid: bc20c191-9e1c-41fc-b759-d04de3de78a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.bl_stems
+  module:
+    - facets
+  theme:
+    - manzanita
+id: lp_facet_bl_stems
+theme: manzanita
+region: full_top
+weight: -28
+provider: null
+plugin: 'facet_block:bl_stems'
+settings:
+  id: 'facet_block:bl_stems'
+  label: 'Filter by stems:'
+  label_display: visible
+  provider: facets
+visibility: {  }

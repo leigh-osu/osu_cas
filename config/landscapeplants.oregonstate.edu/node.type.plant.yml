@@ -1,0 +1,11 @@
+uuid: ca47daf4-68fc-4076-a854-9d877fce0137
+langcode: en
+status: true
+dependencies: {  }
+name: Plant
+type: plant
+description: 'A woody plant record in the identification reference.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

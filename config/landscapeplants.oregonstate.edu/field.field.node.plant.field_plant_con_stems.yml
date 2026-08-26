@@ -1,0 +1,24 @@
+uuid: 7877847d-3a24-43f2-92b3-f8f7320e2bc7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_con_stems
+    - node.type.plant
+    - taxonomy.vocabulary.con_stems
+id: node.plant.field_plant_con_stems
+field_name: field_plant_con_stems
+entity_type: node
+bundle: plant
+label: Stems
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      con_stems: con_stems
+field_type: entity_reference

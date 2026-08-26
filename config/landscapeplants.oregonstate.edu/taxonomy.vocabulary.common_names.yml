@@ -1,0 +1,9 @@
+uuid: 191e7235-88bc-494d-8f4f-c38df5658022
+langcode: en
+status: true
+dependencies: {  }
+name: 'Common Name List'
+vid: common_names
+description: null
+weight: 0
+new_revision: false

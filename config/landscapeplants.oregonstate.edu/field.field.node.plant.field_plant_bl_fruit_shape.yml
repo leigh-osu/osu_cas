@@ -1,0 +1,24 @@
+uuid: 37191d07-001a-44cb-a7f3-c7c252fc0645
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_bl_fruit_shape
+    - node.type.plant
+    - taxonomy.vocabulary.bl_fruit_shape
+id: node.plant.field_plant_bl_fruit_shape
+field_name: field_plant_bl_fruit_shape
+entity_type: node
+bundle: plant
+label: 'Fruit shape'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      bl_fruit_shape: bl_fruit_shape
+field_type: entity_reference

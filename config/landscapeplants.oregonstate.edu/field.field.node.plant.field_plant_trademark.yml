@@ -1,0 +1,21 @@
+uuid: 631d0035-a878-428b-afff-6fcf9502d089
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_trademark
+    - node.type.plant
+  module:
+    - options
+id: node.plant.field_plant_trademark
+field_name: field_plant_trademark
+entity_type: node
+bundle: plant
+label: Trademark
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

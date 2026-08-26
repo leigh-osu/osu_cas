@@ -1,0 +1,19 @@
+uuid: 40f08b2f-4b4d-45d3-b1ee-ed4fba907b0d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_form
+    - node.type.plant
+id: node.plant.field_plant_form
+field_name: field_plant_form
+entity_type: node
+bundle: plant
+label: Forma
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

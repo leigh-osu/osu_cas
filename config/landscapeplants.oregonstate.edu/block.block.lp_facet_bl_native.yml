@@ -1,0 +1,22 @@
+uuid: 39ddce5a-c2fb-4305-b2da-3d999d8f3982
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.bl_native
+  module:
+    - facets
+  theme:
+    - manzanita
+id: lp_facet_bl_native
+theme: manzanita
+region: full_top
+weight: -30
+provider: null
+plugin: 'facet_block:bl_native'
+settings:
+  id: 'facet_block:bl_native'
+  label: 'Filter by native to (or naturalized in) Oregon:'
+  label_display: visible
+  provider: facets
+visibility: {  }

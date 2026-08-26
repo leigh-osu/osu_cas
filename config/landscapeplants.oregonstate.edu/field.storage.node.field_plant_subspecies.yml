@@ -1,0 +1,21 @@
+uuid: 9786619b-31fe-4706-9794-a46fd63ed570
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_plant_subspecies
+field_name: field_plant_subspecies
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

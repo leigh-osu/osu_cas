@@ -1,0 +1,32 @@
+uuid: c7a5fd9f-3228-49fa-88f6-ce43f06a6e59
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+  module:
+    - ckeditor5
+format: full_html
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - bold
+      - italic
+      - link
+      - '|'
+      - bulletedList
+      - numberedList
+      - '|'
+      - blockQuote
+      - insertTable
+      - sourceEditing
+  plugins:
+    ckeditor5_list:
+      properties:
+        reversed: true
+        startIndex: true
+    ckeditor5_sourceEditing:
+      allowed_tags: {  }
+image_upload:
+  status: false

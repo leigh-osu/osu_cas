@@ -1,0 +1,22 @@
+uuid: 23b786d7-86fd-4b4d-91d1-ec102bcdbb9c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_original_info
+    - node.type.plant
+  module:
+    - text
+id: node.plant.field_plant_original_info
+field_name: field_plant_original_info
+entity_type: node
+bundle: plant
+label: 'Original info'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

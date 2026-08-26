@@ -1,0 +1,61 @@
+uuid: ebd32f19-ba2c-46f9-841a-b761a66e6f0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.broad_leaf
+    - views.view.search_broadleaf
+  module:
+    - search_api
+id: bl_leaf_types
+name: 'Filter by leaf types:'
+weight: -24
+min_count: 1
+missing: false
+missing_label: others
+url_alias: field_plant_bl_leaf_types
+facet_source_id: 'search_api:views_page__search_broadleaf__page_1'
+field_identifier: field_plant_bl_leaf_types
+query_operator: and
+hard_limit: 50
+exclude: false
+use_hierarchy: false
+keep_hierarchy_parents_active: false
+hierarchy:
+  type: taxonomy
+  config: {  }
+expand_hierarchy: false
+enable_parent_when_child_gets_disabled: true
+widget:
+  type: checkbox
+  config:
+    show_numbers: true
+    soft_limit: 20
+    soft_limit_settings:
+      show_less_label: 'Show fewer'
+      show_more_label: 'Show more'
+empty_behavior:
+  behavior: text
+  text_format: filtered_html
+  text: '<em>No matches with selected filters.</em>'
+only_visible_when_facet_source_is_visible: true
+show_only_one_result: false
+show_title: null
+processor_configs:
+  term_weight_widget_order:
+    processor_id: term_weight_widget_order
+    weights:
+      sort: -40
+    settings:
+      sort: ASC
+  translate_entity:
+    processor_id: translate_entity
+    weights:
+      build: -20
+    settings: {  }
+  url_processor_handler:
+    processor_id: url_processor_handler
+    weights:
+      pre_query: -10
+      build: -10
+    settings: {  }

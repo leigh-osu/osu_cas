@@ -1,0 +1,21 @@
+uuid: 19e6c9d1-dccc-497c-bb31-301cde858c8d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_review_state
+    - node.type.plant
+  module:
+    - options
+id: node.plant.field_plant_review_state
+field_name: field_plant_review_state
+entity_type: node
+bundle: plant
+label: 'Review state'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

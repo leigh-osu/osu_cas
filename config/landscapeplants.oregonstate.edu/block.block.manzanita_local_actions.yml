@@ -1,0 +1,20 @@
+uuid: 47a54274-2a36-48f2-9e8d-4735891f9d41
+langcode: en
+status: true
+dependencies:
+  theme:
+    - manzanita
+_core:
+  default_config_hash: ABoKnlk20KHqZRw_2Qr4EvaFvH4lnQ2nuhunHeE1JIU
+id: manzanita_local_actions
+theme: manzanita
+region: content
+weight: -10
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }
