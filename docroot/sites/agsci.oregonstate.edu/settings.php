@@ -1075,7 +1075,9 @@ $settings['config_sync_directory'] = '../config/agsci.oregonstate.edu';
 if (in_array($_ENV['AH_SITE_ENVIRONMENT'] ?? '', ['dev', 'stage'], TRUE)
   && !empty($osu_cas_shield_pass)) {
   $config['shield.settings']['shield_enable'] = TRUE;
-  $config['shield.settings']['credentials']['shield']['user'] = 'osucas';
+  // Shield compares the username as an exact string — this casing is what
+  // users must type.
+  $config['shield.settings']['credentials']['shield']['user'] = 'OSUcas';
   $config['shield.settings']['credentials']['shield']['pass'] = $osu_cas_shield_pass;
   $config['shield.settings']['print'] = 'OSU CAS preview environment';
 }
