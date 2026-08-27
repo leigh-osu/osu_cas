@@ -17,6 +17,6 @@ settings:
   label: 'Prod site sync'
   label_display: '0'
   provider: osu_cas_site_sync
-  base_url: 'https://agsci.oregonstate.edu'
+  base_url: 'https://agsci.prod.oregonstate.edu'
   link_text: 'View D7'
 visibility: {  }
