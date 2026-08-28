@@ -43,8 +43,8 @@
 #   5  media + files                                  (TODO -- step 2)
 #   6  profiles + nodes (page/book follow section 7) -> snapshot mmi-nodes
 #   7  paragraphs -> Layout Builder, then page + book (TODO -- step 4)
-#   8  aliases + redirects + menu links (nid offset)  (TODO -- step 5)
-#   9  groups: 15 labs under the mmi domain           (TODO -- step 2)
+#   8  groups, memberships, group + book menus        -> snapshot mmi-groups
+#   9  aliases + redirects (nid + group id resolution) -> snapshot mmi-paths
 
 # Configuration
 SITE_URI="https://osu-cas.ddev.site"   # the ONLY uri that maps to the agsci site
@@ -398,15 +398,81 @@ section_7() {
   guard_exit
   snapshot_save mmi-paragraphs
 }
-section_8() {
-  echo "=== Section 8: aliases + redirects + menu links ==="
-  echo "TODO: 9,702 rows that encode a nid; offset via MmiNidOffset::OFFSET."
-  exit 1
-}
 section_9() {
-  echo "=== Section 9: groups ==="
-  echo "TODO: 15 basic_groups under domain mmi_oregonstate_edu; MMI CasGroupShortName map."
-  exit 1
+  echo "=== Section 9: aliases + redirects (after groups: redirect targets resolve group nids) ==="
+  guard_enter
+
+  # Aliases: node offset, user -> profile node; file/ + taxonomy/ dropped
+  # silently; live-alias collisions skipped with a message (breadcrumbs).
+  drush migrate:import mmi_url_alias || exit 1
+  # Redirects: node offset, user -> profile node, file -> the real file URL;
+  # hash collisions with live redirects skipped with a message.
+  drush migrate:import mmi_redirect || exit 1
+
+  drush php:eval '
+    $db = \Drupal::database();
+    foreach (["mmi_url_alias", "mmi_redirect"] as $m) {
+      $st = $db->query("SELECT source_row_status s, COUNT(*) c FROM {migrate_map_" . $m . "} GROUP BY s")->fetchAllKeyed();
+      printf("%s: imported %d, ignored %d\n", $m, $st[0] ?? 0, $st[2] ?? 0);
+      foreach ($db->query("SELECT message FROM {migrate_message_" . $m . "} LIMIT 15") as $r) {
+        printf("  [%s] %s\n", $m, $r->message);
+      }
+    }
+    // Spot check: a migrated node alias must resolve to its offset node.
+    $alias = $db->query("SELECT pa.alias FROM {path_alias} pa WHERE pa.path LIKE :p ORDER BY pa.id DESC LIMIT 1", [":p" => "/node/40%"])->fetchField();
+    printf("sample migrated alias: %s\n", $alias ?: "NONE FOUND");
+  ' || exit 1
+
+  guard_exit
+  snapshot_save mmi-paths
+}
+section_8() {
+  echo "=== Section 8: groups, memberships, menus ==="
+  guard_enter
+
+  # Main (D7 nid 1) first: every other group's field_group_parent looks it
+  # up in this same migration's map. Group ids are auto-assigned -- never
+  # the D7 nids, which live groups already occupy.
+  drush migrate:import mmi_node_og_group --idlist=1 || exit 1
+  drush migrate:import mmi_node_og_group || exit 1
+
+  echo "--- content placements"
+  for m in mmi_group_content_page mmi_group_content_story \
+           mmi_group_content_publications mmi_group_content_image_album \
+           mmi_group_content_video mmi_group_content_webform \
+           mmi_group_content_feed mmi_group_content_research_project; do
+    drush migrate:import "${m}" || exit 1
+  done
+
+  echo "--- people: typed profile placements + roled user memberships"
+  drush migrate:import mmi_profile_placements || exit 1
+  drush migrate:import mmi_user_memberships || exit 1
+
+  echo "--- menus: main menu -> Main group menu; book tocs -> lab group menus"
+  drush migrate:import mmi_main_menu_links || exit 1
+  drush migrate:import mmi_book_menu_links || exit 1
+
+  # Per-domain site name + front page (config collection, the D10 home of
+  # D7 domain_conf).
+  drush scr scripts-dev/mmi_domain_config.php || exit 1
+
+  drush migrate:status --group=mmi_groups
+
+  drush php:eval '
+    $db = \Drupal::database();
+    $groups = $db->query("SELECT COUNT(*) FROM {migrate_map_mmi_node_og_group} WHERE destid1 IS NOT NULL")->fetchField();
+    printf("groups migrated: %d (expect 15)\n", $groups);
+    if ($groups != 15) { exit(1); }
+    $placements = $db->query("SELECT COUNT(*) FROM {group_relationship_field_data} g JOIN {migrate_map_mmi_node_og_group} m ON m.destid1 = g.gid")->fetchField();
+    printf("relationships in mmi groups (content+people+menus): %d\n", $placements);
+    $typed = $db->query("SELECT COUNT(*) FROM {group_content__field_membership_type} f JOIN {group_relationship_field_data} g ON g.id = f.entity_id JOIN {migrate_map_mmi_node_og_group} m ON m.destid1 = g.gid")->fetchField();
+    printf("typed profile placements: %d (66 of 88 placements carry a functional group)\n", $typed);
+    $alias = $db->query("SELECT alias FROM {path_alias} WHERE path = CONCAT(:p, (SELECT destid1 FROM {migrate_map_mmi_node_og_group} WHERE sourceid1 = 4921))", [":p" => "/group/"])->fetchField();
+    printf("GEMM Lab group alias: %s (expect /group/gemm-lab, the D7 alias verbatim)\n", $alias ?: "NONE");
+  ' || exit 1
+
+  guard_exit
+  snapshot_save mmi-groups
 }
 
 # ---------------------------------------------------------------------------

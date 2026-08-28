@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "293732da67539a2792b54aa513a466cc",
+    "content-hash": "5c0de39e98f2cf99fc13e0f05acd5af6",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -19482,16 +19482,16 @@
         },
         {
             "name": "leigh-osu/osu_cas_multisite",
-            "version": "v1.29.0",
+            "version": "v1.30.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leigh-osu/osu_cas_multisite.git",
-                "reference": "632f3ffe7acd68c5871728084798f66c1de02b97"
+                "reference": "79ec9510ca5830ace3e2bfc67882992c3e6366f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_cas_multisite/zipball/632f3ffe7acd68c5871728084798f66c1de02b97",
-                "reference": "632f3ffe7acd68c5871728084798f66c1de02b97",
+                "url": "https://api.github.com/repos/leigh-osu/osu_cas_multisite/zipball/79ec9510ca5830ace3e2bfc67882992c3e6366f9",
+                "reference": "79ec9510ca5830ace3e2bfc67882992c3e6366f9",
                 "shasum": ""
             },
             "require": {
@@ -19500,10 +19500,10 @@
             "type": "drupal-custom-module",
             "description": "Shared helpers and theming for the OSU CAS multisite platform; the osu_cas_multisite_degrees submodule carries the degree fact sheet rendering.",
             "support": {
-                "source": "https://github.com/leigh-osu/osu_cas_multisite/tree/v1.29.0",
+                "source": "https://github.com/leigh-osu/osu_cas_multisite/tree/v1.30.0",
                 "issues": "https://github.com/leigh-osu/osu_cas_multisite/issues"
             },
-            "time": "2026-08-25T21:44:58+00:00"
+            "time": "2026-08-28T20:42:20+00:00"
         },
         {
             "name": "leigh-osu/osu_cas_site_sync",
@@ -19654,16 +19654,16 @@
         },
         {
             "name": "leigh-osu/osu_migrations_mmi",
-            "version": "v0.7.0",
+            "version": "v0.8.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:leigh-osu/osu_migrations_mmi.git",
-                "reference": "3779847d54e4134483b2aa6b936472d5e462479f"
+                "url": "https://github.com/leigh-osu/osu_migrations_mmi.git",
+                "reference": "1b640317931a8e0bf74586a460fd05099642d062"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_migrations_mmi/zipball/3779847d54e4134483b2aa6b936472d5e462479f",
-                "reference": "3779847d54e4134483b2aa6b936472d5e462479f",
+                "url": "https://api.github.com/repos/leigh-osu/osu_migrations_mmi/zipball/1b640317931a8e0bf74586a460fd05099642d062",
+                "reference": "1b640317931a8e0bf74586a460fd05099642d062",
                 "shasum": ""
             },
             "require": {
@@ -19671,7 +19671,11 @@
             },
             "type": "drupal-custom-module",
             "description": "Marine Mammal Institute D7 to D10 migration for OSU CAS (second input into the live install)",
-            "time": "2026-08-28T19:42:38+00:00"
+            "support": {
+                "source": "https://github.com/leigh-osu/osu_migrations_mmi/tree/v0.8.0",
+                "issues": "https://github.com/leigh-osu/osu_migrations_mmi/issues"
+            },
+            "time": "2026-08-28T20:42:50+00:00"
         },
         {
             "name": "leongersen/nouislider",
