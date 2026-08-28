@@ -1,0 +1,75 @@
+uuid: 42275edb-eb2e-4a3e-8840-19241d78e120
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.panorama.body
+    - field.field.node.panorama.field_date_recorded
+    - field.field.node.panorama.field_eimage_source
+    - field.field.node.panorama.field_equirectangular_image
+    - field.field.node.panorama.field_keywords
+    - field.field.node.panorama.field_location
+    - node.type.panorama
+  module:
+    - datetime
+    - geofield
+    - text
+    - user
+    - virtual_tour
+id: node.panorama.default
+targetEntityType: node
+bundle: panorama
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_date_recorded:
+    type: datetime_default
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_eimage_source:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_equirectangular_image:
+    type: virtual_tour
+    label: hidden
+    settings:
+      virtual_tour_type: equirectangular
+      virtual_tour_display_style: ''
+      virtual_tour_autoload: '1'
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_keywords:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_location:
+    type: geofield_latlon
+    label: inline
+    settings:
+      output_format: decimal
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  links: true

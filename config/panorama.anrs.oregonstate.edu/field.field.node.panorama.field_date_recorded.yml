@@ -1,0 +1,21 @@
+uuid: 5253b090-bb65-4a78-b7fa-3518ae09e360
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date_recorded
+    - node.type.panorama
+  module:
+    - datetime
+id: node.panorama.field_date_recorded
+field_name: field_date_recorded
+entity_type: node
+bundle: panorama
+label: 'Date recorded'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

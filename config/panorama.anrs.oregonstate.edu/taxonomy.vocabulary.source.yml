@@ -1,0 +1,9 @@
+uuid: 49e6c4c8-a43e-4d9b-be47-5ecae12dac60
+langcode: en
+status: true
+dependencies: {  }
+name: Source
+vid: source
+description: 'The person who recorded the image'
+weight: 0
+new_revision: false

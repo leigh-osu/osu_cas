@@ -1,0 +1,17 @@
+uuid: 0cdd2c8e-fa45-4f85-9c6a-a7e4cf4f90c9
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Panorama
+type: panorama
+description: 'A 360 degree panoramic view.'
+help: null
+new_revision: true
+preview_mode: 0
+display_submitted: false

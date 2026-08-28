@@ -1,0 +1,32 @@
+uuid: 4a79af37-bc17-4052-b1a6-760dd86bb3df
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.panorama
+    - taxonomy.vocabulary.keywords
+    - taxonomy.vocabulary.source
+  module:
+    - file
+    - node
+    - taxonomy
+id: editor
+label: Editor
+weight: 3
+is_admin: null
+permissions:
+  - 'access taxonomy overview'
+  - 'create panorama content'
+  - 'create terms in keywords'
+  - 'create terms in source'
+  - 'delete any panorama content'
+  - 'delete own files'
+  - 'delete panorama revisions'
+  - 'delete terms in keywords'
+  - 'delete terms in source'
+  - 'edit any panorama content'
+  - 'edit terms in keywords'
+  - 'edit terms in source'
+  - 'revert panorama revisions'
+  - 'view all revisions'
+  - 'view panorama revisions'

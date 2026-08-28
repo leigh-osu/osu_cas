@@ -1,0 +1,29 @@
+Load the pannellum library from /libraries/pannellum.
+
+The drupal.org packaging of Virtual Tour ships no node_modules directory,
+so the library references in virtual_tour.libraries.yml point at files
+that do not exist and every viewer fails with "pannellum is not defined".
+The library is supplied by composer instead (mpetroff/pannellum, npm dist)
+into docroot/libraries/pannellum, which also survives module reinstalls.
+
+diff --git a/virtual_tour.libraries.yml b/virtual_tour.libraries.yml
+index 1111111..2222222 100644
+--- a/virtual_tour.libraries.yml
++++ b/virtual_tour.libraries.yml
+@@ -2,11 +2,11 @@ virtual_tour.javascript:
+   version: VERSION
+   css:
+     base:
+-      node_modules/pannellum/src/css/pannellum.css: {}
++      /libraries/pannellum/src/css/pannellum.css: {}
+       css/virtualTour.css: {}
+   js:
+-    node_modules/pannellum/src/js/pannellum.js: {}
+-    node_modules/pannellum/src/js/libpannellum.js: {}
+-    node_modules/pannellum/src/js/RequestAnimationFrame.js: {}
++    /libraries/pannellum/src/js/pannellum.js: {}
++    /libraries/pannellum/src/js/libpannellum.js: {}
++    /libraries/pannellum/src/js/RequestAnimationFrame.js: {}
+     js/virtualTour.js: {}
+   dependencies:
+     - core/jquery
