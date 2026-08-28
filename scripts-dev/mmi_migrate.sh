@@ -102,7 +102,7 @@ guard_exit() {
 rollback_mmi() {
   echo "=== Rolling back mmi_* migrations (agsci maps untouched) ==="
   guard_enter
-  for group in mmi_groups mmi_content mmi_profiles mmi_support mmi_media mmi_accounts; do
+  for group in mmi_groups mmi_content mmi_profiles mmi_support mmi_paragraphs mmi_media mmi_accounts; do
     drush migrate:rollback --group="${group}" || true
   done
   guard_exit
@@ -203,7 +203,7 @@ section_3() {
 
   echo "MMI migration groups:"
   drush config:get migrate_plus.migration_group.mmi_content id >/dev/null || exit 1
-  for group in mmi_accounts mmi_profiles mmi_content mmi_media mmi_support mmi_groups; do
+  for group in mmi_accounts mmi_profiles mmi_content mmi_media mmi_support mmi_paragraphs mmi_groups; do
     echo "--- ${group}"
     drush migrate:status --group="${group}" 2>/dev/null || echo "  (no migrations yet)"
   done
@@ -356,10 +356,47 @@ section_6() {
   snapshot_save mmi-nodes
 }
 section_7() {
-  echo "=== Section 7: paragraphs -> Layout Builder ==="
-  echo "TODO: existing paragraph clones + view / compounds / navigation_grid_paragraph / expedition,"
-  echo "TODO: then the page + book node migrations (their layouts assemble from the paragraph maps)."
-  exit 1
+  echo "=== Section 7: paragraphs -> Layout Builder + page/book nodes ==="
+  guard_enter
+
+  # Block-producing paragraph migrations first. Embedded D7 views are NOT
+  # migrated: pure view paragraphs become labeled placeholder sections
+  # ("D7 view: <name>") and compound view columns are skipped, both awaiting
+  # the post-section-9 group-view backfill. navigation_grid_paragraph and
+  # expedition log missing-migration messages on purpose (hand-build list).
+  for m in mmi_paragraph_1_col mmi_paragraph_1_col_clean \
+           mmi_paragraph_2_col_left mmi_paragraph_2_col_right \
+           mmi_paragraph_3_col_left mmi_paragraph_3_col_center \
+           mmi_paragraph_3_col_right mmi_paragraph_accordion \
+           mmi_paragraph_menu \
+           mmi_2_col_compound_left mmi_2_col_compound_right \
+           mmi_3_col_compound_left mmi_3_col_compound_mid \
+           mmi_3_col_compound_right; do
+    drush migrate:import "${m}" || exit 1
+  done
+  drush migrate:status --group=mmi_paragraphs
+
+  echo "--- page + book nodes (layouts assemble from the paragraph maps)"
+  drush migrate:import mmi_page || exit 1
+  drush migrate:import mmi_book || exit 1
+
+  # Both node migrations must be fully imported; their skipped-bundle
+  # messages (navigation_grid_paragraph x3, expedition) are expected
+  # hand-build breadcrumbs, listed for the record.
+  drush php:eval '
+    $db = \Drupal::database();
+    foreach (["mmi_page", "mmi_book"] as $m) {
+      $bad = $db->query("SELECT COUNT(*) FROM {migrate_map_" . $m . "} WHERE destid1 IS NULL")->fetchField();
+      if ($bad) { printf("%s: %d unresolved rows\n", $m, $bad); exit(1); }
+      foreach ($db->query("SELECT message FROM {migrate_message_" . $m . "}") as $r) {
+        printf("  [%s] %s\n", $m, $r->message);
+      }
+    }
+    print "mmi_page + mmi_book fully imported\n";
+  ' || exit 1
+
+  guard_exit
+  snapshot_save mmi-paragraphs
 }
 section_8() {
   echo "=== Section 8: aliases + redirects + menu links ==="

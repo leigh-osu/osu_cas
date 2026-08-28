@@ -1,0 +1,198 @@
+--- a/modules/paragraphs_to_layout_builder/src/LayoutBase.php
++++ b/modules/paragraphs_to_layout_builder/src/LayoutBase.php
+@@ -27,6 +27,15 @@
+ class LayoutBase extends ProcessPluginBase implements ContainerFactoryPluginInterface {
+ 
+   /**
++   * Database connection key of the D7 source this layout machinery reads.
++   *
++   * Subclasses migrating a different D7 source (e.g. MMI's second-input
++   * migration) override this so every layout plugin in the family reads its
++   * own source database instead of the agsci one.
++   */
++  protected const MIGRATE_DB_KEY = 'migrate';
++
++  /**
+    * The database connection object.
+    *
+    * @var \Drupal\Core\Database\Connection
+@@ -90,7 +99,7 @@
+   ) {
+     parent::__construct($configuration, $pluginId, $pluginDefinition);
+     $this->db = $db;
+-    $this->migrateDb = Database::getConnection('default', 'migrate');
++    $this->migrateDb = Database::getConnection('default', static::MIGRATE_DB_KEY);
+     $this->entityTypeManager = $entityTypeManager;
+     $this->configFactory = $configFactory;
+     $this->migrateLookup = $migrateLookup;
+--- a/modules/paragraphs_to_layout_builder/src/Plugin/migrate/process/EntityBackground.php
++++ b/modules/paragraphs_to_layout_builder/src/Plugin/migrate/process/EntityBackground.php
+@@ -23,29 +23,51 @@
+ class EntityBackground extends ProcessPluginBase implements ContainerFactoryPluginInterface {
+ 
+   /**
++   * Database connection key of the D7 source the backgrounds are read from.
++   *
++   * Subclasses migrating a different D7 source override this.
++   */
++  protected const MIGRATE_DB_KEY = 'migrate';
++
++  /**
+    * The database connection object.
+    *
+    * @var \Drupal\Core\Database\Connection
+    */
+-  private Connection $migrateDb;
++  protected Connection $migrateDb;
+ 
+   /**
+    * The Drupal migrate lookup service.
+    *
+    * @var \Drupal\migrate\MigrateLookupInterface
+    */
+-  private MigrateLookupInterface $migrateLookup;
++  protected MigrateLookupInterface $migrateLookup;
+ 
+   /**
+    * {@inheritDoc}
+    */
+   public function __construct(array $configuration, $plugin_id, $plugin_definition, MigrateLookupInterface $migrateLookup) {
+     parent::__construct($configuration, $plugin_id, $plugin_definition);
+-    $this->migrateDb = Database::getConnection('default', 'migrate');
++    $this->migrateDb = Database::getConnection('default', static::MIGRATE_DB_KEY);
+     $this->migrateLookup = $migrateLookup;
+   }
+ 
+   /**
++   * The migrations whose maps can resolve a D7 background fid to media.
++   *
++   * Subclasses covering a different D7 source override this list.
++   *
++   * @return string[]
++   *   Migration plugin ids, tried in order.
++   */
++  protected function getMediaMigrations(): array {
++    return [
++      'upgrade_d7_media_images',
++      'cas_media_private_images',
++    ];
++  }
++
++  /**
+    * {@inheritDoc}
+    */
+   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+@@ -88,10 +110,7 @@
+     if (!is_null($image_fid)) {
+       // If we got an id perform a lookup and return the new media id.
+       try {
+-        $media_id = $this->migrateLookup->lookup([
+-          'upgrade_d7_media_images',
+-          'cas_media_private_images',
+-        ], $image_fid);
++        $media_id = $this->migrateLookup->lookup($this->getMediaMigrations(), $image_fid);
+       }
+       catch (PluginException $e) {
+         return NULL;
+--- a/modules/paragraphs_to_layout_builder/src/Plugin/migrate/process/MenuItem.php
++++ b/modules/paragraphs_to_layout_builder/src/Plugin/migrate/process/MenuItem.php
+@@ -173,13 +173,10 @@
+         // Clean out invalid URLs.
+         $url = '';
+       }
+-      // CAS: D7 editors pasted hardcoded /sites/agscid7/files/... URLs into
+-      // the menu link box. Those point at a directory that does not exist on
+-      // D10, so rewrite them (copying unmanaged files from the D7 filesystem
+-      // on demand) when the CAS migration module is present — the resolution
+-      // lives there as the single source of truth.
+-      if ($url !== '' && class_exists(\Drupal\osu_migrations_cas\Plugin\migrate\process\CasLegacyFilePaths::class)) {
+-        $url = \Drupal\osu_migrations_cas\Plugin\migrate\process\CasLegacyFilePaths::rewriteUrl($url);
++      // D7 editors pasted hardcoded /sites/<dir>/files/... URLs into the
++      // menu link box; those point at directories that do not exist on D10.
++      if ($url !== '') {
++        $url = $this->rewriteLegacyFileUrl($url);
+       }
+       // CAS: a few D7 titles embed markup ('<span class="count">$90M</span>
+       // <br/>total R&D expenditures'); D10 link titles are plain text and
+@@ -206,4 +203,25 @@
+     return implode(',', $block_ids);
+   }
+ 
++  /**
++   * Repairs a hardcoded D7 file URL pasted into a menu link box.
++   *
++   * Defaults to the CAS resolution when that module is present (copying
++   * unmanaged files from the D7 filesystem on demand — the resolution lives
++   * there as the single source of truth); subclasses migrating another D7
++   * source override this with their own path repair.
++   *
++   * @param string $url
++   *   The menu link URL.
++   *
++   * @return string
++   *   The repaired URL, or the original when no repair applies.
++   */
++  protected function rewriteLegacyFileUrl(string $url): string {
++    if (class_exists(\Drupal\osu_migrations_cas\Plugin\migrate\process\CasLegacyFilePaths::class)) {
++      return \Drupal\osu_migrations_cas\Plugin\migrate\process\CasLegacyFilePaths::rewriteUrl($url);
++    }
++    return $url;
++  }
++
+ }
+--- a/modules/paragraphs_to_layout_builder/src/Plugin/migrate/process/AccordionItem.php
++++ b/modules/paragraphs_to_layout_builder/src/Plugin/migrate/process/AccordionItem.php
+@@ -56,13 +56,7 @@
+         $bodyValue = $accordion->field_p_accordion_group_content_value;
+         // Pass it to our service to get the new embed value.
+         $transformedEmbedCode = $this->osuMediaEmbed->transformEmbedCode($bodyValue);
+-        // CAS: rewrite D7 larch inline text-color classes to native osu-text-*
+-        // names when the CAS migration module is present (the class map lives
+-        // there as the single source of truth).
+-        if (class_exists(\Drupal\osu_migrations_cas\Plugin\migrate\process\CasLarchInlineClasses::class)) {
+-          $transformedEmbedCode = \Drupal\osu_migrations_cas\Plugin\migrate\process\CasLarchInlineClasses::mapText($transformedEmbedCode);
+-          $transformedEmbedCode = \Drupal\osu_migrations_cas\Plugin\migrate\process\CasLegacyFilePaths::rewriteText($transformedEmbedCode);
+-        }
++        $transformedEmbedCode = $this->repairRichText($transformedEmbedCode);
+ 
+         $paragraph_items[] = Paragraph::create([
+           'type' => 'osu_accordion_item',
+@@ -97,7 +91,7 @@
+    * @return \Drupal\Core\Database\StatementInterface|null
+    *   A prepared statement, or NULL if the query is not valid.
+    */
+-  private function getAccordionItems($value) {
++  protected function getAccordionItems($value) {
+     $entity_ids = [];
+     $revision_ids = [];
+     foreach ($value as $id) {
+@@ -119,6 +113,29 @@
+   }
+ 
+   /**
++   * Repairs migrated rich text beyond the media-token transform.
++   *
++   * Defaults to the CAS repairs when that module is present: larch inline
++   * text-color classes to native osu-text-* names, and hardcoded D7 file
++   * paths to their D10 homes (the maps live there as the single source of
++   * truth). Subclasses migrating another D7 source override this with their
++   * own repairs.
++   *
++   * @param string $text
++   *   The transformed accordion body markup.
++   *
++   * @return string
++   *   The repaired markup.
++   */
++  protected function repairRichText(string $text): string {
++    if (class_exists(\Drupal\osu_migrations_cas\Plugin\migrate\process\CasLarchInlineClasses::class)) {
++      $text = \Drupal\osu_migrations_cas\Plugin\migrate\process\CasLarchInlineClasses::mapText($text);
++      $text = \Drupal\osu_migrations_cas\Plugin\migrate\process\CasLegacyFilePaths::rewriteText($text);
++    }
++    return $text;
++  }
++
++  /**
+    * {@inheritDoc}
+    */
+   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition, ?MigrationInterface $migration = NULL) {
