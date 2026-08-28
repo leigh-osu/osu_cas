@@ -45,6 +45,9 @@ additional_fqdns:
   - ddev.landscapeplants.oregonstate.edu
   - ddev.letitiacarson.oregonstate.edu
   - ddev.marineresearch.oregonstate.edu
+  # MMI migration (branch mmi-migration): domain record created by
+  # scripts-dev/mmi_domain_record.php, not yet in the config export.
+  - ddev.mmi.oregonstate.edu
   - ddev.open-sensing.org
   - ddev.osuseafoodlab.oregonstate.edu
   - ddev.ourwillamette.oregonstate.edu
