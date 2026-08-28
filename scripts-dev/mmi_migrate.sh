@@ -41,8 +41,8 @@
 #   3  enable osu_migrations_mmi + group wiring       -> snapshot mmi-wired
 #   4  users: ONID reconciliation + mmi_users         (TODO -- sequence step 6)
 #   5  media + files                                  (TODO -- step 2)
-#   6  nodes: reuse clones, news, research_project    (TODO -- steps 2-3)
-#   7  paragraphs -> Layout Builder                   (TODO -- step 4)
+#   6  profiles + nodes (page/book follow section 7) -> snapshot mmi-nodes
+#   7  paragraphs -> Layout Builder, then page + book (TODO -- step 4)
 #   8  aliases + redirects + menu links (nid offset)  (TODO -- step 5)
 #   9  groups: 15 labs under the mmi domain           (TODO -- step 2)
 
@@ -102,7 +102,7 @@ guard_exit() {
 rollback_mmi() {
   echo "=== Rolling back mmi_* migrations (agsci maps untouched) ==="
   guard_enter
-  for group in mmi_groups mmi_content mmi_media mmi_accounts; do
+  for group in mmi_groups mmi_content mmi_profiles mmi_support mmi_media mmi_accounts; do
     drush migrate:rollback --group="${group}" || true
   done
   guard_exit
@@ -203,7 +203,7 @@ section_3() {
 
   echo "MMI migration groups:"
   drush config:get migrate_plus.migration_group.mmi_content id >/dev/null || exit 1
-  for group in mmi_accounts mmi_profiles mmi_content mmi_media mmi_groups; do
+  for group in mmi_accounts mmi_profiles mmi_content mmi_media mmi_support mmi_groups; do
     echo "--- ${group}"
     drush migrate:status --group="${group}" 2>/dev/null || echo "  (no migrations yet)"
   done
@@ -265,6 +265,9 @@ section_5() {
   # only private files are webform submission uploads (not migrated) and one
   # unused image.
   drush migrate:import mmi_files || exit 1
+  # 13 private files: 12 stranding-report uploads the webform submissions
+  # reference, plus one unreferenced image. No media entities wrap these.
+  drush migrate:import mmi_files_private || exit 1
   for m in mmi_media_images mmi_media_documents mmi_media_local_video \
            mmi_media_remote_video mmi_media_kaltura; do
     drush migrate:import "${m}" || exit 1
@@ -276,7 +279,7 @@ section_5() {
   drush php:eval '
     $db = \Drupal::database();
     $bad = 0;
-    foreach (["mmi_files","mmi_media_images","mmi_media_documents","mmi_media_local_video","mmi_media_remote_video","mmi_media_kaltura"] as $m) {
+    foreach (["mmi_files","mmi_files_private","mmi_media_images","mmi_media_documents","mmi_media_local_video","mmi_media_remote_video","mmi_media_kaltura"] as $m) {
       $t = "migrate_map_" . $m;
       $n = $db->query("SELECT COUNT(*) FROM {" . $t . "} WHERE destid1 IS NULL")->fetchField();
       if ($n) { printf("%s: %d unresolved rows\n", $m, $n); $bad = 1; }
@@ -306,12 +309,56 @@ section_6() {
   guard_exit
   snapshot_save mmi-profiles
 
-  echo "TODO: node types -- reuse clones (page/book/story/biblio/album/video/webform/feed), news + research_project."
-  exit 1
+  guard_enter
+
+  # Biblio dictionaries: shared vocabularies, so name-matched contributors
+  # and keywords adopt the live terms (ROLLBACK_PRESERVE) before the imports
+  # create the rest.
+  echo "--- biblio author/keyword terms (pre-seed shared-vocabulary adoptions)"
+  drush scr scripts-dev/mmi_preseed_biblio_terms.php || exit 1
+  drush migrate:import mmi_biblio_authors || exit 1
+  drush migrate:import mmi_biblio_keywords || exit 1
+
+  # Webform config entities before the nodes that attach them.
+  echo "--- webforms"
+  drush migrate:import mmi_webform || exit 1
+
+  # Node migrations. page and book are NOT here: their layouts assemble from
+  # the paragraph migrations, so they follow section 7.
+  echo "--- nodes"
+  for m in mmi_biblio mmi_news mmi_feature_story mmi_image_album mmi_video \
+           mmi_feed mmi_webform_node mmi_research_project; do
+    drush migrate:import "${m}" || exit 1
+  done
+
+  echo "--- webform submissions"
+  drush migrate:import mmi_webform_submissions || exit 1
+
+  drush migrate:status --group=mmi_content
+  drush migrate:status --group=mmi_support
+
+  # Every migrated node must sit in the offset namespace, and every content
+  # map row must have resolved.
+  drush php:eval '
+    $db = \Drupal::database();
+    $bad = 0;
+    foreach (["mmi_biblio","mmi_news","mmi_feature_story","mmi_image_album","mmi_video","mmi_feed","mmi_webform_node","mmi_research_project","mmi_webform","mmi_webform_submissions"] as $m) {
+      $n = $db->query("SELECT COUNT(*) FROM {migrate_map_" . $m . "} WHERE destid1 IS NULL")->fetchField();
+      if ($n) { printf("%s: %d unresolved rows\n", $m, $n); $bad = 1; }
+    }
+    $low = $db->query("SELECT COUNT(*) FROM {migrate_map_mmi_biblio} WHERE destid1 < 400000")->fetchField();
+    if ($low) { printf("FATAL: %d biblio nodes below the +400000 offset\n", $low); $bad = 1; }
+    if ($bad) { exit(1); }
+    print "all mmi node/support maps fully resolved, offset intact\n";
+  ' || exit 1
+
+  guard_exit
+  snapshot_save mmi-nodes
 }
 section_7() {
   echo "=== Section 7: paragraphs -> Layout Builder ==="
-  echo "TODO: existing paragraph clones + view / compounds / navigation_grid_paragraph / expedition."
+  echo "TODO: existing paragraph clones + view / compounds / navigation_grid_paragraph / expedition,"
+  echo "TODO: then the page + book node migrations (their layouts assemble from the paragraph maps)."
   exit 1
 }
 section_8() {
