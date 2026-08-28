@@ -1,0 +1,14 @@
+uuid: bb7cf223-ebe6-430a-b63c-8977d7e818a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.panorama
+id: node_type_panorama
+entity_type_id: node_type
+entity_id: panorama
+action: display_page
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

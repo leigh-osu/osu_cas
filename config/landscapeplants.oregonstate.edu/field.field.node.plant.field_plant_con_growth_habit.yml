@@ -1,0 +1,24 @@
+uuid: 489c39c6-4753-46bd-bf36-1c5197784b44
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_con_growth_habit
+    - node.type.plant
+    - taxonomy.vocabulary.con_growth_habit
+id: node.plant.field_plant_con_growth_habit
+field_name: field_plant_con_growth_habit
+entity_type: node
+bundle: plant
+label: 'Growth habit'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      con_growth_habit: con_growth_habit
+field_type: entity_reference

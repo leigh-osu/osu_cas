@@ -1,0 +1,24 @@
+uuid: c1f30ccc-3669-43e0-8b81-70c99e9c09cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_features
+    - node.type.plant
+    - taxonomy.vocabulary.term_features
+id: node.plant.field_plant_features
+field_name: field_plant_features
+entity_type: node
+bundle: plant
+label: 'Old Features - reference only!!'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      term_features: term_features
+field_type: entity_reference

@@ -1,0 +1,24 @@
+uuid: 547ce339-3926-431a-919a-a81acf2462cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_con_leaf_shape_group
+    - node.type.plant
+    - taxonomy.vocabulary.con_leaf_shape_group
+id: node.plant.field_plant_con_leaf_shape_group
+field_name: field_plant_con_leaf_shape_group
+entity_type: node
+bundle: plant
+label: 'Leaf shape and grouping'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      con_leaf_shape_group: con_leaf_shape_group
+field_type: entity_reference

@@ -1,0 +1,9 @@
+uuid: 9c8f76c6-95cc-4ab6-a49b-37f1e781c532
+langcode: en
+status: true
+dependencies: {  }
+name: 'Growth habit'
+vid: bl_growth_habit
+description: null
+weight: 0
+new_revision: false

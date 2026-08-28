@@ -1,0 +1,20 @@
+Replace removed file_create_url() with file_url_generator service.
+
+file_create_url() was deprecated in Drupal 9 and removed in Drupal 10.
+The Virtual Tour 3.0.0-alpha module still calls it in
+template_preprocess_virtual_tour(), causing a fatal "Call to undefined
+function file_create_url()" on any rendered virtual tour image.
+
+diff --git a/virtual_tour.module b/virtual_tour.module
+index 1111111..2222222 100644
+--- a/virtual_tour.module
++++ b/virtual_tour.module
+@@ -61,7 +61,7 @@ function template_preprocess_virtual_tour(&$variables) {
+     $variables['image'] = ImageStyle::load($variables['display_style'])->buildUrl($item->entity->getFileUri());
+   }
+   else {
+-    $variables['image'] = file_create_url($item->entity->getFileUri());
++    $variables['image'] = \Drupal::service('file_url_generator')->generateAbsoluteString($item->entity->getFileUri());
+   }
+
+   $variables['effectType'] = $variables['settings']['type'];

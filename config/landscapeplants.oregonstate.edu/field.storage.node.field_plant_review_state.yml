@@ -1,0 +1,30 @@
+uuid: af69185f-b6b0-4773-8b4b-2f585a8aa765
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_plant_review_state
+field_name: field_plant_review_state
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: draft
+      label: Draft
+    -
+      value: review
+      label: 'Ready for review'
+    -
+      value: complete
+      label: 'Review complete'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

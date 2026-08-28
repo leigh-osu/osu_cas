@@ -1,0 +1,12 @@
+uuid: 1e110318-6f99-4124-baae-1233d5c66a3c
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_db
+id: dataserver
+name: dataserver
+description: 'Database search backend for the plant identification indexes.'
+backend: search_api_db
+backend_config:
+  database: 'default:default'

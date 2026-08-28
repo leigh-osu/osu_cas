@@ -1,0 +1,113 @@
+uuid: 82f4f495-6fdd-434e-bfec-08b56a42fc68
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.server.dataserver
+    - node.type.plant
+  module:
+    - node
+    - search_api
+id: broad_leaf
+name: Broadleaf
+description: ''
+read_only: false
+field_settings:
+  field_plant_bl_flower_appearance:
+    label: 'Flower appearance'
+    datasource_id: 'entity:node'
+    property_path: field_plant_bl_flower_appearance
+    type: integer
+  field_plant_bl_flower_color:
+    label: 'Flower color'
+    datasource_id: 'entity:node'
+    property_path: field_plant_bl_flower_color
+    type: integer
+  field_plant_bl_fruit_color:
+    label: 'Fruit color'
+    datasource_id: 'entity:node'
+    property_path: field_plant_bl_fruit_color
+    type: integer
+  field_plant_bl_fruit_shape:
+    label: 'Fruit shape'
+    datasource_id: 'entity:node'
+    property_path: field_plant_bl_fruit_shape
+    type: integer
+  field_plant_bl_growth_habit:
+    label: 'Growth habit'
+    datasource_id: 'entity:node'
+    property_path: field_plant_bl_growth_habit
+    type: integer
+  field_plant_bl_leaf_attachment:
+    label: 'Leaf attachment to stem'
+    datasource_id: 'entity:node'
+    property_path: field_plant_bl_leaf_attachment
+    type: integer
+  field_plant_bl_leaf_chars:
+    label: 'Leaf or leaflets characteristics'
+    datasource_id: 'entity:node'
+    property_path: field_plant_bl_leaf_chars
+    type: integer
+  field_plant_bl_leaf_color:
+    label: 'Leaf color (growing season)'
+    datasource_id: 'entity:node'
+    property_path: field_plant_bl_leaf_color
+    type: integer
+  field_plant_bl_leaf_persistence:
+    label: 'Leaf persistence'
+    datasource_id: 'entity:node'
+    property_path: field_plant_bl_leaf_persistence
+    type: integer
+  field_plant_bl_leaf_types:
+    label: 'Leaf types'
+    datasource_id: 'entity:node'
+    property_path: field_plant_bl_leaf_types
+    type: integer
+  field_plant_bl_stems:
+    label: Stems
+    datasource_id: 'entity:node'
+    property_path: field_plant_bl_stems
+    type: integer
+  field_plant_native:
+    label: 'Native to (or naturalized in) Oregon'
+    datasource_id: 'entity:node'
+    property_path: field_plant_native
+    type: boolean
+  field_plant_sort_name:
+    label: 'Sort name'
+    datasource_id: 'entity:node'
+    property_path: field_plant_sort_name
+    type: string
+  field_plant_type:
+    label: Type
+    datasource_id: 'entity:node'
+    property_path: field_plant_type
+    type: string
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - plant
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  custom_value: {  }
+  entity_type: {  }
+  language_with_fallback: {  }
+  rendered_item: {  }
+  status:
+    weights:
+      preprocess_index: -50
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 500
+  delete_on_fail: true
+  index_directly: true
+  track_changes_in_references: true
+server: dataserver

@@ -1,0 +1,24 @@
+uuid: 8e81cc7d-97af-4e0e-b12e-e504829f51e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_con_growth_form
+    - node.type.plant
+    - taxonomy.vocabulary.con_growth_form
+id: node.plant.field_plant_con_growth_form
+field_name: field_plant_con_growth_form
+entity_type: node
+bundle: plant
+label: 'Growth form'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      con_growth_form: con_growth_form
+field_type: entity_reference

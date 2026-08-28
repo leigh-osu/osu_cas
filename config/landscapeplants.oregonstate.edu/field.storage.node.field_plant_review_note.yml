@@ -1,0 +1,19 @@
+uuid: ba068103-2f09-4ff5-9d32-38db44809770
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_plant_review_note
+field_name: field_plant_review_note
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

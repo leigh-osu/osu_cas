@@ -1,0 +1,9 @@
+uuid: d74d9aeb-723f-4287-a0ea-49c06c21bdea
+langcode: en
+status: true
+dependencies: {  }
+name: 'Fruit shape'
+vid: bl_fruit_shape
+description: null
+weight: 0
+new_revision: false

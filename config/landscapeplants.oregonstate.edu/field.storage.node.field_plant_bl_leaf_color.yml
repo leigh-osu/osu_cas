@@ -1,0 +1,20 @@
+uuid: 8d9261ca-37c4-4c1a-a7f9-19db7582579c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_plant_bl_leaf_color
+field_name: field_plant_bl_leaf_color
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

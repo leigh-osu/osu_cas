@@ -1,0 +1,22 @@
+uuid: 38df7f4a-a081-43ce-8659-937f33ea515b
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.bl_leaf_types
+  module:
+    - facets
+  theme:
+    - manzanita
+id: lp_facet_bl_leaf_types
+theme: manzanita
+region: full_top
+weight: -24
+provider: null
+plugin: 'facet_block:bl_leaf_types'
+settings:
+  id: 'facet_block:bl_leaf_types'
+  label: 'Filter by leaf types:'
+  label_display: visible
+  provider: facets
+visibility: {  }

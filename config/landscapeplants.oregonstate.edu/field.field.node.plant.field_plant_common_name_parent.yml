@@ -1,0 +1,19 @@
+uuid: be6e80ff-7696-43bc-ba9e-85a588a7ad00
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_common_name_parent
+    - node.type.plant
+id: node.plant.field_plant_common_name_parent
+field_name: field_plant_common_name_parent
+entity_type: node
+bundle: plant
+label: 'Common name parent'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

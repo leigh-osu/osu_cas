@@ -1,0 +1,19 @@
+uuid: 50728a01-34e7-4dc3-b552-9097f121bd32
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_plant_original_info
+field_name: field_plant_original_info
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

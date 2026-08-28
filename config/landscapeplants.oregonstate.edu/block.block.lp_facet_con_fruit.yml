@@ -1,0 +1,22 @@
+uuid: f6f72c8a-a140-4f09-89b0-158a444845bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.con_fruit
+  module:
+    - facets
+  theme:
+    - manzanita
+id: lp_facet_con_fruit
+theme: manzanita
+region: full_top
+weight: -23
+provider: null
+plugin: 'facet_block:con_fruit'
+settings:
+  id: 'facet_block:con_fruit'
+  label: 'Filter by “fruit” (cone)'
+  label_display: visible
+  provider: facets
+visibility: {  }

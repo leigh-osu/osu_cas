@@ -1,0 +1,19 @@
+uuid: 05746204-fb2e-4ea2-8a56-0571a8976add
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_pronunciation
+    - node.type.plant
+id: node.plant.field_plant_pronunciation
+field_name: field_plant_pronunciation
+entity_type: node
+bundle: plant
+label: Pronunciation
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

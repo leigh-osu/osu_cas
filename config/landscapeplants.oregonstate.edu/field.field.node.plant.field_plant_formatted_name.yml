@@ -1,0 +1,22 @@
+uuid: 698aeb1f-0ea2-4ad0-b4cf-10acb12facec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_formatted_name
+    - node.type.plant
+  module:
+    - text
+id: node.plant.field_plant_formatted_name
+field_name: field_plant_formatted_name
+entity_type: node
+bundle: plant
+label: 'Formatted name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

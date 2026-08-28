@@ -131,6 +131,10 @@
         },
         {
             "type": "vcs",
+            "url": "https://github.com/leigh-osu/osu_landscapeplants.git"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/leigh-osu/osu_migrations_cas.git"
         },
         {
@@ -162,6 +166,24 @@
                 },
                 "require": {
                     "mpdf/mpdf": "^8.0.4"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "mpetroff/pannellum",
+                "version": "2.3.2",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "pannellum"
+                },
+                "dist": {
+                    "url": "https://registry.npmjs.org/pannellum/-/pannellum-2.3.2.tgz",
+                    "type": "tar"
+                },
+                "require": {
+                    "composer/installers": "^1.0 || ^2.0"
                 }
             }
         },
@@ -293,10 +315,12 @@
         "drupal/entityreference_filter": "^2.0@beta",
         "drupal/eva": "^3.1",
         "drupal/exclude_node_title": "^2.0",
+        "drupal/facets": "^2.0",
         "drupal/feeds": "^3.0beta2",
         "drupal/feeds_ex": "^1.0beta",
         "drupal/feeds_tamper": "^2.0beta2",
         "drupal/field_group": "^4.0",
+        "drupal/geofield": "^1.67",
         "drupal/field_permissions": "^1.5",
         "drupal/file_delete": "^3.0",
         "drupal/filter_perms": "^2.0",
@@ -410,6 +434,7 @@
         "drupal/views_ajax_history": "^1.6",
         "drupal/views_bootstrap": "^5.5@beta",
         "drupal/views_bulk_edit": "^3.0",
+        "drupal/virtual_tour": "^3.0@beta",
         "drupal/views_bulk_operations": "^4.1",
         "drupal/views_conditional": "^1.5",
         "drupal/views_data_export": "^1.1",
@@ -438,7 +463,9 @@
         "leigh-osu/osu_cas_multisite": "^1.0",
         "leigh-osu/osu_cas_site_sync": "^1.0",
         "leigh-osu/osu_digital_measures": "^1.0",
+        "mpetroff/pannellum": "2.3.2",
         "leigh-osu/osu_endophyte": "^2.1",
+        "leigh-osu/osu_landscapeplants": "^1.0",
         "leigh-osu/osu_migrations_cas": "^1.0",
         "leigh-osu/osu_migrations_mmi": "^0.2",
         "mnsami/composer-custom-directory-installer": "^2.0",
@@ -602,8 +629,13 @@
             "drupal/group_content_menu": {
                 "Node form fatals when another form_alter has emptied the form (readonlymode)": "patches/group_content_menu-gutted-form-actions.patch"
             },
+            "drupal/virtual_tour": {
+                "D10: Replace removed file_create_url() with file_url_generator service": "patches/virtual_tour-d10-file-create-url.patch",
+                "Load pannellum from /libraries (drupal.org zip ships no node_modules)": "patches/virtual_tour-pannellum-in-libraries.patch"
+            },
             "drupal/paragraphs": {
-                "3090200-83 Paragraphs Access Check in LB": "https://www.drupal.org/files/issues/2026-06-24/3084934-13_combine_3090200-22-rebase.patch"
+                "3090200-83 Paragraphs Access Check in LB": "https://www.drupal.org/files/issues/2026-06-24/3084934-13_combine_3090200-22-rebase.patch",
+                "3090200 follow-up: skip block parents before the parent access check (empty inline-block paragraphs in LB preview)": "patches/paragraphs-lb-preview-block-parent-skip.patch"
             },
             "drupal/purge": {
                 "3460094-5 There is no purger supporting 'Array'": "https://www.drupal.org/files/issues/2024-07-25/3460094-5-there-is-no-purger-supporting-array.patch"
@@ -706,26 +738,21 @@
                 "drupal/barcodes",
                 "drupal/composer_deploy",
                 "drupal/computed_field",
-                "drupal/field_permissions",
                 "drupal/mail_login",
                 "drupal/mailsystem",
                 "drupal/mimemail",
                 "drupal/override_node_options",
-                "drupal/password_policy",
                 "drupal/prepopulate",
                 "drupal/quick_node_clone",
-                "drupal/rabbit_hole",
                 "drupal/state_machine",
                 "drupal_git/pdf_using_mpdf"
-            ],
-            "docroot/sites/endophyte.emt.oregonstate.edu/themes/contrib/{$name}": [
-                "drupal/bootstrap5"
             ],
             "docroot/sites/endophyte.emt.oregonstate.edu/modules/custom/{$name}": [
                 "leigh-osu/osu_endophyte"
             ],
-            "docroot/sites/endophyte.emt.oregonstate.edu/themes/custom/{$name}": [
-                "leigh-osu/cas_larch"
+            "docroot/sites/panorama.anrs.oregonstate.edu/modules/contrib/{$name}": [
+                "drupal/geofield",
+                "drupal/virtual_tour"
             ],
             "docroot/modules/contrib/{$name}": [
                 "type:drupal-module"

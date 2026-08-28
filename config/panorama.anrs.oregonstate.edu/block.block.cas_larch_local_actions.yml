@@ -1,0 +1,20 @@
+uuid: eaada1a3-97f2-426d-9d5c-4581b1c06003
+langcode: en
+status: true
+dependencies:
+  theme:
+    - cas_larch
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: cas_larch_local_actions
+theme: cas_larch
+region: content
+weight: -20
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

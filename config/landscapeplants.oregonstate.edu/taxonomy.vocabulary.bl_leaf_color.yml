@@ -1,0 +1,9 @@
+uuid: 93e99dbb-3ea9-40ee-a99d-f92438096cba
+langcode: en
+status: true
+dependencies: {  }
+name: 'Leaf color (growing season)'
+vid: bl_leaf_color
+description: null
+weight: 0
+new_revision: false

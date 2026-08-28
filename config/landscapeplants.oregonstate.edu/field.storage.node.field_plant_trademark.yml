@@ -1,0 +1,30 @@
+uuid: 3321e69f-3fc3-493d-9c53-2108a4b0bf27
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_plant_trademark
+field_name: field_plant_trademark
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '0'
+      label: none
+    -
+      value: tm
+      label: 'Unregistered ™'
+    -
+      value: r
+      label: 'Registered ®'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

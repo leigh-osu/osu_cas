@@ -1,0 +1,19 @@
+--- a/src/ParagraphAccessControlHandler.php
++++ b/src/ParagraphAccessControlHandler.php
+@@ -93,6 +93,16 @@
+     // access permissions on the parent.
+     $operation = ($operation == 'delete') ? 'update' : $operation;
+     $parent = $paragraph->getParentEntity();
++    // Block parents must be skipped BEFORE the parent access check below, not
++    // just before the host walk: a non-reusable inline block loaded from
++    // storage carries no access dependency outside the block plugin's own
++    // render — e.g. in the Layout Builder preview, which skips block access
++    // checks — so consulting it returns forbidden and blanks every paragraph
++    // in the block. The block itself only renders where its own access
++    // allows, and only published paragraphs pass the check above.
++    if (($operation == 'view' || $operation == 'update') && $parent->getEntityTypeId() === 'block_content') {
++      return $access_result;
++    }
+     if (!$parent instanceof LibraryItemInterface || $operation !== 'view') {
+       $parent_access = $parent->access($operation, $account, TRUE);
+       $access_result = $access_result->andIf($parent_access);

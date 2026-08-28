@@ -1,0 +1,11 @@
+uuid: aa807ca6-66a0-4d00-8c07-3e545a98b4b8
+langcode: en
+status: true
+dependencies: {  }
+name: 'Basic page'
+type: page
+description: 'Static content such as the About page and reference articles.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

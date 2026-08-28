@@ -1,0 +1,24 @@
+uuid: abb48c3a-8021-4013-88af-ca14b39eae94
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_bl_leaf_chars
+    - node.type.plant
+    - taxonomy.vocabulary.plant_bl_leaf_or_leaflets_chars
+id: node.plant.field_plant_bl_leaf_chars
+field_name: field_plant_bl_leaf_chars
+entity_type: node
+bundle: plant
+label: 'Leaf or leaflets characteristics'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      plant_bl_leaf_or_leaflets_chars: plant_bl_leaf_or_leaflets_chars
+field_type: entity_reference

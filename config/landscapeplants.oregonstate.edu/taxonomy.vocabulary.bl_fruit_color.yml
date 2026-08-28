@@ -1,0 +1,9 @@
+uuid: 996daa6d-92e0-49c2-af2d-b8060e008f34
+langcode: en
+status: true
+dependencies: {  }
+name: 'Fruit color'
+vid: bl_fruit_color
+description: null
+weight: 0
+new_revision: false

@@ -1,0 +1,122 @@
+uuid: 059acfd6-9762-4816-93cb-0ad837b0e120
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.plant.field_plant_bl_flower_appearance
+    - field.field.node.plant.field_plant_bl_flower_color
+    - field.field.node.plant.field_plant_bl_fruit_color
+    - field.field.node.plant.field_plant_bl_fruit_shape
+    - field.field.node.plant.field_plant_bl_growth_habit
+    - field.field.node.plant.field_plant_bl_leaf_attachment
+    - field.field.node.plant.field_plant_bl_leaf_chars
+    - field.field.node.plant.field_plant_bl_leaf_color
+    - field.field.node.plant.field_plant_bl_leaf_persistence
+    - field.field.node.plant.field_plant_bl_leaf_types
+    - field.field.node.plant.field_plant_bl_stems
+    - field.field.node.plant.field_plant_common_name
+    - field.field.node.plant.field_plant_common_name_parent
+    - field.field.node.plant.field_plant_con_fruit
+    - field.field.node.plant.field_plant_con_growth_form
+    - field.field.node.plant.field_plant_con_growth_habit
+    - field.field.node.plant.field_plant_con_leaf_color
+    - field.field.node.plant.field_plant_con_leaf_persistence
+    - field.field.node.plant.field_plant_con_leaf_shape_group
+    - field.field.node.plant.field_plant_con_stems
+    - field.field.node.plant.field_plant_cultivar
+    - field.field.node.plant.field_plant_description
+    - field.field.node.plant.field_plant_details
+    - field.field.node.plant.field_plant_family
+    - field.field.node.plant.field_plant_features
+    - field.field.node.plant.field_plant_form
+    - field.field.node.plant.field_plant_formatted_name
+    - field.field.node.plant.field_plant_genus
+    - field.field.node.plant.field_plant_hybrid
+    - field.field.node.plant.field_plant_images
+    - field.field.node.plant.field_plant_latin_name
+    - field.field.node.plant.field_plant_native
+    - field.field.node.plant.field_plant_original_info
+    - field.field.node.plant.field_plant_original_text
+    - field.field.node.plant.field_plant_pronunciation
+    - field.field.node.plant.field_plant_review_note
+    - field.field.node.plant.field_plant_review_state
+    - field.field.node.plant.field_plant_sort_name
+    - field.field.node.plant.field_plant_specific_epithet
+    - field.field.node.plant.field_plant_subspecies
+    - field.field.node.plant.field_plant_trademark
+    - field.field.node.plant.field_plant_type
+    - field.field.node.plant.field_plant_unranked
+    - field.field.node.plant.field_plant_urlref
+    - field.field.node.plant.field_plant_variety
+    - field.field.node.plant.field_synonyms
+    - node.type.plant
+  module:
+    - text
+id: node.plant.search_result
+targetEntityType: node
+bundle: plant
+mode: search_result
+content:
+  field_plant_common_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_plant_formatted_name:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_plant_bl_flower_appearance: true
+  field_plant_bl_flower_color: true
+  field_plant_bl_fruit_color: true
+  field_plant_bl_fruit_shape: true
+  field_plant_bl_growth_habit: true
+  field_plant_bl_leaf_attachment: true
+  field_plant_bl_leaf_chars: true
+  field_plant_bl_leaf_color: true
+  field_plant_bl_leaf_persistence: true
+  field_plant_bl_leaf_types: true
+  field_plant_bl_stems: true
+  field_plant_common_name_parent: true
+  field_plant_con_fruit: true
+  field_plant_con_growth_form: true
+  field_plant_con_growth_habit: true
+  field_plant_con_leaf_color: true
+  field_plant_con_leaf_persistence: true
+  field_plant_con_leaf_shape_group: true
+  field_plant_con_stems: true
+  field_plant_cultivar: true
+  field_plant_description: true
+  field_plant_details: true
+  field_plant_family: true
+  field_plant_features: true
+  field_plant_form: true
+  field_plant_genus: true
+  field_plant_hybrid: true
+  field_plant_images: true
+  field_plant_latin_name: true
+  field_plant_native: true
+  field_plant_original_info: true
+  field_plant_original_text: true
+  field_plant_pronunciation: true
+  field_plant_review_note: true
+  field_plant_review_state: true
+  field_plant_sort_name: true
+  field_plant_specific_epithet: true
+  field_plant_subspecies: true
+  field_plant_trademark: true
+  field_plant_type: true
+  field_plant_unranked: true
+  field_plant_urlref: true
+  field_plant_variety: true
+  field_synonyms: true
+  links: true
+  search_api_excerpt: true

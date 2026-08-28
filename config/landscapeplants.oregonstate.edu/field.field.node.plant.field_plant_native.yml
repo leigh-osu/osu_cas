@@ -1,0 +1,21 @@
+uuid: 8adce054-e127-42b3-b8ef-0296cd35ce8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_native
+    - node.type.plant
+id: node.plant.field_plant_native
+field_name: field_plant_native
+entity_type: node
+bundle: plant
+label: 'Native to (or naturalized in) Oregon'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

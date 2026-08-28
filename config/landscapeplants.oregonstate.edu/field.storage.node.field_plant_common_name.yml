@@ -1,0 +1,21 @@
+uuid: 9a04371f-4ff9-443b-bb89-b488d176c19e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_plant_common_name
+field_name: field_plant_common_name
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

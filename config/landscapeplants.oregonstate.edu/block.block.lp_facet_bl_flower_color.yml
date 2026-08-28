@@ -1,0 +1,22 @@
+uuid: e41a32e5-a55c-4ff2-abd2-443f13a2e86e
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.bl_flower_color
+  module:
+    - facets
+  theme:
+    - manzanita
+id: lp_facet_bl_flower_color
+theme: manzanita
+region: full_top
+weight: -21
+provider: null
+plugin: 'facet_block:bl_flower_color'
+settings:
+  id: 'facet_block:bl_flower_color'
+  label: 'Filter by flower color:'
+  label_display: visible
+  provider: facets
+visibility: {  }

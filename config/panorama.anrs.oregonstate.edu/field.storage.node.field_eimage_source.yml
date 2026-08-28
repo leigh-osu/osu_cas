@@ -1,0 +1,20 @@
+uuid: 42813333-364f-483a-aeae-a0a21e7aa834
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_eimage_source
+field_name: field_eimage_source
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

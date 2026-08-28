@@ -1,0 +1,323 @@
+uuid: a5d6380a-8bd8-45a4-874d-b937d4bf1065
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.plant.field_plant_bl_flower_appearance
+    - field.field.node.plant.field_plant_bl_flower_color
+    - field.field.node.plant.field_plant_bl_fruit_color
+    - field.field.node.plant.field_plant_bl_fruit_shape
+    - field.field.node.plant.field_plant_bl_growth_habit
+    - field.field.node.plant.field_plant_bl_leaf_attachment
+    - field.field.node.plant.field_plant_bl_leaf_chars
+    - field.field.node.plant.field_plant_bl_leaf_color
+    - field.field.node.plant.field_plant_bl_leaf_persistence
+    - field.field.node.plant.field_plant_bl_leaf_types
+    - field.field.node.plant.field_plant_bl_stems
+    - field.field.node.plant.field_plant_common_name
+    - field.field.node.plant.field_plant_common_name_parent
+    - field.field.node.plant.field_plant_con_fruit
+    - field.field.node.plant.field_plant_con_growth_form
+    - field.field.node.plant.field_plant_con_growth_habit
+    - field.field.node.plant.field_plant_con_leaf_color
+    - field.field.node.plant.field_plant_con_leaf_persistence
+    - field.field.node.plant.field_plant_con_leaf_shape_group
+    - field.field.node.plant.field_plant_con_stems
+    - field.field.node.plant.field_plant_cultivar
+    - field.field.node.plant.field_plant_description
+    - field.field.node.plant.field_plant_details
+    - field.field.node.plant.field_plant_family
+    - field.field.node.plant.field_plant_features
+    - field.field.node.plant.field_plant_form
+    - field.field.node.plant.field_plant_formatted_name
+    - field.field.node.plant.field_plant_genus
+    - field.field.node.plant.field_plant_hybrid
+    - field.field.node.plant.field_plant_images
+    - field.field.node.plant.field_plant_latin_name
+    - field.field.node.plant.field_plant_native
+    - field.field.node.plant.field_plant_original_info
+    - field.field.node.plant.field_plant_original_text
+    - field.field.node.plant.field_plant_pronunciation
+    - field.field.node.plant.field_plant_review_note
+    - field.field.node.plant.field_plant_review_state
+    - field.field.node.plant.field_plant_sort_name
+    - field.field.node.plant.field_plant_specific_epithet
+    - field.field.node.plant.field_plant_subspecies
+    - field.field.node.plant.field_plant_trademark
+    - field.field.node.plant.field_plant_type
+    - field.field.node.plant.field_plant_unranked
+    - field.field.node.plant.field_plant_urlref
+    - field.field.node.plant.field_plant_variety
+    - field.field.node.plant.field_synonyms
+    - image.style.large_800w
+    - image.style.medium
+    - node.type.plant
+  module:
+    - colorbox
+    - options
+    - text
+    - user
+id: node.plant.default
+targetEntityType: node
+bundle: plant
+mode: default
+content:
+  field_plant_bl_flower_appearance:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 129
+    region: content
+  field_plant_bl_flower_color:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 130
+    region: content
+  field_plant_bl_fruit_color:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 131
+    region: content
+  field_plant_bl_fruit_shape:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 132
+    region: content
+  field_plant_bl_growth_habit:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 133
+    region: content
+  field_plant_bl_leaf_attachment:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 134
+    region: content
+  field_plant_bl_leaf_chars:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 135
+    region: content
+  field_plant_bl_leaf_color:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 136
+    region: content
+  field_plant_bl_leaf_persistence:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 137
+    region: content
+  field_plant_bl_leaf_types:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 138
+    region: content
+  field_plant_bl_stems:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 139
+    region: content
+  field_plant_common_name:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_plant_con_fruit:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 140
+    region: content
+  field_plant_con_growth_form:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 141
+    region: content
+  field_plant_con_growth_habit:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 142
+    region: content
+  field_plant_con_leaf_color:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 143
+    region: content
+  field_plant_con_leaf_persistence:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 144
+    region: content
+  field_plant_con_leaf_shape_group:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 145
+    region: content
+  field_plant_con_stems:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 146
+    region: content
+  field_plant_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_plant_details:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_plant_family:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_plant_genus:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_plant_images:
+    type: colorbox
+    label: hidden
+    settings:
+      colorbox_image_style: large_800w
+      colorbox_gallery: post
+      colorbox_gallery_custom: ''
+      colorbox_caption: title
+      colorbox_caption_custom: ''
+      colorbox_node_style: medium
+      colorbox_node_style_first: ''
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_plant_native:
+    type: boolean
+    label: inline
+    settings:
+      format: yes-no
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_plant_pronunciation:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_plant_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 118
+    region: content
+  field_synonyms:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 115
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+  sibling_species:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 50
+    region: content
+hidden:
+  field_plant_common_name_parent: true
+  field_plant_cultivar: true
+  field_plant_features: true
+  field_plant_form: true
+  field_plant_formatted_name: true
+  field_plant_hybrid: true
+  field_plant_latin_name: true
+  field_plant_original_info: true
+  field_plant_original_text: true
+  field_plant_review_note: true
+  field_plant_review_state: true
+  field_plant_sort_name: true
+  field_plant_specific_epithet: true
+  field_plant_subspecies: true
+  field_plant_trademark: true
+  field_plant_unranked: true
+  field_plant_urlref: true
+  field_plant_variety: true
+  search_api_excerpt: true

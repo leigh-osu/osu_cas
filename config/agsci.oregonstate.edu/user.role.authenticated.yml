@@ -11,7 +11,6 @@ dependencies:
     - filter
     - google_cse
     - media
-    - osu_cas_site_sync
     - readonlymode
     - responsive_preview
     - search
@@ -43,7 +42,6 @@ permissions:
   - 'update any media'
   - 'update media'
   - 'use admin toolbar search'
-  - 'use osu cas site sync'
   - 'use text format basic_html'
   - 'view media'
   - 'view own unpublished media'

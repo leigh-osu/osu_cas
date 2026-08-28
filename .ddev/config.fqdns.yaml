@@ -40,11 +40,18 @@ additional_fqdns:
   - ddev.horticulture.oregonstate.edu
   - ddev.ichthyology.oregonstate.edu
   - ddev.infews.org
+  # Not a Domain record -- Landscape Plants is its own core multisite under
+  # docroot/sites/landscapeplants.oregonstate.edu, with its own database.
+  - ddev.landscapeplants.oregonstate.edu
   - ddev.letitiacarson.oregonstate.edu
   - ddev.marineresearch.oregonstate.edu
   - ddev.open-sensing.org
   - ddev.osuseafoodlab.oregonstate.edu
   - ddev.ourwillamette.oregonstate.edu
+  # Not a Domain record -- the ANRS Rangeland panoramas site is its own core
+  # multisite under docroot/sites/panorama.anrs.oregonstate.edu, with its own
+  # database.
+  - ddev.panorama.anrs.oregonstate.edu
   - ddev.owri.oregonstate.edu
   - ddev.plantbreeding.oregonstate.edu
   - ddev.ruralstudies.oregonstate.edu

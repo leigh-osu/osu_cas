@@ -1,0 +1,22 @@
+uuid: c9fb85e4-8be1-4634-be0c-0bd316fb97f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_review_note
+    - node.type.plant
+  module:
+    - text
+id: node.plant.field_plant_review_note
+field_name: field_plant_review_note
+entity_type: node
+bundle: plant
+label: 'Review notes'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

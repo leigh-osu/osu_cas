@@ -105,6 +105,7 @@ filters:
     settings:
       default_view_mode: frameless
       allowed_view_modes:
+        column_image: column_image
         default: default
         frameless: frameless
         media_card: media_card

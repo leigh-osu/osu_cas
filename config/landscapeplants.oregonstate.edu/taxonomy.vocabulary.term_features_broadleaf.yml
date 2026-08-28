@@ -1,0 +1,9 @@
+uuid: e511a4a1-4bc4-40be-b605-971f6710b290
+langcode: en
+status: true
+dependencies: {  }
+name: 'Broad Leaf features'
+vid: term_features_broadleaf
+description: null
+weight: 0
+new_revision: false
