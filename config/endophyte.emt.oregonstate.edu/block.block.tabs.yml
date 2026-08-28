@@ -7,7 +7,7 @@ dependencies:
 id: tabs
 theme: cas_larch
 region: content
-weight: -3
+weight: 0
 provider: null
 plugin: local_tasks_block
 settings:

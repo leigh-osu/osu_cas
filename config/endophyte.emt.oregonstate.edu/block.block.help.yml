@@ -9,7 +9,7 @@ dependencies:
 id: help
 theme: cas_larch
 region: content
-weight: -6
+weight: -3
 provider: null
 plugin: help_block
 settings:
