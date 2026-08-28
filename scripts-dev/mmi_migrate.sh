@@ -203,7 +203,7 @@ section_3() {
 
   echo "MMI migration groups:"
   drush config:get migrate_plus.migration_group.mmi_content id >/dev/null || exit 1
-  for group in mmi_accounts mmi_content mmi_media mmi_groups; do
+  for group in mmi_accounts mmi_profiles mmi_content mmi_media mmi_groups; do
     echo "--- ${group}"
     drush migrate:status --group="${group}" 2>/dev/null || echo "  (no migrations yet)"
   done
@@ -228,6 +228,14 @@ section_4() {
 
   drush migrate:import mmi_users || exit 1
   drush migrate:import mmi_user_authmap || exit 1
+
+  # People roles: functional_groups terms -> shared membership_types vocab.
+  # Approved mapping 2026-08-28: 7 exact-name adoptions (pre-seeded,
+  # ROLLBACK_PRESERVE), 10 created verbatim, 5 unreferenced skipped.
+  echo "--- pre-seed name-matched membership terms (ROLLBACK_PRESERVE)"
+  drush scr scripts-dev/mmi_preseed_term_map.php || exit 1
+  drush migrate:import mmi_membership_terms || exit 1
+
   drush migrate:status --group=mmi_accounts
 
   # Prove no live account was touched: every pre-seeded destination uid must
@@ -281,8 +289,24 @@ section_5() {
   snapshot_save mmi-media
 }
 section_6() {
-  echo "=== Section 6: nodes ==="
-  echo "TODO: reuse clones (page/book/story/biblio/album/video/webform/feed), news + research_project mapping."
+  echo "=== Section 6: profiles + nodes ==="
+  guard_enter
+
+  # People first: base node per profiled user (all 101, ownership falls back
+  # to uid 1 outside mmi_users scope), then the per-profile2-type layers.
+  # Needs section 5 (profile images via mmi_files, CVs via
+  # mmi_media_documents). Roles land on lab memberships in section 9.
+  drush migrate:import mmi_profiles || exit 1
+  for m in mmi_profile_person mmi_profile_employee mmi_profile_faculty \
+           mmi_profile_student; do
+    drush migrate:import "${m}" || exit 1
+  done
+  drush migrate:status --group=mmi_profiles
+
+  guard_exit
+  snapshot_save mmi-profiles
+
+  echo "TODO: node types -- reuse clones (page/book/story/biblio/album/video/webform/feed), news + research_project."
   exit 1
 }
 section_7() {
