@@ -248,8 +248,37 @@ section_4() {
 }
 section_5() {
   echo "=== Section 5: media + files ==="
-  echo "TODO: mmi_* clones of the media migrations; injectable CasLegacyFilePaths source roots."
-  exit 1
+  guard_enter
+
+  # The D7 source files ride the read-only /var/www/d7 mount
+  # (.ddev/docker-compose.d7files.yaml); mmi_files copies them into the live
+  # public filesystem under their D7-verbatim uris (no collisions with live
+  # uris, verified 2026-08-28). Private scheme is deliberately absent: MMI's
+  # only private files are webform submission uploads (not migrated) and one
+  # unused image.
+  drush migrate:import mmi_files || exit 1
+  for m in mmi_media_images mmi_media_documents mmi_media_local_video \
+           mmi_media_remote_video mmi_media_kaltura; do
+    drush migrate:import "${m}" || exit 1
+  done
+  drush migrate:status --group=mmi_media
+
+  # Every media row must have resolved its file/oembed source: unresolved
+  # rows mean a map hole that node text embeds would trip over later.
+  drush php:eval '
+    $db = \Drupal::database();
+    $bad = 0;
+    foreach (["mmi_files","mmi_media_images","mmi_media_documents","mmi_media_local_video","mmi_media_remote_video","mmi_media_kaltura"] as $m) {
+      $t = "migrate_map_" . $m;
+      $n = $db->query("SELECT COUNT(*) FROM {" . $t . "} WHERE destid1 IS NULL")->fetchField();
+      if ($n) { printf("%s: %d unresolved rows\n", $m, $n); $bad = 1; }
+    }
+    if ($bad) { exit(1); }
+    print "all mmi media maps fully resolved\n";
+  ' || exit 1
+
+  guard_exit
+  snapshot_save mmi-media
 }
 section_6() {
   echo "=== Section 6: nodes ==="
