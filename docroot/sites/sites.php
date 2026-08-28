@@ -12,6 +12,7 @@ $sites['osucasstage.prod.acquia-sites.com'] = 'agsci.oregonstate.edu';
 $sites['osucasprod.prod.acquia-sites.com'] = 'agsci.oregonstate.edu';
 
 // Main URIs
+//CAS
 $sites['agbiotech.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['agsci.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['anrs.oregonstate.edu'] = 'agsci.oregonstate.edu';
@@ -23,8 +24,6 @@ $sites['campusarb.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['crafs.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['cropandsoil.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['emt.oregonstate.edu'] = 'agsci.oregonstate.edu';
-$sites['endophyte.emt.oregonstate.edu'] = 'endophyte.emt.oregonstate.edu';
-$sites['panorama.anrs.oregonstate.edu'] = 'panorama.anrs.oregonstate.edu';
 $sites['entomology.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['fic.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['foodsci.oregonstate.edu'] = 'agsci.oregonstate.edu';
@@ -53,6 +52,10 @@ $sites['spottedwing.org'] = 'agsci.oregonstate.edu';
 $sites['sungrant.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['support.roots.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['tradeoffs.oregonstate.edu'] = 'agsci.oregonstate.edu';
+//Stand alone sites
+$sites['endophyte.emt.oregonstate.edu'] = 'endophyte.emt.oregonstate.edu';
+$sites['panorama.anrs.oregonstate.edu'] = 'panorama.anrs.oregonstate.edu';
+
 
 // Dev URIs
 $sites['agbiotech.dev.oregonstate.edu'] = 'agsci.oregonstate.edu';
