@@ -467,7 +467,7 @@
         "leigh-osu/osu_endophyte": "^2.1",
         "leigh-osu/osu_landscapeplants": "^1.0",
         "leigh-osu/osu_migrations_cas": "^1.0",
-        "leigh-osu/osu_migrations_mmi": "^0.2",
+        "leigh-osu/osu_migrations_mmi": "^0.3",
         "mnsami/composer-custom-directory-installer": "^2.0",
         "npm-asset/apexcharts": "^4.7",
         "npm-asset/blazy": "^1.8",
@@ -674,7 +674,8 @@
                 "Repair hardcoded D7 file URLs on migrated menu bar items": "patches/osu_migrations-menu-item-legacy-file-urls.patch",
                 "Strip markup from migrated menu bar item titles": "patches/osu_migrations-menu-item-strip-title-markup.patch",
                 "Keep same-page anchor menu links fragment-only": "patches/osu_migrations-menu-item-anchor-links.patch",
-                "Keep the link on D7 media tokens carrying an external_url": "patches/osu_migrations-media-token-external-url.patch"
+                "Keep the link on D7 media tokens carrying an external_url": "patches/osu_migrations-media-token-external-url.patch",
+                "Media embed fid lookup migrations overridable per source (MMI)": "patches/osu_migrations-media-embed-migrations-overridable.patch"
             },
             "osu-wams/osu_publications": {
                 "Authors as Publication Authors taxonomy (term pages collect a person's pubs)": "patches/osu_publications-authors-taxonomy.patch"
