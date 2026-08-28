@@ -24,6 +24,36 @@ if [ "$DEV_LOCAL" != "$DEV_REMOTE" ]; then
   exit 1
 fi
 
+# Serialize with Pipelines: concurrent builds trip GitHub's secondary rate
+# limit during the built-in "composer update to apply merge settings" step
+# (~34 vcs repos re-enumerated per build; 2026-08-28 failure). Pushing main
+# starts a second build, so wait for the develop build to land first. The
+# build branches are self-parented artifact chains, so recency is judged by
+# committer time: the latest pipelines-build-develop commit must be newer
+# than the develop tip. PROMOTE_NO_WAIT=1 skips the wait.
+ACQUIA_REPO="osucas@svn-45197.prod.hosting.acquia.com:osucas.git"
+if [ "${PROMOTE_NO_WAIT:-0}" != "1" ]; then
+  DEV_TIME=$(git log -1 --format=%ct "$DEV_LOCAL")
+  for i in $(seq 1 30); do
+    BUILD_TIME=""
+    if git fetch --quiet "$ACQUIA_REPO" refs/heads/pipelines-build-develop 2>/dev/null; then
+      BUILD_TIME=$(git log -1 --format=%ct FETCH_HEAD 2>/dev/null || echo "")
+    fi
+    if [ -n "$BUILD_TIME" ] && [ "$BUILD_TIME" -gt "$DEV_TIME" ]; then
+      break
+    fi
+    if [ "$i" = "1" ]; then
+      echo "waiting for the develop Pipelines build to land (concurrent builds"
+      echo "rate-limit GitHub; PROMOTE_NO_WAIT=1 skips this wait) ..."
+    fi
+    if [ "$i" = "30" ]; then
+      echo "develop build has not landed after 15 minutes — check Pipelines, or re-run with PROMOTE_NO_WAIT=1." >&2
+      exit 1
+    fi
+    sleep 30
+  done
+fi
+
 MAIN_SHA=$(git rev-parse origin/main)
 
 # Build develop's tree without .ddev in a throwaway index.
