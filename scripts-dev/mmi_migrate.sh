@@ -186,9 +186,17 @@ section_3() {
 
   if drush pm:list --field=status --filter=osu_migrations_mmi 2>/dev/null | grep -qi enabled; then
     # Already on: refresh the module-shipped migration/group config so yml
-    # edits land without a reinstall (map tables survive either way).
+    # edits land without a reinstall (map tables survive either way). A full
+    # cim is NOT safe here: core.extension in the repo does not list
+    # osu_migrations_mmi, so it would uninstall the module and purge the
+    # mmi_* map tables.
     drush cim --partial --source=/var/www/html/docroot/modules/custom/osu_migrations_mmi/config/install -y || exit 1
   else
+    # Fresh freeze: the prod DB predates the branch's config. Import the full
+    # site export first so the migration targets exist (research_project
+    # content type, its field_res_proj_* fields, group wiring), then enable
+    # the migration module on top.
+    drush cim -y || exit 1
     drush en -y osu_migrations_mmi || exit 1
   fi
   drush cr

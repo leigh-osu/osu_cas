@@ -28,6 +28,7 @@ permissions:
   - 'view group_node:plant_variety_release entity'
   - 'view group_node:project entity'
   - 'view group_node:publications entity'
+  - 'view group_node:research_project entity'
   - 'view group_node:story entity'
   - 'view group_node:video entity'
   - 'view group_node:weather_daily_data entity'

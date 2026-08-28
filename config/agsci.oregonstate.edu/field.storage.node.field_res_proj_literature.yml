@@ -1,0 +1,19 @@
+uuid: 00351310-53b1-49ad-9f18-1ffacaf7cbea
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_res_proj_literature
+field_name: field_res_proj_literature
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

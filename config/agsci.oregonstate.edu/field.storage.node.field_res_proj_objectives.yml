@@ -1,0 +1,19 @@
+uuid: 15b49fb8-ec3a-4b98-9d27-4257b5d1253e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_res_proj_objectives
+field_name: field_res_proj_objectives
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
