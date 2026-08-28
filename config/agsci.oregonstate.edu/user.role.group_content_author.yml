@@ -19,6 +19,7 @@ dependencies:
     - media
     - node
     - path
+    - section_library
     - system
 _core:
   default_config_hash: L67VKmT9j20ULl8MfadQBjXH8zZh5Wf7GJpriDuDx_0
@@ -48,6 +49,7 @@ permissions:
   - 'edit own image media'
   - 'edit own kaltura media'
   - 'edit own remote_video media'
+  - 'import template from section library'
   - 'manage editoria11y results'
   - 'mark as hidden in editoria11y'
   - 'mark as ok in editoria11y'
@@ -55,3 +57,4 @@ permissions:
   - 'view all media revisions'
   - 'view editoria11y checker'
   - 'view own unpublished content'
+  - 'view section library templates'
