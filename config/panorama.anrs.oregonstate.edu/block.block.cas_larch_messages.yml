@@ -1,0 +1,22 @@
+uuid: 2ae628d5-21a2-4679-a17b-871f7ce76774
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - cas_larch
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: cas_larch_messages
+theme: cas_larch
+region: header
+weight: -4
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -1,0 +1,23 @@
+uuid: d08618b7-47a3-49d5-ab92-08b190ecb151
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.panorama
+  module:
+    - node
+id: panorama
+label: Panorama
+type: 'canonical_entities:node'
+pattern: '/panorama/[node:title]'
+selection_criteria:
+  f45d4fb7-fd17-446d-a01a-fb9042dd7d90:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      panorama: panorama
+selection_logic: and
+weight: -5
+relationships: {  }

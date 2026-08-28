@@ -1,0 +1,29 @@
+uuid: cbc9daa2-f5e2-4617-8885-c525f6e637a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_eimage_source
+    - node.type.panorama
+    - taxonomy.vocabulary.source
+id: node.panorama.field_eimage_source
+field_name: field_eimage_source
+entity_type: node
+bundle: panorama
+label: Source
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      source: source
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference
