@@ -45,6 +45,7 @@
 #   7  paragraphs -> Layout Builder, then page + book (TODO -- step 4)
 #   8  groups, memberships, group + book menus        -> snapshot mmi-groups
 #   9  aliases + redirects (nid + group id resolution) -> snapshot mmi-paths
+#  10  polish: external stories + publication profiles -> snapshot mmi-polish
 
 # Configuration
 SITE_URI="https://osu-cas.ddev.site"   # the ONLY uri that maps to the agsci site
@@ -426,6 +427,35 @@ section_9() {
   guard_exit
   snapshot_save mmi-paths
 }
+section_10() {
+  echo "=== Section 10: polish -- external stories + publication profiles ==="
+  guard_enter
+
+  # External-story treatment (rebuild parity: fix_external_stories.php).
+  # Resolves the mmi.oregonstate.edu targets, then pre-creates each external
+  # story's redirect with auto_forward_external flipped on for just that
+  # pass. Needs sections 6 (stories) and 9 (aliases + redirects). Probes
+  # live D7 mmi for unresolved targets, so it wants network access.
+  drush scr scripts-dev/mmi_fix_external_stories.php || exit 1
+
+  # "My Publications" on profiles: biblio_contributor_data.drupal_uid ->
+  # field_pub_osu_profile (rebuild parity: backfill_publication_profiles).
+  drush scr scripts-dev/mmi_backfill_publication_profiles.php || exit 1
+
+  drush php:eval '
+    $db = \Drupal::database();
+    $ext = $db->query("SELECT COUNT(*) FROM {node__field_osu_story_external_url} WHERE entity_id >= 400000")->fetchField();
+    $red = $db->query("SELECT COUNT(*) FROM {redirect} r JOIN {node__field_osu_story_external_url} e ON r.redirect_source__path = CONCAT(:n, e.entity_id) WHERE e.entity_id >= 400000", [":n" => "node/"])->fetchField();
+    printf("external stories: %d, with redirect treatment: %d\n", $ext, $red);
+    if ($red < $ext) { printf("WARNING: %d external stories without redirects\n", $ext - $red); exit(1); }
+    $pubs = $db->query("SELECT COUNT(DISTINCT entity_id) FROM {node__field_pub_osu_profile} WHERE entity_id >= 400000")->fetchField();
+    printf("publications linked to profiles: %d\n", $pubs);
+    if (!$pubs) { exit(1); }
+  ' || exit 1
+
+  guard_exit
+  snapshot_save mmi-polish
+}
 section_8() {
   echo "=== Section 8: groups, memberships, menus ==="
   guard_enter
@@ -476,7 +506,7 @@ section_8() {
 }
 
 # ---------------------------------------------------------------------------
-LAST_SECTION=9
+LAST_SECTION=10
 
 list_sections() {
   sed -n '/^# Sections:/,/^$/p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'
@@ -491,6 +521,6 @@ case "${1:-}" in
   all) for i in $(seq 1 ${LAST_SECTION}); do run_section "$i"; done ;;
   from) for i in $(seq "${2:?usage: from N}" ${LAST_SECTION}); do run_section "$i"; done ;;
   rollback) rollback_mmi ;;
-  [1-9]) run_section "$1" ;;
+  [1-9]|10) run_section "$1" ;;
   *) list_sections; echo; echo "usage: $0 {list|all|N|from N|rollback}" ;;
 esac
