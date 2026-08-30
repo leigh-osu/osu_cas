@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0ddf2a99ed763099d2fe1b63adfc995d",
+    "content-hash": "e4941e2419011910bbc93889e0a4dcca",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -19507,16 +19507,16 @@
         },
         {
             "name": "leigh-osu/osu_cas_site_sync",
-            "version": "v1.7.0",
+            "version": "1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leigh-osu/osu_cas_site_sync.git",
-                "reference": "8696ae43066d88ba4243841419dd6aa3a3540a09"
+                "reference": "e08c8a75e612f13456d3db89497f3a52408b98ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_cas_site_sync/zipball/8696ae43066d88ba4243841419dd6aa3a3540a09",
-                "reference": "8696ae43066d88ba4243841419dd6aa3a3540a09",
+                "url": "https://api.github.com/repos/leigh-osu/osu_cas_site_sync/zipball/e08c8a75e612f13456d3db89497f3a52408b98ed",
+                "reference": "e08c8a75e612f13456d3db89497f3a52408b98ed",
                 "shasum": ""
             },
             "require": {
@@ -19528,10 +19528,10 @@
             ],
             "description": "OSU CAS prod site sync module",
             "support": {
-                "source": "https://github.com/leigh-osu/osu_cas_site_sync/tree/v1.7.0",
+                "source": "https://github.com/leigh-osu/osu_cas_site_sync/tree/1.8.0",
                 "issues": "https://github.com/leigh-osu/osu_cas_site_sync/issues"
             },
-            "time": "2026-08-27T17:02:56+00:00"
+            "time": "2026-08-30T23:14:46+00:00"
         },
         {
             "name": "leigh-osu/osu_digital_measures",
@@ -19626,16 +19626,16 @@
         },
         {
             "name": "leigh-osu/osu_migrations_cas",
-            "version": "v1.16.0",
+            "version": "1.17.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:leigh-osu/osu_migrations_cas.git",
-                "reference": "f3da8a1a6b049fe3f39c164cddaa4c7a81c4b8ff"
+                "url": "https://github.com/leigh-osu/osu_migrations_cas.git",
+                "reference": "2bc4e756ed89284c9f852920b7860b446edeb920"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_migrations_cas/zipball/f3da8a1a6b049fe3f39c164cddaa4c7a81c4b8ff",
-                "reference": "f3da8a1a6b049fe3f39c164cddaa4c7a81c4b8ff",
+                "url": "https://api.github.com/repos/leigh-osu/osu_migrations_cas/zipball/2bc4e756ed89284c9f852920b7860b446edeb920",
+                "reference": "2bc4e756ed89284c9f852920b7860b446edeb920",
                 "shasum": ""
             },
             "require": {
@@ -19650,20 +19650,24 @@
                 }
             },
             "description": "Drupal 7 to 10 migration code for OSU CAS",
-            "time": "2026-08-28T19:42:25+00:00"
+            "support": {
+                "source": "https://github.com/leigh-osu/osu_migrations_cas/tree/1.17.0",
+                "issues": "https://github.com/leigh-osu/osu_migrations_cas/issues"
+            },
+            "time": "2026-08-30T23:14:17+00:00"
         },
         {
             "name": "leigh-osu/osu_migrations_mmi",
-            "version": "0.9.0",
+            "version": "0.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leigh-osu/osu_migrations_mmi.git",
-                "reference": "cd3164debfb4fb5307329312b3ce099d0fc37ad4"
+                "reference": "092428b40133c592519396d71f29703a32b146c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_migrations_mmi/zipball/cd3164debfb4fb5307329312b3ce099d0fc37ad4",
-                "reference": "cd3164debfb4fb5307329312b3ce099d0fc37ad4",
+                "url": "https://api.github.com/repos/leigh-osu/osu_migrations_mmi/zipball/092428b40133c592519396d71f29703a32b146c2",
+                "reference": "092428b40133c592519396d71f29703a32b146c2",
                 "shasum": ""
             },
             "require": {
@@ -19672,10 +19676,10 @@
             "type": "drupal-custom-module",
             "description": "Marine Mammal Institute D7 to D10 migration for OSU CAS (second input into the live install)",
             "support": {
-                "source": "https://github.com/leigh-osu/osu_migrations_mmi/tree/0.9.0",
+                "source": "https://github.com/leigh-osu/osu_migrations_mmi/tree/0.10.0",
                 "issues": "https://github.com/leigh-osu/osu_migrations_mmi/issues"
             },
-            "time": "2026-08-30T21:41:31+00:00"
+            "time": "2026-08-30T23:14:37+00:00"
         },
         {
             "name": "leongersen/nouislider",

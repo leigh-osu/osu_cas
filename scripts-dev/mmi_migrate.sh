@@ -45,7 +45,8 @@
 #   7  paragraphs -> Layout Builder, then page + book (TODO -- step 4)
 #   8  groups, memberships, group + book menus        -> snapshot mmi-groups
 #   9  aliases + redirects (nid + group id resolution) -> snapshot mmi-paths
-#  10  polish: external stories + publication profiles -> snapshot mmi-polish
+#  10  polish: stories, publications, media text, prunes  -> snapshot mmi-polish
+#  11  group views placed into layout placeholders        -> snapshot mmi-views
 
 # Configuration
 SITE_URI="https://osu-cas.ddev.site"   # the ONLY uri that maps to the agsci site
@@ -428,7 +429,7 @@ section_9() {
   snapshot_save mmi-paths
 }
 section_10() {
-  echo "=== Section 10: polish -- external stories + publication profiles ==="
+  echo "=== Section 10: polish -- stories, publications, media text, prunes ==="
   guard_enter
 
   # External-story treatment (rebuild parity: fix_external_stories.php).
@@ -442,6 +443,26 @@ section_10() {
   # field_pub_osu_profile (rebuild parity: backfill_publication_profiles).
   drush scr scripts-dev/mmi_backfill_publication_profiles.php || exit 1
 
+  # Maximise D7 image text on MMI media, then seed captions from the result
+  # (rebuild parity: cas_media_alt_backfill + cas_media_caption_seed; both
+  # yield only media that still change, so re-runs converge). Order matters:
+  # alt backfill first, caption seed second.
+  drush migrate:import mmi_media_alt_backfill || exit 1
+  drush migrate:import mmi_media_caption_seed || exit 1
+
+  # Repair malformed YouTube URLs (playlist junk, raw playlist uris -- both
+  # also handled in-migration since 0.10.0) and probe for provider-dead
+  # targets -> triage CSV. Then drain the oEmbed thumbnail queue (items from
+  # migration plus any the repair re-queued) so video listings show real
+  # stills instead of the generic icon.
+  drush scr scripts-dev/mmi_fix_dead_videos.php || exit 1
+  drush queue:run media_entity_thumbnail --time-limit=900 || true
+
+  # Layout hygiene: strip dead-in-D7 media tokens, prune empty paragraph
+  # blocks from layouts, delete never-placed carrier blocks (the 34
+  # mmi_paragraph_menu carriers). Map rows stay so re-imports converge.
+  drush scr scripts-dev/mmi_prune_layout_cruft.php || exit 1
+
   drush php:eval '
     $db = \Drupal::database();
     $ext = $db->query("SELECT COUNT(*) FROM {node__field_osu_story_external_url} WHERE entity_id >= 400000")->fetchField();
@@ -451,6 +472,18 @@ section_10() {
     $pubs = $db->query("SELECT COUNT(DISTINCT entity_id) FROM {node__field_pub_osu_profile} WHERE entity_id >= 400000")->fetchField();
     printf("publications linked to profiles: %d\n", $pubs);
     if (!$pubs) { exit(1); }
+    $caps = $db->query("SELECT COUNT(*) FROM {media__field_media_caption} c JOIN {migrate_map_mmi_media_images} m ON m.destid1 = c.entity_id")->fetchField();
+    printf("MMI media with captions: %d\n", $caps);
+    if (!$caps) { exit(1); }
+    $junk = $db->query("SELECT COUNT(*) FROM {media__field_media_oembed_video} v JOIN {migrate_map_mmi_media_remote_video} m ON m.destid1 = v.entity_id WHERE v.field_media_oembed_video_value LIKE :p", [":p" => "%youtube.com/watch?v=%/%"])->fetchField();
+    printf("MMI playlist-junk video urls: %d (expect 0)\n", $junk);
+    if ($junk > 0) { exit(1); }
+    $tokens = $db->query("SELECT COUNT(DISTINCT entity_id) FROM {node__body} WHERE entity_id >= 400000 AND body_value LIKE :t", [":t" => "%[[{\"fid%"])->fetchField();
+    printf("MMI nodes with raw media tokens: %d (expect 0)\n", $tokens);
+    if ($tokens > 0) { exit(1); }
+    $carriers = $db->query("SELECT COUNT(*) FROM {block_content_field_data} b JOIN {migrate_map_mmi_paragraph_menu} m ON m.destid1 = b.id")->fetchField();
+    printf("menu carrier blocks remaining: %d (expect 0)\n", $carriers);
+    if ($carriers > 0) { exit(1); }
   ' || exit 1
 
   guard_exit
@@ -499,6 +532,9 @@ section_8() {
     printf("typed profile placements: %d (66 of 88 placements carry a functional group)\n", $typed);
     $alias = $db->query("SELECT alias FROM {path_alias} WHERE path = CONCAT(:p, (SELECT destid1 FROM {migrate_map_mmi_node_og_group} WHERE sourceid1 = 4921))", [":p" => "/group/"])->fetchField();
     printf("GEMM Lab group alias: %s (expect /group/gemm-lab, the D7 alias verbatim)\n", $alias ?: "NONE");
+    $homeless = $db->query("SELECT COUNT(*) FROM {migrate_map_mmi_node_og_group} m WHERE m.destid1 IS NOT NULL AND m.destid1 NOT IN (SELECT entity_id FROM {group__field_group_home_page})")->fetchField();
+    printf("groups without a home page: %d (expect 0 -- AnonymousGroupRedirect needs one per group)\n", $homeless);
+    if ($homeless > 0) { exit(1); }
   ' || exit 1
 
   guard_exit
@@ -506,7 +542,40 @@ section_8() {
 }
 
 # ---------------------------------------------------------------------------
-LAST_SECTION=10
+# ---------------------------------------------------------------------------
+# Section 11: group views placed into layout placeholders -> snapshot mmi-views
+# ---------------------------------------------------------------------------
+section_11() {
+  echo "=== Section 11: group views -> layout placeholders ==="
+  guard_enter
+
+  # research_projects_by_group is repo site config (the agsci projects view
+  # shape against MMI's research_project type). The fresh-freeze path's full
+  # cim carries it; the wired path imports just this file.
+  rm -rf scripts-dev/.tmp_view_import
+  mkdir -p scripts-dev/.tmp_view_import
+  cp config/agsci.oregonstate.edu/views.view.research_projects_by_group.yml scripts-dev/.tmp_view_import/
+  drush config:import --partial --source=/var/www/html/scripts-dev/.tmp_view_import -y || exit 1
+  rm -rf scripts-dev/.tmp_view_import
+
+  # Fill every "D7 view: …" placeholder section with its D10 block
+  # (cas_group_profiles, group story/publication/gallery blocks, the new
+  # research-projects view). Blocks resolve their group from the page.
+  drush scr scripts-dev/mmi_place_group_views.php || exit 1
+
+  drush php:eval '
+    $db = \Drupal::database();
+    if (!\Drupal\views\Views::getView("research_projects_by_group")) { print "research_projects_by_group view missing\n"; exit(1); }
+    $left = $db->query("SELECT COUNT(*) FROM {node__layout_builder__layout} WHERE entity_id >= 400000 AND layout_builder__layout_section LIKE :l", [":l" => "%D7 view:%"])->fetchField();
+    printf("placeholder sections remaining: %d (expect 0)\n", $left);    if ($left > 0) { exit(1); }
+  ' || exit 1
+
+  guard_exit
+  snapshot_save mmi-views
+}
+
+# ---------------------------------------------------------------------------
+LAST_SECTION=11
 
 list_sections() {
   sed -n '/^# Sections:/,/^$/p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'
@@ -521,6 +590,6 @@ case "${1:-}" in
   all) for i in $(seq 1 ${LAST_SECTION}); do run_section "$i"; done ;;
   from) for i in $(seq "${2:?usage: from N}" ${LAST_SECTION}); do run_section "$i"; done ;;
   rollback) rollback_mmi ;;
-  [1-9]|10) run_section "$1" ;;
+  [1-9]|1[01]) run_section "$1" ;;
   *) list_sections; echo; echo "usage: $0 {list|all|N|from N|rollback}" ;;
 esac
