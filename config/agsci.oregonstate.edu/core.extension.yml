@@ -8,6 +8,7 @@ module:
   admin_toolbar: 0
   admin_toolbar_search: 0
   admin_toolbar_tools: 0
+  anchor_link: 0
   better_exposed_filters: 0
   big_pipe: 0
   blazy: 0
@@ -60,6 +61,7 @@ module:
   entity_reference_revisions: 0
   entitygroupfield: 0
   exclude_node_title: 0
+  fakeobjects: 0
   feeds: 0
   feeds_ex: 0
   feeds_tamper: 0
