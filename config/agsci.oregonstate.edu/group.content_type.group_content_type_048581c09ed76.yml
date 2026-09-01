@@ -1,0 +1,17 @@
+uuid: 510c2339-0b90-4679-b90a-ec02e931b76d
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.basic_group
+    - node.type.research_project
+  module:
+    - gnode
+    - node
+id: group_content_type_048581c09ed76
+group_type: basic_group
+content_plugin: 'group_node:research_project'
+plugin_config:
+  group_cardinality: 1
+  entity_cardinality: -1
+  use_creation_wizard: false

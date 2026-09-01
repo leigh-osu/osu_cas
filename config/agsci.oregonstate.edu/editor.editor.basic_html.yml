@@ -5,6 +5,7 @@ dependencies:
   config:
     - filter.format.basic_html
   module:
+    - anchor_link
     - ckeditor
 _core:
   default_config_hash: kZgV89DtOmmXgQa8P2il9XqMqtYwuP5mVzCAGRyGc8U
@@ -40,6 +41,7 @@ settings:
             - DrupalLink
             - DrupalUnlink
             - DrupalFile
+            - Anchor
         -
           name: Lists
           items:

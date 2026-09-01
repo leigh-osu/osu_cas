@@ -1,3 +1,5 @@
+_core:
+  default_config_hash: 7jkcONJCeAj9U78Fi8W2Os2B70oxqWk4Ett0bKYOvKU
 langcode: en
 settings:
   default_status: open
@@ -336,5 +338,3 @@ third_party_settings:
   honeypot:
     honeypot: true
     time_restriction: true
-_core:
-  default_config_hash: 7jkcONJCeAj9U78Fi8W2Os2B70oxqWk4Ett0bKYOvKU

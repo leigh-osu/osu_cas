@@ -1,0 +1,28 @@
+uuid: f438d349-bbb9-4bcd-863d-88154a957258
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - filter.format.basic_html
+    - filter.format.full_html
+    - node.type.research_project
+  module:
+    - text
+id: node.research_project.body
+field_name: body
+entity_type: node
+bundle: research_project
+label: Summary
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats:
+    - full_html
+    - basic_html
+field_type: text_with_summary

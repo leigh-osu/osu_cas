@@ -15,7 +15,6 @@ dependencies:
     - responsive_preview
     - search
     - shortcut
-    - simple_styleguide
     - sitewide_alert
     - system
     - toolbar
@@ -31,7 +30,6 @@ permissions:
   - 'access content'
   - 'access responsive preview'
   - 'access shortcuts'
-  - 'access style guide'
   - 'access toolbar'
   - 'access tour'
   - 'delete own files'

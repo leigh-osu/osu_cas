@@ -8,6 +8,8 @@ module:
   admin_toolbar: 0
   admin_toolbar_search: 0
   admin_toolbar_tools: 0
+  anchor_link: 0
+  asset_injector: 0
   better_exposed_filters: 0
   big_pipe: 0
   blazy: 0
@@ -60,6 +62,7 @@ module:
   entity_reference_revisions: 0
   entitygroupfield: 0
   exclude_node_title: 0
+  fakeobjects: 0
   feeds: 0
   feeds_ex: 0
   feeds_tamper: 0
@@ -190,10 +193,8 @@ module:
   seckit: 0
   section_library: 0
   serialization: 0
-  shield: 0
   shortcut: 0
   simple_popup_blocks: 0
-  simple_styleguide: 0
   sitewide_alert: 0
   slick: 0
   slick_views: 0

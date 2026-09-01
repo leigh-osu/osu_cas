@@ -1,0 +1,29 @@
+uuid: 2852b975-bb42-46bf-a98c-d708ab4d4958
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_res_proj_thumbnail
+    - media.type.image
+    - node.type.research_project
+id: node.research_project.field_res_proj_thumbnail
+field_name: field_res_proj_thumbnail
+entity_type: node
+bundle: research_project
+label: Thumbnail
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

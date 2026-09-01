@@ -14,6 +14,18 @@
             "url": "https://packages.drupal.org/8"
         },
         {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/indentblock",
+                "version": "4.18.0",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/indentblock/releases/indentblock_4.18.0.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
             "type": "composer",
             "url": "https://asset-packagist.org"
         },
@@ -139,6 +151,10 @@
         },
         {
             "type": "vcs",
+            "url": "https://github.com/leigh-osu/osu_migrations_mmi.git"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/leigh-osu/osu_cas_multisite.git"
         },
         {
@@ -237,6 +253,7 @@
     ],
     "require": {
         "bower-asset/colorbox": "^1.6",
+        "ckeditor/indentblock": "4.18.0",
         "composer/installers": "^2.2",
         "cweagans/composer-patches": "^1.6",
         "drupal-ckeditor-libraries-group/codesnippet": "^4.17",
@@ -247,7 +264,7 @@
         "drupal/address": "^2.0",
         "drupal/addtoany": "^2.0",
         "drupal/admin_toolbar": "^3.0",
-        "drupal/anchor_link": "^3.0",
+        "drupal/anchor_link": "^2.7",
         "drupal/antibot": "^2.0",
         "drupal/asset_injector": "^2.6",
         "drupal/auto_entitylabel": "^3.0",
@@ -316,7 +333,6 @@
         "drupal/feeds_ex": "^1.0beta",
         "drupal/feeds_tamper": "^2.0beta2",
         "drupal/field_group": "^4.0",
-        "drupal/geofield": "^1.67",
         "drupal/field_permissions": "^1.5",
         "drupal/file_delete": "^3.0",
         "drupal/filter_perms": "^2.0",
@@ -325,6 +341,7 @@
         "drupal/fontawesome_menu_icons": "^3.0",
         "drupal/fpa": "^4.0",
         "drupal/fullcalendar_view": "^5.1",
+        "drupal/geofield": "^1.67",
         "drupal/gin": "^4.0",
         "drupal/gin_toolbar": "^2.0",
         "drupal/google_analytics": "^4.0",
@@ -430,7 +447,6 @@
         "drupal/views_ajax_history": "^1.6",
         "drupal/views_bootstrap": "^5.5@beta",
         "drupal/views_bulk_edit": "^3.0",
-        "drupal/virtual_tour": "^3.0@beta",
         "drupal/views_bulk_operations": "^4.1",
         "drupal/views_conditional": "^1.5",
         "drupal/views_data_export": "^1.1",
@@ -441,6 +457,7 @@
         "drupal/views_selective_filters": "^2@alpha",
         "drupal/views_taxonomy_term_name_depth": "^7.2",
         "drupal/views_year_filter": "^2.1",
+        "drupal/virtual_tour": "^3.0@beta",
         "drupal/we_megamenu": "^1.16",
         "drupal/webform": "^6.1",
         "drupal/webform_migrate": "^2.0@alpha",
@@ -459,11 +476,12 @@
         "leigh-osu/osu_cas_multisite": "^1.0",
         "leigh-osu/osu_cas_site_sync": "^1.0",
         "leigh-osu/osu_digital_measures": "^1.0",
-        "mpetroff/pannellum": "2.3.2",
         "leigh-osu/osu_endophyte": "^2.1",
         "leigh-osu/osu_landscapeplants": "^1.0",
         "leigh-osu/osu_migrations_cas": "^1.0",
+        "leigh-osu/osu_migrations_mmi": "^0.10",
         "mnsami/composer-custom-directory-installer": "^2.0",
+        "mpetroff/pannellum": "2.3.2",
         "npm-asset/apexcharts": "^4.7",
         "npm-asset/blazy": "^1.8",
         "npm-asset/chart.js": "^4.4",
@@ -669,7 +687,9 @@
                 "Repair hardcoded D7 file URLs on migrated menu bar items": "patches/osu_migrations-menu-item-legacy-file-urls.patch",
                 "Strip markup from migrated menu bar item titles": "patches/osu_migrations-menu-item-strip-title-markup.patch",
                 "Keep same-page anchor menu links fragment-only": "patches/osu_migrations-menu-item-anchor-links.patch",
-                "Keep the link on D7 media tokens carrying an external_url": "patches/osu_migrations-media-token-external-url.patch"
+                "Keep the link on D7 media tokens carrying an external_url": "patches/osu_migrations-media-token-external-url.patch",
+                "Media embed fid lookup migrations overridable per source (MMI)": "patches/osu_migrations-media-embed-migrations-overridable.patch",
+                "Paragraphs-to-LB source connection and repairs overridable per source (MMI)": "patches/osu_migrations-paragraphs-layout-source-overridable.patch"
             },
             "osu-wams/osu_publications": {
                 "Authors as Publication Authors taxonomy (term pages collect a person's pubs)": "patches/osu_publications-authors-taxonomy.patch"
