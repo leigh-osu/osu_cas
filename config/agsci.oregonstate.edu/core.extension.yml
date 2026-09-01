@@ -9,6 +9,7 @@ module:
   admin_toolbar_search: 0
   admin_toolbar_tools: 0
   anchor_link: 0
+  asset_injector: 0
   better_exposed_filters: 0
   big_pipe: 0
   blazy: 0
