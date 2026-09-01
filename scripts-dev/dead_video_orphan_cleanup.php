@@ -54,6 +54,8 @@ $references = function (string $uuid, int $mid, int $own_bid) use ($db, $field_m
   }
 
   // Layout Builder sections (current and revision) mentioning the UUID.
+  // Catches reusable (content_block) placements only — inline blocks never
+  // put their uuid in section data; see the revision-id check below.
   foreach (['node__layout_builder__layout', 'node_revision__layout_builder__layout'] as $table) {
     $ids = $db->query("SELECT DISTINCT entity_id FROM {" . $table . "} WHERE layout_builder__layout_section LIKE :u", [':u' => '%' . $uuid . '%'])->fetchCol();
     foreach ($ids as $id) {
@@ -82,6 +84,30 @@ $references = function (string $uuid, int $mid, int $own_bid) use ($db, $field_m
   return $found;
 };
 
+/**
+ * Layouts referencing any of a block's revisions as an INLINE block.
+ *
+ * Sections store inline blocks as `block_revision_id";i:<REV>;` — the uuid
+ * never appears, and the D7 migration left inline_block_usage unpopulated, so
+ * this is the ONLY check that proves an inline block is not placed. Its
+ * omission from the first version of this script deleted four blocks that
+ * were live on published pages (restored from backup 2026-09-01).
+ */
+$inline_placements = function (int $bid) use ($db): array {
+  $found = [];
+  $revs = $db->query("SELECT revision_id FROM {block_content_revision} WHERE id = :b", [':b' => $bid])->fetchCol();
+  foreach ($revs as $rev) {
+    foreach (['node__layout_builder__layout', 'node_revision__layout_builder__layout'] as $table) {
+      $ids = $db->query("SELECT DISTINCT entity_id FROM {" . $table . "} WHERE layout_builder__layout_section LIKE :p", [':p' => '%block_revision_id";i:' . (int) $rev . ';%'])->fetchCol();
+      foreach ($ids as $id) {
+        $found[] = "$table:$id(rev $rev)";
+      }
+    }
+  }
+
+  return $found;
+};
+
 foreach ($pairs as [$bid, $mid, $video_id]) {
   print "== $video_id  (block $bid, media $mid)\n";
 
@@ -99,7 +125,7 @@ foreach ($pairs as [$bid, $mid, $video_id]) {
       continue;
     }
     $usage = $db->query("SELECT COUNT(*) FROM {inline_block_usage} WHERE block_content_id = :b", [':b' => $bid])->fetchField();
-    $block_refs = $references($block->uuid(), 0, $bid);
+    $block_refs = array_merge($references($block->uuid(), 0, $bid), $inline_placements($bid));
     if ($usage || $block_refs) {
       print "   SKIP: block $bid is referenced (" . ($usage ? "inline_block_usage" : implode(', ', $block_refs)) . ")\n";
       continue;
