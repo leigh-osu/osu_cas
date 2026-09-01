@@ -14,6 +14,18 @@
             "url": "https://packages.drupal.org/8"
         },
         {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/indentblock",
+                "version": "4.18.0",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/indentblock/releases/indentblock_4.18.0.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
             "type": "composer",
             "url": "https://asset-packagist.org"
         },
@@ -241,6 +253,7 @@
     ],
     "require": {
         "bower-asset/colorbox": "^1.6",
+        "ckeditor/indentblock": "4.18.0",
         "composer/installers": "^2.2",
         "cweagans/composer-patches": "^1.6",
         "drupal-ckeditor-libraries-group/codesnippet": "^4.17",
