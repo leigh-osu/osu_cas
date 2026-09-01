@@ -1,0 +1,48 @@
+--- a/src/OsuMediaEmbed.php
++++ b/src/OsuMediaEmbed.php
+@@ -222,6 +222,27 @@
+       }
+     }
+     return FALSE;
++  }
++
++  /**
++   * The migrations whose maps can resolve a D7 fid to a media entity.
++   *
++   * Subclasses covering a different D7 source override this list.
++   *
++   * @return string[]
++   *   Migration plugin ids, passed to the migrate.lookup service.
++   */
++  protected function getMediaMigrations(): array {
++    return [
++      'upgrade_d7_media_audio',
++      'upgrade_d7_media_documents',
++      'upgrade_d7_media_images',
++      'cas_media_private_images',
++      'cas_media_private_documents',
++      'upgrade_d7_media_kaltura',
++      'upgrade_d7_media_local_video',
++      'upgrade_d7_media_remote_video',
++    ];
+   }
+ 
+   /**
+@@ -243,16 +264,7 @@
+       return NULL;
+     }
+     // Get the New media ID, could be in any one of these migration.
+-    $newMid = $this->lookup->lookup([
+-      'upgrade_d7_media_audio',
+-      'upgrade_d7_media_documents',
+-      'upgrade_d7_media_images',
+-      'cas_media_private_images',
+-      'cas_media_private_documents',
+-      'upgrade_d7_media_kaltura',
+-      'upgrade_d7_media_local_video',
+-      'upgrade_d7_media_remote_video',
+-    ], [$embedMetadata['id']]);
++    $newMid = $this->lookup->lookup($this->getMediaMigrations(), [$embedMetadata['id']]);
+     if (empty($newMid)) {
+       return NULL;
+     }

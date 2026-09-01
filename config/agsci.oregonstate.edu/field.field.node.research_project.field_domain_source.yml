@@ -1,0 +1,25 @@
+uuid: 3a318c45-7a34-4a24-bcf8-e4276fe1dff2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_domain_source
+    - node.type.research_project
+id: node.research_project.field_domain_source
+field_name: field_domain_source
+entity_type: node
+bundle: research_project
+label: 'Domain Source'
+description: 'Select the canonical domain for this content.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:domain'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: weight
+      direction: ASC
+field_type: entity_reference

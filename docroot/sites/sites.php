@@ -36,6 +36,9 @@ $sites['ichthyology.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['infews.org'] = 'agsci.oregonstate.edu';
 $sites['landscapeplants.oregonstate.edu'] = 'landscapeplants.oregonstate.edu';
 $sites['letitiacarson.oregonstate.edu'] = 'agsci.oregonstate.edu';
+// MMI migration (branch mmi-migration). Also serves ddev.mmi.oregonstate.edu
+// locally via core's leading-fragment fallback.
+$sites['mmi.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['open-sensing.org'] = 'agsci.oregonstate.edu';
 $sites['osuseafoodlab.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['ourwillamette.oregonstate.edu'] = 'agsci.oregonstate.edu';
@@ -80,6 +83,7 @@ $sites['ichthyology.dev.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['dev.infews.org'] = 'agsci.oregonstate.edu';
 $sites['landscapeplants.dev.oregonstate.edu'] = 'landscapeplants.oregonstate.edu';
 $sites['letitiacarson.dev.oregonstate.edu'] = 'agsci.oregonstate.edu';
+$sites['mmi.dev.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['dev.open-sensing.org'] = 'agsci.oregonstate.edu';
 $sites['osuseafoodlab.dev.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['ourwillamette.dev.oregonstate.edu'] = 'agsci.oregonstate.edu';
@@ -120,6 +124,7 @@ $sites['ichthyology.stage.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['stage.infews.org'] = 'agsci.oregonstate.edu';
 $sites['landscapeplants.stage.oregonstate.edu'] = 'landscapeplants.oregonstate.edu';
 $sites['letitiacarson.stage.oregonstate.edu'] = 'agsci.oregonstate.edu';
+$sites['mmi.stage.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['stage.open-sensing.org'] = 'agsci.oregonstate.edu';
 $sites['osuseafoodlab.stage.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['ourwillamette.stage.oregonstate.edu'] = 'agsci.oregonstate.edu';

@@ -1,0 +1,58 @@
+uuid: 75c35fae-dfe6-4576-9a5d-d16bb94cf786
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.research_project.body
+    - field.field.node.research_project.field_domain_access
+    - field.field.node.research_project.field_domain_all_affiliates
+    - field.field.node.research_project.field_domain_source
+    - field.field.node.research_project.field_group_private
+    - field.field.node.research_project.field_res_proj_background
+    - field.field.node.research_project.field_res_proj_completed
+    - field.field.node.research_project.field_res_proj_concept
+    - field.field.node.research_project.field_res_proj_hypotheses
+    - field.field.node.research_project.field_res_proj_literature
+    - field.field.node.research_project.field_res_proj_objectives
+    - field.field.node.research_project.field_res_proj_sub_title
+    - field.field.node.research_project.field_res_proj_thumbnail
+    - field.field.node.research_project.field_res_proj_update
+    - node.type.research_project
+  module:
+    - text
+    - user
+id: node.research_project.teaser
+targetEntityType: node
+bundle: research_project
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entitygroupfield: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_group_private: true
+  field_res_proj_background: true
+  field_res_proj_completed: true
+  field_res_proj_concept: true
+  field_res_proj_hypotheses: true
+  field_res_proj_literature: true
+  field_res_proj_objectives: true
+  field_res_proj_sub_title: true
+  field_res_proj_thumbnail: true
+  field_res_proj_update: true
+  langcode: true

@@ -1,0 +1,26 @@
+uuid: fe515431-c746-4e72-817b-e5cae23ec7b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_res_proj_update
+    - filter.format.basic_html
+    - filter.format.full_html
+    - node.type.research_project
+  module:
+    - text
+id: node.research_project.field_res_proj_update
+field_name: field_res_proj_update
+entity_type: node
+bundle: research_project
+label: Update
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+    - basic_html
+field_type: text_long

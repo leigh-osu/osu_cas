@@ -1,0 +1,21 @@
+uuid: 7e355a2d-0ab7-4452-baf4-a8bf35558d7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_res_proj_completed
+    - node.type.research_project
+id: node.research_project.field_res_proj_completed
+field_name: field_res_proj_completed
+entity_type: node
+bundle: research_project
+label: Completed
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
