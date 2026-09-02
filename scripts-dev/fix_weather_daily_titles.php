@@ -37,6 +37,8 @@ use Drupal\node\Entity\Node;
 
 $apply = in_array('--apply', $extra ?? [], TRUE);
 $db = \Drupal::database();
+$dry_deleted = [];
+$backfilled = [];
 $mode = $apply ? 'APPLY' : 'DRY RUN';
 print "== $mode ==\n";
 
@@ -85,6 +87,7 @@ if ($is_daily($n, '2026-08-10', NULL) && $is_daily($twin, '2026-08-10', 'hyslop'
   if ($apply) {
     $n->delete();
   }
+  $dry_deleted[302496] = TRUE;
   print "  302496 deleted (twin 302531 kept)\n";
 }
 else {
@@ -96,6 +99,10 @@ print "\n-- 3. Backfill station on daily nodes without one\n";
 $nids = $db->query("SELECT n.nid FROM {node_field_data} n LEFT JOIN {node__field_dw_location} l ON l.entity_id = n.nid WHERE n.type = 'weather_daily_data' AND l.entity_id IS NULL ORDER BY n.nid")->fetchCol();
 print count($nids) . " node(s)\n";
 foreach (Node::loadMultiple($nids) as $n) {
+  if (!empty($dry_deleted[$n->id()])) {
+    print "  {$n->id()}  (removed in step 2)\n";
+    continue;
+  }
   $loc = $station_of_group[$group_of((int) $n->id())] ?? NULL;
   if (!$loc) {
     print "  {$n->id()}  SKIP: not in a known weather-station group\n";
@@ -106,6 +113,8 @@ foreach (Node::loadMultiple($nids) as $n) {
     $n->setNewRevision(FALSE);
     $n->save();
   }
+  // Remembered so the dry run's step 4 sees the station this step would set.
+  $backfilled[$n->id()] = $loc;
   print "  {$n->id()}  " . $n->get('field_dw_date')->value . " => $loc\n";
 }
 
@@ -133,7 +142,10 @@ foreach ($dupes as $nid => [$date, $keep]) {
     continue;
   }
   $kept = Node::load($keep);
-  if (!$is_daily($n, $date, 'hyslop') || !$is_daily($kept, $date, 'hyslop')) {
+  // In a dry run the station from step 3 was never saved; count it as set.
+  $has_station = $is_daily($n, $date, 'hyslop')
+    || (!$apply && $is_daily($n, $date, NULL) && ($backfilled[$nid] ?? NULL) === 'hyslop');
+  if (!$has_station || !$is_daily($kept, $date, 'hyslop')) {
     print "  $nid  SKIP: node or its kept twin $keep does not match Hyslop $date\n";
     continue;
   }
