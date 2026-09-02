@@ -1,0 +1,9 @@
+status: 1
+pattern: 'Weather Data for [node:field_dw_location] - [node:field_dw_date:date:html_date]'
+escape: false
+preserve_titles: false
+save: false
+chunk: 50
+dependencies:
+  config:
+    - node.type.weather_daily_data
