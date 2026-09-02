@@ -12,7 +12,7 @@ field_name: field_group_map
 entity_type: group
 bundle: basic_group
 label: 'Embedded map'
-description: 'Map embed (iframe) shown in the group footer on every page of the group.'
+description: 'Map embed (iframe) shown in the group footer on every page of the group. Paste your Google Map code in here.'
 required: false
 translatable: false
 default_value: {  }
