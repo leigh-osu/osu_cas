@@ -26,7 +26,7 @@ elements: |-
 css: ''
 javascript: ''
 settings:
-  page: true
+  page: false
   page_submit_path: ''
   page_confirm_path: ''
   wizard_progress_bar: true
