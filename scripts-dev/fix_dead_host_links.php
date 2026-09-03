@@ -66,17 +66,34 @@ $columns = $db->query("SELECT table_name t, column_name c FROM information_schem
   ORDER BY table_name, column_name", [':s' => $schema])->fetchAll();
 
 // --- URL resolution --------------------------------------------------------
-$status_cache = [];
+// Verified statuses are kept in dead_host_links_status.json next to this
+// script, so a run on stage/prod can reuse the checks made from local instead
+// of re-fetching (the Acquia edge rate-limits bursts from another Acquia
+// environment). Delete the file to re-verify.
+$status_file = __DIR__ . '/dead_host_links_status.json';
+$status_cache = is_file($status_file) ? (json_decode(file_get_contents($status_file), TRUE) ?: []) : [];
+printf("%d URL status(es) preloaded from %s\n", count($status_cache), basename($status_file));
 $serves = function (string $url) use ($http, &$status_cache): bool {
   $key = html_entity_decode($url);
   if (!array_key_exists($key, $status_cache)) {
-    try {
-      $r = $http->request('GET', $key, ['allow_redirects' => ['max' => 5], 'http_errors' => FALSE, 'timeout' => 20, 'headers' => ['User-Agent' => 'osu-cas link repair']]);
-      $status_cache[$key] = $r->getStatusCode();
+    // Paced, with backoff on 429: the Acquia edge rate-limits a burst of
+    // requests from another Acquia environment.
+    foreach ([0, 3, 8, 20] as $wait) {
+      if ($wait) {
+        sleep($wait);
+      }
+      try {
+        $r = $http->request('GET', $key, ['allow_redirects' => ['max' => 5], 'http_errors' => FALSE, 'timeout' => 20, 'headers' => ['User-Agent' => 'osu-cas link repair']]);
+        $status_cache[$key] = $r->getStatusCode();
+      }
+      catch (\Throwable $e) {
+        $status_cache[$key] = 0;
+      }
+      if ($status_cache[$key] !== 429) {
+        break;
+      }
     }
-    catch (\Throwable $e) {
-      $status_cache[$key] = 0;
-    }
+    usleep(400000);
   }
   return $status_cache[$key] === 200;
 };
@@ -320,5 +337,9 @@ foreach ($unresolved as $url => $where_list) {
 }
 fclose($fh);
 printf("\nCSVs: %s/dead_host_links_replacements.csv, %s/dead_host_links_unresolved.csv\n", $dir, $dir);
+ksort($status_cache);
+if (@file_put_contents($status_file, json_encode($status_cache, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES))) {
+  printf("URL statuses saved to %s (%d)\n", $status_file, count($status_cache));
+}
 printf("== done (%s): %d value(s) on %d entit%s %s; %d URL(s) unresolved\n", $mode, $changed_values, $changed_entities,
   $changed_entities === 1 ? 'y' : 'ies', $apply ? 'saved' : 'would change', count($unresolved));
