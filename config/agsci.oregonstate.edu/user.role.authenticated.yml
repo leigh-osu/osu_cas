@@ -6,6 +6,7 @@ dependencies:
     - filter.format.basic_html
   module:
     - admin_toolbar_search
+    - captcha
     - exclude_node_title
     - file
     - filter
@@ -37,6 +38,7 @@ permissions:
   - 'readonlymode access messages'
   - 'search Google CSE'
   - 'search content'
+  - 'skip CAPTCHA'
   - 'update any media'
   - 'update media'
   - 'use admin toolbar search'

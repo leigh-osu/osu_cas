@@ -1,0 +1,132 @@
+uuid: a929a3df-79b9-42eb-858c-d246263c49c8
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: scholarship_thank_you_letters
+label: 'Scholarship thank-you letters'
+code: |
+  /* Scholarship thank-you letters — print-prep view at /scholarship-thank-you-letters.
+   * Adapted from the FWCS letters injector for the manzanita theme. */
+  body { margin: 0 !important; }
+
+  /* FILTER FORM */
+  .views-exposed-form {
+    background: #eee;
+    margin: 0 0 2em;
+    padding: 1em 0 2em;
+  }
+  .views-exposed-form .form--inline { align-items: flex-end; }
+  .views-exposed-form .form-item { margin: 0 2px; line-height: 1; }
+  .views-exposed-form label { display: block; font-size: .7em; }
+  .views-exposed-form .form-text,
+  .views-exposed-form .form-select {
+    margin-top: .125rem;
+    font-size: .8rem;
+    padding: .375rem .65rem;
+    line-height: 1.5;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+  }
+  .views-exposed-form .form-text { max-width: 250px !important; }
+  .views-exposed-form .form-actions input.button {
+    font-size: 14px !important;
+    margin: 0 1px !important;
+    padding: 7px 11px 8px !important;
+  }
+
+  /* LETTER */
+  .views-row { page-break-after: always; break-after: page; }
+  .letter p { line-height: 1.6 !important; }
+  .letter br { content: ""; margin: .55em; display: block; }
+  .letter thead { margin-bottom: 1em; }
+  /* manzanita paints every thead dark; the letterhead is a white band. */
+  .letter thead,
+  .letter thead tr,
+  .letter thead td {
+    background: transparent !important;
+    color: #000 !important;
+    border: 0 !important;
+  }
+  .letter thead td.letter-header {
+    width: 100%;
+    padding: 10px;
+    border-bottom: 3px solid #d73f09 !important;
+  }
+  .letter,
+  .letter tr,
+  .letter tbody td { background: transparent !important; border: 0 !important; box-shadow: none !important; }
+  /* Logo | title | spacer on one line: the td stays a table cell (a flex td
+   * loses its colspan), so the three spans are sized inline-blocks. */
+  .letter thead td.letter-header { white-space: nowrap; font-size: 0; }
+  .letter-header span { display: inline-block; vertical-align: middle; white-space: normal; }
+  .letter-header span:first-child,
+  .letter-header span:last-child { width: 9.3rem; }
+  .letter-header span:nth-child(2) { width: calc(100% - 18.6rem); }
+  .letter-header img { width: 9.3rem; height: auto; }
+  .letter-header h2 { text-align: center; margin: 0 !important; font-size: 1.6rem; white-space: nowrap; }
+
+  /* ROTATED IMAGE FIX — in cooperation with the JS injector. Only corrects the
+   * on-screen/print orientation; nothing is saved. */
+  .rotate { position: relative; }
+  .rotate img { transform-origin: top left; max-width: 100%; }
+  .rotate img.rotate90 { transform: rotate(90deg) translateY(-100%); max-width: unset; }
+  .rotate img.rotate180 { transform: rotate(180deg) translate(-100%, -100%); max-width: unset; }
+  .rotate img.rotate270 { transform: rotate(270deg) translateX(-100%); max-width: unset; }
+  .rotate:hover::before {
+    content: "\f2f1";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 2em;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    transform: translate(calc(50% - 20px), calc(50% - 26px));
+    pointer-events: none;
+  }
+  .rotate img:hover { cursor: crosshair !important; opacity: .5; transition: opacity .1s ease; }
+
+  /* PRINT: only the letters. Site chrome (header, menus, footer, site-sync
+   * bar, admin toolbar, page title) stays on screen but never prints. */
+  @media print {
+    header[role="banner"],
+    footer[role="contentinfo"],
+    .madrone-primary-menu,
+    .madrone-pre-footer,
+    .block-osu-cas-site-sync,
+    .block-page-title-block,
+    nav,
+    #toolbar-administration,
+    .toolbar-tray,
+    ed11y-element-panel,
+    .sitewide-alert,
+    .contextual,
+    .views-exposed-form,
+    form,
+    .rotate::before { display: none !important; }
+    body { padding-top: 0 !important; }
+    @page { size: 8.5in 11in; margin: .25in; }
+    /* Smaller type so a letter fits the page. */
+    .letter { font-size: 10.5pt; }
+    .letter p { line-height: 1.45 !important; }
+    .letter h2.mt-0 { font-size: 16pt; }
+    .letter h3 { font-size: 12.5pt; }
+    .letter h4 { font-size: 11.5pt; }
+    .letter-header h2 { font-size: 14pt; }
+    .letter-header img,
+    .letter-header span:first-child,
+    .letter-header span:last-child { width: 7.5rem; }
+    .letter-header span:nth-child(2) { width: calc(100% - 15rem); }
+    .letter td p:last-of-type { margin-bottom: 0; padding-bottom: 0; }
+  }
+media: all
+preprocess: true
+conditions:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /scholarship-thank-you-letters
+contexts: {  }
+conditions_require_all: true
