@@ -1,6 +1,6 @@
 uuid: 34a16b8f-34d3-40ef-a4e6-8cba9394d5d9
 langcode: en
-status: false
+status: true
 dependencies: {  }
 id: beecampus_oregonstate_edu
 domain_id: 5382732
