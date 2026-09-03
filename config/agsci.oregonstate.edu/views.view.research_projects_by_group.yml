@@ -1,22 +1,23 @@
+uuid: 08b921a8-5771-4332-9975-4481e943255a
 langcode: en
 status: true
 dependencies:
-  module:
-  - group
-  - node
-  - taxonomy
-  - text
-  - user
   config:
-  - field.storage.node.field_res_proj_completed
-  - field.storage.node.field_res_proj_sub_title
-  - field.storage.node.field_res_proj_thumbnail
-  - node.type.research_project
+    - field.storage.node.field_res_proj_completed
+    - field.storage.node.field_res_proj_sub_title
+    - field.storage.node.field_res_proj_thumbnail
+    - node.type.research_project
+  module:
+    - group
+    - node
+    - taxonomy
+    - text
+    - user
 id: research_projects_by_group
-label: Research projects by group
+label: 'Research projects by group'
 module: views
-description: MMI research_project listings scoped to the current group; the shape of the agsci projects view against MMI's separate research_project type.
-tag: OSU CAS
+description: "MMI research_project listings scoped to the current group; the shape of the agsci projects view against MMI's separate research_project type."
+tag: 'OSU CAS'
 base_table: node_field_data
 base_field: nid
 display:
@@ -35,6 +36,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_field: field_res_proj_thumbnail
           plugin_id: field
           label: ''
           exclude: false
@@ -83,7 +85,7 @@ display:
             view_mode: 400x375
             link: false
           group_column: value
-          group_columns: {}
+          group_columns: {  }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -92,7 +94,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_field: field_res_proj_thumbnail
         title:
           id: title
           table: node_field_data
@@ -149,7 +150,7 @@ display:
           settings:
             link_to_entity: true
           group_column: value
-          group_columns: {}
+          group_columns: {  }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -212,7 +213,7 @@ display:
           settings:
             trim_length: 600
           group_column: value
-          group_columns: {}
+          group_columns: {  }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -228,6 +229,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_field: field_res_proj_sub_title
           plugin_id: field
           label: ''
           exclude: false
@@ -275,7 +277,7 @@ display:
           settings:
             link_to_entity: false
           group_column: value
-          group_columns: {}
+          group_columns: {  }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -284,7 +286,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_field: field_res_proj_sub_title
       pager:
         type: full
         options:
@@ -294,14 +295,14 @@ display:
           total_pages: null
           id: 0
           tags:
-            next: Next ›
-            previous: ‹ Previous
-            first: « First
-            last: Last »
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
-            items_per_page_label: Items per page
-            items_per_page_options: 5, 10, 25, 50
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
             items_per_page_options_all: false
             items_per_page_options_all_label: '- All -'
             offset: false
@@ -313,17 +314,17 @@ display:
           submit_button: Apply
           reset_button: true
           reset_button_label: Reset
-          exposed_sorts_label: Sort by
+          exposed_sorts_label: 'Sort by'
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
       access:
         type: perm
         options:
-          perm: access content
+          perm: 'access content'
       cache:
         type: none
-        options: {}
+        options: {  }
       empty:
         area_text_custom:
           id: area_text_custom
@@ -334,7 +335,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: No items match the current filter.
+          content: 'No items match the current filter.'
           tokenize: false
       sorts:
         title:
@@ -344,14 +345,14 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: title
           plugin_id: standard
           order: ASC
-          exposed: false
           expose:
             label: ''
             field_identifier: ''
-          entity_type: node
-          entity_field: title
+          exposed: false
       arguments:
         gid:
           id: gid
@@ -371,7 +372,7 @@ display:
           title_enable: false
           title: ''
           default_argument_type: cas_current_group
-          default_argument_options: {}
+          default_argument_options: {  }
           summary_options:
             base_path: ''
             count: true
@@ -384,8 +385,8 @@ display:
           specify_validation: false
           validate:
             type: none
-            fail: not found
-          validate_options: {}
+            fail: 'not found'
+          validate_options: {  }
           break_phrase: false
           not: false
       filters:
@@ -410,7 +411,7 @@ display:
             use_operator: false
             operator: ''
             operator_limit_selection: false
-            operator_list: {}
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
@@ -427,8 +428,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {}
-            group_items: {}
+            default_group_multiple: {  }
+            group_items: {  }
         type:
           id: type
           table: node_field_data
@@ -451,7 +452,7 @@ display:
             use_operator: false
             operator: ''
             operator_limit_selection: false
-            operator_list: {}
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
@@ -468,8 +469,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {}
-            group_items: {}
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -477,7 +478,7 @@ display:
       style:
         type: table
         options:
-          grouping: {}
+          grouping: {  }
           row_class: ''
           default_row_class: true
           columns:
@@ -525,7 +526,7 @@ display:
         type: fields
         options:
           default_field_elements: true
-          inline: {}
+          inline: {  }
           separator: ''
           hide_empty: false
       query:
@@ -535,7 +536,7 @@ display:
           disable_sql_rewrite: false
           distinct: true
           replica: false
-          query_tags: {}
+          query_tags: {  }
       relationships:
         group_content:
           id: group_content
@@ -543,32 +544,32 @@ display:
           field: group_content
           relationship: none
           group_type: group
-          admin_label: Group placement
+          admin_label: 'Group placement'
           plugin_id: group_content_to_entity_reverse
           required: true
-          group_content_plugins: {}
+          group_content_plugins: {  }
       css_class: cas-projects
       use_ajax: false
-      header: {}
-      footer: {}
-      display_extenders: {}
+      header: {  }
+      footer: {  }
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
-      - languages:language_content
-      - languages:language_interface
-      - route
-      - url
-      - url.query_args
-      - user.permissions
-      tags: {}
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - route
+        - url
+        - url.query_args
+        - user.permissions
+      tags: {  }
   active:
     id: active
-    display_title: Active Projects
+    display_title: 'Active Projects'
     display_plugin: block
     position: 1
     display_options:
-      title: Active Projects
+      title: 'Active Projects'
       fields:
         field_res_proj_thumbnail:
           id: field_res_proj_thumbnail
@@ -577,6 +578,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_field: field_res_proj_thumbnail
           plugin_id: field
           label: ''
           exclude: false
@@ -625,7 +627,7 @@ display:
             view_mode: 400x375
             link: false
           group_column: value
-          group_columns: {}
+          group_columns: {  }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -634,7 +636,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_field: field_res_proj_thumbnail
         title:
           id: title
           table: node_field_data
@@ -691,7 +692,7 @@ display:
           settings:
             link_to_entity: true
           group_column: value
-          group_columns: {}
+          group_columns: {  }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -754,7 +755,7 @@ display:
           settings:
             trim_length: 600
           group_column: value
-          group_columns: {}
+          group_columns: {  }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -770,6 +771,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_field: field_res_proj_sub_title
           plugin_id: field
           label: ''
           exclude: false
@@ -817,7 +819,7 @@ display:
           settings:
             link_to_entity: false
           group_column: value
-          group_columns: {}
+          group_columns: {  }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -826,7 +828,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_field: field_res_proj_sub_title
       pager:
         type: full
         options:
@@ -836,14 +837,14 @@ display:
           total_pages: null
           id: 0
           tags:
-            next: Next ›
-            previous: ‹ Previous
-            first: « First
-            last: Last »
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
-            items_per_page_label: Items per page
-            items_per_page_options: 5, 10, 25, 50
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
             items_per_page_options_all: false
             items_per_page_options_all_label: '- All -'
             offset: false
@@ -857,14 +858,14 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: title
           plugin_id: standard
           order: ASC
-          exposed: false
           expose:
             label: ''
             field_identifier: ''
-          entity_type: node
-          entity_field: title
+          exposed: false
       filters:
         status:
           id: status
@@ -887,7 +888,7 @@ display:
             use_operator: false
             operator: ''
             operator_limit_selection: false
-            operator_list: {}
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
@@ -904,8 +905,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {}
-            group_items: {}
+            default_group_multiple: {  }
+            group_items: {  }
         type:
           id: type
           table: node_field_data
@@ -928,7 +929,7 @@ display:
             use_operator: false
             operator: ''
             operator_limit_selection: false
-            operator_list: {}
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
@@ -945,8 +946,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {}
-            group_items: {}
+            default_group_multiple: {  }
+            group_items: {  }
         field_res_proj_completed_value:
           id: field_res_proj_completed_value
           table: node__field_res_proj_completed
@@ -954,6 +955,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: field_res_proj_completed
           plugin_id: boolean
           operator: '='
           value: '0'
@@ -966,7 +969,7 @@ display:
             use_operator: false
             operator: ''
             operator_limit_selection: false
-            operator_list: []
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
@@ -983,10 +986,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: []
-            group_items: []
-          entity_type: node
-          entity_field: field_res_proj_completed
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -994,7 +995,7 @@ display:
       style:
         type: table
         options:
-          grouping: {}
+          grouping: {  }
           row_class: ''
           default_row_class: true
           columns:
@@ -1046,26 +1047,26 @@ display:
         sorts: false
         filters: false
         filter_groups: false
-      display_extenders: {}
+      display_extenders: {  }
       block_description: 'Projects: Active Projects'
-      block_category: OSU CAS
+      block_category: 'OSU CAS'
     cache_metadata:
       max-age: -1
       contexts:
-      - languages:language_content
-      - languages:language_interface
-      - route
-      - url
-      - url.query_args
-      - user.permissions
-      tags: {}
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - route
+        - url
+        - url.query_args
+        - user.permissions
+      tags: {  }
   completed:
     id: completed
-    display_title: Completed Projects
+    display_title: 'Completed Projects'
     display_plugin: block
     position: 2
     display_options:
-      title: Completed Projects
+      title: 'Completed Projects'
       fields:
         field_res_proj_thumbnail:
           id: field_res_proj_thumbnail
@@ -1074,6 +1075,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_field: field_res_proj_thumbnail
           plugin_id: field
           label: ''
           exclude: false
@@ -1122,7 +1124,7 @@ display:
             view_mode: 400x375
             link: false
           group_column: value
-          group_columns: {}
+          group_columns: {  }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -1131,7 +1133,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_field: field_res_proj_thumbnail
         title:
           id: title
           table: node_field_data
@@ -1188,7 +1189,7 @@ display:
           settings:
             link_to_entity: true
           group_column: value
-          group_columns: {}
+          group_columns: {  }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -1251,7 +1252,7 @@ display:
           settings:
             trim_length: 600
           group_column: value
-          group_columns: {}
+          group_columns: {  }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -1267,6 +1268,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_field: field_res_proj_sub_title
           plugin_id: field
           label: ''
           exclude: false
@@ -1314,7 +1316,7 @@ display:
           settings:
             link_to_entity: false
           group_column: value
-          group_columns: {}
+          group_columns: {  }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -1323,7 +1325,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_field: field_res_proj_sub_title
       pager:
         type: full
         options:
@@ -1333,14 +1334,14 @@ display:
           total_pages: null
           id: 0
           tags:
-            next: Next ›
-            previous: ‹ Previous
-            first: « First
-            last: Last »
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
-            items_per_page_label: Items per page
-            items_per_page_options: 5, 10, 25, 50
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
             items_per_page_options_all: false
             items_per_page_options_all_label: '- All -'
             offset: false
@@ -1354,14 +1355,14 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: title
           plugin_id: standard
           order: ASC
-          exposed: false
           expose:
             label: ''
             field_identifier: ''
-          entity_type: node
-          entity_field: title
+          exposed: false
       filters:
         status:
           id: status
@@ -1384,7 +1385,7 @@ display:
             use_operator: false
             operator: ''
             operator_limit_selection: false
-            operator_list: {}
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
@@ -1401,8 +1402,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {}
-            group_items: {}
+            default_group_multiple: {  }
+            group_items: {  }
         type:
           id: type
           table: node_field_data
@@ -1425,7 +1426,7 @@ display:
             use_operator: false
             operator: ''
             operator_limit_selection: false
-            operator_list: {}
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
@@ -1442,8 +1443,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {}
-            group_items: {}
+            default_group_multiple: {  }
+            group_items: {  }
         field_res_proj_completed_value:
           id: field_res_proj_completed_value
           table: node__field_res_proj_completed
@@ -1451,6 +1452,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: field_res_proj_completed
           plugin_id: boolean
           operator: '='
           value: '1'
@@ -1463,7 +1466,7 @@ display:
             use_operator: false
             operator: ''
             operator_limit_selection: false
-            operator_list: []
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
@@ -1480,10 +1483,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: []
-            group_items: []
-          entity_type: node
-          entity_field: field_res_proj_completed
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -1491,7 +1492,7 @@ display:
       style:
         type: table
         options:
-          grouping: {}
+          grouping: {  }
           row_class: ''
           default_row_class: true
           columns:
@@ -1543,26 +1544,26 @@ display:
         sorts: false
         filters: false
         filter_groups: false
-      display_extenders: {}
+      display_extenders: {  }
       block_description: 'Projects: Completed Projects'
-      block_category: OSU CAS
+      block_category: 'OSU CAS'
     cache_metadata:
       max-age: -1
       contexts:
-      - languages:language_content
-      - languages:language_interface
-      - route
-      - url
-      - url.query_args
-      - user.permissions
-      tags: {}
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - route
+        - url
+        - url.query_args
+        - user.permissions
+      tags: {  }
   list:
     id: list
-    display_title: Full list
+    display_title: 'Full list'
     display_plugin: block
     position: 3
     display_options:
-      title: Active Projects
+      title: 'Active Projects'
       fields:
         field_res_proj_thumbnail:
           id: field_res_proj_thumbnail
@@ -1571,6 +1572,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_field: field_res_proj_thumbnail
           plugin_id: field
           label: ''
           exclude: false
@@ -1619,7 +1621,7 @@ display:
             view_mode: 400x375
             link: false
           group_column: value
-          group_columns: {}
+          group_columns: {  }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -1628,7 +1630,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_field: field_res_proj_thumbnail
         title:
           id: title
           table: node_field_data
@@ -1685,7 +1686,7 @@ display:
           settings:
             link_to_entity: true
           group_column: value
-          group_columns: {}
+          group_columns: {  }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -1748,7 +1749,7 @@ display:
           settings:
             trim_length: 600
           group_column: value
-          group_columns: {}
+          group_columns: {  }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -1764,6 +1765,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_field: field_res_proj_sub_title
           plugin_id: field
           label: ''
           exclude: false
@@ -1811,7 +1813,7 @@ display:
           settings:
             link_to_entity: false
           group_column: value
-          group_columns: {}
+          group_columns: {  }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -1820,7 +1822,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_field: field_res_proj_sub_title
       pager:
         type: full
         options:
@@ -1830,14 +1831,14 @@ display:
           total_pages: null
           id: 0
           tags:
-            next: Next ›
-            previous: ‹ Previous
-            first: « First
-            last: Last »
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
-            items_per_page_label: Items per page
-            items_per_page_options: 5, 10, 25, 50
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
             items_per_page_options_all: false
             items_per_page_options_all_label: '- All -'
             offset: false
@@ -1851,14 +1852,14 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: title
           plugin_id: standard
           order: ASC
-          exposed: false
           expose:
             label: ''
             field_identifier: ''
-          entity_type: node
-          entity_field: title
+          exposed: false
       filters:
         status:
           id: status
@@ -1881,7 +1882,7 @@ display:
             use_operator: false
             operator: ''
             operator_limit_selection: false
-            operator_list: {}
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
@@ -1898,8 +1899,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {}
-            group_items: {}
+            default_group_multiple: {  }
+            group_items: {  }
         type:
           id: type
           table: node_field_data
@@ -1922,7 +1923,7 @@ display:
             use_operator: false
             operator: ''
             operator_limit_selection: false
-            operator_list: {}
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
@@ -1939,8 +1940,8 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {}
-            group_items: {}
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -1948,7 +1949,7 @@ display:
       style:
         type: table
         options:
-          grouping: {}
+          grouping: {  }
           row_class: ''
           default_row_class: true
           columns:
@@ -2000,16 +2001,16 @@ display:
         sorts: false
         filters: false
         filter_groups: false
-      display_extenders: {}
+      display_extenders: {  }
       block_description: 'Research projects: full list'
-      block_category: OSU CAS
+      block_category: 'OSU CAS'
     cache_metadata:
       max-age: -1
       contexts:
-      - languages:language_content
-      - languages:language_interface
-      - route
-      - url
-      - url.query_args
-      - user.permissions
-      tags: {}
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - route
+        - url
+        - url.query_args
+        - user.permissions
+      tags: {  }
