@@ -3,9 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - user.role.administrator
+    - user.role.architect
+    - user.role.content_authors
     - webform.webform.webform_284786
   module:
     - smart_date
+    - user
     - webform
     - webform_views
 id: scholarship_thank_you_letters
@@ -1027,7 +1031,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<table width=\"100%\" cellpadding=0 border=0 cellspacing=0 class=\"letter\">\r\n  <thead>\r\n    <tr>\r\n     <td colspan=2 class=\"letter-header bg-primary\" valign=”middle”>\r\n      <span><i class=\"icon--osu_horizontal_2c_w_over_b d-inline-block\"></i></span>\r\n      <span><h2>College of Agricultural Science</h2></span>\r\n      <span></span>\r\n    </td>\r\n    </tr>\r\n    <tr>\r\n     <td colspan=2 class=\"p-3\"></td>\r\n    </tr>\r\n  </thead>\r\n  <tr>\r\n    <td class=\"align-top pe-4\" width=\"30%\">\r\n     {{ webform_submission_value_12 }}\r\n      <h4>{{ webform_submission_value_1 }}</h4>\r\n      <div>{{ webform_submission_value }}{{ webform_submission_value_2 }}{{ webform_submission_value_8 }}{{ webform_submission_value_10 }}</div>\r\n      <div class=\"text-muted d-print-none bg-light p-1 my-4\"><small>{{ created }} — {{ edit_webform_submission }}</small>{{ webform_submission_value_13 }}</div>\r\n    </td>\r\n    <td align=top>\r\n      <h2 class=\"mt-0\">{{ webform_submission_value_11 }}</h2>\r\n      <p class=\"text-gray-medium\">{{ webform_submission_value_7 }}\r\n      {{ webform_submission_value_9 }}</p>\r\n      {{ webform_submission_value_3 }}\r\n      {{ webform_submission_value_4 }}\r\n      {{ webform_submission_value_6 }}\r\n      {{ webform_submission_value_14 }}\r\n    </td>\r\n  </tr>\r\n</table>\r\n"
+            text: "<table width=\"100%\" cellpadding=0 border=0 cellspacing=0 class=\"letter\">\r\n  <thead>\r\n    <tr>\r\n     <td colspan=2 class=\"letter-header\">\r\n      <span><img src=\"/themes/custom/madrone/logo.svg\" alt=\"Oregon State University\" width=\"250\" height=\"80\"></span>\r\n      <span><h2>College of Agricultural Sciences</h2></span>\r\n      <span></span>\r\n    </td>\r\n    </tr>\r\n    <tr>\r\n     <td colspan=2 class=\"p-3\"></td>\r\n    </tr>\r\n  </thead>\r\n  <tr>\r\n    <td class=\"align-top pe-4\" width=\"30%\">\r\n     {{ webform_submission_value_12 }}\r\n      <h4>{{ webform_submission_value_1 }}</h4>\r\n      <div>{{ webform_submission_value }}{{ webform_submission_value_2 }}{{ webform_submission_value_8 }}{{ webform_submission_value_10 }}</div>\r\n      <div class=\"text-muted d-print-none bg-light p-1 my-4\"><small>{{ created }} — {{ edit_webform_submission }}</small>{{ webform_submission_value_13 }}</div>\r\n    </td>\r\n    <td align=top>\r\n      <h2 class=\"mt-0\">{{ webform_submission_value_11 }}</h2>\r\n      <p class=\"text-gray-medium\">{{ webform_submission_value_7 }}\r\n      {{ webform_submission_value_9 }}</p>\r\n      {{ webform_submission_value_3 }}\r\n      {{ webform_submission_value_4 }}\r\n      {{ webform_submission_value_6 }}\r\n      {{ webform_submission_value_14 }}\r\n    </td>\r\n  </tr>\r\n</table>\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -1079,8 +1083,12 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            content_authors: content_authors
+            administrator: administrator
+            architect: architect
       cache:
         type: tag
         options: {  }
@@ -1361,6 +1369,7 @@ display:
         - 'languages:language_interface'
         - url
         - user
+        - user.roles
       tags: {  }
   page_1:
     id: page_1
@@ -1380,4 +1389,5 @@ display:
         - 'languages:language_interface'
         - url
         - user
+        - user.roles
       tags: {  }

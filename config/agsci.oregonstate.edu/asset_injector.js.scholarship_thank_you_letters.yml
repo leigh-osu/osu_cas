@@ -1,0 +1,49 @@
+uuid: ae7ce74c-e6be-49dd-90ed-e164c6454934
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: scholarship_thank_you_letters
+label: 'Scholarship thank-you letters: rotate photos'
+code: |
+  /* Scholarship thank-you letters: click a letter photo to rotate it 90° for
+   * printing. Only the on-screen orientation changes; nothing is saved. */
+  jQuery(document).ready(function ($) {
+    $('.rotate img').on('click', function () {
+      var img = this;
+      if (!img.dataset.width || !img.dataset.height) {
+        img.dataset.width = img.clientWidth;
+        img.dataset.height = img.clientHeight;
+      }
+      var width = parseInt(img.dataset.width, 10);
+      var height = parseInt(img.dataset.height, 10);
+      var angle = (parseInt(img.dataset.angle || 0, 10) + 90) % 360;
+      img.className = 'rotate' + angle;
+      img.dataset.angle = angle;
+      if (angle === 90 || angle === 270) {
+        img.parentNode.style.width = width + 'px';
+        img.parentNode.style.height = width * width / height + 'px';
+        img.style.height = width + 'px';
+        img.style.width = width * width / height + 'px';
+      }
+      else {
+        img.parentNode.style.width = width + 'px';
+        img.parentNode.style.height = height + 'px';
+        img.style.height = height + 'px';
+        img.style.width = width + 'px';
+      }
+    });
+  });
+noscript: null
+noscriptRegion: {  }
+jquery: true
+header: false
+preprocess: true
+conditions:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /scholarship-thank-you-letters
+contexts: {  }
+conditions_require_all: true
