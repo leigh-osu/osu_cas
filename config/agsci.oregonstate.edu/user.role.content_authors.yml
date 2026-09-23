@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - block_content.type.osu_card
     - core.entity_view_display.group.basic_group.default
     - core.entity_view_display.node.page.default
     - filter.format.full_html
@@ -14,6 +15,7 @@ dependencies:
     - media.type.remote_video
     - node.type.page
   module:
+    - block_content
     - captcha
     - dropzonejs
     - editoria11y
@@ -39,6 +41,7 @@ label: 'Content Authors'
 weight: -8
 is_admin: null
 permissions:
+  - 'access block library'
   - 'access content overview'
   - 'access files overview'
   - 'access media overview'
@@ -55,6 +58,7 @@ permissions:
   - 'create kaltura media'
   - 'create local_video media'
   - 'create media'
+  - 'create osu_card block content'
   - 'create page content'
   - 'create remote_video media'
   - 'create url aliases'
