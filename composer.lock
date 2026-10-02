@@ -21669,22 +21669,25 @@
         },
         {
             "name": "osu-wams/osu_groups",
-            "version": "2.1.6",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/osu-wams/osu_groups.git",
-                "reference": "e39d68f5b46263518f67c094eb9403eb52bd8994"
+                "reference": "266345c7b0805dea37460dc5f737a334afc3229d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/osu-wams/osu_groups/zipball/e39d68f5b46263518f67c094eb9403eb52bd8994",
-                "reference": "e39d68f5b46263518f67c094eb9403eb52bd8994",
+                "url": "https://api.github.com/repos/osu-wams/osu_groups/zipball/266345c7b0805dea37460dc5f737a334afc3229d",
+                "reference": "266345c7b0805dea37460dc5f737a334afc3229d",
                 "shasum": ""
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
-                "drupal/coder": "^8.3",
-                "squizlabs/php_codesniffer": "^3.7"
+                "dealerdirect/phpcodesniffer-composer-installer": "^1.2",
+                "drupal/coder": "^9.0",
+                "drupol/phpcsfixer-configs-drupal": "^2.2",
+                "friendsofphp/php-cs-fixer": "^3.95",
+                "friendsoftwig/twigcs": "^6.6",
+                "squizlabs/php_codesniffer": "^4.0"
             },
             "type": "drupal-custom-module",
             "scripts": {
@@ -21709,10 +21712,10 @@
             ],
             "description": "Drupal Module for OSU Groups",
             "support": {
-                "source": "https://github.com/osu-wams/osu_groups/tree/2.1.6",
+                "source": "https://github.com/osu-wams/osu_groups/tree/2.2.0",
                 "issues": "https://github.com/osu-wams/osu_groups/issues"
             },
-            "time": "2025-11-17T23:15:52+00:00"
+            "time": "2026-09-14T23:38:45+00:00"
         },
         {
             "name": "osu-wams/osu_icon_field",
