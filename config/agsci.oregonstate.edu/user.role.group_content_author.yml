@@ -3,13 +3,19 @@ langcode: en
 status: true
 dependencies:
   config:
+    - block_content.type.basic
+    - block_content.type.osu_accordion
     - block_content.type.osu_card
+    - block_content.type.osu_menu_bar_item
+    - block_content.type.paragraph_block
     - core.entity_view_display.group.basic_group.default
     - core.entity_view_display.node.page.default
     - filter.format.full_html
+    - media.type.audio
     - media.type.document
     - media.type.image
     - media.type.kaltura
+    - media.type.local_video
     - media.type.remote_video
   module:
     - block_content
@@ -19,6 +25,7 @@ dependencies:
     - filter
     - layout_builder
     - media
+    - media_bulk_upload
     - node
     - path
     - section_library
@@ -38,27 +45,53 @@ permissions:
   - 'configure editable basic_group group layout overrides'
   - 'configure editable page node layout overrides'
   - 'create and edit custom blocks'
+  - 'create audio media'
+  - 'create basic block content'
   - 'create document media'
   - 'create image media'
   - 'create kaltura media'
+  - 'create local_video media'
+  - 'create media'
+  - 'create osu_accordion block content'
   - 'create osu_card block content'
+  - 'create osu_menu_bar_item block content'
+  - 'create paragraph_block block content'
   - 'create remote_video media'
   - 'create url aliases'
+  - 'delete media'
+  - 'delete own audio media'
   - 'delete own document media'
   - 'delete own image media'
   - 'delete own kaltura media'
+  - 'delete own local_video media'
   - 'delete own remote_video media'
   - 'dropzone upload files'
+  - 'edit any basic block content'
+  - 'edit any osu_accordion block content'
+  - 'edit any osu_card block content'
+  - 'edit any osu_menu_bar_item block content'
+  - 'edit any paragraph_block block content'
+  - 'edit own audio media'
   - 'edit own document media'
   - 'edit own image media'
   - 'edit own kaltura media'
+  - 'edit own local_video media'
   - 'edit own remote_video media'
   - 'import template from section library'
   - 'manage editoria11y results'
   - 'mark as hidden in editoria11y'
   - 'mark as ok in editoria11y'
+  - 'revert any basic block content revisions'
+  - 'revert any osu_accordion block content revisions'
+  - 'revert any osu_card block content revisions'
+  - 'revert any osu_menu_bar_item block content revisions'
+  - 'revert any paragraph_block block content revisions'
+  - 'update media'
+  - 'use bulk_image bulk upload form'
   - 'use text format full_html'
   - 'view all media revisions'
   - 'view editoria11y checker'
+  - 'view media'
   - 'view own unpublished content'
+  - 'view own unpublished media'
   - 'view section library templates'
