@@ -46,6 +46,7 @@
 #   8  groups, memberships, group + book menus        -> snapshot mmi-groups
 #   9  aliases + redirects (nid + group id resolution) -> snapshot mmi-paths
 #  10  polish: stories, publications, media text, prunes  -> snapshot mmi-polish
+#      TODO: must end with the inline_block_usage backfill (see section_10 note)
 #  11  group views placed into layout placeholders        -> snapshot mmi-views
 
 # Configuration
@@ -485,6 +486,20 @@ section_10() {
     printf("menu carrier blocks remaining: %d (expect 0)\n", $carriers);
     if ($carriers > 0) { exit(1); }
   ' || exit 1
+
+  # TODO (2026-10-02): the paragraphs->LB migrations write non-reusable blocks
+  # into section data without recording inline_block_usage. Without a host row
+  # core's SetInlineBlockDependency denies every standalone access check on a
+  # migrated block -- the media library opener on a migrated OSU Card fails
+  # even for uid 1 ("Non-reusable blocks must set an access dependency for
+  # access control"). The agsci site was backfilled on prod 2026-10-02; the
+  # real MMI freeze run must do the same for the 400000+ band, in this order:
+  #   drush scr scripts-dev/split_shared_inline_blocks.php apply   # dedupe blocks shared by duplicate pages
+  #   drush scr scripts-dev/backfill_inline_block_usage.php apply  # one host row per block, CSV log of inserts
+  # Both are idempotent and dry-run without 'apply'. Wire them in here (before
+  # guard_exit) once the freeze run is scheduled; they are deliberately not run
+  # automatically yet because rehearsals happen against a prod freeze that
+  # already carries the backfilled rows for agsci blocks.
 
   guard_exit
   snapshot_save mmi-polish
