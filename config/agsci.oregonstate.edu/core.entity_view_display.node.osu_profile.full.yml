@@ -379,11 +379,11 @@ content:
     region: content
   field_profile_fac_nonthesis:
     type: boolean
-    label: inline
+    label: hidden
     settings:
-      format: yes-no
+      format: custom
       format_custom_false: ''
-      format_custom_true: ''
+      format_custom_true: '<b>I advise nonthesis (PSM) students</b>'
     third_party_settings: {  }
     weight: 8
     region: content
