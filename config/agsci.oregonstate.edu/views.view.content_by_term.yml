@@ -9,15 +9,232 @@ dependencies:
     - node.type.page
     - node.type.story
     - node.type.video
+    - taxonomy.vocabulary.coarec_authors
+    - taxonomy.vocabulary.coarec_topics
+    - taxonomy.vocabulary.nursery
+    - taxonomy.vocabulary.owri
+    - taxonomy.vocabulary.swd
+    - taxonomy.vocabulary.turf
+    - taxonomy.vocabulary.veg
+    - taxonomy.vocabulary.year
+  content:
+    - 'taxonomy_term:coarec_topics:0fc583c1-d781-4576-8f14-e3de6dd60677'
+    - 'taxonomy_term:coarec_topics:15d974ce-9c0a-4d2b-ab40-2134dd53be16'
+    - 'taxonomy_term:coarec_topics:15d9fc4c-4244-4156-9978-c87c782a80d4'
+    - 'taxonomy_term:coarec_topics:1a8d68c4-7e87-4515-8ae4-ea3ed9fbf820'
+    - 'taxonomy_term:coarec_topics:1fc12024-4740-4887-9e94-855571719fa4'
+    - 'taxonomy_term:coarec_topics:230eb93e-798b-4b2c-b73e-f3e69ab04ec1'
+    - 'taxonomy_term:coarec_topics:28264ee4-e741-40e2-9494-f78a5c844067'
+    - 'taxonomy_term:coarec_topics:2e4b7da6-e3ad-4517-9f74-06a249c92bb8'
+    - 'taxonomy_term:coarec_topics:366f5b9e-1219-48b0-a4e2-75d7cb737289'
+    - 'taxonomy_term:coarec_topics:3ca751d8-e9ab-49d0-ab02-f6a45e8d1323'
+    - 'taxonomy_term:coarec_topics:480def83-4476-46a6-bb82-a94409adf8e0'
+    - 'taxonomy_term:coarec_topics:4f3f3fb7-c7a0-4271-8648-2537565a214d'
+    - 'taxonomy_term:coarec_topics:563f0dd0-e779-43e7-92de-c65c95d27557'
+    - 'taxonomy_term:coarec_topics:57f425a2-b435-4478-b044-61880fcdf6e4'
+    - 'taxonomy_term:coarec_topics:5932a9c8-5edc-44ee-9a74-625bfe8cff73'
+    - 'taxonomy_term:coarec_topics:599d3fbf-632a-4a04-b21d-b70398b0410a'
+    - 'taxonomy_term:coarec_topics:672fcd47-065b-4bfc-aba7-0fa1a5f029fa'
+    - 'taxonomy_term:coarec_topics:719928b3-48c9-42e5-996a-447178bcc2c2'
+    - 'taxonomy_term:coarec_topics:74ee983f-52c6-475e-aec0-72afcd39b486'
+    - 'taxonomy_term:coarec_topics:7579b21b-0018-4ecc-8bdf-0a21a5dd4d68'
+    - 'taxonomy_term:coarec_topics:7c70e841-8e5c-45a6-89b8-eee0c24188fa'
+    - 'taxonomy_term:coarec_topics:90d32fee-5d08-47f4-9073-7993d39750f7'
+    - 'taxonomy_term:coarec_topics:9b47bd62-3cd8-407a-a6ad-8bb2a1ecfc18'
+    - 'taxonomy_term:coarec_topics:9d1b1040-01ae-457b-8a46-269bf0b6554c'
+    - 'taxonomy_term:coarec_topics:a2217dd4-402f-4b49-b963-1670a4c742ed'
+    - 'taxonomy_term:coarec_topics:a4a90ec1-f16b-4928-ae42-4f7f67d424d2'
+    - 'taxonomy_term:coarec_topics:a5a28f1a-86a8-4278-b65b-eeb7c795995b'
+    - 'taxonomy_term:coarec_topics:ae24e930-86cc-413e-9f1d-f52514b0da32'
+    - 'taxonomy_term:coarec_topics:cc0ffd3e-c883-44f3-9427-0241c2cec88c'
+    - 'taxonomy_term:coarec_topics:cd09d1d7-ebdb-4b7b-aca3-6f9dd511282d'
+    - 'taxonomy_term:coarec_topics:cd7badec-d50e-469e-888f-60b0da05cb62'
+    - 'taxonomy_term:coarec_topics:de115fe6-675c-49ee-9db7-d0c4c3a8f009'
+    - 'taxonomy_term:coarec_topics:fa824c85-59e3-4dcc-8906-c96de3c4be57'
+    - 'taxonomy_term:nursery:017f576c-04ab-432f-9c9d-817e6390eed8'
+    - 'taxonomy_term:nursery:0674c967-d06e-4b7d-8acf-64acf9221787'
+    - 'taxonomy_term:nursery:154b9c27-6d16-400e-a2c5-3742f75acb58'
+    - 'taxonomy_term:nursery:18de91e5-ff10-4b21-9b6d-f95e98d4ccf3'
+    - 'taxonomy_term:nursery:1eee9c68-c5cf-4086-a19a-f7f863f417fb'
+    - 'taxonomy_term:nursery:1f0d2827-97a9-4097-916e-4eb387851d14'
+    - 'taxonomy_term:nursery:1f57b259-cdf9-480e-8df8-cd1228eab0db'
+    - 'taxonomy_term:nursery:256ce1fe-29ed-47e4-a2f2-b7c0d47cdd08'
+    - 'taxonomy_term:nursery:2a9fb5ae-daf2-4491-9d85-518fe161d7b4'
+    - 'taxonomy_term:nursery:303269a9-e957-479b-ac02-8e01aa27282c'
+    - 'taxonomy_term:nursery:3c3acfed-3603-4fb6-b577-b6572724fb1a'
+    - 'taxonomy_term:nursery:41f0b57a-cf3d-4b32-b03e-e0567797ed36'
+    - 'taxonomy_term:nursery:43bd5830-0af0-46d8-acb6-fee7c0290fea'
+    - 'taxonomy_term:nursery:4a05a2f5-f478-477d-8bc8-f2e5cabaca60'
+    - 'taxonomy_term:nursery:4d168727-401b-4466-9a13-810d8c78836c'
+    - 'taxonomy_term:nursery:4d9a8793-c1d2-412a-8050-8c9338c98099'
+    - 'taxonomy_term:nursery:4dd1c68e-b4ad-41b1-87a3-d618cf38a9a8'
+    - 'taxonomy_term:nursery:57f9f34f-244d-40e4-a119-af206b82ed91'
+    - 'taxonomy_term:nursery:5c65a58a-88db-449d-ac70-5b808d03ccac'
+    - 'taxonomy_term:nursery:5f2ef964-3647-4e71-9c24-e16a7d315ce6'
+    - 'taxonomy_term:nursery:653983f3-b95e-466d-a619-d5ae0f28c445'
+    - 'taxonomy_term:nursery:695d0fd4-be56-47fc-be2c-36aaa5eacde2'
+    - 'taxonomy_term:nursery:69b5e211-90d5-4a57-ba98-70f577da4a52'
+    - 'taxonomy_term:nursery:6b0b7995-eabc-4900-878f-b87db74a4038'
+    - 'taxonomy_term:nursery:6e21afef-2916-433e-96e4-5e61cd688928'
+    - 'taxonomy_term:nursery:75b9c73c-5a4d-4383-8fe0-39fe0f8fa714'
+    - 'taxonomy_term:nursery:75c191b6-b48f-4151-be34-14b98de67324'
+    - 'taxonomy_term:nursery:7ac76732-2c93-454a-b47f-7b1dc9f42c57'
+    - 'taxonomy_term:nursery:7ae5b4ea-2e87-42c7-9507-4c9f5e925d2b'
+    - 'taxonomy_term:nursery:7d4c32ba-5770-4878-b6bc-91535e9c6b29'
+    - 'taxonomy_term:nursery:8648463a-493c-49a7-9a13-9d078ff0fbbe'
+    - 'taxonomy_term:nursery:8a1f0693-24f3-456c-9f7c-371a4ed77a49'
+    - 'taxonomy_term:nursery:993f39bb-36fc-493f-b5b3-d6c9fe24a8ec'
+    - 'taxonomy_term:nursery:9c224123-3dc5-4091-8316-6c3a94b5a966'
+    - 'taxonomy_term:nursery:9cac9724-c265-4dbf-b3ef-14c57f90a944'
+    - 'taxonomy_term:nursery:a73672fb-9783-432a-b47b-7fb9061456ce'
+    - 'taxonomy_term:nursery:a92d74a7-8183-4515-aad0-72728d74c010'
+    - 'taxonomy_term:nursery:aa82dd8c-a38c-4752-9daa-7e7b8e6d3bf0'
+    - 'taxonomy_term:nursery:aaad6683-e866-4dd3-85cc-a9288701afd5'
+    - 'taxonomy_term:nursery:adb2e7ef-1fe0-4c6e-905f-74f05d2f5914'
+    - 'taxonomy_term:nursery:b380b291-ee6d-4c46-ad93-83bef0ea948e'
+    - 'taxonomy_term:nursery:b762a5ab-c33a-4d52-a8d9-36c1e3f296d7'
+    - 'taxonomy_term:nursery:b9460efd-ea44-4370-9839-86425b749086'
+    - 'taxonomy_term:nursery:bca466bf-f1e4-4fcb-a4f6-59a657cb826d'
+    - 'taxonomy_term:nursery:be1d0b28-215a-4a8a-a19f-7187187b5807'
+    - 'taxonomy_term:nursery:cf51e578-db23-4346-a4a8-f77274647507'
+    - 'taxonomy_term:nursery:d3749f3d-dafc-4eda-a03d-df6756cdffc7'
+    - 'taxonomy_term:nursery:d952ffbf-e007-4303-9279-e5ac2fce1457'
+    - 'taxonomy_term:nursery:d9a3d685-f7b5-42e3-bcc0-5c884b516ef9'
+    - 'taxonomy_term:nursery:e1ffb40a-ab7d-4c4f-b082-5e25988a9e6b'
+    - 'taxonomy_term:nursery:e576d245-6b2c-4084-aff5-e8cec96dd62f'
+    - 'taxonomy_term:nursery:e80878f1-df5a-4f56-b430-bb59ec02edbc'
+    - 'taxonomy_term:nursery:e9fcea2c-99dd-422c-a914-ed515f2b49d4'
+    - 'taxonomy_term:nursery:eb4c41bf-affa-42a7-96a4-e97fd665972f'
+    - 'taxonomy_term:nursery:eb7b3359-d0a0-4f50-8075-22347e3a84f7'
+    - 'taxonomy_term:nursery:ee34ba94-0eac-4cd7-9894-2d89f24c6c60'
+    - 'taxonomy_term:nursery:f00ec5cb-000c-4013-8e36-fda419a3558b'
+    - 'taxonomy_term:nursery:f2b1c26e-fd45-487a-8e27-614a81bf1e5b'
+    - 'taxonomy_term:nursery:fb7a1b17-6280-4c04-9a46-08692ad72d25'
+    - 'taxonomy_term:nursery:fd742dc9-1d63-4057-8b8e-137db09342a9'
+    - 'taxonomy_term:swd:38124b7e-2a31-4af5-bb18-34d80abe2420'
+    - 'taxonomy_term:swd:48322505-1ba4-42e0-94fe-05469f4ad297'
+    - 'taxonomy_term:swd:517cabd1-c9a4-40dd-91ce-0a538a9b0133'
+    - 'taxonomy_term:swd:64dda705-98cb-49c1-978b-4e835bd86714'
+    - 'taxonomy_term:swd:7d629571-6feb-4edf-b163-31890d232ae4'
+    - 'taxonomy_term:swd:b425f6e4-266a-4d00-b5a6-778c826e8f76'
+    - 'taxonomy_term:swd:b99feff7-3038-4283-bdb3-6e740f91923e'
+    - 'taxonomy_term:swd:bf1895d3-0b47-4f2f-9b69-602ec3bc115b'
+    - 'taxonomy_term:swd:ebc73663-8e5c-4835-8f12-d8beeb1fbeaf'
+    - 'taxonomy_term:turf:01349a61-0b3d-4f8f-9522-de7cf65f35d0'
+    - 'taxonomy_term:turf:489360ac-c836-4e71-a6d9-17ec12f3ba85'
+    - 'taxonomy_term:turf:5e15997d-66f3-4140-ac0f-8443be2cc9c2'
+    - 'taxonomy_term:turf:6d695eba-03b0-4865-9087-07b13bbf06d8'
+    - 'taxonomy_term:turf:9789c1e8-4f1f-4b02-8915-bfd96d2f5efc'
+    - 'taxonomy_term:turf:dcc9d495-3f86-4ff0-9c91-860008cc15e2'
+    - 'taxonomy_term:turf:dfab188d-1dc7-4e1b-ad62-8ec498eeb224'
+    - 'taxonomy_term:turf:f0cda66a-bb83-451b-a89a-1b9760415173'
+    - 'taxonomy_term:veg:00052c3d-4d7e-4bc1-9eef-3ec085aa722f'
+    - 'taxonomy_term:veg:019f8dea-5003-4fcd-9323-6b9889951e9f'
+    - 'taxonomy_term:veg:029413f9-c491-4d53-b35b-ef5a89258760'
+    - 'taxonomy_term:veg:043a0b71-2ca1-4f2a-bcee-aa261184c6a1'
+    - 'taxonomy_term:veg:07cdd85b-a1bc-4128-8baa-887258d74633'
+    - 'taxonomy_term:veg:1a0ad3a2-fd1b-4180-8b09-8f3e9a8204b4'
+    - 'taxonomy_term:veg:1cfc5c70-0968-476c-b35e-86e44f44cf0e'
+    - 'taxonomy_term:veg:1dc84c38-abab-43fb-8389-44922c288b64'
+    - 'taxonomy_term:veg:1e4b0c84-c7a1-47e9-a3b6-293831dc6c42'
+    - 'taxonomy_term:veg:1f68dad2-2a49-499b-8706-c1f13df9a0a6'
+    - 'taxonomy_term:veg:2b1e6d24-52d1-41be-8863-291f7cd377ae'
+    - 'taxonomy_term:veg:2b9dd8fd-b8e7-44b3-b47f-6d93552faba1'
+    - 'taxonomy_term:veg:2d8e1685-4d1d-4350-8684-52c9956c298c'
+    - 'taxonomy_term:veg:2f8d04e7-454e-4a44-a95d-d273ee154f4b'
+    - 'taxonomy_term:veg:2f98de96-f313-40a4-bc0e-c530be5b8c68'
+    - 'taxonomy_term:veg:314027ef-945f-4e70-8906-73ec4f530da0'
+    - 'taxonomy_term:veg:348fdbf4-2cdf-4691-bb37-0b392ea14597'
+    - 'taxonomy_term:veg:37a5af0e-2c41-45fb-9b3d-ae88424ec11d'
+    - 'taxonomy_term:veg:37de7e62-577a-44a6-88ba-f539fa326ea5'
+    - 'taxonomy_term:veg:39a17575-7cd4-4bfd-9a4e-8cfc98a36677'
+    - 'taxonomy_term:veg:3bb5e9cb-6b9f-46ee-aa24-d6a6dd77be1f'
+    - 'taxonomy_term:veg:422a7a2d-c049-4d18-b45a-dd592f8a5faa'
+    - 'taxonomy_term:veg:4540dbee-ac06-47b9-8e15-dfa332422367'
+    - 'taxonomy_term:veg:45dbda28-5935-43c1-8e2f-734ccfc67633'
+    - 'taxonomy_term:veg:475615e9-bbe3-4884-9045-93666b2d247a'
+    - 'taxonomy_term:veg:495a2620-a5a3-4855-ab9b-2b9d9893feff'
+    - 'taxonomy_term:veg:4a2246ef-7132-4966-a180-edcfe10c1373'
+    - 'taxonomy_term:veg:4d54f95c-6fc9-46f9-a4cf-e5b9c006c4a2'
+    - 'taxonomy_term:veg:4e6431b2-77aa-4461-9d3a-cd921a6e8841'
+    - 'taxonomy_term:veg:4fdb0cb4-8708-4146-a0d7-b07cbfb95bb2'
+    - 'taxonomy_term:veg:54715e6a-224d-4017-94ab-d65e4d6834ec'
+    - 'taxonomy_term:veg:57f4a488-e977-4c3e-950a-66388b28d4f8'
+    - 'taxonomy_term:veg:5f1b948f-53cb-4351-a7ff-034eb0c5b417'
+    - 'taxonomy_term:veg:645f7394-77a0-48f7-9d08-b9ba3642a921'
+    - 'taxonomy_term:veg:6556892b-8ba8-4930-a7a8-40d6b861830e'
+    - 'taxonomy_term:veg:67fb8c30-d299-4f60-aede-0b6ad759c5d8'
+    - 'taxonomy_term:veg:6d263b92-7a79-49a1-93f4-107d754cc9da'
+    - 'taxonomy_term:veg:6e743572-06a0-4c37-871e-cbb944941114'
+    - 'taxonomy_term:veg:6ed47793-8dc5-402d-9d13-21eaea4b9f84'
+    - 'taxonomy_term:veg:754e9eb8-4cd8-4b8f-92d2-c07340d3efae'
+    - 'taxonomy_term:veg:7b658646-d21a-4086-818f-83910b6315ef'
+    - 'taxonomy_term:veg:7d6ddc1f-22f0-4600-a251-122c3f1f47c6'
+    - 'taxonomy_term:veg:85c21354-e86c-4820-ada2-9a47a7776c61'
+    - 'taxonomy_term:veg:863284b5-9a3c-4804-b60c-d5367836de5f'
+    - 'taxonomy_term:veg:86c4663d-781b-43d6-99e5-dcb1378a4b52'
+    - 'taxonomy_term:veg:873d1442-7584-4828-b3b9-cd2cc13eebee'
+    - 'taxonomy_term:veg:89c0c787-b0b5-4560-8f3d-8854fcfaa94c'
+    - 'taxonomy_term:veg:8e72a11d-80ff-4dd4-92c6-c61295a44899'
+    - 'taxonomy_term:veg:900b06fe-3ee5-4c1b-9d3a-44d77c6105a4'
+    - 'taxonomy_term:veg:91165c41-b4db-4a42-8709-4faff53662be'
+    - 'taxonomy_term:veg:940581b9-7bf2-4a0e-93ca-c83f6e818dbf'
+    - 'taxonomy_term:veg:94301eb2-5d07-4071-9f6c-8aa2db7285a5'
+    - 'taxonomy_term:veg:9515f220-e575-4648-a47d-4a739291a1ec'
+    - 'taxonomy_term:veg:957b5a8a-bb5e-4574-8c73-04fba94f4701'
+    - 'taxonomy_term:veg:995f3fff-bcf9-44ea-b84f-fa30b9031d6c'
+    - 'taxonomy_term:veg:9a564b5a-d87c-48ad-a4f9-8762cd01103d'
+    - 'taxonomy_term:veg:9b32f6bf-23de-4181-adfd-4c5892f7c405'
+    - 'taxonomy_term:veg:a28cdf38-78b8-481f-8f61-47f3eb140a89'
+    - 'taxonomy_term:veg:a60e338d-136b-495e-beb7-94744a81d338'
+    - 'taxonomy_term:veg:a8898119-407b-4445-bc24-34b6245be051'
+    - 'taxonomy_term:veg:a979637e-1c87-4af7-81da-3845ea07f629'
+    - 'taxonomy_term:veg:aa2fb7cb-6fd3-46e7-bec0-7768fcb6c5ac'
+    - 'taxonomy_term:veg:aac6ea70-3444-438a-a4bf-2ddc9193f2f3'
+    - 'taxonomy_term:veg:ad1a0bf0-14b4-44eb-9f83-9d774a00fb77'
+    - 'taxonomy_term:veg:adc83788-7bae-466b-a5ac-6764aa134f8a'
+    - 'taxonomy_term:veg:ae0870e8-a01b-4a6f-a5a3-e3215a1f64e5'
+    - 'taxonomy_term:veg:aee6aa65-9616-4260-a3e7-3292f5ec1493'
+    - 'taxonomy_term:veg:b579e6e6-4560-4bb1-ba86-8cfe24e70300'
+    - 'taxonomy_term:veg:b91b8d68-a622-40be-ba23-18e33c185509'
+    - 'taxonomy_term:veg:ba5a5a2c-4e17-46bb-a4be-301421abf0fc'
+    - 'taxonomy_term:veg:bc3ccce6-6541-44f0-b5af-d4ef4f9dc8c5'
+    - 'taxonomy_term:veg:bf3e3d45-5dd7-4ae0-aa4c-46edebbb1013'
+    - 'taxonomy_term:veg:c2e2bde8-7558-4a27-beea-e6b373f77d7f'
+    - 'taxonomy_term:veg:c2ff36e1-dd64-408f-b34f-0f69531e9245'
+    - 'taxonomy_term:veg:ce208a89-87f1-4438-b6a0-c137b266bcd1'
+    - 'taxonomy_term:veg:d1a3e218-5abb-4b5e-a938-3b3535e61c17'
+    - 'taxonomy_term:veg:d2d21528-f4a5-4d3e-a99a-7292cd57b939'
+    - 'taxonomy_term:veg:d2f2d360-5cf3-4255-8e2b-11d16b4a395d'
+    - 'taxonomy_term:veg:d9816b8c-fcf3-4fc0-83e8-8c7cc254a0b6'
+    - 'taxonomy_term:veg:da52837a-d4c3-45ac-8d16-45a0493887ae'
+    - 'taxonomy_term:veg:dbd4fcda-3d60-48cc-8d81-f014bba172da'
+    - 'taxonomy_term:veg:dd022a06-1870-4883-8230-1659ab43abcf'
+    - 'taxonomy_term:veg:df59b1f1-53fa-4643-b46b-1c5e752f51e7'
+    - 'taxonomy_term:veg:e22e2153-fe43-4646-8f25-a58cb47058a5'
+    - 'taxonomy_term:veg:e67e4b7a-cd5d-4f38-96e0-1ef0ebef6254'
+    - 'taxonomy_term:veg:e73f618f-3358-405b-8e62-baf2e2216484'
+    - 'taxonomy_term:veg:e88e4abe-a51a-4cb4-8cd7-bba22f450fb2'
+    - 'taxonomy_term:veg:e96b9199-3605-4b3d-8a13-14e922c7ddfd'
+    - 'taxonomy_term:veg:eb0b4677-a8ff-4ab7-acc0-b8685c23c228'
+    - 'taxonomy_term:veg:edf1136a-3e27-4af6-b16a-0444ad901ff8'
+    - 'taxonomy_term:veg:ef8c02c2-8ccb-4e19-9714-9d88d5311478'
+    - 'taxonomy_term:veg:f24c0091-bd02-454d-af6c-24b57d396792'
+    - 'taxonomy_term:veg:f4c7a499-7334-49a7-b5ff-02d25d2e8290'
+    - 'taxonomy_term:veg:f8d74057-f1f5-4fcf-9975-4981b3f8a692'
+    - 'taxonomy_term:veg:f92deb45-3b47-476f-b89d-5f0ba2d0dd57'
+    - 'taxonomy_term:veg:fc11cbd7-efe3-4c2c-9f17-d0ac6badb420'
+    - 'taxonomy_term:veg:fd73dda5-a2c3-4a75-99c7-ca2c8ad7ce94'
+    - 'taxonomy_term:veg:fe760384-a73a-4708-9ad8-491893039fd9'
+    - 'taxonomy_term:veg:feecc326-5c8c-4fb4-a28b-0410c527b867'
   module:
+    - datetime
     - group
     - link
     - node
-    - osu_cas_multisite_groups
     - taxonomy
     - text
     - user
-    - views
 id: content_by_term
 label: 'Content by term'
 module: views
@@ -570,8 +787,13 @@ display:
         - 'languages:language_interface'
         - route
         - url
+        - url.query_args
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_osu_story_external_url'
+        - 'config:field.storage.node.field_story_publish_date'
   archive_coarec:
     id: archive_coarec
     display_title: 'COAREC archive filters'
@@ -852,8 +1074,12 @@ display:
         - route
         - url
         - url.query_args
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_osu_story_external_url'
+        - 'config:field.storage.node.field_story_publish_date'
   archive_nursery:
     id: archive_nursery
     display_title: 'Nursery publication filters'
@@ -1171,8 +1397,12 @@ display:
         - route
         - url
         - url.query_args
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_osu_story_external_url'
+        - 'config:field.storage.node.field_story_publish_date'
   archive_veg_video:
     id: archive_veg_video
     display_title: 'Vegetable video filters'
@@ -1564,8 +1794,12 @@ display:
         - route
         - url
         - url.query_args
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_osu_story_external_url'
+        - 'config:field.storage.node.field_story_publish_date'
   list:
     id: list
     display_title: 'Term listing'
@@ -1585,8 +1819,13 @@ display:
         - 'languages:language_interface'
         - route
         - url
+        - url.query_args
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_osu_story_external_url'
+        - 'config:field.storage.node.field_story_publish_date'
   list_nursery:
     id: list_nursery
     display_title: 'Nursery topics'
@@ -1794,8 +2033,12 @@ display:
         - route
         - url
         - url.query_args
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_osu_story_external_url'
+        - 'config:field.storage.node.field_story_publish_date'
   list_owri:
     id: list_owri
     display_title: 'OWRI topics'
@@ -1972,8 +2215,12 @@ display:
         - route
         - url
         - url.query_args
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_osu_story_external_url'
+        - 'config:field.storage.node.field_story_publish_date'
   list_swd:
     id: list_swd
     display_title: 'SWD crops'
@@ -2150,8 +2397,12 @@ display:
         - route
         - url
         - url.query_args
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_osu_story_external_url'
+        - 'config:field.storage.node.field_story_publish_date'
   list_turf:
     id: list_turf
     display_title: 'Turf topics'
@@ -2327,8 +2578,12 @@ display:
         - route
         - url
         - url.query_args
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_osu_story_external_url'
+        - 'config:field.storage.node.field_story_publish_date'
   list_veg:
     id: list_veg
     display_title: 'Vegetable news filters'
@@ -2681,8 +2936,12 @@ display:
         - route
         - url
         - url.query_args
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_osu_story_external_url'
+        - 'config:field.storage.node.field_story_publish_date'
   list_vegtags:
     id: list_vegtags
     display_title: 'Vegetable topics (single select)'
@@ -2850,8 +3109,12 @@ display:
         - route
         - url
         - url.query_args
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_osu_story_external_url'
+        - 'config:field.storage.node.field_story_publish_date'
   page_coarec_reports:
     id: page_coarec_reports
     display_title: Reports
@@ -3152,11 +3415,14 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - route
         - url
         - url.query_args
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_osu_story_external_url'
+        - 'config:field.storage.node.field_story_publish_date'
   page_veg_publications:
     id: page_veg_publications
     display_title: Publications
@@ -3614,11 +3880,14 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - route
         - url
         - url.query_args
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_osu_story_external_url'
+        - 'config:field.storage.node.field_story_publish_date'
   titles:
     id: titles
     display_title: 'Titles only'
@@ -3702,5 +3971,6 @@ display:
         - route
         - url
         - url.query_args
+        - 'user.node_grants:view'
         - user.permissions
       tags: {  }

@@ -3,7 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - block_content.type.basic
+    - block_content.type.osu_accordion
     - block_content.type.osu_card
+    - block_content.type.osu_menu_bar_item
+    - block_content.type.paragraph_block
     - core.entity_view_display.group.basic_group.default
     - core.entity_view_display.node.page.default
     - filter.format.full_html
@@ -53,13 +57,18 @@ permissions:
   - 'configure editable basic_group group layout overrides'
   - 'configure editable page node layout overrides'
   - 'create and edit custom blocks'
+  - 'create audio media'
+  - 'create basic block content'
   - 'create document media'
   - 'create image media'
   - 'create kaltura media'
   - 'create local_video media'
   - 'create media'
+  - 'create osu_accordion block content'
   - 'create osu_card block content'
+  - 'create osu_menu_bar_item block content'
   - 'create page content'
+  - 'create paragraph_block block content'
   - 'create remote_video media'
   - 'create url aliases'
   - 'delete all revisions'
@@ -74,6 +83,11 @@ permissions:
   - 'delete own remote_video media'
   - 'delete page revisions'
   - 'dropzone upload files'
+  - 'edit any basic block content'
+  - 'edit any osu_accordion block content'
+  - 'edit any osu_card block content'
+  - 'edit any osu_menu_bar_item block content'
+  - 'edit any paragraph_block block content'
   - 'edit own audio media'
   - 'edit own document media'
   - 'edit own image media'
@@ -88,6 +102,11 @@ permissions:
   - 'mark as hidden in editoria11y'
   - 'mark as ok in editoria11y'
   - 'revert all revisions'
+  - 'revert any basic block content revisions'
+  - 'revert any osu_accordion block content revisions'
+  - 'revert any osu_card block content revisions'
+  - 'revert any osu_menu_bar_item block content revisions'
+  - 'revert any paragraph_block block content revisions'
   - 'revert page revisions'
   - 'skip CAPTCHA'
   - 'update media'

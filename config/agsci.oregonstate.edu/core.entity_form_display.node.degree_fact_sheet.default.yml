@@ -516,14 +516,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_domain_access:
-    type: entity_reference_autocomplete
+    type: options_buttons
     weight: 88
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_domain_all_affiliates:
     type: boolean_checkbox
@@ -533,14 +529,10 @@ content:
       display_label: true
     third_party_settings: {  }
   field_domain_source:
-    type: entity_reference_autocomplete
+    type: options_select
     weight: 90
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_group_private:
     type: boolean_checkbox

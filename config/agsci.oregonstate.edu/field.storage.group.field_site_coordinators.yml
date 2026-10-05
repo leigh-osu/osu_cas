@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - group
+    - node
 id: group.field_site_coordinators
 field_name: field_site_coordinators
 entity_type: group
@@ -12,7 +13,7 @@ settings:
   target_type: node
 module: core
 locked: false
-cardinality: 3
+cardinality: 5
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

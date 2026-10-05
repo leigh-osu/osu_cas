@@ -368,6 +368,7 @@
         "drupal/libraries": "^4.0",
         "drupal/linkicon": "^2.0",
         "drupal/linkit": "6.1.6",
+        "drupal/linkit_media_library": "^1.0",
         "drupal/linkpurpose": "^1.0",
         "drupal/mail_login": "^4.2",
         "drupal/mailsystem": "^4.5",
@@ -519,7 +520,7 @@
         "osu-wams/osu_simple_popup_blocks": "^1.0",
         "osu-wams/osu_simple_tabs": "^1.0",
         "osu-wams/osu_sitewide_alert": "^1.0",
-        "osu-wams/osu_standard": "^1.0",
+        "osu-wams/osu_standard": "1.1.30",
         "osu-wams/osu_story": "^1.0",
         "osu-wams/osu_tours": "^1.1.1",
         "wikimedia/composer-merge-plugin": "^2.1"
@@ -641,6 +642,9 @@
             },
             "drupal/group_content_menu": {
                 "Node form fatals when another form_alter has emptied the form (readonlymode)": "patches/group_content_menu-gutted-form-actions.patch"
+            },
+            "drupal/linkit_media_library": {
+                "Tag the opener service for core 10.3+ OpenerResolver": "patches/linkit_media_library-opener-service-tag.patch"
             },
             "drupal/virtual_tour": {
                 "D10: Replace removed file_create_url() with file_url_generator service": "patches/virtual_tour-d10-file-create-url.patch",

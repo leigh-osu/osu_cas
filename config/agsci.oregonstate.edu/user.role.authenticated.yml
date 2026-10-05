@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - filter.format.basic_html
+    - media.type.document
   module:
     - admin_toolbar_search
     - captcha
@@ -33,6 +34,7 @@ permissions:
   - 'access shortcuts'
   - 'access toolbar'
   - 'access tour'
+  - 'create document media'
   - 'delete own files'
   - 'exclude own node title'
   - 'readonlymode access messages'

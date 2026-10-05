@@ -5,10 +5,12 @@ dependencies:
   config:
     - field.storage.node.field_osu_story_cover_image
     - field.storage.node.field_osu_story_external_url
+    - field.storage.node.field_story_publish_date
     - image.style.1400x900
     - node.type.story
   module:
     - date_ap_style
+    - datetime
     - group
     - link
     - media
@@ -356,6 +358,70 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        field_story_publish_date:
+          id: field_story_publish_date
+          table: node__field_story_publish_date
+          field: field_story_publish_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: month_day_year
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         nothing:
           id: nothing
           table: views
@@ -368,7 +434,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{{ field_osu_story_cover_image }}\r\n<div class=\"px-3 pt-2 pb-3\">\r\n  <div class=\"fst-italic\">{{ created }}</div>\r\n  <div><a href=\"{{ field_osu_story_external_url }}\" class=\"story-card__link osu-link-orange\">{{ title }}</a></div>\r\n</div>\r\n"
+            text: "{{ field_osu_story_cover_image }}\r\n<div class=\"px-3 pt-2 pb-3\">\r\n  <div class=\"fst-italic\">{{ field_story_publish_date }}</div>\r\n  <div><a href=\"{{ field_osu_story_external_url }}\" class=\"story-card__link osu-link-orange\">{{ title }}</a></div>\r\n</div>\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -429,6 +495,20 @@ display:
         options: {  }
       empty: {  }
       sorts:
+        field_story_publish_date_value:
+          id: field_story_publish_date_value
+          table: node__field_story_publish_date
+          field: field_story_publish_date_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: datetime
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+          granularity: day
         created:
           id: created
           table: node_field_data
@@ -504,6 +584,7 @@ display:
       tags:
         - 'config:field.storage.node.field_osu_story_cover_image'
         - 'config:field.storage.node.field_osu_story_external_url'
+        - 'config:field.storage.node.field_story_publish_date'
   group_landing_page_stories_block:
     id: group_landing_page_stories_block
     display_title: 'Group (Blog) Landing Page Stories'
@@ -595,6 +676,7 @@ display:
       tags:
         - 'config:field.storage.node.field_osu_story_cover_image'
         - 'config:field.storage.node.field_osu_story_external_url'
+        - 'config:field.storage.node.field_story_publish_date'
   group_stories_archive_block:
     id: group_stories_archive_block
     display_title: 'Group (Blog) Archive Stories'
@@ -926,6 +1008,70 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        field_story_publish_date:
+          id: field_story_publish_date
+          table: node__field_story_publish_date
+          field: field_story_publish_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: month_day_year
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         nothing:
           id: nothing
           table: views
@@ -938,7 +1084,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{{ field_osu_story_cover_image }}\r\n<div class=\"px-3 pt-3 pb-3\">\r\n  <div class=\"fst-italic\">{{ created }}</div>\r\n  <div><a href=\"{{ field_osu_story_external_url }}\" class=\"story-card__link osu-link-orange\">{{ title }}</a></div>\r\n</div>\r\n"
+            text: "{{ field_osu_story_cover_image }}\r\n<div class=\"px-3 pt-3 pb-3\">\r\n  <div class=\"fst-italic\">{{ field_story_publish_date }}</div>\r\n  <div><a href=\"{{ field_osu_story_external_url }}\" class=\"story-card__link osu-link-orange\">{{ title }}</a></div>\r\n</div>\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -1152,3 +1298,4 @@ display:
       tags:
         - 'config:field.storage.node.field_osu_story_cover_image'
         - 'config:field.storage.node.field_osu_story_external_url'
+        - 'config:field.storage.node.field_story_publish_date'

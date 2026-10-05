@@ -13,9 +13,7 @@ label: 'Send to all affiliates'
 description: 'Make this content available on all domains.'
 required: false
 translatable: true
-default_value:
-  -
-    value: 1
+default_value: {  }
 default_value_callback: ''
 settings:
   on_label: 'On'

@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.group.field_site_coordinators
     - group.type.basic_group
+    - node.type.osu_profile
 id: group.basic_group.field_site_coordinators
 field_name: field_site_coordinators
 entity_type: group
@@ -24,4 +25,5 @@ settings:
       field: title
       direction: ASC
     auto_create: false
+    auto_create_bundle: ''
 field_type: entity_reference
