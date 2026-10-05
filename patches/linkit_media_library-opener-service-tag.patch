@@ -1,0 +1,16 @@
+Tag the opener service so core's OpenerResolver can find it.
+
+Since Drupal 10.3 the media library resolves openers through a service
+collector (tag media_library.opener) instead of looking them up by id in the
+container, so an untagged opener throws "must be an instance of
+MediaLibraryOpenerInterface" when the dialog opens.
+
+diff --git a/linkit_media_library.services.yml b/linkit_media_library.services.yml
+--- a/linkit_media_library.services.yml
++++ b/linkit_media_library.services.yml
+@@ -2,3 +2,5 @@ services:
+   linkit_media_library.opener.editor:
+     class: Drupal\linkit_media_library\LinkitMediaLibraryEditorOpener
+     arguments: ['@entity_type.manager']
++    tags:
++      - { name: media_library.opener }

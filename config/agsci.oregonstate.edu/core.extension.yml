@@ -107,6 +107,7 @@ module:
   libraries: 0
   link: 0
   linkit: 0
+  linkit_media_library: 0
   masquerade: 0
   media: 0
   media_bulk_upload: 0
