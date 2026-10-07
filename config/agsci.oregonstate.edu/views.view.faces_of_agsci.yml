@@ -5,17 +5,15 @@ dependencies:
   config:
     - field.storage.node.body
     - field.storage.node.field_osu_meta_image
-    - image.style.picbox_800x580
+    - image.style.picbox_800x600
     - node.type.page
   module:
     - group
     - media
     - node
-    - osu_cas_multisite_groups
     - taxonomy
     - text
     - user
-    - views
 id: faces_of_agsci
 label: 'Faces of AgSci'
 module: views
@@ -60,7 +58,7 @@ display:
           type: media_thumbnail
           settings:
             image_link: content
-            image_style: picbox_800x580
+            image_style: picbox_800x600
             image_loading:
               attribute: lazy
           group_column: target_id
@@ -436,8 +434,11 @@ display:
         - 'languages:language_interface'
         - route
         - url
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_osu_meta_image'
   cards:
     id: cards
     display_title: 'Faces cards'
@@ -457,5 +458,8 @@ display:
         - 'languages:language_interface'
         - route
         - url
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_osu_meta_image'

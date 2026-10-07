@@ -6239,29 +6239,31 @@
         },
         {
             "name": "drupal/easy_breadcrumb",
-            "version": "2.0.10",
+            "version": "2.0.11",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/easy_breadcrumb.git",
-                "reference": "2.0.10"
+                "reference": "2.0.11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/easy_breadcrumb-2.0.10.zip",
-                "reference": "2.0.10",
-                "shasum": "a55c793c1f59be1a4866972998b50ced21bfbcb0"
+                "url": "https://ftp.drupal.org/files/projects/easy_breadcrumb-2.0.11.zip",
+                "reference": "2.0.11",
+                "shasum": "02ff0687f1d6d94238d3e47fdb6cb240fecf2626"
             },
             "require": {
                 "drupal/core": "^9.2 || ^10 || ^11"
             },
             "require-dev": {
+                "drupal/cva": "^1",
+                "drupal/mercury": "^1.0.5",
                 "drush/drush": "^13"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.10",
-                    "datestamp": "1787942208",
+                    "version": "2.0.11",
+                    "datestamp": "1791390966",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6950,17 +6952,17 @@
         },
         {
             "name": "drupal/entityreference_filter",
-            "version": "2.0.0-beta8",
+            "version": "2.0.0-beta9",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/entityreference_filter.git",
-                "reference": "2.0.0-beta8"
+                "reference": "2.0.0-beta9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/entityreference_filter-2.0.0-beta8.zip",
-                "reference": "2.0.0-beta8",
-                "shasum": "18ada30ba19b9535927686fb7679688c1ac7942f"
+                "url": "https://ftp.drupal.org/files/projects/entityreference_filter-2.0.0-beta9.zip",
+                "reference": "2.0.0-beta9",
+                "shasum": "b7479509d1e571e6aa413739e5e4986fe495593e"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11",
@@ -6977,8 +6979,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.0-beta8",
-                    "datestamp": "1788871118",
+                    "version": "2.0.0-beta9",
+                    "datestamp": "1791288033",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -10599,17 +10601,17 @@
         },
         {
             "name": "drupal/mathjax",
-            "version": "4.1.1",
+            "version": "4.1.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/mathjax.git",
-                "reference": "4.1.1"
+                "reference": "4.1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/mathjax-4.1.1.zip",
-                "reference": "4.1.1",
-                "shasum": "2b4358668521f183ff6cf62bdd4e823a849c7fb1"
+                "url": "https://ftp.drupal.org/files/projects/mathjax-4.1.2.zip",
+                "reference": "4.1.2",
+                "shasum": "12f0957a1c01f2e6659d99d40a8e4791b8739eb5"
             },
             "require": {
                 "drupal/core": "^9.1 || ^10 || ^11"
@@ -10617,8 +10619,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "4.1.1",
-                    "datestamp": "1790801435",
+                    "version": "4.1.2",
+                    "datestamp": "1791389547",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -13156,17 +13158,17 @@
         },
         {
             "name": "drupal/schema_metatag",
-            "version": "3.0.4",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/schema_metatag.git",
-                "reference": "3.0.4"
+                "reference": "3.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/schema_metatag-3.0.4.zip",
-                "reference": "3.0.4",
-                "shasum": "bdc9ee4efc6a995e6b0e75a517e65e1355226c95"
+                "url": "https://ftp.drupal.org/files/projects/schema_metatag-3.1.0.zip",
+                "reference": "3.1.0",
+                "shasum": "d701592dace0f59cc5a5dc12345ce4220f1dfbb8"
             },
             "require": {
                 "drupal/core": "^9 || ^10 || ^11",
@@ -13185,8 +13187,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.4",
-                    "datestamp": "1771516335",
+                    "version": "3.1.0",
+                    "datestamp": "1791294250",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -15349,17 +15351,17 @@
         },
         {
             "name": "drupal/ui_patterns",
-            "version": "2.0.21",
+            "version": "2.0.22",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ui_patterns.git",
-                "reference": "2.0.21"
+                "reference": "2.0.22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ui_patterns-2.0.21.zip",
-                "reference": "2.0.21",
-                "shasum": "6543f8f5f7a00f91147765af6bbddd2a9edb2ec6"
+                "url": "https://ftp.drupal.org/files/projects/ui_patterns-2.0.22.zip",
+                "reference": "2.0.22",
+                "shasum": "ec17c6535f4bf787f20dfedbb9297e92c9ef93e2"
             },
             "require": {
                 "drupal/core": "^10.6 || ^11.3 || ^12",
@@ -15373,8 +15375,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.21",
-                    "datestamp": "1788535898",
+                    "version": "2.0.22",
+                    "datestamp": "1791358239",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -15714,17 +15716,17 @@
         },
         {
             "name": "drupal/views_bootstrap",
-            "version": "5.5.4",
+            "version": "5.5.6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/views_bootstrap.git",
-                "reference": "5.5.4"
+                "reference": "5.5.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/views_bootstrap-5.5.4.zip",
-                "reference": "5.5.4",
-                "shasum": "183662e700bc31c834a572ef23c7a72579999d61"
+                "url": "https://ftp.drupal.org/files/projects/views_bootstrap-5.5.6.zip",
+                "reference": "5.5.6",
+                "shasum": "8d10ad8f755669905936a7c4ac33fecb6f138bc6"
             },
             "require": {
                 "drupal/core": "^10.1 || ^11 || ^12"
@@ -15735,8 +15737,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "5.5.4",
-                    "datestamp": "1790952324",
+                    "version": "5.5.6",
+                    "datestamp": "1791233739",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -19696,16 +19698,16 @@
         },
         {
             "name": "leigh-osu/osu_cas_multisite",
-            "version": "v1.33.0",
+            "version": "v1.34.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leigh-osu/osu_cas_multisite.git",
-                "reference": "9fe6106b90a81d08f60fc14fe45410003155c805"
+                "reference": "83fa7330c2a47fb6f3f36ba2b42abee3bdcb71b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_cas_multisite/zipball/9fe6106b90a81d08f60fc14fe45410003155c805",
-                "reference": "9fe6106b90a81d08f60fc14fe45410003155c805",
+                "url": "https://api.github.com/repos/leigh-osu/osu_cas_multisite/zipball/83fa7330c2a47fb6f3f36ba2b42abee3bdcb71b7",
+                "reference": "83fa7330c2a47fb6f3f36ba2b42abee3bdcb71b7",
                 "shasum": ""
             },
             "require": {
@@ -19714,10 +19716,10 @@
             "type": "drupal-custom-module",
             "description": "Shared helpers and theming for the OSU CAS multisite platform; the osu_cas_multisite_degrees submodule carries the degree fact sheet rendering.",
             "support": {
-                "source": "https://github.com/leigh-osu/osu_cas_multisite/tree/v1.33.0",
+                "source": "https://github.com/leigh-osu/osu_cas_multisite/tree/v1.34.0",
                 "issues": "https://github.com/leigh-osu/osu_cas_multisite/issues"
             },
-            "time": "2026-10-02T22:52:47+00:00"
+            "time": "2026-10-06T18:33:46+00:00"
         },
         {
             "name": "leigh-osu/osu_cas_site_sync",
