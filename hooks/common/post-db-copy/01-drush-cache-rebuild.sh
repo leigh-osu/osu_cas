@@ -14,11 +14,14 @@
 #    core.extension with shield enabled and shield.settings with
 #    shield_enable FALSE, and each site's settings.php flips it on when
 #    AH_SITE_ENVIRONMENT is dev/stage and the per-environment secret is set.
-#    Prod never has the module enabled, so every prod -> dev/stage copy
-#    silently uninstalls it and the environment answers without credentials
-#    until someone notices (2026-09-01 and 2026-09-23). A settings.php
-#    override cannot install a module and nothing imports config during a
-#    DB copy, so this hook is the place to put it back. Only sites whose
+#    Until 2026-10-08 prod did not have the module enabled, so every
+#    prod -> dev/stage copy silently uninstalled it and the environment
+#    answered without credentials until someone noticed (2026-09-01,
+#    2026-09-23, 2026-10-07). agsci prod now has shield installed and
+#    inactive, matching the repo, so its copies keep the module; this step
+#    stays as the backstop for any site whose prod still lacks it
+#    (landscapeplants until launch). A settings.php override cannot install
+#    a module and nothing imports config during a DB copy. Only sites whose
 #    settings.php carries the shield override are touched.
 #
 # 2. Rebuild caches for every site, since the copied database carries the
