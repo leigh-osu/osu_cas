@@ -94,6 +94,7 @@ permissions:
   - 'revert any osu_card block content revisions'
   - 'revert any osu_menu_bar_item block content revisions'
   - 'revert any paragraph_block block content revisions'
+  - 'update any media'
   - 'update media'
   - 'use bulk_image bulk upload form'
   - 'use text format full_html'

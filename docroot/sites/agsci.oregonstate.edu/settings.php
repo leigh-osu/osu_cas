@@ -1067,16 +1067,18 @@ $settings['config_sync_directory'] = '../config/agsci.oregonstate.edu';
 /**
  * Shield: HTTP basic auth on the Acquia non-production environments.
  *
- * Exported shield.settings has shield_enable FALSE, so prod and local are
- * untouched. On dev/stage the credentials come from the per-environment
+ * Exported shield.settings has shield_enable FALSE and core.extension lists
+ * the module, which is how prod runs too (installed, inactive, since
+ * 2026-10-08) — the repo describes prod and this block is the dev/stage
+ * difference. Prod and local are untouched. On dev/stage the credentials come from the per-environment
  * secrets file (/mnt/files/osucas.<env>/secrets.settings.php), which is
  * required earlier in this file and defines $osu_cas_shield_pass.
  */
 if (in_array($_ENV['AH_SITE_ENVIRONMENT'] ?? '', ['dev', 'stage'], TRUE)
   && !empty($osu_cas_shield_pass)) {
   $config['shield.settings']['shield_enable'] = TRUE;
-  // The object itself can be missing after a prod DB copy (prod has shield
-  // uninstalled), so name the provider here too or the middleware compares
+  // The object itself can be missing after a DB copy from a prod that lacks
+  // the module, so name the provider here too or the middleware compares
   // against nothing and rejects every login.
   $config['shield.settings']['credential_provider'] = 'shield';
   // Shield compares the username as an exact string — this casing is what
