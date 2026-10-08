@@ -1,0 +1,8 @@
+uuid: b24f90c1-f67c-4ae9-9bce-0dd5d20a454b
+langcode: en
+status: true
+dependencies: {  }
+id: menu-december-2026
+label: 'December 2026'
+description: 'December 2026 issue of The Source'
+locked: false
