@@ -9,6 +9,7 @@ dependencies:
     - actions_permissions
     - admin_toolbar_search
     - captcha
+    - dropzonejs
     - exclude_node_title
     - file
     - filter
@@ -37,6 +38,7 @@ permissions:
   - 'access tour'
   - 'create document media'
   - 'delete own files'
+  - 'dropzone upload files'
   - 'exclude own node title'
   - 'execute entity:publish_action node'
   - 'execute entity:save_action node'
@@ -46,7 +48,6 @@ permissions:
   - 'search Google CSE'
   - 'search content'
   - 'skip CAPTCHA'
-  - 'update any media'
   - 'update media'
   - 'use admin toolbar search'
   - 'use text format basic_html'

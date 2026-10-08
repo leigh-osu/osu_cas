@@ -117,6 +117,7 @@ permissions:
   - 'revert any paragraph_block block content revisions'
   - 'revert page revisions'
   - 'skip CAPTCHA'
+  - 'update any media'
   - 'update media'
   - 'use bulk_image bulk upload form'
   - 'use text format full_html'
