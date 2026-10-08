@@ -1,0 +1,9 @@
+uuid: 9aa390a9-618f-40df-a78e-10d40c48faa2
+langcode: en
+status: true
+dependencies: {  }
+name: 'Regions U.S.'
+vid: regions_u_s
+description: null
+weight: 0
+new_revision: false

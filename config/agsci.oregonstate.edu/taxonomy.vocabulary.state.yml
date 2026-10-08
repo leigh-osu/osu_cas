@@ -1,0 +1,9 @@
+uuid: bc0663b3-52ad-49ec-8247-b0fe43961bb4
+langcode: en
+status: true
+dependencies: {  }
+name: State
+vid: state
+description: 'list of the 50 states'
+weight: 0
+new_revision: false

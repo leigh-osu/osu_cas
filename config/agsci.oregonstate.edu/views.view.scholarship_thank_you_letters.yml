@@ -319,7 +319,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "<h3 class=\"text-black\">Highlights of my time at OSU</h3>\r\n<p>{{ webform_submission_value_4 }}</p>"
+            text: "<h3 class=\"text-black\">Scholarship Impact</h3>\r\n<p>{{ webform_submission_value_4 }}</p>"
             make_link: false
             path: ''
             absolute: false

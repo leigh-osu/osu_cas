@@ -1,0 +1,41 @@
+uuid: 5199ad23-4e1f-434b-8612-a2ef0d79190f
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: mycas_prof_dev_series_open_first_accordion
+label: 'MyCAS Prof Dev series: open first accordion'
+code: |-
+  (function (Drupal) {
+    Drupal.behaviors.casOpenFirstAccordion = {
+      attach: function (context) {
+        var accordion = context.querySelector ? context.querySelector('.accordion') : null;
+        if (!accordion || accordion.dataset.firstOpened) {
+          return;
+        }
+        accordion.dataset.firstOpened = '1';
+
+        var panel = accordion.querySelector('.accordion-collapse');
+        var button = accordion.querySelector('.accordion-button');
+        if (!panel || !button) {
+          return;
+        }
+        panel.classList.add('show');
+        button.classList.remove('collapsed');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    };
+  })(Drupal);
+noscript: ''
+noscriptRegion: {  }
+jquery: false
+header: false
+preprocess: true
+conditions:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /node/248041
+contexts: {  }
+conditions_require_all: true

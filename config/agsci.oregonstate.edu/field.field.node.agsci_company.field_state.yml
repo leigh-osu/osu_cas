@@ -1,0 +1,29 @@
+uuid: df8c1fe2-cc87-4dd5-aa1a-f19cfa603141
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_state
+    - node.type.agsci_company
+    - taxonomy.vocabulary.state
+id: node.agsci_company.field_state
+field_name: field_state
+entity_type: node
+bundle: agsci_company
+label: State
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:filter_existing_terms'
+  handler_settings:
+    target_bundles:
+      state: state
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

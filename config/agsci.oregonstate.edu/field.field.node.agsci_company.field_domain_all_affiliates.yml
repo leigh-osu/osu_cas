@@ -1,0 +1,21 @@
+uuid: dd8e942b-c15e-4163-a596-e70e0efb3f64
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_domain_all_affiliates
+    - node.type.agsci_company
+id: node.agsci_company.field_domain_all_affiliates
+field_name: field_domain_all_affiliates
+entity_type: node
+bundle: agsci_company
+label: 'Send to all affiliates'
+description: 'Make this content available on all domains.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
