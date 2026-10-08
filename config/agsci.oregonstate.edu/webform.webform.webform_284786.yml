@@ -447,5 +447,70 @@ access:
       - authenticated
     users: {  }
     permissions: {  }
+  view_any:
+    roles: {  }
+    users:
+      - 1156
+      - 14501
+      - 1229
+      - 10226
+      - 659
+      - 16861
+      - 1244
+      - 227
+      - 26331
+      - 7221
+      - 686
+      - 19856
+      - 32391
+      - 36631
+      - 36616
+      - 36621
+      - 36626
+      - 36636
+      - 36641
+      - 36646
+      - 36651
+    permissions:
+      - 'view any webform submission'
+  update_any:
+    roles: {  }
+    users:
+      - 19856
+      - 32391
+    permissions:
+      - 'edit any webform submission'
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
 handlers: {  }
 variants: {  }

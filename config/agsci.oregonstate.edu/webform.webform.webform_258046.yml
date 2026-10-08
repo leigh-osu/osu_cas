@@ -24,8 +24,8 @@ elements: |-
       <p style="margin-left:40px">State of the College<br />
       Alumni Center Ballroom<br />
       <strong>Wednesday, October 7, 2026</strong><br />
-      <strong>3pm - 4pm:</strong> Dean’s presentation, panel session, conversation with an invited guest<br />
-      <strong>4pm - 5pm:</strong> Reception with food and beverages</p>
+      <strong>3pm - 4pm:</strong> Dean’s presentation, panel session, conversation with with&nbsp;Ruben Rathnasingham, Executive Director, Huang Collaborative Innovation Complex<br />
+      <strong>4pm - 5pm:</strong> Reception with Beaver Classic cheese and ice cream</p>
 
       <p>This event is open to all staff, faculty and students who call the College of Agricultural Sciences home. This is an opportunity to hear directly from College leadership about priorities and goals as they align with our core strengths and values as well as the University’s strategic plan. You will also have the opportunity to submit specific questions in advance that you would like our panel of Associate Deans to address.&nbsp;</p>
 
@@ -176,7 +176,7 @@ settings:
   confirmation_type: page
   confirmation_url: ''
   confirmation_title: ''
-  confirmation_message: "<p>\r\n\tThank you for registering to attend the virtual State of the College on Wednesday, October 7, 2026 from 3:00-5:00 pm.</p>\r\n\r\n<p style=\"margin-left: 40px;\">\r\n\t<a href=\"/sites/agscid7/files/main/about/2026_state_of_the_college.ics\">Add to your calendar</a></p>\r\n\r\n<p>\r\n\tGo Beavs!</p>"
+  confirmation_message: "<p>\r\n\tThank you for registering to attend the virtual State of the College on Wednesday, October 7, 2026 from 3:00-5:00 pm.</p>\r\n\r\n<p><a href=\"https://agsci.oregonstate.edu/sites/agsci.oregonstate.edu/files/2026-09/2026%20CAS%20State%20of%20the%20College.ics\">Add this event to your calendar.</a></p>\r\n\r\n<p>\r\n\tGo Beavs!</p>"
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
@@ -238,7 +238,7 @@ handlers:
       sender_mail: ''
       sender_name: ''
       subject: _default
-      body: "[webform_submission:values:name], \r\n\r\nThank you for registering to attend the virtual State of the College on Wednesday, October 7, 2026 from 3:00-5:00 pm. in the Alumni Center Ballroom.\r\n\r\n\r\nJoin Zoom Meeting \r\n\r\n** add link here **\r\n\r\n\r\n<p><a href=\"https://agsci.oregonstate.edu/sites/agscid7/files/main/about/2026_state_of_the_college.ics\">Add to your calendar</a></p>"
+      body: "[webform_submission:values:name], \r\n\r\nThank you for registering to attend the virtual State of the College on Wednesday, October 7, 2026 from 3:00-5:00 pm. in the Alumni Center Ballroom.\r\n\r\n\r\n<p><a href=\"https://agsci.oregonstate.edu/sites/agsci.oregonstate.edu/files/2026-09/2026%20CAS%20State%20of%20the%20College.ics\">Save this event to your calendar</a></p>\r\n\r\n"
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
