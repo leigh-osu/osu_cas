@@ -6,6 +6,7 @@ dependencies:
     - filter.format.basic_html
     - media.type.document
   module:
+    - actions_permissions
     - admin_toolbar_search
     - captcha
     - exclude_node_title
@@ -37,6 +38,10 @@ permissions:
   - 'create document media'
   - 'delete own files'
   - 'exclude own node title'
+  - 'execute entity:publish_action node'
+  - 'execute entity:save_action node'
+  - 'execute entity:unpublish_action node'
+  - 'execute views_bulk_edit all'
   - 'readonlymode access messages'
   - 'search Google CSE'
   - 'search content'

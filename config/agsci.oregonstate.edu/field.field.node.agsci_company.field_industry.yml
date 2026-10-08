@@ -1,0 +1,29 @@
+uuid: 891a622a-42ad-46d5-98af-c5451418cae5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_industry
+    - node.type.agsci_company
+    - taxonomy.vocabulary.industry
+id: node.agsci_company.field_industry
+field_name: field_industry
+entity_type: node
+bundle: agsci_company
+label: Industry
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:filter_existing_terms'
+  handler_settings:
+    target_bundles:
+      industry: industry
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

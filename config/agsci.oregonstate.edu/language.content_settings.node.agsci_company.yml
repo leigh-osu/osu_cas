@@ -1,0 +1,11 @@
+uuid: 6da349ef-ea39-41c0-ae7e-6a8305cd533a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.agsci_company
+id: node.agsci_company
+target_entity_type_id: node
+target_bundle: agsci_company
+default_langcode: site_default
+language_alterable: false

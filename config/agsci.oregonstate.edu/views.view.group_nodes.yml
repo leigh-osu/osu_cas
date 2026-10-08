@@ -102,6 +102,14 @@ display:
               action_id: 'entity:unpublish_action:node'
               preconfiguration:
                 add_confirmation: true
+            11:
+              action_id: osu_cas_move_to_group
+              preconfiguration:
+                add_confirmation: true
+            12:
+              action_id: osu_cas_add_to_group
+              preconfiguration:
+                add_confirmation: true
           force_selection_info: false
         title:
           id: title

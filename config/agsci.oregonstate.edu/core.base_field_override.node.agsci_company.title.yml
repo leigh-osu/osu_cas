@@ -1,0 +1,18 @@
+uuid: b6300f0f-bf02-4389-91d3-6283cf1cffb0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.agsci_company
+id: node.agsci_company.title
+field_name: title
+entity_type: node
+bundle: agsci_company
+label: 'Company Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

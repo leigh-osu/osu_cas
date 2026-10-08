@@ -19,5 +19,7 @@ settings:
   provider: osu_cas_multisite_groups
   exclude_groups:
     - 228631
-    - 228631
+    - 226236
+    - 87271
+    - 25338
 visibility: {  }

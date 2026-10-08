@@ -1038,6 +1038,69 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        field_profile_primary_title:
+          id: field_profile_primary_title
+          table: node__field_profile_primary_title
+          field: field_profile_primary_title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: '{{ field_profile_primary_title }} <br>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         field_profile_pronouns:
           id: field_profile_pronouns
           table: node__field_profile_pronouns
@@ -1050,7 +1113,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '<p class="fst-italic pb-4">{{ field_profile_pronouns }}</p>'
+            text: '<span class="fst-italic pb-4">{{ field_profile_pronouns }}</br></span>'
             make_link: false
             path: ''
             absolute: false
@@ -1288,55 +1351,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        nothing:
-          id: nothing
-          table: views
-          field: nothing
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: custom
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: "<div class=\"osu-bg-page-alt-1 osu-min-h-600 osu-shadow rounded-bottom\">\r\n  {{ field_profile_image }}\r\n  <div class=\"p-3\">\r\n    <h2 class=\"fw-bolder text-break\">\r\n      {{ title }}\r\n    </h2>\r\n    {{ field_profile_pronouns }}\r\n    {{ field_profile_email }}\r\n    {{ field_profile_office_phone }}\r\n    {{ field_profile_address }}\r\n  </div>\r\n</div>"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
         field_tax_faculty_expertise:
           id: field_tax_faculty_expertise
           table: node__field_tax_faculty_expertise
@@ -1389,15 +1403,15 @@ display:
           click_sort_column: target_id
           type: entity_reference_label
           settings:
-            link: true
+            link: false
           group_column: target_id
           group_columns: {  }
           group_rows: true
-          delta_limit: 0
+          delta_limit: 2
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
-          multi_type: separator
+          multi_type: ul
           separator: ', '
           field_api_classes: false
         field_profile_headquarters:
@@ -1408,7 +1422,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: 'Primary work location '
+          label: ''
           exclude: true
           alter:
             alter_text: false
@@ -1441,7 +1455,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -1462,6 +1476,118 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        field_osu_organizations:
+          id: field_osu_organizations
+          table: node__field_osu_organizations
+          field: field_osu_organizations
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: '<br>'
+          field_api_classes: false
+        nothing:
+          id: nothing
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: custom
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: "<div class=\"osu-bg-page-alt-1 osu-min-h-600 osu-shadow rounded-bottom\">\r\n  {{ field_profile_image }}\r\n  <div class=\"p-3\">\r\n    <h2 class=\"fw-bolder text-break\">\r\n      {{ title }}\r\n    </h2>\r\n{{ field_profile_primary_title }}\r\n    {{ field_profile_pronouns }}\r\n    {{ field_profile_email }}\r\n{{ field_osu_organizations }}\r\n{{ field_tax_faculty_expertise }}\r\n  </div>\r\n</div>"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
       pager:
         type: full
         options:
@@ -1809,11 +1935,13 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:field.storage.node.field_osu_organizations'
         - 'config:field.storage.node.field_profile_address'
         - 'config:field.storage.node.field_profile_email'
         - 'config:field.storage.node.field_profile_headquarters'
         - 'config:field.storage.node.field_profile_image'
         - 'config:field.storage.node.field_profile_office_phone'
+        - 'config:field.storage.node.field_profile_primary_title'
         - 'config:field.storage.node.field_profile_pronouns'
         - 'config:field.storage.node.field_tax_faculty_expertise'
   directory_page_table:

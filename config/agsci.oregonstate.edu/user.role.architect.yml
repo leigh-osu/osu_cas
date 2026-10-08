@@ -19,6 +19,7 @@ dependencies:
     - node.type.page
     - node.type.webform
   module:
+    - actions_permissions
     - block
     - block_class
     - block_content
@@ -268,6 +269,8 @@ permissions:
   - 'edit webform variants'
   - 'exclude any node title'
   - 'exclude own node title'
+  - 'execute osu_cas_add_to_group node'
+  - 'execute osu_cas_move_to_group node'
   - 'export configuration'
   - 'import configuration'
   - 'import template from section library'

@@ -1,0 +1,19 @@
+uuid: 46d26a2e-0822-48f0-a0b6-6825ddfd37ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_city
+    - node.type.agsci_company
+id: node.agsci_company.field_city
+field_name: field_city
+entity_type: node
+bundle: agsci_company
+label: City
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

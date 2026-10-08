@@ -1,0 +1,99 @@
+uuid: 5dc5051b-9011-4a99-8424-2e220421a74c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.agsci_company.body
+    - field.field.node.agsci_company.field_about_us
+    - field.field.node.agsci_company.field_careers
+    - field.field.node.agsci_company.field_city
+    - field.field.node.agsci_company.field_domain_access
+    - field.field.node.agsci_company.field_domain_all_affiliates
+    - field.field.node.agsci_company.field_domain_source
+    - field.field.node.agsci_company.field_industry
+    - field.field.node.agsci_company.field_region
+    - field.field.node.agsci_company.field_state
+    - node.type.agsci_company
+  module:
+    - link
+    - text
+    - user
+id: node.agsci_company.default
+targetEntityType: node
+bundle: agsci_company
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_about_us:
+    type: link
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_careers:
+    type: link
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_city:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_industry:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_region:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_state:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entitygroupfield: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  langcode: true

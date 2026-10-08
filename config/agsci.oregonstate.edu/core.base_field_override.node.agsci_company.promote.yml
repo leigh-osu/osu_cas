@@ -1,0 +1,22 @@
+uuid: 1233d3f7-b569-482d-b088-d1c96ed4d9b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.agsci_company
+id: node.agsci_company.promote
+field_name: promote
+entity_type: node
+bundle: agsci_company
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
