@@ -1,11 +1,11 @@
-uuid: 6da349ef-ea39-41c0-ae7e-6a8305cd533a
+uuid: 53effa34-26b5-458f-bb6b-b89b5109095d
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.agsci_company
-id: node.agsci_company
+    - node.type.cas_career
+id: node.cas_career
 target_entity_type_id: node
-target_bundle: agsci_company
+target_bundle: cas_career
 default_langcode: site_default
 language_alterable: false

@@ -1,14 +1,14 @@
-uuid: dd8e942b-c15e-4163-a596-e70e0efb3f64
+uuid: 6ee179fb-f9dd-4e01-bdb9-7290abab3347
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_domain_all_affiliates
-    - node.type.agsci_company
-id: node.agsci_company.field_domain_all_affiliates
+    - node.type.cas_career
+id: node.cas_career.field_domain_all_affiliates
 field_name: field_domain_all_affiliates
 entity_type: node
-bundle: agsci_company
+bundle: cas_career
 label: 'Send to all affiliates'
 description: 'Make this content available on all domains.'
 required: false

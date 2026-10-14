@@ -1,17 +1,17 @@
-uuid: f198d80a-5799-49e4-b128-20dcec811f36
+uuid: 7c6f84ef-1a1a-4653-b591-123d1cb31502
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_careers
-    - node.type.agsci_company
+    - field.storage.node.field_cas_career_about_us
+    - node.type.cas_career
   module:
     - link
-id: node.agsci_company.field_careers
-field_name: field_careers
+id: node.cas_career.field_cas_career_about_us
+field_name: field_cas_career_about_us
 entity_type: node
-bundle: agsci_company
-label: Careers
+bundle: cas_career
+label: 'About Us'
 description: ''
 required: false
 translatable: false
@@ -19,7 +19,7 @@ default_value:
   -
     attributes: {  }
     uri: ''
-    title: Careers
+    title: 'About Us'
     options: {  }
 default_value_callback: ''
 settings:

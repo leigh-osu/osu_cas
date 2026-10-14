@@ -1,29 +1,43 @@
-uuid: fdac364b-1426-4313-8700-48695869c000
+uuid: 0d73d179-19e8-4714-8808-e87a7bd03ffb
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.agsci_company.body
-    - field.field.node.agsci_company.field_about_us
-    - field.field.node.agsci_company.field_careers
-    - field.field.node.agsci_company.field_city
-    - field.field.node.agsci_company.field_domain_access
-    - field.field.node.agsci_company.field_domain_all_affiliates
-    - field.field.node.agsci_company.field_domain_source
-    - field.field.node.agsci_company.field_industry
-    - field.field.node.agsci_company.field_region
-    - field.field.node.agsci_company.field_state
-    - node.type.agsci_company
+    - field.field.node.cas_career.field_cas_career_about_us
+    - field.field.node.cas_career.field_cas_career_body
+    - field.field.node.cas_career.field_cas_career_careers
+    - field.field.node.cas_career.field_cas_career_city
+    - field.field.node.cas_career.field_domain_access
+    - field.field.node.cas_career.field_domain_all_affiliates
+    - field.field.node.cas_career.field_domain_source
+    - field.field.node.cas_career.field_tax_cas_career_industry
+    - field.field.node.cas_career.field_tax_cas_career_region
+    - field.field.node.cas_career.field_tax_state
+    - node.type.cas_career
   module:
     - link
     - path
     - text
-id: node.agsci_company.default
+id: node.cas_career.default
 targetEntityType: node
-bundle: agsci_company
+bundle: cas_career
 mode: default
 content:
-  body:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_cas_career_about_us:
+    type: link_default
+    weight: 126
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_cas_career_body:
     type: text_textarea_with_summary
     weight: 121
     region: content
@@ -33,21 +47,7 @@ content:
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
-  created:
-    type: datetime_timestamp
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_about_us:
-    type: link_default
-    weight: 126
-    region: content
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-  field_careers:
+  field_cas_career_careers:
     type: link_default
     weight: 127
     region: content
@@ -55,7 +55,7 @@ content:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-  field_city:
+  field_cas_career_city:
     type: string_textfield
     weight: 122
     region: content
@@ -63,7 +63,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_industry:
+  field_tax_cas_career_industry:
     type: entity_reference_autocomplete
     weight: 125
     region: content
@@ -73,7 +73,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_region:
+  field_tax_cas_career_region:
     type: entity_reference_autocomplete
     weight: 124
     region: content
@@ -83,7 +83,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_state:
+  field_tax_state:
     type: entity_reference_autocomplete
     weight: 123
     region: content

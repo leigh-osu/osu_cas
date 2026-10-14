@@ -1,14 +1,14 @@
-uuid: b6300f0f-bf02-4389-91d3-6283cf1cffb0
+uuid: 09856db2-7574-410c-9492-569d8bc6e5b6
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.agsci_company
-id: node.agsci_company.title
+    - node.type.cas_career
+id: node.cas_career.title
 field_name: title
 entity_type: node
-bundle: agsci_company
-label: 'Company Name'
+bundle: cas_career
+label: 'Company/Organization name'
 description: ''
 required: true
 translatable: true

@@ -15,13 +15,13 @@ categories: {  }
 elements: |-
   intro:
     '#type': processed_text
-    '#format': full_html
-    '#text': |-
-      <p>
-      	[[{"fid":"515111","view_mode":"default","fields":{"format":"default","alignment":"center","field_file_image_alt_text[und][0][value]":"ER Jackman logo","field_file_image_title_text[und][0][value]":"ER Jackman Logo","external_url":""},"type":"media","field_deltas":{"5":{"format":"default","alignment":"center","field_file_image_alt_text[und][0][value]":"ER Jackman logo","field_file_image_title_text[und][0][value]":"ER Jackman Logo","external_url":""}},"link_text":null,"attributes":{"alt":"ER Jackman logo","title":"ER Jackman Logo","height":171,"width":346,"class":"media-element file-default media-wysiwyg-align-center","data-delta":"5"}}]]</p>
+    '#text': |
+      <drupal-media data-align="center" data-entity-type="media" data-entity-uuid="2be0a21e-9e33-4090-bd94-608e10fc2725"></drupal-media>
 
-      <h3 style="text-align: center;">
-      	ER Jackman Friends &amp; Alumni Fellow Application</h3>
+      <h3 style="text-align: center;">Fellow Application</h3>
+
+      <p>Being a Fellow is the highest honor in the E.R. Jackman group. To become an ERJFA Fellow, a donation of $3,000 or $ 1000/year for three consecutive years to one or more of the endowment funds: Scholarship, Enhancement, or Unrestricted.</p>
+    '#format': full_html
   first_name:
     '#type': textfield
     '#unique': false
@@ -63,13 +63,11 @@ elements: |-
     '#required': true
   conclusion:
     '#type': processed_text
-    '#format': full_html
-    '#text': |-
-      <p>
-      	<strong>Thank you</strong> for your contribution to ER Jackman Friends &amp; Alumni. Someone from the OSU Foundation will be following up via email with more information.</p>
+    '#text': |
+      <p><strong>Thank you</strong> for your contribution to ER Jackman Friends &amp; Alumni. Someone from the OSU Foundation will be following up via email with more information.</p>
 
-      <p>
-      	<strong>Questions?</strong> Contact Ally Miklasz (Rumpakis), Director of Alumni Relations, College of Agricultural Sciences, at <a href="mailto:ally.rumpakis@osualum.com">ally.rumpakis@osualum.com</a> or 541-556-9516</p>
+      <p><strong>Questions?</strong> Contact Ally Miklasz, Director of Alumni Relations, College of Agricultural Sciences, at <a href="mailto:Ally.Miklasz@osualum.com">Ally.Miklasz@osualum.com</a>&nbsp;<a href="mailto:ally.rumpakis@osualum.com"></a>or 541-556-9516</p>
+    '#format': full_html
 css: ''
 javascript: ''
 settings:

@@ -1,12 +1,12 @@
-uuid: 88ee83cf-06ad-44fd-80ea-98614ebcbf7b
+uuid: d0af9c38-397e-4727-ac80-5ae48967ad14
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - taxonomy
-id: node.field_state
-field_name: field_state
+id: node.field_tax_cas_career_region
+field_name: field_tax_cas_career_region
 entity_type: node
 type: entity_reference
 settings:

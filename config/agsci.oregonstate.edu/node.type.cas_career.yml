@@ -1,4 +1,4 @@
-uuid: cd5a43c6-0d99-4ad6-912b-e04b3afe5818
+uuid: e6329411-130b-4970-8def-f6bc7d84a3e4
 langcode: en
 status: true
 dependencies:
@@ -50,10 +50,10 @@ third_party_settings:
   toc_js_per_node:
     override: false
     override_default: true
-name: 'Agsci Company'
-type: agsci_company
+name: 'Career opportunity'
+type: cas_career
 description: 'Database of companies that provide internships and potential job opportunities for our students.'
 help: null
 new_revision: true
 preview_mode: 1
-display_submitted: true
+display_submitted: false

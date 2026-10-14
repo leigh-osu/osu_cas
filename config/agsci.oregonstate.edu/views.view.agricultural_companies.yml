@@ -3,15 +3,15 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_about_us
-    - field.storage.node.field_careers
-    - field.storage.node.field_city
-    - field.storage.node.field_industry
-    - field.storage.node.field_region
-    - field.storage.node.field_state
-    - node.type.agsci_company
-    - taxonomy.vocabulary.industry
-    - taxonomy.vocabulary.regions_u_s
+    - field.storage.node.field_cas_career_about_us
+    - field.storage.node.field_cas_career_careers
+    - field.storage.node.field_cas_career_city
+    - field.storage.node.field_tax_cas_career_industry
+    - field.storage.node.field_tax_cas_career_region
+    - field.storage.node.field_tax_state
+    - node.type.cas_career
+    - taxonomy.vocabulary.cas_career_industry
+    - taxonomy.vocabulary.cas_career_region
     - taxonomy.vocabulary.state
   module:
     - link
@@ -100,10 +100,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_city:
-          id: field_city
-          table: node__field_city
-          field: field_city
+        field_cas_career_city:
+          id: field_cas_career_city
+          table: node__field_cas_career_city
+          field: field_cas_career_city
           relationship: none
           group_type: group
           admin_label: ''
@@ -163,10 +163,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_state:
-          id: field_state
-          table: node__field_state
-          field: field_state
+        field_tax_state:
+          id: field_tax_state
+          table: node__field_tax_state
+          field: field_tax_state
           relationship: none
           group_type: group
           admin_label: ''
@@ -226,10 +226,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_industry:
-          id: field_industry
-          table: node__field_industry
-          field: field_industry
+        field_tax_cas_career_industry:
+          id: field_tax_cas_career_industry
+          table: node__field_tax_cas_career_industry
+          field: field_tax_cas_career_industry
           relationship: none
           group_type: group
           admin_label: ''
@@ -289,10 +289,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_region:
-          id: field_region
-          table: node__field_region
-          field: field_region
+        field_tax_cas_career_region:
+          id: field_tax_cas_career_region
+          table: node__field_tax_cas_career_region
+          field: field_tax_cas_career_region
           relationship: none
           group_type: group
           admin_label: ''
@@ -352,10 +352,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_careers:
-          id: field_careers
-          table: node__field_careers
-          field: field_careers
+        field_cas_career_careers:
+          id: field_cas_career_careers
+          table: node__field_cas_career_careers
+          field: field_cas_career_careers
           relationship: none
           group_type: group
           admin_label: ''
@@ -419,10 +419,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_about_us:
-          id: field_about_us
-          table: node__field_about_us
-          field: field_about_us
+        field_cas_career_about_us:
+          id: field_cas_career_about_us
+          table: node__field_cas_career_about_us
+          field: field_cas_career_about_us
           relationship: none
           group_type: group
           admin_label: ''
@@ -522,7 +522,18 @@ display:
       cache:
         type: tag
         options: {  }
-      empty: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: true
+          content: 'No items match the current filter.'
+          tokenize: false
       sorts:
         title:
           id: title
@@ -560,11 +571,11 @@ display:
           entity_field: type
           plugin_id: bundle
           value:
-            agsci_company: agsci_company
-        field_industry_target_id:
-          id: field_industry_target_id
-          table: node__field_industry
-          field: field_industry_target_id
+            cas_career: cas_career
+        field_tax_cas_career_industry_target_id:
+          id: field_tax_cas_career_industry_target_id
+          table: node__field_tax_cas_career_industry
+          field: field_tax_cas_career_industry_target_id
           relationship: none
           group_type: group
           admin_label: ''
@@ -574,14 +585,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_industry_target_id_op
+            operator_id: field_tax_cas_career_industry_target_id_op
             label: 'Industry:'
             description: ''
             use_operator: false
-            operator: field_industry_target_id_op
+            operator: field_tax_cas_career_industry_target_id_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_industry_target_id
+            identifier: field_tax_cas_career_industry_target_id
             required: false
             remember: false
             multiple: false
@@ -616,15 +627,15 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          vid: industry
+          vid: cas_career_industry
           type: select
           hierarchy: true
           limit: true
           error_message: true
-        field_region_target_id:
-          id: field_region_target_id
-          table: node__field_region
-          field: field_region_target_id
+        field_tax_cas_career_region_target_id:
+          id: field_tax_cas_career_region_target_id
+          table: node__field_tax_cas_career_region
+          field: field_tax_cas_career_region_target_id
           relationship: none
           group_type: group
           admin_label: ''
@@ -634,14 +645,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_region_target_id_op
+            operator_id: field_tax_cas_career_region_target_id_op
             label: Region
             description: ''
             use_operator: false
-            operator: field_region_target_id_op
+            operator: field_tax_cas_career_region_target_id_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_region_target_id
+            identifier: field_tax_cas_career_region_target_id
             required: false
             remember: false
             multiple: false
@@ -676,15 +687,15 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: true
-          vid: regions_u_s
+          vid: cas_career_region
           type: select
           hierarchy: false
           limit: true
           error_message: true
-        field_state_target_id:
-          id: field_state_target_id
-          table: node__field_state
-          field: field_state_target_id
+        field_tax_state_target_id:
+          id: field_tax_state_target_id
+          table: node__field_tax_state
+          field: field_tax_state_target_id
           relationship: none
           group_type: group
           admin_label: ''
@@ -694,14 +705,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_state_target_id_op
+            operator_id: field_tax_state_target_id_op
             label: State
             description: ''
             use_operator: false
-            operator: field_state_target_id_op
+            operator: field_tax_state_target_id_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_state_target_id
+            identifier: field_tax_state_target_id
             required: false
             remember: false
             multiple: false
@@ -749,12 +760,12 @@ display:
           default_row_class: true
           columns:
             title: title
-            field_city: field_city
-            field_state: field_state
-            field_industry: field_industry
-            field_region: field_region
-            field_careers: field_careers
-            field_about_us: field_about_us
+            field_cas_career_city: field_cas_career_city
+            field_tax_state: field_tax_state
+            field_tax_cas_career_industry: field_tax_cas_career_industry
+            field_tax_cas_career_region: field_tax_cas_career_region
+            field_cas_career_careers: field_cas_career_careers
+            field_cas_career_about_us: field_cas_career_about_us
           default: '-1'
           info:
             title:
@@ -764,38 +775,38 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_city:
+            field_cas_career_city:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_state:
+            field_tax_state:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_industry:
+            field_tax_cas_career_industry:
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_region:
+            field_tax_cas_career_region:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_careers:
+            field_cas_career_careers:
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_about_us:
+            field_cas_career_about_us:
               align: ''
               separator: ''
               empty_column: false
@@ -839,12 +850,12 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_about_us'
-        - 'config:field.storage.node.field_careers'
-        - 'config:field.storage.node.field_city'
-        - 'config:field.storage.node.field_industry'
-        - 'config:field.storage.node.field_region'
-        - 'config:field.storage.node.field_state'
+        - 'config:field.storage.node.field_cas_career_about_us'
+        - 'config:field.storage.node.field_cas_career_careers'
+        - 'config:field.storage.node.field_cas_career_city'
+        - 'config:field.storage.node.field_tax_cas_career_industry'
+        - 'config:field.storage.node.field_tax_cas_career_region'
+        - 'config:field.storage.node.field_tax_state'
   page_1:
     id: page_1
     display_title: Page
@@ -866,9 +877,9 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_about_us'
-        - 'config:field.storage.node.field_careers'
-        - 'config:field.storage.node.field_city'
-        - 'config:field.storage.node.field_industry'
-        - 'config:field.storage.node.field_region'
-        - 'config:field.storage.node.field_state'
+        - 'config:field.storage.node.field_cas_career_about_us'
+        - 'config:field.storage.node.field_cas_career_careers'
+        - 'config:field.storage.node.field_cas_career_city'
+        - 'config:field.storage.node.field_tax_cas_career_industry'
+        - 'config:field.storage.node.field_tax_cas_career_region'
+        - 'config:field.storage.node.field_tax_state'

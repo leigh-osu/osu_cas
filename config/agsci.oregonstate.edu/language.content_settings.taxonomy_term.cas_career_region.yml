@@ -1,0 +1,11 @@
+uuid: ae68d1ed-0dec-4d6a-9f24-1ed940cb8e9b
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.cas_career_region
+id: taxonomy_term.cas_career_region
+target_entity_type_id: taxonomy_term
+target_bundle: cas_career_region
+default_langcode: site_default
+language_alterable: false

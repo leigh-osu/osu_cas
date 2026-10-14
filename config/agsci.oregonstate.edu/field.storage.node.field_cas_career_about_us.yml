@@ -1,18 +1,16 @@
-uuid: 82523a80-cbe3-4df4-a5dc-0e1fbb3a09c7
+uuid: 3726d705-268c-4df0-8532-a8e5c42ad516
 langcode: en
 status: true
 dependencies:
   module:
+    - link
     - node
-id: node.field_city
-field_name: field_city
+id: node.field_cas_career_about_us
+field_name: field_cas_career_about_us
 entity_type: node
-type: string
-settings:
-  max_length: 255
-  case_sensitive: false
-  is_ascii: false
-module: core
+type: link
+settings: {  }
+module: link
 locked: false
 cardinality: 1
 translatable: true

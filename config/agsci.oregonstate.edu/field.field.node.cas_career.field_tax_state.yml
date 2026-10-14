@@ -1,16 +1,16 @@
-uuid: 891a622a-42ad-46d5-98af-c5451418cae5
+uuid: 5794e7dd-911d-4849-80a9-bc5400920558
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_industry
-    - node.type.agsci_company
-    - taxonomy.vocabulary.industry
-id: node.agsci_company.field_industry
-field_name: field_industry
+    - field.storage.node.field_tax_state
+    - node.type.cas_career
+    - taxonomy.vocabulary.state
+id: node.cas_career.field_tax_state
+field_name: field_tax_state
 entity_type: node
-bundle: agsci_company
-label: Industry
+bundle: cas_career
+label: State
 description: ''
 required: false
 translatable: false
@@ -20,7 +20,7 @@ settings:
   handler: 'default:filter_existing_terms'
   handler_settings:
     target_bundles:
-      industry: industry
+      state: state
     sort:
       field: name
       direction: asc
