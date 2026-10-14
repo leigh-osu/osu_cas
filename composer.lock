@@ -2619,27 +2619,27 @@
         },
         {
             "name": "drupal/better_exposed_filters",
-            "version": "7.1.3",
+            "version": "7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/better_exposed_filters.git",
-                "reference": "7.1.3"
+                "reference": "7.2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/better_exposed_filters-7.1.3.zip",
-                "reference": "7.1.3",
-                "shasum": "802c4a2823c5393b78750a540ac4d2e2c95767e5"
+                "url": "https://ftp.drupal.org/files/projects/better_exposed_filters-7.2.0.zip",
+                "reference": "7.2.0",
+                "shasum": "dcb7b5e560fe578ef041cf7e1f6a691dc4d56575"
             },
             "require": {
-                "drupal/core": "^10.3 || ^11",
+                "drupal/core": "^10.3 || ^11 || ^12",
                 "drupal/nouislider_js": "^15.8.1"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "7.1.3",
-                    "datestamp": "1785945788",
+                    "version": "7.2.0",
+                    "datestamp": "1791536367",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3840,17 +3840,17 @@
         },
         {
             "name": "drupal/ckeditor5_plugin_pack",
-            "version": "1.5.5",
+            "version": "1.5.6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ckeditor5_plugin_pack.git",
-                "reference": "1.5.5"
+                "reference": "1.5.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ckeditor5_plugin_pack-1.5.5.zip",
-                "reference": "1.5.5",
-                "shasum": "84edc26f6e9713aaadcb60aaaf14450521b80525"
+                "url": "https://ftp.drupal.org/files/projects/ckeditor5_plugin_pack-1.5.6.zip",
+                "reference": "1.5.6",
+                "shasum": "c325881ea66d0e22511c982163ddd39559010762"
             },
             "require": {
                 "drupal/ckeditor5_premium_features": "^1.6.4 || ^1.7",
@@ -3863,8 +3863,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.5.5",
-                    "datestamp": "1789580728",
+                    "version": "1.5.6",
+                    "datestamp": "1791977960",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3896,17 +3896,17 @@
         },
         {
             "name": "drupal/ckeditor5_premium_features",
-            "version": "1.8.5",
+            "version": "1.8.6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ckeditor5_premium_features.git",
-                "reference": "1.8.5"
+                "reference": "1.8.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ckeditor5_premium_features-1.8.5.zip",
-                "reference": "1.8.5",
-                "shasum": "51ecdd47db97a212b3733dd3ec73ec3723a9f63b"
+                "url": "https://ftp.drupal.org/files/projects/ckeditor5_premium_features-1.8.6.zip",
+                "reference": "1.8.6",
+                "shasum": "8d4774ef2ab702547c8174492e10c751110009c4"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11.0",
@@ -3928,8 +3928,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.8.5",
-                    "datestamp": "1790758874",
+                    "version": "1.8.6",
+                    "datestamp": "1791977809",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -9664,26 +9664,26 @@
         },
         {
             "name": "drupal/layout_builder_component_attributes",
-            "version": "2.3.0",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/layout_builder_component_attributes.git",
-                "reference": "2.3.0"
+                "reference": "2.4.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/layout_builder_component_attributes-2.3.0.zip",
-                "reference": "2.3.0",
-                "shasum": "0fa3f353cc25c1c0416b1014e997041e33495b58"
+                "url": "https://ftp.drupal.org/files/projects/layout_builder_component_attributes-2.4.0.zip",
+                "reference": "2.4.0",
+                "shasum": "ad674d4c5a0f1b603d474b106b5d4e09bded3397"
             },
             "require": {
-                "drupal/core": "^10.0|^11.0"
+                "drupal/core": "^10.3|>=11.1.8 <12|^12.0"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.3.0",
-                    "datestamp": "1781524963",
+                    "version": "2.4.0",
+                    "datestamp": "1791863647",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -10109,26 +10109,26 @@
         },
         {
             "name": "drupal/libraries",
-            "version": "4.1.1",
+            "version": "4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/libraries.git",
-                "reference": "4.1.1"
+                "reference": "4.2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/libraries-4.1.1.zip",
-                "reference": "4.1.1",
-                "shasum": "d4bee63f8bfdc95afad577433c5601521712ec10"
+                "url": "https://ftp.drupal.org/files/projects/libraries-4.2.1.zip",
+                "reference": "4.2.1",
+                "shasum": "29dbce0a551878faca804e5e1f6fe647c91bb6e3"
             },
             "require": {
-                "drupal/core": "^10 || ^11"
+                "drupal/core": "^10.2 || ^11 || ^12"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "4.1.1",
-                    "datestamp": "1760564444",
+                    "version": "4.2.1",
+                    "datestamp": "1791474564",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -13321,20 +13321,20 @@
         },
         {
             "name": "drupal/search_api",
-            "version": "1.41.0",
+            "version": "1.42.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/search_api.git",
-                "reference": "8.x-1.41"
+                "reference": "8.x-1.42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.41.zip",
-                "reference": "8.x-1.41",
-                "shasum": "bb030951ee9a09fac67e8cde5b495c3b67e2949d"
+                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.42.zip",
+                "reference": "8.x-1.42",
+                "shasum": "a8f18e5873f50551eadfe03c4454bcb8e85eacce"
             },
             "require": {
-                "drupal/core": "^10.3 || ^11"
+                "drupal/core": "^10.3 || ^11 || ^12"
             },
             "conflict": {
                 "drupal/search_api_solr": "2.* || 3.0 || 3.1"
@@ -13353,8 +13353,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.41",
-                    "datestamp": "1780907071",
+                    "version": "8.x-1.42",
+                    "datestamp": "1791743454",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -15179,17 +15179,17 @@
         },
         {
             "name": "drupal/trash",
-            "version": "3.0.34",
+            "version": "3.0.35",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/trash.git",
-                "reference": "3.0.34"
+                "reference": "3.0.35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/trash-3.0.34.zip",
-                "reference": "3.0.34",
-                "shasum": "bbfb3f993f1af27344bd185ff632223f478fc71a"
+                "url": "https://ftp.drupal.org/files/projects/trash-3.0.35.zip",
+                "reference": "3.0.35",
+                "shasum": "e5a980162b869729e8a76857e13c03c5612211d9"
             },
             "require": {
                 "drupal/core": "^10.3 | ^11"
@@ -15208,8 +15208,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.34",
-                    "datestamp": "1789745695",
+                    "version": "3.0.35",
+                    "datestamp": "1791893237",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -15351,17 +15351,17 @@
         },
         {
             "name": "drupal/ui_patterns",
-            "version": "2.0.22",
+            "version": "2.0.23",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ui_patterns.git",
-                "reference": "2.0.22"
+                "reference": "2.0.23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ui_patterns-2.0.22.zip",
-                "reference": "2.0.22",
-                "shasum": "ec17c6535f4bf787f20dfedbb9297e92c9ef93e2"
+                "url": "https://ftp.drupal.org/files/projects/ui_patterns-2.0.23.zip",
+                "reference": "2.0.23",
+                "shasum": "e1b2f4774f03239ebb3bcd3b8a3bf31dc7efcd65"
             },
             "require": {
                 "drupal/core": "^10.6 || ^11.3 || ^12",
@@ -15375,8 +15375,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.22",
-                    "datestamp": "1791358239",
+                    "version": "2.0.23",
+                    "datestamp": "1791918588",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -16294,33 +16294,33 @@
         },
         {
             "name": "drupal/views_selective_filters",
-            "version": "2.0.0-beta1",
+            "version": "2.0.0-rc1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/views_selective_filters.git",
-                "reference": "2.0.0-beta1"
+                "reference": "2.0.0-rc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/views_selective_filters-2.0.0-beta1.zip",
-                "reference": "2.0.0-beta1",
-                "shasum": "5368dd3da4abb7ff1edd4079135a7d26d380bc2f"
+                "url": "https://ftp.drupal.org/files/projects/views_selective_filters-2.0.0-rc1.zip",
+                "reference": "2.0.0-rc1",
+                "shasum": "a1df9b95ea7627de96e98fab649398b0dcaf07ee"
             },
             "require": {
-                "drupal/core": "^9 || ^10 || ^11"
+                "drupal/core": "^10.3 || ^11.2 || ^12"
             },
             "require-dev": {
-                "drupal/coder": "^8.3.16",
-                "drush/drush": "^12.5 || ^13.3"
+                "drupal/coder": "^8.3.16 || ^9",
+                "drush/drush": "^12.5 || ^13.3 || ^14"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.0-beta1",
-                    "datestamp": "1777331555",
+                    "version": "2.0.0-rc1",
+                    "datestamp": "1791592947",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "message": "RC releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -16354,7 +16354,7 @@
             "homepage": "https://drupal.org/project/views_selective_filters",
             "support": {
                 "source": "https://git.drupalcode.org/project/views_selective_filters",
-                "issues": "https://drupal.org/project/issues/views_selective_filters"
+                "issues": "https://git.drupalcode.org/project/views_selective_filters/-/work_items"
             }
         },
         {
@@ -20476,37 +20476,39 @@
         },
         {
             "name": "mnsami/composer-custom-directory-installer",
-            "version": "2.2.1",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mnsami/composer-custom-directory-installer.git",
-                "reference": "23b7039ea7cf18b5846faae2b9f4d9c9445e0039"
+                "reference": "66df9d4430c32f191ff12476ddbaea68915f2999"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mnsami/composer-custom-directory-installer/zipball/23b7039ea7cf18b5846faae2b9f4d9c9445e0039",
-                "reference": "23b7039ea7cf18b5846faae2b9f4d9c9445e0039",
+                "url": "https://api.github.com/repos/mnsami/composer-custom-directory-installer/zipball/66df9d4430c32f191ff12476ddbaea68915f2999",
+                "reference": "66df9d4430c32f191ff12476ddbaea68915f2999",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "^2.0",
+                "composer-plugin-api": "^2.3",
                 "php": ">=8.1"
             },
             "require-dev": {
                 "composer/composer": "^2.0",
+                "composer/installers": "^2.3",
                 "friendsofphp/php-cs-fixer": "^3.75",
+                "phpstan/phpstan": "^2.3",
                 "phpunit/phpunit": "^10.5"
             },
             "type": "composer-plugin",
             "extra": {
                 "class": [
                     "Composer\\CustomDirectoryInstaller\\LibraryPlugin",
-                    "Composer\\CustomDirectoryInstaller\\PearPlugin",
                     "Composer\\CustomDirectoryInstaller\\PluginPlugin"
                 ],
                 "branch-alias": {
-                    "dev-master": "2.2.x-dev"
-                }
+                    "dev-master": "2.3.x-dev"
+                },
+                "plugin-modifies-install-path": true
             },
             "autoload": {
                 "psr-4": {
@@ -20524,6 +20526,7 @@
                 }
             ],
             "description": "A composer plugin, to help install packages of different types in custom paths.",
+            "homepage": "https://github.com/mnsami/composer-custom-directory-installer",
             "keywords": [
                 "composer",
                 "composer-installer",
@@ -20536,15 +20539,16 @@
             ],
             "support": {
                 "issues": "https://github.com/mnsami/composer-custom-directory-installer/issues",
-                "source": "https://github.com/mnsami/composer-custom-directory-installer/tree/2.2.1"
+                "security": "https://github.com/mnsami/composer-custom-directory-installer/security/policy",
+                "source": "https://github.com/mnsami/composer-custom-directory-installer"
             },
             "funding": [
                 {
-                    "url": "https://github.com/mnsami",
+                    "url": "https://github.com/sponsors/mnsami",
                     "type": "github"
                 }
             ],
-            "time": "2026-05-20T07:57:55+00:00"
+            "time": "2026-10-13T23:16:14+00:00"
         },
         {
             "name": "mpdf/mpdf",
@@ -20991,10 +20995,13 @@
         },
         {
             "name": "npm-asset/dompurify",
-            "version": "3.4.16",
+            "version": "3.4.17",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/dompurify/-/dompurify-3.4.16.tgz"
+                "url": "https://registry.npmjs.org/dompurify/-/dompurify-3.4.17.tgz"
+            },
+            "require": {
+                "npm-asset/types--trusted-types": ">=2.0.7,<3.0.0"
             },
             "type": "npm-asset",
             "license": [
@@ -21166,6 +21173,18 @@
             "dist": {
                 "type": "tar",
                 "url": "https://registry.npmjs.org/@svgdotjs/svg.select.js/-/svg.select.js-4.0.3.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/types--trusted-types",
+            "version": "2.0.7",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@types/trusted-types/-/trusted-types-2.0.7.tgz"
             },
             "type": "npm-asset",
             "license": [
