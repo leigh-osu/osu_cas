@@ -1122,7 +1122,10 @@
         "drupal-scaffold": {
             "file-mapping": {
                 "[web-root]/README.md": false,
-                "[web-root]/example.gitignore": false
+                "[web-root]/example.gitignore": false,
+                "[web-root]/robots.txt": {
+                    "append": "scaffold/robots-append.txt"
+                }
             },
             "locations": {
                 "web-root": "docroot/"

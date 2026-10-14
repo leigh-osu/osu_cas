@@ -14,7 +14,7 @@
  # Most of the following PHP settings cannot be changed at runtime. See
  # sites/default/default.settings.php and
  # Drupal\Core\DrupalKernel::bootEnvironment() for settings that can be
-@@ -112,7 +119,444 @@
+@@ -112,7 +119,456 @@
    # If your site is running in a VirtualDocumentRoot at http://example.com/,
    # uncomment the following line:
    # RewriteBase /
@@ -35,6 +35,18 @@
 +  # re-points the real files mount at a fresh empty directory
 +  # (prod files outage, 2026-08-26).
 +  RewriteRule ^sites/(?:agsci|agscid7)/files/(.*)$ sites/agsci.oregonstate.edu/files/$1 [L]
++
++  # Retired D7 Biblio listing. Crawlers keep walking its faceted URLs
++  # (/biblio?f[author]=...&page=251), an unbounded URL space with no D10
++  # equivalent that logged ~3000 404s an hour (2026-10-14). Answer 410 Gone
++  # here so they drop it and nothing reaches Drupal or the watchdog log.
++  # /biblio/<slug> still goes to Drupal, where the migrated redirects live.
++  RewriteCond %{QUERY_STRING} .
++  RewriteRule ^biblio/?$ - [G,L]
++  RewriteRule ^biblio/filter(/.*)?$ - [G,L]
++
++  # Links pasted with a trailing ">" (.../slug%3E): drop it and redirect.
++  RewriteRule ^(.+)>$ https://%{HTTP_HOST}/$1 [R=permanent,L]
 +
 +  # Blocking bot for user agent.
 +  RewriteCond %{HTTP_USER_AGENT} ClaudeBot [NC]
@@ -231,7 +243,7 @@
 +  RewriteCond %{HTTP_HOST} ^fa\.oregonstate\.edu$ [NC]
 +  RewriteCond %{REQUEST_URI} ^/controllers-unit$
 +  RewriteRule ^(.*)$ https://finance.oregonstate.edu/ [R=permanent,L]
-+
+ 
 +  RewriteCond %{HTTP_HOST} ^fa\.oregonstate\.edu$ [NC]
 +  RewriteCond %{REQUEST_URI} ^/controllers-unit/business-process-forum$
 +  RewriteRule ^(.*)$ https://finance.oregonstate.edu/business-process-forum [R=permanent,L]
@@ -239,7 +251,7 @@
 +  RewriteCond %{HTTP_HOST} ^fa\.oregonstate\.edu$ [NC]
 +  RewriteCond %{REQUEST_URI} ^/controllers-unit/payroll$
 +  RewriteRule ^(.*)$ https://finance.oregonstate.edu/payroll [R=permanent,L]
- 
++
 +  RewriteCond %{HTTP_HOST} ^fa\.oregonstate\.edu$ [NC]
 +  RewriteCond %{REQUEST_URI} ^/controllers-unit/payroll/direct-deposit-sign-up$
 +  RewriteRule ^(.*)$ https://finance.oregonstate.edu/payroll/direct-deposit-how-sign [R=permanent,L]
@@ -459,7 +471,7 @@
    # Redirect common PHP files to their new locations.
    RewriteCond %{REQUEST_URI} ^(.*)?/(install\.php) [OR]
    RewriteCond %{REQUEST_URI} ^(.*)?/(rebuild\.php)
-@@ -184,3 +628,9 @@
+@@ -184,3 +640,9 @@
    # Disable Proxy header, since it's an attack vector.
    RequestHeader unset Proxy
  </IfModule>
