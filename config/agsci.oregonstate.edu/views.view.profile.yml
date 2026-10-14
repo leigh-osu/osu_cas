@@ -527,6 +527,7 @@ display:
                   placeholder_text: Name
                   collapsible: false
                   is_secondary: false
+                  no_reset: false
               field_osu_organizations_target_id:
                 plugin_id: default
                 advanced:
@@ -535,6 +536,7 @@ display:
                     filter_rewrite_values: ''
                   collapsible: false
                   is_secondary: false
+                  no_reset: false
       access:
         type: perm
         options:
