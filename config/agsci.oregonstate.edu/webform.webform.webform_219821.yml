@@ -119,7 +119,7 @@ handlers:
   email_3:
     id: email
     handler_id: email_3
-    label: 'Email 3'
+    label: 'EMT Contact'
     notes: ''
     status: true
     conditions: {  }
@@ -127,7 +127,7 @@ handlers:
     settings:
       states:
         - completed
-      to_mail: susan.tilton@oregonstate.edu
+      to_mail: choudaya@oregonstate.edu
       to_options: {  }
       bcc_mail: ''
       bcc_options: {  }
