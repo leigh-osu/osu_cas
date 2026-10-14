@@ -1,0 +1,11 @@
+uuid: bf16fd5d-f5cb-4d47-86d8-f8001f8b55d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.cas_career_industry
+id: taxonomy_term.cas_career_industry
+target_entity_type_id: taxonomy_term
+target_bundle: cas_career_industry
+default_langcode: site_default
+language_alterable: false

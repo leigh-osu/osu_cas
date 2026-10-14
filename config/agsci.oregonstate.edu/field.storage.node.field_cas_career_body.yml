@@ -1,0 +1,19 @@
+uuid: 9eddb969-ccf2-4166-b10f-fca20b49d420
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_cas_career_body
+field_name: field_cas_career_body
+entity_type: node
+type: text_with_summary
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: true
+custom_storage: false

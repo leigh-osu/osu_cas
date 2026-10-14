@@ -1,19 +1,19 @@
-uuid: d0a31c16-1dac-45b5-bcb7-86d56b87d46e
+uuid: 60713ac5-734b-4d4f-b4a0-92b9962f45c4
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_domain_access
-    - node.type.agsci_company
+    - node.type.cas_career
   module:
     - domain_access
 third_party_settings:
   domain_access:
     add_current_domain: true
-id: node.agsci_company.field_domain_access
+id: node.cas_career.field_domain_access
 field_name: field_domain_access
 entity_type: node
-bundle: agsci_company
+bundle: cas_career
 label: 'Domain Access'
 description: 'Select the affiliate domain(s) for this content'
 required: true

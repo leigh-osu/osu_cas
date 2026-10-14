@@ -1,0 +1,50 @@
+uuid: b92bb6cd-83e0-46af-9d16-038d0f4205ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.cas_career.field_cas_career_about_us
+    - field.field.node.cas_career.field_cas_career_body
+    - field.field.node.cas_career.field_cas_career_careers
+    - field.field.node.cas_career.field_cas_career_city
+    - field.field.node.cas_career.field_domain_access
+    - field.field.node.cas_career.field_domain_all_affiliates
+    - field.field.node.cas_career.field_domain_source
+    - field.field.node.cas_career.field_tax_cas_career_industry
+    - field.field.node.cas_career.field_tax_cas_career_region
+    - field.field.node.cas_career.field_tax_state
+    - node.type.cas_career
+  module:
+    - text
+    - user
+id: node.cas_career.teaser
+targetEntityType: node
+bundle: cas_career
+mode: teaser
+content:
+  field_cas_career_body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entitygroupfield: true
+  field_cas_career_about_us: true
+  field_cas_career_careers: true
+  field_cas_career_city: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_tax_cas_career_industry: true
+  field_tax_cas_career_region: true
+  field_tax_state: true
+  langcode: true

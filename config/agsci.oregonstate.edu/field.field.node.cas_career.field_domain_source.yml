@@ -1,14 +1,14 @@
-uuid: 9fa4db59-a2c6-4310-96fa-c4e689142e14
+uuid: 41d4a94b-3ded-4d6a-a4c7-cd58621f256b
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_domain_source
-    - node.type.agsci_company
-id: node.agsci_company.field_domain_source
+    - node.type.cas_career
+id: node.cas_career.field_domain_source
 field_name: field_domain_source
 entity_type: node
-bundle: agsci_company
+bundle: cas_career
 label: 'Domain Source'
 description: 'Select the canonical domain for this content.'
 required: false

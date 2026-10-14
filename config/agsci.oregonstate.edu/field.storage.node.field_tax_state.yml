@@ -1,12 +1,12 @@
-uuid: 50ad0092-ce6c-45ce-b5ad-16b13ad45805
+uuid: fac12e77-1621-4ddc-960c-95121c462375
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - taxonomy
-id: node.field_region
-field_name: field_region
+id: node.field_tax_state
+field_name: field_tax_state
 entity_type: node
 type: entity_reference
 settings:

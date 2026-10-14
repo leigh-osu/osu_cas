@@ -1,36 +1,29 @@
-uuid: 5dc5051b-9011-4a99-8424-2e220421a74c
+uuid: c3e0069a-1248-479b-a8e3-969a294ebcd6
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.agsci_company.body
-    - field.field.node.agsci_company.field_about_us
-    - field.field.node.agsci_company.field_careers
-    - field.field.node.agsci_company.field_city
-    - field.field.node.agsci_company.field_domain_access
-    - field.field.node.agsci_company.field_domain_all_affiliates
-    - field.field.node.agsci_company.field_domain_source
-    - field.field.node.agsci_company.field_industry
-    - field.field.node.agsci_company.field_region
-    - field.field.node.agsci_company.field_state
-    - node.type.agsci_company
+    - field.field.node.cas_career.field_cas_career_about_us
+    - field.field.node.cas_career.field_cas_career_body
+    - field.field.node.cas_career.field_cas_career_careers
+    - field.field.node.cas_career.field_cas_career_city
+    - field.field.node.cas_career.field_domain_access
+    - field.field.node.cas_career.field_domain_all_affiliates
+    - field.field.node.cas_career.field_domain_source
+    - field.field.node.cas_career.field_tax_cas_career_industry
+    - field.field.node.cas_career.field_tax_cas_career_region
+    - field.field.node.cas_career.field_tax_state
+    - node.type.cas_career
   module:
     - link
     - text
     - user
-id: node.agsci_company.default
+id: node.cas_career.default
 targetEntityType: node
-bundle: agsci_company
+bundle: cas_career
 mode: default
 content:
-  body:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 101
-    region: content
-  field_about_us:
+  field_cas_career_about_us:
     type: link
     label: inline
     settings:
@@ -42,7 +35,14 @@ content:
     third_party_settings: {  }
     weight: 106
     region: content
-  field_careers:
+  field_cas_career_body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_cas_career_careers:
     type: link
     label: inline
     settings:
@@ -54,7 +54,7 @@ content:
     third_party_settings: {  }
     weight: 107
     region: content
-  field_city:
+  field_cas_career_city:
     type: string
     label: inline
     settings:
@@ -62,7 +62,7 @@ content:
     third_party_settings: {  }
     weight: 102
     region: content
-  field_industry:
+  field_tax_cas_career_industry:
     type: entity_reference_label
     label: inline
     settings:
@@ -70,7 +70,7 @@ content:
     third_party_settings: {  }
     weight: 105
     region: content
-  field_region:
+  field_tax_cas_career_region:
     type: entity_reference_label
     label: inline
     settings:
@@ -78,7 +78,7 @@ content:
     third_party_settings: {  }
     weight: 104
     region: content
-  field_state:
+  field_tax_state:
     type: entity_reference_label
     label: inline
     settings:

@@ -1,14 +1,14 @@
-uuid: 46d26a2e-0822-48f0-a0b6-6825ddfd37ba
+uuid: 71b4489f-409a-4676-8304-df7615e4c40a
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_city
-    - node.type.agsci_company
-id: node.agsci_company.field_city
-field_name: field_city
+    - field.storage.node.field_cas_career_city
+    - node.type.cas_career
+id: node.cas_career.field_cas_career_city
+field_name: field_cas_career_city
 entity_type: node
-bundle: agsci_company
+bundle: cas_career
 label: City
 description: ''
 required: false

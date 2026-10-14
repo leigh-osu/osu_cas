@@ -1,0 +1,9 @@
+uuid: c2b3cae0-464b-44b3-9078-1977855ce8ca
+langcode: en
+status: true
+dependencies: {  }
+name: 'CAS Career Industry'
+vid: cas_career_industry
+description: null
+weight: 0
+new_revision: false

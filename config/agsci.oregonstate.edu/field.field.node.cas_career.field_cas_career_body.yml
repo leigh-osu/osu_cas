@@ -1,16 +1,16 @@
-uuid: 787af5d7-37dc-4e91-979f-9dddc1314051
+uuid: c0af9609-cc41-4af8-8f39-faf39da0bff7
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.body
-    - node.type.agsci_company
+    - field.storage.node.field_cas_career_body
+    - node.type.cas_career
   module:
     - text
-id: node.agsci_company.body
-field_name: body
+id: node.cas_career.field_cas_career_body
+field_name: field_cas_career_body
 entity_type: node
-bundle: agsci_company
+bundle: cas_career
 label: Body
 description: ''
 required: false

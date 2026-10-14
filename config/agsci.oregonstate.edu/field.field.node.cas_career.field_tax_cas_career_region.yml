@@ -1,15 +1,15 @@
-uuid: dac29167-af37-4eba-a88f-c259a0074ad5
+uuid: 1a8eafdd-348c-49eb-90d8-932787ab16da
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_region
-    - node.type.agsci_company
-    - taxonomy.vocabulary.regions_u_s
-id: node.agsci_company.field_region
-field_name: field_region
+    - field.storage.node.field_tax_cas_career_region
+    - node.type.cas_career
+    - taxonomy.vocabulary.cas_career_region
+id: node.cas_career.field_tax_cas_career_region
+field_name: field_tax_cas_career_region
 entity_type: node
-bundle: agsci_company
+bundle: cas_career
 label: Region
 description: ''
 required: false
@@ -20,7 +20,7 @@ settings:
   handler: 'default:filter_existing_terms'
   handler_settings:
     target_bundles:
-      regions_u_s: regions_u_s
+      cas_career_region: cas_career_region
     sort:
       field: name
       direction: asc

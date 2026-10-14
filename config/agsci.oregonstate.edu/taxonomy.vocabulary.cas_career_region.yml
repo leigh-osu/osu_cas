@@ -1,9 +1,9 @@
-uuid: 9aa390a9-618f-40df-a78e-10d40c48faa2
+uuid: 8c31d7d7-2357-4f91-8b3e-f31ffa30704a
 langcode: en
 status: true
 dependencies: {  }
-name: 'Regions U.S.'
-vid: regions_u_s
+name: 'CAS Career Region'
+vid: cas_career_region
 description: null
 weight: 0
 new_revision: false
