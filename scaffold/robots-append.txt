@@ -1,0 +1,5 @@
+
+# Retired D7 Biblio listing and filters (410 Gone in .htaccess). The
+# /biblio/<slug> URLs stay crawlable: they redirect to the publications.
+Disallow: /biblio?
+Disallow: /biblio/filter
