@@ -20,7 +20,7 @@ dependencies:
     - user
     - views_bootstrap
 id: agricultural_companies
-label: 'Agricultural Companies'
+label: 'CAS Careers'
 module: views
 description: ''
 tag: ''
@@ -33,7 +33,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Food Industry Companies'
+      title: 'Food Industry Careers'
       fields:
         title:
           id: title
@@ -866,7 +866,7 @@ display:
         metatag_display_extender:
           metatags: {  }
           tokenize: false
-      path: agricultural-companies
+      path: cas-careers
     cache_metadata:
       max-age: -1
       contexts:

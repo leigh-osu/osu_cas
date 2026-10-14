@@ -360,6 +360,19 @@ $view->set('display', $displays);
 $view->save();
 $say('View agricultural_companies repointed');
 
+// The listing moves from /agricultural-companies to /cas-careers when the
+// exported view is imported; keep the old path working.
+$redirect_storage = $etm->getStorage('redirect');
+if (!$redirect_storage->loadByProperties(['redirect_source__path' => 'agricultural-companies'])) {
+  $redirect = Redirect::create();
+  $redirect->setSource('agricultural-companies');
+  $redirect->setRedirect('cas-careers');
+  $redirect->setLanguage('und');
+  $redirect->setStatusCode(301);
+  $redirect->save();
+  $say('Redirect agricultural-companies -> cas-careers');
+}
+
 // 10. Delete the old nodes, type and vocabularies.
 $old_nids = $etm->getStorage('node')->getQuery()
   ->accessCheck(FALSE)
