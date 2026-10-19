@@ -11,7 +11,7 @@ entity_type: group
 bundle: basic_group
 label: 'Domain Source'
 description: 'The canonical (home) domain for this group.'
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
