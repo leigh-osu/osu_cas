@@ -9,9 +9,9 @@ id: group.basic_group.field_group_short_name
 field_name: field_group_short_name
 entity_type: group
 bundle: basic_group
-label: 'Short Name'
-description: ''
-required: false
+label: 'Group Short Name'
+description: 'The name used in Headers and Breadcrumbs.'
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
