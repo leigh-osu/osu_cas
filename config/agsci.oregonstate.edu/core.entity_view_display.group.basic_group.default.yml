@@ -27,6 +27,7 @@ dependencies:
     - field.field.group.basic_group.field_group_map
     - field.field.group.basic_group.field_group_newsletter_link
     - field.field.group.basic_group.field_group_parent
+    - field.field.group.basic_group.field_group_path
     - field.field.group.basic_group.field_group_phone
     - field.field.group.basic_group.field_group_short_name
     - field.field.group.basic_group.field_group_twitter
@@ -586,6 +587,7 @@ hidden:
   field_group_map: true
   field_group_newsletter_link: true
   field_group_parent: true
+  field_group_path: true
   field_group_phone: true
   field_group_short_name: true
   field_group_twitter: true

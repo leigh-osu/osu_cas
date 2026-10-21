@@ -3,7 +3,7 @@ _core:
 minimum_lifetime: 86400
 xsl: 1
 prefetch_aliases: 1
-chunk_size: auto
+chunk_size: '1000'
 batch_limit: 100
 path: xmlsitemap
 frontpage_priority: 1.0
@@ -11,7 +11,7 @@ frontpage_changefreq: 86400
 lastmod_format: 'Y-m-d\TH:i\Z'
 gz: false
 clean_url: 0
-disable_cron_regeneration: true
+disable_cron_regeneration: false
 i18n_selection_mode: simple
 cron_threshold_error: 1209600
 cron_threshold_warning: 172800

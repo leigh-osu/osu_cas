@@ -1,0 +1,19 @@
+uuid: c8de00f0-7910-43a0-a658-e7a51871fc32
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_group_path
+    - group.type.basic_group
+id: group.basic_group.field_group_path
+field_name: field_group_path
+entity_type: group
+bundle: basic_group
+label: 'Group Path'
+description: 'The string used to denote folders in path aliases — must be all lowercase, with dashes instead of spaces.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
