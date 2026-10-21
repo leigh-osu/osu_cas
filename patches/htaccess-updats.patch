@@ -11,7 +11,7 @@
 +AddType image/avif avif
 +AddType image/avif-sequence avifs
 +
- # Most of the following PHP settings cannot be changed at runtime. See
+ # PHP settings that cannot be changed at runtime can be set here. See
  # sites/default/default.settings.php and
  # Drupal\Core\DrupalKernel::bootEnvironment() for settings that can be
 @@ -112,7 +119,456 @@
