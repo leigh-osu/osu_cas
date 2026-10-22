@@ -23,6 +23,7 @@ dependencies:
     - contextual
     - dropzonejs
     - editoria11y
+    - exclude_node_title
     - filter
     - layout_builder
     - media
@@ -84,6 +85,7 @@ permissions:
   - 'edit own kaltura media'
   - 'edit own local_video media'
   - 'edit own remote_video media'
+  - 'exclude any node title'
   - 'import template from section library'
   - 'manage editoria11y results'
   - 'mark as hidden in editoria11y'
