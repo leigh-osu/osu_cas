@@ -1079,7 +1079,7 @@ display:
             html: false
           element_type: ''
           element_class: ''
-          element_label_type: ''
+          element_label_type: em
           element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
@@ -1553,7 +1553,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"osu-bg-page-alt-1 osu-min-h-600 osu-shadow rounded-bottom\">\r\n  {{ field_profile_image }}\r\n  <div class=\"p-3\">\r\n    <h2 class=\"fw-bolder text-break\">\r\n      {{ title }}\r\n    </h2>\r\n{{ field_profile_primary_title }}\r\n    {{ field_profile_pronouns }}\r\n    {{ field_profile_email }}\r\n{{ field_osu_organizations }}\r\n{{ field_tax_faculty_expertise }}\r\n  </div>\r\n</div>"
+            text: "<div class=\"osu-bg-page-alt-1 osu-min-h-600 osu-shadow rounded-bottom\">\r\n  {{ field_profile_image }}\r\n  <div class=\"p-3\">\r\n    <h3 class=\"fw-bolder text-break\">\r\n      {{ title }}\r\n    </h3>\r\n<strong>{{ field_profile_primary_title }}</strong>\r\n    {{ field_profile_pronouns }}\r\n{{ field_osu_organizations }}\r\n{{ field_tax_faculty_expertise }}\r\n  </div>\r\n</div>"
             make_link: false
             path: ''
             absolute: false
