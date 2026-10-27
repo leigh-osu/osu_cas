@@ -15,6 +15,7 @@ group_type: basic_group
 permissions:
   - 'view group_node:150_species entity'
   - 'view group_node:art_about_agriculture entity'
+  - 'view group_node:cas_career entity'
   - 'view group_node:course entity'
   - 'view group_node:degree_fact_sheet entity'
   - 'view group_node:enterprise_budgets entity'
