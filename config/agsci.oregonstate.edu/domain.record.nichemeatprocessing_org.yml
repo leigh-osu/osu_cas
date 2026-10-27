@@ -1,0 +1,12 @@
+uuid: 4c4ac8cb-3a92-477b-8d2d-54ffbf310064
+langcode: en
+status: false
+dependencies: {  }
+id: nichemeatprocessing_org
+domain_id: 7706506
+hostname: nichemeatprocessing.org
+name: 'Niche Meat Processor Assistance Network'
+scheme: https
+weight: 36
+is_default: false
+path_prefix: ''

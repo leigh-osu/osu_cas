@@ -11,6 +11,7 @@ dependencies:
     - node.type.video
     - taxonomy.vocabulary.coarec_authors
     - taxonomy.vocabulary.coarec_topics
+    - taxonomy.vocabulary.niche_meat
     - taxonomy.vocabulary.nursery
     - taxonomy.vocabulary.owri
     - taxonomy.vocabulary.swd
@@ -1783,6 +1784,197 @@ display:
       display_description: 'D7 articles_by_subject block_5 (OV all video): Crop/Topic/Market/Location selects.'
       display_extenders: {  }
       block_description: 'Content by term: Vegetable video filters'
+      block_category: 'OSU CAS'
+      allow:
+        items_per_page: true
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - route
+        - url
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_osu_story_external_url'
+        - 'config:field.storage.node.field_story_publish_date'
+  block_1:
+    id: block_1
+    display_title: 'NIche Meat topics'
+    display_plugin: block
+    position: 11
+    display_options:
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: true
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            story: story
+            video: video
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_niche_meat_topics_target_id:
+          id: field_niche_meat_topics_target_id
+          table: node__field_niche_meat_topics
+          field: field_niche_meat_topics_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_niche_meat_topics_target_id_op
+            label: 'Niche Meat Topics'
+            description: ''
+            use_operator: false
+            operator: field_niche_meat_topics_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_niche_meat_topics_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_authors: '0'
+              group_content_author: '0'
+              manage_content: '0'
+              manage_blocks: '0'
+              manage_layout_templates: '0'
+              manage_menus: '0'
+              manage_taxonomy: '0'
+              manage_users: '0'
+              manage_webforms: '0'
+              alert_author: '0'
+              manage_site_configuration: '0'
+              architect: '0'
+              dx_administrator: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          vid: niche_meat
+          type: textfield
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        exposed_form: false
+        filters: false
+        filter_groups: false
+      display_description: 'nichemeat_tags block: exposed Niche Meat topic select.'
+      display_extenders:
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
+      block_description: 'Content by term: NMPAN topics'
       block_category: 'OSU CAS'
       allow:
         items_per_page: true

@@ -1,0 +1,20 @@
+uuid: de55e48b-74ae-4df1-af47-40818212f44c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_niche_meat_topics
+field_name: field_niche_meat_topics
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

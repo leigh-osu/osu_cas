@@ -1,0 +1,9 @@
+uuid: a7f9dfdf-dcf2-4783-a0b3-e4edd1632f77
+langcode: en
+status: true
+dependencies: {  }
+name: 'Niche Meat'
+vid: niche_meat
+description: 'Niche Meat Processor Assistance Network'
+weight: 0
+new_revision: false

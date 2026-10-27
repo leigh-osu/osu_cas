@@ -13,12 +13,78 @@ title: 'FWCS Undergrad Certificate Decision Tree'
 description: 'FWCS Undergrad Certificate Decision Tree for the Department of Fisheries, Wildlife, and Conservation Sciences'
 categories: {  }
 elements: |-
-  qualify_professional_positions:
+  bachelors_degree:
     '#type': radios
-    '#title': 'Do you want to qualify for professional positions in wildlife, fisheries, or habitat conservation that require a BS degree or specific coursework in this field?'
+    '#title': "Do you already have a bachelor's degree?"
     '#options': yes_no
     '#required': true
     '#options__properties': ''
+  career_goals:
+    '#type': radios
+    '#title': 'Do you want to qualify for professional positions in wildlife, fisheries, or habitat conservation that require a BS degree or specific coursework in this field?'
+    '#options':
+      'Yes': 'Yes'
+      No/Unsure: No/Unsure
+    '#required': true
+    '#options__properties': ''
+  substantial_coursework:
+    '#type': radios
+    '#title': 'Do you already have substantial biology or natural sciences coursework from your first degree (biology, zoology, ecology, environmental science, natural resources, or forest science)?'
+    '#options': yes_no
+    '#required': true
+    '#options__properties': ''
+  already_work:
+    '#type': radios
+    '#title': 'Do you already work in an FW-related field? (e.g., a fish or wildlife technician with a state or federal agency)'
+    '#options': yes_no
+    '#required': true
+    '#options__properties': ''
+  career_switch:
+    '#type': radios
+    '#title': 'Will you be switching from an unrelated career?'
+    '#options': yes_no
+    '#required': true
+    '#options__properties': ''
+  apply_first_degree_student:
+    '#type': processed_text
+    '#states':
+      visible:
+        ':input[name="bachelors_degree"]':
+          value: 'Yes'
+    '#text': |
+      <p><span style="font-size:11.0pt"><span style="line-height:115%"><span style="font-family:&quot;Cambria&quot;,serif">See the <a href="https://fwcs.oregonstate.edu/fisheries-and-wildlife/how-do-i-apply-undergraduate-program" media_library="Media Library">How to Apply</a> page to learn about the FWCS Bachelor of Science Degree. (The FWCS Certificate is for post-baccalaureate students only.)</span></span></span></p>
+    '#format': full_html
+  consider_certificate:
+    '#type': processed_text
+    '#text': |
+      <p>Consider the FWCS Certificate.</p>
+
+      <p><br />
+      Build foundational knowledge without completing a second bachelor's degree. All certificate classes apply to the FWCS BS degree if you decide to pursue the full degree.<br />
+      &nbsp;</p>
+    '#format': full_html
+  certificate_or_graduate:
+    '#type': processed_text
+    '#text': |
+      <h3>Recommendation: FWCS Certificate (or a Graduate Program)</h3>
+
+      <p>If you need specific FW-related coursework to qualify for permanent positions or to become a certified wildlife or fish biologist, the certificate can provide targeted coursework efficiently. Applicants who already hold a bachelor's in biology or zoology are generally not accepted into the BS degree.<br />
+      &nbsp;</p>
+    '#format': full_html
+  experience_first:
+    '#type': processed_text
+    '#text': |
+      <h3>Recommended: Get Relevant Experience First</h3>
+
+      <p>With a related biological sciences degree but no field experience, focus on gaining experience before committing to more coursework. See the How to Find a Job section.</p>
+    '#format': full_html
+  identify_requirements:
+    '#type': processed_text
+    '#text': |
+      <h3>Recommended: Identify Requirements</h3>
+
+      <p>Have you identified the required education and experience for the positions you'd like to qualify for? If not, review <a href="https://fwcs.oregonstate.edu/fwcs/careers" media_library="Media Library">How to Find a Job</a>, then meet with FWCS advising.</p>
+    '#format': full_html
   actions:
     '#type': webform_actions
     '#title': 'Submit button(s)'
