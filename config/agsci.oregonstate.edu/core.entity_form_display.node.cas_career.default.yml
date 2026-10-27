@@ -63,6 +63,25 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_domain_access:
+    type: options_buttons
+    weight: 130
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_domain_all_affiliates:
+    type: boolean_checkbox
+    weight: 131
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_domain_source:
+    type: options_select
+    weight: 132
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_tax_cas_career_industry:
     type: entity_reference_autocomplete
     weight: 125
@@ -152,6 +171,3 @@ content:
     third_party_settings: {  }
 hidden:
   entitygroupfield: true
-  field_domain_access: true
-  field_domain_all_affiliates: true
-  field_domain_source: true
