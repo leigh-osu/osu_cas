@@ -9,7 +9,9 @@
  * Apply:              drush scr scripts-dev/cas_career_import.php -- apply
  *
  * Idempotent: nodes are matched by exact title; re-running only touches
- * nodes whose CSV fields changed. Body text is never overwritten.
+ * nodes whose CSV fields changed. Body text is never overwritten. Every
+ * cas_career node is added to the Department of Food Science and Technology
+ * group (needs the basic_group cas_career group config imported first).
  */
 
 use Drupal\field\Entity\FieldStorageConfig;
@@ -147,4 +149,32 @@ foreach ($data as $row) {
 }
 
 echo "created $created, updated $updated, unchanged $unchanged\n";
+
+// 3. Every cas_career node (imported or not) belongs to the Food Science group.
+$groups = \Drupal::entityTypeManager()->getStorage('group')->loadByProperties([
+  'type' => 'basic_group',
+  'label' => 'Department of Food Science and Technology',
+]);
+if (count($groups) !== 1) {
+  throw new \RuntimeException('Expected one Department of Food Science and Technology group, found ' . count($groups));
+}
+$group = reset($groups);
+if (!$group->getGroupType()->hasPlugin('group_node:cas_career')) {
+  throw new \RuntimeException('cas_career is not installed as basic_group content: import the group config first');
+}
+$grouped = 0;
+$all = $nodes->getQuery()->accessCheck(FALSE)->condition('type', 'cas_career')->execute();
+foreach ($nodes->loadMultiple($all) as $node) {
+  if ($group->getRelationshipsByEntity($node, 'group_node:cas_career')) {
+    continue;
+  }
+  $grouped++;
+  if ($apply) {
+    $group->addRelationship($node, 'group_node:cas_career');
+  }
+}
+echo "add to group {$group->id()} ({$group->label()}): $grouped\n";
+if (!$apply && $created) {
+  echo "  (plus the $created nodes this run would create)\n";
+}
 echo "cas_career nodes now: " . $db->query("SELECT COUNT(*) FROM {node_field_data} WHERE type = 'cas_career'")->fetchField() . "\n";
