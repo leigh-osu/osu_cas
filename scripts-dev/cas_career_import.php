@@ -11,7 +11,8 @@
  * Idempotent: nodes are matched by exact title; re-running only touches
  * nodes whose CSV fields changed. Body text is never overwritten. Every
  * cas_career node is added to the Department of Food Science and Technology
- * group (needs the basic_group cas_career group config imported first).
+ * group (needs the basic_group cas_career group config imported first), and
+ * that group's Content Settings get Career opportunity and its taxonomies.
  */
 
 use Drupal\field\Entity\FieldStorageConfig;
@@ -176,5 +177,30 @@ foreach ($nodes->loadMultiple($all) as $node) {
 echo "add to group {$group->id()} ({$group->label()}): $grouped\n";
 if (!$apply && $created) {
   echo "  (plus the $created nodes this run would create)\n";
+}
+
+// 4. The group's Content Settings offer Career opportunity and its taxonomies.
+// An empty list means "offer everything", so it is left alone: adding one
+// entry would narrow the group to just that.
+$settings = [
+  'field_group_content_types' => ['cas_career'],
+  'field_group_vocabularies' => ['cas_career_industry', 'cas_career_region', 'state'],
+];
+$settings_changed = FALSE;
+foreach ($settings as $field => $wanted) {
+  $current = array_column($group->get($field)->getValue(), 'target_id');
+  if (!$current) {
+    echo "content settings $field: empty (offers all), left alone\n";
+    continue;
+  }
+  $missing = array_values(array_diff($wanted, $current));
+  if ($missing) {
+    echo "content settings $field: add " . implode(', ', $missing) . "\n";
+    $group->set($field, array_merge($current, $missing));
+    $settings_changed = TRUE;
+  }
+}
+if ($settings_changed && $apply) {
+  $group->save();
 }
 echo "cas_career nodes now: " . $db->query("SELECT COUNT(*) FROM {node_field_data} WHERE type = 'cas_career'")->fetchField() . "\n";
