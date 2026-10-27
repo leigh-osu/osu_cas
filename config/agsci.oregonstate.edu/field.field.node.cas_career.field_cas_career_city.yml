@@ -9,7 +9,7 @@ id: node.cas_career.field_cas_career_city
 field_name: field_cas_career_city
 entity_type: node
 bundle: cas_career
-label: City
+label: 'Headquarters City'
 description: ''
 required: false
 translatable: false
