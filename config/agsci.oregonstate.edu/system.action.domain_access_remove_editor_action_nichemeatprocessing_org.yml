@@ -1,0 +1,15 @@
+uuid: 2b17421b-400d-4463-9475-3a411cedccb8
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.nichemeatprocessing_org
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_nichemeatprocessing_org
+label: 'Remove editors from the Niche Meat Processor Assistance Network domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - nichemeatprocessing_org

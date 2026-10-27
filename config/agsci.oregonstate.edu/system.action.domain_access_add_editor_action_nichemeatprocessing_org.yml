@@ -1,0 +1,15 @@
+uuid: 0780ffbb-0198-4129-9b79-960e1d80a5ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.nichemeatprocessing_org
+  module:
+    - domain_access
+id: domain_access_add_editor_action_nichemeatprocessing_org
+label: 'Add editors to the Niche Meat Processor Assistance Network domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - nichemeatprocessing_org

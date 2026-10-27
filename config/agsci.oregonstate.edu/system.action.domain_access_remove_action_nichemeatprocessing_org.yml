@@ -1,0 +1,15 @@
+uuid: 558e699d-696a-44d0-b1a1-1e758f5f8e9c
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.nichemeatprocessing_org
+  module:
+    - domain_access
+id: domain_access_remove_action_nichemeatprocessing_org
+label: 'Remove selected content from the Niche Meat Processor Assistance Network domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - nichemeatprocessing_org

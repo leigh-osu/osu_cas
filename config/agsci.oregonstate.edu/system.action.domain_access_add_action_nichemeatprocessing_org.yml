@@ -1,0 +1,15 @@
+uuid: 1f21f0b8-4a8f-4337-9b58-c475ec411f5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.nichemeatprocessing_org
+  module:
+    - domain_access
+id: domain_access_add_action_nichemeatprocessing_org
+label: 'Add selected content to the Niche Meat Processor Assistance Network domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - nichemeatprocessing_org
