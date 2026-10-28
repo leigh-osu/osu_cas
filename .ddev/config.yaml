@@ -12,7 +12,7 @@ database:
 use_dns_when_possible: true
 composer_version: "2"
 corepack_enable: false
-webimage_extra_packages: [php8.3-tidy]
+webimage_extra_packages: [php8.4-tidy]
 performance_mode: none
 # Symfony Console reads COLUMNS for terminal width. ddev drush runs without a
 # TTY, so width detection falls back to 80 and drush's table formatter wraps
