@@ -7,5 +7,4 @@ _core:
 id: '403'
 label: '403 access denied'
 tags:
-  robots: noindex
   canonical_url: ''
