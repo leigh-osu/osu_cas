@@ -1,0 +1,42 @@
+overridable_configurations:
+  -
+    name: system.site
+    domains:
+      - agbiotech_oregonstate_edu
+      - agsci_oregonstate_edu
+      - anrs_oregonstate_edu
+      - appliedecon_oregonstate_edu_
+      - bee_oregonstate_edu
+      - beecampus_oregonstate_edu
+      - bpp_oregonstate_edu
+      - campusarb_oregonstate_edu
+      - centerforsmallfarms_oregonstate_edu
+      - cropandsoil_oregonstate_edu
+      - emt_oregonstate_edu
+      - entomology_oregonstate_edu
+      - fic_oregonstate_edu
+      - foodsci_oregonstate_edu
+      - fw_oregonstate_edu
+      - gardenecology_oregonstate_edu
+      - honeybeelab_oregonstate_edu_
+      - horticulture_oregonstate_edu
+      - http_marineresearch_oregonstate_edu
+      - ichthyology_oregonstate_edu
+      - infews_org
+      - letitiacarson_oregonstate_edu
+      - nichemeatprocessing_org
+      - open_sensing_org
+      - osuseafoodlab_oregonstate_edu
+      - ourwillamette_oregonstate_edu
+      - owri_oregonstate_edu
+      - plantbreeding_oregonstate_edu_
+      - ruralstudies_oregonstate_edu
+      - seafood_oregonstate_edu
+      - smallfarms_oregonstate_edu
+      - soilwaterquality_oregonstate_edu
+      - spottedwing_org
+      - sungrant_oregonstate_edu
+      - support_roots_oregonstate_edu
+      - tradeoffs_oregonstate_edu
+disallowed_configurations: {  }
+
