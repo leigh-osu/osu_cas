@@ -39,4 +39,3 @@ overridable_configurations:
       - support_roots_oregonstate_edu
       - tradeoffs_oregonstate_edu
 disallowed_configurations: {  }
-
