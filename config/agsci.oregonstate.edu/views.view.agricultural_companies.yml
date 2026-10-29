@@ -33,7 +33,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Food Industry Careers'
+      title: 'Food Industry Directory'
       fields:
         title:
           id: title

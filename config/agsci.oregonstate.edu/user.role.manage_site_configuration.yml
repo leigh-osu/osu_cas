@@ -18,7 +18,6 @@ dependencies:
     - recaptcha
     - redirect
     - search
-    - shortcut
     - simple_popup_blocks
     - smart_date
     - system
@@ -49,7 +48,6 @@ permissions:
   - 'administer redirect settings'
   - 'administer redirects'
   - 'administer search'
-  - 'administer shortcuts'
   - 'administer simple_popup_blocks'
   - 'administer site configuration'
   - 'administer smart date formats'
@@ -58,8 +56,6 @@ permissions:
   - 'administer url aliases'
   - 'bypass honeypot protection'
   - 'create url aliases'
-  - 'customize shortcut links'
   - 'skip CAPTCHA'
-  - 'switch shortcut sets'
   - 'use advanced search'
   - 'view the administration theme'
