@@ -1,0 +1,14 @@
+uuid: e23bb6f0-6e7f-42f1-9e10-e5b07d97225d
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.100percentfish_oregonstate_edu
+  module:
+    - domain_source
+id: domain_source_set_action.100percentfish_oregonstate_edu
+label: 'Set content domain source value to the 100% Fish domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: 100percentfish_oregonstate_edu

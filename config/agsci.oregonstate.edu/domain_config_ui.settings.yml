@@ -38,4 +38,5 @@ overridable_configurations:
       - sungrant_oregonstate_edu
       - support_roots_oregonstate_edu
       - tradeoffs_oregonstate_edu
+      - 100percentfish_oregonstate_edu
 disallowed_configurations: {  }

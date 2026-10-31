@@ -1,0 +1,15 @@
+uuid: ae409c27-06c6-4cea-ad82-530dc8567a11
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.100percentfish_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_100percentfish_oregonstate_edu
+label: 'Remove selected content from the 100% Fish domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - 100percentfish_oregonstate_edu
