@@ -17,6 +17,7 @@
 #   grep -h '^hostname:' config/agsci.oregonstate.edu/domain.record.*.yml \
 #     | awk '{print "  - ddev."$2}' | sort
 additional_fqdns:
+  - ddev.100percentfish.oregonstate.edu
   - ddev.agbiotech.oregonstate.edu
   - ddev.agsci.oregonstate.edu
   - ddev.anrs.oregonstate.edu

@@ -21,6 +21,7 @@ $ah_env = $_ENV['AH_SITE_ENVIRONMENT'] ?? '';
 // records keep their production hostnames there and only dev/stage rewrite.
 if (in_array($ah_env, ['dev', 'stage'], TRUE)) {
   $osu_cas_domain_records = [
+  '100percentfish_oregonstate_edu' => '100percentfish.oregonstate.edu',
   'agbiotech_oregonstate_edu' => 'agbiotech.oregonstate.edu',
   'agsci_oregonstate_edu' => 'agsci.oregonstate.edu',
   'anrs_oregonstate_edu' => 'anrs.oregonstate.edu',
