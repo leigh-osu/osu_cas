@@ -1957,8 +1957,8 @@ display:
             group_items: {  }
           reduce_duplicates: true
           vid: niche_meat
-          type: textfield
-          hierarchy: false
+          type: select
+          hierarchy: true
           limit: true
           error_message: true
       filter_groups:

@@ -188,8 +188,11 @@ access:
     users: {  }
     permissions: {  }
   view_any:
-    roles: {  }
-    users: {  }
+    roles:
+      - content_authors
+      - group_content_author
+    users:
+      - 15131
     permissions: {  }
   update_any:
     roles: {  }
