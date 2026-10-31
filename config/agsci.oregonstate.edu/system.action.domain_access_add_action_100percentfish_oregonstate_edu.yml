@@ -1,0 +1,15 @@
+uuid: f783cedf-7a75-4d77-8c24-8140f57b3c56
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.100percentfish_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_100percentfish_oregonstate_edu
+label: 'Add selected content to the 100% Fish domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - 100percentfish_oregonstate_edu

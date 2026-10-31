@@ -1,0 +1,15 @@
+uuid: a0c92333-6de6-4677-adb9-746b2f4d4d70
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.100percentfish_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_100percentfish_oregonstate_edu
+label: 'Add editors to the 100% Fish domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - 100percentfish_oregonstate_edu

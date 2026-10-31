@@ -1,0 +1,12 @@
+uuid: cd1c3f82-aa17-466f-bb2a-54c64af5d640
+langcode: en
+status: true
+dependencies: {  }
+id: 100percentfish_oregonstate_edu
+domain_id: 486090
+hostname: 100percentfish.oregonstate.edu
+name: '100% Fish'
+scheme: https
+weight: 44
+is_default: false
+path_prefix: ''

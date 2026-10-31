@@ -167,7 +167,9 @@ access:
     permissions: {  }
   administer:
     roles: {  }
-    users: {  }
+    users:
+      - 36766
+      - 37
     permissions: {  }
   test:
     roles: {  }

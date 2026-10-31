@@ -3,6 +3,7 @@ _core:
 account: G-24GLZC9ZR6
 domain_mode: 2
 cross_domains: |-
+  100percentfish.oregonstate.edu
   agbiotech.oregonstate.edu
   agsci.oregonstate.edu
   anrs.oregonstate.edu
