@@ -13,6 +13,7 @@ $sites['osucasprod.prod.acquia-sites.com'] = 'agsci.oregonstate.edu';
 
 // Main URIs
 //CAS
+$sites['100percentfish.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['agbiotech.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['agsci.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['anrs.oregonstate.edu'] = 'agsci.oregonstate.edu';
@@ -58,6 +59,7 @@ $sites['panorama.anrs.oregonstate.edu'] = 'panorama.anrs.oregonstate.edu';
 
 
 // Dev URIs
+$sites['100percentfish.dev.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['agbiotech.dev.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['agsci.dev.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['anrs.dev.oregonstate.edu'] = 'agsci.oregonstate.edu';
@@ -99,6 +101,7 @@ $sites['support.dev.roots.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['tradeoffs.dev.oregonstate.edu'] = 'agsci.oregonstate.edu';
 
 // Stage URIs
+$sites['100percentfish.stage.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['agbiotech.stage.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['agsci.stage.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['anrs.stage.oregonstate.edu'] = 'agsci.oregonstate.edu';
@@ -141,6 +144,7 @@ $sites['tradeoffs.stage.oregonstate.edu'] = 'agsci.oregonstate.edu';
 
 // Prod URIs (pre-launch hostnames on the Acquia prod environment; the real
 // hostnames join at cutover)
+$sites['100percentfish.prod.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['agbiotech.prod.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['agsci.prod.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['anrs.prod.oregonstate.edu'] = 'agsci.oregonstate.edu';
