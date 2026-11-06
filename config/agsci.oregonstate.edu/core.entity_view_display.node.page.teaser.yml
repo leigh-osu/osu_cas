@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.page.field_page_banner_image
     - field.field.node.page.field_tax_cas_section
     - field.field.node.page.field_tax_department
+    - field.field.node.page.field_tax_niche_meat
     - field.field.node.page.field_tax_nursery_topics
     - field.field.node.page.field_tax_publication_type
     - field.field.node.page.field_tax_swd_topics
@@ -54,6 +55,7 @@ hidden:
   field_page_banner_image: true
   field_tax_cas_section: true
   field_tax_department: true
+  field_tax_niche_meat: true
   field_tax_nursery_topics: true
   field_tax_publication_type: true
   field_tax_swd_topics: true

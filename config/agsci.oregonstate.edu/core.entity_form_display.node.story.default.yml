@@ -71,6 +71,7 @@ third_party_settings:
         - field_tax_turf_topics
         - field_tax_veg_topics
         - field_tax_work_area
+        - field_niche_meat_topics
       label: 'Assign Topics'
       region: content
       parent_name: ''
@@ -149,14 +150,10 @@ content:
       use_details: true
     third_party_settings: {  }
   field_niche_meat_topics:
-    type: entity_reference_autocomplete
-    weight: 43
+    type: multiselect
+    weight: 36
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_osu_organizations:
     type: entity_reference_autocomplete

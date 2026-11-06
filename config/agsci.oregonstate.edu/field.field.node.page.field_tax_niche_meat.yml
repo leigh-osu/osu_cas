@@ -1,0 +1,29 @@
+uuid: 6d42d4b8-9c09-435e-bd23-8e1afc585e40
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tax_niche_meat
+    - node.type.page
+    - taxonomy.vocabulary.niche_meat
+id: node.page.field_tax_niche_meat
+field_name: field_tax_niche_meat
+entity_type: node
+bundle: page
+label: 'Niche Meat Topics'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:filter_existing_terms'
+  handler_settings:
+    target_bundles:
+      niche_meat: niche_meat
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
