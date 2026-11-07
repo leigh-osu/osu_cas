@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.page.field_page_banner_image
     - field.field.node.page.field_tax_cas_section
     - field.field.node.page.field_tax_department
+    - field.field.node.page.field_tax_niche_meat
     - field.field.node.page.field_tax_nursery_topics
     - field.field.node.page.field_tax_publication_type
     - field.field.node.page.field_tax_swd_topics
@@ -176,6 +177,22 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 3
             additional: {  }
+          9ee8fdc5-668f-40f1-8cca-378104a80d1c:
+            uuid: 9ee8fdc5-668f-40f1-8cca-378104a80d1c
+            region: blb_region_col_1
+            configuration:
+              id: 'field_block:node:page:field_tax_niche_meat'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }
@@ -230,6 +247,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 102
+    region: blb_region_col_1
+  field_tax_niche_meat:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
     region: blb_region_col_1
   links:
     settings: {  }

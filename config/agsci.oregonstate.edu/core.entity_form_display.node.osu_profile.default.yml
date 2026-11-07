@@ -11,9 +11,9 @@ dependencies:
     - field.field.node.osu_profile.field_profile_address
     - field.field.node.osu_profile.field_profile_alt_phone
     - field.field.node.osu_profile.field_profile_biography
-    - field.field.node.osu_profile.field_profile_credentials
     - field.field.node.osu_profile.field_profile_curriculum_vitae
     - field.field.node.osu_profile.field_profile_dm_awards
+    - field.field.node.osu_profile.field_profile_dm_onid
     - field.field.node.osu_profile.field_profile_dm_pubs
     - field.field.node.osu_profile.field_profile_email
     - field.field.node.osu_profile.field_profile_ext_pubs
@@ -33,7 +33,6 @@ dependencies:
     - field.field.node.osu_profile.field_profile_fac_presentations
     - field.field.node.osu_profile.field_profile_fac_service
     - field.field.node.osu_profile.field_profile_fac_specialty
-    - field.field.node.osu_profile.field_profile_fac_type
     - field.field.node.osu_profile.field_profile_fax
     - field.field.node.osu_profile.field_profile_first_name
     - field.field.node.osu_profile.field_profile_functional_group
@@ -295,14 +294,6 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  field_profile_credentials:
-    type: string_textfield
-    weight: 14
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_profile_curriculum_vitae:
     type: media_library_widget
     weight: 13
@@ -316,6 +307,14 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_profile_dm_onid:
+    type: string_textfield
+    weight: 30
+    region: content
+    settings:
+      size: 30
+      placeholder: ''
     third_party_settings: {  }
   field_profile_dm_pubs:
     type: boolean_checkbox
@@ -467,12 +466,6 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_profile_fac_type:
-    type: options_select
-    weight: 37
-    region: content
-    settings: {  }
     third_party_settings: {  }
   field_profile_fax:
     type: telephone_default

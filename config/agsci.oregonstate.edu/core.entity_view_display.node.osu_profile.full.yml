@@ -12,9 +12,9 @@ dependencies:
     - field.field.node.osu_profile.field_profile_address
     - field.field.node.osu_profile.field_profile_alt_phone
     - field.field.node.osu_profile.field_profile_biography
-    - field.field.node.osu_profile.field_profile_credentials
     - field.field.node.osu_profile.field_profile_curriculum_vitae
     - field.field.node.osu_profile.field_profile_dm_awards
+    - field.field.node.osu_profile.field_profile_dm_onid
     - field.field.node.osu_profile.field_profile_dm_pubs
     - field.field.node.osu_profile.field_profile_email
     - field.field.node.osu_profile.field_profile_ext_pubs
@@ -34,7 +34,6 @@ dependencies:
     - field.field.node.osu_profile.field_profile_fac_presentations
     - field.field.node.osu_profile.field_profile_fac_service
     - field.field.node.osu_profile.field_profile_fac_specialty
-    - field.field.node.osu_profile.field_profile_fac_type
     - field.field.node.osu_profile.field_profile_fax
     - field.field.node.osu_profile.field_profile_first_name
     - field.field.node.osu_profile.field_profile_functional_group
@@ -252,19 +251,12 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_profile_credentials:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 1
-    region: content
   field_profile_curriculum_vitae:
-    type: entity_reference_label
+    type: entity_reference_entity_view
     label: above
     settings:
-      link: true
+      view_mode: default
+      link: false
     third_party_settings: {  }
     weight: 2
     region: content
@@ -274,6 +266,8 @@ content:
     settings:
       dm_client_id: 2cfeb85a-dd60-5a8e-ac02-f152b05d8056
       dm_report_id: 0aa2716d-72f6-11e9-bd83-c358f7262fdf
+      account_field: field_profile_user
+      onid_field: field_profile_dm_onid
     third_party_settings: {  }
     weight: 2
     region: content
@@ -283,6 +277,8 @@ content:
     settings:
       dm_client_id: 2cfeb85a-dd60-5a8e-ac02-f152b05d8056
       dm_report_id: 0fd43295-7837-11e9-bd83-ad6b7dcb6872
+      account_field: field_profile_user
+      onid_field: field_profile_dm_onid
     third_party_settings: {  }
     weight: 6
     region: content
@@ -575,9 +571,9 @@ hidden:
   field_domain_all_affiliates: true
   field_domain_source: true
   field_group_private: true
+  field_profile_dm_onid: true
   field_profile_ext_pubs: true
   field_profile_fac_specialty: true
-  field_profile_fac_type: true
   field_profile_first_name: true
   field_profile_functional_group: true
   field_profile_headquarters: true

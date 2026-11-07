@@ -19718,16 +19718,16 @@
         },
         {
             "name": "leigh-osu/osu_cas_multisite",
-            "version": "v1.37.0",
+            "version": "v1.38.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leigh-osu/osu_cas_multisite.git",
-                "reference": "6bdbf7127facfdf29c7d0a3215fc937dffa3d82e"
+                "reference": "3b3a3de7a04c96707e498ed48565a789379ddee0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_cas_multisite/zipball/6bdbf7127facfdf29c7d0a3215fc937dffa3d82e",
-                "reference": "6bdbf7127facfdf29c7d0a3215fc937dffa3d82e",
+                "url": "https://api.github.com/repos/leigh-osu/osu_cas_multisite/zipball/3b3a3de7a04c96707e498ed48565a789379ddee0",
+                "reference": "3b3a3de7a04c96707e498ed48565a789379ddee0",
                 "shasum": ""
             },
             "require": {
@@ -19736,10 +19736,10 @@
             "type": "drupal-custom-module",
             "description": "Shared helpers and theming for the OSU CAS multisite platform; the osu_cas_multisite_degrees submodule carries the degree fact sheet rendering.",
             "support": {
-                "source": "https://github.com/leigh-osu/osu_cas_multisite/tree/v1.37.0",
+                "source": "https://github.com/leigh-osu/osu_cas_multisite/tree/v1.38.0",
                 "issues": "https://github.com/leigh-osu/osu_cas_multisite/issues"
             },
-            "time": "2026-10-21T00:03:09+00:00"
+            "time": "2026-11-07T00:28:44+00:00"
         },
         {
             "name": "leigh-osu/osu_cas_site_sync",
@@ -19771,16 +19771,16 @@
         },
         {
             "name": "leigh-osu/osu_digital_measures",
-            "version": "v1.0.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leigh-osu/osu_digital_measures.git",
-                "reference": "600213c2a86cba99153c77758b918cbe77193674"
+                "reference": "d1e993e4efdfdcc739a26772bd9826ac3a81d6c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_digital_measures/zipball/600213c2a86cba99153c77758b918cbe77193674",
-                "reference": "600213c2a86cba99153c77758b918cbe77193674",
+                "url": "https://api.github.com/repos/leigh-osu/osu_digital_measures/zipball/d1e993e4efdfdcc739a26772bd9826ac3a81d6c6",
+                "reference": "d1e993e4efdfdcc739a26772bd9826ac3a81d6c6",
                 "shasum": ""
             },
             "require": {
@@ -19793,10 +19793,10 @@
             ],
             "description": "Displays a Digital Measures report for a profile, keyed on the profile owner's ONID (CAS) account.",
             "support": {
-                "source": "https://github.com/leigh-osu/osu_digital_measures/tree/v1.0.0",
+                "source": "https://github.com/leigh-osu/osu_digital_measures/tree/v1.1.0",
                 "issues": "https://github.com/leigh-osu/osu_digital_measures/issues"
             },
-            "time": "2026-05-29T20:52:38+00:00"
+            "time": "2026-11-07T00:29:18+00:00"
         },
         {
             "name": "leigh-osu/osu_endophyte",

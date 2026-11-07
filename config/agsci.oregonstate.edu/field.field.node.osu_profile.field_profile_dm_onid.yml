@@ -1,0 +1,19 @@
+uuid: 387b8e2c-e0a5-4d17-9ed2-7d2122ad7961
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_dm_onid
+    - node.type.osu_profile
+id: node.osu_profile.field_profile_dm_onid
+field_name: field_profile_dm_onid
+entity_type: node
+bundle: osu_profile
+label: 'Digital Measures ONID account'
+description: 'Only used for the Digital Measures reports when this profile has no OSU user account. Leave blank otherwise.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

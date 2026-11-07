@@ -1870,6 +1870,7 @@ display:
           plugin_id: bundle
           operator: in
           value:
+            page: page
             story: story
             video: video
           group: 1
