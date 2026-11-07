@@ -11,9 +11,9 @@ dependencies:
     - field.field.node.osu_profile.field_profile_address
     - field.field.node.osu_profile.field_profile_alt_phone
     - field.field.node.osu_profile.field_profile_biography
-    - field.field.node.osu_profile.field_profile_credentials
     - field.field.node.osu_profile.field_profile_curriculum_vitae
     - field.field.node.osu_profile.field_profile_dm_awards
+    - field.field.node.osu_profile.field_profile_dm_onid
     - field.field.node.osu_profile.field_profile_dm_pubs
     - field.field.node.osu_profile.field_profile_email
     - field.field.node.osu_profile.field_profile_ext_pubs
@@ -33,7 +33,6 @@ dependencies:
     - field.field.node.osu_profile.field_profile_fac_presentations
     - field.field.node.osu_profile.field_profile_fac_service
     - field.field.node.osu_profile.field_profile_fac_specialty
-    - field.field.node.osu_profile.field_profile_fac_type
     - field.field.node.osu_profile.field_profile_fax
     - field.field.node.osu_profile.field_profile_first_name
     - field.field.node.osu_profile.field_profile_functional_group
@@ -1134,6 +1133,44 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 2
             additional: {  }
+          0fb2892b-e489-4051-b28f-ae9380e5ed0e:
+            uuid: 0fb2892b-e489-4051-b28f-ae9380e5ed0e
+            region: content
+            configuration:
+              id: 'field_block:node:osu_profile:field_profile_dm_pubs'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: osu_digital_measures_report
+                label: hidden
+                settings:
+                  dm_client_id: 2cfeb85a-dd60-5a8e-ac02-f152b05d8056
+                  dm_report_id: 0fd43295-7837-11e9-bd83-ad6b7dcb6872
+                  account_field: field_profile_user
+                  onid_field: field_profile_dm_onid
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          e3cd06b2-a00c-4497-85d1-a3dfd5454174:
+            uuid: e3cd06b2-a00c-4497-85d1-a3dfd5454174
+            region: content
+            configuration:
+              id: 'field_block:node:osu_profile:field_profile_dm_awards'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: osu_digital_measures_report
+                label: hidden
+                settings:
+                  dm_client_id: 2cfeb85a-dd60-5a8e-ac02-f152b05d8056
+                  dm_report_id: 0aa2716d-72f6-11e9-bd83-c358f7262fdf
+                  account_field: field_profile_user
+                  onid_field: field_profile_dm_onid
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
         third_party_settings: {  }
       -
         layout_id: 'bootstrap_layout_builder:blb_col_1'
@@ -1427,6 +1464,8 @@ content:
     settings:
       dm_client_id: 2cfeb85a-dd60-5a8e-ac02-f152b05d8056
       dm_report_id: 0aa2716d-72f6-11e9-bd83-c358f7262fdf
+      account_field: field_profile_user
+      onid_field: field_profile_dm_onid
     third_party_settings: {  }
     weight: 129
     region: content
@@ -1436,6 +1475,8 @@ content:
     settings:
       dm_client_id: 2cfeb85a-dd60-5a8e-ac02-f152b05d8056
       dm_report_id: 0fd43295-7837-11e9-bd83-ad6b7dcb6872
+      account_field: field_profile_user
+      onid_field: field_profile_dm_onid
     third_party_settings: {  }
     weight: 128
     region: content
@@ -1578,13 +1619,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 136
-    region: content
-  field_profile_fac_type:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 137
     region: content
   field_profile_fax:
     type: telephone_link
@@ -1793,8 +1827,8 @@ hidden:
   field_domain_all_affiliates: true
   field_domain_source: true
   field_group_private: true
-  field_profile_credentials: true
   field_profile_curriculum_vitae: true
+  field_profile_dm_onid: true
   field_profile_subgroups: true
   field_profile_user: true
   langcode: true
