@@ -49,6 +49,7 @@ permissions:
   - 'update media'
   - 'use admin toolbar search'
   - 'use text format basic_html'
+  - 'use text format profile_html'
   - 'view media'
   - 'view own unpublished media'
   - 'view published sitewide alert entities'
