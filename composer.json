@@ -771,7 +771,7 @@
         "drupal/metatag": "^2",
         "drupal/migrate_plus": "^6.0",
         "drupal/migrate_upgrade": "^4.0",
-        "drupal/mimemail": "^1.0@alpha",
+        "drupal/mimemail": "^2.0.4",
         "drupal/moderation_sidebar": "^1.7",
         "drupal/module_filter": "^5.0",
         "drupal/multiselect": "^2.0@beta",
@@ -949,7 +949,8 @@
         "phpspec/prophecy-phpunit": "^2"
     },
     "conflict": {
-        "drupal/drupal": "*"
+        "drupal/drupal": "*",
+        "consolidation/robo": ">=5.2.0"
     },
     "autoload": {
         "classmap": [
