@@ -1816,7 +1816,7 @@ display:
           exposed: true
           expose:
             operator_id: field_tax_faculty_expertise_target_id_op
-            label: 'Research Themes'
+            label: 'Faculty Expertise'
             description: ''
             use_operator: false
             operator: field_tax_faculty_expertise_target_id_op

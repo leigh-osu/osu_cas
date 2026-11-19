@@ -129,7 +129,6 @@ third_party_settings:
         required_fields: true
     group_prof_accomp:
       children:
-        - field_profile_credentials
         - field_profile_curriculum_vitae
         - field_profile_fac_education
         - field_profile_fac_employment
@@ -225,7 +224,7 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     weight: 1
     region: content
