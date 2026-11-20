@@ -10,7 +10,7 @@ dependencies:
     - manzanita
 id: lp_facet_bl_leaf_persistence
 theme: manzanita
-region: full_top
+region: sidebar
 weight: -27
 provider: null
 plugin: 'facet_block:bl_leaf_persistence'

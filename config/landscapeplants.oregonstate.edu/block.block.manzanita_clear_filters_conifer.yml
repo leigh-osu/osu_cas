@@ -1,0 +1,30 @@
+uuid: d36f19aa-4dda-446b-8f94-f67b510808fd
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:94ca5030-1039-44e9-b17e-3d2c2e3b726a'
+  module:
+    - block_content
+    - system
+  theme:
+    - manzanita
+id: manzanita_clear_filters_conifer
+theme: manzanita
+region: sidebar
+weight: -60
+provider: null
+plugin: 'block_content:94ca5030-1039-44e9-b17e-3d2c2e3b726a'
+settings:
+  id: 'block_content:94ca5030-1039-44e9-b17e-3d2c2e3b726a'
+  label: 'Conifer clear filters'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /search-conifer

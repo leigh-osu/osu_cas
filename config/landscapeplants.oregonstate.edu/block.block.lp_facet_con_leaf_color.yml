@@ -10,7 +10,7 @@ dependencies:
     - manzanita
 id: lp_facet_con_leaf_color
 theme: manzanita
-region: full_top
+region: sidebar
 weight: -25
 provider: null
 plugin: 'facet_block:con_leaf_color'

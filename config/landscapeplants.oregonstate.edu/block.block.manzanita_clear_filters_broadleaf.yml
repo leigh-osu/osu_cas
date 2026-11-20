@@ -1,0 +1,30 @@
+uuid: 6759e04a-081a-4c87-8597-c36636bd3733
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:59a40995-b84d-4394-a687-06c02968f2e9'
+  module:
+    - block_content
+    - system
+  theme:
+    - manzanita
+id: manzanita_clear_filters_broadleaf
+theme: manzanita
+region: sidebar
+weight: -60
+provider: null
+plugin: 'block_content:59a40995-b84d-4394-a687-06c02968f2e9'
+settings:
+  id: 'block_content:59a40995-b84d-4394-a687-06c02968f2e9'
+  label: 'Broadleaf clear filters'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /search-broadleaf

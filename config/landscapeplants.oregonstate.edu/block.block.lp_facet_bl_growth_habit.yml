@@ -10,7 +10,7 @@ dependencies:
     - manzanita
 id: lp_facet_bl_growth_habit
 theme: manzanita
-region: full_top
+region: sidebar
 weight: -29
 provider: null
 plugin: 'facet_block:bl_growth_habit'
