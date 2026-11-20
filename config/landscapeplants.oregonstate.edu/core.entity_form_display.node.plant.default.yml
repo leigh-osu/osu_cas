@@ -68,118 +68,74 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_plant_bl_flower_appearance:
-    type: entity_reference_autocomplete
-    weight: 149
+    type: options_buttons
+    weight: 22
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_plant_bl_flower_color:
-    type: entity_reference_autocomplete
-    weight: 150
+    type: options_buttons
+    weight: 23
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_plant_bl_fruit_color:
-    type: entity_reference_autocomplete
-    weight: 151
+    type: options_buttons
+    weight: 25
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_plant_bl_fruit_shape:
-    type: entity_reference_autocomplete
-    weight: 152
+    type: options_buttons
+    weight: 24
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_plant_bl_growth_habit:
-    type: entity_reference_autocomplete
-    weight: 153
+    type: options_buttons
+    weight: 14
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_plant_bl_leaf_attachment:
-    type: entity_reference_autocomplete
-    weight: 154
+    type: options_buttons
+    weight: 17
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_plant_bl_leaf_chars:
-    type: entity_reference_autocomplete
-    weight: 155
+    type: options_buttons
+    weight: 21
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_plant_bl_leaf_color:
-    type: entity_reference_autocomplete
-    weight: 156
+    type: options_buttons
+    weight: 18
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_plant_bl_leaf_persistence:
-    type: entity_reference_autocomplete
-    weight: 157
+    type: options_buttons
+    weight: 16
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_plant_bl_leaf_types:
-    type: entity_reference_autocomplete
-    weight: 158
+    type: options_buttons
+    weight: 20
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_plant_bl_stems:
-    type: entity_reference_autocomplete
-    weight: 159
+    type: options_buttons
+    weight: 15
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_plant_common_name:
     type: string_textfield
-    weight: 133
+    weight: 13
     region: content
     settings:
       size: 60
@@ -187,85 +143,57 @@ content:
     third_party_settings: {  }
   field_plant_common_name_parent:
     type: string_textfield
-    weight: 134
+    weight: 16
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   field_plant_con_fruit:
-    type: entity_reference_autocomplete
-    weight: 160
+    type: options_buttons
+    weight: 32
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_plant_con_growth_form:
-    type: entity_reference_autocomplete
-    weight: 161
+    type: options_buttons
+    weight: 27
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_plant_con_growth_habit:
-    type: entity_reference_autocomplete
-    weight: 162
+    type: options_buttons
+    weight: 26
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_plant_con_leaf_color:
-    type: entity_reference_autocomplete
-    weight: 163
+    type: options_buttons
+    weight: 30
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_plant_con_leaf_persistence:
-    type: entity_reference_autocomplete
-    weight: 164
+    type: options_buttons
+    weight: 29
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_plant_con_leaf_shape_group:
-    type: entity_reference_autocomplete
-    weight: 165
+    type: options_buttons
+    weight: 31
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_plant_con_stems:
-    type: entity_reference_autocomplete
-    weight: 166
+    type: options_buttons
+    weight: 28
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_plant_cultivar:
     type: string_textfield
-    weight: 127
+    weight: 7
     region: content
     settings:
       size: 60
@@ -273,7 +201,7 @@ content:
     third_party_settings: {  }
   field_plant_description:
     type: text_textarea
-    weight: 140
+    weight: 3
     region: content
     settings:
       rows: 5
@@ -281,7 +209,7 @@ content:
     third_party_settings: {  }
   field_plant_details:
     type: text_textarea
-    weight: 141
+    weight: 7
     region: content
     settings:
       rows: 5
@@ -289,7 +217,7 @@ content:
     third_party_settings: {  }
   field_plant_family:
     type: string_textfield
-    weight: 131
+    weight: 2
     region: content
     settings:
       size: 60
@@ -297,7 +225,7 @@ content:
     third_party_settings: {  }
   field_plant_features:
     type: entity_reference_autocomplete
-    weight: 148
+    weight: 11
     region: content
     settings:
       match_operator: CONTAINS
@@ -307,23 +235,15 @@ content:
     third_party_settings: {  }
   field_plant_form:
     type: string_textfield
-    weight: 125
+    weight: 11
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_plant_formatted_name:
-    type: text_textarea
-    weight: 136
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
   field_plant_genus:
     type: entity_reference_autocomplete
-    weight: 121
+    weight: 3
     region: content
     settings:
       match_operator: CONTAINS
@@ -332,15 +252,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_plant_hybrid:
-    type: boolean_checkbox
-    weight: 128
+    type: options_buttons
+    weight: 5
     region: content
-    settings:
-      display_label: true
+    settings: {  }
     third_party_settings: {  }
   field_plant_images:
     type: image_image
-    weight: 147
+    weight: 4
     region: content
     settings:
       progress_indicator: throbber
@@ -348,22 +267,21 @@ content:
     third_party_settings: {  }
   field_plant_latin_name:
     type: string_textfield
-    weight: 130
+    weight: 6
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   field_plant_native:
-    type: boolean_checkbox
-    weight: 139
+    type: options_buttons
+    weight: 12
     region: content
-    settings:
-      display_label: true
+    settings: {  }
     third_party_settings: {  }
   field_plant_original_info:
     type: text_textarea
-    weight: 143
+    weight: 5
     region: content
     settings:
       rows: 5
@@ -371,7 +289,7 @@ content:
     third_party_settings: {  }
   field_plant_original_text:
     type: text_textarea
-    weight: 142
+    weight: 6
     region: content
     settings:
       rows: 5
@@ -379,7 +297,7 @@ content:
     third_party_settings: {  }
   field_plant_pronunciation:
     type: string_textfield
-    weight: 132
+    weight: 14
     region: content
     settings:
       size: 60
@@ -387,29 +305,21 @@ content:
     third_party_settings: {  }
   field_plant_review_note:
     type: text_textarea
-    weight: 145
+    weight: 20
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_plant_review_state:
-    type: options_select
-    weight: 144
+    type: options_buttons
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_plant_sort_name:
-    type: string_textfield
-    weight: 137
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_plant_specific_epithet:
     type: string_textfield
-    weight: 122
+    weight: 4
     region: content
     settings:
       size: 60
@@ -417,27 +327,27 @@ content:
     third_party_settings: {  }
   field_plant_subspecies:
     type: string_textfield
-    weight: 124
+    weight: 10
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   field_plant_trademark:
-    type: options_select
-    weight: 129
+    type: options_buttons
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   field_plant_type:
-    type: options_select
-    weight: 138
+    type: options_buttons
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
   field_plant_unranked:
     type: string_textfield
-    weight: 126
+    weight: 12
     region: content
     settings:
       size: 60
@@ -445,7 +355,7 @@ content:
     third_party_settings: {  }
   field_plant_urlref:
     type: link_default
-    weight: 146
+    weight: 12
     region: content
     settings:
       placeholder_url: ''
@@ -453,7 +363,7 @@ content:
     third_party_settings: {  }
   field_plant_variety:
     type: string_textfield
-    weight: 123
+    weight: 9
     region: content
     settings:
       size: 60
@@ -461,7 +371,7 @@ content:
     third_party_settings: {  }
   field_synonyms:
     type: string_textfield
-    weight: 135
+    weight: 15
     region: content
     settings:
       size: 60
@@ -496,7 +406,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
@@ -517,4 +427,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_plant_formatted_name: true
+  field_plant_sort_name: true

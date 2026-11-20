@@ -1,0 +1,53 @@
+uuid: 70a9b34a-359e-48f8-ae08-06245d28e5fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.term_genus.field_plant_common_name
+    - taxonomy.vocabulary.term_genus
+  module:
+    - path
+    - text
+id: taxonomy_term.term_genus.default
+targetEntityType: taxonomy_term
+bundle: term_genus
+mode: default
+content:
+  description:
+    type: text_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_plant_common_name:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 100
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden: {  }

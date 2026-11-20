@@ -10,7 +10,7 @@ dependencies:
     - manzanita
 id: lp_facet_con_stems
 theme: manzanita
-region: full_top
+region: sidebar
 weight: -27
 provider: null
 plugin: 'facet_block:con_stems'

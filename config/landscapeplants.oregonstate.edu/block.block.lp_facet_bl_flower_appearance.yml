@@ -10,7 +10,7 @@ dependencies:
     - manzanita
 id: lp_facet_bl_flower_appearance
 theme: manzanita
-region: full_top
+region: sidebar
 weight: -22
 provider: null
 plugin: 'facet_block:bl_flower_appearance'

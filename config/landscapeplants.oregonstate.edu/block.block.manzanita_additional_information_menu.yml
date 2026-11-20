@@ -1,0 +1,25 @@
+uuid: f6f0bcbd-5c4c-4459-a984-565354cbe1f1
+langcode: en
+status: true
+dependencies:
+  module:
+    - osu_landscapeplants
+    - system
+  theme:
+    - manzanita
+id: manzanita_additional_information_menu
+theme: manzanita
+region: content
+weight: 10
+provider: null
+plugin: osu_landscapeplants_section_menu
+settings:
+  id: osu_landscapeplants_section_menu
+  label: 'Additional Information menu'
+  label_display: '0'
+  provider: osu_landscapeplants
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /node/2164

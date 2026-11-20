@@ -21,7 +21,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Glossary
+      title: 'Glossary of Some Technical Terms'
       fields:
         name:
           id: name
@@ -120,7 +120,7 @@ display:
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
+            strip_tags: true
             trim: false
             preserve_tags: ''
             html: false
@@ -210,8 +210,10 @@ display:
         type: fields
         options:
           default_field_elements: true
-          inline: {  }
-          separator: ''
+          inline:
+            name: name
+            description__value: description__value
+          separator: ' - '
           hide_empty: false
       query:
         type: views_query

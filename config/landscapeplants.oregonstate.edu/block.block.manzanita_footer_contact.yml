@@ -1,0 +1,25 @@
+uuid: dc8389bb-0b03-4fe4-b576-7edb10b55043
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:a557c5e9-2a19-4208-a35d-83118788941f'
+  module:
+    - block_content
+  theme:
+    - manzanita
+id: manzanita_footer_contact
+theme: manzanita
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:a557c5e9-2a19-4208-a35d-83118788941f'
+settings:
+  id: 'block_content:a557c5e9-2a19-4208-a35d-83118788941f'
+  label: 'Contact Info'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

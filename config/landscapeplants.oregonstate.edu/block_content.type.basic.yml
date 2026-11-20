@@ -1,0 +1,8 @@
+uuid: 81ba9548-7d61-4dec-a404-f01b2a903d4f
+langcode: en
+status: true
+dependencies: {  }
+id: basic
+label: 'Basic block'
+revision: false
+description: 'A basic block contains a title and a body.'
