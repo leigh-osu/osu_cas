@@ -53,7 +53,6 @@ dependencies:
     - node.type.plant
   module:
     - image
-    - link
     - path
     - text
 id: node.plant.default
@@ -223,16 +222,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_plant_features:
-    type: entity_reference_autocomplete
-    weight: 11
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_plant_form:
     type: string_textfield
     weight: 11
@@ -353,14 +342,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_plant_urlref:
-    type: link_default
-    weight: 12
-    region: content
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
   field_plant_variety:
     type: string_textfield
     weight: 9
@@ -428,5 +409,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_plant_features: true
   field_plant_formatted_name: true
   field_plant_sort_name: true
+  field_plant_urlref: true
