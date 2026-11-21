@@ -35,7 +35,6 @@ $sites['horticulture.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['marineresearch.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['ichthyology.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['infews.org'] = 'agsci.oregonstate.edu';
-$sites['landscapeplants.oregonstate.edu'] = 'landscapeplants.oregonstate.edu';
 $sites['letitiacarson.oregonstate.edu'] = 'agsci.oregonstate.edu';
 // MMI migration (branch mmi-migration). Also serves ddev.mmi.oregonstate.edu
 // locally via core's leading-fragment fallback.
@@ -57,6 +56,7 @@ $sites['tradeoffs.oregonstate.edu'] = 'agsci.oregonstate.edu';
 //Stand alone sites
 $sites['endophyte.emt.oregonstate.edu'] = 'endophyte.emt.oregonstate.edu';
 $sites['panorama.anrs.oregonstate.edu'] = 'panorama.anrs.oregonstate.edu';
+$sites['landscapeplants.oregonstate.edu'] = 'landscapeplants.oregonstate.edu';
 
 
 // Dev URIs
@@ -74,6 +74,7 @@ $sites['cropandsoil.dev.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['emt.dev.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['endophyte.dev.oregonstate.edu'] = 'endophyte.emt.oregonstate.edu';
 $sites['panorama.dev.oregonstate.edu'] = 'panorama.anrs.oregonstate.edu';
+$sites['landscapeplants.dev.oregonstate.edu'] = 'landscapeplants.oregonstate.edu';
 $sites['entomology.dev.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['fic.dev.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['foodsci.dev.oregonstate.edu'] = 'agsci.oregonstate.edu';
@@ -84,7 +85,6 @@ $sites['horticulture.dev.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['marineresearch.dev.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['ichthyology.dev.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['dev.infews.org'] = 'agsci.oregonstate.edu';
-$sites['landscapeplants.dev.oregonstate.edu'] = 'landscapeplants.oregonstate.edu';
 $sites['letitiacarson.dev.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['mmi.dev.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['dev.nichemeatprocessing.org'] = 'agsci.oregonstate.edu';
@@ -117,6 +117,7 @@ $sites['cropandsoil.stage.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['emt.stage.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['endophyte.stage.oregonstate.edu'] = 'endophyte.emt.oregonstate.edu';
 $sites['panorama.stage.oregonstate.edu'] = 'panorama.anrs.oregonstate.edu';
+$sites['landscapeplants.stage.oregonstate.edu'] = 'landscapeplants.oregonstate.edu';
 $sites['entomology.stage.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['fic.stage.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['foodsci.stage.oregonstate.edu'] = 'agsci.oregonstate.edu';
@@ -127,7 +128,6 @@ $sites['horticulture.stage.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['marineresearch.stage.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['ichthyology.stage.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['stage.infews.org'] = 'agsci.oregonstate.edu';
-$sites['landscapeplants.stage.oregonstate.edu'] = 'landscapeplants.oregonstate.edu';
 $sites['letitiacarson.stage.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['mmi.stage.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['stage.nichemeatprocessing.org'] = 'agsci.oregonstate.edu';
@@ -161,6 +161,7 @@ $sites['cropandsoil.prod.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['emt.prod.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['endophyte.prod.oregonstate.edu'] = 'endophyte.emt.oregonstate.edu';
 $sites['panorama.prod.oregonstate.edu'] = 'panorama.anrs.oregonstate.edu';
+$sites['landscapeplants.prod.oregonstate.edu'] = 'landscapeplants.oregonstate.edu';
 $sites['entomology.prod.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['fic.prod.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['foodsci.prod.oregonstate.edu'] = 'agsci.oregonstate.edu';
@@ -169,7 +170,6 @@ $sites['gardenecology.prod.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['honeybeelab.prod.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['horticulture.prod.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['ichthyology.prod.oregonstate.edu'] = 'agsci.oregonstate.edu';
-$sites['landscapeplants.prod.oregonstate.edu'] = 'landscapeplants.oregonstate.edu';
 $sites['letitiacarson.prod.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['marineresearch.prod.oregonstate.edu'] = 'agsci.oregonstate.edu';
 $sites['osuseafoodlab.prod.oregonstate.edu'] = 'agsci.oregonstate.edu';
