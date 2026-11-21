@@ -1,9 +1,45 @@
 uuid: 3eb0e634-36e6-4479-8f39-d237cd9d6602
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.filtered_html
+    - filter.format.full_html
+    - node.type.page
+    - node.type.plant
+  module:
+    - filter
+    - node
+    - path
+    - system
+    - taxonomy
+    - toolbar
 id: editor
 label: editor
 weight: 3
 is_admin: null
-permissions: {  }
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'administer menu'
+  - 'administer taxonomy'
+  - 'create page content'
+  - 'create plant content'
+  - 'create url aliases'
+  - 'delete all revisions'
+  - 'delete any page content'
+  - 'delete any plant content'
+  - 'delete own page content'
+  - 'delete own plant content'
+  - 'edit any page content'
+  - 'edit any plant content'
+  - 'edit own page content'
+  - 'edit own plant content'
+  - 'revert all revisions'
+  - 'select account cancellation method'
+  - 'use text format filtered_html'
+  - 'use text format full_html'
+  - 'view all revisions'
+  - 'view the administration theme'
