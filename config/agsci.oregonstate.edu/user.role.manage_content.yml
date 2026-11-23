@@ -34,6 +34,7 @@ dependencies:
     - media
     - media_bulk_upload
     - node
+    - osu_cas_site_sync
     - path
     - redirect
     - section_library
@@ -138,6 +139,7 @@ permissions:
   - 'update any media'
   - 'update media'
   - 'use bulk_image bulk upload form'
+  - 'use osu cas site sync'
   - 'use text format full_html'
   - 'use views bulk edit'
   - 'view all media revisions'
