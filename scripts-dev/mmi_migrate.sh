@@ -574,6 +574,9 @@ section_11() {
   # write to scripts-dev/*.csv; the agsci rows already exist in the freeze.
   drush scr scripts-dev/split_shared_inline_blocks.php apply || exit 1
   drush scr scripts-dev/backfill_inline_block_usage.php apply || exit 1
+  # Pasted Office <style> boilerplate in a block body recolours every link
+  # on its page (blue-whale-skeleton); strip it.
+  drush scr scripts-dev/mmi_strip_pasted_styles.php apply || exit 1
   drush php:eval '
     $db = \Drupal::database();
     $missing = $db->query("SELECT COUNT(*) FROM {block_content_field_data} b LEFT JOIN {inline_block_usage} u ON u.block_content_id = b.id WHERE b.reusable = 0 AND u.block_content_id IS NULL AND b.info LIKE :i", [":i" => "Migrated mmi d7 paragraph%"])->fetchField();
