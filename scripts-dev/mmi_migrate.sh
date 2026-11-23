@@ -45,7 +45,7 @@
 #   7  paragraphs -> Layout Builder, then page + book (TODO -- step 4)
 #   8  groups, memberships, group + book menus        -> snapshot mmi-groups
 #   9  aliases + redirects (nid + group id resolution) -> snapshot mmi-paths
-#  10  polish: stories, publications, media text, prunes  -> snapshot mmi-polish
+#  10  polish: stories, media text, prunes  -> snapshot mmi-polish
 #      TODO: must end with the inline_block_usage backfill (see section_10 note)
 #  11  group views placed into layout placeholders        -> snapshot mmi-views
 
@@ -196,8 +196,8 @@ section_3() {
     drush cim --partial --source=/var/www/html/docroot/modules/custom/osu_migrations_mmi/config/install -y || exit 1
   else
     # Fresh freeze: the prod DB predates the branch's config. Import the full
-    # site export first so the migration targets exist (research_project
-    # content type, its field_res_proj_* fields, group wiring), then enable
+    # site export first so the migration targets exist (mmi_research_project
+    # content type, its field_mmi_res_proj_* fields, group wiring), then enable
     # the migration module on top.
     drush cim -y || exit 1
     drush en -y osu_migrations_mmi || exit 1
@@ -314,14 +314,6 @@ section_6() {
 
   guard_enter
 
-  # Biblio dictionaries: shared vocabularies, so name-matched contributors
-  # and keywords adopt the live terms (ROLLBACK_PRESERVE) before the imports
-  # create the rest.
-  echo "--- biblio author/keyword terms (pre-seed shared-vocabulary adoptions)"
-  drush scr scripts-dev/mmi_preseed_biblio_terms.php || exit 1
-  drush migrate:import mmi_biblio_authors || exit 1
-  drush migrate:import mmi_biblio_keywords || exit 1
-
   # Webform config entities before the nodes that attach them.
   echo "--- webforms"
   drush migrate:import mmi_webform || exit 1
@@ -329,7 +321,7 @@ section_6() {
   # Node migrations. page and book are NOT here: their layouts assemble from
   # the paragraph migrations, so they follow section 7.
   echo "--- nodes"
-  for m in mmi_biblio mmi_news mmi_feature_story mmi_image_album mmi_video \
+  for m in mmi_news mmi_feature_story mmi_image_album mmi_video \
            mmi_feed mmi_webform_node mmi_research_project; do
     drush migrate:import "${m}" || exit 1
   done
@@ -345,12 +337,15 @@ section_6() {
   drush php:eval '
     $db = \Drupal::database();
     $bad = 0;
-    foreach (["mmi_biblio","mmi_news","mmi_feature_story","mmi_image_album","mmi_video","mmi_feed","mmi_webform_node","mmi_research_project","mmi_webform","mmi_webform_submissions"] as $m) {
+    foreach (["mmi_news","mmi_feature_story","mmi_image_album","mmi_video","mmi_feed","mmi_webform_node","mmi_research_project","mmi_webform","mmi_webform_submissions"] as $m) {
       $n = $db->query("SELECT COUNT(*) FROM {migrate_map_" . $m . "} WHERE destid1 IS NULL")->fetchField();
       if ($n) { printf("%s: %d unresolved rows\n", $m, $n); $bad = 1; }
     }
-    $low = $db->query("SELECT COUNT(*) FROM {migrate_map_mmi_biblio} WHERE destid1 < 400000")->fetchField();
-    if ($low) { printf("FATAL: %d biblio nodes below the +400000 offset\n", $low); $bad = 1; }
+    $low = $db->query("SELECT COUNT(*) FROM {migrate_map_mmi_news} WHERE destid1 < 400000")->fetchField();
+    if ($low) { printf("FATAL: %d news nodes below the +400000 offset\n", $low); $bad = 1; }
+    $types = array_keys(\Drupal\node\Entity\NodeType::loadMultiple());
+    $stray = $db->query("SELECT type, COUNT(*) c FROM {node} WHERE nid >= 400000 AND type NOT IN (:t[]) GROUP BY type", [":t[]" => $types])->fetchAllKeyed();
+    foreach ($stray as $t => $c) { printf("FATAL: %d MMI nodes carry the unknown node type %s\n", $c, $t); $bad = 1; }
     if ($bad) { exit(1); }
     print "all mmi node/support maps fully resolved, offset intact\n";
   ' || exit 1
@@ -430,7 +425,7 @@ section_9() {
   snapshot_save mmi-paths
 }
 section_10() {
-  echo "=== Section 10: polish -- stories, publications, media text, prunes ==="
+  echo "=== Section 10: polish -- stories, media text, prunes ==="
   guard_enter
 
   # External-story treatment (rebuild parity: fix_external_stories.php).
@@ -439,10 +434,6 @@ section_10() {
   # pass. Needs sections 6 (stories) and 9 (aliases + redirects). Probes
   # live D7 mmi for unresolved targets, so it wants network access.
   drush scr scripts-dev/mmi_fix_external_stories.php || exit 1
-
-  # "My Publications" on profiles: biblio_contributor_data.drupal_uid ->
-  # field_pub_osu_profile (rebuild parity: backfill_publication_profiles).
-  drush scr scripts-dev/mmi_backfill_publication_profiles.php || exit 1
 
   # Maximise D7 image text on MMI media, then seed captions from the result
   # (rebuild parity: cas_media_alt_backfill + cas_media_caption_seed; both
@@ -470,9 +461,9 @@ section_10() {
     $red = $db->query("SELECT COUNT(*) FROM {redirect} r JOIN {node__field_osu_story_external_url} e ON r.redirect_source__path = CONCAT(:n, e.entity_id) WHERE e.entity_id >= 400000", [":n" => "node/"])->fetchField();
     printf("external stories: %d, with redirect treatment: %d\n", $ext, $red);
     if ($red < $ext) { printf("WARNING: %d external stories without redirects\n", $ext - $red); exit(1); }
-    $pubs = $db->query("SELECT COUNT(DISTINCT entity_id) FROM {node__field_pub_osu_profile} WHERE entity_id >= 400000")->fetchField();
-    printf("publications linked to profiles: %d\n", $pubs);
-    if (!$pubs) { exit(1); }
+    $pubs = $db->query("SELECT COUNT(*) FROM {node} WHERE type = :t AND nid >= 400000", [":t" => "publications"])->fetchField();
+    printf("MMI publication nodes: %d (expect 0 -- biblio is not migrated)\n", $pubs);
+    if ($pubs) { exit(1); }
     $caps = $db->query("SELECT COUNT(*) FROM {media__field_media_caption} c JOIN {migrate_map_mmi_media_images} m ON m.destid1 = c.entity_id")->fetchField();
     printf("MMI media with captions: %d\n", $caps);
     if (!$caps) { exit(1); }
@@ -487,19 +478,8 @@ section_10() {
     if ($carriers > 0) { exit(1); }
   ' || exit 1
 
-  # TODO (2026-10-02): the paragraphs->LB migrations write non-reusable blocks
-  # into section data without recording inline_block_usage. Without a host row
-  # core's SetInlineBlockDependency denies every standalone access check on a
-  # migrated block -- the media library opener on a migrated OSU Card fails
-  # even for uid 1 ("Non-reusable blocks must set an access dependency for
-  # access control"). The agsci site was backfilled on prod 2026-10-02; the
-  # real MMI freeze run must do the same for the 400000+ band, in this order:
-  #   drush scr scripts-dev/split_shared_inline_blocks.php apply   # dedupe blocks shared by duplicate pages
-  #   drush scr scripts-dev/backfill_inline_block_usage.php apply  # one host row per block, CSV log of inserts
-  # Both are idempotent and dry-run without 'apply'. Wire them in here (before
-  # guard_exit) once the freeze run is scheduled; they are deliberately not run
-  # automatically yet because rehearsals happen against a prod freeze that
-  # already carries the backfilled rows for agsci blocks.
+  # inline_block_usage for the migrated layout blocks is written at the end
+  # of section 11, after the last script that adds blocks to layouts.
 
   guard_exit
   snapshot_save mmi-polish
@@ -516,7 +496,7 @@ section_8() {
 
   echo "--- content placements"
   for m in mmi_group_content_page mmi_group_content_story \
-           mmi_group_content_publications mmi_group_content_image_album \
+           mmi_group_content_image_album \
            mmi_group_content_video mmi_group_content_webform \
            mmi_group_content_feed mmi_group_content_research_project; do
     drush migrate:import "${m}" || exit 1
@@ -564,25 +544,40 @@ section_11() {
   echo "=== Section 11: group views -> layout placeholders ==="
   guard_enter
 
-  # research_projects_by_group is repo site config (the agsci projects view
-  # shape against MMI's research_project type). The fresh-freeze path's full
+  # mmi_research_projects_by_group is repo site config (the agsci projects view
+  # shape against MMI's mmi_research_project type). The fresh-freeze path's full
   # cim carries it; the wired path imports just this file.
   rm -rf scripts-dev/.tmp_view_import
   mkdir -p scripts-dev/.tmp_view_import
-  cp config/agsci.oregonstate.edu/views.view.research_projects_by_group.yml scripts-dev/.tmp_view_import/
+  cp config/agsci.oregonstate.edu/views.view.mmi_research_projects_by_group.yml scripts-dev/.tmp_view_import/
   drush config:import --partial --source=/var/www/html/scripts-dev/.tmp_view_import -y || exit 1
   rm -rf scripts-dev/.tmp_view_import
 
   # Fill every "D7 view: …" placeholder section with its D10 block
-  # (cas_group_profiles, group story/publication/gallery blocks, the new
+  # (cas_group_profiles, group story/gallery blocks, the new
   # research-projects view). Blocks resolve their group from the page.
   drush scr scripts-dev/mmi_place_group_views.php || exit 1
 
   drush php:eval '
     $db = \Drupal::database();
-    if (!\Drupal\views\Views::getView("research_projects_by_group")) { print "research_projects_by_group view missing\n"; exit(1); }
+    if (!\Drupal\views\Views::getView("mmi_research_projects_by_group")) { print "mmi_research_projects_by_group view missing\n"; exit(1); }
     $left = $db->query("SELECT COUNT(*) FROM {node__layout_builder__layout} WHERE entity_id >= 400000 AND layout_builder__layout_section LIKE :l", [":l" => "%D7 view:%"])->fetchField();
     printf("placeholder sections remaining: %d (expect 0)\n", $left);    if ($left > 0) { exit(1); }
+  ' || exit 1
+
+  # The paragraphs->LB migrations (and the pointer block placed above) write
+  # non-reusable blocks into section data without recording
+  # inline_block_usage. Without a host row core denies every standalone
+  # access check on the block -- the media library opener on a migrated card
+  # fails even for uid 1. Split blocks shared between pages first, then
+  # record one host row per block. Both are idempotent and log what they
+  # write to scripts-dev/*.csv; the agsci rows already exist in the freeze.
+  drush scr scripts-dev/split_shared_inline_blocks.php apply || exit 1
+  drush scr scripts-dev/backfill_inline_block_usage.php apply || exit 1
+  drush php:eval '
+    $db = \Drupal::database();
+    $missing = $db->query("SELECT COUNT(*) FROM {block_content_field_data} b LEFT JOIN {inline_block_usage} u ON u.block_content_id = b.id WHERE b.reusable = 0 AND u.block_content_id IS NULL AND b.info LIKE :i", [":i" => "Migrated mmi d7 paragraph%"])->fetchField();
+    printf("migrated MMI layout blocks without a usage row: %d\n", $missing);
   ' || exit 1
 
   guard_exit

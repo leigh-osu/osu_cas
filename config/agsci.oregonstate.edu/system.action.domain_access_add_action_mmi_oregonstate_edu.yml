@@ -1,0 +1,15 @@
+uuid: 1f6ef1a5-1539-42a2-b391-118053936ad7
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.mmi_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_action_mmi_oregonstate_edu
+label: 'Add selected content to the Marine Mammal Institute domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id:
+    - mmi_oregonstate_edu

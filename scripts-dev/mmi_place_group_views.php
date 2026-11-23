@@ -12,10 +12,11 @@
  *                          placements set the convention)
  * - mmi_news blocks 1/2 -> osu_stories__groups landing block
  * - mmi_news block 3    -> news_items_by_group list (paged archive)
- * - lab_biblio          -> publications_by_group list
+ * - lab_biblio          -> section removed (biblio is not migrated, so
+ *                          there is nothing for a publications list to show)
  * - image_gallery       -> image_galleries group_images
- * - research_projects   -> research_projects_by_group (new view: the agsci
- *                          projects shape against MMI's research_project
+ * - research_projects   -> mmi_research_projects_by_group (new view: the agsci
+ *                          projects shape against MMI's mmi_research_project
  *                          type; full list / active / completed)
  * Every block resolves its group from the page (cas_current_group), so no
  * per-node arguments are baked in.
@@ -55,17 +56,17 @@ $map = [
   'mmi_news|block_1' => ['label' => 'Stories', 'config' => $views_block('osu_stories__groups-group_landing_page_stories_block')],
   'mmi_news|block_2' => ['label' => 'Stories', 'config' => $views_block('osu_stories__groups-group_landing_page_stories_block')],
   'mmi_news|block_3' => ['label' => 'Story archive', 'config' => $views_block('news_items_by_group-list')],
-  'lab_biblio|block' => ['label' => 'Publications', 'config' => $views_block('publications_by_group-list')],
   'image_gallery|block_4' => ['label' => 'Photo albums', 'config' => $views_block('image_galleries-group_images')],
-  'research_projects|default' => ['label' => 'Research projects', 'config' => $views_block('research_projects_by_group-list')],
-  'research_projects|block_4' => ['label' => 'Active research projects', 'config' => $views_block('research_projects_by_group-active')],
-  'research_projects|block_2' => ['label' => 'Completed research projects', 'config' => $views_block('research_projects_by_group-completed')],
+  'research_projects|default' => ['label' => 'Research projects', 'config' => $views_block('mmi_research_projects_by_group-list')],
+  'research_projects|block_4' => ['label' => 'Active research projects', 'config' => $views_block('mmi_research_projects_by_group-active')],
+  'research_projects|block_2' => ['label' => 'Completed research projects', 'config' => $views_block('mmi_research_projects_by_group-completed')],
 ];
 
 $db = \Drupal::database();
 $nids = $db->query("SELECT DISTINCT entity_id FROM {node__layout_builder__layout} WHERE entity_id >= 400000 AND layout_builder__layout_section LIKE :l", [':l' => '%D7 view:%'])->fetchCol();
 
 $placed = 0;
+$removed = 0;
 $left = [];
 foreach ($nids as $nid) {
   $node = Node::load($nid);
@@ -74,12 +75,20 @@ foreach ($nids as $nid) {
   }
   $layout = $node->get('layout_builder__layout');
   $changed = FALSE;
-  foreach ($layout->getSections() as $section) {
+  $drop = [];
+  foreach ($layout->getSections() as $delta => $section) {
     $label = $section->getLayoutSettings()['label'] ?? '';
     if (!str_starts_with($label, 'D7 view:')) {
       continue;
     }
     $key = trim(substr($label, 8));
+    if ($key === 'lab_biblio|block') {
+      // Publications are not migrated: drop the empty placeholder.
+      if (count($section->getComponents()) === 0) {
+        $drop[] = $delta;
+      }
+      continue;
+    }
     if ($key === 'expeditions|default') {
       // Handled by the editorial closure below.
       continue;
@@ -99,9 +108,15 @@ foreach ($nids as $nid) {
     $placed++;
     $changed = TRUE;
   }
+  // Highest delta first so earlier removals do not shift later ones.
+  foreach (array_reverse($drop) as $delta) {
+    $layout->removeSection($delta);
+    $removed++;
+    $changed = TRUE;
+  }
   if ($changed) {
     $node->save();
-    print "  filled: $nid ({$node->label()})\n";
+    print "  updated: $nid ({$node->label()})\n";
   }
 }
 // ---- Expeditions: editorial closure ---------------------------------------
@@ -154,6 +169,7 @@ if (!$redirect_repo->findBySourcePath('expedition/baja-gray-whale-expedition')) 
 }
 
 print "sections filled: $placed\n";
+print "publication placeholders removed: $removed\n";
 if ($left) {
   print "placeholders left unmapped:\n  " . implode("\n  ", array_unique($left)) . "\n";
 }

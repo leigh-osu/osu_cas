@@ -45,7 +45,7 @@ if (in_array($ah_env, ['dev', 'stage'], TRUE)) {
   'infews_org' => 'infews.org',
   'letitiacarson_oregonstate_edu' => 'letitiacarson.oregonstate.edu',
   // MMI migration (branch mmi-migration): record created in-site by
-  // scripts-dev/mmi_domain_record.php, not yet in the config export.
+  // scripts-dev/mmi_domain_record.php, also in the config export.
   'mmi_oregonstate_edu' => 'mmi.oregonstate.edu',
   'nichemeatprocessing_org' => 'nichemeatprocessing.org',
   'open_sensing_org' => 'open-sensing.org',

@@ -1,0 +1,15 @@
+uuid: 365f4188-c142-494e-9938-50673c9419aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.mmi_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action_mmi_oregonstate_edu
+label: 'Add editors to the Marine Mammal Institute domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id:
+    - mmi_oregonstate_edu

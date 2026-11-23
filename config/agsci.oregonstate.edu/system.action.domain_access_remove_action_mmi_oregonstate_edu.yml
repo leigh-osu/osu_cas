@@ -1,0 +1,15 @@
+uuid: 32f4e15f-fa9d-4ee3-95c4-9c5392e0c909
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.mmi_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_action_mmi_oregonstate_edu
+label: 'Remove selected content from the Marine Mammal Institute domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id:
+    - mmi_oregonstate_edu

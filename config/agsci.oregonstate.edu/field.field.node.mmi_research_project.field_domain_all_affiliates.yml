@@ -1,0 +1,21 @@
+uuid: 79c88508-ec8d-48e3-8d0f-258eda5b5627
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_domain_all_affiliates
+    - node.type.mmi_research_project
+id: node.mmi_research_project.field_domain_all_affiliates
+field_name: field_domain_all_affiliates
+entity_type: node
+bundle: mmi_research_project
+label: 'Send to all affiliates'
+description: 'Make this content available on all domains.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

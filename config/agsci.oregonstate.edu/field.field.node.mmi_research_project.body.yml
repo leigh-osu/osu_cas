@@ -1,0 +1,28 @@
+uuid: dce3a321-d885-4dd3-9e61-1d57ba150684
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - filter.format.basic_html
+    - filter.format.full_html
+    - node.type.mmi_research_project
+  module:
+    - text
+id: node.mmi_research_project.body
+field_name: body
+entity_type: node
+bundle: mmi_research_project
+label: Summary
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats:
+    - full_html
+    - basic_html
+field_type: text_with_summary

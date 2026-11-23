@@ -1,0 +1,19 @@
+uuid: c0e63e32-b6fb-41ba-a65a-dfa3ede6aaae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mmi_res_proj_sub_title
+    - node.type.mmi_research_project
+id: node.mmi_research_project.field_mmi_res_proj_sub_title
+field_name: field_mmi_res_proj_sub_title
+entity_type: node
+bundle: mmi_research_project
+label: Sub-title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -6,8 +6,10 @@
  *
  * Idempotent; run via scripts-dev/mmi_migrate.sh section 4. The record must
  * exist before mmi_users runs (field_domain_access on created accounts) and
- * before any content constants reference it. domain_id follows the Domain
- * module's max+1 convention.
+ * before any content constants reference it. The record is also in the repo
+ * config export (domain.record.mmi_oregonstate_edu), so after a config
+ * import this is a no-op; domain_id and weight here match that file
+ * (domain_id is the Domain module's crc32 hash of the record id).
  */
 
 $storage = \Drupal::entityTypeManager()->getStorage('domain');
@@ -17,21 +19,16 @@ if ($storage->load('mmi_oregonstate_edu')) {
   return;
 }
 
-$max = 0;
-foreach ($storage->loadMultiple() as $domain) {
-  $max = max($max, (int) $domain->getDomainId());
-}
-
 $storage->create([
   'id' => 'mmi_oregonstate_edu',
-  'domain_id' => $max + 1,
+  'domain_id' => 14341146,
   'hostname' => 'mmi.oregonstate.edu',
   'name' => 'Marine Mammal Institute',
   'scheme' => 'https',
   'status' => TRUE,
-  'weight' => 100,
+  'weight' => 45,
   'is_default' => FALSE,
   'path_prefix' => '',
 ])->save();
 
-print "created domain.record.mmi_oregonstate_edu (domain_id " . ($max + 1) . ")\n";
+print "created domain.record.mmi_oregonstate_edu (domain_id 14341146)\n";
