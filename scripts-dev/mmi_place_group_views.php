@@ -10,7 +10,7 @@
  * - mmi_people          -> cas_group_profiles (the osu_cas_multisite block
  *                          wrapping profiles_group_membership; 215 agsci
  *                          placements set the convention)
- * - mmi_news blocks 1/2 -> osu_stories__groups landing block
+ * - mmi_news blocks 1/2 -> news_items_by_group teasers (plain list, as D7)
  * - mmi_news block 3    -> news_items_by_group list (paged archive)
  * - lab_biblio          -> section removed (biblio is not migrated, so
  *                          there is nothing for a publications list to show)
@@ -53,8 +53,8 @@ $views_block = fn(string $block_id) => [
 $map = [
   'mmi_people|block_1' => ['label' => 'People', 'config' => ['id' => 'cas_group_profiles', 'label' => '', 'label_display' => '0', 'provider' => 'osu_cas_multisite_groups', 'context_mapping' => []]],
   'mmi_people|block_2' => ['label' => 'People', 'config' => ['id' => 'cas_group_profiles', 'label' => '', 'label_display' => '0', 'provider' => 'osu_cas_multisite_groups', 'context_mapping' => []]],
-  'mmi_news|block_1' => ['label' => 'Stories', 'config' => $views_block('osu_stories__groups-group_landing_page_stories_block')],
-  'mmi_news|block_2' => ['label' => 'Stories', 'config' => $views_block('osu_stories__groups-group_landing_page_stories_block')],
+  'mmi_news|block_1' => ['label' => 'Stories', 'config' => $views_block('news_items_by_group-teasers')],
+  'mmi_news|block_2' => ['label' => 'Stories', 'config' => $views_block('news_items_by_group-teasers')],
   'mmi_news|block_3' => ['label' => 'Story archive', 'config' => $views_block('news_items_by_group-list')],
   'image_gallery|block_4' => ['label' => 'Photo albums', 'config' => $views_block('image_galleries-group_images')],
   'research_projects|default' => ['label' => 'Research projects', 'config' => $views_block('mmi_research_projects_by_group-list')],
