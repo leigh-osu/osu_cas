@@ -577,6 +577,10 @@ section_11() {
   # Pasted Office <style> boilerplate in a block body recolours every link
   # on its page (blue-whale-skeleton); strip it.
   drush scr scripts-dev/mmi_strip_pasted_styles.php apply || exit 1
+  # People who already have an agsci profile: fold the migrated MMI profile
+  # into it (groups, redirects, empty fields) and delete the duplicate. Runs
+  # last so every migration_lookup on mmi_profiles has already resolved.
+  drush scr scripts-dev/mmi_merge_duplicate_profiles.php apply || exit 1
   drush php:eval '
     $db = \Drupal::database();
     $missing = $db->query("SELECT COUNT(*) FROM {block_content_field_data} b LEFT JOIN {inline_block_usage} u ON u.block_content_id = b.id WHERE b.reusable = 0 AND u.block_content_id IS NULL AND b.info LIKE :i", [":i" => "Migrated mmi d7 paragraph%"])->fetchField();
