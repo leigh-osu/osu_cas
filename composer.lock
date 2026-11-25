@@ -19947,16 +19947,16 @@
         },
         {
             "name": "leigh-osu/osu_landscapeplants",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leigh-osu/osu_landscapeplants.git",
-                "reference": "41b57a25879c5eb5e2defc37cd2a1018aa1e204b"
+                "reference": "1a8c8e1b07f89a3c99583e0dcd35a26dc72946ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leigh-osu/osu_landscapeplants/zipball/41b57a25879c5eb5e2defc37cd2a1018aa1e204b",
-                "reference": "41b57a25879c5eb5e2defc37cd2a1018aa1e204b",
+                "url": "https://api.github.com/repos/leigh-osu/osu_landscapeplants/zipball/1a8c8e1b07f89a3c99583e0dcd35a26dc72946ac",
+                "reference": "1a8c8e1b07f89a3c99583e0dcd35a26dc72946ac",
                 "shasum": ""
             },
             "require": {
@@ -19968,10 +19968,10 @@
             ],
             "description": "Landscape Plants site behaviour: computed botanical names, sibling species, search-result rendering, and the one-time D7 plantid migrations.",
             "support": {
-                "source": "https://github.com/leigh-osu/osu_landscapeplants/tree/v1.1.0",
+                "source": "https://github.com/leigh-osu/osu_landscapeplants/tree/v1.1.1",
                 "issues": "https://github.com/leigh-osu/osu_landscapeplants/issues"
             },
-            "time": "2026-11-20T01:18:34+00:00"
+            "time": "2026-11-25T00:49:44+00:00"
         },
         {
             "name": "leigh-osu/osu_migrations_cas",
@@ -34108,5 +34108,5 @@
     "platform-overrides": {
         "php": "8.3"
     },
-    "plugin-api-version": "2.11.0"
+    "plugin-api-version": "2.9.0"
 }
