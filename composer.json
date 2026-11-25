@@ -882,7 +882,7 @@
         "leigh-osu/osu_endophyte": "^2.1",
         "leigh-osu/osu_landscapeplants": "^1.0",
         "leigh-osu/osu_migrations_cas": "^1.0",
-        "leigh-osu/osu_migrations_mmi": "^0.10",
+        "leigh-osu/osu_migrations_mmi": "^0.11",
         "leongersen/nouislider": "15.5.1",
         "mnsami/composer-custom-directory-installer": "^2.0",
         "mpetroff/pannellum": "2.3.2",

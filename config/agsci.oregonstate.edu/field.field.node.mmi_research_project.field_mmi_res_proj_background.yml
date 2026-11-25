@@ -1,0 +1,26 @@
+uuid: 1d6bf2a5-0424-44d6-96c6-fddeb48d6eb8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mmi_res_proj_background
+    - filter.format.basic_html
+    - filter.format.full_html
+    - node.type.mmi_research_project
+  module:
+    - text
+id: node.mmi_research_project.field_mmi_res_proj_background
+field_name: field_mmi_res_proj_background
+entity_type: node
+bundle: mmi_research_project
+label: Background
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+    - basic_html
+field_type: text_long

@@ -1,0 +1,21 @@
+uuid: 9ed2481d-8793-4a32-8095-4189ff88a3ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mmi_res_proj_completed
+    - node.type.mmi_research_project
+id: node.mmi_research_project.field_mmi_res_proj_completed
+field_name: field_mmi_res_proj_completed
+entity_type: node
+bundle: mmi_research_project
+label: Completed
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

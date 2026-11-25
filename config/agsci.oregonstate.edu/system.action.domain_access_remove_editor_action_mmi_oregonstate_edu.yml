@@ -1,0 +1,15 @@
+uuid: 98046271-3761-45a3-a950-e9883270272a
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.mmi_oregonstate_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action_mmi_oregonstate_edu
+label: 'Remove editors from the Marine Mammal Institute domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id:
+    - mmi_oregonstate_edu

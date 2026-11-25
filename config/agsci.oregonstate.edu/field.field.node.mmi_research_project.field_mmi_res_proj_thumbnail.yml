@@ -1,0 +1,29 @@
+uuid: 947ac449-905e-488e-bd26-04de9d76d625
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mmi_res_proj_thumbnail
+    - media.type.image
+    - node.type.mmi_research_project
+id: node.mmi_research_project.field_mmi_res_proj_thumbnail
+field_name: field_mmi_res_proj_thumbnail
+entity_type: node
+bundle: mmi_research_project
+label: Thumbnail
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

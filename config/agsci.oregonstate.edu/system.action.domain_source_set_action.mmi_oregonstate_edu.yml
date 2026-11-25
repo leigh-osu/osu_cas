@@ -1,0 +1,14 @@
+uuid: 0a31319e-4078-49e1-8af9-33269bb13122
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.mmi_oregonstate_edu
+  module:
+    - domain_source
+id: domain_source_set_action.mmi_oregonstate_edu
+label: 'Set content domain source value to the Marine Mammal Institute domain'
+type: node
+plugin: domain_source_set_action
+configuration:
+  domain_id: mmi_oregonstate_edu

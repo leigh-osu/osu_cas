@@ -1,0 +1,26 @@
+uuid: 52a81a81-b43a-481e-bd77-6d33dc1b2054
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mmi_res_proj_hypotheses
+    - filter.format.basic_html
+    - filter.format.full_html
+    - node.type.mmi_research_project
+  module:
+    - text
+id: node.mmi_research_project.field_mmi_res_proj_hypotheses
+field_name: field_mmi_res_proj_hypotheses
+entity_type: node
+bundle: mmi_research_project
+label: Hypotheses
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+    - basic_html
+field_type: text_long

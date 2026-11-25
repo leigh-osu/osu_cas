@@ -1,0 +1,12 @@
+uuid: e8c4abd2-6c80-4a28-903d-ab39cdbd9229
+langcode: en
+status: true
+dependencies: {  }
+id: mmi_oregonstate_edu
+domain_id: 14341146
+hostname: mmi.oregonstate.edu
+name: 'Marine Mammal Institute'
+scheme: https
+weight: 45
+is_default: false
+path_prefix: ''
